@@ -1,0 +1,19 @@
+import { z } from "zod"
+
+export const toolName = `create_an_ach_transfer`
+export const toolDescription = `Create an ACH Transfer`
+export const baseUrl = `https://api.increase.com`
+export const path = `/ach_transfers`
+export const method = `post`
+export const security = [
+  {
+    "key": "Authorization",
+    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+    "in": "header",
+    "envVarName": "API_KEY",
+    "schemeType": "http",
+    "schemeScheme": "bearer"
+  }
+]
+
+export const inputParams = z.object({ "body": z.object({ "account_id": z.string().describe("The Increase identifier for the account that will send the transfer."), "account_number": z.string().min(1).max(17).describe("The account number for the destination account.").optional(), "addendum": z.string().min(1).max(80).describe("Additional information that will be sent to the recipient. This is included in the transfer data sent to the receiving bank.").optional(), "amount": z.number().int().describe("The transfer amount in cents. A positive amount originates a credit transfer pushing funds to the receiving account. A negative amount originates a debit transfer pulling funds from the receiving account."), "company_descriptive_date": z.string().min(1).max(6).describe("The description of the date of the transfer, usually in the format `YYYYMMDD`. This is included in the transfer data sent to the receiving bank.").optional(), "company_discretionary_data": z.string().min(1).max(20).describe("The data you choose to associate with the transfer. This is included in the transfer data sent to the receiving bank.").optional(), "company_entry_description": z.string().min(1).max(10).describe("A description of the transfer. This is included in the transfer data sent to the receiving bank.").optional(), "company_name": z.string().min(1).max(16).describe("The name by which the recipient knows you. This is included in the transfer data sent to the receiving bank.").optional(), "effective_date": z.string().date().describe("The transfer effective date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.").optional(), "external_account_id": z.string().describe("The ID of an External Account to initiate a transfer to. If this parameter is provided, `account_number`, `routing_number`, and `funding` must be absent.").optional(), "funding": z.enum(["checking","savings"]).describe("The type of the account to which the transfer will be sent.").optional(), "individual_id": z.string().min(1).max(15).describe("Your identifer for the transfer recipient.").optional(), "individual_name": z.string().min(1).max(22).describe("The name of the transfer recipient. This value is informational and not verified by the recipient's bank.").optional(), "require_approval": z.boolean().describe("Whether the transfer requires explicit approval via the dashboard or API.").optional(), "routing_number": z.string().min(9).max(9).describe("The American Bankers' Association (ABA) Routing Transit Number (RTN) for the destination account.").optional(), "standard_entry_class_code": z.enum(["corporate_credit_or_debit","prearranged_payments_and_deposit","internet_initiated"]).describe("The Standard Entry Class (SEC) code to use for the transfer.").optional(), "statement_descriptor": z.string().min(1).max(200).describe("A description you choose to give the transfer. This will be saved with the transfer details, displayed in the dashboard, and returned by the API. If `individual_name` and `company_name` are not explicitly set by this API, the `statement_descriptor` will be sent in those fields to the receiving bank to help the customer recognize the transfer. You are highly encouraged to pass `individual_name` and `company_name` instead of relying on this fallback.") }).optional() }).shape

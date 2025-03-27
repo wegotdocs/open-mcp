@@ -1,0 +1,31 @@
+{
+  "name": "@open-mcp/github_com_ghec_2022_11_28",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "github_com_ghec_2022_11_28": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "clean": "rm -rf build",
+    "prebuild": "npm run clean && npm install --save-dev @wegotdocs/shared@latest",
+    "build": "tsc && chmod 755 build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.11",
+    "@wegotdocs/shared": "^0.1.9",
+    "typescript": "^5.8.2"
+  }
+}

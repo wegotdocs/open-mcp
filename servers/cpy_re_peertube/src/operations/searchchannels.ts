@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const toolName = `searchchannels`
+export const toolDescription = `Search channels`
+export const baseUrl = `https://peertube2.cpy.re`
+export const path = `/api/v1/search/video-channels`
+export const method = `get`
+export const security = []
+
+export const inputParams = z.object({ "query": z.object({ "search": z.string().describe("String to search. If the user can make a remote URI search, and the string is an URI then the PeerTube instance will fetch the remote object and add it to its database. Then, you can use the REST API to fetch the complete channel information and interact with it.\n"), "start": z.number().int().gte(0).describe("Offset used to paginate results").optional(), "count": z.number().int().gte(1).lte(100).describe("Number of items to return"), "searchTarget": z.enum(["local","search-index"]).describe("If the administrator enabled search index support, you can override the default search target.\n\n**Warning**: If you choose to make an index search, PeerTube will get results from a third party service. It means the instance may not yet know the objects you fetched. If you want to load video/channel information:\n  * If the current user has the ability to make a remote URI search (this information is available in the config endpoint),\n  then reuse the search API to make a search using the object URI so PeerTube instance fetches the remote object and fill its database.\n  After that, you can use the classic REST API endpoints to fetch the complete object or interact with it\n  * If the current user doesn't have the ability to make a remote URI search, then redirect the user on the origin instance or fetch\n  the data from the origin instance API\n").optional(), "sort": z.string().describe("Sort column").optional() }).optional() }).shape

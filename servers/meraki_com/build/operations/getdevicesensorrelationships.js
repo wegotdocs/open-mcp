@@ -1,0 +1,17 @@
+import { z } from "zod";
+export const toolName = `getdevicesensorrelationships`;
+export const toolDescription = `List the sensor roles for a given sensor or camera device.`;
+export const baseUrl = `https://api.meraki.com/api/v1`;
+export const path = `/devices/{serial}/sensor/relationships`;
+export const method = `get`;
+export const security = [
+    {
+        "key": "X-Cisco-Meraki-API-Key",
+        "value": "<mcp-env-var>X_CISCO_MERAKI_API_KEY</mcp-env-var>",
+        "in": "header",
+        "envVarName": "X_CISCO_MERAKI_API_KEY",
+        "schemeType": "apiKey",
+        "schemeName": "X-Cisco-Meraki-API-Key"
+    }
+];
+export const inputParams = z.object({ "path": z.object({ "serial": z.string() }).optional() }).shape;

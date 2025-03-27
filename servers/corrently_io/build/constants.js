@@ -1,0 +1,30 @@
+export const SERVER_NAME = "corrently_io";
+export const SERVER_VERSION = "0.0.1";
+export const OPERATION_FILES_RELATIVE = [
+    "./operations/easeesessions.js",
+    "./operations/ocppsessions.js",
+    "./operations/omactivities.js",
+    "./operations/ommeters.js",
+    "./operations/omreadings.js",
+    "./operations/gsibesthour.js",
+    "./operations/gsidispatch.js",
+    "./operations/gsimarketdata.js",
+    "./operations/gsiprediction.js",
+    "./operations/meteringget.js",
+    "./operations/meteringpost.js",
+    "./operations/quittungcomit.js",
+    "./operations/quittungcreate.js",
+    "./operations/quittungprepare.js",
+    "./operations/quittungtse.js",
+    "./operations/quittungtsedata.js",
+    "./operations/quittungtsesignature.js",
+    "./operations/quittungzugferd.js",
+    "./operations/stromkontobalances.js",
+    "./operations/stromkontochoices.js",
+    "./operations/stromkontologin.js",
+    "./operations/preparetransaction.js",
+    "./operations/stromkontoregister.js",
+    "./operations/tariffcomponents.js",
+    "./operations/tariffslph0.js",
+    "./operations/wimstatus.js"
+];

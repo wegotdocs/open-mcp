@@ -1,0 +1,25 @@
+import { z } from "zod"
+
+export const toolName = `getmeasure`
+export const toolDescription = `The method getmeasure returns the measurements of a device or a module.`
+export const baseUrl = `https://api.netatmo.net/api`
+export const path = `/getmeasure`
+export const method = `get`
+export const security = [
+  {
+    "key": "Authorization",
+    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+    "in": "header",
+    "envVarName": "OAUTH2_TOKEN",
+    "schemeType": "oauth2"
+  },
+  {
+    "key": "Authorization",
+    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+    "in": "header",
+    "envVarName": "OAUTH2_TOKEN",
+    "schemeType": "oauth2"
+  }
+]
+
+export const inputParams = z.object({ "query": z.object({ "device_id": z.string().describe("Id of the device whose module's measurements you want to retrieve. This _id can be found in the user's devices field."), "module_id": z.string().describe("If you don't specify any module_id you will retrieve the device's measurements. If you specify a module_id you will retrieve the module's measurements.").optional(), "scale": z.enum(["max","30min","1hour","3hours","1day","1week","1month"]).describe("Defines the time interval between two measurements.\nPossible values :\nmax -> every value stored will be returned\n30min -> 1 value every 30 minutes\n1hour -> 1 value every hour\n3hours -> 1 value every 3 hours\n1day -> 1 value per day\n1week -> 1 value per week\n1month -> 1 value per month\n"), "type": z.array(z.enum(["Temperature","CO2","Humidity","Pressure","Noise","Rain","WindStrength","WindAngle","Guststrength","GustAngle","Sp_Temperature","BoilerOn","BoilerOff","min_temp","date_min_temp","max_temp","date_max_temp","min_hum","date_min_hum","max_hum","date_max_hum","min_pressure","date_min_pressure","max_pressure","date_max_pressure","min_noise","date_min_noise","max_noise","date_max_noise","date_min_co2","date_max_co2","date_max_gust","sum_rain","sum_boiler_on","sum_boiler_off"])).describe("Measures you are interested in. Data you can request depends on the scale.\n**For Weather Station:**\n  * max -> Temperature (°C), CO2 (ppm), Humidity (%), Pressure (mbar), Noise (db), Rain (mm), WindStrength (km/h), WindAngle (angles), Guststrength (km/h), GustAngle (angles)\n  * 30min, 1hour, 3hours -> Same as above + min_temp, max_temp, min_hum, max_hum, min_pressure, max_pressure, min_noise, max_noise, sum_rain, date_max_gust\n  * 1day, 1week, 1month -> Same as above + date_min_temp, date_max_temp, date_min_hum, date_max_hum, date_min_pressure, date_max_pressure, date_min_noise, date_max_noise, date_min_co2, date_max_co2\n\n**For Thermostat:**\n  * max -> temperature (°C), sp_temperature (°C), boileron (sec), boileroff (sec)\n  * 30min, 1hour, 3hours -> temperature, sp_temperature, min_temp,\nmax_temp, sum_boiler_on, sum_boiler_off\n  * 1day, 1week, 1month -> temperature, min_temp, date_min_temp,\nmax_temp, sum_boiler_on, sum_boiler_off\n"), "date_begin": z.number().int().describe("Starting timestamp (utc) of the requested measurements.\nPlease note measurement retrieving is limited to 1024 measurements.\n").optional(), "date_end": z.string().describe("Ending timestamp (utc) of the request measurements.\nIf you want only the last measurement, do not provide date_begin, and set date_end to `last`.\n").optional(), "limit": z.number().int().lte(1024).describe("Limits the number of measurements returned (default & max is 1024)").optional(), "optimize": z.boolean().describe("Allows you to choose the format of the answer.\nIf you build a mobile app and bandwith usage is an issue, use `optimize = true`.\nUse `optimize = false`, for an easier parse. In this case, values are indexed by sorted timestamp.\nExample of un-optimized response :\n```json\n{\"status\": \"ok\", \n  \"body\": {\n    \"1347575400\": [18.3,39],\n    \"1347586200\": [20.6,48]\n  },\n\"time_exec\": 0.012136936187744}\n```\nIf optimize is set true, measurements are returned as an array of series of regularly spaced measurements. Each series is defined by a beginning time beg_time and a step between measurements, step_time:\n```json\n{\"status\": \"ok\",\n  \"body\": [\n    {\"beg_time\": 1347575400,\n     \"step_time\": 10800,\n     \"value\": \n        [[18.3,39],\n        [ 20.6,48]]\n    }],\n\"time_exec\": 0.014238119125366}\n```\nDefault value is `true`.\n").optional(), "real_time": z.boolean().describe("In scales higher than max, since the data is aggregated, the timestamps returned are by default offset by +(scale/2).\nFor instance, if you ask for measurements at a daily scale, you will receive data timestamped at 12:00 if real_time is set to `false` (default case), and timestamped at 00:00 if real_time is set to `true`.\nNB : The servers always store data with real_time set to `true` and data are offset by this parameter AFTER having being time-filtered, thus you could have data after date_end if real_time is set to `false`.\n").optional() }).optional() }).shape

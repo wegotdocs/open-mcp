@@ -1,0 +1,30 @@
+export const SERVER_NAME = "climate_com";
+export const SERVER_VERSION = "0.0.1";
+export const OPERATION_FILES_RELATIVE = [
+    "./operations/uploadboundary.js",
+    "./operations/fetchboundaries.js",
+    "./operations/fetchboundarybyid.js",
+    "./operations/postexport.js",
+    "./operations/fetchexportcontentsbyid.js",
+    "./operations/fetchexportstatusbyid.js",
+    "./operations/fetchfarmorganizationbytypeandid.js",
+    "./operations/fetchfields.js",
+    "./operations/fetchallfields.js",
+    "./operations/fetchfieldbyid.js",
+    "./operations/get_v4_layers_asapplied.js",
+    "./operations/get_v4_layers_asapplied_activityid_contents.js",
+    "./operations/get_v4_layers_asharvested.js",
+    "./operations/get_v4_layers_asharvested_activityid_contents.js",
+    "./operations/get_v4_layers_asplanted.js",
+    "./operations/get_v4_layers_asplanted_activityid_contents.js",
+    "./operations/get_v4_layers_scoutingobservations.js",
+    "./operations/get_v4_layers_scoutingobservations_scoutingobservationid_.js",
+    "./operations/get_v4_layers_scoutingobservations_scoutingobservationid_attachm.js",
+    "./operations/get_v4_layers_scoutingobservations_scoutingobservationid_attachm.js",
+    "./operations/fetchoperations.js",
+    "./operations/getresourceowner.js",
+    "./operations/postupload.js",
+    "./operations/fetchuploadstatuses.js",
+    "./operations/chunkedupload.js",
+    "./operations/fetchuploadstatusbyid.js"
+];

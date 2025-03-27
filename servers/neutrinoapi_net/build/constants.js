@@ -1,0 +1,31 @@
+export const SERVER_NAME = "neutrinoapi_net";
+export const SERVER_VERSION = "0.0.1";
+export const OPERATION_FILES_RELATIVE = [
+    "./operations/badwordfilter.js",
+    "./operations/binlistdownload.js",
+    "./operations/binlookup.js",
+    "./operations/browserbot.js",
+    "./operations/convert.js",
+    "./operations/emailvalidate.js",
+    "./operations/emailverify.js",
+    "./operations/geocodeaddress.js",
+    "./operations/geocodereverse.js",
+    "./operations/hlrlookup.js",
+    "./operations/hostreputation.js",
+    "./operations/htmlclean.js",
+    "./operations/htmlrender.js",
+    "./operations/imageresize.js",
+    "./operations/imagewatermark.js",
+    "./operations/ipblocklist.js",
+    "./operations/ipblocklistdownload.js",
+    "./operations/ipinfo.js",
+    "./operations/ipprobe.js",
+    "./operations/phoneplayback.js",
+    "./operations/phonevalidate.js",
+    "./operations/phoneverify.js",
+    "./operations/qrcode.js",
+    "./operations/smsverify.js",
+    "./operations/ualookup.js",
+    "./operations/urlinfo.js",
+    "./operations/verifysecuritycode.js"
+];
