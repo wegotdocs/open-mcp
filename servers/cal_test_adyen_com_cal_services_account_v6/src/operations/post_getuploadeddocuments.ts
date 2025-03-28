@@ -1,0 +1,27 @@
+import { z } from "zod"
+
+export const toolName = `post_getuploadeddocuments`
+export const toolDescription = `Get documents`
+export const baseUrl = `https://cal-test.adyen.com/cal/services/Account/v6`
+export const path = `/getUploadedDocuments`
+export const method = `post`
+export const security = [
+  {
+    "key": "Authorization",
+    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+    "in": "header",
+    "envVarName": "USERNAME_PASSWORD_BASE64",
+    "schemeType": "http",
+    "schemeScheme": "basic"
+  },
+  {
+    "key": "X-API-Key",
+    "value": "<mcp-env-var>X_API_KEY</mcp-env-var>",
+    "in": "header",
+    "envVarName": "X_API_KEY",
+    "schemeType": "apiKey",
+    "schemeName": "X-API-Key"
+  }
+]
+
+export const inputParams = z.object({ "body": z.object({ "accountHolderCode": z.string().describe("The code of the Account Holder for which to retrieve the documents."), "bankAccountUUID": z.string().describe("The code of the Bank Account for which to retrieve the documents.").optional(), "shareholderCode": z.string().describe("The code of the Shareholder for which to retrieve the documents.").optional() }).strict().optional() }).shape
