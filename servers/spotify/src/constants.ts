@@ -1,5 +1,5 @@
 export const OPENAPI_URL = "https://raw.githubusercontent.com/sonallux/spotify-web-api/refs/heads/main/fixed-spotify-open-api.yml"
-export const SERVER_NAME = "api_spotify_com_v1"
+export const SERVER_NAME = "spotify"
 export const SERVER_VERSION = "0.0.1"
 export const OPERATION_FILES_RELATIVE = [
   "./tools/get_an_album.js",
