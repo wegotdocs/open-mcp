@@ -75,7 +75,7 @@ jobs:
               npm version $BUMP -m "Bump $dir version to %s [skip ci]"
               
               # Publish to npm
-              npm publish
+              npm publish --access public
               
               # Go back to root
               cd ../../
