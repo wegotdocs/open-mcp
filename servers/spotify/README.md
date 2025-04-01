@@ -47,7 +47,7 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ## Other environment variables
 
-- `API_KEY`
+- `OAUTH2_TOKEN`
 
 ## Tools
 
