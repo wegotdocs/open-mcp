@@ -46,13 +46,21 @@ jobs:
           # Process each removed package for deprecation
           for dir in "${REMOVED_DIRS_ARRAY[@]}"; do
             # Extract package name from the previous commit (before it was removed)
-            echo "Checking removed package: $dir"
+            echo "::group::Checking removed package: $dir"
             PACKAGE_NAME=$(git show HEAD^:servers/$dir/package.json | grep -o '"name": "[^"]*"' | head -1 | cut -d'"' -f4)
+            echo "Found package name: $PACKAGE_NAME"
             
             if [ ! -z "$PACKAGE_NAME" ]; then
               echo "Deprecating removed package: $PACKAGE_NAME"
-              npm deprecate $PACKAGE_NAME "This package has been removed from the repository and is no longer maintained."
+              # Use set -x to show the command being executed
+              set -x
+              npm deprecate $PACKAGE_NAME "This package has been removed from the repository and is no longer maintained." || echo "Deprecation attempt failed"
+              set +x
+              echo "Deprecation command completed"
+            else
+              echo "No valid package name found in removed directory"
             fi
+            echo "::endgroup::"
           done
 
           # Process each changed package
