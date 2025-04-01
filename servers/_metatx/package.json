@@ -1,0 +1,31 @@
+{
+  "name": "@open-mcp/_metatx",
+  "version": "0.0.1",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "_metatx": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean && npm install --save-dev @wegotdocs/shared@latest",
+    "build": "tsc && chmod 755 dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.11",
+    "@wegotdocs/shared": "^0.1.12",
+    "typescript": "^5.8.2"
+  }
+}
