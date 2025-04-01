@@ -27,6 +27,11 @@ jobs:
           echo "Changed directories: $CHANGED_DIRS"
           echo "changed_dirs=$CHANGED_DIRS" >> $GITHUB_OUTPUT
 
+          # Get the list of directories that have been removed
+          REMOVED_DIRS=$(git diff --diff-filter=D --name-only HEAD^ HEAD | grep "^servers/" | cut -d/ -f2 | sort | uniq)
+          echo "Removed directories: $REMOVED_DIRS"
+          echo "removed_dirs=$REMOVED_DIRS" >> $GITHUB_OUTPUT
+
       - name: Configure Git
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -34,8 +39,21 @@ jobs:
 
       - name: Process changed packages and commit version changes
         run: |
-          # Convert the list to array
+          # Convert the lists to arrays
           CHANGED_DIRS_ARRAY=(${{ steps.changed-packages.outputs.changed_dirs }})
+          REMOVED_DIRS_ARRAY=(${{ steps.changed-packages.outputs.removed_dirs }})
+
+          # Process each removed package for deprecation
+          for dir in "${REMOVED_DIRS_ARRAY[@]}"; do
+            # Extract package name from the previous commit (before it was removed)
+            echo "Checking removed package: $dir"
+            PACKAGE_NAME=$(git show HEAD^:servers/$dir/package.json | grep -o '"name": "[^"]*"' | head -1 | cut -d'"' -f4)
+            
+            if [ ! -z "$PACKAGE_NAME" ]; then
+              echo "Deprecating removed package: $PACKAGE_NAME"
+              npm deprecate $PACKAGE_NAME "This package has been removed from the repository and is no longer maintained."
+            fi
+          done
 
           # Process each changed package
           for dir in "${CHANGED_DIRS_ARRAY[@]}"; do
