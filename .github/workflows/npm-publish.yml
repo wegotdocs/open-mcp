@@ -1,0 +1,91 @@
+name: Publish packages to npm
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  detect-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # This fetches all history for change detection
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Detect changed packages
+        id: changed-packages
+        run: |
+          # Get the list of directories that have changed since the last commit to main
+          CHANGED_DIRS=$(git diff --name-only HEAD^ HEAD | grep "^servers/" | cut -d/ -f2 | sort | uniq)
+          echo "Changed directories: $CHANGED_DIRS"
+          echo "changed_dirs=$CHANGED_DIRS" >> $GITHUB_OUTPUT
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Process changed packages and commit version changes
+        run: |
+          # Convert the list to array
+          CHANGED_DIRS_ARRAY=(${{ steps.changed-packages.outputs.changed_dirs }})
+
+          # Process each changed package
+          for dir in "${CHANGED_DIRS_ARRAY[@]}"; do
+            if [ -d "servers/$dir" ] && [ -f "servers/$dir/package.json" ]; then
+              echo "Processing package: $dir"
+              
+              # Navigate to package directory
+              cd "servers/$dir"
+              
+              # Install dependencies for this package
+              if [ -f "package-lock.json" ]; then
+                echo "Using npm ci for dependency installation"
+                npm ci
+              else
+                echo "No package-lock.json found, using npm install"
+                npm install
+              fi
+              
+              # Determine version bump from commit message
+              if [[ "${{ github.event.head_commit.message }}" == *"#major $dir"* ]]; then
+                BUMP="major"
+              elif [[ "${{ github.event.head_commit.message }}" == *"#minor $dir"* ]]; then
+                BUMP="minor"
+              else
+                BUMP="patch"
+              fi
+              
+              echo "Bumping $dir version: $BUMP"
+              
+              # Run tests for this package (if you have tests)
+              npm test || echo "No tests or tests failed"
+              
+              # Build the package (if you have a build script)
+              npm run build || echo "No build script or build failed"
+              
+              # Bump version
+              npm version $BUMP -m "Bump $dir version to %s [skip ci]"
+              
+              # Publish to npm
+              npm publish
+              
+              # Go back to root
+              cd ../../
+            fi
+          done
+
+          # Commit and push all version changes together
+          git add .
+          git commit -m "chore: update package versions [skip ci]" || echo "No changes to commit"
+          git push origin main
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
