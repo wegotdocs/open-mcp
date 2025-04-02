@@ -1,0 +1,36 @@
+import { z } from "zod";
+export const toolName = `deletecomponent`;
+export const toolDescription = `Delete component`;
+export const baseUrl = `https://your-domain.atlassian.net`;
+export const path = `/rest/api/3/component/{id}`;
+export const method = `delete`;
+export const security = [
+    {
+        "key": "Authorization",
+        "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+        "in": "header",
+        "envVarName": "USERNAME_PASSWORD_BASE64",
+        "schemeType": "http",
+        "schemeScheme": "basic"
+    },
+    {
+        "key": "Authorization",
+        "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+        "in": "header",
+        "envVarName": "OAUTH2_TOKEN",
+        "schemeType": "oauth2"
+    }
+];
+export const keys = {
+    "query": [
+        "moveIssuesTo"
+    ],
+    "header": [],
+    "path": [
+        "id"
+    ],
+    "cookie": [],
+    "body": []
+};
+export const flatMap = {};
+export const inputParams = z.object({ "id": z.string().describe("The ID of the component."), "moveIssuesTo": z.string().describe("The ID of the component to replace the deleted component. If this value is null no replacement is made.").optional() }).shape;
