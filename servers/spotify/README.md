@@ -33,9 +33,7 @@ If you don't want to use the helper above, add the following to your MCP client 
     "spotify": {
       "command": "npx",
       "args": ["-y", "@open-mcp/spotify"],
-      "env": {
-        "API_KEY": "..."
-      }
+      "env": {"OAUTH2_TOKEN":"..."}
     }
   }
 }
