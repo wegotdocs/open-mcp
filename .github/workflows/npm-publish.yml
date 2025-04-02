@@ -9,7 +9,8 @@ jobs:
   detect-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # This fetches all history for change detection
 
@@ -22,65 +23,102 @@ jobs:
       - name: Detect changed packages
         id: changed-packages
         run: |
+          echo "::group::Detecting changed directories"
           # Get the list of directories that have changed since the last commit to main
-          CHANGED_DIRS=$(git diff --name-only HEAD^ HEAD | grep "^servers/" | cut -d/ -f2 | sort | uniq)
+          CHANGED_DIRS=$(git diff --name-only HEAD^ HEAD | grep "^servers/" | cut -d/ -f2 | sort | uniq | jq -R -s -c 'split("\n") | map(select(length > 0))')
           echo "Changed directories: $CHANGED_DIRS"
           echo "changed_dirs=$CHANGED_DIRS" >> $GITHUB_OUTPUT
+          echo "::endgroup::"
 
+          echo "::group::Detecting removed directories"
           # Get the list of directories that have been removed
-          REMOVED_DIRS=$(git diff --diff-filter=D --name-only HEAD^ HEAD | grep "^servers/" | cut -d/ -f2 | sort | uniq)
+          REMOVED_DIRS=$(git diff --diff-filter=D --name-only HEAD^ HEAD | grep "^servers/" | cut -d/ -f2 | sort | uniq | jq -R -s -c 'split("\n") | map(select(length > 0))')
           echo "Removed directories: $REMOVED_DIRS"
           echo "removed_dirs=$REMOVED_DIRS" >> $GITHUB_OUTPUT
+          echo "::endgroup::"
 
       - name: Configure Git
         run: |
+          echo "::group::Configuring Git"
+          set -x
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          set +x
+          echo "::endgroup::"
 
       - name: Process changed packages and commit version changes
         run: |
-          # Convert the lists to arrays
-          CHANGED_DIRS_ARRAY=(${{ steps.changed-packages.outputs.changed_dirs }})
-          REMOVED_DIRS_ARRAY=(${{ steps.changed-packages.outputs.removed_dirs }})
+          echo "::group::Preparing arrays for processing"
+          # Convert the JSON lists to arrays
+          CHANGED_DIRS_JSON='${{ steps.changed-packages.outputs.changed_dirs }}'
+          REMOVED_DIRS_JSON='${{ steps.changed-packages.outputs.removed_dirs }}'
+
+          # Convert JSON arrays to Bash arrays
+          readarray -t CHANGED_DIRS_ARRAY < <(echo "$CHANGED_DIRS_JSON" | jq -r '.[]')
+          readarray -t REMOVED_DIRS_ARRAY < <(echo "$REMOVED_DIRS_JSON" | jq -r '.[]')
+
+          echo "Changed directories array: ${CHANGED_DIRS_ARRAY[@]}"
+          echo "Removed directories array: ${REMOVED_DIRS_ARRAY[@]}"
+          echo "::endgroup::"
 
           # Process each removed package for deprecation
           for dir in "${REMOVED_DIRS_ARRAY[@]}"; do
             # Extract package name from the previous commit (before it was removed)
             echo "::group::Checking removed package: $dir"
-            PACKAGE_NAME=$(git show HEAD^:servers/$dir/package.json | grep -o '"name": "[^"]*"' | head -1 | cut -d'"' -f4)
-            echo "Found package name: $PACKAGE_NAME"
+            set -x
+            PACKAGE_JSON=$(git show HEAD^:servers/$dir/package.json 2>/dev/null || echo "Not found")
+            set +x
+            echo "Previous package.json found: $([[ "$PACKAGE_JSON" != "Not found" ]] && echo "Yes" || echo "No")"
             
-            if [ ! -z "$PACKAGE_NAME" ]; then
-              echo "Deprecating removed package: $PACKAGE_NAME"
-              # Use set -x to show the command being executed
+            if [[ "$PACKAGE_JSON" != "Not found" ]]; then
               set -x
-              npm deprecate $PACKAGE_NAME "This package has been removed from the repository and is no longer maintained." || echo "Deprecation attempt failed"
+              PACKAGE_NAME=$(echo "$PACKAGE_JSON" | grep -o '"name": "[^"]*"' | head -1 | cut -d'"' -f4)
               set +x
-              echo "Deprecation command completed"
+              echo "Found package name: $PACKAGE_NAME"
+              
+              if [ ! -z "$PACKAGE_NAME" ]; then
+                echo "Deprecating removed package: $PACKAGE_NAME"
+                set -x
+                npm deprecate $PACKAGE_NAME "This package has been removed from the repository and is no longer maintained." || echo "Deprecation attempt failed"
+                set +x
+                echo "Deprecation command completed"
+              else
+                echo "No valid package name found in removed directory"
+              fi
             else
-              echo "No valid package name found in removed directory"
+              echo "Could not find previous package.json for $dir"
             fi
             echo "::endgroup::"
           done
 
           # Process each changed package
           for dir in "${CHANGED_DIRS_ARRAY[@]}"; do
+            echo "::group::Processing package: $dir"
             if [ -d "servers/$dir" ] && [ -f "servers/$dir/package.json" ]; then
-              echo "Processing package: $dir"
+              echo "Package directory and package.json confirmed"
               
               # Navigate to package directory
+              echo "Navigating to package directory"
+              set -x
               cd "servers/$dir"
+              set +x
               
               # Install dependencies for this package
+              echo "Installing dependencies"
               if [ -f "package-lock.json" ]; then
                 echo "Using npm ci for dependency installation"
+                set -x
                 npm ci
+                set +x
               else
                 echo "No package-lock.json found, using npm install"
+                set -x
                 npm install
+                set +x
               fi
               
               # Determine version bump from commit message
+              echo "Determining version bump type from commit message"
               if [[ "${{ github.event.head_commit.message }}" == *"#major $dir"* ]]; then
                 BUMP="major"
               elif [[ "${{ github.event.head_commit.message }}" == *"#minor $dir"* ]]; then
@@ -92,26 +130,49 @@ jobs:
               echo "Bumping $dir version: $BUMP"
               
               # Run tests for this package (if you have tests)
+              echo "Running tests"
+              set -x
               npm test || echo "No tests or tests failed"
+              set +x
               
               # Build the package (if you have a build script)
+              echo "Building package"
+              set -x
               npm run build || echo "No build script or build failed"
+              set +x
               
               # Bump version
+              echo "Bumping version"
+              set -x
               npm version $BUMP -m "Bump $dir version to %s [skip ci]"
+              set +x
               
               # Publish to npm
+              echo "Publishing to npm"
+              set -x
               npm publish --access public
+              set +x
+              echo "Package successfully published"
               
               # Go back to root
+              echo "Returning to repository root"
+              set -x
               cd ../../
+              set +x
+            else
+              echo "Package directory or package.json not found for $dir"
             fi
+            echo "::endgroup::"
           done
 
+          echo "::group::Committing version changes"
           # Commit and push all version changes together
+          set -x
           git add .
           git commit -m "chore: update package versions [skip ci]" || echo "No changes to commit"
-          git push origin main
+          git push origin main || echo "Push failed"
+          set +x
+          echo "::endgroup::"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
