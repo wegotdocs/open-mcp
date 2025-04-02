@@ -15,5 +15,13 @@ export const security = [
     "schemeScheme": "bearer"
   }
 ]
+export const keys = {
+  "query": [],
+  "header": [],
+  "path": [],
+  "cookie": [],
+  "body": []
+}
+export const flatMap = {}
 
 export const inputParams = z.object({}).shape

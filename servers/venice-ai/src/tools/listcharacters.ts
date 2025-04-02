@@ -1,9 +1,9 @@
 import { z } from "zod"
 
-export const toolName = `get_image_styles`
-export const toolDescription = `/api/v1/image/styles`
+export const toolName = `listcharacters`
+export const toolDescription = `/api/v1/characters`
 export const baseUrl = `https://api.venice.ai/api/v1`
-export const path = `/image/styles`
+export const path = `/characters`
 export const method = `get`
 export const security = [
   {
@@ -15,5 +15,13 @@ export const security = [
     "schemeScheme": "bearer"
   }
 ]
+export const keys = {
+  "query": [],
+  "header": [],
+  "path": [],
+  "cookie": [],
+  "body": []
+}
+export const flatMap = {}
 
 export const inputParams = z.object({}).shape

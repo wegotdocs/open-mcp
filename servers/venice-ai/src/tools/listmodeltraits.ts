@@ -15,5 +15,15 @@ export const security = [
     "schemeScheme": "bearer"
   }
 ]
+export const keys = {
+  "query": [
+    "type"
+  ],
+  "header": [],
+  "path": [],
+  "cookie": [],
+  "body": []
+}
+export const flatMap = {}
 
-export const inputParams = z.object({ "query": z.object({ "type": z.enum(["image","text","embedding","tts"]).describe("Filter models by type.") }).optional() }).shape
+export const inputParams = z.object({ "type": z.enum(["image","text","embedding","tts"]).describe("Filter models by type.") }).shape

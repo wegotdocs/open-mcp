@@ -1,9 +1,9 @@
 import { z } from "zod"
 
-export const toolName = `listcharacters`
-export const toolDescription = `/api/v1/characters`
+export const toolName = `getapikeyratelimits`
+export const toolDescription = `/api/v1/api_keys/rate_limits`
 export const baseUrl = `https://api.venice.ai/api/v1`
-export const path = `/characters`
+export const path = `/api_keys/rate_limits`
 export const method = `get`
 export const security = [
   {
@@ -15,5 +15,13 @@ export const security = [
     "schemeScheme": "bearer"
   }
 ]
+export const keys = {
+  "query": [],
+  "header": [],
+  "path": [],
+  "cookie": [],
+  "body": []
+}
+export const flatMap = {}
 
 export const inputParams = z.object({}).shape

@@ -15,5 +15,15 @@ export const security = [
     "schemeScheme": "bearer"
   }
 ]
+export const keys = {
+  "query": [
+    "id"
+  ],
+  "header": [],
+  "path": [],
+  "cookie": [],
+  "body": []
+}
+export const flatMap = {}
 
-export const inputParams = z.object({ "query": z.object({ "id": z.string().describe("The ID of the API key to delete").optional() }).optional() }).shape
+export const inputParams = z.object({ "id": z.string().describe("The ID of the API key to delete").optional() }).shape

@@ -1,7 +1,6 @@
-#!/usr/bin/env node
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
-import { enclose, getConfigExample } from "./lib.js"
+import { enclose, getConfigExample, unflatten } from "./lib.js"
 import {
   SERVER_NAME,
   SERVER_VERSION,
@@ -20,6 +19,29 @@ function cleanUrl(url: string) {
   }
   return url.endsWith("/") ? url.slice(0, -1) : url
 }
+
+function stringify({
+  value,
+  arrayToCSV,
+}: {
+  value: any
+  arrayToCSV: boolean
+}): string {
+  if (typeof value === "undefined") {
+    return ""
+  }
+  if (typeof value === "object") {
+    const isArray = Array.isArray(value)
+    if (isArray && arrayToCSV) {
+      return value
+        .map((x) => stringify({ value: x, arrayToCSV: false }))
+        .join(",")
+    }
+    return JSON.stringify(value)
+  }
+  return value.toString()
+}
+
 async function registerToolFromOperation(operationFileRelativePath: string) {
   const operation = (await import(operationFileRelativePath)) as MCPServerModule
 
@@ -28,6 +50,8 @@ async function registerToolFromOperation(operationFileRelativePath: string) {
     "method",
     "toolName",
     "inputParams",
+    "keys",
+    "flatMap",
   ]
   for (const key of requiredKeys) {
     if (!operation[key]) {
@@ -45,6 +69,8 @@ async function registerToolFromOperation(operationFileRelativePath: string) {
     toolDescription,
     inputParams,
     security,
+    keys,
+    flatMap,
   } = operation
 
   const customBaseUrl = cleanUrl(process.env.OPEN_MCP_BASE_URL || baseUrl)
@@ -62,7 +88,9 @@ async function registerToolFromOperation(operationFileRelativePath: string) {
     throw new Error("path must start with slash")
   }
 
-  server.tool(toolName, toolDescription, inputParams, async (params) => {
+  server.tool(toolName, toolDescription, inputParams, async (flat) => {
+    const params = unflatten({ flat, keys, flatMap })
+
     const securityHeadersObj: Record<string, string> = {}
     const securityQueryObj: Record<string, string> = {}
     for (const item of security) {
@@ -107,7 +135,7 @@ async function registerToolFromOperation(operationFileRelativePath: string) {
       }
       opPathResolved = opPathResolved.replaceAll(
         `{${key}}`,
-        typeof value === "object" ? JSON.stringify(value) : value.toString()
+        stringify({ value, arrayToCSV: true })
       )
     }
 
@@ -116,14 +144,7 @@ async function registerToolFromOperation(operationFileRelativePath: string) {
       ...securityQueryObj,
       ...(params.query || {}),
     })) {
-      url.searchParams.set(
-        key,
-        typeof value === "undefined"
-          ? ""
-          : typeof value === "object"
-          ? JSON.stringify(value)
-          : value.toString()
-      )
+      url.searchParams.set(key, stringify({ value, arrayToCSV: true }))
     }
 
     const headers = {
@@ -149,7 +170,7 @@ async function registerToolFromOperation(operationFileRelativePath: string) {
   })
 }
 
-async function main() {
+export async function runServer() {
   try {
     for (const file of OPERATION_FILES_RELATIVE) {
       await registerToolFromOperation(file)
@@ -163,8 +184,3 @@ async function main() {
     process.exit(1)
   }
 }
-
-main().catch((error) => {
-  console.error("Fatal error in main():", error)
-  process.exit(1)
-})
