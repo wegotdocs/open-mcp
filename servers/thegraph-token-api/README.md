@@ -2,25 +2,26 @@
 
 ## Installing
 
-### With helper
+Use the helper command `add-to-client` to add the server to your MCP client:
 
-Use the `add-to-client` helper to add the server to your MCP client:
+### Claude desktop
+
+```bash
+npx @open-mcp/thegraph-token-api add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+
+### Cursor
+
+Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
+
+```bash
+npx @open-mcp/thegraph-token-api add-to-client .cursor/mcp.json
+```
+
+### Other
 
 ```bash
 npx @open-mcp/thegraph-token-api add-to-client /path/to/client/config.json
-```
-
-For example:
-
-```bash
-# Claude desktop:
-npx @open-mcp/thegraph-token-api add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
-
-# Cursor project (run from the project dir):
-npx @open-mcp/thegraph-token-api add-to-client .cursor/mcp.json
-
-# Cursor global (applies to all projects):
-npx @open-mcp/thegraph-token-api add-to-client ~/.cursor/mcp.json
 ```
 
 ### Manually
@@ -51,19 +52,81 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getbalancesevmbyaddress
 
+```ts
+{
+  "address": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM wallet address to query"),
+  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional(),
+  "contract": z.string().optional(),
+  "limit": z.number().int().gte(1).lte(1000).describe("The maximum number of items returned in a single request."),
+  "page": z.number().int().gte(1).describe("The page number of the results to return.")
+}
+```
+
 ### gettransfersevmbyaddress
+
+```ts
+{
+  "address": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM wallet address to query"),
+  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional(),
+  "age": z.number().int().gte(1).lte(180).describe("Indicates how many days have passed since the data's creation or insertion."),
+  "contract": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("Filter by contract address").optional(),
+  "limit": z.number().int().gte(1).lte(1000).describe("The maximum number of items returned in a single request."),
+  "page": z.number().int().gte(1).describe("The page number of the results to return.")
+}
+```
 
 ### getholdersevmbycontract
 
+```ts
+{
+  "contract": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM contract address to query"),
+  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional(),
+  "order_by": z.enum(["asc","desc"]).describe("The order in which to return the results: Ascending (asc) or Descending (desc)."),
+  "limit": z.number().int().gte(1).lte(1000).describe("The maximum number of items returned in a single request."),
+  "page": z.number().int().gte(1).describe("The page number of the results to return.")
+}
+```
+
 ### gettokensevmbycontract
+
+```ts
+{
+  "contract": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM contract address to query"),
+  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional()
+}
+```
 
 ### getohlcpricesevmbycontract
 
+```ts
+{
+  "contract": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM contract address to query"),
+  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional(),
+  "interval": z.enum(["1h","4h","1d","1w"]).describe("The interval for which to aggregate price data (hourly, 4-hours, daily or weekly)."),
+  "startTime": z.number().gte(0).describe("UNIX timestamp in seconds.").optional(),
+  "endTime": z.number().gte(0).describe("UNIX timestamp in seconds.").optional(),
+  "limit": z.number().int().gte(1).lte(1000).describe("The maximum number of items returned in a single request."),
+  "page": z.number().int().gte(1).describe("The page number of the results to return.")
+}
+```
+
 ### gethealth
+
+```ts
+
+```
 
 ### getversion
 
+```ts
+
+```
+
 ### getnetworks
+
+```ts
+
+```
 
 ## Inspector
 
