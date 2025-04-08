@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "floating_ip": z.string().ip({ version: "v4" }).describe("A floating IP address.") }).shape;
+export const inputParams = {
+    "floating_ip": z.string().ip({ version: "v4" }).describe("A floating IP address.")
+};

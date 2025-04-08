@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "accountId": z.string().max(128).describe("The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, `5b10ac8d82e05b22cc7d4ef5`.") }).shape;
+export const inputParams = {
+    "accountId": z.string().max(128).describe("The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, `5b10ac8d82e05b22cc7d4ef5`.")
+};

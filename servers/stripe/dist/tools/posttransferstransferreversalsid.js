@@ -33,4 +33,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "id": z.string().max(5000), "transfer": z.string().max(5000) }).shape;
+export const inputParams = {
+    "id": z.string().max(5000),
+    "transfer": z.string().max(5000)
+};

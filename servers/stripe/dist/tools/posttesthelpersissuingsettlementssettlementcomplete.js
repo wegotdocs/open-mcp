@@ -32,4 +32,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "settlement": z.string().max(5000).describe("The settlement token to mark as complete.") }).shape;
+export const inputParams = {
+    "settlement": z.string().max(5000).describe("The settlement token to mark as complete.")
+};

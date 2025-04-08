@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "type": z.union([z.enum(["image", "text", "embedding", "tts"]), z.enum(["all", "code"])]).describe("Filter models by type. Use \"all\" to get all model types.").optional() }).shape;
+export const inputParams = {
+    "type": z.union([z.enum(["image", "text", "embedding", "tts"]), z.enum(["all", "code"])]).describe("Filter models by type. Use \"all\" to get all model types.").optional()
+};

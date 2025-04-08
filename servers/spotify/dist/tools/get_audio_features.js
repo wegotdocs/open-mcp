@@ -23,4 +23,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the track.\n") }).shape;
+export const inputParams = {
+    "id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the track.\n")
+};

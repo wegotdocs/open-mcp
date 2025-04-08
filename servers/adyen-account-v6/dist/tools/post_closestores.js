@@ -33,4 +33,7 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "accountHolderCode": z.string().describe("The code of the account holder."), "stores": z.array(z.string()).describe("List of stores to be closed.") }).shape;
+export const inputParams = {
+    "accountHolderCode": z.string().describe("The code of the account holder."),
+    "stores": z.array(z.string()).describe("List of stores to be closed.")
+};

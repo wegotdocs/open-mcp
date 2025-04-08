@@ -29,4 +29,8 @@ export const keys = {
 export const flatMap = {
     "b_agent_uuid": "agent_uuid"
 };
-export const inputParams = z.object({ "agent_uuid": z.string().describe("Agent id"), "b_agent_uuid": z.string().describe("Agent id").optional(), "name": z.string().describe("A human friendly name to identify the key").optional() }).shape;
+export const inputParams = {
+    "agent_uuid": z.string().describe("Agent id"),
+    "b_agent_uuid": z.string().describe("Agent id").optional(),
+    "name": z.string().describe("A human friendly name to identify the key").optional()
+};

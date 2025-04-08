@@ -104,4 +104,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "purpose": z.string().describe("Only return files with the given purpose.").optional() }).shape;
+export const inputParams = {
+    "purpose": z.string().describe("Only return files with the given purpose.").optional()
+};

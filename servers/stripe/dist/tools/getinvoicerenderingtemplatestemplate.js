@@ -35,4 +35,8 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "template": z.string().max(5000), "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(), "version": z.number().int().optional() }).shape;
+export const inputParams = {
+    "template": z.string().max(5000),
+    "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
+    "version": z.number().int().optional()
+};

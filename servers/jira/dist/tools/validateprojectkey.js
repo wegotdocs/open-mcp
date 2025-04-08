@@ -31,4 +31,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "key": z.string().describe("The project key.").optional() }).shape;
+export const inputParams = {
+    "key": z.string().describe("The project key.").optional()
+};

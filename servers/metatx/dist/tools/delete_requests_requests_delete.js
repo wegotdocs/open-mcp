@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `delete_requests_requests_delete`;
 export const toolDescription = `Delete Requests`;
 export const baseUrl = `https://engineapi.moonstream.to/metatx`;
@@ -21,4 +20,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

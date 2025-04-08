@@ -1,5 +1,5 @@
 import { z } from "zod";
-export const toolName = `attachments_list_remote_routes`;
+export const toolName = `partnerattachments_list_remote_routes`;
 export const toolDescription = `List remote routes for a partner attachment`;
 export const baseUrl = `https://api.digitalocean.com`;
 export const path = `/v2/partner_network_connect/attachments/{pa_id}/remote_routes`;
@@ -27,4 +27,8 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "pa_id": z.string().describe("A unique identifier for a partner attachment."), "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"), "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.") }).shape;
+export const inputParams = {
+    "pa_id": z.string().describe("A unique identifier for a partner attachment."),
+    "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+    "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
+};

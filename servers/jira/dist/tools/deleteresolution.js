@@ -33,4 +33,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "id": z.string().describe("The ID of the issue resolution."), "replaceWith": z.string().describe("The ID of the issue resolution that will replace the currently selected resolution.") }).shape;
+export const inputParams = {
+    "id": z.string().describe("The ID of the issue resolution."),
+    "replaceWith": z.string().describe("The ID of the issue resolution that will replace the currently selected resolution.")
+};

@@ -24,4 +24,6 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "cluster_uuids": z.array(z.string()).describe("An array containing the UUIDs of Kubernetes clusters.").optional() }).shape;
+export const inputParams = {
+    "cluster_uuids": z.array(z.string()).describe("An array containing the UUIDs of Kubernetes clusters.").optional()
+};

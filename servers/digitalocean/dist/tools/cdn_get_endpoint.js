@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "cdn_id": z.string().uuid().describe("A unique identifier for a CDN endpoint.") }).shape;
+export const inputParams = {
+    "cdn_id": z.string().uuid().describe("A unique identifier for a CDN endpoint.")
+};

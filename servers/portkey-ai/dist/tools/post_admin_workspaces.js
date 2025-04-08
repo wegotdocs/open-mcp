@@ -27,4 +27,9 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "name": z.string().optional(), "description": z.string().optional(), "defaults": z.object({ "metadata": z.record(z.string()).optional() }).optional(), "users": z.array(z.string()).optional() }).shape;
+export const inputParams = {
+    "name": z.string().optional(),
+    "description": z.string().optional(),
+    "defaults": z.object({ "metadata": z.record(z.string()).optional() }).optional(),
+    "users": z.array(z.string()).optional()
+};

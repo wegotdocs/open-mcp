@@ -33,4 +33,14 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "integrationConfigurationId": z.string(), "resourceId": z.string(), "productId": z.string(), "name": z.string(), "status": z.enum(["ready", "pending", "suspended", "resumed", "uninstalled", "error"]), "metadata": z.record(z.any()).optional(), "billingPlan": z.object({ "id": z.string(), "type": z.enum(["prepayment", "subscription"]), "name": z.string(), "paymentMethodRequired": z.boolean().optional() }).catchall(z.any()).optional(), "notification": z.object({ "level": z.enum(["info", "warn", "error"]), "title": z.string(), "message": z.string().optional(), "href": z.string().url().optional() }).optional(), "secrets": z.array(z.object({ "name": z.string(), "value": z.string(), "prefix": z.string().optional() }).strict()).optional() }).shape;
+export const inputParams = {
+    "integrationConfigurationId": z.string(),
+    "resourceId": z.string(),
+    "productId": z.string(),
+    "name": z.string(),
+    "status": z.enum(["ready", "pending", "suspended", "resumed", "uninstalled", "error"]),
+    "metadata": z.record(z.any()).optional(),
+    "billingPlan": z.object({ "id": z.string(), "type": z.enum(["prepayment", "subscription"]), "name": z.string(), "paymentMethodRequired": z.boolean().optional() }).catchall(z.any()).optional(),
+    "notification": z.object({ "level": z.enum(["info", "warn", "error"]), "title": z.string(), "message": z.string().optional(), "href": z.string().url().optional() }).optional(),
+    "secrets": z.array(z.object({ "name": z.string(), "value": z.string(), "prefix": z.string().optional() }).strict()).optional()
+};

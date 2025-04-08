@@ -31,4 +31,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "key": z.string().describe("The key of the preference. The maximum length is 255 characters.") }).shape;
+export const inputParams = {
+    "key": z.string().describe("The key of the preference. The maximum length is 255 characters.")
+};

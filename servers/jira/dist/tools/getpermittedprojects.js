@@ -31,4 +31,6 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "permissions": z.array(z.string()).describe("A list of permission keys.") }).shape;
+export const inputParams = {
+    "permissions": z.array(z.string()).describe("A list of permission keys.")
+};

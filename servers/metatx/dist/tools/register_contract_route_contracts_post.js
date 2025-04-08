@@ -27,4 +27,10 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "blockchain": z.string(), "address": z.string(), "title": z.string().optional(), "description": z.string().optional(), "image_uri": z.string().optional() }).shape;
+export const inputParams = {
+    "blockchain": z.string(),
+    "address": z.string(),
+    "title": z.string().optional(),
+    "description": z.string().optional(),
+    "image_uri": z.string().optional()
+};

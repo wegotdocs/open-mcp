@@ -26,4 +26,7 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "workspaceId": z.string(), "users": z.array(z.object({ "id": z.string().uuid().optional(), "role": z.enum(["admin", "member"]).optional() })).optional() }).shape;
+export const inputParams = {
+    "workspaceId": z.string(),
+    "users": z.array(z.object({ "id": z.string().uuid().optional(), "role": z.enum(["admin", "member"]).optional() })).optional()
+};

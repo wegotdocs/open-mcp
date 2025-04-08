@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `listsources`;
 export const toolDescription = `Returns a list of Sources.`;
 export const baseUrl = `https://api.totoy.ai/v1`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

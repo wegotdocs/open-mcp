@@ -31,4 +31,6 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "webhookIds": z.array(z.number().int().describe("A list of webhook IDs.")).describe("A list of webhook IDs.") }).shape;
+export const inputParams = {
+    "webhookIds": z.array(z.number().int().describe("A list of webhook IDs.")).describe("A list of webhook IDs.")
+};

@@ -25,4 +25,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "parent_agent_uuid": z.string().describe("Pagent agent id"), "child_agent_uuid": z.string().describe("Routed agent id") }).shape;
+export const inputParams = {
+    "parent_agent_uuid": z.string().describe("Pagent agent id"),
+    "child_agent_uuid": z.string().describe("Routed agent id")
+};

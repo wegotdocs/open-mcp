@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `getme`;
 export const toolDescription = `Get current user`;
 export const baseUrl = `https://api.figma.com`;
@@ -29,4 +28,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

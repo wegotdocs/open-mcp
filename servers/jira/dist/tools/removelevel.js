@@ -34,4 +34,8 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "schemeId": z.string().describe("The ID of the issue security scheme."), "levelId": z.string().describe("The ID of the issue security level to remove."), "replaceWith": z.string().describe("The ID of the issue security level that will replace the currently selected level.").optional() }).shape;
+export const inputParams = {
+    "schemeId": z.string().describe("The ID of the issue security scheme."),
+    "levelId": z.string().describe("The ID of the issue security level to remove."),
+    "replaceWith": z.string().describe("The ID of the issue security level that will replace the currently selected level.").optional()
+};

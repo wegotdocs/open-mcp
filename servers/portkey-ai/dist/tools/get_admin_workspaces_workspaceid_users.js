@@ -29,4 +29,10 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "workspaceId": z.string(), "current_page": z.number(), "page_size": z.number(), "role": z.enum(["admin", "manager", "member"]).optional(), "email": z.string().optional() }).shape;
+export const inputParams = {
+    "workspaceId": z.string(),
+    "current_page": z.number().optional(),
+    "page_size": z.number().optional(),
+    "role": z.enum(["admin", "manager", "member"]).optional(),
+    "email": z.string().optional()
+};

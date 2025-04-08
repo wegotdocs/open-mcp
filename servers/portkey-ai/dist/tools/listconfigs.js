@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `listconfigs`;
 export const toolDescription = `List all configs`;
 export const baseUrl = `https://api.portkey.ai/v1`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

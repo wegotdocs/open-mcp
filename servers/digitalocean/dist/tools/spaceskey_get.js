@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "access_key": z.string().describe("The access key's ID.") }).shape;
+export const inputParams = {
+    "access_key": z.string().describe("The access key's ID.")
+};

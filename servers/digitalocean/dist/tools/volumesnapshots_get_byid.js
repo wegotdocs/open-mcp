@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "snapshot_id": z.string().describe("The unique identifier for the snapshot.") }).shape;
+export const inputParams = {
+    "snapshot_id": z.string().describe("The unique identifier for the snapshot.")
+};

@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "reserved_ipv6": z.string().ip({ version: "v6" }).describe("A reserved IPv6 address.") }).shape;
+export const inputParams = {
+    "reserved_ipv6": z.string().ip({ version: "v6" }).describe("A reserved IPv6 address.")
+};

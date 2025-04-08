@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `getpolicy`;
 export const toolDescription = `Get data policy for the workspace`;
 export const baseUrl = `https://your-domain.atlassian.net`;
@@ -29,4 +28,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

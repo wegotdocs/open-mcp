@@ -26,4 +26,7 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "firewall_id": z.string().uuid().describe("A unique ID that can be used to identify and reference a firewall."), "tags": z.string().optional() }).shape;
+export const inputParams = {
+    "firewall_id": z.string().uuid().describe("A unique ID that can be used to identify and reference a firewall."),
+    "tags": z.string().optional()
+};

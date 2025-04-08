@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `getissuealltypes`;
 export const toolDescription = `Get all issue types for user`;
 export const baseUrl = `https://your-domain.atlassian.net`;
@@ -29,4 +28,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

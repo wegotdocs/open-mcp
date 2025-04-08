@@ -19,7 +19,9 @@ export function unflatten({ flat, keys, flatMap, }) {
     return Object.entries(keys).reduce((acc, [paramType, paramTypeKeys]) => {
         acc[paramType] = paramTypeKeys.reduce((paramObj, flatKey) => {
             const originalKey = flatMap[flatKey] || flatKey;
-            paramObj[originalKey] = flat[flatKey];
+            if (flatKey in flat) {
+                paramObj[originalKey] = flat[flatKey];
+            }
             return paramObj;
         }, {});
         return acc;

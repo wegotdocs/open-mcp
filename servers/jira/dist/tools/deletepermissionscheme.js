@@ -31,4 +31,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "schemeId": z.number().int().describe("The ID of the permission scheme being deleted.") }).shape;
+export const inputParams = {
+    "schemeId": z.number().int().describe("The ID of the permission scheme being deleted.")
+};

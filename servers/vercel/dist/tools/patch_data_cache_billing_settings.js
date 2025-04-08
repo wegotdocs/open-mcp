@@ -15,4 +15,6 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "excessBillingEnabled": z.boolean().optional() }).shape;
+export const inputParams = {
+    "excessBillingEnabled": z.boolean().optional()
+};

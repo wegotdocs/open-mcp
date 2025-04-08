@@ -31,4 +31,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "ids": z.string().describe("A list of up to 50 project identifiers. This parameter accepts a comma-separated list.").optional() }).shape;
+export const inputParams = {
+    "ids": z.string().describe("A list of up to 50 project identifiers. This parameter accepts a comma-separated list.").optional()
+};

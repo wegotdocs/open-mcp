@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "destination_uuid": z.string().describe("A unique identifier for a destination.") }).shape;
+export const inputParams = {
+    "destination_uuid": z.string().describe("A unique identifier for a destination.")
+};

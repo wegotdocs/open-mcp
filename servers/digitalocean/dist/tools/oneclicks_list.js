@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "type": z.enum(["droplet", "kubernetes"]).describe("Restrict results to a certain type of 1-Click.").optional() }).shape;
+export const inputParams = {
+    "type": z.enum(["droplet", "kubernetes"]).describe("Restrict results to a certain type of 1-Click.").optional()
+};

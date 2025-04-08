@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `getresolutions`;
 export const toolDescription = `Get resolutions`;
 export const baseUrl = `https://your-domain.atlassian.net`;
@@ -29,4 +28,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

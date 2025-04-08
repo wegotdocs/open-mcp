@@ -25,4 +25,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "page": z.number().int().describe("Page number.").optional(), "per_page": z.number().int().describe("Items per page.").optional() }).shape;
+export const inputParams = {
+    "page": z.number().int().describe("Page number.").optional(),
+    "per_page": z.number().int().describe("Items per page.").optional()
+};

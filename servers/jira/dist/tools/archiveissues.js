@@ -31,4 +31,6 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "issueIdsOrKeys": z.array(z.string()).optional() }).shape;
+export const inputParams = {
+    "issueIdsOrKeys": z.array(z.string()).optional()
+};

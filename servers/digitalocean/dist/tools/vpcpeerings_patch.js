@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "vpc_peering_id": z.string().uuid().describe("A unique identifier for a VPC peering.") }).shape;
+export const inputParams = {
+    "vpc_peering_id": z.string().uuid().describe("A unique identifier for a VPC peering.")
+};

@@ -25,4 +25,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."), "index_name": z.string().describe("The name of the OpenSearch index.") }).shape;
+export const inputParams = {
+    "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
+    "index_name": z.string().describe("The name of the OpenSearch index.")
+};

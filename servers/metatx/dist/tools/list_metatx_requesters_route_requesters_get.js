@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `list_metatx_requesters_route_requesters_get`;
 export const toolDescription = `List Metatx Requesters Route`;
 export const baseUrl = `https://engineapi.moonstream.to/metatx`;
@@ -21,4 +20,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

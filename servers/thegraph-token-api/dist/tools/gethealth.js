@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `gethealth`;
 export const toolDescription = `Get health status of the API`;
 export const baseUrl = `https://token-api.thegraph.com`;
@@ -13,4 +12,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

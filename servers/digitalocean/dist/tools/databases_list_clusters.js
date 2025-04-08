@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "tag_name": z.string().describe("Limits the results to database clusters with a specific tag.").optional() }).shape;
+export const inputParams = {
+    "tag_name": z.string().describe("Limits the results to database clusters with a specific tag.").optional()
+};

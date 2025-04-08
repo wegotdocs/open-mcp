@@ -1,5 +1,5 @@
 import { z } from "zod";
-export const toolName = `get_v1_experimentation_items`;
+export const toolName = `queryexperimentationitems`;
 export const toolDescription = `Query experimentation items`;
 export const baseUrl = `https://api.vercel.com`;
 export const path = `/v1/experimentation/items`;
@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "resourceId": z.string().optional() }).shape;
+export const inputParams = {
+    "resourceId": z.string().optional()
+};

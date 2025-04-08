@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `listmodels`;
 export const toolDescription = `Lists the currently available models, and provides basic information about each one such as the owner and availability.`;
 export const baseUrl = `https://api.portkey.ai/v1`;
@@ -102,4 +101,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `getapikeygenerateweb3key`;
 export const toolDescription = `/api/v1/api_keys/generate_web3_key`;
 export const baseUrl = `https://api.venice.ai/api/v1`;
@@ -13,4 +12,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

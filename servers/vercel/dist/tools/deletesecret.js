@@ -27,4 +27,8 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "idOrName": z.string().describe("The name or the unique identifier to which the secret belongs to."), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape;
+export const inputParams = {
+    "idOrName": z.string().describe("The name or the unique identifier to which the secret belongs to."),
+    "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+    "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+};

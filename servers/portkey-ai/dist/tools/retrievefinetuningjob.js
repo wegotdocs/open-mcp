@@ -106,4 +106,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "fine_tuning_job_id": z.string().describe("The ID of the fine-tuning job.\n") }).shape;
+export const inputParams = {
+    "fine_tuning_job_id": z.string().describe("The ID of the fine-tuning job.\n")
+};

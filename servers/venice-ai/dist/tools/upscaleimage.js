@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `upscaleimage`;
 export const toolDescription = `/api/v1/image/upscale`;
 export const baseUrl = `https://api.venice.ai/api/v1`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

@@ -25,4 +25,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "namespace_id": z.string().describe("The ID of the namespace to be managed."), "trigger_name": z.string().describe("The name of the trigger to be managed.") }).shape;
+export const inputParams = {
+    "namespace_id": z.string().describe("The ID of the namespace to be managed."),
+    "trigger_name": z.string().describe("The name of the trigger to be managed.")
+};

@@ -31,4 +31,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "taskId": z.string().describe("The ID of the task.") }).shape;
+export const inputParams = {
+    "taskId": z.string().describe("The ID of the task.")
+};

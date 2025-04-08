@@ -1,8 +1,8 @@
 import { z } from "zod";
-export const toolName = `attachments_get`;
-export const toolDescription = `Retrieve an existing partner attachment`;
+export const toolName = `genai_list_openai_api_keys`;
+export const toolDescription = `List OpenAI API Keys`;
 export const baseUrl = `https://api.digitalocean.com`;
-export const path = `/v2/partner_network_connect/attachments/{pa_id}`;
+export const path = `/v2/gen-ai/openai/keys`;
 export const method = `get`;
 export const security = [
     {
@@ -15,13 +15,17 @@ export const security = [
     }
 ];
 export const keys = {
-    "query": [],
-    "header": [],
-    "path": [
-        "pa_id"
+    "query": [
+        "page",
+        "per_page"
     ],
+    "header": [],
+    "path": [],
     "cookie": [],
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "pa_id": z.string().describe("A unique identifier for a partner attachment.") }).shape;
+export const inputParams = {
+    "page": z.number().int().describe("Page number.").optional(),
+    "per_page": z.number().int().describe("Items per page.").optional()
+};

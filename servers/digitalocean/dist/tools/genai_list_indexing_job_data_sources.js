@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "indexing_job_uuid": z.string().describe("Uuid of the indexing job") }).shape;
+export const inputParams = {
+    "indexing_job_uuid": z.string().describe("Uuid of the indexing job")
+};

@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "slug": z.string() }).shape;
+export const inputParams = {
+    "slug": z.string()
+};

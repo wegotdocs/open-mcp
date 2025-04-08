@@ -32,4 +32,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "addonKey": z.string().describe("The key of the app, as defined in its descriptor."), "propertyKey": z.string().describe("The key of the property.") }).shape;
+export const inputParams = {
+    "addonKey": z.string().describe("The key of the app, as defined in its descriptor."),
+    "propertyKey": z.string().describe("The key of the property.")
+};

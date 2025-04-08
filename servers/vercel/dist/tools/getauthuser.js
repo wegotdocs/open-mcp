@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `getauthuser`;
 export const toolDescription = `Get the User`;
 export const baseUrl = `https://api.vercel.com`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

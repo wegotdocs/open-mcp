@@ -25,4 +25,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance."), "action_id": z.number().int().gte(1).describe("A unique numeric ID that can be used to identify and reference an action.") }).shape;
+export const inputParams = {
+    "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance."),
+    "action_id": z.number().int().gte(1).describe("A unique numeric ID that can be used to identify and reference an action.")
+};

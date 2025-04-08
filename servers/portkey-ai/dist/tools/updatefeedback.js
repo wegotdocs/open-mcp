@@ -28,4 +28,9 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "id": z.string().uuid().describe("Feedback ID"), "value": z.number().int().gte(-10).lte(10).describe("Feedback value, an integer between -10 and 10."), "weight": z.number().gte(0).lte(1).describe("Weight of the feedback, a float between 0 and 1. Default is 1.0."), "metadata": z.record(z.any()).describe("Additional metadata for the feedback.").optional() }).shape;
+export const inputParams = {
+    "id": z.string().uuid().describe("Feedback ID"),
+    "value": z.number().int().gte(-10).lte(10).describe("Feedback value, an integer between -10 and 10."),
+    "weight": z.number().gte(0).lte(1).describe("Weight of the feedback, a float between 0 and 1. Default is 1.0.").optional(),
+    "metadata": z.record(z.any()).describe("Additional metadata for the feedback.").optional()
+};

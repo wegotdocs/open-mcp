@@ -32,4 +32,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "startAt": z.number().int().describe("The index of the first item to return."), "maxResults": z.number().int().describe("The maximum number of items to return.") }).shape;
+export const inputParams = {
+    "startAt": z.number().int().describe("The index of the first item to return.").optional(),
+    "maxResults": z.number().int().describe("The maximum number of items to return.").optional()
+};

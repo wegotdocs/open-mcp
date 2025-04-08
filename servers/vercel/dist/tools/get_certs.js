@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `get_certs`;
 export const toolDescription = ``;
 export const baseUrl = `https://api.vercel.com`;
@@ -13,4 +12,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

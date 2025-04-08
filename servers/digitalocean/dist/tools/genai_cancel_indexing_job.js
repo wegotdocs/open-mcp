@@ -28,4 +28,7 @@ export const keys = {
 export const flatMap = {
     "b_uuid": "uuid"
 };
-export const inputParams = z.object({ "uuid": z.string().describe("A unique identifier for an indexing job."), "b_uuid": z.string().describe("A unique identifier for an indexing job.").optional() }).shape;
+export const inputParams = {
+    "uuid": z.string().describe("A unique identifier for an indexing job."),
+    "b_uuid": z.string().describe("A unique identifier for an indexing job.").optional()
+};

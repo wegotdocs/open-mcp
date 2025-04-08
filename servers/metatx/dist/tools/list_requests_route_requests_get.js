@@ -23,4 +23,13 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "contract_id": z.string().uuid().optional(), "contract_address": z.string().optional(), "caller": z.string(), "limit": z.number().int(), "offset": z.number().int().optional(), "show_expired": z.boolean(), "live_after": z.number().int().optional(), "authorization": z.string().optional() }).shape;
+export const inputParams = {
+    "contract_id": z.string().uuid().optional(),
+    "contract_address": z.string().optional(),
+    "caller": z.string(),
+    "limit": z.number().int().optional(),
+    "offset": z.number().int().optional(),
+    "show_expired": z.boolean().optional(),
+    "live_after": z.number().int().optional(),
+    "authorization": z.string().optional()
+};

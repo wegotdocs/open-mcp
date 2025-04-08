@@ -31,4 +31,6 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "queryStrings": z.array(z.string()).describe("A list of queries with user identifiers. Maximum of 100 queries.").optional() }).shape;
+export const inputParams = {
+    "queryStrings": z.array(z.string()).describe("A list of queries with user identifiers. Maximum of 100 queries.").optional()
+};

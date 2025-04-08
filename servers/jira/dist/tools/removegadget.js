@@ -32,4 +32,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "dashboardId": z.number().int().describe("The ID of the dashboard."), "gadgetId": z.number().int().describe("The ID of the gadget.") }).shape;
+export const inputParams = {
+    "dashboardId": z.number().int().describe("The ID of the dashboard."),
+    "gadgetId": z.number().int().describe("The ID of the gadget.")
+};

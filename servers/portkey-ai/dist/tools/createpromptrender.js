@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "promptId": z.string().describe("The unique identifier of the prompt template to render") }).shape;
+export const inputParams = {
+    "promptId": z.string().describe("The unique identifier of the prompt template to render")
+};

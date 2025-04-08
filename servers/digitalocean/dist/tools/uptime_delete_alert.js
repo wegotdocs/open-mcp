@@ -25,4 +25,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "check_id": z.string().uuid().describe("A unique identifier for a check."), "alert_id": z.string().uuid().describe("A unique identifier for an alert.") }).shape;
+export const inputParams = {
+    "check_id": z.string().uuid().describe("A unique identifier for a check."),
+    "alert_id": z.string().uuid().describe("A unique identifier for an alert.")
+};

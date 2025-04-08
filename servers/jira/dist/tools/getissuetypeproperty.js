@@ -32,4 +32,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "issueTypeId": z.string().describe("The ID of the issue type."), "propertyKey": z.string().describe("The key of the property. Use [Get issue type property keys](#api-rest-api-3-issuetype-issueTypeId-properties-get) to get a list of all issue type property keys.") }).shape;
+export const inputParams = {
+    "issueTypeId": z.string().describe("The ID of the issue type."),
+    "propertyKey": z.string().describe("The key of the property. Use [Get issue type property keys](#api-rest-api-3-issuetype-issueTypeId-properties-get) to get a list of all issue type property keys.")
+};

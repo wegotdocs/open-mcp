@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `getmyrequests`;
 export const toolDescription = `List all request for current user`;
 export const baseUrl = `https://api.sanity.io`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

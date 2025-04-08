@@ -104,4 +104,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "thread_id": z.string().describe("The ID of the thread to delete.") }).shape;
+export const inputParams = {
+    "thread_id": z.string().describe("The ID of the thread to delete.")
+};

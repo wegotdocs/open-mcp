@@ -29,4 +29,10 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "uid": z.string().describe("The ID of the member."), "confirmed": z.literal(true).describe("Accept a user who requested access to the team.").optional(), "role": z.string().describe("The role in the team of the member."), "projects": z.array(z.object({ "projectId": z.string().max(256).describe("The ID of the project."), "role": z.union([z.literal("ADMIN"), z.literal("PROJECT_VIEWER"), z.literal("PROJECT_DEVELOPER"), z.literal(null)]).nullable().describe("The project role of the member that will be added. \\\"null\\\" will remove this project level role.") }).strict()).optional(), "joinedFrom": z.object({ "ssoUserId": z.null().optional() }).strict().optional() }).shape;
+export const inputParams = {
+    "uid": z.string().describe("The ID of the member."),
+    "confirmed": z.literal(true).describe("Accept a user who requested access to the team.").optional(),
+    "role": z.string().describe("The role in the team of the member.").optional(),
+    "projects": z.array(z.object({ "projectId": z.string().max(256).describe("The ID of the project."), "role": z.union([z.literal("ADMIN"), z.literal("PROJECT_VIEWER"), z.literal("PROJECT_DEVELOPER"), z.literal(null)]).nullable().describe("The project role of the member that will be added. \\\"null\\\" will remove this project level role.") }).strict()).optional(),
+    "joinedFrom": z.object({ "ssoUserId": z.null().optional() }).strict().optional()
+};

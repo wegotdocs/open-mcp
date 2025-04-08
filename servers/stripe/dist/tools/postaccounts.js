@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `postaccounts`;
 export const toolDescription = `<p>With <a href="/docs/connect">Connect</a>, you can create Stripe accounts for your users.
 To do this, you’ll first need to <a href="https://dashboard.stripe.com/account/applications/settings">register your platform</a>.</p>
@@ -33,4 +32,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

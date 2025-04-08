@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `databases_get_cluster_metrics_credentials`;
 export const toolDescription = `Retrieve Database Clusters' Metrics Endpoint Credentials`;
 export const baseUrl = `https://api.digitalocean.com`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

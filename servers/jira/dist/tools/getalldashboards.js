@@ -33,4 +33,8 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "filter": z.enum(["my", "favourite"]).describe("The filter applied to the list of dashboards. Valid values are:\n\n *  `favourite` Returns dashboards the user has marked as favorite.\n *  `my` Returns dashboards owned by the user.").optional(), "startAt": z.number().int().describe("The index of the first item to return in a page of results (page offset)."), "maxResults": z.number().int().describe("The maximum number of items to return per page.") }).shape;
+export const inputParams = {
+    "filter": z.enum(["my", "favourite"]).describe("The filter applied to the list of dashboards. Valid values are:\n\n *  `favourite` Returns dashboards the user has marked as favorite.\n *  `my` Returns dashboards owned by the user.").optional(),
+    "startAt": z.number().int().describe("The index of the first item to return in a page of results (page offset).").optional(),
+    "maxResults": z.number().int().describe("The maximum number of items to return per page.").optional()
+};

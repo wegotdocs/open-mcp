@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `postcharges`;
 export const toolDescription = `<p>This method is no longer recommended—use the <a href="/docs/api/payment_intents">Payment Intents API</a>
 to initiate a new payment instead. Confirmation of the PaymentIntent creates the <code>Charge</code>
@@ -32,4 +31,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

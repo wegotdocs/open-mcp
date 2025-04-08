@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `posttaxtransactionscreatefromcalculation`;
 export const toolDescription = `Create a transaction from a calculation`;
 export const baseUrl = `https://api.stripe.com`;
@@ -30,4 +29,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

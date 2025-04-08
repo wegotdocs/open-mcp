@@ -32,4 +32,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "issueTypeId": z.string().describe("The ID of the issue type."), "propertyKey": z.string().describe("The key of the issue type property. The maximum length is 255 characters.") }).shape;
+export const inputParams = {
+    "issueTypeId": z.string().describe("The ID of the issue type."),
+    "propertyKey": z.string().describe("The key of the issue type property. The maximum length is 255 characters.")
+};

@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "image_id": z.number().int().describe("A unique number that can be used to identify and reference a specific image.") }).shape;
+export const inputParams = {
+    "image_id": z.number().int().describe("A unique number that can be used to identify and reference a specific image.")
+};

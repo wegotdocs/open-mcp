@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `post_plants`;
 export const toolDescription = `Creates a new plant in the store`;
 export const baseUrl = `http://sandbox.mintlify.com`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

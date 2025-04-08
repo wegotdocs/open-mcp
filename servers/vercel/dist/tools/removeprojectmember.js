@@ -28,4 +28,9 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "idOrName": z.string().describe("The ID or name of the Project."), "uid": z.string().describe("The user ID of the member."), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape;
+export const inputParams = {
+    "idOrName": z.string().describe("The ID or name of the Project."),
+    "uid": z.string().describe("The user ID of the member."),
+    "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+    "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+};

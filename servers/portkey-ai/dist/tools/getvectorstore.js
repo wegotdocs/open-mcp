@@ -104,4 +104,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "vector_store_id": z.string().describe("The ID of the vector store to retrieve.") }).shape;
+export const inputParams = {
+    "vector_store_id": z.string().describe("The ID of the vector store to retrieve.")
+};

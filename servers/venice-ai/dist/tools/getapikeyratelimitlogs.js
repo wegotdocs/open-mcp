@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `getapikeyratelimitlogs`;
 export const toolDescription = `/api/v1/api_keys/rate_limits/log`;
 export const baseUrl = `https://api.venice.ai/api/v1`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

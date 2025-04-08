@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster.") }).shape;
+export const inputParams = {
+    "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster.")
+};

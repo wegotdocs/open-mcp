@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "tag_name": z.string().describe("Specifies Droplets to be deleted by tag.") }).shape;
+export const inputParams = {
+    "tag_name": z.string().describe("Specifies Droplets to be deleted by tag.")
+};

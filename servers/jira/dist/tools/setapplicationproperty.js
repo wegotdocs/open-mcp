@@ -36,4 +36,8 @@ export const keys = {
 export const flatMap = {
     "b_id": "id"
 };
-export const inputParams = z.object({ "id": z.string().describe("The key of the application property to update."), "b_id": z.string().describe("The ID of the application property.").optional(), "value": z.string().describe("The new value.").optional() }).shape;
+export const inputParams = {
+    "id": z.string().describe("The key of the application property to update."),
+    "b_id": z.string().describe("The ID of the application property.").optional(),
+    "value": z.string().describe("The new value.").optional()
+};

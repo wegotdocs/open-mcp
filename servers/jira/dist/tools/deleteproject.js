@@ -33,4 +33,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "projectIdOrKey": z.string().describe("The project ID or project key (case sensitive)."), "enableUndo": z.boolean().describe("Whether this project is placed in the Jira recycle bin where it will be available for restoration.") }).shape;
+export const inputParams = {
+    "projectIdOrKey": z.string().describe("The project ID or project key (case sensitive)."),
+    "enableUndo": z.boolean().describe("Whether this project is placed in the Jira recycle bin where it will be available for restoration.").optional()
+};

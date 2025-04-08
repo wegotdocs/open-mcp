@@ -24,4 +24,6 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "tier_slug": z.enum(["starter", "basic", "professional"]).describe("The slug of the subscription tier to sign up for.").optional() }).shape;
+export const inputParams = {
+    "tier_slug": z.enum(["starter", "basic", "professional"]).describe("The slug of the subscription tier to sign up for.").optional()
+};

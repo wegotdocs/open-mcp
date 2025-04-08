@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `get_queue`;
 export const toolDescription = `Get the User's Queue`;
 export const baseUrl = `https://api.spotify.com/v1`;
@@ -21,4 +20,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

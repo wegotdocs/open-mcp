@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `createtranslation`;
 export const toolDescription = `Create Translation`;
 export const baseUrl = `https://api.portkey.ai/v1`;
@@ -102,4 +101,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

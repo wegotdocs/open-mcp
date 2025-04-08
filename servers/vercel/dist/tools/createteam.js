@@ -26,4 +26,8 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "slug": z.string().max(48).describe("The desired slug for the Team"), "name": z.string().max(256).describe("The desired name for the Team. It will be generated from the provided slug if nothing is provided").optional(), "attribution": z.object({ "sessionReferrer": z.string().describe("Session referrer").optional(), "landingPage": z.string().describe("Session landing page").optional(), "pageBeforeConversionPage": z.string().describe("Referrer to the signup page").optional(), "utm": z.object({ "utmSource": z.string().describe("UTM source").optional(), "utmMedium": z.string().describe("UTM medium").optional(), "utmCampaign": z.string().describe("UTM campaign").optional(), "utmTerm": z.string().describe("UTM term").optional() }).optional() }).describe("Attribution information for the session or current page").optional() }).shape;
+export const inputParams = {
+    "slug": z.string().max(48).describe("The desired slug for the Team"),
+    "name": z.string().max(256).describe("The desired name for the Team. It will be generated from the provided slug if nothing is provided").optional(),
+    "attribution": z.object({ "sessionReferrer": z.string().describe("Session referrer").optional(), "landingPage": z.string().describe("Session landing page").optional(), "pageBeforeConversionPage": z.string().describe("Referrer to the signup page").optional(), "utm": z.object({ "utmSource": z.string().describe("UTM source").optional(), "utmMedium": z.string().describe("UTM medium").optional(), "utmCampaign": z.string().describe("UTM campaign").optional(), "utmTerm": z.string().describe("UTM term").optional() }).optional() }).describe("Attribution information for the session or current page").optional()
+};

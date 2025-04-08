@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `listauthtokens`;
 export const toolDescription = `List Auth Tokens`;
 export const baseUrl = `https://api.vercel.com`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

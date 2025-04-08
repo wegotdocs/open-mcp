@@ -27,4 +27,8 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "integrationConfigurationId": z.string(), "resourceId": z.string(), "data": z.record(z.any()) }).shape;
+export const inputParams = {
+    "integrationConfigurationId": z.string(),
+    "resourceId": z.string(),
+    "data": z.record(z.any())
+};

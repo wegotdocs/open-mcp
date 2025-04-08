@@ -31,4 +31,6 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "name": z.string().describe("The name of the group.") }).shape;
+export const inputParams = {
+    "name": z.string().describe("The name of the group.")
+};

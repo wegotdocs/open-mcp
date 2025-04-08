@@ -33,4 +33,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "id": z.number().int().describe("The ID of the workflow scheme."), "returnDraftIfExists": z.boolean().describe("Set to `true` to return the default workflow for the workflow scheme's draft rather than scheme itself. If the workflow scheme does not have a draft, then the default workflow for the workflow scheme is returned.") }).shape;
+export const inputParams = {
+    "id": z.number().int().describe("The ID of the workflow scheme."),
+    "returnDraftIfExists": z.boolean().describe("Set to `true` to return the default workflow for the workflow scheme's draft rather than scheme itself. If the workflow scheme does not have a draft, then the default workflow for the workflow scheme is returned.").optional()
+};

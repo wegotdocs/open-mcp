@@ -104,4 +104,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "assistant_id": z.string().describe("The ID of the assistant to retrieve.") }).shape;
+export const inputParams = {
+    "assistant_id": z.string().describe("The ID of the assistant to retrieve.")
+};

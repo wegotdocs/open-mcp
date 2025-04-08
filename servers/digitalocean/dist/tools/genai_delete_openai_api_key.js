@@ -1,9 +1,9 @@
 import { z } from "zod";
-export const toolName = `attachments_get_bgp_auth_key`;
-export const toolDescription = `Get current BGP auth key for the partner attachment`;
+export const toolName = `genai_delete_openai_api_key`;
+export const toolDescription = `Delete OpenAI API Key`;
 export const baseUrl = `https://api.digitalocean.com`;
-export const path = `/v2/partner_network_connect/attachments/{pa_id}/bgp_auth_key`;
-export const method = `get`;
+export const path = `/v2/gen-ai/openai/keys/{api_key_uuid}`;
+export const method = `delete`;
 export const security = [
     {
         "key": "Authorization",
@@ -18,10 +18,12 @@ export const keys = {
     "query": [],
     "header": [],
     "path": [
-        "pa_id"
+        "api_key_uuid"
     ],
     "cookie": [],
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "pa_id": z.string().describe("A unique identifier for a partner attachment.") }).shape;
+export const inputParams = {
+    "api_key_uuid": z.string().describe("API key ID")
+};

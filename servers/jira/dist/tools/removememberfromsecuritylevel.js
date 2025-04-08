@@ -33,4 +33,8 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "schemeId": z.string().describe("The ID of the issue security scheme."), "levelId": z.string().describe("The ID of the issue security level."), "memberId": z.string().describe("The ID of the issue security level member to be removed.") }).shape;
+export const inputParams = {
+    "schemeId": z.string().describe("The ID of the issue security scheme."),
+    "levelId": z.string().describe("The ID of the issue security level."),
+    "memberId": z.string().describe("The ID of the issue security level member to be removed.")
+};

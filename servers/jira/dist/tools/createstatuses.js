@@ -32,4 +32,7 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "scope": z.object({ "project": z.object({ "id": z.string().describe("The ID of the project.") }).strict().nullable().describe("Project ID details.").optional(), "type": z.enum(["PROJECT", "GLOBAL"]).describe("The scope of the status. `GLOBAL` for company-managed projects and `PROJECT` for team-managed projects.") }).strict().describe("The scope of the status."), "statuses": z.array(z.object({ "description": z.string().describe("The description of the status.").optional(), "name": z.string().max(255).describe("The name of the status."), "statusCategory": z.enum(["TODO", "IN_PROGRESS", "DONE"]).describe("The category of the status.") }).strict().describe("Details of the status being created.")).describe("Details of the statuses being created.") }).shape;
+export const inputParams = {
+    "scope": z.object({ "project": z.object({ "id": z.string().describe("The ID of the project.") }).strict().nullable().describe("Project ID details.").optional(), "type": z.enum(["PROJECT", "GLOBAL"]).describe("The scope of the status. `GLOBAL` for company-managed projects and `PROJECT` for team-managed projects.") }).strict().describe("The scope of the status."),
+    "statuses": z.array(z.object({ "description": z.string().describe("The description of the status.").optional(), "name": z.string().max(255).describe("The name of the status."), "statusCategory": z.enum(["TODO", "IN_PROGRESS", "DONE"]).describe("The category of the status.") }).strict().describe("Details of the status being created.")).describe("Details of the statuses being created.")
+};

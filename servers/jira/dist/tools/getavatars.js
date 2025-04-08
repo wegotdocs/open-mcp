@@ -32,4 +32,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "type": z.enum(["project", "issuetype", "priority"]).describe("The avatar type."), "entityId": z.string().describe("The ID of the item the avatar is associated with.") }).shape;
+export const inputParams = {
+    "type": z.enum(["project", "issuetype", "priority"]).describe("The avatar type."),
+    "entityId": z.string().describe("The ID of the item the avatar is associated with.")
+};

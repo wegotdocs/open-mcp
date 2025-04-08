@@ -34,4 +34,13 @@ export const keys = {
 export const flatMap = {
     "b_agent_uuid": "agent_uuid"
 };
-export const inputParams = z.object({ "agent_uuid": z.string().describe("Agent id"), "b_agent_uuid": z.string().describe("Agent id").optional(), "description": z.string().describe("Function description").optional(), "faas_name": z.string().describe("The name of the function in the DigitalOcean functions platform").optional(), "faas_namespace": z.string().describe("The namespace of the function in the DigitalOcean functions platform").optional(), "function_name": z.string().describe("Function name").optional(), "input_schema": z.record(z.any()).describe("Describe the input schema for the function so the agent may call it").optional(), "output_schema": z.record(z.any()).describe("Describe the output schema for the function so the agent handle its response").optional() }).shape;
+export const inputParams = {
+    "agent_uuid": z.string().describe("Agent id"),
+    "b_agent_uuid": z.string().describe("Agent id").optional(),
+    "description": z.string().describe("Function description").optional(),
+    "faas_name": z.string().describe("The name of the function in the DigitalOcean functions platform").optional(),
+    "faas_namespace": z.string().describe("The namespace of the function in the DigitalOcean functions platform").optional(),
+    "function_name": z.string().describe("Function name").optional(),
+    "input_schema": z.record(z.any()).describe("Describe the input schema for the function so the agent may call it").optional(),
+    "output_schema": z.record(z.any()).describe("Describe the output schema for the function so the agent handle its response").optional()
+};

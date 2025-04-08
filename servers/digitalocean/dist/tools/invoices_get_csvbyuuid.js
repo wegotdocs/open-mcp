@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "invoice_uuid": z.string().describe("UUID of the invoice") }).shape;
+export const inputParams = {
+    "invoice_uuid": z.string().describe("UUID of the invoice")
+};

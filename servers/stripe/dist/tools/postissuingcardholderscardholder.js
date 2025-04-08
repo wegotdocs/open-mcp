@@ -32,4 +32,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "cardholder": z.string().max(5000) }).shape;
+export const inputParams = {
+    "cardholder": z.string().max(5000)
+};

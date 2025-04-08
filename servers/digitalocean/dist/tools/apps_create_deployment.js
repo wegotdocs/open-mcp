@@ -26,4 +26,7 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "app_id": z.string().describe("The app ID"), "force_build": z.boolean().optional() }).shape;
+export const inputParams = {
+    "app_id": z.string().describe("The app ID"),
+    "force_build": z.boolean().optional()
+};

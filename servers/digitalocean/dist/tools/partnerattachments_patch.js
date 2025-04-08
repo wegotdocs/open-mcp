@@ -1,5 +1,5 @@
 import { z } from "zod";
-export const toolName = `attachments_patch`;
+export const toolName = `partnerattachments_patch`;
 export const toolDescription = `Update an existing partner attachment`;
 export const baseUrl = `https://api.digitalocean.com`;
 export const path = `/v2/partner_network_connect/attachments/{pa_id}`;
@@ -24,4 +24,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "pa_id": z.string().describe("A unique identifier for a partner attachment.") }).shape;
+export const inputParams = {
+    "pa_id": z.string().describe("A unique identifier for a partner attachment.")
+};

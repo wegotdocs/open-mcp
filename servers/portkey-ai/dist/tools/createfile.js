@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `createfile`;
 export const toolDescription = `Upload a file to be used across various endpoints, such as Assistant (<2M tokens), Fine-Tuning, and Batch (<100 MB). Total size of your bucket is 100 GB.`;
 export const baseUrl = `https://api.portkey.ai/v1`;
@@ -102,4 +101,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

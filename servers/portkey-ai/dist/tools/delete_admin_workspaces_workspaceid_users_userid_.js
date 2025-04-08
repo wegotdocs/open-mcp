@@ -25,4 +25,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "workspaceId": z.string(), "userId": z.string() }).shape;
+export const inputParams = {
+    "workspaceId": z.string(),
+    "userId": z.string()
+};

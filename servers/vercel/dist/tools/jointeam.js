@@ -24,4 +24,6 @@ export const keys = {
     ]
 };
 export const flatMap = {};
-export const inputParams = z.object({ "inviteCode": z.string().describe("The invite code to join the team.").optional() }).shape;
+export const inputParams = {
+    "inviteCode": z.string().describe("The invite code to join the team.").optional()
+};

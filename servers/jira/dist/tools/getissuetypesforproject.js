@@ -32,4 +32,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "projectId": z.number().int().describe("The ID of the project."), "level": z.number().int().describe("The level of the issue type to filter by. Use:\n\n *  `-1` for Subtask.\n *  `0` for Base.\n *  `1` for Epic.").optional() }).shape;
+export const inputParams = {
+    "projectId": z.number().int().describe("The ID of the project."),
+    "level": z.number().int().describe("The level of the issue type to filter by. Use:\n\n *  `-1` for Subtask.\n *  `0` for Base.\n *  `1` for Epic.").optional()
+};

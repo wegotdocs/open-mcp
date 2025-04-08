@@ -31,4 +31,6 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "webhook_id": z.string().describe("The id of the webhook subscription you want to see events from") }).shape;
+export const inputParams = {
+    "webhook_id": z.string().describe("The id of the webhook subscription you want to see events from")
+};

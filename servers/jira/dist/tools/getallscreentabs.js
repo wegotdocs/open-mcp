@@ -33,4 +33,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "screenId": z.number().int().describe("The ID of the screen."), "projectKey": z.string().describe("The key of the project.").optional() }).shape;
+export const inputParams = {
+    "screenId": z.number().int().describe("The ID of the screen."),
+    "projectKey": z.string().describe("The key of the project.").optional()
+};

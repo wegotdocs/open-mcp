@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `get_virtual_keys`;
 export const toolDescription = `List All Virtual Keys`;
 export const baseUrl = `https://api.portkey.ai/v1`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

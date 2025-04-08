@@ -33,4 +33,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "issueIdOrKey": z.string().describe("The ID or key of the issue."), "deleteSubtasks": z.enum(["true", "false"]).describe("Whether the issue's subtasks are deleted when the issue is deleted.") }).shape;
+export const inputParams = {
+    "issueIdOrKey": z.string().describe("The ID or key of the issue."),
+    "deleteSubtasks": z.enum(["true", "false"]).describe("Whether the issue's subtasks are deleted when the issue is deleted.").optional()
+};

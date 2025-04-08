@@ -28,4 +28,10 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "host_id": z.string().describe("The droplet ID."), "interface": z.enum(["private", "public"]).describe("The network interface."), "direction": z.enum(["inbound", "outbound"]).describe("The traffic direction."), "start": z.string().describe("UNIX timestamp to start metric window."), "end": z.string().describe("UNIX timestamp to end metric window.") }).shape;
+export const inputParams = {
+    "host_id": z.string().describe("The droplet ID."),
+    "interface": z.enum(["private", "public"]).describe("The network interface."),
+    "direction": z.enum(["inbound", "outbound"]).describe("The traffic direction."),
+    "start": z.string().describe("UNIX timestamp to start metric window."),
+    "end": z.string().describe("UNIX timestamp to end metric window.")
+};

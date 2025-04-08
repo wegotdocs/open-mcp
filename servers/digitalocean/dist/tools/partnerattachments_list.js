@@ -1,5 +1,5 @@
 import { z } from "zod";
-export const toolName = `attachments_list`;
+export const toolName = `partnerattachments_list`;
 export const toolDescription = `List all partner attachments`;
 export const baseUrl = `https://api.digitalocean.com`;
 export const path = `/v2/partner_network_connect/attachments`;
@@ -25,4 +25,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"), "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.") }).shape;
+export const inputParams = {
+    "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+    "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
+};

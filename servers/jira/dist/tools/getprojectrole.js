@@ -34,4 +34,8 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "projectIdOrKey": z.string().describe("The project ID or project key (case sensitive)."), "id": z.number().int().describe("The ID of the project role. Use [Get all project roles](#api-rest-api-3-role-get) to get a list of project role IDs."), "excludeInactiveUsers": z.boolean().describe("Exclude inactive users.") }).shape;
+export const inputParams = {
+    "projectIdOrKey": z.string().describe("The project ID or project key (case sensitive)."),
+    "id": z.number().int().describe("The ID of the project role. Use [Get all project roles](#api-rest-api-3-role-get) to get a list of project role IDs."),
+    "excludeInactiveUsers": z.boolean().describe("Exclude inactive users.").optional()
+};

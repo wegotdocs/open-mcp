@@ -1,4 +1,3 @@
-import { z } from "zod";
 export const toolName = `getallapplicationroles`;
 export const toolDescription = `Get all application roles`;
 export const baseUrl = `https://your-domain.atlassian.net`;
@@ -22,4 +21,4 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({}).shape;
+export const inputParams = {};

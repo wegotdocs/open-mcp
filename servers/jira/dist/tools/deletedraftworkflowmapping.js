@@ -33,4 +33,7 @@ export const keys = {
     "body": []
 };
 export const flatMap = {};
-export const inputParams = z.object({ "id": z.number().int().describe("The ID of the workflow scheme that the draft belongs to."), "workflowName": z.string().describe("The name of the workflow.") }).shape;
+export const inputParams = {
+    "id": z.number().int().describe("The ID of the workflow scheme that the draft belongs to."),
+    "workflowName": z.string().describe("The name of the workflow.")
+};
