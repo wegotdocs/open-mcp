@@ -88,7 +88,7 @@ export const OPERATION_FILES_RELATIVE = [
   "./tools/deleteintegrationlogdrain.js",
   "./tools/gitnamespaces.js",
   "./tools/searchrepo.js",
-  "./tools/get_v1_experimentation_items.js",
+  "./tools/queryexperimentationitems.js",
   "./tools/post_v1_installations_integrationconfigurationid_resources_resou.js",
   "./tools/patch_v1_installations_integrationconfigurationid_resources_reso.js",
   "./tools/delete_v1_installations_integrationconfigurationid_resources_res.js",

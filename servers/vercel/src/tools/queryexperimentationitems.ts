@@ -1,9 +1,9 @@
 import { z } from "zod"
 
-export const toolName = `listdeploymentfiles`
-export const toolDescription = `List Deployment Files`
+export const toolName = `queryexperimentationitems`
+export const toolDescription = `Query experimentation items`
 export const baseUrl = `https://api.vercel.com`
-export const path = `/v6/deployments/{id}/files`
+export const path = `/v1/experimentation/items`
 export const method = `get`
 export const security = [
   {
@@ -17,20 +17,15 @@ export const security = [
 ]
 export const keys = {
   "query": [
-    "teamId",
-    "slug"
+    "resourceId"
   ],
   "header": [],
-  "path": [
-    "id"
-  ],
+  "path": [],
   "cookie": [],
   "body": []
 }
 export const flatMap = {}
 
 export const inputParams = {
-  "id": z.string().describe("The unique deployment identifier"),
-  "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
-  "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+  "resourceId": z.string().optional()
 }
