@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "type": z.enum(["image","text","embedding","tts"]).describe("Filter models by type.") }).shape
+export const inputParams = {
+  "type": z.enum(["image","text","embedding","tts"]).describe("Filter models by type.").optional()
+}
