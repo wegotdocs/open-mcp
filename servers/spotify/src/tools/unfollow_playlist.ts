@@ -25,4 +25,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "playlist_id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the playlist.\n") }).shape
+export const inputParams = {
+  "playlist_id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the playlist.\n")
+}
