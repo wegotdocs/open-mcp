@@ -36,4 +36,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "customer": z.string().max(5000).describe("The customer for which to fetch credit balance summary."), "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(), "filter": z.object({ "applicability_scope": z.object({ "price_type": z.literal("metered").optional(), "prices": z.array(z.object({ "id": z.string().max(5000) })).optional() }).optional(), "credit_grant": z.string().max(5000).optional(), "type": z.enum(["applicability_scope","credit_grant"]) }).describe("The filter criteria for the credit balance summary.") }).shape
+export const inputParams = {
+  "customer": z.string().max(5000).describe("The customer for which to fetch credit balance summary."),
+  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
+  "filter": z.object({ "applicability_scope": z.object({ "price_type": z.literal("metered").optional(), "prices": z.array(z.object({ "id": z.string().max(5000) })).optional() }).optional(), "credit_grant": z.string().max(5000).optional(), "type": z.enum(["applicability_scope","credit_grant"]) }).describe("The filter criteria for the credit balance summary.")
+}

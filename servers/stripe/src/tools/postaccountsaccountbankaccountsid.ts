@@ -39,4 +39,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "account": z.string().max(5000), "id": z.string() }).shape
+export const inputParams = {
+  "account": z.string().max(5000),
+  "id": z.string()
+}

@@ -35,4 +35,4 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({}).shape
+export const inputParams = {}

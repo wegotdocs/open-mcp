@@ -35,4 +35,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "charge": z.string(), "refund": z.string() }).shape
+export const inputParams = {
+  "charge": z.string(),
+  "refund": z.string()
+}
