@@ -106,4 +106,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "thread_id": z.string().describe("The ID of the thread to retrieve.") }).shape
+export const inputParams = {
+  "thread_id": z.string().describe("The ID of the thread to retrieve.")
+}

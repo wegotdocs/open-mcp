@@ -109,4 +109,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "vector_store_id": z.string().describe("The ID of the vector store for which to create a File.\n"), "file_id": z.string().describe("A [File](https://platform.openai.com/docs/api-reference/files) ID that the vector store should use. Useful for tools like `file_search` that can access files."), "chunking_strategy": z.record(z.any()).and(z.object({ "type": z.literal("auto").describe("Always `auto`.") }).strict().describe("The default strategy. This strategy currently uses a `max_chunk_size_tokens` of `800` and `chunk_overlap_tokens` of `400`.")).describe("The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy.").optional() }).shape
+export const inputParams = {
+  "vector_store_id": z.string().describe("The ID of the vector store for which to create a File.\n"),
+  "file_id": z.string().describe("A [File](https://platform.openai.com/docs/api-reference/files) ID that the vector store should use. Useful for tools like `file_search` that can access files."),
+  "chunking_strategy": z.record(z.any()).and(z.object({ "type": z.literal("auto").describe("Always `auto`.") }).strict().describe("The default strategy. This strategy currently uses a `max_chunk_size_tokens` of `800` and `chunk_overlap_tokens` of `400`.")).describe("The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy.").optional()
+}

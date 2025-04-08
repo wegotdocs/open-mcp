@@ -107,4 +107,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "vector_store_id": z.string().describe("The ID of the vector store that the file belongs to."), "file_id": z.string().describe("The ID of the file being retrieved.") }).shape
+export const inputParams = {
+  "vector_store_id": z.string().describe("The ID of the vector store that the file belongs to."),
+  "file_id": z.string().describe("The ID of the file being retrieved.")
+}

@@ -106,4 +106,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "file_id": z.string().describe("The ID of the file to use for this request.") }).shape
+export const inputParams = {
+  "file_id": z.string().describe("The ID of the file to use for this request.")
+}
