@@ -34,4 +34,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "accountHolderCode": z.string().describe("The code of the account holder to be reinstated.") }).shape
+export const inputParams = {
+  "accountHolderCode": z.string().describe("The code of the account holder to be reinstated.")
+}
