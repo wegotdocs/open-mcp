@@ -30,4 +30,10 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "contract_id": z.string().uuid(), "title": z.string().optional(), "description": z.string().optional(), "image_uri": z.string().optional(), "ignore_nulls": z.boolean() }).shape
+export const inputParams = {
+  "contract_id": z.string().uuid(),
+  "title": z.string().optional(),
+  "description": z.string().optional(),
+  "image_uri": z.string().optional(),
+  "ignore_nulls": z.boolean().optional()
+}
