@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "action_id": z.number().int().gte(1).describe("A unique numeric ID that can be used to identify and reference an action.") }).shape
+export const inputParams = {
+  "action_id": z.number().int().gte(1).describe("A unique numeric ID that can be used to identify and reference an action.")
+}

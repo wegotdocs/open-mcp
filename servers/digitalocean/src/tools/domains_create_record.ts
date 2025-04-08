@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "domain_name": z.string().describe("The name of the domain itself.") }).shape
+export const inputParams = {
+  "domain_name": z.string().describe("The name of the domain itself.")
+}

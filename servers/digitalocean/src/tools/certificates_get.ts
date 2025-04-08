@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "certificate_id": z.string().uuid().describe("A unique identifier for a certificate.") }).shape
+export const inputParams = {
+  "certificate_id": z.string().uuid().describe("A unique identifier for a certificate.")
+}

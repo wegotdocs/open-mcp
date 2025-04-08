@@ -30,4 +30,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."), "source": z.object({ "host": z.string().describe("The FQDN pointing to the database cluster's current primary node.").optional(), "port": z.number().int().describe("The port on which the database cluster is listening.").optional(), "dbname": z.string().describe("The name of the default database.").optional(), "username": z.string().describe("The default user for the database.").optional(), "password": z.string().describe("The randomly generated password for the default user.").optional() }), "disable_ssl": z.boolean().describe("Enables SSL encryption when connecting to the source database.").optional(), "ignore_dbs": z.array(z.string()).describe("List of databases that should be ignored during migration.") }).shape
+export const inputParams = {
+  "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
+  "source": z.object({ "host": z.string().describe("The FQDN pointing to the database cluster's current primary node.").optional(), "port": z.number().int().describe("The port on which the database cluster is listening.").optional(), "dbname": z.string().describe("The name of the default database.").optional(), "username": z.string().describe("The default user for the database.").optional(), "password": z.string().describe("The randomly generated password for the default user.").optional() }),
+  "disable_ssl": z.boolean().describe("Enables SSL encryption when connecting to the source database.").optional(),
+  "ignore_dbs": z.array(z.string()).describe("List of databases that should be ignored during migration.").optional()
+}

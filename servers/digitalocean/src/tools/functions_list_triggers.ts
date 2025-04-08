@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "namespace_id": z.string().describe("The ID of the namespace to be managed.") }).shape
+export const inputParams = {
+  "namespace_id": z.string().describe("The ID of the namespace to be managed.")
+}

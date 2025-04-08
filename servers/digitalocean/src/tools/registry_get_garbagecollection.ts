@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "registry_name": z.string().describe("The name of a container registry.") }).shape
+export const inputParams = {
+  "registry_name": z.string().describe("The name of a container registry.")
+}
