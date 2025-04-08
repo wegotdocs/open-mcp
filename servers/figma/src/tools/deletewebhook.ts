@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "webhook_id": z.string().describe("ID of webhook to delete") }).shape
+export const inputParams = {
+  "webhook_id": z.string().describe("ID of webhook to delete")
+}
