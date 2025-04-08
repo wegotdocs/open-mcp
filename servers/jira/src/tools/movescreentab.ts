@@ -35,4 +35,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "screenId": z.number().int().describe("The ID of the screen."), "tabId": z.number().int().describe("The ID of the screen tab."), "pos": z.number().int().describe("The position of tab. The base index is 0.") }).shape
+export const inputParams = {
+  "screenId": z.number().int().describe("The ID of the screen."),
+  "tabId": z.number().int().describe("The ID of the screen tab."),
+  "pos": z.number().int().describe("The position of tab. The base index is 0.")
+}

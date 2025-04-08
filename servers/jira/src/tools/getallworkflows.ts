@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "workflowName": z.string().describe("The name of the workflow to be returned. Only one workflow can be specified.").optional() }).shape
+export const inputParams = {
+  "workflowName": z.string().describe("The name of the workflow to be returned. Only one workflow can be specified.").optional()
+}

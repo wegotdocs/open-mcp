@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "type": z.enum(["issuetype","project","user","priority"]).describe("The avatar type.") }).shape
+export const inputParams = {
+  "type": z.enum(["issuetype","project","user","priority"]).describe("The avatar type.")
+}

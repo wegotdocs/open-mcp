@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "uiModificationId": z.string().describe("The ID of the UI modification.") }).shape
+export const inputParams = {
+  "uiModificationId": z.string().describe("The ID of the UI modification.")
+}

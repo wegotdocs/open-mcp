@@ -37,4 +37,10 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "archivedBy": z.array(z.string()).describe("List archived issues archived by a specified account ID.").optional(), "archivedDateRange": z.object({ "dateAfter": z.string().describe("List issues archived after a specified date, passed in the YYYY-MM-DD format."), "dateBefore": z.string().describe("List issues archived before a specified date provided in the YYYY-MM-DD format.") }).strict().describe("List issues archived within a specified date range.").optional(), "issueTypes": z.array(z.string()).describe("List archived issues with a specified issue type ID.").optional(), "projects": z.array(z.string()).describe("List archived issues with a specified project key.").optional(), "reporters": z.array(z.string()).describe("List archived issues where the reporter is a specified account ID.").optional() }).shape
+export const inputParams = {
+  "archivedBy": z.array(z.string()).describe("List archived issues archived by a specified account ID.").optional(),
+  "archivedDateRange": z.object({ "dateAfter": z.string().describe("List issues archived after a specified date, passed in the YYYY-MM-DD format."), "dateBefore": z.string().describe("List issues archived before a specified date provided in the YYYY-MM-DD format.") }).strict().describe("List issues archived within a specified date range.").optional(),
+  "issueTypes": z.array(z.string()).describe("List archived issues with a specified issue type ID.").optional(),
+  "projects": z.array(z.string()).describe("List archived issues with a specified project key.").optional(),
+  "reporters": z.array(z.string()).describe("List archived issues where the reporter is a specified account ID.").optional()
+}

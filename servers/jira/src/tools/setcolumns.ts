@@ -35,4 +35,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "id": z.number().int().describe("The ID of the filter."), "columns": z.array(z.string()).optional() }).shape
+export const inputParams = {
+  "id": z.number().int().describe("The ID of the filter."),
+  "columns": z.array(z.string()).optional()
+}

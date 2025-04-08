@@ -34,4 +34,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "notificationSchemeId": z.string().describe("The ID of the notification scheme."), "notificationId": z.string().describe("The ID of the notification.") }).shape
+export const inputParams = {
+  "notificationSchemeId": z.string().describe("The ID of the notification scheme."),
+  "notificationId": z.string().describe("The ID of the notification.")
+}
