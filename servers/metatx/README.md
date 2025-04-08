@@ -2,25 +2,26 @@
 
 ## Installing
 
-### With helper
+Use the helper command `add-to-client` to add the server to your MCP client:
 
-Use the `add-to-client` helper to add the server to your MCP client:
+### Claude desktop
+
+```bash
+npx @open-mcp/metatx add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+
+### Cursor
+
+Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
+
+```bash
+npx @open-mcp/metatx add-to-client .cursor/mcp.json
+```
+
+### Other
 
 ```bash
 npx @open-mcp/metatx add-to-client /path/to/client/config.json
-```
-
-For example:
-
-```bash
-# Claude desktop:
-npx @open-mcp/metatx add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
-
-# Cursor project (run from the project dir):
-npx @open-mcp/metatx add-to-client .cursor/mcp.json
-
-# Cursor global (applies to all projects):
-npx @open-mcp/metatx add-to-client ~/.cursor/mcp.json
 ```
 
 ### Manually
@@ -47,44 +48,6 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 - `OAUTH2_TOKEN`
 
-## Tools
-
-### blockchains_route_blockchains_get
-
-### list_registered_contracts_route_contracts_get
-
-### register_contract_route_contracts_post
-
-### get_registered_contract_route_contracts_contract_id_get
-
-### update_contract_route_contracts_contract_id_put
-
-### delete_contract_route_contracts_contract_id_delete
-
-### list_metatx_requesters_route_requesters_get
-
-### list_metatx_requester_holders_route_contracts_contract_id_holder
-
-### add_metatx_requester_holder_route_contracts_contract_id_holders_
-
-### delete_metatx_requester_holder_route_contracts_contract_id_holde
-
-### call_request_types_route_requests_types_get
-
-### call_request_types_route_contracts_types_get
-
-### list_requests_route_requests_get
-
-### create_requests_requests_post
-
-### delete_requests_requests_delete
-
-### check_requests_route_requests_check_get
-
-### get_request_requests_request_id_get
-
-### complete_call_request_route_requests_request_id_complete_post
-
 ## Inspector
 
 Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
@@ -103,3 +66,282 @@ npx -y @modelcontextprotocol/inspector npx -y @open-mcp/metatx
 It should say _MCP Server running on stdio_ in red.
 
 - Click `List Tools`
+
+## Tools
+
+### blockchains_route_blockchains_get
+
+**Environment variables**
+
+
+
+**Input schema**
+
+```ts
+{}
+```
+
+### list_registered_contracts_route_contracts_get
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "blockchain": z.string().optional(),
+  "address": z.string().optional(),
+  "limit": z.number().int().optional(),
+  "offset": z.number().int().optional()
+}
+```
+
+### register_contract_route_contracts_post
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "blockchain": z.string(),
+  "address": z.string(),
+  "title": z.string().optional(),
+  "description": z.string().optional(),
+  "image_uri": z.string().optional()
+}
+```
+
+### get_registered_contract_route_contracts_contract_id_get
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "contract_id": z.string().uuid()
+}
+```
+
+### update_contract_route_contracts_contract_id_put
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "contract_id": z.string().uuid(),
+  "title": z.string().optional(),
+  "description": z.string().optional(),
+  "image_uri": z.string().optional(),
+  "ignore_nulls": z.boolean().optional()
+}
+```
+
+### delete_contract_route_contracts_contract_id_delete
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "contract_id": z.string().uuid()
+}
+```
+
+### list_metatx_requesters_route_requesters_get
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### list_metatx_requester_holders_route_contracts_contract_id_holder
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "contract_id": z.string().uuid(),
+  "extended": z.boolean().optional()
+}
+```
+
+### add_metatx_requester_holder_route_contracts_contract_id_holders_
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "contract_id": z.string().uuid(),
+  "holder_id": z.string().uuid(),
+  "holder_type": z.enum(["user","group"]).describe("An enumeration."),
+  "permissions": z.array(z.enum(["admin","create","read","update","delete"]).describe("An enumeration.")).optional()
+}
+```
+
+### delete_metatx_requester_holder_route_contracts_contract_id_holde
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "contract_id": z.string().uuid(),
+  "holder_id": z.string().uuid(),
+  "holder_type": z.enum(["user","group"]).describe("An enumeration."),
+  "permissions": z.array(z.enum(["admin","create","read","update","delete"]).describe("An enumeration.")).optional()
+}
+```
+
+### call_request_types_route_requests_types_get
+
+**Environment variables**
+
+
+
+**Input schema**
+
+```ts
+{}
+```
+
+### call_request_types_route_contracts_types_get
+
+**Environment variables**
+
+
+
+**Input schema**
+
+```ts
+{}
+```
+
+### list_requests_route_requests_get
+
+**Environment variables**
+
+
+
+**Input schema**
+
+```ts
+{
+  "contract_id": z.string().uuid().optional(),
+  "contract_address": z.string().optional(),
+  "caller": z.string(),
+  "limit": z.number().int().optional(),
+  "offset": z.number().int().optional(),
+  "show_expired": z.boolean().optional(),
+  "live_after": z.number().int().optional(),
+  "authorization": z.string().optional()
+}
+```
+
+### create_requests_requests_post
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "contract_id": z.string().uuid().optional(),
+  "contract_address": z.string().optional(),
+  "specifications": z.array(z.object({ "caller": z.string(), "method": z.string(), "call_request_type": z.string(), "request_id": z.string(), "parameters": z.record(z.any()) })).optional(),
+  "ttl_days": z.number().int().optional(),
+  "live_at": z.number().int().optional()
+}
+```
+
+### delete_requests_requests_delete
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### check_requests_route_requests_check_get
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "contract_id": z.string().uuid().optional(),
+  "contract_address": z.string().optional(),
+  "specifications": z.array(z.object({ "caller": z.string(), "method": z.string(), "call_request_type": z.string(), "request_id": z.string(), "parameters": z.record(z.any()) })).optional(),
+  "ttl_days": z.number().int().optional(),
+  "live_at": z.number().int().optional()
+}
+```
+
+### get_request_requests_request_id_get
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{
+  "request_id": z.string().uuid()
+}
+```
+
+### complete_call_request_route_requests_request_id_complete_post
+
+**Environment variables**
+
+
+
+**Input schema**
+
+```ts
+{
+  "request_id": z.string().uuid(),
+  "tx_hash": z.string(),
+  "authorization": z.string().optional()
+}
+```
