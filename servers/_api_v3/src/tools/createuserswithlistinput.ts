@@ -1,0 +1,18 @@
+import { z } from "zod"
+
+export const toolName = `createuserswithlistinput`
+export const toolDescription = `Creates list of users with given input array.`
+export const baseUrl = `/api/v3`
+export const path = `/user/createWithList`
+export const method = `post`
+export const security = []
+export const keys = {
+  "query": [],
+  "header": [],
+  "path": [],
+  "cookie": [],
+  "body": []
+}
+export const flatMap = {}
+
+export const inputParams = {}
