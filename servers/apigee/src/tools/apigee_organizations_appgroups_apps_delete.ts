@@ -1,0 +1,41 @@
+import { z } from "zod"
+
+export const toolName = `apigee_organizations_appgroups_apps_delete`
+export const toolDescription = `Deletes an AppGroup app. **Note**: The delete operation is asynchronous. The AppGroup app is deleted immediately, but its associated resources, such as app keys or access tokens, may take anywhere from a few seconds to a few minutes to be d`
+export const baseUrl = `https://apigee.googleapis.com`
+export const path = `/v1/organizations/{organizationsId}/appgroups/{appgroupsId}/apps/{appsId}`
+export const method = `delete`
+export const security = [
+  {
+    "key": "Authorization",
+    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+    "in": "header",
+    "envVarName": "OAUTH2_TOKEN",
+    "schemeType": "oauth2"
+  },
+  {
+    "key": "Authorization",
+    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+    "in": "header",
+    "envVarName": "OAUTH2_TOKEN",
+    "schemeType": "oauth2"
+  }
+]
+export const keys = {
+  "query": [],
+  "header": [],
+  "path": [
+    "organizationsId",
+    "appgroupsId",
+    "appsId"
+  ],
+  "cookie": [],
+  "body": []
+}
+export const flatMap = {}
+
+export const inputParams = {
+  "organizationsId": z.string(),
+  "appgroupsId": z.string(),
+  "appsId": z.string()
+}
