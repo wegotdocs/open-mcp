@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "limit": z.number().int().describe("The maximum number of results to return").optional() }).shape
+export const inputParams = {
+  "limit": z.number().int().describe("The maximum number of results to return").optional()
+}

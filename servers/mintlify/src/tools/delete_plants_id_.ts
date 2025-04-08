@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "id": z.number().int().describe("ID of plant to delete") }).shape
+export const inputParams = {
+  "id": z.number().int().describe("ID of plant to delete")
+}
