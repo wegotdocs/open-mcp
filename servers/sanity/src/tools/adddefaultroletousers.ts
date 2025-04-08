@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "resourceId": z.string().describe("The resource ID to scope the access request to. Must be a valid ID for the resource type.") }).shape
+export const inputParams = {
+  "resourceId": z.string().describe("The resource ID to scope the access request to. Must be a valid ID for the resource type.")
+}
