@@ -48,9 +48,34 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 - `API_KEY`
 
+## Inspector
+
+Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
+
+```bash
+npx -y @modelcontextprotocol/inspector npx -y @open-mcp/digitalocean
+```
+
+- Open http://localhost:5173
+- Transport type: `STDIO`
+- Command: `npx`
+- Arguments: `-y @open-mcp/digitalocean`
+- Click `Environment Variables` to add
+- Click `Connect`
+
+It should say _MCP Server running on stdio_ in red.
+
+- Click `List Tools`
+
 ## Tools
 
 ### oneclicks_list
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -59,6 +84,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### oneclicks_install_kubernetes
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -69,20 +100,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### account_get
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### sshkeys_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### sshkeys_create
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -95,6 +144,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### sshkeys_get
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "ssh_key_identifier": z.union([z.number().int().describe("A unique identification number for this key. Can be used to embed a  specific SSH key into a Droplet.").readonly(), z.string().describe("A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account.").readonly()]).describe("Either the ID or the fingerprint of an existing SSH key.")
@@ -102,6 +157,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### sshkeys_update
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -112,6 +173,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### sshkeys_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "ssh_key_identifier": z.union([z.number().int().describe("A unique identification number for this key. Can be used to embed a  specific SSH key into a Droplet.").readonly(), z.string().describe("A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account.").readonly()]).describe("Either the ID or the fingerprint of an existing SSH key.")
@@ -120,14 +187,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### actions_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### actions_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -137,15 +216,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional(),
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
   "with_projects": z.boolean().describe("Whether the project_id of listed apps should be fetched and included.").optional()
 }
 ```
 
 ### apps_create
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -158,6 +249,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The ID of the app")
@@ -165,6 +262,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### apps_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -175,15 +278,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_update
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The ID of the app"),
   "spec": z.object({ "name": z.string().regex(new RegExp("^[a-z][a-z0-9-]{0,30}[a-z0-9]$")).min(2).max(32).describe("The name of the app. Must be unique across all apps in the same account."), "region": z.enum(["ams","nyc","fra","sfo","sgp","blr","tor","lon","syd"]).describe("The slug form of the geographical origin of the app. Default: \`nearest available\`").optional(), "domains": z.array(z.object({ "domain": z.string().regex(new RegExp("^((xn--)?[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\\.)+[a-zA-Z]{2,}\\.?$")).min(4).max(253).describe("The hostname for the domain"), "type": z.enum(["UNSPECIFIED","DEFAULT","PRIMARY","ALIAS"]).describe("- DEFAULT: The default \`.ondigitalocean.app\` domain assigned to this app\n- PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.\n- ALIAS: A non-primary domain"), "wildcard": z.boolean().describe("Indicates whether the domain includes all sub-domains, in addition to the given domain").optional(), "zone": z.string().describe("Optional. If the domain uses DigitalOcean DNS and you would like App\nPlatform to automatically manage it for you, set this to the name of the\ndomain on your account.\n\nFor example, If the domain you are adding is \`app.domain.com\`, the zone\ncould be \`domain.com\`.").optional(), "minimum_tls_version": z.enum(["1.2","1.3"]).describe("The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: \`\"1.2\"\` or \`\"1.3\"\`.").optional() })).describe("A set of hostnames where the application will be available.").optional(), "services": z.array(z.string()).describe("Workloads which expose publicly-accessible HTTP services.").optional(), "static_sites": z.array(z.string()).describe("Content which can be rendered to static web assets.").optional(), "jobs": z.array(z.string()).describe("Pre and post deployment workloads which do not expose publicly-accessible HTTP routes.").optional(), "workers": z.array(z.string()).describe("Workloads which do not expose publicly-accessible HTTP services.").optional(), "functions": z.array(z.object({ "cors": z.string().optional(), "name": z.string().regex(new RegExp("^[a-z][a-z0-9-]{0,30}[a-z0-9]$")).min(2).max(32).describe("The name. Must be unique across all components within the same app."), "source_dir": z.string().describe("An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.").optional(), "alerts": z.array(z.object({ "rule": z.enum(["UNSPECIFIED_RULE","CPU_UTILIZATION","MEM_UTILIZATION","RESTART_COUNT","DEPLOYMENT_FAILED","DEPLOYMENT_LIVE","DOMAIN_FAILED","DOMAIN_LIVE","FUNCTIONS_ACTIVATION_COUNT","FUNCTIONS_AVERAGE_DURATION_MS","FUNCTIONS_ERROR_RATE_PER_MINUTE","FUNCTIONS_AVERAGE_WAIT_TIME_MS","FUNCTIONS_ERROR_COUNT","FUNCTIONS_GB_RATE_PER_SECOND"]), "disabled": z.boolean().describe("Is the alert disabled?").optional(), "operator": z.enum(["UNSPECIFIED_OPERATOR","GREATER_THAN","LESS_THAN"]), "value": z.number().describe("Threshold value for alert").optional(), "window": z.enum(["UNSPECIFIED_WINDOW","FIVE_MINUTES","TEN_MINUTES","THIRTY_MINUTES","ONE_HOUR"]) })).optional(), "envs": z.array(z.object({ "key": z.string().regex(new RegExp("^[_A-Za-z][_A-Za-z0-9]*$")).describe("The variable name"), "scope": z.enum(["UNSET","RUN_TIME","BUILD_TIME","RUN_AND_BUILD_TIME"]).describe("- RUN_TIME: Made available only at run-time\n- BUILD_TIME: Made available only at build-time\n- RUN_AND_BUILD_TIME: Made available at both build and run-time"), "type": z.enum(["GENERAL","SECRET"]).describe("- GENERAL: A plain-text environment variable\n- SECRET: A secret encrypted environment variable"), "value": z.string().describe("The value. If the type is \`SECRET\`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.").optional() })).describe("A list of environment variables made available to the component.").optional(), "git": z.object({ "branch": z.string().describe("The name of the branch to use").optional(), "repo_clone_url": z.string().describe("The clone URL of the repo. Example: \`https://github.com/digitalocean/sample-golang.git\`").optional() }).optional(), "github": z.object({ "branch": z.string().describe("The name of the branch to use").optional(), "deploy_on_push": z.boolean().describe("Whether to automatically deploy new commits made to the repo").optional(), "repo": z.string().describe("The name of the repo in the format owner/repo. Example: \`digitalocean/sample-golang\`").optional() }).optional(), "gitlab": z.object({ "branch": z.string().describe("The name of the branch to use").optional(), "deploy_on_push": z.boolean().describe("Whether to automatically deploy new commits made to the repo").optional(), "repo": z.string().describe("The name of the repo in the format owner/repo. Example: \`digitalocean/sample-golang\`").optional() }).optional(), "bitbucket": z.object({ "branch": z.string().describe("The name of the branch to use").optional(), "deploy_on_push": z.boolean().describe("Whether to automatically deploy new commits made to the repo").optional(), "repo": z.string().describe("The name of the repo in the format owner/repo. Example: \`digitalocean/sample-golang\`").optional() }).optional(), "log_destinations": z.array(z.object({ "name": z.string().regex(new RegExp("^[A-Za-z0-9()\\[\\]'\"][-A-Za-z0-9_. \\/()\\[\\]]{0,40}[A-Za-z0-9()\\[\\]'\"]$")).min(2).max(42), "papertrail": z.object({ "endpoint": z.string().describe("Papertrail syslog endpoint.") }).describe("Papertrail configuration.").optional(), "datadog": z.object({ "endpoint": z.string().describe("Datadog HTTP log intake endpoint.").optional(), "api_key": z.string().describe("Datadog API key.") }).describe("DataDog configuration.").optional(), "logtail": z.object({ "token": z.string().describe("Logtail token.").optional() }).describe("Logtail configuration.").optional(), "open_search": z.object({ "endpoint": z.string().describe("OpenSearch API Endpoint. Only HTTPS is supported. Format: https://<host>:<port>.\nCannot be specified if \`cluster_name\` is also specified.").optional(), "basic_auth": z.object({ "user": z.string().describe("Username to authenticate with. Only required when \`endpoint\` is set.\nDefaults to \`doadmin\` when \`cluster_name\` is set.").optional(), "password": z.any().describe("Password for user defined in User. Is required when \`endpoint\` is set.\nCannot be set if using a DigitalOcean DBaaS OpenSearch cluster.").optional() }).describe("Configure Username and/or Password for Basic authentication.").optional(), "index_name": z.string().describe("The index name to use for the logs. If not set, the default index name is \"logs\"."), "cluster_name": z.string().describe("The name of a DigitalOcean DBaaS OpenSearch cluster to use as a log forwarding destination.\nCannot be specified if \`endpoint\` is also specified.").optional() }).describe("OpenSearch configuration.").optional() })).describe("A list of configured log forwarding destinations.").optional() })).describe("Workloads which expose publicly-accessible HTTP services via Functions Components.").optional(), "databases": z.array(z.object({ "cluster_name": z.string().describe("The name of the underlying DigitalOcean DBaaS cluster. This is required for production databases. For dev databases, if cluster_name is not set, a new cluster will be provisioned.").optional(), "db_name": z.string().describe("The name of the MySQL or PostgreSQL database to configure.").optional(), "db_user": z.string().describe("The name of the MySQL or PostgreSQL user to configure.").optional(), "engine": z.enum(["UNSET","MYSQL","PG","REDIS","MONGODB","KAFKA","OPENSEARCH"]).describe("- MYSQL: MySQL\n- PG: PostgreSQL\n- REDIS: Redis\n- MONGODB: MongoDB\n- KAFKA: Kafka\n- OPENSEARCH: OpenSearch"), "name": z.string().regex(new RegExp("^[a-z][a-z0-9-]{0,30}[a-z0-9]$")).min(2).max(32).describe("The database's name. The name must be unique across all components within the same app and cannot use capital letters."), "production": z.boolean().describe("Whether this is a production or dev database.").optional(), "version": z.string().describe("The version of the database engine").optional() })).describe("Database instances which can provide persistence to workloads within the\napplication.").optional(), "ingress": z.object({ "rules": z.array(z.object({ "match": z.object({ "path": z.object({ "prefix": z.string().max(256).describe("Prefix-based match. For example, \`/api\` will match \`/api\`, \`/api/\`, and any nested paths such as \`/api/v1/endpoint\`.") }).describe("The path to match on.") }).describe("The match configuration for the rule.").optional(), "cors": z.object({ "allow_origins": z.array(z.object({ "exact": z.string().min(1).max(256).describe("Exact string match. Only 1 of \`exact\`, \`prefix\`, or \`regex\` must be set.").optional(), "regex": z.string().min(1).max(256).describe("RE2 style regex-based match. Only 1 of \`exact\`, \`prefix\`, or \`regex\` must be set. For more information about RE2 syntax, see: https://github.com/google/re2/wiki/Syntax").optional() })).describe("The set of allowed CORS origins.").optional(), "allow_methods": z.array(z.string()).describe("The set of allowed HTTP methods. This configures the \`Access-Control-Allow-Methods\` header.").optional(), "allow_headers": z.array(z.string()).describe("The set of allowed HTTP request headers. This configures the \`Access-Control-Allow-Headers\` header.").optional(), "expose_headers": z.array(z.string()).describe("The set of HTTP response headers that browsers are allowed to access. This configures the \`Access-Control-Expose-Headers\` header.").optional(), "max_age": z.string().describe("An optional duration specifying how long browsers can cache the results of a preflight request. This configures the \`Access-Control-Max-Age\` header.").optional(), "allow_credentials": z.boolean().describe("Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is include. This configures the \`Access-Control-Allow-Credentials\` header.").optional() }).optional(), "component": z.object({ "name": z.string().describe("The name of the component to route to."), "preserve_path_prefix": z.string().describe("An optional flag to preserve the path that is forwarded to the backend service. By default, the HTTP request path will be trimmed from the left when forwarded to the component. For example, a component with \`path=/api\` will have requests to \`/api/list\` trimmed to \`/list\`. If this value is \`true\`, the path will remain \`/api/list\`. Note: this is not applicable for Functions Components and is mutually exclusive with \`rewrite\`.").optional(), "rewrite": z.string().describe("An optional field that will rewrite the path of the component to be what is specified here. By default, the HTTP request path will be trimmed from the left when forwarded to the component. For example, a component with \`path=/api\` will have requests to \`/api/list\` trimmed to \`/list\`. If you specified the rewrite to be \`/v1/\`, requests to \`/api/list\` would be rewritten to \`/v1/list\`. Note: this is mutually exclusive with \`preserve_path_prefix\`.").optional() }).describe("The component to route to. Only one of \`component\` or \`redirect\` may be set.").optional(), "redirect": z.object({ "uri": z.string().describe("An optional URI path to redirect to. Note: if this is specified the whole URI of the original request will be overwritten to this value, irrespective of the original request URI being matched.").optional(), "authority": z.string().describe("The authority/host to redirect to. This can be a hostname or IP address. Note: use \`port\` to set the port.").optional(), "port": z.number().int().describe("The port to redirect to.").optional(), "scheme": z.string().describe("The scheme to redirect to. Supported values are \`http\` or \`https\`. Default: \`https\`.").optional(), "redirect_code": z.number().int().describe("The redirect code to use. Defaults to \`302\`. Supported values are 300, 301, 302, 303, 304, 307, 308.").optional() }).describe("The redirect configuration for the rule. Only one of \`component\` or \`redirect\` may be set.").optional() })).describe("Rules for configuring HTTP ingress for component routes, CORS, rewrites, and redirects.").optional() }).describe("Specification for app ingress configurations.").optional(), "egress": z.object({ "type": z.enum(["AUTOASSIGN","DEDICATED_IP"]) }).describe("Specification for app egress configurations.").optional(), "maintenance": z.object({ "enabled": z.boolean().describe("Indicates whether maintenance mode should be enabled for the app.").optional(), "archive": z.boolean().describe("Indicates whether the app should be archived. Setting this to true implies that enabled is set to true.").optional(), "offline_page_url": z.string().describe("A custom offline page to display when maintenance mode is enabled or the app is archived.").optional() }).describe("Specification to configure maintenance settings for the app, such as maintenance mode and archiving the app.").optional() }).describe("The desired configuration of an application."),
-  "update_all_source_versions": z.boolean().describe("Whether or not to update the source versions (for example fetching a new commit or image digest) of all components. By default (when this is false) only newly added sources will be updated to avoid changes like updating the scale of a component from also updating the respective code.")
+  "update_all_source_versions": z.boolean().describe("Whether or not to update the source versions (for example fetching a new commit or image digest) of all components. By default (when this is false) only newly added sources will be updated to avoid changes like updating the scale of a component from also updating the respective code.").optional()
 }
 ```
 
 ### apps_restart
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -193,6 +308,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### apps_get_logs_active_deployment
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -206,6 +327,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_get_exec_active_deployment
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID"),
@@ -215,15 +342,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_list_deployments
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page")
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional(),
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional()
 }
 ```
 
 ### apps_create_deployment
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -234,6 +373,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_get_deployment
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID"),
@@ -243,6 +388,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_cancel_deployment
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID"),
@@ -251,6 +402,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### apps_get_logs
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -265,6 +422,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_get_logs_aggregate
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID"),
@@ -277,6 +440,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_get_exec
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID"),
@@ -286,6 +455,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### apps_get_logs_active_deployment_aggregate
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -298,11 +473,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_list_instancesizes
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### apps_get_instancesize
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -312,11 +499,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_list_regions
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### apps_validate_appspec
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -327,6 +526,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_list_alerts
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID")
@@ -334,6 +539,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### apps_assign_alertdestinations
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -346,6 +557,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_create_rollback
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID"),
@@ -355,6 +572,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### apps_validate_rollback
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -366,6 +589,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_commit_rollback
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID")
@@ -374,6 +603,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_revert_rollback
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app ID")
@@ -381,6 +616,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### apps_get_metrics_bandwidth_daily
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -391,6 +632,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### apps_list_metrics_bandwidth_daily
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_ids": z.array(z.string()).max(100).describe("A list of app IDs to query bandwidth metrics for."),
@@ -400,21 +647,33 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### cdn_list_endpoints
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### cdn_create_endpoint
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
   "id": z.string().uuid().describe("A unique ID that can be used to identify and reference a CDN endpoint.").readonly().optional(),
   "origin": z.string().describe("The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space."),
   "endpoint": z.string().describe("The fully qualified domain name (FQDN) from which the CDN-backed content is served.").readonly().optional(),
-  "ttl": z.union([z.literal(60), z.literal(600), z.literal(3600), z.literal(86400), z.literal(604800)]).describe("The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded."),
+  "ttl": z.union([z.literal(60), z.literal(600), z.literal(3600), z.literal(86400), z.literal(604800)]).describe("The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.").optional(),
   "certificate_id": z.string().uuid().describe("The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.").optional(),
   "custom_domain": z.string().describe("The fully qualified domain name (FQDN) of the custom subdomain used with the CDN endpoint.").optional(),
   "created_at": z.string().datetime({ offset: true }).describe("A time value given in ISO8601 combined date and time format that represents when the CDN endpoint was created.").readonly().optional()
@@ -422,6 +681,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### cdn_get_endpoint
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -431,16 +696,28 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### cdn_update_endpoints
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cdn_id": z.string().uuid().describe("A unique identifier for a CDN endpoint."),
-  "ttl": z.union([z.literal(60), z.literal(600), z.literal(3600), z.literal(86400), z.literal(604800)]).describe("The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded."),
+  "ttl": z.union([z.literal(60), z.literal(600), z.literal(3600), z.literal(86400), z.literal(604800)]).describe("The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.").optional(),
   "certificate_id": z.string().uuid().describe("The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.").optional(),
   "custom_domain": z.string().describe("The fully qualified domain name (FQDN) of the custom subdomain used with the CDN endpoint.").optional()
 }
 ```
 
 ### cdn_delete_endpoint
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -449,6 +726,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### cdn_purge_cache
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -459,21 +742,39 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### certificates_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return."),
-  "name": z.string().describe("Name of expected certificate")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional(),
+  "name": z.string().describe("Name of expected certificate").optional()
 }
 ```
 
 ### certificates_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### certificates_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -483,6 +784,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### certificates_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "certificate_id": z.string().uuid().describe("A unique identifier for a certificate.")
@@ -491,36 +798,66 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### balance_get
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### billinghistory_list
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### invoices_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### invoices_get_byuuid
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "invoice_uuid": z.string().describe("UUID of the invoice"),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### invoices_get_csvbyuuid
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -530,6 +867,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### invoices_get_pdfbyuuid
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "invoice_uuid": z.string().describe("UUID of the invoice")
@@ -537,6 +880,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### invoices_get_summarybyuuid
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -546,11 +895,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_list_options
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### databases_list_clusters
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -560,11 +921,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_create_cluster
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### databases_get_cluster
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -574,6 +947,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_destroy_cluster
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -582,6 +961,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_get_config
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -589,6 +974,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_patch_config
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -601,6 +992,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_get_ca
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -608,6 +1005,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_get_migrationstatus
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -617,16 +1020,28 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_update_onlinemigration
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
   "source": z.object({ "host": z.string().describe("The FQDN pointing to the database cluster's current primary node.").optional(), "port": z.number().int().describe("The port on which the database cluster is listening.").optional(), "dbname": z.string().describe("The name of the default database.").optional(), "username": z.string().describe("The default user for the database.").optional(), "password": z.string().describe("The randomly generated password for the default user.").optional() }),
   "disable_ssl": z.boolean().describe("Enables SSL encryption when connecting to the source database.").optional(),
-  "ignore_dbs": z.array(z.string()).describe("List of databases that should be ignored during migration.")
+  "ignore_dbs": z.array(z.string()).describe("List of databases that should be ignored during migration.").optional()
 }
 ```
 
 ### databases_delete_onlinemigration
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -637,6 +1052,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_update_region
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -645,6 +1066,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_update_clustersize
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -657,6 +1084,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_list_firewall_rules
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -664,6 +1097,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_update_firewall_rules
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -673,6 +1112,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_update_maintenancewindow
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -686,6 +1131,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_install_update
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -693,6 +1144,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_list_backups
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -702,6 +1159,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_list_replicas
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -709,6 +1172,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_create_replica
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -718,6 +1187,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_list_events_logs
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -725,6 +1200,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_get_replica
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -735,6 +1216,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_destroy_replica
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -743,6 +1230,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_promote_replica
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -753,6 +1246,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_list_users
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -761,6 +1260,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_add_user
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -768,6 +1273,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_get_user
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -778,6 +1289,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_delete_user
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -787,6 +1304,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_update_user
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -795,6 +1318,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_reset_auth
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -806,6 +1335,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -813,6 +1348,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_add
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -823,6 +1364,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_get
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -831,6 +1378,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_delete
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -841,6 +1394,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_list_connectionpools
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -848,6 +1407,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_add_connectionpool
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -866,6 +1431,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_get_connectionpool
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -874,6 +1445,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_update_connectionpool
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -888,6 +1465,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_delete_connectionpool
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -897,6 +1480,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_get_evictionpolicy
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -904,6 +1493,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_update_evictionpolicy
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -914,6 +1509,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_get_sql_mode
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -921,6 +1522,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_update_sql_mode
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -931,6 +1538,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_update_major_version
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -940,6 +1553,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_list_kafka_topics
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -948,6 +1567,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_create_kafka_topic
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -955,6 +1580,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_get_kafka_topic
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -965,6 +1596,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_update_kafka_topic
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -973,6 +1610,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_delete_kafka_topic
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -983,6 +1626,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_list_logsink
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster.")
@@ -990,6 +1639,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_create_logsink
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -999,6 +1654,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_get_logsink
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -1007,6 +1668,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_update_logsink
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1018,6 +1685,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_delete_logsink
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
@@ -1027,17 +1700,35 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### databases_get_cluster_metrics_credentials
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### databases_update_cluster_metrics_credentials
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### databases_list_opeasearch_indexes
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1046,6 +1737,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### databases_delete_opensearch_index
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1056,14 +1753,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### domains_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### domains_create
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1076,6 +1785,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### domains_get
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "domain_name": z.string().describe("The name of the domain itself.")
@@ -1083,6 +1798,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### domains_delete
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1092,17 +1813,29 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### domains_list_records
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "domain_name": z.string().describe("The name of the domain itself."),
   "name": z.string().describe("A fully qualified record name. For example, to only include records matching sub.example.com, send a GET request to \`/v2/domains/$DOMAIN_NAME/records?name=sub.example.com\`.").optional(),
   "type": z.enum(["A","AAAA","CAA","CNAME","MX","NS","SOA","SRV","TXT"]).describe("The type of the DNS record. For example: A, CNAME, TXT, ...").optional(),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### domains_create_record
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1112,6 +1845,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### domains_get_record
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "domain_name": z.string().describe("The name of the domain itself."),
@@ -1120,6 +1859,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### domains_patch_record
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1140,6 +1885,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### domains_update_record
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "domain_name": z.string().describe("The name of the domain itself."),
@@ -1159,6 +1910,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### domains_delete_record
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "domain_name": z.string().describe("The name of the domain itself."),
@@ -1168,10 +1925,16 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### droplets_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return."),
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional(),
   "tag_name": z.string().describe("Used to filter Droplets by a specific tag. Can not be combined with \`name\` or \`type\`.").optional(),
   "name": z.string().describe("Used to filter list response by Droplet name returning only exact matches. It is case-insensitive and can not be combined with \`tag_name\`.").optional(),
   "type": z.enum(["droplets","gpus"]).describe("When \`type\` is set to \`gpus\`, only GPU Droplets will be returned. By default, only non-GPU Droplets are returned. Can not be combined with \`tag_name\`.").optional()
@@ -1180,11 +1943,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### droplets_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### droplets_destroy_bytag
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1194,6 +1969,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### droplets_get
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance.")
@@ -1201,6 +1982,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### droplets_destroy
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1210,15 +1997,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### droplets_list_backups
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### droplets_get_backup_policy
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1228,40 +2027,70 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### droplets_list_backup_policies
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### droplets_list_supported_backup_policies
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### droplets_list_snapshots
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### dropletactions_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### dropletactions_post
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1271,6 +2100,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### dropletactions_post_bytag
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "tag_name": z.string().describe("Used to filter Droplets by a specific tag. Can not be combined with \`name\` or \`type\`.").optional()
@@ -1278,6 +2113,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### dropletactions_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1288,25 +2129,43 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### droplets_list_kernels
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### droplets_list_firewalls
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### droplets_list_neighbors
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1316,6 +2175,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### droplets_list_associatedresources
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance.")
@@ -1323,6 +2188,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### droplets_destroy_withassociatedresourcesselective
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1336,6 +2207,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### droplets_destroy_withassociatedresourcesdangerous
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance."),
@@ -1345,6 +2222,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### droplets_get_destroyassociatedresourcesstatus
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "droplet_id": z.number().int().gte(1).describe("A unique identifier for a Droplet instance.")
@@ -1352,6 +2235,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### droplets_destroy_retrywithassociatedresources
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1361,15 +2250,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### autoscalepools_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return."),
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional(),
   "name": z.string().describe("The name of the autoscale pool").optional()
 }
 ```
 
 ### autoscalepools_create
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1381,6 +2282,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### autoscalepools_get
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "autoscale_pool_id": z.string().describe("A unique identifier for an autoscale pool.")
@@ -1388,6 +2295,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### autoscalepools_update
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1400,6 +2313,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### autoscalepools_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "autoscale_pool_id": z.string().describe("A unique identifier for an autoscale pool.")
@@ -1407,6 +2326,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### autoscalepools_delete_dangerous
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1417,40 +2342,70 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### autoscalepools_list_members
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "autoscale_pool_id": z.string().describe("A unique identifier for an autoscale pool."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### autoscalepools_list_history
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "autoscale_pool_id": z.string().describe("A unique identifier for an autoscale pool."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### firewalls_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### firewalls_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### firewalls_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1460,6 +2415,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### firewalls_update
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "firewall_id": z.string().uuid().describe("A unique ID that can be used to identify and reference a firewall.")
@@ -1468,6 +2429,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### firewalls_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "firewall_id": z.string().uuid().describe("A unique ID that can be used to identify and reference a firewall.")
@@ -1475,6 +2442,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### firewalls_assign_droplets
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1485,6 +2458,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### firewalls_delete_droplets
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "firewall_id": z.string().uuid().describe("A unique ID that can be used to identify and reference a firewall."),
@@ -1493,6 +2472,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### firewalls_add_tags
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1503,6 +2488,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### firewalls_delete_tags
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "firewall_id": z.string().uuid().describe("A unique ID that can be used to identify and reference a firewall."),
@@ -1512,6 +2503,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### firewalls_add_rules
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "firewall_id": z.string().uuid().describe("A unique ID that can be used to identify and reference a firewall.")
@@ -1519,6 +2516,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### firewalls_delete_rules
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1528,20 +2531,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### floatingips_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### floatingips_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### floatingips_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1551,6 +2572,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### floatingips_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "floating_ip": z.string().ip({ version: "v4" }).describe("A floating IP address.")
@@ -1558,6 +2585,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### floatingipsaction_list
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1567,6 +2600,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### floatingipsaction_post
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "floating_ip": z.string().ip({ version: "v4" }).describe("A floating IP address.")
@@ -1574,6 +2613,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### floatingipsaction_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1584,11 +2629,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### functions_list_namespaces
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### functions_create_namespace
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1599,6 +2656,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### functions_get_namespace
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "namespace_id": z.string().describe("The ID of the namespace to be managed.")
@@ -1606,6 +2669,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### functions_delete_namespace
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1615,6 +2684,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### functions_list_triggers
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "namespace_id": z.string().describe("The ID of the namespace to be managed.")
@@ -1622,6 +2697,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### functions_create_trigger
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1636,6 +2717,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### functions_get_trigger
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "namespace_id": z.string().describe("The ID of the namespace to be managed."),
@@ -1644,6 +2731,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### functions_update_trigger
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1656,6 +2749,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### functions_delete_trigger
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "namespace_id": z.string().describe("The ID of the namespace to be managed."),
@@ -1665,23 +2764,41 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### images_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "type": z.enum(["application","distribution"]).describe("Filters results based on image type which can be either \`application\` or \`distribution\`.").optional(),
   "private": z.boolean().describe("Used to filter only user images.").optional(),
   "tag_name": z.string().describe("Used to filter images by a specific tag.").optional(),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### images_create_custom
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### images_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1690,6 +2807,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### images_update
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1702,6 +2825,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### images_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "image_id": z.number().int().describe("A unique number that can be used to identify and reference a specific image.")
@@ -1709,6 +2838,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### imageactions_list
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1718,6 +2853,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### imageactions_post
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "image_id": z.number().int().describe("A unique number that can be used to identify and reference a specific image.")
@@ -1725,6 +2866,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### imageactions_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1735,14 +2882,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_list_clusters
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### kubernetes_create_cluster
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1758,12 +2917,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
   "tags": z.array(z.string()).describe("An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged \`k8s\` and \`k8s:$K8S_CLUSTER_ID\`.").optional(),
   "node_pools": z.array(z.string()).describe("An object specifying the details of the worker nodes available to the Kubernetes cluster."),
   "maintenance_policy": z.object({ "start_time": z.string().describe("The start time in UTC of the maintenance window policy in 24-hour clock format / HH:MM notation (e.g., \`15:00\`).").optional(), "duration": z.string().describe("The duration of the maintenance window policy in human-readable format.").readonly().optional(), "day": z.enum(["any","monday","tuesday","wednesday","thursday","friday","saturday","sunday"]).describe("The day of the maintenance window policy. May be one of \`monday\` through \`sunday\`, or \`any\` to indicate an arbitrary week day.").optional() }).nullable().describe("An object specifying the maintenance window policy for the Kubernetes cluster.").optional(),
-  "auto_upgrade": z.boolean().describe("A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window."),
+  "auto_upgrade": z.boolean().describe("A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.").optional(),
   "status": z.object({ "state": z.enum(["running","provisioning","degraded","error","deleted","upgrading","deleting"]).describe("A string indicating the current status of the cluster.").optional(), "message": z.string().describe("An optional message providing additional information about the current cluster state.").optional() }).describe("An object containing a \`state\` attribute whose value is set to a string indicating the current status of the cluster.").readonly().optional(),
   "created_at": z.string().datetime({ offset: true }).describe("A time value given in ISO8601 combined date and time format that represents when the Kubernetes cluster was created.").readonly().optional(),
   "updated_at": z.string().datetime({ offset: true }).describe("A time value given in ISO8601 combined date and time format that represents when the Kubernetes cluster was last updated.").readonly().optional(),
-  "surge_upgrade": z.boolean().describe("A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes."),
-  "ha": z.boolean().describe("A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled."),
+  "surge_upgrade": z.boolean().describe("A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes.").optional(),
+  "ha": z.boolean().describe("A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled.").optional(),
   "registry_enabled": z.boolean().describe("A read-only boolean value indicating if a container registry is integrated with the cluster.").readonly().optional(),
   "control_plane_firewall": z.object({ "enabled": z.boolean().describe("Indicates whether the control plane firewall is enabled.").optional(), "allowed_addresses": z.array(z.string()).describe("An array of public addresses (IPv4 or CIDR) allowed to access the control plane.").optional() }).nullable().describe("An object specifying the control plane firewall for the Kubernetes cluster. Control plane firewall is in early availability (invite only).").optional(),
   "cluster_autoscaler_configuration": z.object({ "scale_down_utilization_threshold": z.number().describe("Used to customize when cluster autoscaler scales down non-empty nodes by setting the node utilization threshold.").optional(), "scale_down_unneeded_time": z.string().describe("Used to customize how long a node is unneeded before being scaled down.").optional() }).nullable().describe("An object specifying custom cluster autoscaler configuration.").optional(),
@@ -1773,6 +2932,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_get_cluster
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster.")
@@ -1781,15 +2946,21 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_update_cluster
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster."),
   "name": z.string().describe("A human-readable name for a Kubernetes cluster."),
   "tags": z.array(z.string()).describe("An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged \`k8s\` and \`k8s:$K8S_CLUSTER_ID\`.").optional(),
   "maintenance_policy": z.object({ "start_time": z.string().describe("The start time in UTC of the maintenance window policy in 24-hour clock format / HH:MM notation (e.g., \`15:00\`).").optional(), "duration": z.string().describe("The duration of the maintenance window policy in human-readable format.").readonly().optional(), "day": z.enum(["any","monday","tuesday","wednesday","thursday","friday","saturday","sunday"]).describe("The day of the maintenance window policy. May be one of \`monday\` through \`sunday\`, or \`any\` to indicate an arbitrary week day.").optional() }).nullable().describe("An object specifying the maintenance window policy for the Kubernetes cluster.").optional(),
-  "auto_upgrade": z.boolean().describe("A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window."),
-  "surge_upgrade": z.boolean().describe("A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes."),
-  "ha": z.boolean().describe("A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled."),
+  "auto_upgrade": z.boolean().describe("A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.").optional(),
+  "surge_upgrade": z.boolean().describe("A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes.").optional(),
+  "ha": z.boolean().describe("A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled.").optional(),
   "control_plane_firewall": z.object({ "enabled": z.boolean().describe("Indicates whether the control plane firewall is enabled.").optional(), "allowed_addresses": z.array(z.string()).describe("An array of public addresses (IPv4 or CIDR) allowed to access the control plane.").optional() }).nullable().describe("An object specifying the control plane firewall for the Kubernetes cluster. Control plane firewall is in early availability (invite only).").optional(),
   "cluster_autoscaler_configuration": z.object({ "scale_down_utilization_threshold": z.number().describe("Used to customize when cluster autoscaler scales down non-empty nodes by setting the node utilization threshold.").optional(), "scale_down_unneeded_time": z.string().describe("Used to customize how long a node is unneeded before being scaled down.").optional() }).nullable().describe("An object specifying custom cluster autoscaler configuration.").optional(),
   "routing_agent": z.object({ "enabled": z.boolean().describe("Indicates whether the routing-agent component is enabled.").optional() }).nullable().describe("An object specifying whether the routing-agent component should be enabled for the Kubernetes cluster.").optional()
@@ -1797,6 +2968,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### kubernetes_delete_cluster
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1806,6 +2983,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_list_associatedresources
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster.")
@@ -1813,6 +2996,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### kubernetes_destroy_associatedresourcesselective
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1825,6 +3014,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_destroy_associatedresourcesdangerous
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster.")
@@ -1833,23 +3028,41 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_get_kubeconfig
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster."),
-  "expiry_seconds": z.number().int().gte(0).describe("The duration in seconds that the returned Kubernetes credentials will be valid. If not set or 0, the credentials will have a 7 day expiry.")
+  "expiry_seconds": z.number().int().gte(0).describe("The duration in seconds that the returned Kubernetes credentials will be valid. If not set or 0, the credentials will have a 7 day expiry.").optional()
 }
 ```
 
 ### kubernetes_get_credentials
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster."),
-  "expiry_seconds": z.number().int().gte(0).describe("The duration in seconds that the returned Kubernetes credentials will be valid. If not set or 0, the credentials will have a 7 day expiry.")
+  "expiry_seconds": z.number().int().gte(0).describe("The duration in seconds that the returned Kubernetes credentials will be valid. If not set or 0, the credentials will have a 7 day expiry.").optional()
 }
 ```
 
 ### kubernetes_get_availableupgrades
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1858,6 +3071,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### kubernetes_upgrade_cluster
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1868,6 +3087,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_list_nodepools
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster.")
@@ -1876,6 +3101,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_add_nodepool
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster.")
@@ -1883,6 +3114,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### kubernetes_get_nodepool
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1893,6 +3130,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_update_nodepool
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster."),
@@ -1901,6 +3144,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### kubernetes_delete_nodepool
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1911,17 +3160,29 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_delete_node
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster."),
   "node_pool_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes node pool."),
   "node_id": z.string().uuid().describe("A unique ID that can be used to reference a node in a Kubernetes node pool."),
-  "skip_drain": z.number().int().gte(0).lte(1).describe("Specifies whether or not to drain workloads from a node before it is deleted. Setting it to \`1\` causes node draining to be skipped. Omitting the query parameter or setting its value to \`0\` carries out draining prior to deletion."),
-  "replace": z.number().int().gte(0).lte(1).describe("Specifies whether or not to replace a node after it has been deleted. Setting it to \`1\` causes the node to be replaced by a new one after deletion. Omitting the query parameter or setting its value to \`0\` deletes without replacement.")
+  "skip_drain": z.number().int().gte(0).lte(1).describe("Specifies whether or not to drain workloads from a node before it is deleted. Setting it to \`1\` causes node draining to be skipped. Omitting the query parameter or setting its value to \`0\` carries out draining prior to deletion.").optional(),
+  "replace": z.number().int().gte(0).lte(1).describe("Specifies whether or not to replace a node after it has been deleted. Setting it to \`1\` causes the node to be replaced by a new one after deletion. Omitting the query parameter or setting its value to \`0\` deletes without replacement.").optional()
 }
 ```
 
 ### kubernetes_recycle_node_pool
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1933,6 +3194,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_get_clusteruser
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster.")
@@ -1941,11 +3208,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_list_options
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### kubernetes_run_clusterlint
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1959,6 +3238,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_get_clusterlintresults
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster."),
@@ -1968,6 +3253,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### kubernetes_add_registry
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "cluster_uuids": z.array(z.string()).describe("An array containing the UUIDs of Kubernetes clusters.").optional()
@@ -1975,6 +3266,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### kubernetes_remove_registry
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1984,20 +3281,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### loadbalancers_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### loadbalancers_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### loadbalancers_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2007,6 +3322,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### loadbalancers_update
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer.")
@@ -2014,6 +3335,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### loadbalancers_delete
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2023,6 +3350,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### loadbalancers_delete_cache
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer.")
@@ -2030,6 +3363,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### loadbalancers_add_droplets
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2040,6 +3379,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### loadbalancers_remove_droplets
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2048,6 +3393,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### loadbalancers_add_forwardingrules
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2058,6 +3409,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### loadbalancers_remove_forwardingrules
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2067,14 +3424,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_list_alertpolicy
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### monitoring_create_alertpolicy
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2092,6 +3461,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_alertpolicy
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "alert_uuid": z.string().describe("A unique identifier for an alert policy.")
@@ -2099,6 +3474,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_update_alertpolicy
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2117,6 +3498,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_delete_alertpolicy
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "alert_uuid": z.string().describe("A unique identifier for an alert policy.")
@@ -2124,6 +3511,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_dropletbandwidthmetrics
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2137,6 +3530,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_dropletcpumetrics
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "host_id": z.string().describe("The droplet ID."),
@@ -2146,6 +3545,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_dropletfilesystemfreemetrics
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2157,6 +3562,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_dropletfilesystemsizemetrics
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "host_id": z.string().describe("The droplet ID."),
@@ -2166,6 +3577,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_dropletload1metrics
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2177,6 +3594,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_dropletload5metrics
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "host_id": z.string().describe("The droplet ID."),
@@ -2186,6 +3609,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_dropletload15metrics
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2197,6 +3626,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_dropletmemorycachedmetrics
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "host_id": z.string().describe("The droplet ID."),
@@ -2206,6 +3641,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_dropletmemoryfreemetrics
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2217,6 +3658,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_dropletmemorytotalmetrics
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "host_id": z.string().describe("The droplet ID."),
@@ -2227,6 +3674,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_dropletmemoryavailablemetrics
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "host_id": z.string().describe("The droplet ID."),
@@ -2236,6 +3689,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_appmemorypercentagemetrics
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2248,6 +3707,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_appcpupercentagemetrics
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "app_id": z.string().describe("The app UUID."),
@@ -2258,6 +3723,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_apprestartcountmetrics_yml
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2270,6 +3741,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_frontend_connections_current
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2279,6 +3756,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_frontend_connections_limit
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2290,6 +3773,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_frontend_cpu_utilization
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2299,6 +3788,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_frontend_firewall_dropped_bytes
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2310,6 +3805,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_frontend_firewall_dropped_packets
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2319,6 +3820,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_frontend_http_responses
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2330,6 +3837,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_frontend_http_requests_per_second
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2339,6 +3852,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_frontend_network_throughput_http
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2350,6 +3869,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_frontend_network_throughput_udp
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2359,6 +3884,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_frontend_network_throughput_tcp
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2370,6 +3901,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_frontend_nlb_tcp_network_throughput
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2379,6 +3916,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_frontend_nlb_udp_network_throughput
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2390,6 +3933,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_frontend_tls_connections_current
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2399,6 +3948,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_frontend_tls_connections_limit
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2410,6 +3965,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_frontend_tls_connections_exceeding_rate_limit
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2419,6 +3980,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_droplets_http_session_duration_avg
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2430,6 +3997,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_droplets_http_session_duration_50p
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2439,6 +4012,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_droplets_http_session_duration_95p
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2450,6 +4029,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_droplets_http_response_time_avg
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2459,6 +4044,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_droplets_http_response_time_50p
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2470,6 +4061,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_droplets_http_response_time_95p
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2479,6 +4076,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_droplets_http_response_time_99p
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2490,6 +4093,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_droplets_queue_size
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2499,6 +4108,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_droplets_http_responses
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2510,6 +4125,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_droplets_connections
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2519,6 +4140,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_lb_droplets_health_checks
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2530,6 +4157,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_lb_droplets_downtime
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "lb_id": z.string().describe("A unique identifier for a load balancer."),
@@ -2539,6 +4172,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_droplet_autoscale_current_instances
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2550,6 +4189,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_droplet_autoscale_target_instances
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "autoscale_pool_id": z.string().describe("A unique identifier for an autoscale pool."),
@@ -2559,6 +4204,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_droplet_autoscale_current_cpu_utilization_yml
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2570,6 +4221,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_droplet_autoscale_target_cpu_utilization
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "autoscale_pool_id": z.string().describe("A unique identifier for an autoscale pool."),
@@ -2579,6 +4236,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_droplet_autoscale_current_memory_utilization
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2590,6 +4253,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_get_droplet_autoscale_target_memory_utilization
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "autoscale_pool_id": z.string().describe("A unique identifier for an autoscale pool."),
@@ -2599,6 +4268,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_create_destination
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2610,11 +4285,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_list_destinations
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### monitoring_get_destination
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2623,6 +4310,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_update_destination
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2635,6 +4328,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_delete_destination
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "destination_uuid": z.string().describe("A unique identifier for a destination.")
@@ -2642,6 +4341,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_create_sink
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2652,6 +4357,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_list_sinks
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "resource_id": z.string().regex(new RegExp("^do:(dbaas|domain|droplet|floatingip|loadbalancer|space|volume|kubernetes|vpc):.*")).describe("The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.").optional()
@@ -2659,6 +4370,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### monitoring_get_sink
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2668,6 +4385,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### monitoring_delete_sink
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "sink_uuid": z.string().describe("A unique identifier for a sink.")
@@ -2676,14 +4399,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### partnerattachments_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### partnerattachments_create
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2699,6 +4434,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### partnerattachments_get
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "pa_id": z.string().describe("A unique identifier for a partner attachment.")
@@ -2706,6 +4447,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### partnerattachments_patch
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2715,6 +4462,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### partnerattachments_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "pa_id": z.string().describe("A unique identifier for a partner attachment.")
@@ -2722,6 +4475,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### partnerattachments_get_bgp_auth_key
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2731,15 +4490,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### partnerattachments_list_remote_routes
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "pa_id": z.string().describe("A unique identifier for a partner attachment."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### partnerattachments_update_remote_routes
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2750,6 +4521,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### partnerattachments_get_service_key
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "pa_id": z.string().describe("A unique identifier for a partner attachment.")
@@ -2757,6 +4534,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### partnerattachments_create_service_key
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2766,38 +4549,74 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### projects_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### projects_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### projects_get_default
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### projects_update_default
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### projects_patch_default
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### projects_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2807,6 +4626,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### projects_update
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "project_id": z.string().uuid().describe("A unique identifier for a project.")
@@ -2814,6 +4639,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### projects_patch
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2823,6 +4654,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### projects_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "project_id": z.string().uuid().describe("A unique identifier for a project.")
@@ -2831,15 +4668,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### projects_list_resources
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "project_id": z.string().uuid().describe("A unique identifier for a project."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### projects_assign_resources
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2850,11 +4699,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### projects_list_resources_default
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### projects_assign_resources_default
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2864,20 +4725,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### regions_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### registry_get
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### registry_create
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2889,17 +4768,35 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### registry_delete
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### registry_get_subscription
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### registry_update_subscription
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2909,14 +4806,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### registry_get_dockercredentials
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "expiry_seconds": z.number().int().gte(0).describe("The duration in seconds that the returned registry credentials will be valid. If not set or 0, the credentials will not expire."),
-  "read_write": z.boolean().describe("By default, the registry credentials allow for read-only access. Set this query parameter to \`true\` to obtain read-write credentials.")
+  "expiry_seconds": z.number().int().gte(0).describe("The duration in seconds that the returned registry credentials will be valid. If not set or 0, the credentials will not expire.").optional(),
+  "read_write": z.boolean().describe("By default, the registry credentials allow for read-only access. Set this query parameter to \`true\` to obtain read-write credentials.").optional()
 }
 ```
 
 ### registry_validate_name
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2926,37 +4835,61 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### registry_list_repositories
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "registry_name": z.string().describe("The name of a container registry."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### registry_list_repositoriesv2
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "registry_name": z.string().describe("The name of a container registry."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return. Ignored when 'page_token' is provided."),
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return. Ignored when 'page_token' is provided.").optional(),
   "page_token": z.string().describe("Token to retrieve of the next or previous set of results more quickly than using 'page'.").optional()
 }
 ```
 
 ### registry_list_repositorytags
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "registry_name": z.string().describe("The name of a container registry."),
   "repository_name": z.string().describe("The name of a container registry repository. If the name contains \`/\` characters, they must be URL-encoded, e.g. \`%2F\`."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### registry_delete_repositorytag
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2968,16 +4901,28 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### registry_list_repositorymanifests
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "registry_name": z.string().describe("The name of a container registry."),
   "repository_name": z.string().describe("The name of a container registry repository. If the name contains \`/\` characters, they must be URL-encoded, e.g. \`%2F\`."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### registry_delete_repositorymanifest
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2989,6 +4934,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### registry_run_garbagecollection
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "registry_name": z.string().describe("The name of a container registry.")
@@ -2996,6 +4947,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### registry_get_garbagecollection
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3005,15 +4962,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### registry_list_garbagecollections
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "registry_name": z.string().describe("The name of a container registry."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### registry_update_garbagecollection
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3025,32 +4994,62 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### registry_get_options
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### droplets_list_neighborsids
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### reservedips_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### reservedips_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### reservedips_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3060,6 +5059,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### reservedips_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "reserved_ip": z.string().ip({ version: "v4" }).describe("A reserved IP address.")
@@ -3067,6 +5072,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### reservedipsactions_list
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3076,6 +5087,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### reservedipsactions_post
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "reserved_ip": z.string().ip({ version: "v4" }).describe("A reserved IP address.")
@@ -3083,6 +5100,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### reservedipsactions_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3093,14 +5116,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### reservedipv6_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### reservedipv6_create
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3110,6 +5145,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### reservedipv6_get
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "reserved_ipv6": z.string().ip({ version: "v6" }).describe("A reserved IPv6 address.")
@@ -3117,6 +5158,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### reservedipv6_delete
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3126,6 +5173,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### reservedipv6actions_post
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "reserved_ipv6": z.string().ip({ version: "v6" }).describe("A reserved IPv6 address.")
@@ -3134,24 +5187,42 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### sizes_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### snapshots_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return."),
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional(),
   "resource_type": z.enum(["droplet","volume"]).describe("Used to filter snapshots by a resource type.").optional()
 }
 ```
 
 ### snapshots_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3161,6 +5232,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### snapshots_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "snapshot_id": z.union([z.number().int().describe("The ID of a Droplet snapshot."), z.string().describe("The ID of a volume snapshot.")]).describe("Either the ID of an existing snapshot. This will be an integer for a Droplet snapshot or a string for a volume snapshot.")
@@ -3169,12 +5246,18 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### spaceskey_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return."),
-  "sort": z.string().describe("The field to sort by."),
-  "sort_direction": z.string().describe("The direction to sort by. Possible values are \`asc\` or \`desc\`."),
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional(),
+  "sort": z.string().describe("The field to sort by.").optional(),
+  "sort_direction": z.string().describe("The direction to sort by. Possible values are \`asc\` or \`desc\`.").optional(),
   "name": z.string().describe("The access key's name.").optional(),
   "bucket": z.string().describe("The bucket's name.").optional(),
   "permission": z.string().describe("The permission of the access key. Possible values are \`read\`, \`readwrite\`, \`fullaccess\`, or an empty string.").optional()
@@ -3183,16 +5266,28 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### spaceskey_create
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "name": z.string().describe("The access key's name.").optional(),
-  "grants": z.array(z.object({ "bucket": z.string().describe("The name of the bucket."), "permission": z.string().describe("The permission to grant to the user. Possible values are \`read\`, \`readwrite\`, \`fullaccess\`, or an empty string.") })).describe("The list of permissions for the access key."),
+  "grants": z.array(z.object({ "bucket": z.string().describe("The name of the bucket."), "permission": z.string().describe("The permission to grant to the user. Possible values are \`read\`, \`readwrite\`, \`fullaccess\`, or an empty string.") })).describe("The list of permissions for the access key.").optional(),
   "access_key": z.string().describe("The Access Key ID used to access a bucket.").readonly().optional(),
   "created_at": z.string().datetime({ offset: true }).describe("The date and time the key was created.").readonly().optional()
 }
 ```
 
 ### spaceskey_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3202,6 +5297,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### spaceskey_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "access_key": z.string().describe("The access key's ID.")
@@ -3210,11 +5311,17 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### spaceskey_update
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "access_key": z.string().describe("The access key's ID."),
   "name": z.string().describe("The access key's name.").optional(),
-  "grants": z.array(z.object({ "bucket": z.string().describe("The name of the bucket."), "permission": z.string().describe("The permission to grant to the user. Possible values are \`read\`, \`readwrite\`, \`fullaccess\`, or an empty string.") })).describe("The list of permissions for the access key."),
+  "grants": z.array(z.object({ "bucket": z.string().describe("The name of the bucket."), "permission": z.string().describe("The permission to grant to the user. Possible values are \`read\`, \`readwrite\`, \`fullaccess\`, or an empty string.") })).describe("The list of permissions for the access key.").optional(),
   "b_access_key": z.string().describe("The Access Key ID used to access a bucket.").readonly().optional(),
   "created_at": z.string().datetime({ offset: true }).describe("The date and time the key was created.").readonly().optional()
 }
@@ -3222,11 +5329,17 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### spaceskey_patch
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "access_key": z.string().describe("The access key's ID."),
   "name": z.string().describe("The access key's name.").optional(),
-  "grants": z.array(z.object({ "bucket": z.string().describe("The name of the bucket."), "permission": z.string().describe("The permission to grant to the user. Possible values are \`read\`, \`readwrite\`, \`fullaccess\`, or an empty string.") })).describe("The list of permissions for the access key."),
+  "grants": z.array(z.object({ "bucket": z.string().describe("The name of the bucket."), "permission": z.string().describe("The permission to grant to the user. Possible values are \`read\`, \`readwrite\`, \`fullaccess\`, or an empty string.") })).describe("The list of permissions for the access key.").optional(),
   "b_access_key": z.string().describe("The Access Key ID used to access a bucket.").readonly().optional(),
   "created_at": z.string().datetime({ offset: true }).describe("The date and time the key was created.").readonly().optional()
 }
@@ -3234,14 +5347,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### tags_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### tags_create
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3252,6 +5377,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### tags_get
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "tag_id": z.string().regex(new RegExp("^[a-zA-Z0-9_\\-\\:]+$")).max(255).describe("The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.")
@@ -3260,6 +5391,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### tags_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "tag_id": z.string().regex(new RegExp("^[a-zA-Z0-9_\\-\\:]+$")).max(255).describe("The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.")
@@ -3267,6 +5404,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### tags_assign_resources
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3277,6 +5420,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### tags_unassign_resources
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "tag_id": z.string().regex(new RegExp("^[a-zA-Z0-9_\\-\\:]+$")).max(255).describe("The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag."),
@@ -3286,22 +5435,40 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### volumes_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "name": z.string().describe("The block storage volume's name.").optional(),
   "region": z.enum(["ams1","ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sfo3","sgp1","tor1","syd1"]).describe("The slug identifier for the region where the resource will initially be  available.").optional(),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### volumes_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### volumes_delete_byname
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3312,14 +5479,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### volumeactions_post
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### volumesnapshots_get_byid
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3329,6 +5508,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### volumesnapshots_delete_byid
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "snapshot_id": z.string().describe("The unique identifier for the snapshot.")
@@ -3336,6 +5521,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### volumes_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3345,6 +5536,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### volumes_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "volume_id": z.string().uuid().describe("The ID of the block storage volume.")
@@ -3353,46 +5550,76 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### volumeactions_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "volume_id": z.string().uuid().describe("The ID of the block storage volume."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### volumeactions_post_byid
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "volume_id": z.string().uuid().describe("The ID of the block storage volume."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### volumeactions_get
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "volume_id": z.string().uuid().describe("The ID of the block storage volume."),
   "action_id": z.number().int().gte(1).describe("A unique numeric ID that can be used to identify and reference an action."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### volumesnapshots_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "volume_id": z.string().uuid().describe("The ID of the block storage volume."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### volumesnapshots_create
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3404,20 +5631,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### vpcs_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### vpcs_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### vpcs_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3427,6 +5672,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### vpcs_update
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "vpc_id": z.string().uuid().describe("A unique identifier for a VPC.")
@@ -3434,6 +5685,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### vpcs_patch
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3443,6 +5700,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### vpcs_delete
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "vpc_id": z.string().uuid().describe("A unique identifier for a VPC.")
@@ -3451,26 +5714,44 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### vpcs_list_members
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "vpc_id": z.string().uuid().describe("A unique identifier for a VPC."),
   "resource_type": z.string().describe("Used to filter VPC members by a resource type.").optional(),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### vpcs_list_peerings
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "vpc_id": z.string().uuid().describe("A unique identifier for a VPC."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### vpcs_create_peerings
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3482,6 +5763,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### vpcs_patch_peerings
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "vpc_id": z.string().uuid().describe("A unique identifier for a VPC."),
@@ -3491,21 +5778,39 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### vpcpeerings_list
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return."),
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional(),
   "region": z.enum(["ams1","ams2","ams3","blr1","fra1","lon1","nyc1","nyc2","nyc3","sfo1","sfo2","sfo3","sgp1","tor1","syd1"]).describe("The slug identifier for the region where the resource will initially be  available.").optional()
 }
 ```
 
 ### vpcpeerings_create
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### vpcpeerings_get
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3515,6 +5820,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### vpcpeerings_patch
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "vpc_peering_id": z.string().uuid().describe("A unique identifier for a VPC peering.")
@@ -3522,6 +5833,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### vpcpeerings_delete
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3531,20 +5848,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### uptime_list_checks
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### uptime_create_check
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### uptime_get_check
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3554,6 +5889,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### uptime_update_check
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "check_id": z.string().uuid().describe("A unique identifier for a check.")
@@ -3561,6 +5902,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### uptime_delete_check
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3570,6 +5917,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### uptime_get_checkstate
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "check_id": z.string().uuid().describe("A unique identifier for a check.")
@@ -3578,15 +5931,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### uptime_list_alerts
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "check_id": z.string().uuid().describe("A unique identifier for a check."),
-  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"),
-  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.")
+  "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
+  "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional()
 }
 ```
 
 ### uptime_create_alert
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3595,6 +5960,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### uptime_get_alert
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3605,6 +5976,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### uptime_update_alert
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "check_id": z.string().uuid().describe("A unique identifier for a check."),
@@ -3613,6 +5990,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### uptime_delete_alert
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3623,6 +6006,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_list_agents
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "only_deployed": z.boolean().describe("Only list agents that are deployed.").optional(),
@@ -3632,6 +6021,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_create_agent
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3650,6 +6045,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_list_agent_api_keys
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "agent_uuid": z.string().describe("Agent id"),
@@ -3660,6 +6061,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_create_agent_api_key
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "agent_uuid": z.string().describe("Agent id"),
@@ -3669,6 +6076,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_update_agent_api_key
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3682,6 +6095,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_delete_agent_api_key
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "agent_uuid": z.string().describe("A unique identifier for your agent."),
@@ -3691,6 +6110,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_regenerate_agent_api_key
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "agent_uuid": z.string().describe("Agent id"),
@@ -3699,6 +6124,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_attach_agent_function
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3714,6 +6145,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_update_agent_function
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3732,6 +6169,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_detach_agent_function
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "agent_uuid": z.string().describe("The id of the agent the function route belongs to."),
@@ -3740,6 +6183,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_attach_knowledge_base
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3750,6 +6199,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_detach_knowledge_base
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "agent_uuid": z.string().describe("Agent id"),
@@ -3758,6 +6213,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_attach_agent
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3771,6 +6232,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_update_attached_agent
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3786,6 +6253,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_detach_agent
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "parent_agent_uuid": z.string().describe("Pagent agent id"),
@@ -3795,6 +6268,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_get_agent
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "uuid": z.string().describe("Unique agent id")
@@ -3802,6 +6281,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_update_agent
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3815,7 +6300,7 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
   "name": z.string().describe("Agent name").optional(),
   "open_ai_key_uuid": z.string().describe("Optional OpenAI key uuid for use with OpenAI models").optional(),
   "project_id": z.string().describe("The id of the DigitalOcean project this agent will belong to").optional(),
-  "retrieval_method": z.enum(["RETRIEVAL_METHOD_UNKNOWN","RETRIEVAL_METHOD_REWRITE","RETRIEVAL_METHOD_STEP_BACK","RETRIEVAL_METHOD_SUB_QUERIES","RETRIEVAL_METHOD_NONE"]).describe("- RETRIEVAL_METHOD_UNKNOWN: The retrieval method is unknown\n - RETRIEVAL_METHOD_REWRITE: The retrieval method is rewrite\n - RETRIEVAL_METHOD_STEP_BACK: The retrieval method is step back\n - RETRIEVAL_METHOD_SUB_QUERIES: The retrieval method is sub queries\n - RETRIEVAL_METHOD_NONE: The retrieval method is none"),
+  "retrieval_method": z.enum(["RETRIEVAL_METHOD_UNKNOWN","RETRIEVAL_METHOD_REWRITE","RETRIEVAL_METHOD_STEP_BACK","RETRIEVAL_METHOD_SUB_QUERIES","RETRIEVAL_METHOD_NONE"]).describe("- RETRIEVAL_METHOD_UNKNOWN: The retrieval method is unknown\n - RETRIEVAL_METHOD_REWRITE: The retrieval method is rewrite\n - RETRIEVAL_METHOD_STEP_BACK: The retrieval method is step back\n - RETRIEVAL_METHOD_SUB_QUERIES: The retrieval method is sub queries\n - RETRIEVAL_METHOD_NONE: The retrieval method is none").optional(),
   "tags": z.array(z.string()).describe("A set of abitrary tags to organize your agent").optional(),
   "temperature": z.number().describe("Controls the model’s creativity, specified as a number between 0 and 1. Lower values produce more predictable and conservative responses, while higher values encourage creativity and variation.").optional(),
   "top_p": z.number().describe("Defines the cumulative probability threshold for word selection, specified as a number between 0 and 1. Higher values allow for more diverse outputs, while lower values ensure focused and coherent responses.").optional(),
@@ -3825,6 +6310,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_delete_agent
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "uuid": z.string().describe("Unique agent id")
@@ -3832,6 +6323,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_get_agent_children
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3841,15 +6338,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_update_agent_deployment_visibility
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "uuid": z.string().describe("Unique id"),
   "b_uuid": z.string().describe("Unique id").optional(),
-  "visibility": z.enum(["VISIBILITY_UNKNOWN","VISIBILITY_DISABLED","VISIBILITY_PLAYGROUND","VISIBILITY_PUBLIC","VISIBILITY_PRIVATE"]).describe("- VISIBILITY_UNKNOWN: The status of the deployment is unknown\n - VISIBILITY_DISABLED: The deployment is disabled and will no longer service requests\n - VISIBILITY_PLAYGROUND: Deprecated: No longer a valid state\n - VISIBILITY_PUBLIC: The deployment is public and will service requests from the public internet\n - VISIBILITY_PRIVATE: The deployment is private and will only service requests from other agents, or through API keys")
+  "visibility": z.enum(["VISIBILITY_UNKNOWN","VISIBILITY_DISABLED","VISIBILITY_PLAYGROUND","VISIBILITY_PUBLIC","VISIBILITY_PRIVATE"]).describe("- VISIBILITY_UNKNOWN: The status of the deployment is unknown\n - VISIBILITY_DISABLED: The deployment is disabled and will no longer service requests\n - VISIBILITY_PLAYGROUND: Deprecated: No longer a valid state\n - VISIBILITY_PUBLIC: The deployment is public and will service requests from the public internet\n - VISIBILITY_PRIVATE: The deployment is private and will only service requests from other agents, or through API keys").optional()
 }
 ```
 
 ### genai_list_anthropic_api_keys
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3860,6 +6369,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_create_anthropic_api_key
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "api_key": z.string().describe("Anthropic API key").optional(),
@@ -3869,6 +6384,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_get_anthropic_api_key
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "api_key_uuid": z.string().describe("API key ID")
@@ -3876,6 +6397,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_update_anthropic_api_key
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3888,6 +6415,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_delete_anthropic_api_key
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "api_key_uuid": z.string().describe("API key ID")
@@ -3895,6 +6428,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_list_agents_by_anthropic_key
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3906,6 +6445,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_list_indexing_jobs
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "page": z.number().int().describe("Page number.").optional(),
@@ -3914,6 +6459,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_create_indexing_job
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3924,6 +6475,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_list_indexing_job_data_sources
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "indexing_job_uuid": z.string().describe("Uuid of the indexing job")
@@ -3932,6 +6489,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_get_indexing_job
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "uuid": z.string().describe("Indexing job id")
@@ -3939,6 +6502,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_cancel_indexing_job
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3949,6 +6518,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_list_knowledge_bases
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "page": z.number().int().describe("Page number.").optional(),
@@ -3957,6 +6532,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_create_knowledge_base
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3973,6 +6554,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_list_knowledge_base_data_sources
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "knowledge_base_uuid": z.string().describe("Knowledge base id"),
@@ -3982,6 +6569,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_create_knowledge_base_data_source
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -3994,6 +6587,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_delete_knowledge_base_data_source
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "knowledge_base_uuid": z.string().describe("Knowledge base id"),
@@ -4003,6 +6602,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_get_knowledge_base
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "uuid": z.string().describe("Knowledge base id")
@@ -4010,6 +6615,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_update_knowledge_base
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -4025,6 +6636,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_delete_knowledge_base
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "uuid": z.string().describe("Knowledge base id")
@@ -4032,6 +6649,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_list_models
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -4044,6 +6667,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_list_openai_api_keys
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "page": z.number().int().describe("Page number.").optional(),
@@ -4052,6 +6681,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_create_openai_api_key
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -4062,6 +6697,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_get_openai_api_key
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "api_key_uuid": z.string().describe("API key ID")
@@ -4069,6 +6710,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_update_openai_api_key
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -4081,6 +6728,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_delete_openai_api_key
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "api_key_uuid": z.string().describe("API key ID")
@@ -4088,6 +6741,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### genai_list_agents_by_openai_key
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -4099,28 +6758,15 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### genai_list_datacenter_regions
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "serves_inference": z.boolean().describe("Include datacenters that serve inference.").optional(),
   "serves_batch": z.boolean().describe("Include datacenters that are capable of running batch jobs.").optional()
 }
 ```
-
-## Inspector
-
-Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
-
-```bash
-npx -y @modelcontextprotocol/inspector npx -y @open-mcp/digitalocean
-```
-
-- Open http://localhost:5173
-- Transport type: `STDIO`
-- Command: `npx`
-- Arguments: `-y @open-mcp/digitalocean`
-- Click `Environment Variables` to add
-- Click `Connect`
-
-It should say _MCP Server running on stdio_ in red.
-
-- Click `List Tools`

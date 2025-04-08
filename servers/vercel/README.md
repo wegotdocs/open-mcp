@@ -48,9 +48,34 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 - `API_KEY`
 
+## Inspector
+
+Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
+
+```bash
+npx -y @modelcontextprotocol/inspector npx -y @open-mcp/vercel
+```
+
+- Open http://localhost:5173
+- Transport type: `STDIO`
+- Command: `npx`
+- Arguments: `-y @open-mcp/vercel`
+- Click `Environment Variables` to add
+- Click `Connect`
+
+It should say _MCP Server running on stdio_ in red.
+
+- Click `List Tools`
+
 ## Tools
 
 ### readaccessgroup
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -61,6 +86,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### updateaccessgroup
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -76,6 +107,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### deleteaccessgroup
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string(),
@@ -85,6 +122,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### listaccessgroupmembers
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -98,6 +141,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### listaccessgroups
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -114,6 +163,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### createaccessgroup
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
@@ -125,6 +180,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### listaccessgroupprojects
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -138,6 +199,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### createaccessgroupproject
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "accessGroupIdOrName": z.string(),
@@ -150,6 +217,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### readaccessgroupproject
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "accessGroupIdOrName": z.string(),
@@ -160,6 +233,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### updateaccessgroupproject
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -173,6 +252,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### deleteaccessgroupproject
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "accessGroupIdOrName": z.string(),
@@ -183,6 +268,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### recordevents
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -195,6 +286,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### status
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
@@ -203,6 +300,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### uploadartifact
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -219,6 +322,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### downloadartifact
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "hash": z.string().describe("The artifact hash"),
@@ -231,6 +340,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### artifactexists
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "hash": z.string().describe("The artifact hash"),
@@ -241,6 +356,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### artifactquery
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
@@ -250,6 +371,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### createcheck
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -267,6 +394,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getallchecks
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "deploymentId": z.string().describe("The deployment to get all checks for"),
@@ -276,6 +409,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcheck
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -287,6 +426,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### updatecheck
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -306,6 +451,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### rerequestcheck
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "deploymentId": z.string().describe("The deployment to rerun the check for."),
@@ -317,6 +468,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### delete_data_cache_purge_all
 
+**Environment variables**
+
+
+
+**Input schema**
+
 ```ts
 {
   "projectIdOrName": z.string()
@@ -325,6 +482,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### patch_data_cache_billing_settings
 
+**Environment variables**
+
+
+
+**Input schema**
+
 ```ts
 {
   "excessBillingEnabled": z.boolean().optional()
@@ -332,6 +495,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### updateprojectdatacache
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -344,8 +513,22 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getdeploymentevents
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
-z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of the deployment."), "direction": z.enum(["backward","forward"]).describe("Order of the returned events based on the timestamp."), "follow": z.union([z.literal(0), z.literal(1)]).describe("When enabled, this endpoint will return live events as they happen.").optional(), "limit": z.number().describe("Maximum number of events to return. Provide \`-1\` to return all available logs.").optional(), "name": z.string().describe("Deployment build ID.").optional(), "since": z.number().describe("Timestamp for when build logs should be pulled from.").optional(), "until": z.number().describe("Timestamp for when the build logs should be pulled up until.").optional(), "statusCode": z.any().superRefine((x, ctx) => {
+{
+  "idOrUrl": z.string().describe("The unique identifier or hostname of the deployment."),
+  "direction": z.enum(["backward","forward"]).describe("Order of the returned events based on the timestamp.").optional(),
+  "follow": z.union([z.literal(0), z.literal(1)]).describe("When enabled, this endpoint will return live events as they happen.").optional(),
+  "limit": z.number().describe("Maximum number of events to return. Provide \`-1\` to return all available logs.").optional(),
+  "name": z.string().describe("Deployment build ID.").optional(),
+  "since": z.number().describe("Timestamp for when build logs should be pulled from.").optional(),
+  "until": z.number().describe("Timestamp for when the build logs should be pulled up until.").optional(),
+  "statusCode": z.any().superRefine((x, ctx) => {
     const schemas = [z.number(), z.string()];
     const errors = schemas.reduce<z.ZodError[]>(
       (errors, schema) =>
@@ -363,10 +546,21 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
         message: "Invalid input: Should pass single schema",
       });
     }
-  }).describe("HTTP status code range to filter events by.").optional(), "delimiter": z.union([z.literal(0), z.literal(1)]).optional(), "builds": z.union([z.literal(0), z.literal(1)]).optional(), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape
+  }).describe("HTTP status code range to filter events by.").optional(),
+  "delimiter": z.union([z.literal(0), z.literal(1)]).optional(),
+  "builds": z.union([z.literal(0), z.literal(1)]).optional(),
+  "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+  "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+}
 ```
 
 ### update_integration_deployment_action
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -382,6 +576,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getdeployment
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrUrl": z.string().describe("The unique identifier or hostname of the deployment."),
@@ -392,6 +592,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### createdeployment
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -416,6 +622,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### canceldeployment
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The unique identifier of the deployment."),
@@ -425,6 +637,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### buydomain
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -448,6 +666,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### checkdomainprice
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "name": z.string().describe("The name of the domain for which the price needs to be checked."),
@@ -459,6 +683,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### checkdomainstatus
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "name": z.string().describe("The name of the domain for which we would like to check the status."),
@@ -468,6 +698,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### getrecords
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -482,6 +718,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### createrecord
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "domain": z.string().describe("The domain used to create the DNS record."),
@@ -492,6 +734,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### updaterecord
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -512,6 +760,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### removerecord
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "domain": z.string(),
@@ -523,6 +777,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getdomaintransfer
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
@@ -531,6 +791,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### getdomainconfig
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -543,6 +809,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getdomain
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "domain": z.string().describe("The name of the domain."),
@@ -552,6 +824,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### getdomains
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -565,6 +843,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### createortransferdomain
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
@@ -574,6 +858,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### patchdomain
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -585,6 +875,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### deletedomain
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "domain": z.string().describe("The name of the domain."),
@@ -594,6 +890,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### getconfigurablelogdrain
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -605,6 +907,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### deleteconfigurablelogdrain
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string(),
@@ -614,6 +922,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### getalllogdrains
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -625,6 +939,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### createconfigurablelogdrain
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -644,6 +964,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getedgeconfigs
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
@@ -652,6 +978,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### createedgeconfig
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -664,6 +996,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getedgeconfig
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "edgeConfigId": z.string(),
@@ -673,6 +1011,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### updateedgeconfig
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -685,6 +1029,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### deleteedgeconfig
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "edgeConfigId": z.string(),
@@ -695,6 +1045,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getedgeconfigitems
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "edgeConfigId": z.string().regex(new RegExp("^ecfg_")),
@@ -704,6 +1060,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### patchedgeconfigitems
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -718,6 +1080,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getedgeconfigschema
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "edgeConfigId": z.string(),
@@ -727,6 +1095,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### patchedgeconfigschema
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -740,6 +1114,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### deleteedgeconfigschema
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "edgeConfigId": z.string(),
@@ -749,6 +1129,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### getedgeconfigitem
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -761,6 +1147,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getedgeconfigtokens
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "edgeConfigId": z.string(),
@@ -770,6 +1162,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### deleteedgeconfigtokens
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -782,6 +1180,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getedgeconfigtoken
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "edgeConfigId": z.string(),
@@ -792,6 +1196,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### createedgeconfigtoken
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -804,6 +1214,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getedgeconfigbackup
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "edgeConfigId": z.string(),
@@ -814,6 +1230,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### getedgeconfigbackups
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -827,6 +1249,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### listuserevents
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -843,6 +1271,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### get_account_info
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "integrationConfigurationId": z.string()
@@ -850,6 +1284,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### get_member
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -860,6 +1300,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### create_event
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "integrationConfigurationId": z.string(),
@@ -868,6 +1314,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### submit_billing_data
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -881,6 +1333,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### submit_invoice
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -897,6 +1355,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### get_invoice
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "integrationConfigurationId": z.string(),
@@ -905,6 +1369,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### update_invoice
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -918,6 +1388,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### submit_prepayment_balances
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "integrationConfigurationId": z.string(),
@@ -927,6 +1403,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### update_resource_secrets
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -940,6 +1422,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### update_resource_secrets_by_id
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "integrationConfigurationId": z.string(),
@@ -950,6 +1438,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### import_resource
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -967,6 +1461,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getconfigurations
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "view": z.enum(["account","project"]),
@@ -979,6 +1479,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getconfiguration
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("ID of the configuration to check"),
@@ -989,6 +1495,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### deleteconfiguration
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string(),
@@ -998,6 +1510,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### exchange_sso_token
+
+**Environment variables**
+
+
+
+**Input schema**
 
 ```ts
 {
@@ -1011,6 +1529,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getintegrationlogdrains
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
@@ -1019,6 +1543,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### createlogdrain
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1037,6 +1567,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### deleteintegrationlogdrain
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("ID of the log drain to be deleted"),
@@ -1047,6 +1583,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### gitnamespaces
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "host": z.string().describe("The custom Git host if using a custom Git provider, like GitHub Enterprise Server").optional(),
@@ -1055,6 +1597,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### searchrepo
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1070,6 +1618,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### queryexperimentationitems
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "resourceId": z.string().optional()
@@ -1077,6 +1631,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### post_v1_installations_integrationconfigurationid_resources_resou
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1087,6 +1647,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### patch_v1_installations_integrationconfigurationid_resources_reso
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1106,6 +1672,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### delete_v1_installations_integrationconfigurationid_resources_res
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "integrationConfigurationId": z.string(),
@@ -1116,6 +1688,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### head_v1_installations_integrationconfigurationid_resources_resou
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "integrationConfigurationId": z.string(),
@@ -1124,6 +1702,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### put_v1_installations_integrationconfigurationid_resources_resour
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1134,6 +1718,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### getprojectmembers
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1149,6 +1739,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### addprojectmember
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The ID or name of the Project."),
@@ -1163,6 +1759,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### removeprojectmember
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The ID or name of the Project."),
@@ -1173,6 +1775,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### getprojects
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1193,6 +1801,12 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 ```
 
 ### createproject
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1218,8 +1832,15 @@ z.object({ "idOrUrl": z.string().describe("The unique identifier or hostname of 
 
 ### getproject
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
-z.object({ "idOrName": z.any().superRefine((x, ctx) => {
+{
+  "idOrName": z.any().superRefine((x, ctx) => {
     const schemas = [z.string(), z.boolean()];
     const errors = schemas.reduce<z.ZodError[]>(
       (errors, schema) =>
@@ -1237,10 +1858,19 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
         message: "Invalid input: Should pass single schema",
       });
     }
-  }).describe("The unique project identifier or the project name"), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape
+  }).describe("The unique project identifier or the project name"),
+  "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+  "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+}
 ```
 
 ### updateproject
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1283,6 +1913,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### deleteproject
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
@@ -1292,6 +1928,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### createcustomenvironment
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1307,6 +1949,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### get_v9_projects_idorname_custom_environments
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
@@ -1318,6 +1966,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getcustomenvironment
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
@@ -1328,6 +1982,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### updatecustomenvironment
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1343,6 +2003,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### removecustomenvironment
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
@@ -1355,8 +2021,15 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getprojectdomains
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
-z.object({ "idOrName": z.any().superRefine((x, ctx) => {
+{
+  "idOrName": z.any().superRefine((x, ctx) => {
     const schemas = [z.string(), z.number().int()];
     const errors = schemas.reduce<z.ZodError[]>(
       (errors, schema) =>
@@ -1374,10 +2047,30 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
         message: "Invalid input: Should pass single schema",
       });
     }
-  }).describe("The unique project identifier or the project name"), "production": z.enum(["true","false"]).describe("Filters only production domains when set to \`true\`."), "target": z.enum(["production","preview"]).describe("Filters on the target of the domain. Can be either \\\"production\\\", \\\"preview\\\"").optional(), "customEnvironmentId": z.string().describe("The unique custom environment identifier within the project").optional(), "gitBranch": z.string().describe("Filters domains based on specific branch.").optional(), "redirects": z.enum(["true","false"]).describe("Excludes redirect project domains when \\\"false\\\". Includes redirect project domains when \\\"true\\\" (default)."), "redirect": z.string().describe("Filters domains based on their redirect target.").optional(), "verified": z.enum(["true","false"]).describe("Filters domains based on their verification status.").optional(), "limit": z.number().describe("Maximum number of domains to list from a request (max 100).").optional(), "since": z.number().describe("Get domains created after this JavaScript timestamp.").optional(), "until": z.number().describe("Get domains created before this JavaScript timestamp.").optional(), "order": z.enum(["ASC","DESC"]).describe("Domains sort order by createdAt"), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape
+  }).describe("The unique project identifier or the project name"),
+  "production": z.enum(["true","false"]).describe("Filters only production domains when set to \`true\`.").optional(),
+  "target": z.enum(["production","preview"]).describe("Filters on the target of the domain. Can be either \\\"production\\\", \\\"preview\\\"").optional(),
+  "customEnvironmentId": z.string().describe("The unique custom environment identifier within the project").optional(),
+  "gitBranch": z.string().describe("Filters domains based on specific branch.").optional(),
+  "redirects": z.enum(["true","false"]).describe("Excludes redirect project domains when \\\"false\\\". Includes redirect project domains when \\\"true\\\" (default).").optional(),
+  "redirect": z.string().describe("Filters domains based on their redirect target.").optional(),
+  "verified": z.enum(["true","false"]).describe("Filters domains based on their verification status.").optional(),
+  "limit": z.number().describe("Maximum number of domains to list from a request (max 100).").optional(),
+  "since": z.number().describe("Get domains created after this JavaScript timestamp.").optional(),
+  "until": z.number().describe("Get domains created before this JavaScript timestamp.").optional(),
+  "order": z.enum(["ASC","DESC"]).describe("Domains sort order by createdAt").optional(),
+  "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+  "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+}
 ```
 
 ### getprojectdomain
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1389,6 +2082,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### updateprojectdomain
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1404,6 +2103,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### removeprojectdomain
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
@@ -1414,6 +2119,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### addprojectdomain
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1430,6 +2141,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### verifyprojectdomain
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
@@ -1440,6 +2157,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### filterprojectenvs
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1456,6 +2179,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### createprojectenv
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
@@ -1466,6 +2195,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### getprojectenv
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1478,6 +2213,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### removeprojectenv
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
@@ -1489,6 +2230,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### editprojectenv
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1508,6 +2255,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### createprojecttransferrequest
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The ID or name of the project to transfer."),
@@ -1519,6 +2272,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### acceptprojecttransferrequest
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1532,6 +2291,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### updateprojectprotectionbypass
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
@@ -1544,6 +2309,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### requestpromote
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "projectId": z.string(),
@@ -1554,6 +2325,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### listpromotealiases
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1569,6 +2346,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### pauseproject
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "projectId": z.string().describe("The unique project identifier"),
@@ -1579,6 +2362,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### unpauseproject
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "projectId": z.string().describe("The unique project identifier"),
@@ -1588,6 +2377,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### updateattackchallengemode
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1600,6 +2395,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### putfirewallconfig
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1616,6 +2417,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### updatefirewallconfig
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "projectId": z.string(),
@@ -1625,6 +2432,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### getfirewallconfig
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1636,6 +2449,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getactiveattackstatus
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "projectId": z.string(),
@@ -1645,6 +2464,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### getbypassip
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1660,6 +2485,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### addbypassip
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1677,6 +2508,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### removebypassip
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "projectId": z.string(),
@@ -1692,6 +2529,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getteammembers
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "limit": z.number().gte(1).describe("Limit how many teams should be returned").optional(),
@@ -1706,16 +2549,28 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### inviteusertoteam
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "uid": z.string().describe("The id of the user to invite").optional(),
   "email": z.string().email().describe("The email address of the user to invite").optional(),
-  "role": z.enum(["OWNER","MEMBER","DEVELOPER","SECURITY","BILLING","VIEWER","CONTRIBUTOR"]).describe("The role of the user to invite"),
+  "role": z.enum(["OWNER","MEMBER","DEVELOPER","SECURITY","BILLING","VIEWER","CONTRIBUTOR"]).describe("The role of the user to invite").optional(),
   "projects": z.array(z.object({ "projectId": z.string().max(64).describe("The ID of the project."), "role": z.enum(["ADMIN","PROJECT_VIEWER","PROJECT_DEVELOPER"]).describe("Sets the project roles for the invited user") }).strict()).optional()
 }
 ```
 
 ### requestaccesstoteam
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1725,6 +2580,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getteamaccessrequest
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "userId": z.string().optional()
@@ -1732,6 +2593,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### jointeam
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1741,17 +2608,29 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### updateteammember
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "uid": z.string().describe("The ID of the member."),
   "confirmed": z.literal(true).describe("Accept a user who requested access to the team.").optional(),
-  "role": z.string().describe("The role in the team of the member."),
+  "role": z.string().describe("The role in the team of the member.").optional(),
   "projects": z.array(z.object({ "projectId": z.string().max(256).describe("The ID of the project."), "role": z.union([z.literal("ADMIN"), z.literal("PROJECT_VIEWER"), z.literal("PROJECT_DEVELOPER"), z.literal(null)]).nullable().describe("The project role of the member that will be added. \\\"null\\\" will remove this project level role.") }).strict()).optional(),
   "joinedFrom": z.object({ "ssoUserId": z.null().optional() }).strict().optional()
 }
 ```
 
 ### removeteammember
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1762,6 +2641,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getteam
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
@@ -1770,6 +2655,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### patchteam
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1794,6 +2685,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getteams
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "limit": z.number().describe("Maximum number of Teams which may be returned.").optional(),
@@ -1804,6 +2701,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### createteam
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "slug": z.string().max(48).describe("The desired slug for the Team"),
@@ -1813,6 +2716,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### deleteteam
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1825,6 +2734,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### deleteteaminvitecode
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "inviteId": z.string().describe("The Team invite code ID.")
@@ -1832,6 +2747,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### uploadfile
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1846,11 +2767,23 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### listauthtokens
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### createauthtoken
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1863,6 +2796,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getauthtoken
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "tokenId": z.string().describe("The identifier of the token to retrieve. The special value \\\"current\\\" may be supplied, which returns the metadata for the token that the current HTTP request is authenticated with.")
@@ -1870,6 +2809,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### deleteauthtoken
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1879,11 +2824,23 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getauthuser
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### requestdelete
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1892,6 +2849,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### createwebhook
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1905,6 +2868,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### getwebhooks
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "projectId": z.string().regex(new RegExp("^[a-zA-z0-9_]+$")).optional(),
@@ -1914,6 +2883,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### getwebhook
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1925,6 +2900,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### deletewebhook
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string(),
@@ -1935,6 +2916,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### listdeploymentaliases
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The ID of the deployment the aliases should be listed for"),
@@ -1944,6 +2931,12 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 ```
 
 ### assignalias
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1957,8 +2950,15 @@ z.object({ "idOrName": z.any().superRefine((x, ctx) => {
 
 ### listaliases
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
-z.object({ "domain": z.any().superRefine((x, ctx) => {
+{
+  "domain": z.any().superRefine((x, ctx) => {
     const schemas = [z.array(z.any()), z.string()];
     const errors = schemas.reduce<z.ZodError[]>(
       (errors, schema) =>
@@ -1976,10 +2976,25 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
         message: "Invalid input: Should pass single schema",
       });
     }
-  }).describe("Get only aliases of the given domain name").optional(), "from": z.number().describe("Get only aliases created after the provided timestamp").optional(), "limit": z.number().describe("Maximum number of aliases to list from a request").optional(), "projectId": z.string().describe("Filter aliases from the given \`projectId\`").optional(), "since": z.number().describe("Get aliases created after this JavaScript timestamp").optional(), "until": z.number().describe("Get aliases created before this JavaScript timestamp").optional(), "rollbackDeploymentId": z.string().describe("Get aliases that would be rolled back for the given deployment").optional(), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape
+  }).describe("Get only aliases of the given domain name").optional(),
+  "from": z.number().describe("Get only aliases created after the provided timestamp").optional(),
+  "limit": z.number().describe("Maximum number of aliases to list from a request").optional(),
+  "projectId": z.string().describe("Filter aliases from the given \`projectId\`").optional(),
+  "since": z.number().describe("Get aliases created after this JavaScript timestamp").optional(),
+  "until": z.number().describe("Get aliases created before this JavaScript timestamp").optional(),
+  "rollbackDeploymentId": z.string().describe("Get aliases that would be rolled back for the given deployment").optional(),
+  "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+  "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+}
 ```
 
 ### getalias
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -1995,6 +3010,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 
 ### deletealias
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "aliasId": z.string().describe("The ID or alias that will be removed"),
@@ -2005,11 +3026,23 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 
 ### get_certs
 
-```ts
+**Environment variables**
 
+
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getcertbyid
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2021,6 +3054,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 
 ### removecert
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The cert id to remove"),
@@ -2031,6 +3070,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 
 ### issuecert
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
@@ -2040,6 +3085,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 ```
 
 ### uploadcert
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2054,6 +3105,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 
 ### listdeploymentfiles
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The unique deployment identifier"),
@@ -2063,6 +3120,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 ```
 
 ### getdeploymentfilecontents
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2075,6 +3138,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 ```
 
 ### getdeployments
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2098,6 +3167,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 
 ### deletedeployment
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The ID of the deployment to be deleted"),
@@ -2109,6 +3184,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 
 ### getsecrets
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("Filter out secrets based on comma separated secret ids.").optional(),
@@ -2119,6 +3200,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 ```
 
 ### createsecret
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2132,6 +3219,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 
 ### renamesecret
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "name": z.string().describe("The name of the secret."),
@@ -2142,6 +3235,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 ```
 
 ### getsecret
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
 
 ```ts
 {
@@ -2154,6 +3253,12 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
 
 ### deletesecret
 
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
 ```ts
 {
   "idOrName": z.string().describe("The name or the unique identifier to which the secret belongs to."),
@@ -2161,22 +3266,3 @@ z.object({ "domain": z.any().superRefine((x, ctx) => {
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
 }
 ```
-
-## Inspector
-
-Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
-
-```bash
-npx -y @modelcontextprotocol/inspector npx -y @open-mcp/vercel
-```
-
-- Open http://localhost:5173
-- Transport type: `STDIO`
-- Command: `npx`
-- Arguments: `-y @open-mcp/vercel`
-- Click `Environment Variables` to add
-- Click `Connect`
-
-It should say _MCP Server running on stdio_ in red.
-
-- Click `List Tools`

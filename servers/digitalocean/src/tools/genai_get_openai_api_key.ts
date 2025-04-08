@@ -1,9 +1,9 @@
 import { z } from "zod"
 
-export const toolName = `get_v1_experimentation_items`
-export const toolDescription = `Query experimentation items`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/experimentation/items`
+export const toolName = `genai_get_openai_api_key`
+export const toolDescription = `Get OpenAI API Key`
+export const baseUrl = `https://api.digitalocean.com`
+export const path = `/v2/gen-ai/openai/keys/{api_key_uuid}`
 export const method = `get`
 export const security = [
   {
@@ -16,14 +16,16 @@ export const security = [
   }
 ]
 export const keys = {
-  "query": [
-    "resourceId"
-  ],
+  "query": [],
   "header": [],
-  "path": [],
+  "path": [
+    "api_key_uuid"
+  ],
   "cookie": [],
   "body": []
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "resourceId": z.string().optional() }).shape
+export const inputParams = {
+  "api_key_uuid": z.string().describe("API key ID")
+}

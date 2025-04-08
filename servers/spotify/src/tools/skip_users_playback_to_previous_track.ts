@@ -25,4 +25,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "device_id": z.string().describe("The id of the device this command is targeting. If\nnot supplied, the user's currently active device is the target.\n").optional() }).shape
+export const inputParams = {
+  "device_id": z.string().describe("The id of the device this command is targeting. If\nnot supplied, the user's currently active device is the target.\n").optional()
+}

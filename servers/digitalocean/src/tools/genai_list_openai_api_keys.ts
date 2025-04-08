@@ -1,9 +1,9 @@
 import { z } from "zod"
 
-export const toolName = `attachments_list`
-export const toolDescription = `List all partner attachments`
+export const toolName = `genai_list_openai_api_keys`
+export const toolDescription = `List OpenAI API Keys`
 export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/partner_network_connect/attachments`
+export const path = `/v2/gen-ai/openai/keys`
 export const method = `get`
 export const security = [
   {
@@ -17,8 +17,8 @@ export const security = [
 ]
 export const keys = {
   "query": [
-    "per_page",
-    "page"
+    "page",
+    "per_page"
   ],
   "header": [],
   "path": [],
@@ -27,4 +27,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page"), "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.") }).shape
+export const inputParams = {
+  "page": z.number().int().describe("Page number.").optional(),
+  "per_page": z.number().int().describe("Items per page.").optional()
+}

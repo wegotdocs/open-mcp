@@ -26,4 +26,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "state": z.boolean().describe("**true** : Shuffle user's playback.<br/>\n**false** : Do not shuffle user's playback.\n"), "device_id": z.string().describe("The id of the device this command is targeting. If\nnot supplied, the user's currently active device is the target.\n").optional() }).shape
+export const inputParams = {
+  "state": z.boolean().describe("**true** : Shuffle user's playback.<br/>\n**false** : Do not shuffle user's playback.\n"),
+  "device_id": z.string().describe("The id of the device this command is targeting. If\nnot supplied, the user's currently active device is the target.\n").optional()
+}

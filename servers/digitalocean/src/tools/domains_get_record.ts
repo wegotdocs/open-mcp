@@ -27,4 +27,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "domain_name": z.string().describe("The name of the domain itself."), "domain_record_id": z.number().int().describe("The unique identifier of the domain record.") }).shape
+export const inputParams = {
+  "domain_name": z.string().describe("The name of the domain itself."),
+  "domain_record_id": z.number().int().describe("The unique identifier of the domain record.")
+}

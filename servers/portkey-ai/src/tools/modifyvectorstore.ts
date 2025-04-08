@@ -110,4 +110,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "vector_store_id": z.string().describe("The ID of the vector store to modify."), "name": z.string().nullable().describe("The name of the vector store.").optional(), "expires_after": z.object({ "anchor": z.literal("last_active_at").describe("Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`."), "days": z.number().int().gte(1).lte(365).describe("The number of days after the anchor time that the vector store will expire.") }).nullable().describe("The expiration policy for a vector store.").optional(), "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional() }).shape
+export const inputParams = {
+  "vector_store_id": z.string().describe("The ID of the vector store to modify."),
+  "name": z.string().nullable().describe("The name of the vector store.").optional(),
+  "expires_after": z.object({ "anchor": z.literal("last_active_at").describe("Anchor timestamp after which the expiration policy applies. Supported anchors: `last_active_at`."), "days": z.number().int().gte(1).lte(365).describe("The number of days after the anchor time that the vector store will expire.") }).nullable().describe("The expiration policy for a vector store.").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional()
+}

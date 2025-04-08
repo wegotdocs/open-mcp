@@ -28,4 +28,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "userId": z.string(), "role": z.enum(["admin","member"]).optional() }).shape
+export const inputParams = {
+  "userId": z.string(),
+  "role": z.enum(["admin","member"]).optional()
+}

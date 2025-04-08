@@ -29,4 +29,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "app_id": z.string().describe("The app UUID."), "app_component": z.string().describe("The app component name.").optional(), "start": z.string().describe("UNIX timestamp to start metric window."), "end": z.string().describe("UNIX timestamp to end metric window.") }).shape
+export const inputParams = {
+  "app_id": z.string().describe("The app UUID."),
+  "app_component": z.string().describe("The app component name.").optional(),
+  "start": z.string().describe("UNIX timestamp to start metric window."),
+  "end": z.string().describe("UNIX timestamp to end metric window.")
+}

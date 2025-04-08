@@ -107,4 +107,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "thread_id": z.string().describe("The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run."), "run_id": z.string().describe("The ID of the run to retrieve.") }).shape
+export const inputParams = {
+  "thread_id": z.string().describe("The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run."),
+  "run_id": z.string().describe("The ID of the run to retrieve.")
+}

@@ -48,9 +48,34 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 - `OAUTH2_TOKEN`
 
+## Inspector
+
+Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
+
+```bash
+npx -y @modelcontextprotocol/inspector npx -y @open-mcp/spotify
+```
+
+- Open http://localhost:5173
+- Transport type: `STDIO`
+- Command: `npx`
+- Arguments: `-y @open-mcp/spotify`
+- Click `Environment Variables` to add
+- Click `Connect`
+
+It should say _MCP Server running on stdio_ in red.
+
+- Click `List Tools`
+
 ## Tools
 
 ### get_an_album
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -61,6 +86,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_multiple_albums
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids) for the albums. Maximum: 20 IDs.\n"),
@@ -70,16 +101,28 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_an_albums_tracks
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the album.\n"),
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### get_an_artist
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -89,6 +132,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_multiple_artists
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids) for the artists. Maximum: 50 IDs.\n")
@@ -97,17 +146,29 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_an_artists_albums
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the artist.\n"),
   "include_groups": z.string().describe("A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. <br/>\nValid values are:<br/>- \`album\`<br/>- \`single\`<br/>- \`appears_on\`<br/>- \`compilation\`<br/>For example: \`include_groups=album,single\`.\n").optional(),
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### get_an_artists_top_tracks
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -118,6 +179,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_an_artists_related_artists
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the artist.\n")
@@ -125,6 +192,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### get_a_show
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -135,6 +208,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_multiple_shows
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
@@ -144,16 +223,28 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_a_shows_episodes
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)\nfor the show.\n"),
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### get_an_episode
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -164,6 +255,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_multiple_episodes
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids) for the episodes. Maximum: 50 IDs.\n"),
@@ -172,6 +269,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### get_an_audiobook
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -182,6 +285,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_multiple_audiobooks
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids). For example: \`ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ\`. Maximum: 50 IDs.\n"),
@@ -191,25 +300,43 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_audiobook_chapters
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)\nfor the audiobook.\n"),
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### get_users_saved_audiobooks
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### save_audiobooks_user
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -219,6 +346,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### remove_audiobooks_user
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids). For example: \`ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ\`. Maximum: 50 IDs.\n")
@@ -227,6 +360,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### check_users_saved_audiobooks
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids). For example: \`ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ\`. Maximum: 50 IDs.\n")
@@ -234,6 +373,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### get_a_chapter
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -244,6 +389,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_several_chapters
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids). For example: \`ids=0IsXVP0JmcB2adSE338GkK,3ZXb8FKZGU0EHALYX6uCzU\`. Maximum: 50 IDs.\n"),
@@ -252,6 +403,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### get_track
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -262,6 +419,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_several_tracks
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
@@ -271,24 +434,42 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### search
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "q": z.string().describe("Your search query.\n\nYou can narrow down your search using field filters. The available filters are \`album\`, \`artist\`, \`track\`, \`year\`, \`upc\`, \`tag:hipster\`, \`tag:new\`, \`isrc\`, and \`genre\`. Each field filter only applies to certain result types.\n\nThe \`artist\` and \`year\` filters can be used while searching albums, artists and tracks. You can filter on a single \`year\` or a range (e.g. 1955-1960).<br />\nThe \`album\` filter can be used while searching albums and tracks.<br />\nThe \`genre\` filter can be used while searching artists and tracks.<br />\nThe \`isrc\` and \`track\` filters can be used while searching tracks.<br />\nThe \`upc\`, \`tag:new\` and \`tag:hipster\` filters can only be used while searching albums. The \`tag:new\` filter will return albums released in the past two weeks and \`tag:hipster\` can be used to return only albums with the lowest 10% popularity.<br />\n"),
   "type": z.array(z.enum(["album","artist","playlist","track","show","episode","audiobook"])).describe("A comma-separated list of item types to search across. Search results include hits\nfrom all the specified item types. For example: \`q=abacab&type=album,track\` returns\nboth albums and tracks matching \"abacab\".\n"),
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of results to return in each item type.\n"),
-  "offset": z.number().int().gte(0).lte(1000).describe("The index of the first result to return. Use\nwith limit to get the next page of search results.\n"),
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of results to return in each item type.\n").optional(),
+  "offset": z.number().int().gte(0).lte(1000).describe("The index of the first result to return. Use\nwith limit to get the next page of search results.\n").optional(),
   "include_external": z.literal("audio").describe("If \`include_external=audio\` is specified it signals that the client can play externally hosted audio content, and marks\nthe content as playable in the response. By default externally hosted audio content is marked as unplayable in the response.\n").optional()
 }
 ```
 
 ### get_current_users_profile
 
-```ts
+**Environment variables**
 
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### get_playlist
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -300,6 +481,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### change_playlist_details
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -313,18 +500,30 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_playlists_tracks
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "playlist_id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the playlist.\n"),
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
   "fields": z.string().describe("Filters for the query: a comma-separated list of the\nfields to return. If omitted, all fields are returned. For example, to get\njust the total number of items and the request limit:<br/>\`fields=total,limit\`<br/>A\ndot separator can be used to specify non-reoccurring fields, while parentheses\ncan be used to specify reoccurring fields within objects. For example, to\nget just the added date and user ID of the adder:<br/>\`fields=items(added_at,added_by.id)\`<br/>Use\nmultiple parentheses to drill down into nested objects, for example:<br/>\`fields=items(track(name,href,album(name,href)))\`<br/>Fields\ncan be excluded by prefixing them with an exclamation mark, for example:<br/>\`fields=items.track.album(!external_urls,images)\`\n").optional(),
-  "limit": z.number().int().gte(1).lte(100).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 100.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n"),
+  "limit": z.number().int().gte(1).lte(100).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 100.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional(),
   "additional_types": z.string().describe("A comma-separated list of item types that your client supports besides the default \`track\` type. Valid types are: \`track\` and \`episode\`.<br/>\n_**Note**: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future._<br/>\nIn addition to providing this parameter, make sure that your client properly handles cases of new types in the future by checking against the \`type\` field of each object.\n").optional()
 }
 ```
 
 ### add_tracks_to_playlist
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -337,6 +536,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### reorder_or_replace_playlists_tracks
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -352,6 +557,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### remove_tracks_playlist
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "playlist_id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the playlist.\n"),
@@ -362,24 +573,42 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_a_list_of_current_users_playlists
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("'The index of the first playlist to return. Default:\n0 (the first object). Maximum offset: 100.000\\. Use with \`limit\` to get the\nnext set of playlists.'\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("'The index of the first playlist to return. Default:\n0 (the first object). Maximum offset: 100.000\\. Use with \`limit\` to get the\nnext set of playlists.'\n").optional()
 }
 ```
 
 ### get_users_saved_albums
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n"),
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional(),
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional()
 }
 ```
 
 ### save_albums_user
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -390,6 +619,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### remove_albums_user
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids) for the albums. Maximum: 20 IDs.\n"),
@@ -399,6 +634,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### check_users_saved_albums
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids) for the albums. Maximum: 20 IDs.\n")
@@ -407,15 +648,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_users_saved_tracks
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### save_tracks_user
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -426,6 +679,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### remove_tracks_user
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids). For example: \`ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M\`. Maximum: 50 IDs.\n"),
@@ -435,6 +694,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### check_users_saved_tracks
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids). For example: \`ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M\`. Maximum: 50 IDs.\n")
@@ -443,15 +708,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_users_saved_episodes
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### save_episodes_user
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -462,6 +739,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### remove_episodes_user
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids). For example: \`ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M\`. Maximum: 50 IDs.\n"),
@@ -471,6 +754,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### check_users_saved_episodes
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids) for the episodes. Maximum: 50 IDs.\n")
@@ -479,14 +768,26 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_users_saved_shows
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### save_shows_user
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -496,6 +797,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### remove_shows_user
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -507,6 +814,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### check_users_saved_shows
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids) for the shows. Maximum: 50 IDs.\n")
@@ -514,6 +827,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### get_users_profile
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -523,15 +842,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_list_users_playlists
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "user_id": z.string().describe("The user's [Spotify user ID](/documentation/web-api/concepts/spotify-uris-ids).\n"),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first playlist to return. Default:\n0 (the first object). Maximum offset: 100.000\\. Use with \`limit\` to get the\nnext set of playlists.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first playlist to return. Default:\n0 (the first object). Maximum offset: 100.000\\. Use with \`limit\` to get the\nnext set of playlists.\n").optional()
 }
 ```
 
 ### create_playlist
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -545,6 +876,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### follow_playlist
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "playlist_id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the playlist.\n"),
@@ -554,6 +891,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### unfollow_playlist
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "playlist_id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the playlist.\n")
@@ -562,25 +905,43 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_featured_playlists
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "locale": z.string().describe("The desired language, consisting of an [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore. For example: \`es_MX\`, meaning &quot;Spanish (Mexico)&quot;. Provide this parameter if you want the category strings returned in a particular language.<br/> _**Note**: if \`locale\` is not supplied, or if the specified language is not available, the category strings returned will be in the Spotify default language (American English)._\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### get_categories
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "locale": z.string().describe("The desired language, consisting of an [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore. For example: \`es_MX\`, meaning &quot;Spanish (Mexico)&quot;. Provide this parameter if you want the category strings returned in a particular language.<br/> _**Note**: if \`locale\` is not supplied, or if the specified language is not available, the category strings returned will be in the Spotify default language (American English)._\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### get_a_category
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -591,15 +952,27 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_a_categories_playlists
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "category_id": z.string().describe("The [Spotify category ID](/documentation/web-api/concepts/spotify-uris-ids) for the category.\n"),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### get_playlist_cover
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -609,6 +982,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### upload_custom_playlist_cover
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "playlist_id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) of the playlist.\n")
@@ -617,24 +996,42 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_new_releases
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### get_followed
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "type": z.literal("artist").describe("The ID type: currently only \`artist\` is supported.\n"),
   "after": z.string().describe("The last artist ID retrieved from the previous request.\n").optional(),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n")
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional()
 }
 ```
 
 ### follow_artists_users
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -646,6 +1043,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### unfollow_artists_users
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "type": z.enum(["artist","user"]).describe("The ID type: either \`artist\` or \`user\`.\n"),
@@ -656,6 +1059,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### check_current_user_follows
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "type": z.enum(["artist","user"]).describe("The ID type: either \`artist\` or \`user\`.\n"),
@@ -664,6 +1073,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### check_if_user_follows_playlist
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -674,6 +1089,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_several_audio_features
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "ids": z.string().describe("A comma-separated list of the [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids)\nfor the tracks. Maximum: 100 IDs.\n")
@@ -681,6 +1102,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### get_audio_features
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -690,6 +1117,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_audio_analysis
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().describe("The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids)\nfor the track.\n")
@@ -698,9 +1131,15 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_recommendations
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
-  "limit": z.number().int().gte(1).lte(100).describe("The target size of the list of recommended tracks. For seeds with unusually small pools or when highly restrictive filtering is applied, it may be impossible to generate the requested number of recommended tracks. Debugging information for such cases is available in the response. Default: 20\\. Minimum: 1\\. Maximum: 100.\n"),
+  "limit": z.number().int().gte(1).lte(100).describe("The target size of the list of recommended tracks. For seeds with unusually small pools or when highly restrictive filtering is applied, it may be impossible to generate the requested number of recommended tracks. Debugging information for such cases is available in the response. Default: 20\\. Minimum: 1\\. Maximum: 100.\n").optional(),
   "market": z.string().describe("An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).\n  If a country code is specified, only content that is available in that market will be returned.<br/>\n  If a valid user access token is specified in the request header, the country associated with\n  the user account will take priority over this parameter.<br/>\n  _**Note**: If neither market or user country are provided, the content is considered unavailable for the client._<br/>\n  Users can view the country that is associated with their account in the [account settings](https://www.spotify.com/account/overview/).\n").optional(),
   "seed_artists": z.string().describe("A comma separated list of [Spotify IDs](/documentation/web-api/concepts/spotify-uris-ids) for seed artists.  Up to 5 seed values may be provided in any combination of \`seed_artists\`, \`seed_tracks\` and \`seed_genres\`.<br/> _**Note**: only required if \`seed_genres\` and \`seed_tracks\` are not set_.\n").optional(),
   "seed_genres": z.string().describe("A comma separated list of any genres in the set of [available genre seeds](/documentation/web-api/reference/get-recommendation-genres). Up to 5 seed values may be provided in any combination of \`seed_artists\`, \`seed_tracks\` and \`seed_genres\`.<br/> _**Note**: only required if \`seed_artists\` and \`seed_tracks\` are not set_.\n").optional(),
@@ -752,11 +1191,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_recommendation_genres
 
-```ts
+**Environment variables**
 
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### get_information_about_the_users_current_playback
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -767,6 +1218,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### transfer_a_users_playback
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "device_ids": z.array(z.string()).describe("A JSON array containing the ID of the device on which playback should be started/transferred.<br/>For example:\`{device_ids:[\"74ASZWbe4lXaubB36ztrGX\"]}\`<br/>_**Note**: Although an array is accepted, only a single device_id is currently supported. Supplying more than one will return \`400 Bad Request\`_\n"),
@@ -776,11 +1233,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_a_users_available_devices
 
-```ts
+**Environment variables**
 
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### get_the_users_currently_playing_track
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -790,6 +1259,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### start_a_users_playback
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -803,6 +1278,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### pause_a_users_playback
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "device_id": z.string().describe("The id of the device this command is targeting. If not supplied, the user's currently active device is the target.\n").optional()
@@ -810,6 +1291,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### skip_users_playback_to_next_track
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -819,6 +1306,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### skip_users_playback_to_previous_track
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "device_id": z.string().describe("The id of the device this command is targeting. If\nnot supplied, the user's currently active device is the target.\n").optional()
@@ -826,6 +1319,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### seek_to_position_in_currently_playing_track
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -836,6 +1335,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### set_repeat_mode_on_users_playback
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "state": z.string().describe("**track**, **context** or **off**.<br/>\n**track** will repeat the current track.<br/>\n**context** will repeat the current context.<br/>\n**off** will turn repeat off.\n"),
@@ -844,6 +1349,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### set_volume_for_users_playback
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -854,6 +1365,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### toggle_shuffle_for_users_playback
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
   "state": z.boolean().describe("**true** : Shuffle user's playback.<br/>\n**false** : Do not shuffle user's playback.\n"),
@@ -863,9 +1380,15 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_recently_played
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
   "after": z.number().int().describe("A Unix timestamp in milliseconds. Returns all items\nafter (but not including) this cursor position. If \`after\` is specified, \`before\`\nmust not be specified.\n").optional(),
   "before": z.number().int().describe("A Unix timestamp in milliseconds. Returns all items\nbefore (but not including) this cursor position. If \`before\` is specified,\n\`after\` must not be specified.\n").optional()
 }
@@ -873,11 +1396,23 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_queue
 
-```ts
+**Environment variables**
 
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### add_to_queue
+
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
 
 ```ts
 {
@@ -888,45 +1423,44 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### get_available_markets
 
-```ts
+**Environment variables**
 
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### get_users_top_artists
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
-  "time_range": z.string().describe("Over what time frame the affinities are computed. Valid values: \`long_term\` (calculated from ~1 year of data and including all new data as it becomes available), \`medium_term\` (approximately last 6 months), \`short_term\` (approximately last 4 weeks). Default: \`medium_term\`\n"),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "time_range": z.string().describe("Over what time frame the affinities are computed. Valid values: \`long_term\` (calculated from ~1 year of data and including all new data as it becomes available), \`medium_term\` (approximately last 6 months), \`short_term\` (approximately last 4 weeks). Default: \`medium_term\`\n").optional(),
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
 
 ### get_users_top_tracks
 
+**Environment variables**
+
+- `OAUTH2_TOKEN`
+
+**Input schema**
+
 ```ts
 {
-  "time_range": z.string().describe("Over what time frame the affinities are computed. Valid values: \`long_term\` (calculated from ~1 year of data and including all new data as it becomes available), \`medium_term\` (approximately last 6 months), \`short_term\` (approximately last 4 weeks). Default: \`medium_term\`\n"),
-  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n"),
-  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n")
+  "time_range": z.string().describe("Over what time frame the affinities are computed. Valid values: \`long_term\` (calculated from ~1 year of data and including all new data as it becomes available), \`medium_term\` (approximately last 6 months), \`short_term\` (approximately last 4 weeks). Default: \`medium_term\`\n").optional(),
+  "limit": z.number().int().gte(1).lte(50).describe("The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n").optional(),
+  "offset": z.number().int().describe("The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n").optional()
 }
 ```
-
-## Inspector
-
-Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
-
-```bash
-npx -y @modelcontextprotocol/inspector npx -y @open-mcp/spotify
-```
-
-- Open http://localhost:5173
-- Transport type: `STDIO`
-- Command: `npx`
-- Arguments: `-y @open-mcp/spotify`
-- Click `Environment Variables` to add
-- Click `Connect`
-
-It should say _MCP Server running on stdio_ in red.
-
-- Click `List Tools`

@@ -34,4 +34,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "projectIdOrKey": z.string().describe("The project ID or project key (case sensitive)."), "propertyKey": z.string().describe("The key of the project property. The maximum length is 255 characters.") }).shape
+export const inputParams = {
+  "projectIdOrKey": z.string().describe("The project ID or project key (case sensitive)."),
+  "propertyKey": z.string().describe("The key of the project property. The maximum length is 255 characters.")
+}

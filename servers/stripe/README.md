@@ -34,7 +34,7 @@ If you don't want to use the helper above, add the following to your MCP client 
     "stripe": {
       "command": "npx",
       "args": ["-y", "@open-mcp/stripe"],
-      "env": {"USERNAME_PASSWORD_BASE64":"...","API_KEY":"..."}
+      "env": {"API_KEY":"...","USERNAME_PASSWORD_BASE64":"..."}
     }
   }
 }
@@ -46,12 +46,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ## Other environment variables
 
-- `USERNAME_PASSWORD_BASE64`
 - `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+## Inspector
+
+Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
+
+```bash
+npx -y @modelcontextprotocol/inspector npx -y @open-mcp/stripe
+```
+
+- Open http://localhost:5173
+- Transport type: `STDIO`
+- Command: `npx`
+- Arguments: `-y @open-mcp/stripe`
+- Click `Environment Variables` to add
+- Click `Connect`
+
+It should say _MCP Server running on stdio_ in red.
+
+- Click `List Tools`
 
 ## Tools
 
 ### getaccount
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -61,17 +87,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountlinks
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### postaccountsessions
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getaccounts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -85,11 +132,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccounts
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteaccountsaccount
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -98,6 +159,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getaccountsaccount
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -108,6 +176,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccount
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -115,6 +190,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postaccountsaccountbankaccounts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -124,6 +206,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### deleteaccountsaccountbankaccountsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000),
@@ -132,6 +221,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getaccountsaccountbankaccountsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -143,6 +239,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountbankaccountsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000),
@@ -152,6 +255,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getaccountsaccountcapabilities
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000),
@@ -160,6 +270,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getaccountsaccountcapabilitiescapability
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -171,6 +288,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountcapabilitiescapability
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000),
@@ -179,6 +303,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getaccountsaccountexternalaccounts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -193,6 +324,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountexternalaccounts
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -200,6 +338,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deleteaccountsaccountexternalaccountsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -209,6 +354,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getaccountsaccountexternalaccountsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -220,6 +372,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountexternalaccountsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000),
@@ -229,6 +388,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountloginlinks
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -236,6 +402,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getaccountsaccountpeople
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -250,6 +423,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountpeople
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -257,6 +437,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deleteaccountsaccountpeopleperson
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -266,6 +453,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getaccountsaccountpeopleperson
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -277,6 +471,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountpeopleperson
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000),
@@ -285,6 +486,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getaccountsaccountpersons
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -299,6 +507,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountpersons
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -306,6 +521,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deleteaccountsaccountpersonsperson
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -315,6 +537,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getaccountsaccountpersonsperson
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -326,6 +555,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountpersonsperson
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000),
@@ -335,6 +571,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postaccountsaccountreject
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -342,6 +585,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getapplepaydomains
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -355,11 +605,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postapplepaydomains
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteapplepaydomainsdomain
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -369,6 +633,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getapplepaydomainsdomain
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "domain": z.string().max(5000),
@@ -377,6 +648,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getapplicationfees
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -391,6 +669,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getapplicationfeesfeerefundsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "fee": z.string().max(5000),
@@ -401,6 +686,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postapplicationfeesfeerefundsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "fee": z.string().max(5000),
@@ -409,6 +701,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getapplicationfeesid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -419,6 +718,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postapplicationfeesidrefund
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -426,6 +732,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getapplicationfeesidrefunds
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -439,6 +752,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postapplicationfeesidrefunds
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -446,6 +766,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getappssecrets
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -459,17 +786,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postappssecrets
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### postappssecretsdelete
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getappssecretsfind
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -481,6 +829,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getbalance
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
@@ -488,6 +843,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getbalancehistory
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -505,6 +867,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getbalancehistoryid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -513,6 +882,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getbalancetransactions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -530,6 +906,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getbalancetransactionsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -538,6 +921,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getbillingalerts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -552,11 +942,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingalerts
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getbillingalertsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -567,6 +971,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingalertsidactivate
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -574,6 +985,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postbillingalertsidarchive
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -583,6 +1001,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingalertsiddeactivate
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -590,6 +1015,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getbillingcreditbalancesummary
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -600,6 +1032,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getbillingcreditbalancetransactions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -614,6 +1053,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getbillingcreditbalancetransactionsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000).describe("Unique identifier for the object."),
@@ -622,6 +1068,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getbillingcreditgrants
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -635,11 +1088,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingcreditgrants
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getbillingcreditgrantsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -650,6 +1117,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingcreditgrantsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000).describe("Unique identifier for the object.")
@@ -657,6 +1131,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postbillingcreditgrantsidexpire
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -666,6 +1147,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingcreditgrantsidvoid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000).describe("Unique identifier for the object.")
@@ -674,17 +1162,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingmetereventadjustments
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### postbillingmeterevents
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getbillingmeters
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -698,11 +1207,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingmeters
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getbillingmetersid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -713,6 +1236,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingmetersid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000).describe("Unique identifier for the object.")
@@ -721,6 +1251,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingmetersiddeactivate
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000).describe("Unique identifier for the object.")
@@ -728,6 +1265,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getbillingmetersideventsummaries
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -745,6 +1289,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingmetersidreactivate
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000).describe("Unique identifier for the object.")
@@ -752,6 +1303,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getbillingportalconfigurations
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -766,11 +1324,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingportalconfigurations
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getbillingportalconfigurationsconfiguration
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -781,6 +1353,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingportalconfigurationsconfiguration
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "configuration": z.string().max(5000)
@@ -789,11 +1368,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postbillingportalsessions
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getcharges
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -810,11 +1403,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcharges
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getchargessearch
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -827,6 +1434,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getchargescharge
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "charge": z.string().max(5000),
@@ -836,6 +1450,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postchargescharge
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "charge": z.string().max(5000)
@@ -844,6 +1465,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postchargeschargecapture
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "charge": z.string().max(5000)
@@ -851,6 +1479,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getchargeschargedispute
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -861,6 +1496,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postchargeschargedispute
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "charge": z.string().max(5000)
@@ -868,6 +1510,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postchargeschargedisputeclose
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -877,6 +1526,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postchargeschargerefund
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "charge": z.string().max(5000).describe("The identifier of the charge to refund.")
@@ -884,6 +1540,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getchargeschargerefunds
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -897,6 +1560,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postchargeschargerefunds
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "charge": z.string().max(5000).describe("The identifier of the charge to refund.")
@@ -904,6 +1574,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getchargeschargerefundsrefund
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -915,6 +1592,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postchargeschargerefundsrefund
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "charge": z.string(),
@@ -923,6 +1607,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcheckoutsessions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -942,11 +1633,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcheckoutsessions
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getcheckoutsessionssession
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -957,6 +1662,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcheckoutsessionssession
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "session": z.string().max(5000)
@@ -965,6 +1677,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcheckoutsessionssessionexpire
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "session": z.string().max(5000)
@@ -972,6 +1691,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcheckoutsessionssessionlineitems
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -985,6 +1711,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getclimateorders
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
@@ -996,11 +1729,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postclimateorders
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getclimateordersorder
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1011,6 +1758,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postclimateordersorder
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "order": z.string().max(5000).describe("Unique identifier of the order.")
@@ -1019,6 +1773,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postclimateordersordercancel
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "order": z.string().max(5000).describe("Unique identifier of the order.")
@@ -1026,6 +1787,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getclimateproducts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1038,6 +1806,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getclimateproductsproduct
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "product": z.string().max(5000),
@@ -1046,6 +1821,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getclimatesuppliers
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1058,6 +1840,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getclimatesupplierssupplier
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "supplier": z.string().max(5000),
@@ -1067,6 +1856,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getconfirmationtokensconfirmationtoken
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "confirmation_token": z.string().max(5000),
@@ -1075,6 +1871,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcountryspecs
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1087,6 +1890,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getcountryspecscountry
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "country": z.string().max(5000),
@@ -1095,6 +1905,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcoupons
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1108,11 +1925,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcoupons
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deletecouponscoupon
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1121,6 +1952,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcouponscoupon
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1131,6 +1969,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcouponscoupon
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "coupon": z.string().max(5000)
@@ -1138,6 +1983,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcreditnotes
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1153,11 +2005,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcreditnotes
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getcreditnotespreview
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1179,6 +2045,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcreditnotespreviewlines
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1204,6 +2077,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getcreditnotescreditnotelines
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "credit_note": z.string().max(5000),
@@ -1216,6 +2096,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getcreditnotesid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -1225,6 +2112,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcreditnotesid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -1232,6 +2126,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postcreditnotesidvoid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1241,11 +2142,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomersessions
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getcustomers
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1261,11 +2176,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomers
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getcustomerssearch
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1278,6 +2207,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### deletecustomerscustomer
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1285,6 +2221,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomer
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1295,6 +2238,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomer
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1302,6 +2252,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomerbalancetransactions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1315,6 +2272,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomerbalancetransactions
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1322,6 +2286,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomerbalancetransactionstransaction
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1333,6 +2304,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomerbalancetransactionstransaction
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1341,6 +2319,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomerbankaccounts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1354,6 +2339,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomerbankaccounts
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1361,6 +2353,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deletecustomerscustomerbankaccountsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1370,6 +2369,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomerbankaccountsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1381,6 +2387,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomerbankaccountsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1390,6 +2403,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomerbankaccountsidverify
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1398,6 +2418,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomercards
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1411,6 +2438,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomercards
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1418,6 +2452,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deletecustomerscustomercardsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1427,6 +2468,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomercardsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1438,6 +2486,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomercardsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1446,6 +2501,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomercashbalance
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1456,6 +2518,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomercashbalance
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1463,6 +2532,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomercashbalancetransactions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1476,6 +2552,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getcustomerscustomercashbalancetransactionstransaction
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1486,6 +2569,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### deletecustomerscustomerdiscount
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1493,6 +2583,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomerdiscount
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1503,6 +2600,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomerfundinginstructions
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1510,6 +2614,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomerpaymentmethods
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1525,6 +2636,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getcustomerscustomerpaymentmethodspaymentmethod
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1534,6 +2652,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomersources
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1548,6 +2673,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomersources
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1555,6 +2687,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deletecustomerscustomersourcesid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1564,6 +2703,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomersourcesid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1575,6 +2721,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomersourcesid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1584,6 +2737,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomersourcesidverify
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1592,6 +2752,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomersubscriptions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1605,6 +2772,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomersubscriptions
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1612,6 +2786,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deletecustomerscustomersubscriptionssubscriptionexposedid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1621,6 +2802,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomersubscriptionssubscriptionexposedid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1632,6 +2820,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomersubscriptionssubscriptionexposedid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1640,6 +2835,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deletecustomerscustomersubscriptionssubscriptionexposediddiscoun
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1650,6 +2852,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getcustomerscustomersubscriptionssubscriptionexposediddiscount
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1659,6 +2868,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getcustomerscustomertaxids
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1672,6 +2888,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postcustomerscustomertaxids
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000)
@@ -1679,6 +2902,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deletecustomerscustomertaxidsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1689,6 +2919,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getcustomerscustomertaxidsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "customer": z.string().max(5000),
@@ -1698,6 +2935,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getdisputes
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1713,6 +2957,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getdisputesdispute
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "dispute": z.string().max(5000),
@@ -1722,6 +2973,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postdisputesdispute
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "dispute": z.string().max(5000)
@@ -1730,6 +2988,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postdisputesdisputeclose
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "dispute": z.string().max(5000)
@@ -1737,6 +3002,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getentitlementsactiveentitlements
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1750,6 +3022,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getentitlementsactiveentitlementsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000).describe("The ID of the entitlement."),
@@ -1758,6 +3037,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getentitlementsfeatures
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1772,11 +3058,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postentitlementsfeatures
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getentitlementsfeaturesid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1787,6 +3087,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postentitlementsfeaturesid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -1795,11 +3102,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postephemeralkeys
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteephemeralkeyskey
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1808,6 +3129,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getevents
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1824,6 +3152,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### geteventsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -1832,6 +3167,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getexchangerates
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1844,6 +3186,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getexchangeratesrateid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "rate_id": z.string().max(5000),
@@ -1853,6 +3202,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postexternalaccountsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string()
@@ -1860,6 +3216,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getfilelinks
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1875,11 +3238,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postfilelinks
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getfilelinkslink
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1890,6 +3267,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postfilelinkslink
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "link": z.string()
@@ -1897,6 +3281,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getfiles
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1911,11 +3302,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postfiles
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getfilesfile
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1925,6 +3330,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getfinancialconnectionsaccounts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1939,6 +3351,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getfinancialconnectionsaccountsaccount
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000),
@@ -1948,6 +3367,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postfinancialconnectionsaccountsaccountdisconnect
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -1955,6 +3381,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getfinancialconnectionsaccountsaccountowners
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1969,6 +3402,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postfinancialconnectionsaccountsaccountrefresh
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -1976,6 +3416,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postfinancialconnectionsaccountsaccountsubscribe
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -1985,6 +3432,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postfinancialconnectionsaccountsaccountunsubscribe
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -1993,11 +3447,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postfinancialconnectionssessions
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getfinancialconnectionssessionssession
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2007,6 +3475,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getfinancialconnectionstransactions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2022,6 +3497,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getfinancialconnectionstransactionstransaction
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "transaction": z.string().max(5000),
@@ -2030,6 +3512,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getforwardingrequests
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2043,11 +3532,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postforwardingrequests
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getforwardingrequestsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2057,6 +3560,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getidentityverificationreports
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2073,6 +3583,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getidentityverificationreportsreport
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "report": z.string().max(5000),
@@ -2081,6 +3598,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getidentityverificationsessions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2097,11 +3621,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postidentityverificationsessions
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getidentityverificationsessionssession
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2112,6 +3650,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postidentityverificationsessionssession
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "session": z.string().max(5000)
@@ -2119,6 +3664,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postidentityverificationsessionssessioncancel
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2128,6 +3680,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postidentityverificationsessionssessionredact
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "session": z.string().max(5000)
@@ -2135,6 +3694,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getinvoicepayments
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2150,6 +3716,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getinvoicepaymentsinvoicepayment
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoice_payment": z.string().max(5000),
@@ -2158,6 +3731,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getinvoicerenderingtemplates
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2171,6 +3751,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getinvoicerenderingtemplatestemplate
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "template": z.string().max(5000),
@@ -2181,6 +3768,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoicerenderingtemplatestemplatearchive
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "template": z.string().max(5000)
@@ -2189,6 +3783,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoicerenderingtemplatestemplateunarchive
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "template": z.string().max(5000)
@@ -2196,6 +3797,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getinvoiceitems
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2212,11 +3820,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoiceitems
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteinvoiceitemsinvoiceitem
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2225,6 +3847,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getinvoiceitemsinvoiceitem
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2235,6 +3864,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoiceitemsinvoiceitem
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoiceitem": z.string().max(5000)
@@ -2242,6 +3878,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getinvoices
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2260,17 +3903,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoices
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### postinvoicescreatepreview
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getinvoicessearch
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2283,6 +3947,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### deleteinvoicesinvoice
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoice": z.string().max(5000)
@@ -2290,6 +3961,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getinvoicesinvoice
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2300,6 +3978,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoicesinvoice
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoice": z.string().max(5000)
@@ -2307,6 +3992,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postinvoicesinvoiceaddlines
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2316,6 +4008,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoicesinvoicefinalize
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoice": z.string().max(5000)
@@ -2323,6 +4022,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getinvoicesinvoicelines
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2336,6 +4042,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoicesinvoicelineslineitemid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoice": z.string().max(5000).describe("Invoice ID of line item"),
@@ -2345,6 +4058,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoicesinvoicemarkuncollectible
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoice": z.string().max(5000)
@@ -2352,6 +4072,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postinvoicesinvoicepay
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2361,6 +4088,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoicesinvoiceremovelines
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoice": z.string().max(5000)
@@ -2368,6 +4102,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postinvoicesinvoicesend
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2377,6 +4118,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoicesinvoiceupdatelines
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoice": z.string().max(5000)
@@ -2385,6 +4133,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postinvoicesinvoicevoid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "invoice": z.string().max(5000)
@@ -2392,6 +4147,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getissuingauthorizations
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2408,6 +4170,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getissuingauthorizationsauthorization
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "authorization": z.string().max(5000),
@@ -2417,6 +4186,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingauthorizationsauthorization
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "authorization": z.string().max(5000)
@@ -2424,6 +4200,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postissuingauthorizationsauthorizationapprove
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2433,6 +4216,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingauthorizationsauthorizationdecline
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "authorization": z.string().max(5000)
@@ -2440,6 +4230,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getissuingcardholders
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2457,11 +4254,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingcardholders
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getissuingcardholderscardholder
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2472,6 +4283,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingcardholderscardholder
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "cardholder": z.string().max(5000)
@@ -2479,6 +4297,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getissuingcards
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2499,11 +4324,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingcards
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getissuingcardscard
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2514,6 +4353,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingcardscard
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "card": z.string().max(5000)
@@ -2521,6 +4367,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getissuingdisputes
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2536,11 +4389,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingdisputes
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getissuingdisputesdispute
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2551,6 +4418,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingdisputesdispute
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "dispute": z.string().max(5000)
@@ -2559,6 +4433,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingdisputesdisputesubmit
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "dispute": z.string().max(5000)
@@ -2566,6 +4447,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getissuingpersonalizationdesigns
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2581,11 +4469,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingpersonalizationdesigns
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getissuingpersonalizationdesignspersonalizationdesign
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2596,6 +4498,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingpersonalizationdesignspersonalizationdesign
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "personalization_design": z.string().max(5000)
@@ -2603,6 +4512,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getissuingphysicalbundles
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2617,6 +4533,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getissuingphysicalbundlesphysicalbundle
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "physical_bundle": z.string().max(5000),
@@ -2625,6 +4548,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getissuingsettlementssettlement
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2635,6 +4565,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingsettlementssettlement
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "settlement": z.string().max(5000)
@@ -2642,6 +4579,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getissuingtokens
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2657,6 +4601,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getissuingtokenstoken
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "token": z.string().max(5000),
@@ -2666,6 +4617,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingtokenstoken
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "token": z.string().max(5000)
@@ -2673,6 +4631,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getissuingtransactions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2689,6 +4654,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getissuingtransactionstransaction
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "transaction": z.string().max(5000),
@@ -2698,6 +4670,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postissuingtransactionstransaction
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "transaction": z.string().max(5000)
@@ -2706,11 +4685,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postlinkaccountsessions
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getlinkaccountsessionssession
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2720,6 +4713,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getlinkedaccounts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2734,6 +4734,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getlinkedaccountsaccount
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000),
@@ -2743,6 +4750,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postlinkedaccountsaccountdisconnect
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -2750,6 +4764,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getlinkedaccountsaccountowners
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2764,6 +4785,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postlinkedaccountsaccountrefresh
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "account": z.string().max(5000)
@@ -2771,6 +4799,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getmandatesmandate
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2780,6 +4815,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getpaymentintents
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2794,11 +4836,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentintents
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getpaymentintentssearch
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2811,6 +4867,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getpaymentintentsintent
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "intent": z.string().max(5000),
@@ -2821,6 +4884,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentintentsintent
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "intent": z.string().max(5000)
@@ -2828,6 +4898,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postpaymentintentsintentapplycustomerbalance
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2837,6 +4914,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentintentsintentcancel
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "intent": z.string().max(5000)
@@ -2844,6 +4928,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postpaymentintentsintentcapture
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2853,6 +4944,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentintentsintentconfirm
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "intent": z.string().max(5000)
@@ -2860,6 +4958,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postpaymentintentsintentincrementauthorization
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2869,6 +4974,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentintentsintentverifymicrodeposits
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "intent": z.string().max(5000)
@@ -2876,6 +4988,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getpaymentlinks
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2889,11 +5008,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentlinks
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getpaymentlinkspaymentlink
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2904,6 +5037,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentlinkspaymentlink
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "payment_link": z.string().max(5000)
@@ -2911,6 +5051,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getpaymentlinkspaymentlinklineitems
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2924,6 +5071,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getpaymentmethodconfigurations
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "application": z.union([z.string().max(100), z.literal("")]).describe("The Connect application to filter by.").optional(),
@@ -2936,11 +5090,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentmethodconfigurations
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getpaymentmethodconfigurationsconfiguration
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2951,6 +5119,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentmethodconfigurationsconfiguration
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "configuration": z.string().max(5000)
@@ -2958,6 +5133,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getpaymentmethoddomains
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2972,11 +5154,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentmethoddomains
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getpaymentmethoddomainspaymentmethoddomain
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -2987,6 +5183,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentmethoddomainspaymentmethoddomain
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "payment_method_domain": z.string().max(5000)
@@ -2995,6 +5198,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentmethoddomainspaymentmethoddomainvalidate
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "payment_method_domain": z.string().max(5000)
@@ -3002,6 +5212,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getpaymentmethods
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3016,11 +5233,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentmethods
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getpaymentmethodspaymentmethod
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3031,6 +5262,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentmethodspaymentmethod
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "payment_method": z.string().max(5000)
@@ -3038,6 +5276,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postpaymentmethodspaymentmethodattach
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3047,6 +5292,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpaymentmethodspaymentmethoddetach
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "payment_method": z.string().max(5000)
@@ -3054,6 +5306,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getpayouts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3070,11 +5329,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpayouts
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getpayoutspayout
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3085,6 +5358,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpayoutspayout
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "payout": z.string().max(5000)
@@ -3092,6 +5372,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postpayoutspayoutcancel
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3101,6 +5388,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpayoutspayoutreverse
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "payout": z.string().max(5000)
@@ -3108,6 +5402,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getplans
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3123,11 +5424,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postplans
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteplansplan
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3136,6 +5451,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getplansplan
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3146,6 +5468,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postplansplan
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "plan": z.string().max(5000)
@@ -3153,6 +5482,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getprices
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3172,11 +5508,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postprices
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getpricessearch
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3189,6 +5539,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getpricesprice
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "price": z.string().max(5000),
@@ -3198,6 +5555,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpricesprice
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "price": z.string().max(5000)
@@ -3205,6 +5569,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getproducts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3222,11 +5593,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postproducts
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getproductssearch
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3239,6 +5624,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### deleteproductsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -3246,6 +5638,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getproductsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3256,6 +5655,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postproductsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -3263,6 +5669,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getproductsproductfeatures
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3276,6 +5689,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postproductsproductfeatures
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "product": z.string().max(5000)
@@ -3283,6 +5703,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deleteproductsproductfeaturesid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3293,6 +5720,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getproductsproductfeaturesid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000).describe("The ID of the product_feature."),
@@ -3302,6 +5736,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getpromotioncodes
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3319,11 +5760,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpromotioncodes
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getpromotioncodespromotioncode
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3334,6 +5789,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postpromotioncodespromotioncode
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "promotion_code": z.string().max(5000)
@@ -3341,6 +5803,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getquotes
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3356,11 +5825,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postquotes
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getquotesquote
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3371,6 +5854,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postquotesquote
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "quote": z.string().max(5000)
@@ -3378,6 +5868,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postquotesquoteaccept
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3387,6 +5884,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postquotesquotecancel
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "quote": z.string().max(5000)
@@ -3394,6 +5898,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getquotesquotecomputedupfrontlineitems
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3407,6 +5918,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postquotesquotefinalize
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "quote": z.string().max(5000)
@@ -3414,6 +5932,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getquotesquotelineitems
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3427,6 +5952,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getquotesquotepdf
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "quote": z.string().max(5000),
@@ -3435,6 +5967,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getradarearlyfraudwarnings
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3450,6 +5989,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getradarearlyfraudwarningsearlyfraudwarning
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "early_fraud_warning": z.string().max(5000),
@@ -3458,6 +6004,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getradarvaluelistitems
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3473,11 +6026,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postradarvaluelistitems
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteradarvaluelistitemsitem
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3487,6 +6054,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getradarvaluelistitemsitem
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "item": z.string().max(5000),
@@ -3495,6 +6069,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getradarvaluelists
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3510,11 +6091,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postradarvaluelists
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteradarvaluelistsvaluelist
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3523,6 +6118,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getradarvaluelistsvaluelist
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3533,6 +6135,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postradarvaluelistsvaluelist
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "value_list": z.string().max(5000)
@@ -3540,6 +6149,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getrefunds
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3555,11 +6171,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postrefunds
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getrefundsrefund
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3570,6 +6200,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postrefundsrefund
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "refund": z.string()
@@ -3578,6 +6215,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postrefundsrefundcancel
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "refund": z.string()
@@ -3585,6 +6229,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getreportingreportruns
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3598,11 +6249,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postreportingreportruns
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getreportingreportrunsreportrun
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3613,6 +6278,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getreportingreporttypes
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
@@ -3620,6 +6292,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getreportingreporttypesreporttype
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3629,6 +6308,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getreviews
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3642,6 +6328,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getreviewsreview
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "review": z.string().max(5000),
@@ -3651,6 +6344,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postreviewsreviewapprove
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "review": z.string().max(5000)
@@ -3658,6 +6358,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsetupattempts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3671,6 +6378,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsetupintents
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3687,11 +6401,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsetupintents
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getsetupintentsintent
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3703,6 +6431,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsetupintentsintent
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "intent": z.string().max(5000)
@@ -3710,6 +6445,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postsetupintentsintentcancel
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3719,6 +6461,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsetupintentsintentconfirm
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "intent": z.string().max(5000)
@@ -3727,6 +6476,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsetupintentsintentverifymicrodeposits
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "intent": z.string().max(5000)
@@ -3734,6 +6490,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getshippingrates
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3749,11 +6512,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postshippingrates
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getshippingratesshippingratetoken
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3764,6 +6541,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postshippingratesshippingratetoken
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "shipping_rate_token": z.string().max(5000)
@@ -3772,6 +6556,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsigmasavedqueriesid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -3779,6 +6570,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsigmascheduledqueryruns
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3791,6 +6589,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getsigmascheduledqueryrunsscheduledqueryrun
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "scheduled_query_run": z.string().max(5000),
@@ -3800,11 +6605,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsources
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getsourcessource
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3816,6 +6635,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsourcessource
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "source": z.string().max(5000)
@@ -3823,6 +6649,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsourcessourcemandatenotificationsmandatenotification
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3833,6 +6666,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsourcessourcesourcetransactions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3846,6 +6686,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### getsourcessourcesourcetransactionssourcetransaction
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "source": z.string().max(5000),
@@ -3856,6 +6703,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsourcessourceverify
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "source": z.string().max(5000)
@@ -3863,6 +6717,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsubscriptionitems
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3876,11 +6737,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsubscriptionitems
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deletesubscriptionitemsitem
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3889,6 +6764,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsubscriptionitemsitem
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3899,6 +6781,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsubscriptionitemsitem
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "item": z.string().max(5000)
@@ -3906,6 +6795,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsubscriptionschedules
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3924,11 +6820,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsubscriptionschedules
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getsubscriptionschedulesschedule
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3939,6 +6849,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsubscriptionschedulesschedule
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "schedule": z.string().max(5000)
@@ -3946,6 +6863,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postsubscriptionschedulesschedulecancel
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3955,6 +6879,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsubscriptionschedulesschedulerelease
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "schedule": z.string().max(5000)
@@ -3962,6 +6893,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsubscriptions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -3983,11 +6921,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsubscriptions
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getsubscriptionssearch
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4000,6 +6952,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### deletesubscriptionssubscriptionexposedid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "subscription_exposed_id": z.string().max(5000)
@@ -4007,6 +6966,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getsubscriptionssubscriptionexposedid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4017,6 +6983,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsubscriptionssubscriptionexposedid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "subscription_exposed_id": z.string().max(5000)
@@ -4024,6 +6997,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### deletesubscriptionssubscriptionexposediddiscount
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4033,6 +7013,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postsubscriptionssubscriptionresume
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "subscription": z.string().max(5000)
@@ -4041,11 +7028,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttaxcalculations
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettaxcalculationscalculation
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4055,6 +7056,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettaxcalculationscalculationlineitems
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4068,6 +7076,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### gettaxregistrations
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
@@ -4080,11 +7095,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttaxregistrations
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettaxregistrationsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4095,6 +7124,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttaxregistrationsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -4102,6 +7138,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettaxsettings
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4111,23 +7154,51 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttaxsettings
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### posttaxtransactionscreatefromcalculation
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### posttaxtransactionscreatereversal
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettaxtransactionstransaction
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4137,6 +7208,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettaxtransactionstransactionlineitems
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4150,6 +7228,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### gettaxcodes
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
@@ -4161,6 +7246,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### gettaxcodesid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -4169,6 +7261,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettaxids
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4182,11 +7281,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttaxids
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deletetaxidsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4196,6 +7309,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### gettaxidsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -4204,6 +7324,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettaxrates
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4219,11 +7346,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttaxrates
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettaxratestaxrate
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4234,6 +7375,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttaxratestaxrate
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "tax_rate": z.string().max(5000)
@@ -4241,6 +7389,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getterminalconfigurations
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4254,11 +7409,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postterminalconfigurations
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteterminalconfigurationsconfiguration
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4267,6 +7436,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getterminalconfigurationsconfiguration
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4277,6 +7453,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postterminalconfigurationsconfiguration
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "configuration": z.string().max(5000)
@@ -4285,11 +7468,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postterminalconnectiontokens
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### getterminallocations
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4302,11 +7499,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postterminallocations
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteterminallocationslocation
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4315,6 +7526,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getterminallocationslocation
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4325,6 +7543,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postterminallocationslocation
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "location": z.string().max(5000)
@@ -4332,6 +7557,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getterminalreaders
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4348,11 +7580,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postterminalreaders
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deleteterminalreadersreader
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4361,6 +7607,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getterminalreadersreader
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4371,6 +7624,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postterminalreadersreader
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "reader": z.string().max(5000)
@@ -4378,6 +7638,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postterminalreadersreadercancelaction
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4387,6 +7654,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postterminalreadersreaderprocesspaymentintent
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "reader": z.string().max(5000)
@@ -4394,6 +7668,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postterminalreadersreaderprocesssetupintent
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4403,6 +7684,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postterminalreadersreaderrefundpayment
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "reader": z.string().max(5000)
@@ -4410,6 +7698,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### postterminalreadersreadersetreaderdisplay
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4419,11 +7714,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersconfirmationtokens
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### posttesthelperscustomerscustomerfundcashbalance
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4433,11 +7742,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingauthorizations
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### posttesthelpersissuingauthorizationsauthorizationcapture
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4447,6 +7770,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingauthorizationsauthorizationexpire
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "authorization": z.string().max(5000)
@@ -4454,6 +7784,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelpersissuingauthorizationsauthorizationfinalizeamount
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4463,6 +7800,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingauthorizationsauthorizationfraudchallenges
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "authorization": z.string().max(5000)
@@ -4470,6 +7814,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelpersissuingauthorizationsauthorizationincrement
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4479,6 +7830,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingauthorizationsauthorizationreverse
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "authorization": z.string().max(5000)
@@ -4486,6 +7844,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelpersissuingcardscardshippingdeliver
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4495,6 +7860,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingcardscardshippingfail
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "card": z.string().max(5000)
@@ -4502,6 +7874,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelpersissuingcardscardshippingreturn
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4511,6 +7890,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingcardscardshippingship
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "card": z.string().max(5000)
@@ -4519,6 +7905,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingcardscardshippingsubmit
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "card": z.string().max(5000)
@@ -4527,6 +7920,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingpersonalizationdesignspersonalizationdesig
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "personalization_design": z.string().max(5000)
@@ -4535,6 +7935,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingpersonalizationdesignspersonalizationdesig
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "personalization_design": z.string().max(5000)
@@ -4542,6 +7949,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelpersissuingpersonalizationdesignspersonalizationdesig
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4551,11 +7965,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingsettlements
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### posttesthelpersissuingsettlementssettlementcomplete
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4565,17 +7993,38 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersissuingtransactionscreateforcecapture
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### posttesthelpersissuingtransactionscreateunlinkedrefund
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### posttesthelpersissuingtransactionstransactionrefund
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4585,6 +8034,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersrefundsrefundexpire
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "refund": z.string()
@@ -4593,6 +8049,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelpersterminalreadersreaderpresentpaymentmethod
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "reader": z.string().max(5000)
@@ -4600,6 +8063,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettesthelperstestclocks
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4612,11 +8082,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelperstestclocks
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deletetesthelperstestclockstestclock
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4625,6 +8109,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettesthelperstestclockstestclock
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4635,6 +8126,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelperstestclockstestclockadvance
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "test_clock": z.string().max(5000)
@@ -4642,6 +8140,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelperstreasuryinboundtransfersidfail
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4651,6 +8156,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelperstreasuryinboundtransfersidreturn
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -4658,6 +8170,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelperstreasuryinboundtransfersidsucceed
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4667,6 +8186,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelperstreasuryoutboundpaymentsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -4674,6 +8200,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelperstreasuryoutboundpaymentsidfail
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4683,6 +8216,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelperstreasuryoutboundpaymentsidpost
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -4690,6 +8230,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelperstreasuryoutboundpaymentsidreturn
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4699,6 +8246,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelperstreasuryoutboundtransfersoutboundtransfer
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "outbound_transfer": z.string().max(5000)
@@ -4706,6 +8260,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelperstreasuryoutboundtransfersoutboundtransferfail
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4715,6 +8276,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelperstreasuryoutboundtransfersoutboundtransferpost
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "outbound_transfer": z.string().max(5000)
@@ -4722,6 +8290,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### posttesthelperstreasuryoutboundtransfersoutboundtransferreturn
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4731,23 +8306,51 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttesthelperstreasuryreceivedcredits
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### posttesthelperstreasuryreceiveddebits
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### posttokens
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettokenstoken
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4757,6 +8360,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettopups
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4772,11 +8382,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttopups
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettopupstopup
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4787,6 +8411,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttopupstopup
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "topup": z.string().max(5000)
@@ -4795,6 +8426,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttopupstopupcancel
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "topup": z.string().max(5000)
@@ -4802,6 +8440,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettransfers
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4817,11 +8462,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttransfers
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettransfersidreversals
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4835,6 +8494,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttransfersidreversals
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -4842,6 +8508,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettransferstransfer
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4852,6 +8525,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttransferstransfer
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "transfer": z.string().max(5000)
@@ -4859,6 +8539,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettransferstransferreversalsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4870,6 +8557,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttransferstransferreversalsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -4878,6 +8572,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasurycreditreversals
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4893,11 +8594,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasurycreditreversals
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettreasurycreditreversalscreditreversal
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4907,6 +8622,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasurydebitreversals
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4923,11 +8645,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasurydebitreversals
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettreasurydebitreversalsdebitreversal
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4937,6 +8673,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasuryfinancialaccounts
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4950,11 +8693,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryfinancialaccounts
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettreasuryfinancialaccountsfinancialaccount
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4965,6 +8722,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryfinancialaccountsfinancialaccount
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "financial_account": z.string().max(5000)
@@ -4973,6 +8737,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryfinancialaccountsfinancialaccountclose
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "financial_account": z.string().max(5000)
@@ -4980,6 +8751,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasuryfinancialaccountsfinancialaccountfeatures
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -4990,6 +8768,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryfinancialaccountsfinancialaccountfeatures
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "financial_account": z.string().max(5000)
@@ -4997,6 +8782,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasuryinboundtransfers
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5011,11 +8803,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryinboundtransfers
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettreasuryinboundtransfersid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5026,6 +8832,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryinboundtransfersinboundtransfercancel
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "inbound_transfer": z.string().max(5000)
@@ -5033,6 +8846,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasuryoutboundpayments
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5049,11 +8869,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryoutboundpayments
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettreasuryoutboundpaymentsid
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5064,6 +8898,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryoutboundpaymentsidcancel
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000)
@@ -5071,6 +8912,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasuryoutboundtransfers
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5085,11 +8933,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryoutboundtransfers
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### gettreasuryoutboundtransfersoutboundtransfer
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5100,6 +8962,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### posttreasuryoutboundtransfersoutboundtransfercancel
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "outbound_transfer": z.string().max(5000)
@@ -5107,6 +8976,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasuryreceivedcredits
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5122,6 +8998,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### gettreasuryreceivedcreditsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -5130,6 +9013,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasuryreceiveddebits
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5144,6 +9034,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### gettreasuryreceiveddebitsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -5152,6 +9049,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasurytransactionentries
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5169,6 +9073,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### gettreasurytransactionentriesid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -5177,6 +9088,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### gettreasurytransactions
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5194,6 +9112,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### gettreasurytransactionsid
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "id": z.string().max(5000),
@@ -5202,6 +9127,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getwebhookendpoints
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5214,11 +9146,25 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postwebhookendpoints
 
-```ts
+**Environment variables**
 
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
+```ts
+{}
 ```
 
 ### deletewebhookendpointswebhookendpoint
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5227,6 +9173,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 ```
 
 ### getwebhookendpointswebhookendpoint
+
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
 
 ```ts
 {
@@ -5237,27 +9190,15 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ### postwebhookendpointswebhookendpoint
 
+**Environment variables**
+
+- `API_KEY`
+- `USERNAME_PASSWORD_BASE64`
+
+**Input schema**
+
 ```ts
 {
   "webhook_endpoint": z.string().max(5000)
 }
 ```
-
-## Inspector
-
-Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
-
-```bash
-npx -y @modelcontextprotocol/inspector npx -y @open-mcp/stripe
-```
-
-- Open http://localhost:5173
-- Transport type: `STDIO`
-- Command: `npx`
-- Arguments: `-y @open-mcp/stripe`
-- Click `Environment Variables` to add
-- Click `Connect`
-
-It should say _MCP Server running on stdio_ in red.
-
-- Click `List Tools`

@@ -30,4 +30,10 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "pageSize": z.number().int().optional(), "currentPage": z.number().int().optional(), "role": z.enum(["admin","member"]).optional(), "email": z.string().email().optional(), "status": z.enum(["pending","cancelled","accepted","expired"]).optional() }).shape
+export const inputParams = {
+  "pageSize": z.number().int().optional(),
+  "currentPage": z.number().int().optional(),
+  "role": z.enum(["admin","member"]).optional(),
+  "email": z.string().email().optional(),
+  "status": z.enum(["pending","cancelled","accepted","expired"]).optional()
+}

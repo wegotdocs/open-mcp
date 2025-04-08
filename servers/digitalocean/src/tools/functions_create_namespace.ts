@@ -27,4 +27,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "region": z.string().describe("The [datacenter region](https://docs.digitalocean.com/products/platform/availability-matrix/#available-datacenters) in which to create the namespace."), "label": z.string().describe("The namespace's unique name.") }).shape
+export const inputParams = {
+  "region": z.string().describe("The [datacenter region](https://docs.digitalocean.com/products/platform/availability-matrix/#available-datacenters) in which to create the namespace."),
+  "label": z.string().describe("The namespace's unique name.")
+}

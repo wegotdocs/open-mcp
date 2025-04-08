@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "commentId": z.string().describe("The ID of the comment.") }).shape
+export const inputParams = {
+  "commentId": z.string().describe("The ID of the comment.")
+}

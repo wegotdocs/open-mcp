@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "jql": z.string().optional() }).shape
+export const inputParams = {
+  "jql": z.string().optional()
+}

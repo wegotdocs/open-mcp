@@ -35,4 +35,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "account": z.string().max(5000), "id": z.string().describe("Unique identifier for the external account to be deleted.") }).shape
+export const inputParams = {
+  "account": z.string().max(5000),
+  "id": z.string().describe("Unique identifier for the external account to be deleted.")
+}

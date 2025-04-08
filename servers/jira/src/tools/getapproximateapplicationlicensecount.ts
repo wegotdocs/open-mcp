@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "applicationKey": z.enum(["jira-core","jira-product-discovery","jira-software","jira-servicedesk"]).describe("The ID of the application, represents a specific version of Jira.") }).shape
+export const inputParams = {
+  "applicationKey": z.enum(["jira-core","jira-product-discovery","jira-software","jira-servicedesk"]).describe("The ID of the application, represents a specific version of Jira.")
+}

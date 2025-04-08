@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "autoscale_pool_id": z.string().describe("A unique identifier for an autoscale pool.") }).shape
+export const inputParams = {
+  "autoscale_pool_id": z.string().describe("A unique identifier for an autoscale pool.")
+}

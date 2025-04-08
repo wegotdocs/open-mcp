@@ -107,4 +107,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "thread_id": z.string().describe("The ID of the thread to which this run belongs."), "run_id": z.string().describe("The ID of the run to cancel.") }).shape
+export const inputParams = {
+  "thread_id": z.string().describe("The ID of the thread to which this run belongs."),
+  "run_id": z.string().describe("The ID of the run to cancel.")
+}

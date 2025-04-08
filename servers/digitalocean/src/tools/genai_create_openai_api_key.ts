@@ -1,10 +1,10 @@
 import { z } from "zod"
 
-export const toolName = `attachments_get`
-export const toolDescription = `Retrieve an existing partner attachment`
+export const toolName = `genai_create_openai_api_key`
+export const toolDescription = `Create OpenAI API Key`
 export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/partner_network_connect/attachments/{pa_id}`
-export const method = `get`
+export const path = `/v2/gen-ai/openai/keys`
+export const method = `post`
 export const security = [
   {
     "key": "Authorization",
@@ -18,12 +18,16 @@ export const security = [
 export const keys = {
   "query": [],
   "header": [],
-  "path": [
-    "pa_id"
-  ],
+  "path": [],
   "cookie": [],
-  "body": []
+  "body": [
+    "api_key",
+    "name"
+  ]
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "pa_id": z.string().describe("A unique identifier for a partner attachment.") }).shape
+export const inputParams = {
+  "api_key": z.string().describe("OpenAI API key").optional(),
+  "name": z.string().describe("Name of the key").optional()
+}

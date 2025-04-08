@@ -109,4 +109,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "thread_id": z.string().describe("The ID of the thread to which this message belongs."), "message_id": z.string().describe("The ID of the message to modify."), "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional() }).shape
+export const inputParams = {
+  "thread_id": z.string().describe("The ID of the thread to which this message belongs."),
+  "message_id": z.string().describe("The ID of the message to modify."),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional()
+}

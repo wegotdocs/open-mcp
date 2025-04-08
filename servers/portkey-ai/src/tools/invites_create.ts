@@ -29,4 +29,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "email": z.string(), "workspaces": z.array(z.object({ "id": z.string().describe("Workspace Slug"), "role": z.enum(["admin","member","manager"]) })), "role": z.enum(["admin","member"]), "workspace_api_key_details": z.object({ "scopes": z.array(z.string()) }).optional() }).shape
+export const inputParams = {
+  "email": z.string(),
+  "workspaces": z.array(z.object({ "id": z.string().describe("Workspace Slug"), "role": z.enum(["admin","member","manager"]) })),
+  "role": z.enum(["admin","member"]),
+  "workspace_api_key_details": z.object({ "scopes": z.array(z.string()) }).optional()
+}

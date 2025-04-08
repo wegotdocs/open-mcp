@@ -35,4 +35,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "id": z.string().describe("The ID of the component."), "moveIssuesTo": z.string().describe("The ID of the component to replace the deleted component. If this value is null no replacement is made.").optional() }).shape
+export const inputParams = {
+  "id": z.string().describe("The ID of the component."),
+  "moveIssuesTo": z.string().describe("The ID of the component to replace the deleted component. If this value is null no replacement is made.").optional()
+}

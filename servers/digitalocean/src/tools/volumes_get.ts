@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "volume_id": z.string().uuid().describe("The ID of the block storage volume.") }).shape
+export const inputParams = {
+  "volume_id": z.string().uuid().describe("The ID of the block storage volume.")
+}

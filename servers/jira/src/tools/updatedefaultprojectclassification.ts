@@ -35,4 +35,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "projectIdOrKey": z.string().describe("The project ID or project key (case-sensitive)."), "id": z.string().describe("The ID of the project classification.") }).shape
+export const inputParams = {
+  "projectIdOrKey": z.string().describe("The project ID or project key (case-sensitive)."),
+  "id": z.string().describe("The ID of the project classification.")
+}

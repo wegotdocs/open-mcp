@@ -34,4 +34,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "versionId": z.string().describe("The ID of the version that the target related work belongs to."), "relatedWorkId": z.string().describe("The ID of the related work to delete.") }).shape
+export const inputParams = {
+  "versionId": z.string().describe("The ID of the version that the target related work belongs to."),
+  "relatedWorkId": z.string().describe("The ID of the related work to delete.")
+}

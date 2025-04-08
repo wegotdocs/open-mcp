@@ -30,4 +30,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "resourceType": z.enum(["organization","project"]).describe("Resources are entities that can be managed and accessed through the\nAccess API.\n"), "resourceId": z.string().describe("The resource ID to scope the access request to. Must be a valid ID for the resource type."), "requestId": z.string().describe("The ID of the request."), "roleNames": z.array(z.string()).optional() }).shape
+export const inputParams = {
+  "resourceType": z.enum(["organization","project"]).describe("Resources are entities that can be managed and accessed through the\nAccess API.\n"),
+  "resourceId": z.string().describe("The resource ID to scope the access request to. Must be a valid ID for the resource type."),
+  "requestId": z.string().describe("The ID of the request."),
+  "roleNames": z.array(z.string()).optional()
+}

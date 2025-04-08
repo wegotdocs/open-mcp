@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "key": z.string().describe("The unique identifier of the component.") }).shape
+export const inputParams = {
+  "key": z.string().describe("The unique identifier of the component.")
+}

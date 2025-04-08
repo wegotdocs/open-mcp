@@ -34,4 +34,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "id": z.string().describe("The ID of the version to delete."), "moveIssuesTo": z.string().describe("The ID of the version to merge into.") }).shape
+export const inputParams = {
+  "id": z.string().describe("The ID of the version to delete."),
+  "moveIssuesTo": z.string().describe("The ID of the version to merge into.")
+}

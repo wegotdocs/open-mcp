@@ -1,4 +1,4 @@
-export const OPENAPI_URL = "https://dac-static.atlassian.com/cloud/jira/platform/swagger-v3.v3.json?_v=1.7802.0-0.1322.0"
+export const OPENAPI_URL = "https://dac-static.atlassian.com/cloud/jira/platform/swagger-v3.v3.json"
 export const SERVER_NAME = "jira"
 export const SERVER_VERSION = "0.0.1"
 export const OPERATION_FILES_RELATIVE = [

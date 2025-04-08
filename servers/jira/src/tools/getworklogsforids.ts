@@ -35,4 +35,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "expand": z.string().describe("Use [expand](#expansion) to include additional information about worklogs in the response. This parameter accepts `properties` that returns the properties of each worklog."), "ids": z.array(z.number().int()).describe("A list of worklog IDs.") }).shape
+export const inputParams = {
+  "expand": z.string().describe("Use [expand](#expansion) to include additional information about worklogs in the response. This parameter accepts `properties` that returns the properties of each worklog.").optional(),
+  "ids": z.array(z.number().int()).describe("A list of worklog IDs.")
+}

@@ -1,10 +1,10 @@
 import { z } from "zod"
 
-export const toolName = `attachments_get_service_key`
-export const toolDescription = `Get the current service key for the partner attachment`
+export const toolName = `partnerattachments_create_service_key`
+export const toolDescription = `Regenerate the service key for the partner attachment`
 export const baseUrl = `https://api.digitalocean.com`
 export const path = `/v2/partner_network_connect/attachments/{pa_id}/service_key`
-export const method = `get`
+export const method = `post`
 export const security = [
   {
     "key": "Authorization",
@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "pa_id": z.string().describe("A unique identifier for a partner attachment.") }).shape
+export const inputParams = {
+  "pa_id": z.string().describe("A unique identifier for a partner attachment.")
+}

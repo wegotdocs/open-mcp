@@ -36,4 +36,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "issueIdOrKey": z.string().describe("The ID or key of the issue."), "id": z.string().describe("The ID of the comment."), "expand": z.string().describe("Use [expand](#expansion) to include additional information about comments in the response. This parameter accepts `renderedBody`, which returns the comment body rendered in HTML.").optional() }).shape
+export const inputParams = {
+  "issueIdOrKey": z.string().describe("The ID or key of the issue."),
+  "id": z.string().describe("The ID of the comment."),
+  "expand": z.string().describe("Use [expand](#expansion) to include additional information about comments in the response. This parameter accepts `renderedBody`, which returns the comment body rendered in HTML.").optional()
+}

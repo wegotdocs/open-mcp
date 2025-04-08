@@ -35,4 +35,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "planId": z.number().int().describe("The ID of the plan."), "useGroupId": z.boolean().describe("Whether to return group IDs instead of group names. Group names are deprecated.") }).shape
+export const inputParams = {
+  "planId": z.number().int().describe("The ID of the plan."),
+  "useGroupId": z.boolean().describe("Whether to return group IDs instead of group names. Group names are deprecated.").optional()
+}

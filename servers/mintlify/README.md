@@ -48,30 +48,6 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 - `API_KEY`
 
-## Tools
-
-### get_plants
-
-```ts
-{
-  "limit": z.number().int().describe("The maximum number of results to return").optional()
-}
-```
-
-### post_plants
-
-```ts
-
-```
-
-### delete_plants_id_
-
-```ts
-{
-  "id": z.number().int().describe("ID of plant to delete")
-}
-```
-
 ## Inspector
 
 Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
@@ -90,3 +66,45 @@ npx -y @modelcontextprotocol/inspector npx -y @open-mcp/mintlify
 It should say _MCP Server running on stdio_ in red.
 
 - Click `List Tools`
+
+## Tools
+
+### get_plants
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "limit": z.number().int().describe("The maximum number of results to return").optional()
+}
+```
+
+### post_plants
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### delete_plants_id_
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "id": z.number().int().describe("ID of plant to delete")
+}
+```

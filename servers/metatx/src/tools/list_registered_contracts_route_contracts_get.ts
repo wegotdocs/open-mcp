@@ -28,4 +28,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "blockchain": z.string().optional(), "address": z.string().optional(), "limit": z.number().int(), "offset": z.number().int().optional() }).shape
+export const inputParams = {
+  "blockchain": z.string().optional(),
+  "address": z.string().optional(),
+  "limit": z.number().int().optional(),
+  "offset": z.number().int().optional()
+}

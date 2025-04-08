@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "api_key_uuid": z.string().describe("API key ID") }).shape
+export const inputParams = {
+  "api_key_uuid": z.string().describe("API key ID")
+}

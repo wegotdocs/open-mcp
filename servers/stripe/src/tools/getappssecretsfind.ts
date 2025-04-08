@@ -36,4 +36,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(), "name": z.string().max(5000).describe("A name for the secret that's unique within the scope."), "scope": z.object({ "type": z.enum(["account","user"]), "user": z.string().max(5000).optional() }).describe("Specifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user.") }).shape
+export const inputParams = {
+  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
+  "name": z.string().max(5000).describe("A name for the secret that's unique within the scope."),
+  "scope": z.object({ "type": z.enum(["account","user"]), "user": z.string().max(5000).optional() }).describe("Specifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user.")
+}

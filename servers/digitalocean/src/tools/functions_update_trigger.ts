@@ -30,4 +30,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "namespace_id": z.string().describe("The ID of the namespace to be managed."), "trigger_name": z.string().describe("The name of the trigger to be managed."), "is_enabled": z.boolean().describe("Indicates weather the trigger is paused or unpaused.").optional(), "scheduled_details": z.object({ "cron": z.string().describe("valid cron expression string which is required for SCHEDULED type triggers."), "body": z.object({ "name": z.string().optional() }).nullable().describe("Optional data to be sent to function while triggering the function.").optional() }).describe("Trigger details for SCHEDULED type, where body is optional.\n").optional() }).shape
+export const inputParams = {
+  "namespace_id": z.string().describe("The ID of the namespace to be managed."),
+  "trigger_name": z.string().describe("The name of the trigger to be managed."),
+  "is_enabled": z.boolean().describe("Indicates weather the trigger is paused or unpaused.").optional(),
+  "scheduled_details": z.object({ "cron": z.string().describe("valid cron expression string which is required for SCHEDULED type triggers."), "body": z.object({ "name": z.string().optional() }).nullable().describe("Optional data to be sent to function while triggering the function.").optional() }).describe("Trigger details for SCHEDULED type, where body is optional.\n").optional()
+}

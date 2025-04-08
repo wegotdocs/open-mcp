@@ -41,7 +41,9 @@ export function unflatten({
   return Object.entries(keys).reduce((acc, [paramType, paramTypeKeys]) => {
     acc[paramType as ParamType] = paramTypeKeys.reduce((paramObj, flatKey) => {
       const originalKey = flatMap[flatKey] || flatKey
-      paramObj[originalKey] = flat[flatKey]
+      if (flatKey in flat) {
+        paramObj[originalKey] = flat[flatKey]
+      }
       return paramObj
     }, {} as Record<string, unknown>)
     return acc
