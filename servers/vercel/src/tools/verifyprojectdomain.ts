@@ -30,4 +30,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "idOrName": z.string().describe("The unique project identifier or the project name"), "domain": z.string().describe("The domain name you want to verify"), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape
+export const inputParams = {
+  "idOrName": z.string().describe("The unique project identifier or the project name"),
+  "domain": z.string().describe("The domain name you want to verify"),
+  "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+  "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+}

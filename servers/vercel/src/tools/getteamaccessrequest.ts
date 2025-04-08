@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "userId": z.string().optional() }).shape
+export const inputParams = {
+  "userId": z.string().optional()
+}

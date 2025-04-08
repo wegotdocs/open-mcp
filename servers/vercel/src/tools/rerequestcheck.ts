@@ -30,4 +30,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "deploymentId": z.string().describe("The deployment to rerun the check for."), "checkId": z.string().describe("The check to rerun"), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape
+export const inputParams = {
+  "deploymentId": z.string().describe("The deployment to rerun the check for."),
+  "checkId": z.string().describe("The check to rerun"),
+  "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+  "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+}

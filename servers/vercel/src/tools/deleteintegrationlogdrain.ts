@@ -29,4 +29,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "id": z.string().describe("ID of the log drain to be deleted"), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape
+export const inputParams = {
+  "id": z.string().describe("ID of the log drain to be deleted"),
+  "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+  "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+}

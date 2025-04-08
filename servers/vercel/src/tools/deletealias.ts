@@ -29,4 +29,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "aliasId": z.string().describe("The ID or alias that will be removed"), "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(), "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional() }).shape
+export const inputParams = {
+  "aliasId": z.string().describe("The ID or alias that will be removed"),
+  "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
+  "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional()
+}
