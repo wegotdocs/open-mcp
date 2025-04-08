@@ -23,13 +23,18 @@ export const keys = {
   ],
   "cookie": [],
   "body": [
-    "file_upload_data_source",
     "b_knowledge_base_uuid",
-    "spaces_data_source"
+    "spaces_data_source",
+    "web_crawler_data_source"
   ]
 }
 export const flatMap = {
   "b_knowledge_base_uuid": "knowledge_base_uuid"
 }
 
-export const inputParams = z.object({ "knowledge_base_uuid": z.string().describe("Knowledge base id"), "file_upload_data_source": z.object({ "original_file_name": z.string().describe("The original file name").optional(), "size_in_bytes": z.string().describe("The size of the file in bytes").optional(), "stored_object_key": z.string().describe("The object key the file was stored as").optional() }).describe("File to upload as data source for knowledge base.").optional(), "b_knowledge_base_uuid": z.string().describe("Knowledge base id").optional(), "spaces_data_source": z.object({ "bucket_name": z.string().describe("Spaces bucket name").optional(), "item_path": z.string().optional(), "region": z.string().describe("Region of bucket").optional() }).describe("Spaces Bucket Data Source").optional() }).shape
+export const inputParams = {
+  "knowledge_base_uuid": z.string().describe("Knowledge base id"),
+  "b_knowledge_base_uuid": z.string().describe("Knowledge base id").optional(),
+  "spaces_data_source": z.object({ "bucket_name": z.string().describe("Spaces bucket name").optional(), "item_path": z.string().optional(), "region": z.string().describe("Region of bucket").optional() }).describe("Spaces Bucket Data Source").optional(),
+  "web_crawler_data_source": z.object({ "base_url": z.string().describe("The base url to crawl.").optional(), "crawling_option": z.enum(["UNKNOWN","SCOPED","PATH","DOMAIN","SUBDOMAINS"]).describe("Options for specifying how URLs found on pages should be handled.\n\n - UNKNOWN: Default unknown value\n - SCOPED: Only include the base URL.\n - PATH: Crawl the base URL and linked pages within the URL path.\n - DOMAIN: Crawl the base URL and linked pages within the same domain.\n - SUBDOMAINS: Crawl the base URL and linked pages for any subdomain."), "embed_media": z.boolean().describe("Whether to ingest and index media (images, etc.) on web pages.").optional() }).describe("WebCrawlerDataSource").optional()
+}

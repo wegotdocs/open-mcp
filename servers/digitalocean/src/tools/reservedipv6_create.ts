@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "region_slug": z.string().describe("The slug identifier for the region the reserved IPv6 will be reserved to.") }).shape
+export const inputParams = {
+  "region_slug": z.string().describe("The slug identifier for the region the reserved IPv6 will be reserved to.")
+}

@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "lb_id": z.string().describe("A unique identifier for a load balancer.") }).shape
+export const inputParams = {
+  "lb_id": z.string().describe("A unique identifier for a load balancer.")
+}

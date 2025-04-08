@@ -26,4 +26,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "alert_uuid": z.string().describe("A unique identifier for an alert policy.") }).shape
+export const inputParams = {
+  "alert_uuid": z.string().describe("A unique identifier for an alert policy.")
+}

@@ -27,4 +27,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "app_id": z.string().describe("The app ID"), "component_name": z.string().describe("An optional component name. If set, logs will be limited to this component only.") }).shape
+export const inputParams = {
+  "app_id": z.string().describe("The app ID"),
+  "component_name": z.string().describe("An optional component name. If set, logs will be limited to this component only.")
+}

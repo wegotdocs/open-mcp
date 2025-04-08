@@ -28,4 +28,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "lb_id": z.string().describe("A unique identifier for a load balancer."), "start": z.string().describe("UNIX timestamp to start metric window."), "end": z.string().describe("UNIX timestamp to end metric window.") }).shape
+export const inputParams = {
+  "lb_id": z.string().describe("A unique identifier for a load balancer."),
+  "start": z.string().describe("UNIX timestamp to start metric window."),
+  "end": z.string().describe("UNIX timestamp to end metric window.")
+}
