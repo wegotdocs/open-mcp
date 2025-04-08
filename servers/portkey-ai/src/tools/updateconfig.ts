@@ -30,4 +30,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "slug": z.string(), "name": z.string().optional(), "config": z.object({ "virtual_key": z.string().optional() }).optional(), "status": z.string().optional() }).shape
+export const inputParams = {
+  "slug": z.string(),
+  "name": z.string().optional(),
+  "config": z.object({ "virtual_key": z.string().optional() }).optional(),
+  "status": z.string().optional()
+}

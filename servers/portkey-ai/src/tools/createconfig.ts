@@ -29,4 +29,9 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "name": z.string().optional(), "config": z.record(z.any()).optional(), "isDefault": z.number().int().optional(), "workspace_id": z.string().uuid().describe("optional, when using organisation admin API keys").optional() }).shape
+export const inputParams = {
+  "name": z.string().optional(),
+  "config": z.record(z.any()).optional(),
+  "isDefault": z.number().int().optional(),
+  "workspace_id": z.string().uuid().describe("optional, when using organisation admin API keys").optional()
+}

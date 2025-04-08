@@ -108,4 +108,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "thread_id": z.string().describe("The ID of the thread to which the run and run step belongs."), "run_id": z.string().describe("The ID of the run to which the run step belongs."), "step_id": z.string().describe("The ID of the run step to retrieve.") }).shape
+export const inputParams = {
+  "thread_id": z.string().describe("The ID of the thread to which the run and run step belongs."),
+  "run_id": z.string().describe("The ID of the run to which the run step belongs."),
+  "step_id": z.string().describe("The ID of the run step to retrieve.")
+}

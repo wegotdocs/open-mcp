@@ -2,25 +2,26 @@
 
 ## Installing
 
-### With helper
+Use the helper command `add-to-client` to add the server to your MCP client:
 
-Use the `add-to-client` helper to add the server to your MCP client:
+### Claude desktop
+
+```bash
+npx @open-mcp/portkey-ai add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+
+### Cursor
+
+Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
+
+```bash
+npx @open-mcp/portkey-ai add-to-client .cursor/mcp.json
+```
+
+### Other
 
 ```bash
 npx @open-mcp/portkey-ai add-to-client /path/to/client/config.json
-```
-
-For example:
-
-```bash
-# Claude desktop:
-npx @open-mcp/portkey-ai add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
-
-# Cursor project (run from the project dir):
-npx @open-mcp/portkey-ai add-to-client .cursor/mcp.json
-
-# Cursor global (applies to all projects):
-npx @open-mcp/portkey-ai add-to-client ~/.cursor/mcp.json
 ```
 
 ### Manually
@@ -33,7 +34,7 @@ If you don't want to use the helper above, add the following to your MCP client 
     "portkey-ai": {
       "command": "npx",
       "args": ["-y", "@open-mcp/portkey-ai"],
-      "env": {"X_PORTKEY_API_KEY":"...","X_PORTKEY_VIRTUAL_KEY":"...","API_KEY":"...","X_PORTKEY_PROVIDER":"...","X_PORTKEY_CONFIG":"...","X_PORTKEY_CUSTOM_HOST":"..."}
+      "env": {"API_KEY":"...","X_PORTKEY_API_KEY":"...","X_PORTKEY_CONFIG":"...","X_PORTKEY_CUSTOM_HOST":"...","X_PORTKEY_PROVIDER":"...","X_PORTKEY_VIRTUAL_KEY":"..."}
     }
   }
 }
@@ -45,274 +46,12 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 
 ## Other environment variables
 
-- `X_PORTKEY_API_KEY`
-- `X_PORTKEY_VIRTUAL_KEY`
 - `API_KEY`
-- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_API_KEY`
 - `X_PORTKEY_CONFIG`
 - `X_PORTKEY_CUSTOM_HOST`
-
-## Tools
-
-### createchatcompletion
-
-### createcompletion
-
-### createpromptcompletion
-
-### createpromptrender
-
-### createimage
-
-### createimageedit
-
-### createimagevariation
-
-### createembedding
-
-### createspeech
-
-### createtranscription
-
-### createtranslation
-
-### listfiles
-
-### createfile
-
-### deletefile
-
-### retrievefile
-
-### downloadfile
-
-### createfinetuningjob
-
-### listpaginatedfinetuningjobs
-
-### retrievefinetuningjob
-
-### listfinetuningevents
-
-### cancelfinetuningjob
-
-### listfinetuningjobcheckpoints
-
-### listmodels
-
-### retrievemodel
-
-### deletemodel
-
-### createmoderation
-
-### listassistants
-
-### createassistant
-
-### getassistant
-
-### modifyassistant
-
-### deleteassistant
-
-### createthread
-
-### getthread
-
-### modifythread
-
-### deletethread
-
-### listmessages
-
-### createmessage
-
-### getmessage
-
-### modifymessage
-
-### deletemessage
-
-### createthreadandrun
-
-### listruns
-
-### createrun
-
-### getrun
-
-### modifyrun
-
-### submittoolouputstorun
-
-### cancelrun
-
-### listrunsteps
-
-### getrunstep
-
-### listvectorstores
-
-### createvectorstore
-
-### getvectorstore
-
-### modifyvectorstore
-
-### deletevectorstore
-
-### listvectorstorefiles
-
-### createvectorstorefile
-
-### getvectorstorefile
-
-### deletevectorstorefile
-
-### createvectorstorefilebatch
-
-### getvectorstorefilebatch
-
-### cancelvectorstorefilebatch
-
-### listfilesinvectorstorebatch
-
-### createbatch
-
-### listbatches
-
-### retrievebatch
-
-### cancelbatch
-
-### listconfigs
-
-### createconfig
-
-### getconfig
-
-### updateconfig
-
-### createfeedback
-
-### updatefeedback
-
-### get_virtual_keys
-
-### post_virtual_keys
-
-### get_virtual_keys_slug_
-
-### put_virtual_keys_slug_
-
-### delete_virtual_keys_slug_
-
-### invites_create
-
-### get_admin_users_invites
-
-### get_admin_users_invites_inviteid_
-
-### delete_admin_users_invites_inviteid_
-
-### post_admin_users_invites_inviteid_resend
-
-### get_admin_users
-
-### get_admin_users_userid_
-
-### delete_admin_users_userid_
-
-### put_admin_users_userid_
-
-### post_admin_workspaces_workspaceid_users
-
-### get_admin_workspaces_workspaceid_users
-
-### put_admin_workspaces_workspaceid_users_userid_
-
-### delete_admin_workspaces_workspaceid_users_userid_
-
-### get_admin_workspaces_workspaceid_users_userid_
-
-### post_admin_workspaces
-
-### get_admin_workspaces
-
-### put_admin_workspaces_workspaceid_
-
-### get_admin_workspaces_workspaceid_
-
-### delete_admin_workspaces_workspaceid_
-
-### post_logs
-
-### get_logs_exports_exportid_
-
-### put_logs_exports_exportid_
-
-### get_logs_exports
-
-### post_logs_exports
-
-### post_logs_exports_exportid_start
-
-### post_logs_exports_exportid_cancel
-
-### get_logs_exports_exportid_download
-
-### post_api_keys_type_sub_type_
-
-### get_api_keys
-
-### put_api_keys_id_
-
-### get_api_keys_id_
-
-### delete_api_keys_id_
-
-### get_analytics_graphs_requests
-
-### get_analytics_graphs_cost
-
-### get_analytics_graphs_latency
-
-### get_analytics_graphs_tokens
-
-### get_analytics_graphs_users
-
-### get_analytics_graphs_users_requests
-
-### get_analytics_graphs_errors
-
-### get_analytics_graphs_errors_rate
-
-### get_analytics_graphs_errors_stacks
-
-### get_analytics_graphs_errors_status_codes
-
-### get_analytics_graphs_requests_rescued
-
-### get_analytics_graphs_cache_hit_rate
-
-### get_analytics_graphs_cache_latency
-
-### get_analytics_graphs_feedbacks
-
-### get_analytics_graphs_feedbacks_scores
-
-### get_analytics_graphs_feedbacks_weighted
-
-### get_analytics_graphs_feedbacks_ai_models
-
-### get_analytics_summary_cache
-
-### get_analytics_groups_users
-
-### get_analytics_groups_ai_models
-
-### get_analytics_groups_metadata_metadatakey_
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
 
 ## Inspector
 
@@ -332,3 +71,3260 @@ npx -y @modelcontextprotocol/inspector npx -y @open-mcp/portkey-ai
 It should say _MCP Server running on stdio_ in red.
 
 - Click `List Tools`
+
+## Tools
+
+### createchatcompletion
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "messages": z.array(z.object({ "content": z.string().describe("The contents of the system message."), "role": z.literal("system").describe("The role of the messages author, in this case \`system\`."), "name": z.string().describe("An optional name for the participant. Provides the model information to differentiate between participants of the same role.").optional() })).min(1).describe("A list of messages comprising the conversation so far. [Example Python code](https://cookbook.openai.com/examples/how_to_format_inputs_to_chatgpt_models)."),
+  "model": z.union([z.string(), z.enum(["gpt-4o","gpt-4o-2024-05-13","gpt-4-turbo","gpt-4-turbo-2024-04-09","gpt-4-0125-preview","gpt-4-turbo-preview","gpt-4-1106-preview","gpt-4-vision-preview","gpt-4","gpt-4-0314","gpt-4-0613","gpt-4-32k","gpt-4-32k-0314","gpt-4-32k-0613","gpt-3.5-turbo","gpt-3.5-turbo-16k","gpt-3.5-turbo-0301","gpt-3.5-turbo-0613","gpt-3.5-turbo-1106","gpt-3.5-turbo-0125","gpt-3.5-turbo-16k-0613"])]).describe("ID of the model to use. See the [model endpoint compatibility](https://platform.openai.com/docs/models/model-endpoint-compatibility) table for details on which models work with the Chat API."),
+  "frequency_penalty": z.number().gte(-2).lte(2).nullable().describe("Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.\n\n[See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation/parameter-details)\n").optional(),
+  "logit_bias": z.record(z.number().int()).nullable().describe("Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.\n").optional(),
+  "logprobs": z.boolean().nullable().describe("Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the \`content\` of \`message\`.").optional(),
+  "top_logprobs": z.number().int().gte(0).lte(20).nullable().describe("An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. \`logprobs\` must be set to \`true\` if this parameter is used.").optional(),
+  "max_tokens": z.number().int().nullable().describe("The maximum number of [tokens](https://platform.openai.com/tokenizer?view=bpe) that can be generated in the chat completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length. [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken) for counting tokens.\n").optional(),
+  "n": z.number().int().gte(1).lte(128).nullable().describe("How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. Keep \`n\` as \`1\` to minimize costs.").optional(),
+  "presence_penalty": z.number().gte(-2).lte(2).nullable().describe("Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.\n\n[See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation/parameter-details)\n").optional(),
+  "response_format": z.record(z.any()).and(z.object({ "type": z.literal("text").describe("The type of response format being defined. Always \`text\`.") }).describe("Default response format. Used to generate text responses.\n")).describe("An object specifying the format that the model must output.\n\nSetting to \`{ \"type\": \"json_schema\", \"json_schema\": {...} }\`enables Structured Outputs which ensures the model will match your\nsupplied JSON schema. Works across all the providers that support this functionality. [OpenAI & Azure OpenAI](/integrations/llms/openai/structured-outputs), [Gemini & Vertex AI](/integrations/llms/vertex-ai/controlled-generations).\n\nSetting to \`{ \"type\": \"json_object\" }\` enables the older JSON mode, which ensures the message the model generates is valid JSON.\n\nUsing \`json_schema\` is preferred for models that support it.\n").optional(),
+  "seed": z.number().int().gte(-9223372036854776000).lte(9223372036854776000).nullable().describe("This feature is in Beta.\nIf specified, our system will make a best effort to sample deterministically, such that repeated requests with the same \`seed\` and parameters should return the same result.\nDeterminism is not guaranteed, and you should refer to the \`system_fingerprint\` response parameter to monitor changes in the backend.\n").optional(),
+  "stop": z.string().nullable().describe("Up to 4 sequences where the API will stop generating further tokens.\n").optional(),
+  "stream": z.boolean().nullable().describe("If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-UShttps://platform.openai.com/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a \`data: [DONE]\` message. [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).\n").optional(),
+  "stream_options": z.object({ "include_usage": z.boolean().describe("If set, an additional chunk will be streamed before the \`data: [DONE]\` message. The \`usage\` field on this chunk shows the token usage statistics for the entire request, and the \`choices\` field will always be an empty array. All other chunks will also include a \`usage\` field, but with a null value.\n").optional() }).nullable().describe("Options for streaming response. Only set this when you set \`stream: true\`.\n").optional(),
+  "temperature": z.number().gte(0).lte(2).nullable().describe("What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n\nWe generally recommend altering this or \`top_p\` but not both.\n").optional(),
+  "top_p": z.number().gte(0).lte(1).nullable().describe("An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or \`temperature\` but not both.\n").optional(),
+  "tools": z.array(z.object({ "type": z.literal("function").describe("The type of the tool. Currently, only \`function\` is supported."), "function": z.object({ "description": z.string().describe("A description of what the function does, used by the model to choose when and how to call the function.").optional(), "name": z.string().describe("The name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64."), "parameters": z.record(z.any()).describe("The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting \`parameters\` defines a function with an empty parameter list.").optional() }) })).describe("A list of tools the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. A max of 128 functions are supported.\n").optional(),
+  "tool_choice": z.enum(["none","auto","required"]).describe("\`none\` means the model will not call any tool and instead generates a message. \`auto\` means the model can pick between generating a message or calling one or more tools. \`required\` means the model must call one or more tools.\n").describe("Controls which (if any) tool is called by the model.\n\`none\` means the model will not call any tool and instead generates a message.\n\`auto\` means the model can pick between generating a message or calling one or more tools.\n\`required\` means the model must call one or more tools.\nSpecifying a particular tool via \`{\"type\": \"function\", \"function\": {\"name\": \"my_function\"}}\` forces the model to call that tool.\n\n\`none\` is the default when no tools are present. \`auto\` is the default if tools are present.\n").optional(),
+  "parallel_tool_calls": z.boolean().describe("Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling/parallel-function-calling) during tool use.").optional(),
+  "user": z.string().describe("A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).\n").optional(),
+  "x-portkey-trace-id": z.string().describe("An ID you can pass to refer to one or more requests later on. If not provided, Portkey generates a trace ID automatically for each request. [Docs](https://portkey.ai/docs/product/observability/traces)").optional(),
+  "x-portkey-span-id": z.string().describe("An ID you can pass to refer to a span under a trace.").optional(),
+  "x-portkey-parent-span-id": z.string().describe("Link a child span to a parent span").optional(),
+  "x-portkey-span-name": z.string().describe("Name for the Span ID").optional(),
+  "x-portkey-metadata": z.record(z.any()).describe("Pass any arbitrary metadata along with your request").optional(),
+  "x-portkey-cache-namespace": z.string().describe("Partition your Portkey cache store based on custom strings, ignoring metadata and other headers").optional(),
+  "x-portkey-cache-force-refresh": z.boolean().describe("Forces a cache refresh for your request by making a new API call and storing the updated value").optional()
+}
+```
+
+### createcompletion
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "model": z.union([z.string(), z.enum(["gpt-3.5-turbo-instruct","davinci-002","babbage-002"])]).describe("ID of the model to use. You can use the [List models](https://platform.openai.com/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](https://platform.openai.com/docs/models/overview) for descriptions of them.\n"),
+  "prompt": z.string().nullable().describe("The prompt(s) to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays.\n\nNote that <|endoftext|> is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document.\n"),
+  "best_of": z.number().int().gte(0).lte(20).nullable().describe("Generates \`best_of\` completions server-side and returns the \"best\" (the one with the highest log probability per token). Results cannot be streamed.\n\nWhen used with \`n\`, \`best_of\` controls the number of candidate completions and \`n\` specifies how many to return – \`best_of\` must be greater than \`n\`.\n\n**Note:** Because this parameter generates many completions, it can quickly consume your token quota. Use carefully and ensure that you have reasonable settings for \`max_tokens\` and \`stop\`.\n").optional(),
+  "echo": z.boolean().nullable().describe("Echo back the prompt in addition to the completion\n").optional(),
+  "frequency_penalty": z.number().gte(-2).lte(2).nullable().describe("Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.\n\n[See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation/parameter-details)\n").optional(),
+  "logit_bias": z.record(z.number().int()).nullable().describe("Modify the likelihood of specified tokens appearing in the completion.\n\nAccepts a JSON object that maps tokens (specified by their token ID in the GPT tokenizer) to an associated bias value from -100 to 100. You can use this [tokenizer tool](https://platform.openai.com/tokenizer?view=bpe) to convert text to token IDs. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.\n\nAs an example, you can pass \`{\"50256\": -100}\` to prevent the <|endoftext|> token from being generated.\n").optional(),
+  "logprobs": z.number().int().gte(0).lte(5).nullable().describe("Include the log probabilities on the \`logprobs\` most likely output tokens, as well the chosen tokens. For example, if \`logprobs\` is 5, the API will return a list of the 5 most likely tokens. The API will always return the \`logprob\` of the sampled token, so there may be up to \`logprobs+1\` elements in the response.\n\nThe maximum value for \`logprobs\` is 5.\n").optional(),
+  "max_tokens": z.number().int().gte(0).nullable().describe("The maximum number of [tokens](https://platform.openai.com/tokenizer?view=bpe) that can be generated in the completion.\n\nThe token count of your prompt plus \`max_tokens\` cannot exceed the model's context length. [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken) for counting tokens.\n").optional(),
+  "n": z.number().int().gte(1).lte(128).nullable().describe("How many completions to generate for each prompt.\n\n**Note:** Because this parameter generates many completions, it can quickly consume your token quota. Use carefully and ensure that you have reasonable settings for \`max_tokens\` and \`stop\`.\n").optional(),
+  "presence_penalty": z.number().gte(-2).lte(2).nullable().describe("Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.\n\n[See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation/parameter-details)\n").optional(),
+  "seed": z.number().int().gte(-9223372036854776000).lte(9223372036854776000).nullable().describe("If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same \`seed\` and parameters should return the same result.\n\nDeterminism is not guaranteed, and you should refer to the \`system_fingerprint\` response parameter to monitor changes in the backend.\n").optional(),
+  "stop": z.string().nullable().nullable().describe("Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence.\n").optional(),
+  "stream": z.boolean().nullable().describe("Whether to stream back partial progress. If set, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-UShttps://platform.openai.com/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a \`data: [DONE]\` message. [Example Python code](https://cookbook.openai.com/examples/how_to_stream_completions).\n").optional(),
+  "stream_options": z.object({ "include_usage": z.boolean().describe("If set, an additional chunk will be streamed before the \`data: [DONE]\` message. The \`usage\` field on this chunk shows the token usage statistics for the entire request, and the \`choices\` field will always be an empty array. All other chunks will also include a \`usage\` field, but with a null value.\n").optional() }).nullable().describe("Options for streaming response. Only set this when you set \`stream: true\`.\n").optional(),
+  "suffix": z.string().nullable().describe("The suffix that comes after a completion of inserted text.\n\nThis parameter is only supported for \`gpt-3.5-turbo-instruct\`.\n").optional(),
+  "temperature": z.number().gte(0).lte(2).nullable().describe("What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n\nWe generally recommend altering this or \`top_p\` but not both.\n").optional(),
+  "top_p": z.number().gte(0).lte(1).nullable().describe("An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or \`temperature\` but not both.\n").optional(),
+  "user": z.string().describe("A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).\n").optional()
+}
+```
+
+### post_collections
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspace_id": z.string().describe("ID or slug of the workspace").optional(),
+  "name": z.string().describe("Name of the collection"),
+  "parent_collection_id": z.string().describe("ID or slug of the parent collection (optional)").optional()
+}
+```
+
+### get_collections
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspace_id": z.string().describe("ID or slug of the workspace"),
+  "current_page": z.number().int().gte(0).describe("Page number for pagination (0-indexed)").optional(),
+  "page_size": z.number().int().gte(1).describe("Number of items per page").optional(),
+  "search": z.string().describe("Search query to filter collections by name").optional()
+}
+```
+
+### parameters_collections_collectionid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### get_collections_collectionid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### put_collections_collectionid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "name": z.string().describe("New name for the collection")
+}
+```
+
+### delete_collections_collectionid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### createlabel
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "organisation_id": z.string().uuid().describe("ID of the organisation").optional(),
+  "workspace_id": z.string().describe("ID or slug of the workspace").optional(),
+  "name": z.string().regex(new RegExp("^(?!latest$)(?!default$)(?!\\d+$)[a-zA-Z0-9_-]*[^@\\s]?[a-zA-Z0-9_-]*$")).describe("Name of the label"),
+  "description": z.string().describe("Description of the label").optional(),
+  "color_code": z.string().describe("Color code for the label").optional()
+}
+```
+
+### listlabels
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "organisation_id": z.string().uuid().describe("ID of the organisation").optional(),
+  "workspace_id": z.string().describe("ID or slug of the workspace").optional(),
+  "search": z.string().describe("Search query to filter labels by name").optional(),
+  "current_page": z.number().int().gte(0).describe("Page number for pagination").optional(),
+  "page_size": z.number().int().gte(1).describe("Number of items per page").optional()
+}
+```
+
+### getlabel
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "labelId": z.string().uuid().describe("ID of the label to retrieve"),
+  "organisation_id": z.string().uuid().describe("ID of the organisation").optional(),
+  "workspace_id": z.string().describe("ID or slug of the workspace").optional()
+}
+```
+
+### updatelabel
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "labelId": z.string().uuid().describe("ID of the label to update"),
+  "name": z.string().regex(new RegExp("^(?!latest$)(?!default$)(?!\\d+$)[a-zA-Z0-9_-]*[^@\\s]?[a-zA-Z0-9_-]*$")).describe("Name of the label").optional(),
+  "description": z.string().describe("Description of the label").optional(),
+  "color_code": z.string().describe("Color code for the label").optional()
+}
+```
+
+### deletelabel
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "labelId": z.string().uuid().describe("ID of the label to delete")
+}
+```
+
+### createprompt
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "name": z.string(),
+  "collection_id": z.string().describe("UUID or slug of the collection"),
+  "string": z.string().describe("Prompt template in string format"),
+  "parameters": z.record(z.any()).describe("Parameters for the prompt"),
+  "functions": z.array(z.any()).describe("Functions for the prompt").optional(),
+  "tools": z.array(z.any()).describe("Tools for the prompt").optional(),
+  "tool_choice": z.record(z.any()).describe("Tool Choice for the prompt").optional(),
+  "model": z.string().describe("The model to use for the prompt").optional(),
+  "virtual_key": z.string().describe("The virtual key to use for the prompt").optional(),
+  "version_description": z.string().describe("The description of the prompt version").optional(),
+  "template_metadata": z.record(z.any()).describe("Metadata for the prompt").optional()
+}
+```
+
+### listprompts
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "collection_id": z.string().optional(),
+  "workspace_id": z.string().optional(),
+  "current_page": z.number().int().optional(),
+  "page_size": z.number().int().optional(),
+  "search": z.string().optional()
+}
+```
+
+### getprompt
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptId": z.string()
+}
+```
+
+### updateprompt
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptId": z.string(),
+  "name": z.string().optional(),
+  "collection_id": z.string().optional(),
+  "string": z.string().optional(),
+  "parameters": z.record(z.any()).optional(),
+  "model": z.string().optional(),
+  "virtual_key": z.string().optional(),
+  "version_description": z.string().optional(),
+  "functions": z.array(z.record(z.any())).optional(),
+  "tools": z.array(z.record(z.any())).optional(),
+  "tool_choice": z.record(z.any()).optional(),
+  "is_raw_template": z.union([z.literal(0), z.literal(1)]).optional(),
+  "prompt_metadata": z.record(z.any()).optional()
+}
+```
+
+### deleteprompt
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptId": z.string()
+}
+```
+
+### getpromptversions
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptId": z.string()
+}
+```
+
+### getpromptbyversion
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptId": z.string(),
+  "versionId": z.string().uuid()
+}
+```
+
+### updatepromptversion
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptId": z.string(),
+  "versionId": z.string().uuid(),
+  "label_id": z.string().uuid().optional()
+}
+```
+
+### updatepromptdefault
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptId": z.string(),
+  "version": z.number().describe("Version Number to set as default")
+}
+```
+
+### createpromptpartial
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspace_id": z.string().describe("Required for Admin keys").optional(),
+  "name": z.string(),
+  "string": z.string().describe("Prompt partial template in string format"),
+  "version_description": z.string().optional()
+}
+```
+
+### listpromptpartials
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "collection_id": z.string().optional()
+}
+```
+
+### getpromptpartial
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptPartialId": z.string()
+}
+```
+
+### updatepromptpartial
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptPartialId": z.string(),
+  "name": z.string().optional(),
+  "string": z.string().optional(),
+  "description": z.string().optional(),
+  "status": z.string().optional()
+}
+```
+
+### deletepromptpartial
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptPartialId": z.string()
+}
+```
+
+### getpromptpartialversions
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptPartialId": z.string()
+}
+```
+
+### updatepromptpartialdefault
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptPartialId": z.string(),
+  "version": z.number().describe("Version Number to set as default")
+}
+```
+
+### createpromptcompletion
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptId": z.string().describe("The unique identifier of the prompt template to use")
+}
+```
+
+### createpromptrender
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "promptId": z.string().describe("The unique identifier of the prompt template to render")
+}
+```
+
+### createimage
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "prompt": z.string().describe("A text description of the desired image(s). The maximum length is 1000 characters for \`dall-e-2\` and 4000 characters for \`dall-e-3\`."),
+  "model": z.union([z.string(), z.enum(["dall-e-2","dall-e-3"])]).nullable().describe("The model to use for image generation.").optional(),
+  "n": z.number().int().gte(1).lte(10).nullable().describe("The number of images to generate. Must be between 1 and 10. For \`dall-e-3\`, only \`n=1\` is supported.").optional(),
+  "quality": z.enum(["standard","hd"]).describe("The quality of the image that will be generated. \`hd\` creates images with finer details and greater consistency across the image. This param is only supported for \`dall-e-3\`.").optional(),
+  "response_format": z.enum(["url","b64_json"]).nullable().describe("The format in which the generated images are returned. Must be one of \`url\` or \`b64_json\`. URLs are only valid for 60 minutes after the image has been generated.").optional(),
+  "size": z.enum(["256x256","512x512","1024x1024","1792x1024","1024x1792"]).nullable().describe("The size of the generated images. Must be one of \`256x256\`, \`512x512\`, or \`1024x1024\` for \`dall-e-2\`. Must be one of \`1024x1024\`, \`1792x1024\`, or \`1024x1792\` for \`dall-e-3\` models.").optional(),
+  "style": z.enum(["vivid","natural"]).nullable().describe("The style of the generated images. Must be one of \`vivid\` or \`natural\`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. This param is only supported for \`dall-e-3\`.").optional(),
+  "user": z.string().describe("A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).\n").optional()
+}
+```
+
+### createimageedit
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### createimagevariation
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### createembedding
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "input": z.string().describe("The string that will be turned into an embedding.").describe("Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays. The input must not exceed the max input tokens for the model (8192 tokens for \`text-embedding-ada-002\`), cannot be an empty string, and any array must be 2048 dimensions or less. [Example Python code](https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken) for counting tokens.\n"),
+  "model": z.union([z.string(), z.enum(["text-embedding-ada-002","text-embedding-3-small","text-embedding-3-large"])]).describe("ID of the model to use. You can use the [List models](https://platform.openai.com/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](https://platform.openai.com/docs/models/overview) for descriptions of them.\n"),
+  "encoding_format": z.enum(["float","base64"]).describe("The format to return the embeddings in. Can be either \`float\` or [\`base64\`](https://pypi.org/project/pybase64/).").optional(),
+  "dimensions": z.number().int().gte(1).describe("The number of dimensions the resulting output embeddings should have. Only supported in \`text-embedding-3\` and later models.\n").optional(),
+  "user": z.string().describe("A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).\n").optional()
+}
+```
+
+### createspeech
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "model": z.union([z.string(), z.enum(["tts-1","tts-1-hd"])]).describe("One of the available [TTS models](https://platform.openai.com/docs/models/tts): \`tts-1\` or \`tts-1-hd\`\n"),
+  "input": z.string().max(4096).describe("The text to generate audio for. The maximum length is 4096 characters."),
+  "voice": z.enum(["alloy","echo","fable","onyx","nova","shimmer"]).describe("The voice to use when generating the audio. Supported voices are \`alloy\`, \`echo\`, \`fable\`, \`onyx\`, \`nova\`, and \`shimmer\`. Previews of the voices are available in the [Text to speech guide](https://platform.openai.com/docs/guides/text-to-speech/voice-options)."),
+  "response_format": z.enum(["mp3","opus","aac","flac","wav","pcm"]).describe("The format to audio in. Supported formats are \`mp3\`, \`opus\`, \`aac\`, \`flac\`, \`wav\`, and \`pcm\`.").optional(),
+  "speed": z.number().gte(0.25).lte(4).describe("The speed of the generated audio. Select a value from \`0.25\` to \`4.0\`. \`1.0\` is the default.").optional()
+}
+```
+
+### createtranscription
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### createtranslation
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### listfiles
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "purpose": z.string().describe("Only return files with the given purpose.").optional()
+}
+```
+
+### createfile
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### deletefile
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "file_id": z.string().describe("The ID of the file to use for this request.")
+}
+```
+
+### retrievefile
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "file_id": z.string().describe("The ID of the file to use for this request.")
+}
+```
+
+### downloadfile
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "file_id": z.string().describe("The ID of the file to use for this request.")
+}
+```
+
+### createfinetuningjob
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### listpaginatedfinetuningjobs
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "after": z.string().describe("Identifier for the last job from the previous pagination request.").optional(),
+  "limit": z.number().int().describe("Number of fine-tuning jobs to retrieve.").optional()
+}
+```
+
+### retrievefinetuningjob
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "fine_tuning_job_id": z.string().describe("The ID of the fine-tuning job.\n")
+}
+```
+
+### listfinetuningevents
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "fine_tuning_job_id": z.string().describe("The ID of the fine-tuning job to get events for.\n"),
+  "after": z.string().describe("Identifier for the last event from the previous pagination request.").optional(),
+  "limit": z.number().int().describe("Number of events to retrieve.").optional()
+}
+```
+
+### cancelfinetuningjob
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "fine_tuning_job_id": z.string().describe("The ID of the fine-tuning job to cancel.\n")
+}
+```
+
+### listfinetuningjobcheckpoints
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "fine_tuning_job_id": z.string().describe("The ID of the fine-tuning job to get checkpoints for.\n"),
+  "after": z.string().describe("Identifier for the last checkpoint ID from the previous pagination request.").optional(),
+  "limit": z.number().int().describe("Number of checkpoints to retrieve.").optional()
+}
+```
+
+### listmodels
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### retrievemodel
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "model": z.string().describe("The ID of the model to use for this request")
+}
+```
+
+### deletemodel
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "model": z.string().describe("The model to delete")
+}
+```
+
+### createmoderation
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "input": z.string().describe("The input text to classify"),
+  "model": z.union([z.string(), z.enum(["text-moderation-latest","text-moderation-stable"])]).describe("Two content moderations models are available: \`text-moderation-stable\` and \`text-moderation-latest\`.\n\nThe default is \`text-moderation-latest\` which will be automatically upgraded over time. This ensures you are always using our most accurate model. If you use \`text-moderation-stable\`, we will provide advanced notice before updating the model. Accuracy of \`text-moderation-stable\` may be slightly lower than for \`text-moderation-latest\`.\n").optional()
+}
+```
+
+### listassistants
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),
+  "order": z.enum(["asc","desc"]).describe("Sort order by the \`created_at\` timestamp of the objects. \`asc\` for ascending order and \`desc\` for descending order.\n").optional(),
+  "after": z.string().describe("A cursor for use in pagination. \`after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n").optional(),
+  "before": z.string().describe("A cursor for use in pagination. \`before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n").optional()
+}
+```
+
+### createassistant
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "model": z.union([z.string(), z.enum(["gpt-4o","gpt-4o-2024-05-13","gpt-4-turbo","gpt-4-turbo-2024-04-09","gpt-4-0125-preview","gpt-4-turbo-preview","gpt-4-1106-preview","gpt-4-vision-preview","gpt-4","gpt-4-0314","gpt-4-0613","gpt-4-32k","gpt-4-32k-0314","gpt-4-32k-0613","gpt-3.5-turbo","gpt-3.5-turbo-16k","gpt-3.5-turbo-0613","gpt-3.5-turbo-1106","gpt-3.5-turbo-0125","gpt-3.5-turbo-16k-0613"])]).describe("ID of the model to use. You can use the [List models](https://platform.openai.com/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](https://platform.openai.com/docs/models/overview) for descriptions of them.\n"),
+  "name": z.string().max(256).nullable().describe("The name of the assistant. The maximum length is 256 characters.\n").optional(),
+  "description": z.string().max(512).nullable().describe("The description of the assistant. The maximum length is 512 characters.\n").optional(),
+  "instructions": z.string().max(256000).nullable().describe("The system instructions that the assistant uses. The maximum length is 256,000 characters.\n").optional(),
+  "tools": z.array(z.object({ "type": z.literal("code_interpreter").describe("The type of tool being defined: \`code_interpreter\`") })).max(128).describe("A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types \`code_interpreter\`, \`file_search\`, or \`function\`.\n").optional(),
+  "tool_resources": z.object({ "code_interpreter": z.object({ "file_ids": z.array(z.string()).max(20).describe("A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made available to the \`code_interpreter\` tool. There can be a maximum of 20 files associated with the tool.\n") }).optional(), "file_search": z.object({ "vector_store_ids": z.array(z.string()).max(1).describe("The [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.\n").optional(), "vector_stores": z.array(z.object({ "file_ids": z.array(z.string()).max(10000).describe("A list of [file](https://platform.openai.com/docs/api-reference/files) IDs to add to the vector store. There can be a maximum of 10000 files in a vector store.\n").optional(), "chunking_strategy": z.record(z.any()).and(z.object({ "type": z.literal("auto").describe("Always \`auto\`.") }).strict().describe("The default strategy. This strategy currently uses a \`max_chunk_size_tokens\` of \`800\` and \`chunk_overlap_tokens\` of \`400\`.")).describe("The chunking strategy used to chunk the file(s). If not set, will use the \`auto\` strategy.").optional(), "metadata": z.record(z.any()).describe("Set of 16 key-value pairs that can be attached to a vector store. This can be useful for storing additional information about the vector store in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional() })).max(1).describe("A helper to create a [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) with file_ids and attach it to this assistant. There can be a maximum of 1 vector store attached to the assistant.\n").optional() }).optional() }).nullable().describe("A set of resources that are used by the assistant's tools. The resources are specific to the type of tool. For example, the \`code_interpreter\` tool requires a list of file IDs, while the \`file_search\` tool requires a list of vector store IDs.\n").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional(),
+  "temperature": z.number().gte(0).lte(2).nullable().describe("What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n").optional(),
+  "top_p": z.number().gte(0).lte(1).nullable().describe("An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or temperature but not both.\n").optional(),
+  "response_format": z.enum(["none","auto"]).describe("\`auto\` is the default value\n").nullable().describe("Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models/gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since \`gpt-3.5-turbo-1106\`.\n\nSetting to \`{ \"type\": \"json_object\" }\` enables JSON mode, which guarantees the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if \`finish_reason=\"length\"\`, which indicates the generation exceeded \`max_tokens\` or the conversation exceeded the max context length.\n").optional()
+}
+```
+
+### getassistant
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "assistant_id": z.string().describe("The ID of the assistant to retrieve.")
+}
+```
+
+### modifyassistant
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "assistant_id": z.string().describe("The ID of the assistant to modify."),
+  "model": z.string().describe("ID of the model to use. You can use the [List models](https://platform.openai.com/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](https://platform.openai.com/docs/models/overview) for descriptions of them.\n").optional(),
+  "name": z.string().max(256).nullable().describe("The name of the assistant. The maximum length is 256 characters.\n").optional(),
+  "description": z.string().max(512).nullable().describe("The description of the assistant. The maximum length is 512 characters.\n").optional(),
+  "instructions": z.string().max(256000).nullable().describe("The system instructions that the assistant uses. The maximum length is 256,000 characters.\n").optional(),
+  "tools": z.array(z.object({ "type": z.literal("code_interpreter").describe("The type of tool being defined: \`code_interpreter\`") })).max(128).describe("A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types \`code_interpreter\`, \`file_search\`, or \`function\`.\n").optional(),
+  "tool_resources": z.object({ "code_interpreter": z.object({ "file_ids": z.array(z.string()).max(20).describe("Overrides the list of [file](https://platform.openai.com/docs/api-reference/files) IDs made available to the \`code_interpreter\` tool. There can be a maximum of 20 files associated with the tool.\n") }).optional(), "file_search": z.object({ "vector_store_ids": z.array(z.string()).max(1).describe("Overrides the [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.\n").optional() }).optional() }).nullable().describe("A set of resources that are used by the assistant's tools. The resources are specific to the type of tool. For example, the \`code_interpreter\` tool requires a list of file IDs, while the \`file_search\` tool requires a list of vector store IDs.\n").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional(),
+  "temperature": z.number().gte(0).lte(2).nullable().describe("What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n").optional(),
+  "top_p": z.number().gte(0).lte(1).nullable().describe("An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or temperature but not both.\n").optional(),
+  "response_format": z.enum(["none","auto"]).describe("\`auto\` is the default value\n").nullable().describe("Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models/gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since \`gpt-3.5-turbo-1106\`.\n\nSetting to \`{ \"type\": \"json_object\" }\` enables JSON mode, which guarantees the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if \`finish_reason=\"length\"\`, which indicates the generation exceeded \`max_tokens\` or the conversation exceeded the max context length.\n").optional()
+}
+```
+
+### deleteassistant
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "assistant_id": z.string().describe("The ID of the assistant to delete.")
+}
+```
+
+### createthread
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "messages": z.array(z.object({ "role": z.enum(["user","assistant"]).describe("The role of the entity that is creating the message. Allowed values include:\n- \`user\`: Indicates the message is sent by an actual user and should be used in most cases to represent user-generated messages.\n- \`assistant\`: Indicates the message is generated by the assistant. Use this value to insert messages from the assistant into the conversation.\n"), "content": z.string().describe("The text contents of the message."), "attachments": z.array(z.object({ "file_id": z.string().describe("The ID of the file to attach to the message.").optional(), "tools": z.array(z.object({ "type": z.literal("code_interpreter").describe("The type of tool being defined: \`code_interpreter\`") })).describe("The tools to add this file to.").optional() })).nullable().describe("A list of files attached to the message, and the tools they should be added to.").optional(), "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional() }).strict()).describe("A list of [messages](https://platform.openai.com/docs/api-reference/messages) to start the thread with.").optional(),
+  "tool_resources": z.object({ "code_interpreter": z.object({ "file_ids": z.array(z.string()).max(20).describe("A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made available to the \`code_interpreter\` tool. There can be a maximum of 20 files associated with the tool.\n") }).optional(), "file_search": z.object({ "vector_store_ids": z.array(z.string()).max(1).describe("The [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) attached to this thread. There can be a maximum of 1 vector store attached to the thread.\n").optional(), "vector_stores": z.array(z.object({ "file_ids": z.array(z.string()).max(10000).describe("A list of [file](https://platform.openai.com/docs/api-reference/files) IDs to add to the vector store. There can be a maximum of 10000 files in a vector store.\n").optional(), "chunking_strategy": z.record(z.any()).and(z.object({ "type": z.literal("auto").describe("Always \`auto\`.") }).strict().describe("The default strategy. This strategy currently uses a \`max_chunk_size_tokens\` of \`800\` and \`chunk_overlap_tokens\` of \`400\`.")).describe("The chunking strategy used to chunk the file(s). If not set, will use the \`auto\` strategy.").optional(), "metadata": z.record(z.any()).describe("Set of 16 key-value pairs that can be attached to a vector store. This can be useful for storing additional information about the vector store in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional() })).max(1).describe("A helper to create a [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) with file_ids and attach it to this thread. There can be a maximum of 1 vector store attached to the thread.\n").optional() }).optional() }).nullable().describe("A set of resources that are made available to the assistant's tools in this thread. The resources are specific to the type of tool. For example, the \`code_interpreter\` tool requires a list of file IDs, while the \`file_search\` tool requires a list of vector store IDs.\n").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional()
+}
+```
+
+### getthread
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread to retrieve.")
+}
+```
+
+### modifythread
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread to modify. Only the \`metadata\` can be modified."),
+  "tool_resources": z.object({ "code_interpreter": z.object({ "file_ids": z.array(z.string()).max(20).describe("A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made available to the \`code_interpreter\` tool. There can be a maximum of 20 files associated with the tool.\n") }).optional(), "file_search": z.object({ "vector_store_ids": z.array(z.string()).max(1).describe("The [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) attached to this thread. There can be a maximum of 1 vector store attached to the thread.\n").optional() }).optional() }).nullable().describe("A set of resources that are made available to the assistant's tools in this thread. The resources are specific to the type of tool. For example, the \`code_interpreter\` tool requires a list of file IDs, while the \`file_search\` tool requires a list of vector store IDs.\n").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional()
+}
+```
+
+### deletethread
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread to delete.")
+}
+```
+
+### listmessages
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) the messages belong to."),
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),
+  "order": z.enum(["asc","desc"]).describe("Sort order by the \`created_at\` timestamp of the objects. \`asc\` for ascending order and \`desc\` for descending order.\n").optional(),
+  "after": z.string().describe("A cursor for use in pagination. \`after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n").optional(),
+  "before": z.string().describe("A cursor for use in pagination. \`before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n").optional(),
+  "run_id": z.string().describe("Filter messages by the run ID that generated them.\n").optional()
+}
+```
+
+### createmessage
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) to create a message for."),
+  "role": z.enum(["user","assistant"]).describe("The role of the entity that is creating the message. Allowed values include:\n- \`user\`: Indicates the message is sent by an actual user and should be used in most cases to represent user-generated messages.\n- \`assistant\`: Indicates the message is generated by the assistant. Use this value to insert messages from the assistant into the conversation.\n"),
+  "content": z.string().describe("The text contents of the message."),
+  "attachments": z.array(z.object({ "file_id": z.string().describe("The ID of the file to attach to the message.").optional(), "tools": z.array(z.object({ "type": z.literal("code_interpreter").describe("The type of tool being defined: \`code_interpreter\`") })).describe("The tools to add this file to.").optional() })).nullable().describe("A list of files attached to the message, and the tools they should be added to.").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional()
+}
+```
+
+### getmessage
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) to which this message belongs."),
+  "message_id": z.string().describe("The ID of the message to retrieve.")
+}
+```
+
+### modifymessage
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread to which this message belongs."),
+  "message_id": z.string().describe("The ID of the message to modify."),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional()
+}
+```
+
+### deletemessage
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread to which this message belongs."),
+  "message_id": z.string().describe("The ID of the message to delete.")
+}
+```
+
+### createthreadandrun
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "assistant_id": z.string().describe("The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) to use to execute this run."),
+  "thread": z.object({ "messages": z.array(z.object({ "role": z.enum(["user","assistant"]).describe("The role of the entity that is creating the message. Allowed values include:\n- \`user\`: Indicates the message is sent by an actual user and should be used in most cases to represent user-generated messages.\n- \`assistant\`: Indicates the message is generated by the assistant. Use this value to insert messages from the assistant into the conversation.\n"), "content": z.string().describe("The text contents of the message."), "attachments": z.array(z.object({ "file_id": z.string().describe("The ID of the file to attach to the message.").optional(), "tools": z.array(z.object({ "type": z.literal("code_interpreter").describe("The type of tool being defined: \`code_interpreter\`") })).describe("The tools to add this file to.").optional() })).nullable().describe("A list of files attached to the message, and the tools they should be added to.").optional(), "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional() }).strict()).describe("A list of [messages](https://platform.openai.com/docs/api-reference/messages) to start the thread with.").optional(), "tool_resources": z.object({ "code_interpreter": z.object({ "file_ids": z.array(z.string()).max(20).describe("A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made available to the \`code_interpreter\` tool. There can be a maximum of 20 files associated with the tool.\n") }).optional(), "file_search": z.object({ "vector_store_ids": z.array(z.string()).max(1).describe("The [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) attached to this thread. There can be a maximum of 1 vector store attached to the thread.\n").optional(), "vector_stores": z.array(z.object({ "file_ids": z.array(z.string()).max(10000).describe("A list of [file](https://platform.openai.com/docs/api-reference/files) IDs to add to the vector store. There can be a maximum of 10000 files in a vector store.\n").optional(), "chunking_strategy": z.record(z.any()).and(z.object({ "type": z.literal("auto").describe("Always \`auto\`.") }).strict().describe("The default strategy. This strategy currently uses a \`max_chunk_size_tokens\` of \`800\` and \`chunk_overlap_tokens\` of \`400\`.")).describe("The chunking strategy used to chunk the file(s). If not set, will use the \`auto\` strategy.").optional(), "metadata": z.record(z.any()).describe("Set of 16 key-value pairs that can be attached to a vector store. This can be useful for storing additional information about the vector store in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional() })).max(1).describe("A helper to create a [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) with file_ids and attach it to this thread. There can be a maximum of 1 vector store attached to the thread.\n").optional() }).optional() }).nullable().describe("A set of resources that are made available to the assistant's tools in this thread. The resources are specific to the type of tool. For example, the \`code_interpreter\` tool requires a list of file IDs, while the \`file_search\` tool requires a list of vector store IDs.\n").optional(), "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional() }).strict().describe("If no thread is provided, an empty thread will be created.").optional(),
+  "model": z.union([z.string(), z.enum(["gpt-4o","gpt-4o-2024-05-13","gpt-4-turbo","gpt-4-turbo-2024-04-09","gpt-4-0125-preview","gpt-4-turbo-preview","gpt-4-1106-preview","gpt-4-vision-preview","gpt-4","gpt-4-0314","gpt-4-0613","gpt-4-32k","gpt-4-32k-0314","gpt-4-32k-0613","gpt-3.5-turbo","gpt-3.5-turbo-16k","gpt-3.5-turbo-0613","gpt-3.5-turbo-1106","gpt-3.5-turbo-0125","gpt-3.5-turbo-16k-0613"])]).nullable().describe("The ID of the [Model](https://platform.openai.com/docs/api-reference/models) to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used.").optional(),
+  "instructions": z.string().nullable().describe("Override the default system message of the assistant. This is useful for modifying the behavior on a per-run basis.").optional(),
+  "tools": z.array(z.object({ "type": z.literal("code_interpreter").describe("The type of tool being defined: \`code_interpreter\`") })).max(20).nullable().describe("Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.").optional(),
+  "tool_resources": z.object({ "code_interpreter": z.object({ "file_ids": z.array(z.string()).max(20).describe("A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made available to the \`code_interpreter\` tool. There can be a maximum of 20 files associated with the tool.\n") }).optional(), "file_search": z.object({ "vector_store_ids": z.array(z.string()).max(1).describe("The ID of the [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.\n").optional() }).optional() }).nullable().describe("A set of resources that are used by the assistant's tools. The resources are specific to the type of tool. For example, the \`code_interpreter\` tool requires a list of file IDs, while the \`file_search\` tool requires a list of vector store IDs.\n").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional(),
+  "temperature": z.number().gte(0).lte(2).nullable().describe("What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n").optional(),
+  "top_p": z.number().gte(0).lte(1).nullable().describe("An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or temperature but not both.\n").optional(),
+  "stream": z.boolean().nullable().describe("If \`true\`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a \`data: [DONE]\` message.\n").optional(),
+  "max_prompt_tokens": z.number().int().gte(256).nullable().describe("The maximum number of prompt tokens that may be used over the course of the run. The run will make a best effort to use only the number of prompt tokens specified, across multiple turns of the run. If the run exceeds the number of prompt tokens specified, the run will end with status \`incomplete\`. See \`incomplete_details\` for more info.\n").optional(),
+  "max_completion_tokens": z.number().int().gte(256).nullable().describe("The maximum number of completion tokens that may be used over the course of the run. The run will make a best effort to use only the number of completion tokens specified, across multiple turns of the run. If the run exceeds the number of completion tokens specified, the run will end with status \`incomplete\`. See \`incomplete_details\` for more info.\n").optional(),
+  "truncation_strategy": z.object({ "type": z.enum(["auto","last_messages"]).describe("The truncation strategy to use for the thread. The default is \`auto\`. If set to \`last_messages\`, the thread will be truncated to the n most recent messages in the thread. When set to \`auto\`, messages in the middle of the thread will be dropped to fit the context length of the model, \`max_prompt_tokens\`."), "last_messages": z.number().int().gte(1).nullable().describe("The number of most recent messages from the thread when constructing the context for the run.").optional() }).nullable().describe("Controls for how a thread will be truncated prior to the run. Use this to control the intial context window of the run.").optional(),
+  "tool_choice": z.enum(["none","auto","required"]).describe("\`none\` means the model will not call any tools and instead generates a message. \`auto\` means the model can pick between generating a message or calling one or more tools. \`required\` means the model must call one or more tools before responding to the user.\n").nullable().describe("Controls which (if any) tool is called by the model.\n\`none\` means the model will not call any tools and instead generates a message.\n\`auto\` is the default value and means the model can pick between generating a message or calling one or more tools.\n\`required\` means the model must call one or more tools before responding to the user.\nSpecifying a particular tool like \`{\"type\": \"file_search\"}\` or \`{\"type\": \"function\", \"function\": {\"name\": \"my_function\"}}\` forces the model to call that tool.\n").optional(),
+  "parallel_tool_calls": z.boolean().describe("Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling/parallel-function-calling) during tool use.").optional(),
+  "response_format": z.enum(["none","auto"]).describe("\`auto\` is the default value\n").nullable().describe("Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models/gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since \`gpt-3.5-turbo-1106\`.\n\nSetting to \`{ \"type\": \"json_object\" }\` enables JSON mode, which guarantees the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if \`finish_reason=\"length\"\`, which indicates the generation exceeded \`max_tokens\` or the conversation exceeded the max context length.\n").optional()
+}
+```
+
+### listruns
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread the run belongs to."),
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),
+  "order": z.enum(["asc","desc"]).describe("Sort order by the \`created_at\` timestamp of the objects. \`asc\` for ascending order and \`desc\` for descending order.\n").optional(),
+  "after": z.string().describe("A cursor for use in pagination. \`after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n").optional(),
+  "before": z.string().describe("A cursor for use in pagination. \`before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n").optional()
+}
+```
+
+### createrun
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread to run."),
+  "assistant_id": z.string().describe("The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) to use to execute this run."),
+  "model": z.union([z.string(), z.enum(["gpt-4o","gpt-4o-2024-05-13","gpt-4-turbo","gpt-4-turbo-2024-04-09","gpt-4-0125-preview","gpt-4-turbo-preview","gpt-4-1106-preview","gpt-4-vision-preview","gpt-4","gpt-4-0314","gpt-4-0613","gpt-4-32k","gpt-4-32k-0314","gpt-4-32k-0613","gpt-3.5-turbo","gpt-3.5-turbo-16k","gpt-3.5-turbo-0613","gpt-3.5-turbo-1106","gpt-3.5-turbo-0125","gpt-3.5-turbo-16k-0613"])]).nullable().describe("The ID of the [Model](https://platform.openai.com/docs/api-reference/models) to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used.").optional(),
+  "instructions": z.string().nullable().describe("Overrides the [instructions](https://platform.openai.com/docs/api-reference/assistants/createAssistant) of the assistant. This is useful for modifying the behavior on a per-run basis.").optional(),
+  "additional_instructions": z.string().nullable().describe("Appends additional instructions at the end of the instructions for the run. This is useful for modifying the behavior on a per-run basis without overriding other instructions.").optional(),
+  "additional_messages": z.array(z.object({ "role": z.enum(["user","assistant"]).describe("The role of the entity that is creating the message. Allowed values include:\n- \`user\`: Indicates the message is sent by an actual user and should be used in most cases to represent user-generated messages.\n- \`assistant\`: Indicates the message is generated by the assistant. Use this value to insert messages from the assistant into the conversation.\n"), "content": z.string().describe("The text contents of the message."), "attachments": z.array(z.object({ "file_id": z.string().describe("The ID of the file to attach to the message.").optional(), "tools": z.array(z.object({ "type": z.literal("code_interpreter").describe("The type of tool being defined: \`code_interpreter\`") })).describe("The tools to add this file to.").optional() })).nullable().describe("A list of files attached to the message, and the tools they should be added to.").optional(), "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional() }).strict()).nullable().describe("Adds additional messages to the thread before creating the run.").optional(),
+  "tools": z.array(z.object({ "type": z.literal("code_interpreter").describe("The type of tool being defined: \`code_interpreter\`") })).max(20).nullable().describe("Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional(),
+  "temperature": z.number().gte(0).lte(2).nullable().describe("What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n").optional(),
+  "top_p": z.number().gte(0).lte(1).nullable().describe("An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or temperature but not both.\n").optional(),
+  "stream": z.boolean().nullable().describe("If \`true\`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a \`data: [DONE]\` message.\n").optional(),
+  "max_prompt_tokens": z.number().int().gte(256).nullable().describe("The maximum number of prompt tokens that may be used over the course of the run. The run will make a best effort to use only the number of prompt tokens specified, across multiple turns of the run. If the run exceeds the number of prompt tokens specified, the run will end with status \`incomplete\`. See \`incomplete_details\` for more info.\n").optional(),
+  "max_completion_tokens": z.number().int().gte(256).nullable().describe("The maximum number of completion tokens that may be used over the course of the run. The run will make a best effort to use only the number of completion tokens specified, across multiple turns of the run. If the run exceeds the number of completion tokens specified, the run will end with status \`incomplete\`. See \`incomplete_details\` for more info.\n").optional(),
+  "truncation_strategy": z.object({ "type": z.enum(["auto","last_messages"]).describe("The truncation strategy to use for the thread. The default is \`auto\`. If set to \`last_messages\`, the thread will be truncated to the n most recent messages in the thread. When set to \`auto\`, messages in the middle of the thread will be dropped to fit the context length of the model, \`max_prompt_tokens\`."), "last_messages": z.number().int().gte(1).nullable().describe("The number of most recent messages from the thread when constructing the context for the run.").optional() }).nullable().describe("Controls for how a thread will be truncated prior to the run. Use this to control the intial context window of the run.").optional(),
+  "tool_choice": z.enum(["none","auto","required"]).describe("\`none\` means the model will not call any tools and instead generates a message. \`auto\` means the model can pick between generating a message or calling one or more tools. \`required\` means the model must call one or more tools before responding to the user.\n").nullable().describe("Controls which (if any) tool is called by the model.\n\`none\` means the model will not call any tools and instead generates a message.\n\`auto\` is the default value and means the model can pick between generating a message or calling one or more tools.\n\`required\` means the model must call one or more tools before responding to the user.\nSpecifying a particular tool like \`{\"type\": \"file_search\"}\` or \`{\"type\": \"function\", \"function\": {\"name\": \"my_function\"}}\` forces the model to call that tool.\n").optional(),
+  "parallel_tool_calls": z.boolean().describe("Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling/parallel-function-calling) during tool use.").optional(),
+  "response_format": z.enum(["none","auto"]).describe("\`auto\` is the default value\n").nullable().describe("Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models/gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since \`gpt-3.5-turbo-1106\`.\n\nSetting to \`{ \"type\": \"json_object\" }\` enables JSON mode, which guarantees the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if \`finish_reason=\"length\"\`, which indicates the generation exceeded \`max_tokens\` or the conversation exceeded the max context length.\n").optional()
+}
+```
+
+### getrun
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run."),
+  "run_id": z.string().describe("The ID of the run to retrieve.")
+}
+```
+
+### modifyrun
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run."),
+  "run_id": z.string().describe("The ID of the run to modify."),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional()
+}
+```
+
+### submittoolouputstorun
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) to which this run belongs."),
+  "run_id": z.string().describe("The ID of the run that requires the tool output submission."),
+  "tool_outputs": z.array(z.object({ "tool_call_id": z.string().describe("The ID of the tool call in the \`required_action\` object within the run object the output is being submitted for.").optional(), "output": z.string().describe("The output of the tool call to be submitted to continue the run.").optional() })).describe("A list of tools for which the outputs are being submitted."),
+  "stream": z.boolean().nullable().describe("If \`true\`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a \`data: [DONE]\` message.\n").optional()
+}
+```
+
+### cancelrun
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread to which this run belongs."),
+  "run_id": z.string().describe("The ID of the run to cancel.")
+}
+```
+
+### listrunsteps
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread the run and run steps belong to."),
+  "run_id": z.string().describe("The ID of the run the run steps belong to."),
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),
+  "order": z.enum(["asc","desc"]).describe("Sort order by the \`created_at\` timestamp of the objects. \`asc\` for ascending order and \`desc\` for descending order.\n").optional(),
+  "after": z.string().describe("A cursor for use in pagination. \`after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n").optional(),
+  "before": z.string().describe("A cursor for use in pagination. \`before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n").optional()
+}
+```
+
+### getrunstep
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "thread_id": z.string().describe("The ID of the thread to which the run and run step belongs."),
+  "run_id": z.string().describe("The ID of the run to which the run step belongs."),
+  "step_id": z.string().describe("The ID of the run step to retrieve.")
+}
+```
+
+### listvectorstores
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),
+  "order": z.enum(["asc","desc"]).describe("Sort order by the \`created_at\` timestamp of the objects. \`asc\` for ascending order and \`desc\` for descending order.\n").optional(),
+  "after": z.string().describe("A cursor for use in pagination. \`after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n").optional(),
+  "before": z.string().describe("A cursor for use in pagination. \`before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n").optional()
+}
+```
+
+### createvectorstore
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "file_ids": z.array(z.string()).max(500).describe("A list of [File](https://platform.openai.com/docs/api-reference/files) IDs that the vector store should use. Useful for tools like \`file_search\` that can access files.").optional(),
+  "name": z.string().describe("The name of the vector store.").optional(),
+  "expires_after": z.object({ "anchor": z.literal("last_active_at").describe("Anchor timestamp after which the expiration policy applies. Supported anchors: \`last_active_at\`."), "days": z.number().int().gte(1).lte(365).describe("The number of days after the anchor time that the vector store will expire.") }).describe("The expiration policy for a vector store.").optional(),
+  "chunking_strategy": z.record(z.any()).and(z.object({ "type": z.literal("auto").describe("Always \`auto\`.") }).strict().describe("The default strategy. This strategy currently uses a \`max_chunk_size_tokens\` of \`800\` and \`chunk_overlap_tokens\` of \`400\`.")).describe("The chunking strategy used to chunk the file(s). If not set, will use the \`auto\` strategy. Only applicable if \`file_ids\` is non-empty.").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional()
+}
+```
+
+### getvectorstore
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store to retrieve.")
+}
+```
+
+### modifyvectorstore
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store to modify."),
+  "name": z.string().nullable().describe("The name of the vector store.").optional(),
+  "expires_after": z.object({ "anchor": z.literal("last_active_at").describe("Anchor timestamp after which the expiration policy applies. Supported anchors: \`last_active_at\`."), "days": z.number().int().gte(1).lte(365).describe("The number of days after the anchor time that the vector store will expire.") }).nullable().describe("The expiration policy for a vector store.").optional(),
+  "metadata": z.record(z.any()).nullable().describe("Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.\n").optional()
+}
+```
+
+### deletevectorstore
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store to delete.")
+}
+```
+
+### listvectorstorefiles
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store that the files belong to."),
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),
+  "order": z.enum(["asc","desc"]).describe("Sort order by the \`created_at\` timestamp of the objects. \`asc\` for ascending order and \`desc\` for descending order.\n").optional(),
+  "after": z.string().describe("A cursor for use in pagination. \`after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n").optional(),
+  "before": z.string().describe("A cursor for use in pagination. \`before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n").optional(),
+  "filter": z.enum(["in_progress","completed","failed","cancelled"]).describe("Filter by file status. One of \`in_progress\`, \`completed\`, \`failed\`, \`cancelled\`.").optional()
+}
+```
+
+### createvectorstorefile
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store for which to create a File.\n"),
+  "file_id": z.string().describe("A [File](https://platform.openai.com/docs/api-reference/files) ID that the vector store should use. Useful for tools like \`file_search\` that can access files."),
+  "chunking_strategy": z.record(z.any()).and(z.object({ "type": z.literal("auto").describe("Always \`auto\`.") }).strict().describe("The default strategy. This strategy currently uses a \`max_chunk_size_tokens\` of \`800\` and \`chunk_overlap_tokens\` of \`400\`.")).describe("The chunking strategy used to chunk the file(s). If not set, will use the \`auto\` strategy.").optional()
+}
+```
+
+### getvectorstorefile
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store that the file belongs to."),
+  "file_id": z.string().describe("The ID of the file being retrieved.")
+}
+```
+
+### deletevectorstorefile
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store that the file belongs to."),
+  "file_id": z.string().describe("The ID of the file to delete.")
+}
+```
+
+### createvectorstorefilebatch
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store for which to create a File Batch.\n"),
+  "file_ids": z.array(z.string()).min(1).max(500).describe("A list of [File](https://platform.openai.com/docs/api-reference/files) IDs that the vector store should use. Useful for tools like \`file_search\` that can access files."),
+  "chunking_strategy": z.record(z.any()).and(z.object({ "type": z.literal("auto").describe("Always \`auto\`.") }).strict().describe("The default strategy. This strategy currently uses a \`max_chunk_size_tokens\` of \`800\` and \`chunk_overlap_tokens\` of \`400\`.")).describe("The chunking strategy used to chunk the file(s). If not set, will use the \`auto\` strategy.").optional()
+}
+```
+
+### getvectorstorefilebatch
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store that the file batch belongs to."),
+  "batch_id": z.string().describe("The ID of the file batch being retrieved.")
+}
+```
+
+### cancelvectorstorefilebatch
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store that the file batch belongs to."),
+  "batch_id": z.string().describe("The ID of the file batch to cancel.")
+}
+```
+
+### listfilesinvectorstorebatch
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "vector_store_id": z.string().describe("The ID of the vector store that the files belong to."),
+  "batch_id": z.string().describe("The ID of the file batch that the files belong to."),
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),
+  "order": z.enum(["asc","desc"]).describe("Sort order by the \`created_at\` timestamp of the objects. \`asc\` for ascending order and \`desc\` for descending order.\n").optional(),
+  "after": z.string().describe("A cursor for use in pagination. \`after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n").optional(),
+  "before": z.string().describe("A cursor for use in pagination. \`before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n").optional(),
+  "filter": z.enum(["in_progress","completed","failed","cancelled"]).describe("Filter by file status. One of \`in_progress\`, \`completed\`, \`failed\`, \`cancelled\`.").optional()
+}
+```
+
+### createbatch
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### listbatches
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "after": z.string().describe("A cursor for use in pagination. \`after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n").optional(),
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional()
+}
+```
+
+### retrievebatch
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "batch_id": z.string().describe("The ID of the batch to retrieve.")
+}
+```
+
+### cancelbatch
+
+**Environment variables**
+
+- `API_KEY`
+- `X_PORTKEY_API_KEY`
+- `X_PORTKEY_CONFIG`
+- `X_PORTKEY_CUSTOM_HOST`
+- `X_PORTKEY_PROVIDER`
+- `X_PORTKEY_VIRTUAL_KEY`
+
+**Input schema**
+
+```ts
+{
+  "batch_id": z.string().describe("The ID of the batch to cancel.")
+}
+```
+
+### listconfigs
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### createconfig
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "name": z.string().optional(),
+  "config": z.record(z.any()).optional(),
+  "isDefault": z.number().int().optional(),
+  "workspace_id": z.string().uuid().describe("optional, when using organisation admin API keys").optional()
+}
+```
+
+### getconfig
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "slug": z.string()
+}
+```
+
+### updateconfig
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "slug": z.string(),
+  "name": z.string().optional(),
+  "config": z.object({ "virtual_key": z.string().optional() }).optional(),
+  "status": z.string().optional()
+}
+```
+
+### createfeedback
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "trace_id": z.string().describe("Unique identifier for the request trace."),
+  "value": z.number().int().gte(-10).lte(10).describe("Feedback value, an integer between -10 and 10."),
+  "weight": z.number().gte(0).lte(1).describe("Weight of the feedback, a float between 0 and 1. Default is 1.0.").optional(),
+  "metadata": z.record(z.any()).describe("Additional metadata for the feedback.").optional()
+}
+```
+
+### updatefeedback
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "id": z.string().uuid().describe("Feedback ID"),
+  "value": z.number().int().gte(-10).lte(10).describe("Feedback value, an integer between -10 and 10."),
+  "weight": z.number().gte(0).lte(1).describe("Weight of the feedback, a float between 0 and 1. Default is 1.0.").optional(),
+  "metadata": z.record(z.any()).describe("Additional metadata for the feedback.").optional()
+}
+```
+
+### get_virtual_keys
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### post_virtual_keys
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "name": z.string().optional(),
+  "provider": z.enum(["openai","azure-openai","ai21","anthropic","anyscale","azure-openai","bedrock","cohere","deepinfra","fireworks-ai","google","groq","hugging-face","jina","lingyi","mistral-ai","monsterapi","moonshot","nomic","novita-ai","open-ai","openrouter","palm","perplexity-ai","predibase","reka-ai","segmind","stability-ai","together-ai","vertex-ai","workers-ai","zhipu"]).optional(),
+  "key": z.string().optional(),
+  "note": z.string().nullable().optional(),
+  "apiVersion": z.string().nullable().optional(),
+  "resourceName": z.string().nullable().optional(),
+  "deploymentName": z.string().nullable().optional(),
+  "workspace_id": z.string().uuid().describe("optional, needed when using organisation admin API keys").optional(),
+  "deploymentConfig": z.array(z.object({ "apiVersion": z.string(), "alias": z.string().optional(), "is_default": z.boolean().optional(), "deploymentName": z.string() })).optional(),
+  "usage_limits": z.object({ "credit_limit": z.number().int().gte(1).describe("Credit Limit. Used for tracking usage"), "alert_threshold": z.number().int().gte(1).describe("Alert Threshold. Used for alerting when usage reaches more than this"), "periodic_reset": z.literal("monthly").describe("Reset the usage periodically.").optional() }).optional(),
+  "rate_limits": z.object({ "type": z.literal("requests").optional(), "unit": z.literal("rpm").optional(), "value": z.number().int().optional() }).optional()
+}
+```
+
+### get_virtual_keys_slug_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "slug": z.string()
+}
+```
+
+### put_virtual_keys_slug_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "slug": z.string(),
+  "name": z.string().optional(),
+  "key": z.string().optional(),
+  "note": z.string().nullable().optional(),
+  "deploymentConfig": z.array(z.object({ "apiVersion": z.string(), "alias": z.string().optional(), "is_default": z.boolean().optional(), "deploymentName": z.string() })).optional(),
+  "usage_limits": z.object({ "credit_limit": z.number().int().gte(1).describe("Credit Limit. Used for tracking usage"), "alert_threshold": z.number().int().gte(1).describe("Alert Threshold. Used for alerting when usage reaches more than this"), "periodic_reset": z.literal("monthly").describe("Reset the usage periodically.").optional() }).optional()
+}
+```
+
+### delete_virtual_keys_slug_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "slug": z.string()
+}
+```
+
+### invites_create
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "email": z.string(),
+  "workspaces": z.array(z.object({ "id": z.string().describe("Workspace Slug"), "role": z.enum(["admin","member","manager"]) })),
+  "role": z.enum(["admin","member"]),
+  "workspace_api_key_details": z.object({ "scopes": z.array(z.string()) }).optional()
+}
+```
+
+### get_admin_users_invites
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "pageSize": z.number().int().optional(),
+  "currentPage": z.number().int().optional(),
+  "role": z.enum(["admin","member"]).optional(),
+  "email": z.string().email().optional(),
+  "status": z.enum(["pending","cancelled","accepted","expired"]).optional()
+}
+```
+
+### get_admin_users_invites_inviteid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "inviteId": z.string().describe("string")
+}
+```
+
+### delete_admin_users_invites_inviteid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "inviteId": z.string()
+}
+```
+
+### post_admin_users_invites_inviteid_resend
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "inviteId": z.string()
+}
+```
+
+### get_admin_users
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "pageSize": z.number().int().optional(),
+  "currentPage": z.number().int().optional(),
+  "role": z.enum(["admin","member","owner"]).optional(),
+  "email": z.string().email().optional(),
+  "x-portkey-api-key": z.string().optional()
+}
+```
+
+### get_admin_users_userid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "userId": z.string()
+}
+```
+
+### delete_admin_users_userid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "userId": z.string()
+}
+```
+
+### put_admin_users_userid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "userId": z.string(),
+  "role": z.enum(["admin","member"]).optional()
+}
+```
+
+### post_admin_workspaces_workspaceid_users
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspaceId": z.string(),
+  "users": z.array(z.object({ "id": z.string().uuid().optional(), "role": z.enum(["admin","member"]).optional() })).optional()
+}
+```
+
+### get_admin_workspaces_workspaceid_users
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspaceId": z.string(),
+  "current_page": z.number().optional(),
+  "page_size": z.number().optional(),
+  "role": z.enum(["admin","manager","member"]).optional(),
+  "email": z.string().optional()
+}
+```
+
+### put_admin_workspaces_workspaceid_users_userid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspaceId": z.string(),
+  "userId": z.string(),
+  "role": z.enum(["admin","member"]).optional()
+}
+```
+
+### delete_admin_workspaces_workspaceid_users_userid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspaceId": z.string(),
+  "userId": z.string()
+}
+```
+
+### get_admin_workspaces_workspaceid_users_userid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspaceId": z.string(),
+  "userId": z.string()
+}
+```
+
+### post_admin_workspaces
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "name": z.string().optional(),
+  "description": z.string().optional(),
+  "defaults": z.object({ "metadata": z.record(z.string()).optional() }).optional(),
+  "users": z.array(z.string()).optional()
+}
+```
+
+### get_admin_workspaces
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "page_size": z.number().int().optional(),
+  "current_page": z.number().int().optional()
+}
+```
+
+### put_admin_workspaces_workspaceid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspaceId": z.string(),
+  "name": z.string().optional(),
+  "description": z.string().optional(),
+  "defaults": z.object({ "metadata": z.record(z.string()).optional() }).optional()
+}
+```
+
+### get_admin_workspaces_workspaceid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspaceId": z.string()
+}
+```
+
+### delete_admin_workspaces_workspaceid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspaceId": z.string()
+}
+```
+
+### post_logs
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### get_logs_exports_exportid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "exportId": z.string()
+}
+```
+
+### put_logs_exports_exportid_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "exportId": z.string(),
+  "workspace_id": z.string().optional(),
+  "filters": z.object({ "time_of_generation_min": z.string().datetime({ offset: true }).optional(), "time_of_generation_max": z.string().datetime({ offset: true }).optional(), "total_units_min": z.number().int().optional(), "total_units_max": z.number().int().optional(), "cost_min": z.number().optional(), "cost_max": z.number().optional(), "ai_model": z.string().optional(), "prompt_token_min": z.number().int().optional(), "prompt_token_max": z.number().int().optional(), "completion_token_min": z.number().int().optional(), "completion_token_max": z.number().int().optional(), "status_code": z.string().optional(), "metadata": z.record(z.any()).optional(), "ai_org_model": z.string().optional(), "weighted_feedback_min": z.number().optional(), "weighted_feedback_max": z.number().optional(), "virtual_keys": z.string().optional(), "trace_id": z.string().optional(), "configs": z.string().optional(), "workspace_slug": z.string().optional(), "prompt_slug": z.string().optional() }),
+  "requested_data": z.array(z.enum(["id","trace_id","created_at","request","response","is_success","ai_org","ai_model","req_units","res_units","total_units","request_url","cost","cost_currency","response_time","response_status_code","mode","config","prompt_slug","metadata"])).optional()
+}
+```
+
+### get_logs_exports
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspace_id": z.string().optional()
+}
+```
+
+### post_logs_exports
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "workspace_id": z.string().optional(),
+  "filters": z.object({ "time_of_generation_min": z.string().datetime({ offset: true }).optional(), "time_of_generation_max": z.string().datetime({ offset: true }).optional(), "total_units_min": z.number().int().optional(), "total_units_max": z.number().int().optional(), "cost_min": z.number().optional(), "cost_max": z.number().optional(), "ai_model": z.string().optional(), "prompt_token_min": z.number().int().optional(), "prompt_token_max": z.number().int().optional(), "completion_token_min": z.number().int().optional(), "completion_token_max": z.number().int().optional(), "status_code": z.string().optional(), "metadata": z.record(z.any()).optional(), "ai_org_model": z.string().optional(), "weighted_feedback_min": z.number().optional(), "weighted_feedback_max": z.number().optional(), "virtual_keys": z.string().optional(), "trace_id": z.string().optional(), "configs": z.string().optional(), "workspace_slug": z.string().optional(), "prompt_slug": z.string().optional() }),
+  "requested_data": z.array(z.enum(["id","trace_id","created_at","request","response","is_success","ai_org","ai_model","req_units","res_units","total_units","request_url","cost","cost_currency","response_time","response_status_code","mode","config","prompt_slug","metadata"]))
+}
+```
+
+### post_logs_exports_exportid_start
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "exportId": z.string()
+}
+```
+
+### post_logs_exports_exportid_cancel
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "exportId": z.string()
+}
+```
+
+### get_logs_exports_exportid_download
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "exportId": z.string()
+}
+```
+
+### post_api_keys_type_sub_type_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "type": z.enum(["organisation","workspace"]),
+  "sub-type": z.enum(["user","service"]),
+  "name": z.string().optional(),
+  "description": z.string().optional(),
+  "workspace_id": z.string().optional(),
+  "user_id": z.string().uuid().optional(),
+  "rate_limits": z.array(z.object({ "type": z.string().optional(), "unit": z.string().optional(), "value": z.number().int().optional() })).optional(),
+  "usage_limits": z.object({ "credit_limit": z.number().int().gte(1).describe("Credit Limit. Used for tracking usage"), "alert_threshold": z.number().int().gte(1).describe("Alert Threshold. Used for alerting when usage reaches more than this"), "periodic_reset": z.literal("monthly").describe("Reset the usage periodically.").optional() }).optional(),
+  "scopes": z.array(z.string()).optional(),
+  "defaults": z.object({ "metadata": z.record(z.any()).optional(), "config_id": z.string().optional() }).optional(),
+  "alert_emails": z.array(z.string().email()).optional()
+}
+```
+
+### get_api_keys
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "page_size": z.number().int().optional(),
+  "current_page": z.number().int().optional(),
+  "workspace_id": z.string().optional()
+}
+```
+
+### put_api_keys_id_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "id": z.string().uuid(),
+  "name": z.string().optional(),
+  "description": z.string().optional(),
+  "rate_limits": z.array(z.object({ "type": z.string().optional(), "unit": z.string().optional(), "value": z.number().int().optional() })).optional(),
+  "usage_limits": z.object({ "credit_limit": z.number().int().gte(1).describe("Credit Limit. Used for tracking usage"), "alert_threshold": z.number().int().gte(1).describe("Alert Threshold. Used for alerting when usage reaches more than this"), "periodic_reset": z.literal("monthly").describe("Reset the usage periodically.").optional() }).optional(),
+  "scopes": z.array(z.string()).optional(),
+  "defaults": z.object({ "metadata": z.record(z.any()).optional(), "config_id": z.string().optional() }).optional(),
+  "alert_emails": z.array(z.string().email()).optional()
+}
+```
+
+### get_api_keys_id_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "id": z.string().uuid()
+}
+```
+
+### delete_api_keys_id_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "id": z.string().uuid()
+}
+```
+
+### get_analytics_graphs_requests
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_cost
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_latency
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_tokens
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_users
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_users_requests
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_errors
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_errors_rate
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_errors_stacks
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_errors_status_codes
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_requests_rescued
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_cache_hit_rate
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_cache_latency
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_feedbacks
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_feedbacks_scores
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_feedbacks_weighted
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_graphs_feedbacks_ai_models
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_summary_cache
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_groups_users
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "current_page": z.number().int().gte(0).describe("Current page number").optional(),
+  "page_size": z.number().int().gte(0).describe("Number of items per page").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_groups_ai_models
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "current_page": z.number().int().gte(0).describe("Current page number").optional(),
+  "page_size": z.number().int().gte(0).describe("Number of items per page").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```
+
+### get_analytics_groups_metadata_metadatakey_
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "metadataKey": z.string(),
+  "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
+  "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),
+  "total_units_min": z.number().int().gte(0).describe("Minimum total units (tokens)").optional(),
+  "total_units_max": z.number().int().gte(0).describe("Maximum total units (tokens)").optional(),
+  "cost_min": z.number().gte(0).describe("Minimum cost (in cents)").optional(),
+  "cost_max": z.number().gte(0).describe("Maximum cost (in cents)").optional(),
+  "prompt_token_min": z.number().int().gte(0).describe("Minimum number of prompt tokens").optional(),
+  "prompt_token_max": z.number().int().gte(0).describe("Maximum number of prompt tokens").optional(),
+  "completion_token_min": z.number().int().gte(0).describe("Minimum number of completion tokens").optional(),
+  "completion_token_max": z.number().int().gte(0).describe("Maximum number of completion tokens").optional(),
+  "status_code": z.string().describe("Comma separated response status codes").optional(),
+  "weighted_feedback_min": z.number().gte(-10).lte(10).describe("Minimum weighted feedback score").optional(),
+  "weighted_feedback_max": z.number().gte(-10).lte(10).describe("Maximum weighted feedback score").optional(),
+  "virtual_keys": z.string().describe("Comma separated virtual key slugs").optional(),
+  "configs": z.string().describe("Comma separated config slugs").optional(),
+  "workspace_slug": z.string().describe("Workspace slug filter. If a workspace API key is being used, this filter will not be taken into consideration. If an organisation API key is used and no workspace slug is passed, default workspace will be used.").optional(),
+  "api_key_ids": z.string().describe("Comma separated API key UUIDs").optional(),
+  "current_page": z.number().int().gte(0).describe("Current page number").optional(),
+  "page_size": z.number().int().gte(0).describe("Number of items per page").optional(),
+  "metadata": z.string().describe("Stringifed json object with key value metadata pairs").optional(),
+  "ai_org_model": z.string().describe("Comma separated ai provider and model combination. Double underscore (__) should be used as a separator for each provider and model combination").optional(),
+  "trace_id": z.string().describe("Comma separated trace IDs").optional(),
+  "span_id": z.string().describe("Comma separated span IDs").optional(),
+  "prompt_slug": z.string().describe("Comma separated prompt slugs").optional()
+}
+```

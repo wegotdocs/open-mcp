@@ -28,4 +28,8 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "page_size": z.number().int().optional(), "current_page": z.number().int().optional(), "workspace_id": z.string().optional() }).shape
+export const inputParams = {
+  "page_size": z.number().int().optional(),
+  "current_page": z.number().int().optional(),
+  "workspace_id": z.string().optional()
+}

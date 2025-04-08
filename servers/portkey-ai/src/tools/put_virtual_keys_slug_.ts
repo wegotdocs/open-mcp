@@ -32,4 +32,11 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "slug": z.string(), "name": z.string().optional(), "key": z.string().optional(), "note": z.string().nullable().optional(), "deploymentConfig": z.array(z.object({ "apiVersion": z.string(), "alias": z.string().optional(), "is_default": z.boolean().optional(), "deploymentName": z.string() })).optional(), "usage_limits": z.object({ "credit_limit": z.number().int().gte(1).describe("Credit Limit. Used for tracking usage"), "alert_threshold": z.number().int().gte(1).describe("Alert Threshold. Used for alerting when usage reaches more than this"), "periodic_reset": z.literal("monthly").describe("Reset the usage periodically.").optional() }).optional() }).shape
+export const inputParams = {
+  "slug": z.string(),
+  "name": z.string().optional(),
+  "key": z.string().optional(),
+  "note": z.string().nullable().optional(),
+  "deploymentConfig": z.array(z.object({ "apiVersion": z.string(), "alias": z.string().optional(), "is_default": z.boolean().optional(), "deploymentName": z.string() })).optional(),
+  "usage_limits": z.object({ "credit_limit": z.number().int().gte(1).describe("Credit Limit. Used for tracking usage"), "alert_threshold": z.number().int().gte(1).describe("Alert Threshold. Used for alerting when usage reaches more than this"), "periodic_reset": z.literal("monthly").describe("Reset the usage periodically.").optional() }).optional()
+}
