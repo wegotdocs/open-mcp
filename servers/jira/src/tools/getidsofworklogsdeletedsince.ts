@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "since": z.number().int().describe("The date and time, as a UNIX timestamp in milliseconds, after which deleted worklogs are returned.") }).shape
+export const inputParams = {
+  "since": z.number().int().describe("The date and time, as a UNIX timestamp in milliseconds, after which deleted worklogs are returned.").optional()
+}

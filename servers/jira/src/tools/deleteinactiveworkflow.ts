@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "entityId": z.string().describe("The entity ID of the workflow.") }).shape
+export const inputParams = {
+  "entityId": z.string().describe("The entity ID of the workflow.")
+}

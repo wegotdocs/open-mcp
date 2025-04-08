@@ -35,4 +35,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "projectIdOrKey": z.string().describe("The project ID or project key (case sensitive)."), "expand": z.string().describe("Use [expand](#expansion) to include additional information in the response. This parameter accepts `operations`, which returns actions that can be performed on the version.").optional() }).shape
+export const inputParams = {
+  "projectIdOrKey": z.string().describe("The project ID or project key (case sensitive)."),
+  "expand": z.string().describe("Use [expand](#expansion) to include additional information in the response. This parameter accepts `operations`, which returns actions that can be performed on the version.").optional()
+}

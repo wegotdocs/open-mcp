@@ -34,4 +34,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "description": z.string().describe("The description of the screen. The maximum length is 255 characters.").optional(), "name": z.string().describe("The name of the screen. The name must be unique. The maximum length is 255 characters.") }).shape
+export const inputParams = {
+  "description": z.string().describe("The description of the screen. The maximum length is 255 characters.").optional(),
+  "name": z.string().describe("The name of the screen. The name must be unique. The maximum length is 255 characters.")
+}

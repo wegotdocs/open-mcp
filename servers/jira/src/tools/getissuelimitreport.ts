@@ -33,4 +33,6 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "isReturningKeys": z.boolean().describe("Return issue keys instead of issue ids in the response.\n\nUsage: Add `?isReturningKeys=true` to the end of the path to request issue keys.") }).shape
+export const inputParams = {
+  "isReturningKeys": z.boolean().describe("Return issue keys instead of issue ids in the response.\n\nUsage: Add `?isReturningKeys=true` to the end of the path to request issue keys.").optional()
+}

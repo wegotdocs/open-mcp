@@ -34,4 +34,7 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "fieldConfigurationSchemeId": z.string().describe("The ID of the field configuration scheme. If the field configuration scheme ID is `null`, the operation assigns the default field configuration scheme.").optional(), "projectId": z.string().describe("The ID of the project.") }).shape
+export const inputParams = {
+  "fieldConfigurationSchemeId": z.string().describe("The ID of the field configuration scheme. If the field configuration scheme ID is `null`, the operation assigns the default field configuration scheme.").optional(),
+  "projectId": z.string().describe("The ID of the project.")
+}

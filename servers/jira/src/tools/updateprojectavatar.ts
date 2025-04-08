@@ -41,4 +41,13 @@ export const keys = {
 }
 export const flatMap = {}
 
-export const inputParams = z.object({ "projectIdOrKey": z.string().describe("The ID or (case-sensitive) key of the project."), "fileName": z.string().describe("The file name of the avatar icon. Returned for system avatars.").readonly().optional(), "id": z.string().describe("The ID of the avatar."), "isDeletable": z.boolean().describe("Whether the avatar can be deleted.").readonly().optional(), "isSelected": z.boolean().describe("Whether the avatar is used in Jira. For example, shown as a project's avatar.").readonly().optional(), "isSystemAvatar": z.boolean().describe("Whether the avatar is a system avatar.").readonly().optional(), "owner": z.string().describe("The owner of the avatar. For a system avatar the owner is null (and nothing is returned). For non-system avatars this is the appropriate identifier, such as the ID for a project or the account ID for a user.").readonly().optional(), "urls": z.record(z.string().url().readonly()).describe("The list of avatar icon URLs.").readonly().optional() }).shape
+export const inputParams = {
+  "projectIdOrKey": z.string().describe("The ID or (case-sensitive) key of the project."),
+  "fileName": z.string().describe("The file name of the avatar icon. Returned for system avatars.").readonly().optional(),
+  "id": z.string().describe("The ID of the avatar."),
+  "isDeletable": z.boolean().describe("Whether the avatar can be deleted.").readonly().optional(),
+  "isSelected": z.boolean().describe("Whether the avatar is used in Jira. For example, shown as a project's avatar.").readonly().optional(),
+  "isSystemAvatar": z.boolean().describe("Whether the avatar is a system avatar.").readonly().optional(),
+  "owner": z.string().describe("The owner of the avatar. For a system avatar the owner is null (and nothing is returned). For non-system avatars this is the appropriate identifier, such as the ID for a project or the account ID for a user.").readonly().optional(),
+  "urls": z.record(z.string().url().readonly()).describe("The list of avatar icon URLs.").readonly().optional()
+}
