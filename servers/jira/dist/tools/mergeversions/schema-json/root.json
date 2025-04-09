@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the version to delete.",
+      "type": "string"
+    },
+    "moveIssuesTo": {
+      "description": "The ID of the version to merge into.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "moveIssuesTo"
+  ]
+}

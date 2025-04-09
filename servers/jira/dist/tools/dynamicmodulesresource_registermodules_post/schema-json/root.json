@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "modules": {
+      "description": "A list of app modules in the same format as the `modules` property in the\n[app descriptor](https://developer.atlassian.com/cloud/jira/platform/app-descriptor/).",
+      "items": {
+        "description": "A [Connect module](https://developer.atlassian.com/cloud/jira/platform/about-jira-modules/) in the same format as in the\n[app descriptor](https://developer.atlassian.com/cloud/jira/platform/app-descriptor/).",
+        "example": {
+          "description": {
+            "value": "field with team"
+          },
+          "type": "single_select",
+          "extractions": [
+            {
+              "path": "category",
+              "type": "text",
+              "name": "categoryName"
+            }
+          ],
+          "name": {
+            "value": "Team"
+          },
+          "key": "team-field"
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "modules"
+  ]
+}

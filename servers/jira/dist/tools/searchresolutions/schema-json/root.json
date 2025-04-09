@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": "0",
+      "type": "string"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": "50",
+      "type": "string"
+    },
+    "id": {
+      "description": "The list of resolutions IDs to be filtered out",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "onlyDefault": {
+      "description": "When set to true, return default only, when IDs provided, if none of them is default, return empty page. Default value is false",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the field configuration.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "fieldConfigurationItems": {
+      "description": "Details of fields in a field configuration.",
+      "items": {
+        "additionalProperties": false,
+        "description": "A field within a field configuration.",
+        "properties": {
+          "description": {
+            "description": "The description of the field within the field configuration.",
+            "type": "string"
+          },
+          "id": {
+            "description": "The ID of the field within the field configuration.",
+            "type": "string"
+          },
+          "isHidden": {
+            "description": "Whether the field is hidden in the field configuration.",
+            "type": "boolean"
+          },
+          "isRequired": {
+            "description": "Whether the field is required in the field configuration.",
+            "type": "boolean"
+          },
+          "renderer": {
+            "description": "The renderer type for the field within the field configuration.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "id",
+    "fieldConfigurationItems"
+  ]
+}

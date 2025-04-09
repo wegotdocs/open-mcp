@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "expand": {
+      "description": "Use [expand](#expansion) to include additional information in the response. This parameter accepts a comma-separated list. Expand options include:\n\n *  `values.transitions` Returns the transitions that each workflow is associated with.",
+      "type": "string"
+    },
+    "queryString": {
+      "description": "String used to perform a case-insensitive partial match with workflow name.",
+      "type": "string"
+    },
+    "orderBy": {
+      "description": "[Order](#ordering) the results by a field:\n\n *  `name` Sorts by workflow name.\n *  `created` Sorts by create time.\n *  `updated` Sorts by update time.",
+      "type": "string"
+    },
+    "scope": {
+      "description": "The scope of the workflow. Global for company-managed projects and Project for team-managed projects.",
+      "type": "string"
+    },
+    "isActive": {
+      "description": "Filters active and inactive workflows.",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

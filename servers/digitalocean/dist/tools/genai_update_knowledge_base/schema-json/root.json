@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "description": "Knowledge base id",
+      "type": "string"
+    },
+    "database_id": {
+      "description": "The id of the DigitalOcean database this knowledge base will use, optiona.",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "embedding_model_uuid": {
+      "description": "Identifier for the foundation model.",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "name": {
+      "description": "Knowledge base name",
+      "example": "\"My Knowledge Base\"",
+      "type": "string"
+    },
+    "project_id": {
+      "description": "The id of the DigitalOcean project this knowledge base will belong to",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Tags to organize your knowledge base.",
+      "example": [
+        "example string"
+      ],
+      "items": {
+        "example": "\"example string\"",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "b_uuid": {
+      "description": "Knowledge base id",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    }
+  },
+  "required": [
+    "uuid"
+  ]
+}

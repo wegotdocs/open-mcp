@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "issueTypeId": {
+      "description": "The ID of the issue type.",
+      "type": "string"
+    },
+    "propertyKey": {
+      "description": "The key of the property. Use [Get issue type property keys](#api-rest-api-3-issuetype-issueTypeId-properties-get) to get a list of all issue type property keys.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "issueTypeId",
+    "propertyKey"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "properties": {
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The domain name to purchase.",
+      "type": "string",
+      "example": "example.com"
+    },
+    "expectedPrice": {
+      "description": "The price you expect to be charged for the purchase.",
+      "type": "number",
+      "example": 10
+    },
+    "renew": {
+      "description": "Indicates whether the domain should be automatically renewed.",
+      "type": "boolean",
+      "example": true
+    },
+    "country": {
+      "description": "The country of the domain registrant",
+      "type": "string",
+      "example": "US"
+    },
+    "orgName": {
+      "description": "The company name of the domain registrant",
+      "type": "string",
+      "example": "Acme Inc."
+    },
+    "firstName": {
+      "description": "The first name of the domain registrant",
+      "type": "string",
+      "example": "Jane"
+    },
+    "lastName": {
+      "description": "The last name of the domain registrant",
+      "type": "string",
+      "example": "Doe"
+    },
+    "address1": {
+      "description": "The street address of the domain registrant",
+      "type": "string",
+      "example": "340 S Lemon Ave Suite 4133"
+    },
+    "city": {
+      "description": "The city of the domain registrant",
+      "type": "string",
+      "example": "San Francisco"
+    },
+    "state": {
+      "description": "The state of the domain registrant",
+      "type": "string",
+      "example": "CA"
+    },
+    "postalCode": {
+      "description": "The postal code of the domain registrant",
+      "type": "string",
+      "example": "91789"
+    },
+    "phone": {
+      "description": "The phone number of the domain registrant",
+      "type": "string",
+      "example": "+1.4158551452"
+    },
+    "email": {
+      "description": "The email of the domain registrant",
+      "type": "string",
+      "example": "jane.doe@someplace.com"
+    }
+  },
+  "required": [
+    "name",
+    "country",
+    "firstName",
+    "lastName",
+    "address1",
+    "city",
+    "state",
+    "postalCode",
+    "phone",
+    "email"
+  ]
+}

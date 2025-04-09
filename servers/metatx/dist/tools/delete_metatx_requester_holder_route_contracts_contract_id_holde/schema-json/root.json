@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "contract_id": {
+      "type": "string",
+      "format": "uuid",
+      "title": "Contract Id"
+    },
+    "holder_id": {
+      "type": "string",
+      "format": "uuid",
+      "title": "Holder Id"
+    },
+    "holder_type": {
+      "enum": [
+        "user",
+        "group"
+      ],
+      "title": "HolderType",
+      "description": "An enumeration."
+    },
+    "permissions": {
+      "items": {
+        "enum": [
+          "admin",
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "title": "ResourcePermissions",
+        "description": "An enumeration."
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "contract_id",
+    "holder_id",
+    "holder_type"
+  ]
+}

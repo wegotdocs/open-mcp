@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "fieldId": {
+      "description": "The ID of the custom field.",
+      "type": "string"
+    },
+    "contextId": {
+      "description": "The ID of the context.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "options": {
+      "description": "Details of options to create.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Details of a custom field option to create.",
+        "properties": {
+          "disabled": {
+            "description": "Whether the option is disabled.",
+            "type": "boolean"
+          },
+          "optionId": {
+            "description": "For cascading options, the ID of a parent option.",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value of the custom field option.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "fieldId",
+    "contextId"
+  ]
+}

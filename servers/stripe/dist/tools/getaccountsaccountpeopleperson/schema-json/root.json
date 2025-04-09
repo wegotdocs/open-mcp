@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "account": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "person": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "expand": {
+      "description": "Specifies which fields in the response should be expanded.",
+      "items": {
+        "maxLength": 5000,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "account",
+    "person"
+  ]
+}

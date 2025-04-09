@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": "0",
+      "type": "string"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": "50",
+      "type": "string"
+    },
+    "id": {
+      "description": "The list of issue security scheme level IDs. To include multiple issue security levels, separate IDs with an ampersand: `id=10000&id=10001`.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schemeId": {
+      "description": "The list of issue security scheme IDs. To include multiple issue security schemes, separate IDs with an ampersand: `schemeId=10000&schemeId=10001`.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "onlyDefault": {
+      "description": "When set to true, returns multiple default levels for each security scheme containing a default. If you provide scheme and level IDs not associated with the default, returns an empty page. The default value is false.",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

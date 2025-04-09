@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "description": "The scaling configuration for an autoscale pool, which is how the pool scales up and down (either by resource utilization or static configuration).",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "target_number_instances": {
+          "title": "static config",
+          "type": "integer",
+          "example": 3,
+          "description": "Fixed number of instances in an autoscale pool.",
+          "minimum": 1,
+          "maximum": 1000
+        }
+      },
+      "required": [
+        "target_number_instances"
+      ]
+    }
+  ],
+  "properties": {}
+}

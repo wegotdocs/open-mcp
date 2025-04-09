@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "cluster_id": {
+      "description": "A unique ID that can be used to reference a Kubernetes cluster.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "node_pool_id": {
+      "description": "A unique ID that can be used to reference a Kubernetes node pool.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "d8db5e1a-6103-43b5-a7b3-8a948210a9fc"
+      ]
+    }
+  },
+  "required": [
+    "cluster_id",
+    "node_pool_id"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrAlias": {
+      "description": "The alias or alias ID to be retrieved",
+      "example": "example.vercel.app",
+      "type": "string"
+    },
+    "from": {
+      "description": "Get the alias only if it was created after the provided timestamp",
+      "deprecated": true,
+      "example": 1540095775951,
+      "type": "number"
+    },
+    "projectId": {
+      "description": "Get the alias only if it is assigned to the provided project ID",
+      "example": "prj_12HKQaOmR5t5Uy6vdcQsNIiZgHGB",
+      "type": "string"
+    },
+    "since": {
+      "description": "Get the alias only if it was created after this JavaScript timestamp",
+      "example": 1540095775941,
+      "type": "number"
+    },
+    "until": {
+      "description": "Get the alias only if it was created before this JavaScript timestamp",
+      "example": 1540095775951,
+      "type": "number"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "idOrAlias"
+  ]
+}

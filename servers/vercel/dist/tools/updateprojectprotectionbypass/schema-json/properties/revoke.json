@@ -1,0 +1,18 @@
+{
+  "description": "Optional instructions for revoking and regenerating a automation bypass",
+  "type": "object",
+  "properties": {
+    "secret": {
+      "description": "Automation bypass to revoked",
+      "type": "string"
+    },
+    "regenerate": {
+      "description": "Whether or not a new automation bypass should be created after the provided secret is revoked",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "secret",
+    "regenerate"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "edgeConfigId": {
+      "type": "string",
+      "pattern": "^ecfg_"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "edgeConfigId"
+  ]
+}

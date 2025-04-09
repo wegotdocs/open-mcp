@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": 50,
+      "format": "int32",
+      "type": "integer"
+    },
+    "groupId": {
+      "description": "The ID of a group. To specify multiple IDs, pass multiple `groupId` parameters. For example, `groupId=5b10a2844c20165700ede21g&groupId=5b10ac8d82e05b22cc7d4ef5`.",
+      "example": "3571b9a7-348f-414a-9087-8e1ea03a7df8",
+      "items": {
+        "default": "",
+        "example": "3571b9a7-348f-414a-9087-8e1ea03a7df8",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "groupName": {
+      "description": "The name of a group. To specify multiple names, pass multiple `groupName` parameters. For example, `groupName=administrators&groupName=jira-software-users`.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "accessType": {
+      "description": "The access level of a group. Valid values: 'site-admin', 'admin', 'user'.",
+      "type": "string"
+    },
+    "applicationKey": {
+      "description": "The application key of the product user groups to search for. Valid values: 'jira-servicedesk', 'jira-software', 'jira-product-discovery', 'jira-core'.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

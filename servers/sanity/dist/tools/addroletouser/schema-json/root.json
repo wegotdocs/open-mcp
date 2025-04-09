@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "description": "Resources are entities that can be managed and accessed through the\nAccess API.\n",
+      "type": "string",
+      "enum": [
+        "organization",
+        "project"
+      ],
+      "example": "project"
+    },
+    "resourceId": {
+      "description": "The resource ID to scope the access request to. Must be a valid ID for the resource type.",
+      "type": "string"
+    },
+    "sanityUserId": {
+      "description": "The User ID",
+      "type": "string"
+    },
+    "roleName": {
+      "description": "The role name.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "resourceType",
+    "resourceId",
+    "sanityUserId",
+    "roleName"
+  ]
+}

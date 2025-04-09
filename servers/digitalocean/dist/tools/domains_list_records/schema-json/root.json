@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "domain_name": {
+      "description": "The name of the domain itself.",
+      "type": "string"
+    },
+    "name": {
+      "description": "A fully qualified record name. For example, to only include records matching sub.example.com, send a GET request to `/v2/domains/$DOMAIN_NAME/records?name=sub.example.com`.",
+      "type": "string"
+    },
+    "type": {
+      "description": "The type of the DNS record. For example: A, CNAME, TXT, ...",
+      "type": "string",
+      "enum": [
+        "A",
+        "AAAA",
+        "CAA",
+        "CNAME",
+        "MX",
+        "NS",
+        "SOA",
+        "SRV",
+        "TXT"
+      ]
+    },
+    "per_page": {
+      "description": "Number of items returned per page",
+      "type": "integer",
+      "minimum": 1,
+      "default": 20,
+      "maximum": 200
+    },
+    "page": {
+      "description": "Which 'page' of paginated results to return.",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    }
+  },
+  "required": [
+    "domain_name"
+  ]
+}

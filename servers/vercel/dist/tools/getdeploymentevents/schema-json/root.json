@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrUrl": {
+      "description": "The unique identifier or hostname of the deployment.",
+      "type": "string",
+      "example": "dpl_5WJWYSyB7BpgTj3EuwF37WMRBXBtPQ2iTMJHJBJyRfd"
+    },
+    "direction": {
+      "description": "Order of the returned events based on the timestamp.",
+      "type": "string",
+      "enum": [
+        "backward",
+        "forward"
+      ],
+      "default": "forward",
+      "example": "backward"
+    },
+    "follow": {
+      "description": "When enabled, this endpoint will return live events as they happen.",
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "example": 1
+    },
+    "limit": {
+      "description": "Maximum number of events to return. Provide `-1` to return all available logs.",
+      "type": "number",
+      "example": 100
+    },
+    "name": {
+      "description": "Deployment build ID.",
+      "type": "string",
+      "example": "bld_cotnkcr76"
+    },
+    "since": {
+      "description": "Timestamp for when build logs should be pulled from.",
+      "type": "number",
+      "example": 1540095775941
+    },
+    "until": {
+      "description": "Timestamp for when the build logs should be pulled up until.",
+      "type": "number",
+      "example": 1540106318643
+    },
+    "statusCode": {
+      "description": "HTTP status code range to filter events by.",
+      "example": "5xx",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "delimiter": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "example": 1
+    },
+    "builds": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "example": 1
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "idOrUrl"
+  ]
+}

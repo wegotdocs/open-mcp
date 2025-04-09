@@ -1,0 +1,39 @@
+{
+  "additionalProperties": {
+    "description": "A map of role PCRI (can be ID or REF) to a list of user or group PCRI IDs to associate with the role and project.",
+    "items": {
+      "additionalProperties": false,
+      "description": "Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\\[entityType\\]:\\[type\\]:\\[entityId\\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation",
+      "example": "pcri:permissionScheme:id:10001",
+      "properties": {
+        "anID": {
+          "type": "boolean"
+        },
+        "areference": {
+          "type": "boolean"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "entityType": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "id",
+            "ref"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "type": "array"
+  },
+  "description": "A map of role PCRI (can be ID or REF) to a list of user or group PCRI IDs to associate with the role and project.",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "planId": {
+      "description": "The ID of the plan.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "useGroupId": {
+      "description": "Whether to return group IDs instead of group names. Group names are deprecated.",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "planId"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "database_cluster_uuid": {
+      "description": "A unique identifier for a database cluster.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "sql_mode": {
+      "type": "string",
+      "example": "ANSI,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,STRICT_ALL_TABLES",
+      "description": "A string specifying the configured SQL modes for the MySQL cluster."
+    }
+  },
+  "required": [
+    "database_cluster_uuid",
+    "sql_mode"
+  ]
+}

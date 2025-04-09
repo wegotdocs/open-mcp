@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "contract_id": {
+      "type": "string",
+      "format": "uuid",
+      "title": "Contract Id"
+    },
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "image_uri": {
+      "type": "string",
+      "title": "Image Uri"
+    },
+    "ignore_nulls": {
+      "type": "boolean",
+      "title": "Ignore Nulls",
+      "default": true
+    }
+  },
+  "required": [
+    "contract_id"
+  ]
+}

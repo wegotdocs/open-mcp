@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "schemeId": {
+      "description": "The priority scheme ID.",
+      "type": "string"
+    },
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": "0",
+      "type": "string"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": "50",
+      "type": "string"
+    },
+    "projectId": {
+      "description": "The project IDs to filter by. For example, `projectId=10000&projectId=10001`.",
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "query": {
+      "description": "The string to query projects on by name.",
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemeId"
+  ]
+}

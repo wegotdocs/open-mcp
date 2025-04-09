@@ -1,0 +1,29 @@
+{
+  "description": "WebCrawlerDataSource",
+  "properties": {
+    "base_url": {
+      "description": "The base url to crawl.",
+      "example": "\"example string\"",
+      "type": "string"
+    },
+    "crawling_option": {
+      "default": "UNKNOWN",
+      "description": "Options for specifying how URLs found on pages should be handled.\n\n - UNKNOWN: Default unknown value\n - SCOPED: Only include the base URL.\n - PATH: Crawl the base URL and linked pages within the URL path.\n - DOMAIN: Crawl the base URL and linked pages within the same domain.\n - SUBDOMAINS: Crawl the base URL and linked pages for any subdomain.",
+      "enum": [
+        "UNKNOWN",
+        "SCOPED",
+        "PATH",
+        "DOMAIN",
+        "SUBDOMAINS"
+      ],
+      "example": "UNKNOWN",
+      "type": "string"
+    },
+    "embed_media": {
+      "description": "Whether to ingest and index media (images, etc.) on web pages.",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "fieldConfigurationSchemeId": {
+      "description": "The ID of the field configuration scheme. If the field configuration scheme ID is `null`, the operation assigns the default field configuration scheme.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "projectId": {
+      "description": "The ID of the project.",
+      "type": "string",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "projectId"
+  ]
+}

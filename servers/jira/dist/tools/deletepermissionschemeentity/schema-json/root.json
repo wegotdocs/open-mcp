@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "schemeId": {
+      "description": "The ID of the permission scheme to delete the permission grant from.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "permissionId": {
+      "description": "The ID of the permission grant to delete.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schemeId",
+    "permissionId"
+  ]
+}

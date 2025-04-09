@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "string"
+    },
+    "namespaceId": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "nullable": true
+    },
+    "provider": {
+      "enum": [
+        "github",
+        "github-custom-host",
+        "gitlab",
+        "bitbucket"
+      ]
+    },
+    "installationId": {
+      "type": "string"
+    },
+    "host": {
+      "description": "The custom Git host if using a custom Git provider, like GitHub Enterprise Server",
+      "type": "string",
+      "example": "ghes-test.now.systems"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

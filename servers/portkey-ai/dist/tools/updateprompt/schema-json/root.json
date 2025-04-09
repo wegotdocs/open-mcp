@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "promptId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "collection_id": {
+      "type": "string"
+    },
+    "string": {
+      "type": "string"
+    },
+    "parameters": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `parameters` to the tool, first call the tool `expandSchema` with \"/properties/parameters\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "model": {
+      "type": "string"
+    },
+    "virtual_key": {
+      "type": "string"
+    },
+    "version_description": {
+      "type": "string"
+    },
+    "functions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "tool_choice": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `tool_choice` to the tool, first call the tool `expandSchema` with \"/properties/tool_choice\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "is_raw_template": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "prompt_metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `prompt_metadata` to the tool, first call the tool `expandSchema` with \"/properties/prompt_metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "promptId"
+  ]
+}

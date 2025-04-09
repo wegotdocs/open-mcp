@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "model": {
+      "description": "The name of the model that will be used for the Classification. A model name without a date is an alias to the latest version of that model, i.e. `rdc-de` always points to the latest version of `rdc-de`.",
+      "type": "string",
+      "example": "rdc-de-2025-02-14",
+      "enum": [
+        "rdc-de-2025-02-14",
+        "rdc-de"
+      ]
+    },
+    "document": {
+      "description": "Base64-encoded contents of a document (PDF, JPG or PNG)",
+      "type": "string",
+      "format": "byte",
+      "example": "JVBERi0xLjUNCiW1tbW1DQox..."
+    }
+  },
+  "required": [
+    "model",
+    "document"
+  ]
+}

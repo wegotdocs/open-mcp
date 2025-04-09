@@ -1,0 +1,78 @@
+{
+  "type": "object",
+  "properties": {
+    "app": {
+      "description": "Name of the deployment.",
+      "type": "string",
+      "example": "docs"
+    },
+    "from": {
+      "description": "Gets the deployment created after this Date timestamp. (default: current time)",
+      "type": "number",
+      "example": 1612948664566,
+      "deprecated": true
+    },
+    "limit": {
+      "description": "Maximum number of deployments to list from a request.",
+      "type": "number",
+      "example": 10
+    },
+    "projectId": {
+      "description": "Filter deployments from the given ID or name.",
+      "type": "string",
+      "example": "QmXGTs7mvAMMC7WW5ebrM33qKG32QK3h4vmQMjmY"
+    },
+    "target": {
+      "description": "Filter deployments based on the environment.",
+      "type": "string",
+      "example": "production"
+    },
+    "to": {
+      "description": "Gets the deployment created before this Date timestamp. (default: current time)",
+      "type": "number",
+      "example": 1612948664566,
+      "deprecated": true
+    },
+    "users": {
+      "description": "Filter out deployments based on users who have created the deployment.",
+      "type": "string",
+      "example": "kr1PsOIzqEL5Xg6M4VZcZosf,K4amb7K9dAt5R2vBJWF32bmY"
+    },
+    "since": {
+      "description": "Get Deployments created after this JavaScript timestamp.",
+      "type": "number",
+      "example": 1540095775941
+    },
+    "until": {
+      "description": "Get Deployments created before this JavaScript timestamp.",
+      "type": "number",
+      "example": 1540095775951
+    },
+    "state": {
+      "description": "Filter deployments based on their state (`BUILDING`, `ERROR`, `INITIALIZING`, `QUEUED`, `READY`, `CANCELED`)",
+      "type": "string",
+      "example": "BUILDING,READY"
+    },
+    "rollbackCandidate": {
+      "description": "Filter deployments based on their rollback candidacy",
+      "type": "boolean"
+    },
+    "branch": {
+      "description": "Filter deployments based on the branch name",
+      "type": "string"
+    },
+    "sha": {
+      "description": "Filter deployments based on the SHA",
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

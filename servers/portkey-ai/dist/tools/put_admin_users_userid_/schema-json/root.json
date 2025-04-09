@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "member"
+      ]
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

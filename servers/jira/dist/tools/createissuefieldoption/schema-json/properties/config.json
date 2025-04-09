@@ -1,0 +1,22 @@
+{
+  "additionalProperties": false,
+  "description": "Details of the projects the option is available in.",
+  "properties": {
+    "attributes": {
+      "description": "DEPRECATED",
+      "items": {
+        "enum": [
+          "notSelectable",
+          "defaultValue"
+        ],
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scope": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "accountHolderCode": {
+      "description": "The code of the account holder.",
+      "type": "string"
+    },
+    "stores": {
+      "description": "List of stores to be closed.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "accountHolderCode",
+    "stores"
+  ]
+}

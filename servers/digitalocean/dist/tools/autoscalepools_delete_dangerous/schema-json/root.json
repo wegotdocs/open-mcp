@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "autoscale_pool_id": {
+      "description": "A unique identifier for an autoscale pool.",
+      "type": "string"
+    },
+    "X-Dangerous": {
+      "description": "Acknowledge this action will destroy the autoscale pool and its associated resources and _can not_ be reversed.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "autoscale_pool_id",
+    "X-Dangerous"
+  ]
+}

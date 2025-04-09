@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "accountHolderCode": {
+      "description": "The code of the account holder from which to delete the signatories.",
+      "type": "string"
+    },
+    "signatoryCodes": {
+      "description": "Array of codes of the signatories to be deleted.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "accountHolderCode",
+    "signatoryCodes"
+  ]
+}

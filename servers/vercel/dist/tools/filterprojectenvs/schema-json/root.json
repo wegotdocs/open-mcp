@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrName": {
+      "description": "The unique project identifier or the project name",
+      "type": "string",
+      "example": "prj_XLKmu1DyR1eY7zq8UgeRKbA7yVLA"
+    },
+    "gitBranch": {
+      "description": "If defined, the git branch of the environment variable to filter the results (must have target=preview)",
+      "type": "string",
+      "maxLength": 250,
+      "example": "feature-1"
+    },
+    "decrypt": {
+      "description": "If true, the environment variable value will be decrypted",
+      "type": "string",
+      "enum": [
+        "true",
+        "false"
+      ],
+      "example": "true",
+      "deprecated": true
+    },
+    "source": {
+      "description": "The source that is calling the endpoint.",
+      "type": "string",
+      "example": "vercel-cli:pull"
+    },
+    "customEnvironmentId": {
+      "description": "The unique custom environment identifier within the project",
+      "type": "string",
+      "example": "env_123abc4567"
+    },
+    "customEnvironmentSlug": {
+      "description": "The custom environment slug (name) within the project",
+      "type": "string",
+      "example": "my-custom-env"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "idOrName"
+  ]
+}

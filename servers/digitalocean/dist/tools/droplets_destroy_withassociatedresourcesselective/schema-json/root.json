@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "droplet_id": {
+      "description": "A unique identifier for a Droplet instance.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "reserved_ips": {
+      "type": "array",
+      "description": "An array of unique identifiers for the reserved IPs to be scheduled for deletion.",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "6186916"
+      ]
+    },
+    "snapshots": {
+      "type": "array",
+      "description": "An array of unique identifiers for the snapshots to be scheduled for deletion.",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "61486916"
+      ]
+    },
+    "volumes": {
+      "type": "array",
+      "description": "An array of unique identifiers for the volumes to be scheduled for deletion.",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "ba49449a-7435-11ea-b89e-0a58ac14480f"
+      ]
+    },
+    "volume_snapshots": {
+      "type": "array",
+      "description": "An array of unique identifiers for the volume snapshots to be scheduled for deletion.",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "edb0478d-7436-11ea-86e6-0a58ac144b91"
+      ]
+    }
+  },
+  "required": [
+    "droplet_id"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "issueIdOrKey": {
+      "description": "The ID or key of the issue.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the comment.",
+      "type": "string"
+    },
+    "expand": {
+      "description": "Use [expand](#expansion) to include additional information about comments in the response. This parameter accepts `renderedBody`, which returns the comment body rendered in HTML.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "issueIdOrKey",
+    "id"
+  ]
+}

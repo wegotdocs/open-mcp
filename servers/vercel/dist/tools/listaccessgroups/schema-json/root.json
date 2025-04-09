@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "description": "Filter access groups by project.",
+      "example": "prj_pavWOn1iLObbx3RowVvzmPrTWyTf",
+      "type": "string"
+    },
+    "search": {
+      "description": "Search for access groups by name.",
+      "example": "example",
+      "type": "string"
+    },
+    "membersLimit": {
+      "description": "Number of members to include in the response.",
+      "example": 20,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "projectsLimit": {
+      "description": "Number of projects to include in the response.",
+      "example": 20,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "limit": {
+      "description": "Limit how many access group should be returned.",
+      "example": 20,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "next": {
+      "description": "Continuation cursor to retrieve the next page of results.",
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "autoscale_pool_id": {
+      "description": "A unique identifier for an autoscale pool.",
+      "type": "string"
+    },
+    "start": {
+      "description": "UNIX timestamp to start metric window.",
+      "type": "string"
+    },
+    "end": {
+      "description": "UNIX timestamp to end metric window.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "autoscale_pool_id",
+    "start",
+    "end"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "filter": {
+      "description": "The filter applied to the list of dashboards. Valid values are:\n\n *  `favourite` Returns dashboards the user has marked as favorite.\n *  `my` Returns dashboards owned by the user.",
+      "enum": [
+        "my",
+        "favourite"
+      ],
+      "type": "string"
+    },
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": 20,
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the workflow scheme.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "updateDraftIfNeeded": {
+      "description": "Whether a draft workflow scheme is created or updated when updating an active workflow scheme. The draft is updated with the new default workflow. Defaults to `false`.",
+      "type": "boolean"
+    },
+    "workflow": {
+      "description": "The name of the workflow to set as the default workflow.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "workflow"
+  ]
+}

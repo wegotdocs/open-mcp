@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "credit_limit": {
+      "type": "integer",
+      "description": "Credit Limit. Used for tracking usage",
+      "minimum": 1,
+      "default": null
+    },
+    "alert_threshold": {
+      "type": "integer",
+      "description": "Alert Threshold. Used for alerting when usage reaches more than this",
+      "minimum": 1,
+      "default": null
+    },
+    "periodic_reset": {
+      "type": "string",
+      "description": "Reset the usage periodically.",
+      "enum": [
+        "monthly"
+      ]
+    }
+  },
+  "example": {
+    "credit_limit": 10,
+    "periodic_reset": "monthly",
+    "alert_threshold": 8
+  }
+}

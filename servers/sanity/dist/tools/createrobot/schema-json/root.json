@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "description": "Resources are entities that can be managed and accessed through the\nAccess API.\n",
+      "type": "string",
+      "enum": [
+        "organization",
+        "project"
+      ],
+      "example": "project"
+    },
+    "resourceId": {
+      "description": "The resource ID to scope the access request to. Must be a valid ID for the resource type.",
+      "type": "string"
+    },
+    "label": {
+      "type": "string",
+      "description": "A human-readable label for the robot.",
+      "example": "My Robot"
+    },
+    "memberships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "addedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-01-15T12:15:30Z"
+          },
+          "resourceType": {
+            "type": "string",
+            "example": "project"
+          },
+          "resourceId": {
+            "type": "string",
+            "example": "c7ja4siy"
+          },
+          "roleNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "administrator",
+              "editor"
+            ]
+          },
+          "lastSeenAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2024-01-15T12:15:30Z"
+          },
+          "resourceUserId": {
+            "type": "string",
+            "nullable": true,
+            "description": "An alternative ID for the user in the resource. Only present for project memberships. That is, a user can be assigned to multiple projects, and each project will have a different resourceUserId to reference the same user.",
+            "example": "projectUserId123"
+          }
+        },
+        "required": [
+          "resourceType",
+          "resourceId",
+          "roleNames"
+        ]
+      }
+    }
+  },
+  "required": [
+    "resourceType",
+    "resourceId",
+    "label",
+    "memberships"
+  ]
+}

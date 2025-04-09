@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "maxResults": {
+      "description": "The maximum number of results that could be on the page.",
+      "format": "int32",
+      "type": "integer",
+      "writeOnly": true
+    },
+    "priorities": {
+      "type": "string"
+    },
+    "projects": {
+      "type": "string"
+    },
+    "schemeId": {
+      "description": "The id of the priority scheme.",
+      "format": "int64",
+      "type": "integer",
+      "writeOnly": true
+    },
+    "startAt": {
+      "description": "The index of the first item returned on the page.",
+      "format": "int64",
+      "type": "integer",
+      "writeOnly": true
+    }
+  },
+  "required": []
+}

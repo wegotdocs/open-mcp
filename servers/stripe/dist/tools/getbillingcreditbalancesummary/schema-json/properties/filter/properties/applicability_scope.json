@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "price_type": {
+      "enum": [
+        "metered"
+      ],
+      "type": "string"
+    },
+    "prices": {
+      "items": {
+        "properties": {
+          "id": {
+            "maxLength": 5000,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "applicable_price_param",
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "title": "scope_param",
+  "type": "object"
+}

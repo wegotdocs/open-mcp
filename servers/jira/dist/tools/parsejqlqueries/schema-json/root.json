@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "validation": {
+      "description": "How to validate the JQL query and treat the validation results. Validation options include:\n\n *  `strict` Returns all errors. If validation fails, the query structure is not returned.\n *  `warn` Returns all errors. If validation fails but the JQL query is correctly formed, the query structure is returned.\n *  `none` No validation is performed. If JQL query is correctly formed, the query structure is returned.",
+      "default": "strict",
+      "enum": [
+        "strict",
+        "warn",
+        "none"
+      ],
+      "type": "string"
+    },
+    "queries": {
+      "description": "A list of queries to parse.",
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minLength": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "validation",
+    "queries"
+  ]
+}

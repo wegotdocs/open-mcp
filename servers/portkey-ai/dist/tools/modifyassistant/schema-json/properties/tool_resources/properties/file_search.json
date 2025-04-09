@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "vector_store_ids": {
+      "type": "array",
+      "description": "Overrides the [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.\n",
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

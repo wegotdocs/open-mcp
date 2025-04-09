@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "pageSize": {
+      "type": "integer"
+    },
+    "currentPage": {
+      "type": "integer"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "member",
+        "owner"
+      ]
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "x-portkey-api-key": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

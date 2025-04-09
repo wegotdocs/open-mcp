@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "data_source_uuids": {
+      "description": "List of data source ids to index, if none are provided, all data sources will be indexed",
+      "example": [
+        "example string"
+      ],
+      "items": {
+        "example": "\"example string\"",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "knowledge_base_uuid": {
+      "description": "Knowledge base id",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    }
+  },
+  "required": []
+}

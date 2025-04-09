@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "file_key": {
+      "description": "File key of the library to fetch analytics data for.",
+      "type": "string"
+    },
+    "cursor": {
+      "description": "Cursor indicating what page of data to fetch. Obtained from prior API call.",
+      "type": "string"
+    },
+    "group_by": {
+      "description": "A dimension to group returned analytics data by.",
+      "type": "string",
+      "enum": [
+        "component",
+        "file"
+      ]
+    }
+  },
+  "required": [
+    "file_key",
+    "group_by"
+  ]
+}

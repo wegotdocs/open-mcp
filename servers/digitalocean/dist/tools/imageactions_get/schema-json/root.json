@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "image_id": {
+      "description": "A unique number that can be used to identify and reference a specific image.",
+      "type": "integer"
+    },
+    "action_id": {
+      "description": "A unique numeric ID that can be used to identify and reference an action.",
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "image_id",
+    "action_id"
+  ]
+}

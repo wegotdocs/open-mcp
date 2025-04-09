@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "properties": {
+    "fieldId": {
+      "description": "The ID of the custom field.",
+      "type": "string"
+    },
+    "defaultValues": {
+      "items": {
+        "additionalProperties": false,
+        "discriminator": {
+          "mapping": {
+            "datepicker": "#/components/schemas/CustomFieldContextDefaultValueDate",
+            "datetimepicker": "#/components/schemas/CustomFieldContextDefaultValueDateTime",
+            "float": "#/components/schemas/CustomFieldContextDefaultValueFloat",
+            "forge.datetime": "#/components/schemas/CustomFieldContextDefaultValueForgeDateTimeField",
+            "forge.group": "#/components/schemas/CustomFieldContextDefaultValueForgeGroupField",
+            "forge.group.list": "#/components/schemas/CustomFieldContextDefaultValueForgeMultiGroupField",
+            "forge.number": "#/components/schemas/CustomFieldContextDefaultValueForgeNumberField",
+            "forge.object": "#/components/schemas/CustomFieldContextDefaultValueForgeObjectField",
+            "forge.string": "#/components/schemas/CustomFieldContextDefaultValueForgeStringField",
+            "forge.string.list": "#/components/schemas/CustomFieldContextDefaultValueForgeMultiStringField",
+            "forge.user": "#/components/schemas/CustomFieldContextDefaultValueForgeUserField",
+            "forge.user.list": "#/components/schemas/CustomFieldContextDefaultValueForgeMultiUserField",
+            "grouppicker.multiple": "#/components/schemas/CustomFieldContextDefaultValueMultipleGroupPicker",
+            "grouppicker.single": "#/components/schemas/CustomFieldContextDefaultValueSingleGroupPicker",
+            "labels": "#/components/schemas/CustomFieldContextDefaultValueLabels",
+            "multi.user.select": "#/components/schemas/CustomFieldContextDefaultValueMultiUserPicker",
+            "option.cascading": "#/components/schemas/CustomFieldContextDefaultValueCascadingOption",
+            "option.multiple": "#/components/schemas/CustomFieldContextDefaultValueMultipleOption",
+            "option.single": "#/components/schemas/CustomFieldContextDefaultValueSingleOption",
+            "project": "#/components/schemas/CustomFieldContextDefaultValueProject",
+            "readonly": "#/components/schemas/CustomFieldContextDefaultValueReadOnly",
+            "single.user.select": "#/components/schemas/CustomFieldContextSingleUserPickerDefaults",
+            "textarea": "#/components/schemas/CustomFieldContextDefaultValueTextArea",
+            "textfield": "#/components/schemas/CustomFieldContextDefaultValueTextField",
+            "url": "#/components/schemas/CustomFieldContextDefaultValueURL",
+            "version.multiple": "#/components/schemas/CustomFieldContextDefaultValueMultipleVersionPicker",
+            "version.single": "#/components/schemas/CustomFieldContextDefaultValueSingleVersionPicker"
+          },
+          "propertyName": "type"
+        },
+        "type": "object",
+        "anyOf": [
+          {
+            "description": "The default value for a cascading select custom field.",
+            "properties": {
+              "cascadingOptionId": {
+                "description": "The ID of the default cascading option.",
+                "type": "string"
+              },
+              "contextId": {
+                "description": "The ID of the context.",
+                "type": "string"
+              },
+              "optionId": {
+                "description": "The ID of the default option.",
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "contextId",
+              "optionId",
+              "type"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "fieldId"
+  ]
+}

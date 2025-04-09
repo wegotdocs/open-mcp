@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "customer": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "payment_method": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "expand": {
+      "description": "Specifies which fields in the response should be expanded.",
+      "items": {
+        "maxLength": 5000,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "customer",
+    "payment_method"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "description": "Optional set of statuses to filter by.",
+      "items": {
+        "default": "",
+        "description": "The status of the project classification.",
+        "enum": [
+          "PUBLISHED",
+          "ARCHIVED",
+          "DRAFT"
+        ],
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "orderBy": {
+      "description": "Ordering of the results by a given field. If not provided, values will not be sorted.",
+      "enum": [
+        "rank",
+        "-rank",
+        "+rank"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

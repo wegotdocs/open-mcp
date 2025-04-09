@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "name"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "prepayment",
+        "subscription"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "paymentMethodRequired": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "description": "Unique identifier for a `Project` created in Totoy.",
+      "type": "string",
+      "maxLength": 28,
+      "pattern": "^pj_[a-zA-Z0-9]{25}$"
+    },
+    "name": {
+      "description": "The name of the `Project`.",
+      "type": "string",
+      "maxLength": 256,
+      "example": "Totoy GmbH Project"
+    }
+  },
+  "required": [
+    "project_id"
+  ]
+}

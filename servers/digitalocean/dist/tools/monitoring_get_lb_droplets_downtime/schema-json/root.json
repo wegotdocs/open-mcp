@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "lb_id": {
+      "description": "A unique identifier for a load balancer.",
+      "type": "string"
+    },
+    "start": {
+      "description": "UNIX timestamp to start metric window.",
+      "type": "string"
+    },
+    "end": {
+      "description": "UNIX timestamp to end metric window.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "lb_id",
+    "start",
+    "end"
+  ]
+}

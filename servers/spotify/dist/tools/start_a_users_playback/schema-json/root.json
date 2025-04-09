@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "device_id": {
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target.",
+      "title": "Device ID",
+      "example": "0d1841b0976bae2a3a310dd74c0f3df354899bc8",
+      "type": "string"
+    },
+    "context_uri": {
+      "type": "string",
+      "description": "Optional. Spotify URI of the context to play.\nValid contexts are albums, artists & playlists.\n`{context_uri:\"spotify:album:1Je1IMUlBXcx1Fz0WE7oPT\"}`\n"
+    },
+    "uris": {
+      "type": "array",
+      "description": "Optional. A JSON array of the Spotify track URIs to play.\nFor example: `{\"uris\": [\"spotify:track:4iV5W9uYEdYUVa79Axb7Rh\", \"spotify:track:1301WleyT98MSxVHPZCA6M\"]}`\n",
+      "items": {
+        "type": "string"
+      }
+    },
+    "offset": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `offset` to the tool, first call the tool `expandSchema` with \"/properties/offset\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Optional. Indicates from where in the context playback should start. Only available when context_uri corresponds to an album or playlist object\n\"position\" is zero based and can’t be negative. Example: `\"offset\": {\"position\": 5}`\n\"uri\" is a string representing the uri of the item to start at. Example: `\"offset\": {\"uri\": \"spotify:track:1301WleyT98MSxVHPZCA6M\"}`\n</property-description>",
+      "additionalProperties": true
+    },
+    "position_ms": {
+      "type": "integer",
+      "description": "Indicates from what position to start playback. Must be a positive number. Passing in a position that is greater than the length of the track will cause the player to start playing the next song.\n"
+    }
+  },
+  "required": []
+}

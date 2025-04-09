@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "Content-Length": {
+      "description": "The file size in bytes",
+      "type": "number"
+    },
+    "x-vercel-digest": {
+      "description": "The file SHA1 used to check the integrity",
+      "type": "string",
+      "maxLength": 40
+    },
+    "x-now-digest": {
+      "description": "The file SHA1 used to check the integrity",
+      "deprecated": true,
+      "type": "string",
+      "maxLength": 40
+    },
+    "x-now-size": {
+      "description": "The file size as an alternative to `Content-Length`",
+      "type": "number",
+      "deprecated": true
+    }
+  },
+  "required": []
+}

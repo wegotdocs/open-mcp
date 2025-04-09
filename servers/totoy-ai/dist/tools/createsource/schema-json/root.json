@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "text_content": {
+      "description": "Plain-text string to be uploaded to `Sources`.",
+      "type": "string",
+      "maxLength": 1000000,
+      "example": "Totoy GmbH was founded on November 8, 2023."
+    },
+    "title": {
+      "description": "Title of the text `Source`.",
+      "type": "string",
+      "maxLength": 512,
+      "nullable": true,
+      "example": "Foundation Date"
+    },
+    "backlink": {
+      "description": "A url to the text `Source` that can be used by clients to link back to the original text.",
+      "type": "string",
+      "maxLength": 512,
+      "example": "https://www.totoy.ai/general-info"
+    },
+    "valid_from": {
+      "description": "From what time the `Source` can be used by a `Knowledge Base` or an `Explanation`. If no `valid_from` is set, the `Source` is valid from the time it is added to `Sources`.",
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2024-01-01T00:00:00Z"
+    },
+    "valid_until": {
+      "description": "Until when the `Source` can be used by a `Knowledge Base` or an `Explanation`. If no `valid_until` is set, the `Source` is valid until it is removed from `Sources`.",
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2026-12-31T23:59:59Z"
+    },
+    "project_id": {
+      "description": "The unique identifier of the project this `Source` should be assigned to. `Sources` can only be used by resources with the same `project_id`. If no `project_id` is set, the `Source` will be assigned to the default project.",
+      "maxLength": 28,
+      "pattern": "^pj_[a-zA-Z0-9]{25}$",
+      "type": "string",
+      "nullable": true,
+      "example": "pj_avX7imfLaPcQnv5ckvGlOEBA9"
+    },
+    "custom_metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_metadata` to the tool, first call the tool `expandSchema` with \"/properties/custom_metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom optional metadata for a `Source` provided by a client. Up to 10 key-value pairs.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "text_content"
+  ]
+}

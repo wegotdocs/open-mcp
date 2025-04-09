@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "webhook_id": {
+      "description": "ID of webhook to update",
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "description": "An enum representing the possible events that a webhook can subscribe to",
+      "enum": [
+        "PING",
+        "FILE_UPDATE",
+        "FILE_VERSION_UPDATE",
+        "FILE_DELETE",
+        "LIBRARY_PUBLISH",
+        "FILE_COMMENT"
+      ]
+    },
+    "endpoint": {
+      "type": "string",
+      "description": "The HTTP endpoint that will receive a POST request when the event triggers. Max length 2048 characters."
+    },
+    "passcode": {
+      "type": "string",
+      "description": "String that will be passed back to your webhook endpoint to verify that it is being called by Figma. Max length 100 characters."
+    },
+    "status": {
+      "description": "State of the webhook, including any error state it may be in",
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "PAUSED"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "User provided description or name for the webhook. Max length 150 characters."
+    }
+  },
+  "required": [
+    "webhook_id",
+    "event_type",
+    "endpoint",
+    "passcode"
+  ]
+}
