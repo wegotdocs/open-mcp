@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier (ID) of the instance",
+      "type": "string",
+      "example": "0920582c7ff041399e34823a0be62549",
+      "title": "Id"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 64,
+      "title": "name",
+      "description": "The new, user-provided name for the instance.",
+      "examples": [
+        "My Instance"
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
