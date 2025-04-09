@@ -63,25 +63,17 @@ jobs:
 
           # Process each removed package for deprecation
           for dir in "${REMOVED_DIRS_ARRAY[@]}"; do
-            # Extract package name from the previous commit (before it was removed)
             echo "::group::Checking removed package: $dir"
-            set -x
             PACKAGE_JSON=$(git show HEAD^:servers/$dir/package.json 2>/dev/null || echo "Not found")
-            set +x
             echo "Previous package.json found: $([[ "$PACKAGE_JSON" != "Not found" ]] && echo "Yes" || echo "No")"
             
             if [[ "$PACKAGE_JSON" != "Not found" ]]; then
-              set -x
               PACKAGE_NAME=$(echo "$PACKAGE_JSON" | grep -o '"name": "[^"]*"' | head -1 | cut -d'"' -f4)
-              set +x
               echo "Found package name: $PACKAGE_NAME"
               
               if [ ! -z "$PACKAGE_NAME" ]; then
                 echo "Deprecating removed package: $PACKAGE_NAME"
-                set -x
                 npm deprecate $PACKAGE_NAME "This package has been removed from the repository and is no longer maintained." || echo "Deprecation attempt failed"
-                set +x
-                echo "Deprecation command completed"
               else
                 echo "No valid package name found in removed directory"
               fi
@@ -91,94 +83,103 @@ jobs:
             echo "::endgroup::"
           done
 
+          # Array to track successful packages
+          declare -a SUCCESSFUL_PACKAGES=()
+
           # Process each changed package
           for dir in "${CHANGED_DIRS_ARRAY[@]}"; do
             echo "::group::Processing package: $dir"
             if [ -d "servers/$dir" ] && [ -f "servers/$dir/package.json" ]; then
-              echo "Package directory and package.json confirmed"
+              echo "Processing $dir"
               
               # Navigate to package directory
-              echo "Navigating to package directory"
-              set -x
-              cd "servers/$dir"
-              set +x
+              cd "servers/$dir" || continue
               
-              # Install dependencies for this package
-              echo "Installing dependencies"
+              # Track if all steps succeed
+              PACKAGE_SUCCESS=true
+              
+              # Install dependencies
+              echo "Installing dependencies for $dir"
               if [ -f "package-lock.json" ]; then
-                echo "Using npm ci for dependency installation"
-                set -x
-                npm ci
-                set +x
+                if ! npm ci; then
+                  echo "Failed to install dependencies for $dir"
+                  PACKAGE_SUCCESS=false
+                fi
               else
-                echo "No package-lock.json found, using npm install"
-                set -x
-                npm install
-                set +x
+                if ! npm install; then
+                  echo "Failed to install dependencies for $dir"
+                  PACKAGE_SUCCESS=false
+                fi
               fi
               
-              # Determine version bump from commit message
-              echo "Determining version bump type from commit message"
-              if [[ "${{ github.event.head_commit.message }}" == *"#major $dir"* ]]; then
-                BUMP="major"
-              elif [[ "${{ github.event.head_commit.message }}" == *"#minor $dir"* ]]; then
-                BUMP="minor"
-              else
-                BUMP="patch"
+              # Only continue if install succeeded
+              if [ "$PACKAGE_SUCCESS" = true ]; then
+                # Run tests
+                echo "Running tests for $dir"
+                if ! npm test; then
+                  echo "Tests failed for $dir"
+                  PACKAGE_SUCCESS=false
+                fi
               fi
               
-              echo "Bumping $dir version: $BUMP"
+              # Only continue if tests succeeded
+              if [ "$PACKAGE_SUCCESS" = true ]; then
+                # Build package
+                echo "Building $dir"
+                if ! npm run build; then
+                  echo "Build failed for $dir"
+                  PACKAGE_SUCCESS=false
+                fi
+              fi
               
-              # Run tests for this package (if you have tests)
-              echo "Running tests"
-              set -x
-              npm test || echo "No tests or tests failed"
-              set +x
+              # If all steps succeeded, prepare for publishing
+              if [ "$PACKAGE_SUCCESS" = true ]; then
+                echo "All checks passed for $dir"
+                
+                # Determine version bump from commit message
+                if [[ "${{ github.event.head_commit.message }}" == *"#major $dir"* ]]; then
+                  BUMP="major"
+                elif [[ "${{ github.event.head_commit.message }}" == *"#minor $dir"* ]]; then
+                  BUMP="minor"
+                else
+                  BUMP="patch"
+                fi
+                
+                # Update version
+                npm version $(npm view . version) --allow-same-version
+                npm version $BUMP -m "Bump $dir version to %s [skip ci]"
+                
+                # Publish
+                if npm publish --access public; then
+                  echo "Successfully published $dir"
+                  SUCCESSFUL_PACKAGES+=("$dir")
+                else
+                  echo "Failed to publish $dir"
+                  PACKAGE_SUCCESS=false
+                fi
+              else
+                echo "Skipping version bump and publish for $dir due to previous failures"
+              fi
               
-              # Build the package (if you have a build script)
-              echo "Building package"
-              set -x
-              npm run build || echo "No build script or build failed"
-              set +x
-
-              # Ensuring package.json version is up to date
-              echo "Ensuring package.json version is up to date"
-              set -x
-              npm version $(npm view . version) --allow-same-version
-              set +x
-              
-              # Bump version
-              echo "Bumping version"
-              set -x
-              npm version $BUMP -m "Bump $dir version to %s [skip ci]"
-              set +x
-              
-              # Publish to npm
-              echo "Publishing to npm"
-              set -x
-              npm publish --access public
-              set +x
-              echo "Package successfully published"
-              
-              # Go back to root
-              echo "Returning to repository root"
-              set -x
+              # Return to root directory
               cd ../../
-              set +x
             else
               echo "Package directory or package.json not found for $dir"
             fi
             echo "::endgroup::"
           done
 
-          echo "::group::Committing version changes"
-          # Commit and push all version changes together
-          set -x
-          git add .
-          git commit -m "chore: update package versions [skip ci]" || echo "No changes to commit"
-          git push origin main || echo "Push failed"
-          set +x
-          echo "::endgroup::"
+          # Only commit version changes if at least one package was successful
+          if [ ${#SUCCESSFUL_PACKAGES[@]} -gt 0 ]; then
+            echo "::group::Committing version changes"
+            echo "Successfully processed packages: ${SUCCESSFUL_PACKAGES[*]}"
+            git add .
+            git commit -m "chore: update package versions [skip ci]" || echo "No changes to commit"
+            git push origin main || echo "Push failed"
+            echo "::endgroup::"
+          else
+            echo "No packages were successfully processed - skipping git commit"
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
