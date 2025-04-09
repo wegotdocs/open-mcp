@@ -2,7 +2,7 @@ export { inputParams } from "./schema/root.js"
 
 export const toolName = `getquotesquotepdf`
 export const toolDescription = `Download quote PDF`
-export const baseUrl = `https://api.stripe.com`
+export const baseUrl = `https://files.stripe.com`
 export const path = `/v1/quotes/{quote}/pdf`
 export const method = `get`
 export const security = [

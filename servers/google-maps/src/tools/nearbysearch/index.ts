@@ -2,7 +2,7 @@ export { inputParams } from "./schema/root.js"
 
 export const toolName = `nearbysearch`
 export const toolDescription = `A Nearby Search lets you search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.`
-export const baseUrl = `https://www.googleapis.com`
+export const baseUrl = `https://maps.googleapis.com`
 export const path = `/maps/api/place/nearbysearch/json`
 export const method = `get`
 export const security = [

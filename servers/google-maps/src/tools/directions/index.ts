@@ -2,7 +2,7 @@ export { inputParams } from "./schema/root.js"
 
 export const toolName = `directions`
 export const toolDescription = `The Directions API is a web service that uses an HTTP request to return JSON or XML-formatted directions between locations. You can receive directions for several modes of transportation, such as transit, driving, walking, or cycling.`
-export const baseUrl = `https://www.googleapis.com`
+export const baseUrl = `https://maps.googleapis.com`
 export const path = `/maps/api/directions/json`
 export const method = `get`
 export const security = [

@@ -2,7 +2,7 @@ export { inputParams } from "./schema/root.js"
 
 export const toolName = `get_api_keys`
 export const toolDescription = `Get All`
-export const baseUrl = `https://api.portkey.ai/v1`
+export const baseUrl = `https://api.portkey.ai`
 export const path = `/api-keys`
 export const method = `get`
 export const security = [

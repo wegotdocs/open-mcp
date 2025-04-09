@@ -2,7 +2,7 @@ export { inputParams } from "./schema/root.js"
 
 export const toolName = `post_admin_workspaces_workspaceid_users`
 export const toolDescription = `Add workspace member`
-export const baseUrl = `https://api.portkey.ai/v1`
+export const baseUrl = `https://api.portkey.ai`
 export const path = `/admin/workspaces/{workspaceId}/users`
 export const method = `post`
 export const security = [

@@ -2,7 +2,7 @@ export { inputParams } from "./schema/root.js"
 
 export const toolName = `findplacefromtext`
 export const toolDescription = `A Find Place request takes a text input and returns a place. The input can be any kind of Places text data, such as a name, address, or phone number. The request must be a string. A Find Place request using non-string data such as a lat/lng`
-export const baseUrl = `https://www.googleapis.com`
+export const baseUrl = `https://maps.googleapis.com`
 export const path = `/maps/api/place/findplacefromtext/json`
 export const method = `get`
 export const security = [

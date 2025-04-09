@@ -2,7 +2,7 @@ export { inputParams } from "./schema/root.js"
 
 export const toolName = `placedetails`
 export const toolDescription = `The Places API is a service that returns information about places using HTTP requests. Places are defined within this API as establishments, geographic locations, or prominent points of interest.`
-export const baseUrl = `https://www.googleapis.com`
+export const baseUrl = `https://maps.googleapis.com`
 export const path = `/maps/api/place/details/json`
 export const method = `get`
 export const security = [

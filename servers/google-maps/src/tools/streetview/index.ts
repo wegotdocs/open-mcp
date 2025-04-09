@@ -2,7 +2,7 @@ export { inputParams } from "./schema/root.js"
 
 export const toolName = `streetview`
 export const toolDescription = `The Street View Static API lets you embed a static (non-interactive) Street View panorama or thumbnail into your web page, without the use of JavaScript. The viewport is defined with URL parameters sent through a standard HTTP request, and`
-export const baseUrl = `https://www.googleapis.com`
+export const baseUrl = `https://maps.googleapis.com`
 export const path = `/maps/api/streetview`
 export const method = `get`
 export const security = [

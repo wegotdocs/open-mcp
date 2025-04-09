@@ -2,7 +2,7 @@ export { inputParams } from "./schema/root.js"
 
 export const toolName = `postfiles`
 export const toolDescription = `Create a file`
-export const baseUrl = `https://api.stripe.com`
+export const baseUrl = `https://files.stripe.com`
 export const path = `/v1/files`
 export const method = `post`
 export const security = [
