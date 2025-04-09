@@ -1,0 +1,124 @@
+{
+  "type": "object",
+  "properties": {
+    "region_name": {
+      "title": "region_name",
+      "description": "The region into which you want to launch the instance.",
+      "enum": [
+        "europe-central-1",
+        "asia-south-1",
+        "australia-east-1",
+        "me-west-1",
+        "asia-northeast-1",
+        "asia-northeast-2",
+        "us-east-1",
+        "us-west-2",
+        "us-west-1",
+        "us-south-1",
+        "us-west-3",
+        "us-midwest-1",
+        "us-east-2",
+        "us-south-2",
+        "us-south-3",
+        "us-east-3",
+        "us-midwest-2",
+        "test-east-1",
+        "test-west-1"
+      ],
+      "type": "string"
+    },
+    "instance_type_name": {
+      "type": "string",
+      "title": "instance_type_name",
+      "description": "The type of instance you want to launch. To retrieve a list of available instance types, see\n[List available instance types](#get-/api/v1/instance-types).",
+      "examples": [
+        "gpu_8x_a100"
+      ]
+    },
+    "ssh_key_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "ssh_key_names",
+      "description": "The names of the SSH keys you want to use to provide access to the instance.\nCurrently, exactly one SSH key must be specified.",
+      "examples": [
+        [
+          "my-public-key"
+        ]
+      ]
+    },
+    "file_system_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "title": "file_system_names",
+      "description": "The names of the filesystems you want to attach to the instance.\nCurrently, you can attach only one filesystem during instance creation.\nBy default, no filesystems are attached.",
+      "examples": [
+        [
+          "my-filesystem"
+        ],
+        []
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 64,
+      "title": "name",
+      "description": "The name you want to assign to your instance. Must be 64 characters or fewer.",
+      "examples": [
+        "My Instance"
+      ]
+    },
+    "image": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "id"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "title": "ImageSpecificationID",
+          "description": "Specifies the image to use by its unique identifier."
+        },
+        {
+          "type": "object",
+          "properties": {
+            "family": {
+              "type": "string",
+              "title": "family",
+              "description": "The family name of the image."
+            }
+          },
+          "required": [
+            "family"
+          ],
+          "title": "ImageSpecificationFamily",
+          "description": "Specifies the image to use by its family name."
+        }
+      ],
+      "title": "image",
+      "description": "The machine image you want to use. Defaults to the latest Lambda Stack image."
+    },
+    "user_data": {
+      "type": "string",
+      "writeOnly": true,
+      "format": "password",
+      "title": "user_data",
+      "description": "An instance configuration string specified in a valid\n[cloud-init user-data](https://cloudinit.readthedocs.io/en/latest/explanation/format.html)\nformat. You can use this field to configure your instance on launch. The\nuser data string must be plain text and cannot exceed 1MB in size."
+    }
+  },
+  "required": [
+    "region_name",
+    "instance_type_name",
+    "ssh_key_names"
+  ]
+}

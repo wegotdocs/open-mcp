@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "pattern": "^[a-zA-Z]+[0-9a-zA-Z-]*$",
+      "title": "name",
+      "description": "The name of the filesystem.",
+      "examples": [
+        [
+          "my-filesytem"
+        ],
+        []
+      ]
+    },
+    "region": {
+      "title": "region",
+      "description": "The region in which you want to create the filesystem.",
+      "examples": [
+        "us-west-1"
+      ],
+      "enum": [
+        "europe-central-1",
+        "asia-south-1",
+        "australia-east-1",
+        "me-west-1",
+        "asia-northeast-1",
+        "asia-northeast-2",
+        "us-east-1",
+        "us-west-2",
+        "us-west-1",
+        "us-south-1",
+        "us-west-3",
+        "us-midwest-1",
+        "us-east-2",
+        "us-south-2",
+        "us-south-3",
+        "us-east-3",
+        "us-midwest-2",
+        "test-east-1",
+        "test-west-1"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "region"
+  ]
+}
