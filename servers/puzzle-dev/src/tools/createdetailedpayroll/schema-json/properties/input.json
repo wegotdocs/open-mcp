@@ -1,0 +1,408 @@
+{
+  "type": "object",
+  "required": [
+    "companyId",
+    "accountId",
+    "nativeId",
+    "withdrawalDate",
+    "checkDate",
+    "companyDebit",
+    "transactionAmounts",
+    "netPay",
+    "reimbursements",
+    "employerTaxes",
+    "employeeTaxes",
+    "employerBenefits",
+    "employeeBenefitsDeductions",
+    "isOffCycle",
+    "employeeCompensations",
+    "contractorCompensations"
+  ],
+  "properties": {
+    "companyId": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `companyId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/companyId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "accountId": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `accountId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/accountId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "nativeId": {
+      "type": "string"
+    },
+    "payPeriod": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payPeriod` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/payPeriod\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "withdrawalDate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `withdrawalDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/withdrawalDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "checkDate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `checkDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/checkDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "companyDebit": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `companyDebit` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/companyDebit\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "transactionAmounts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "amount",
+          "currency"
+        ],
+        "properties": {
+          "amount": {
+            "type": "object"
+          },
+          "currency": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "netPay": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `netPay` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/netPay\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "reimbursements": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `reimbursements` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/reimbursements\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "employerTaxes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `employerTaxes` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/employerTaxes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "employeeTaxes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `employeeTaxes` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/employeeTaxes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "employerBenefits": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `employerBenefits` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/employerBenefits\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "employeeBenefitsDeductions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `employeeBenefitsDeductions` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/employeeBenefitsDeductions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "deferredPayrollTaxes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `deferredPayrollTaxes` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/deferredPayrollTaxes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "payrollFees": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payrollFees` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/payrollFees\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "isOffCycle": {
+      "type": "boolean",
+      "requestBodySchema": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "employeeCompensations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "employeeId",
+          "grossPay",
+          "netPay",
+          "reimbursements",
+          "employeeTaxes",
+          "employerTaxes",
+          "deductions",
+          "benefits",
+          "paymentMethod"
+        ],
+        "properties": {
+          "employeeId": {
+            "type": "object"
+          },
+          "grossPay": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          },
+          "netPay": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          },
+          "reimbursements": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          },
+          "employeeTaxes": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          },
+          "employerTaxes": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          },
+          "deductions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "amount",
+                "isPreTax"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "object",
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "properties": {
+                    "amount": {
+                      "type": "object"
+                    },
+                    "currency": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "isPreTax": {
+                  "type": "boolean",
+                  "requestBodySchema": {
+                    "required": [
+                      "id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "benefits": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "benefitId",
+                "employeeDeduction",
+                "companyContribution",
+                "isImputed"
+              ],
+              "properties": {
+                "benefitId": {
+                  "type": "object"
+                },
+                "employeeDeduction": {
+                  "type": "object",
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "properties": {
+                    "amount": {
+                      "type": "object"
+                    },
+                    "currency": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "companyContribution": {
+                  "type": "object",
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "properties": {
+                    "amount": {
+                      "type": "object"
+                    },
+                    "currency": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "isImputed": {
+                  "type": "boolean",
+                  "requestBodySchema": {
+                    "required": [
+                      "id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "paymentMethod": {
+            "type": "string",
+            "enum": [
+              "Check",
+              "DirectDeposit",
+              "HistoricalPayment",
+              "Correction"
+            ]
+          }
+        }
+      }
+    },
+    "contractorCompensations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "contractorId",
+          "totalAmount",
+          "bonus",
+          "reimbursements"
+        ],
+        "properties": {
+          "contractorId": {
+            "type": "object"
+          },
+          "totalAmount": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          },
+          "bonus": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          },
+          "reimbursements": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          },
+          "paymentMethod": {
+            "type": "string",
+            "enum": [
+              "Check",
+              "DirectDeposit",
+              "HistoricalPayment",
+              "Correction"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "companyId": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `companyId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/companyId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "transactionId": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `transactionId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/transactionId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "category": z.enum(["bank_fees","bill_pay_clearing","business_development_and_conferences","computers_and_hardware","consultants","dues_and_subscriptions","entertainment","furniture","hosting","insurance","interest_and_dividend_income","interest_expense","legal","other_meals","payroll","payroll_fees","rent","shipping","software","supplies","tax_and_accounting","training_and_development","travel_airfare","travel_ground_transportation","travel_lodging","utilities"]).optional(),
+  "finalize": z.boolean().optional()
+}
