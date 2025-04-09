@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "path": {
+      "description": "An array of comma separated {latitude,longitude} strings.",
+      "title": "LatLngArrayString",
+      "example": [
+        "35,-100",
+        "40,-110"
+      ],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minItems": 2
+      }
+    },
+    "interpolate": {
+      "description": "Whether to interpolate a path to include all points forming the full road-geometry. When true, additional interpolated points will also be returned, resulting in a path that smoothly follows the geometry of the road, even around corners and through tunnels. Interpolated paths will most likely contain more points than the original path. Defaults to `false`.\n",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "path"
+  ]
+}

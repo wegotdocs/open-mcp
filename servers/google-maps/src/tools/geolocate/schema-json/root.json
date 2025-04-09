@@ -1,0 +1,133 @@
+{
+  "type": "object",
+  "properties": {
+    "homeMobileCountryCode": {
+      "type": "integer",
+      "description": "The cell tower's Mobile Country Code (MCC)."
+    },
+    "homeMobileNetworkCode": {
+      "type": "integer",
+      "description": "The cell tower's Mobile Network Code. This is the MNC for GSM and WCDMA; CDMA uses the System ID (SID)."
+    },
+    "radioType": {
+      "type": "string",
+      "description": "The mobile radio type. Supported values are lte, gsm, cdma, and wcdma. While this field is optional, it should be included if a value is available, for more accurate results."
+    },
+    "carrier": {
+      "type": "string",
+      "description": "The carrier name."
+    },
+    "considerIp": {
+      "type": "string",
+      "description": "Specifies whether to fall back to IP geolocation if wifi and cell tower signals are not available. Defaults to true. Set considerIp to false to disable fall back."
+    },
+    "cellTowers": {
+      "type": "array",
+      "description": "The request body's cellTowers array contains zero or more cell tower objects.",
+      "items": {
+        "type": "object",
+        "title": "CellTower",
+        "description": "Attributes used to describe a cell tower. The following optional fields are not currently used, but may be included if values are available: `age`, `signalStrength`, `timingAdvance`.",
+        "required": [
+          "cellId",
+          "locationAreaCode",
+          "mobileCountryCode",
+          "mobileNetworkCode"
+        ],
+        "properties": {
+          "cellId": {
+            "description": "Unique identifier of the cell. On GSM, this is the Cell ID (CID); CDMA networks use the Base Station ID (BID). WCDMA networks use the UTRAN/GERAN Cell Identity (UC-Id), which is a 32-bit value concatenating the Radio Network Controller (RNC) and Cell ID. Specifying only the 16-bit Cell ID value in WCDMA networks may return inaccurate results.",
+            "type": "integer"
+          },
+          "locationAreaCode": {
+            "description": "The Location Area Code (LAC) for GSM and WCDMA networks. The Network ID (NID) for CDMA networks.",
+            "type": "integer"
+          },
+          "mobileCountryCode": {
+            "description": "The cell tower's Mobile Country Code (MCC).",
+            "type": "integer"
+          },
+          "mobileNetworkCode": {
+            "description": "The cell tower's Mobile Network Code. This is the MNC for GSM and WCDMA; CDMA uses the System ID (SID).",
+            "type": "integer"
+          },
+          "age": {
+            "description": "The number of milliseconds since this cell was primary. If age is 0, the cellId represents a current measurement.",
+            "type": "integer"
+          },
+          "signalStrength": {
+            "description": "Radio signal strength measured in dBm.",
+            "type": "number"
+          },
+          "timingAdvance": {
+            "description": "The timing advance value.",
+            "type": "number"
+          }
+        },
+        "example": {
+          "cellTowers": [
+            {
+              "cellId": 170402199,
+              "locationAreaCode": 35632,
+              "mobileCountryCode": 310,
+              "mobileNetworkCode": 410,
+              "age": 0,
+              "signalStrength": -60,
+              "timingAdvance": 15
+            }
+          ]
+        }
+      }
+    },
+    "wifiAccessPoints": {
+      "type": "array",
+      "description": "An array of two or more WiFi access point objects.",
+      "items": {
+        "type": "object",
+        "title": "WiFiAccessPoint",
+        "description": "Attributes used to describe a WiFi access point.",
+        "required": [
+          "macAddress"
+        ],
+        "properties": {
+          "macAddress": {
+            "description": "The MAC address of the WiFi node. It's typically called a BSS, BSSID or MAC address. Separators must be `:` (colon).",
+            "type": "string"
+          },
+          "signalStrength": {
+            "description": "The current signal strength measured in dBm.",
+            "type": "integer"
+          },
+          "signalToNoiseRatio": {
+            "description": "The current signal to noise ratio measured in dB.",
+            "type": "integer"
+          },
+          "age": {
+            "description": "The number of milliseconds since this access point was detected.",
+            "type": "integer"
+          },
+          "channel": {
+            "description": "The channel over which the client is communication with the access point.",
+            "type": "integer"
+          }
+        },
+        "example": {
+          "considerIp": "false",
+          "wifiAccessPoints": [
+            {
+              "macAddress": "84:d4:7e:09:a5:f1",
+              "signalStrength": -43,
+              "signalToNoiseRatio": 0
+            },
+            {
+              "macAddress": "44:48:c1:a6:f3:d0",
+              "signalStrength": -55,
+              "signalToNoiseRatio": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "required": []
+}

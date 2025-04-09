@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "locations": {
+      "description": "An array of comma separated {latitude,longitude} strings.",
+      "title": "LatLngArrayString",
+      "example": [
+        "35,-100",
+        "40,-110"
+      ],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minItems": 2
+      }
+    },
+    "path": {
+      "description": "An array of comma separated {latitude,longitude} strings.",
+      "title": "LatLngArrayString",
+      "example": [
+        "35,-100",
+        "40,-110"
+      ],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minItems": 2
+      }
+    },
+    "samples": {
+      "description": "Required if path parameter is set.",
+      "type": "number"
+    }
+  },
+  "required": []
+}
