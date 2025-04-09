@@ -1,6 +1,6 @@
 {
   "name": "@open-mcp/sanity",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "main": "index.js",
   "type": "module",
   "bin": {
@@ -14,7 +14,7 @@
     "copy-json-schema": "mkdir -p dist/tools && find src/tools -type d -name 'schema-json' -exec sh -c 'mkdir -p dist/tools/$(dirname {} | sed \"s/src\\/tools\\///\") && cp -r {} dist/tools/$(dirname {} | sed \"s/src\\/tools\\///\")/' \\;",
     "prebuild": "npm run clean && npm install --save-dev @wegotdocs/shared@latest && npm run copy-json-schema",
     "build": "tsc && chmod 755 dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\""
   },
   "keywords": [],
   "author": "",
