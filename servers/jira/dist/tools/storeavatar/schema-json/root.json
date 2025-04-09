@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "The avatar type.",
+      "enum": [
+        "project",
+        "issuetype",
+        "priority"
+      ],
+      "type": "string"
+    },
+    "entityId": {
+      "description": "The ID of the item the avatar is associated with.",
+      "type": "string"
+    },
+    "x": {
+      "description": "The X coordinate of the top-left corner of the crop region.",
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "y": {
+      "description": "The Y coordinate of the top-left corner of the crop region.",
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "size": {
+      "description": "The length of each side of the crop region.",
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "type",
+    "entityId",
+    "size"
+  ]
+}

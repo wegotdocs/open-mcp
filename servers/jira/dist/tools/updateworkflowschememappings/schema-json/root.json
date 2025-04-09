@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "defaultWorkflowId": {
+      "description": "The ID of the new default workflow for this workflow scheme. Only used in global-scoped workflow schemes. If it isn't specified, is set to *Jira Workflow (jira)*.",
+      "nullable": true,
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the workflow scheme.",
+      "type": "string"
+    },
+    "workflowsForIssueTypes": {
+      "description": "The new workflow to issue type mappings for this workflow scheme.",
+      "items": {
+        "additionalProperties": false,
+        "description": "The explicit association between issue types and a workflow in a workflow scheme.",
+        "properties": {
+          "issueTypeIds": {
+            "description": "The issue types assigned to the workflow.",
+            "items": {
+              "description": "The issue types assigned to the workflow.",
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "workflowId": {
+            "description": "The ID of the workflow.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "issueTypeIds",
+          "workflowId"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "workflowsForIssueTypes"
+  ]
+}

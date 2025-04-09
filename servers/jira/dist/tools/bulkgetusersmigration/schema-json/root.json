@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": 10,
+      "format": "int32",
+      "type": "integer"
+    },
+    "username": {
+      "description": "Username of a user. To specify multiple users, pass multiple copies of this parameter. For example, `username=fred&username=barney`. Required if `key` isn't provided. Cannot be provided if `key` is present.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "key": {
+      "description": "Key of a user. To specify multiple users, pass multiple copies of this parameter. For example, `key=fred&key=barney`. Required if `username` isn't provided. Cannot be provided if `username` is present.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

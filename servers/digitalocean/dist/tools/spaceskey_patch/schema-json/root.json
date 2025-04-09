@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "access_key": {
+      "description": "The access key's ID.",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "The access key's name.",
+      "example": "my-access-key"
+    },
+    "grants": {
+      "type": "array",
+      "description": "The list of permissions for the access key.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "bucket": {
+            "type": "string",
+            "description": "The name of the bucket.",
+            "example": "my-bucket"
+          },
+          "permission": {
+            "type": "string",
+            "description": "The permission to grant to the user. Possible values are `read`, `readwrite`, `fullaccess`, or an empty string.",
+            "example": "read"
+          }
+        },
+        "required": [
+          "bucket",
+          "permission"
+        ]
+      },
+      "default": []
+    },
+    "b_access_key": {
+      "type": "string",
+      "description": "The Access Key ID used to access a bucket.",
+      "example": "DOACCESSKEYEXAMPLE",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the key was created.",
+      "example": "2018-07-19T15:04:16Z",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "access_key"
+  ]
+}

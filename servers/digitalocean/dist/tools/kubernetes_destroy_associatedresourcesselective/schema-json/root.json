@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "cluster_id": {
+      "description": "A unique ID that can be used to reference a Kubernetes cluster.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "load_balancers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "4de7ac8b-495b-4884-9a69-1050c6793cd6"
+      ],
+      "description": "A list of IDs for associated load balancers to destroy along with the cluster."
+    },
+    "volumes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "ba49449a-7435-11ea-b89e-0a58ac14480f"
+      ],
+      "description": "A list of IDs for associated volumes to destroy along with the cluster."
+    },
+    "volume_snapshots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "edb0478d-7436-11ea-86e6-0a58ac144b91"
+      ],
+      "description": "A list of IDs for associated volume snapshots to destroy along with the cluster."
+    }
+  },
+  "required": [
+    "cluster_id"
+  ]
+}

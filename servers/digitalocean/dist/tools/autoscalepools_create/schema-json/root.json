@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "example": "my-autoscale-pool",
+      "type": "string",
+      "description": "The human-readable name of the autoscale pool. This field cannot be updated"
+    },
+    "config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `config` to the tool, first call the tool `expandSchema` with \"/properties/config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The scaling configuration for an autoscale pool, which is how the pool scales up and down (either by resource utilization or static configuration).</property-description>",
+      "additionalProperties": true
+    },
+    "droplet_template": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `droplet_template` to the tool, first call the tool `expandSchema` with \"/properties/droplet_template\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "name",
+    "config",
+    "droplet_template"
+  ]
+}

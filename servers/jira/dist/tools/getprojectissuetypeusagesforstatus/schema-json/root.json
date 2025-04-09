@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "statusId": {
+      "description": "The statusId to fetch issue type usages for",
+      "type": "string"
+    },
+    "projectId": {
+      "description": "The projectId to fetch issue type usages for",
+      "type": "string"
+    },
+    "nextPageToken": {
+      "description": "The cursor for pagination",
+      "type": "string"
+    },
+    "maxResults": {
+      "description": "The maximum number of results to return. Must be an integer between 1 and 200.",
+      "default": 50,
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "statusId",
+    "projectId"
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "type": "object",
+  "properties": {
+    "useGroupId": {
+      "description": "Whether to accept group IDs instead of group names. Group names are deprecated.",
+      "default": false,
+      "type": "boolean"
+    },
+    "crossProjectReleases": {
+      "description": "The cross-project releases to include in the plan.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The cross-project release name.",
+            "type": "string"
+          },
+          "releaseIds": {
+            "description": "The IDs of the releases to include in the cross-project release.",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "customFields": {
+      "description": "The custom fields for the plan.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "customFieldId": {
+            "description": "The custom field ID.",
+            "format": "int64",
+            "type": "integer"
+          },
+          "filter": {
+            "description": "Allows filtering issues based on their values for the custom field.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "customFieldId"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "exclusionRules": {
+      "type": "string"
+    },
+    "issueSources": {
+      "description": "The issue sources to include in the plan.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "description": "The issue source type. This must be \"Board\", \"Project\" or \"Filter\".",
+            "enum": [
+              "Board",
+              "Project",
+              "Filter"
+            ],
+            "type": "string"
+          },
+          "value": {
+            "description": "The issue source value. This must be a board ID if the type is \"Board\", a project ID if the type is \"Project\" or a filter ID if the type is \"Filter\".",
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "leadAccountId": {
+      "description": "The account ID of the plan lead.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The plan name.",
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "permissions": {
+      "description": "The permissions for the plan.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "holder": {
+            "type": "string"
+          },
+          "type": {
+            "description": "The permission type. This must be \"View\" or \"Edit\".",
+            "enum": [
+              "View",
+              "Edit"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "holder",
+          "type"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scheduling": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "issueSources",
+    "name",
+    "scheduling"
+  ]
+}

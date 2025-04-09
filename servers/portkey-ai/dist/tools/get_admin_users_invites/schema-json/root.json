@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "pageSize": {
+      "type": "integer"
+    },
+    "currentPage": {
+      "type": "integer"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "member"
+      ]
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "cancelled",
+        "accepted",
+        "expired"
+      ]
+    }
+  },
+  "required": []
+}

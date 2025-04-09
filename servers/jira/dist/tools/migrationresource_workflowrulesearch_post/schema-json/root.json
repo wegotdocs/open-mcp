@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "expand": {
+      "description": "Use expand to include additional information in the response. This parameter accepts `transition` which, for each rule, returns information about the transition the rule is assigned to.",
+      "example": "transition",
+      "type": "string"
+    },
+    "ruleIds": {
+      "description": "The list of workflow rule IDs.",
+      "items": {
+        "description": "Workflow rule ID.",
+        "example": "55d44f1d-c859-42e5-9c27-2c5ec3f340b1",
+        "format": "uuid",
+        "type": "string"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "workflowEntityId": {
+      "description": "The workflow ID.",
+      "example": "a498d711-685d-428d-8c3e-bc03bb450ea7",
+      "format": "uuid",
+      "type": "string"
+    },
+    "Atlassian-Transfer-Id": {
+      "description": "The app migration transfer ID.",
+      "format": "uuid",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ruleIds",
+    "workflowEntityId",
+    "Atlassian-Transfer-Id"
+  ]
+}

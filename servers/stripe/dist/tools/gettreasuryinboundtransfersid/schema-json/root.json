@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "expand": {
+      "description": "Specifies which fields in the response should be expanded.",
+      "items": {
+        "maxLength": 5000,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "newDefaultTeamId": {
+      "description": "Id of the team to be set as the new default team",
+      "type": "string",
+      "example": "team_LLHUOMOoDlqOp8wPE4kFo9pE"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "reasons": {
+      "type": "array",
+      "description": "Optional array of objects that describe the reason why the team is being deleted.",
+      "items": {
+        "type": "object",
+        "description": "An object describing the reason why the team is being deleted.",
+        "required": [
+          "slug",
+          "description"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Idenitifier slug of the reason why the team is being deleted."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the reason why the team is being deleted."
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "teamId"
+  ]
+}

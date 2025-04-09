@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "properties": {
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": 50,
+      "format": "int32",
+      "type": "integer"
+    },
+    "type": {
+      "description": "The type of fields to search.",
+      "items": {
+        "default": "",
+        "enum": [
+          "custom",
+          "system"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "id": {
+      "description": "The IDs of the custom fields to return or, where `query` is specified, filter.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "query": {
+      "description": "String used to perform a case-insensitive partial match with field names or descriptions.",
+      "type": "string"
+    },
+    "orderBy": {
+      "description": "[Order](#ordering) the results by:\n\n *  `contextsCount` sorts by the number of contexts related to a field\n *  `lastUsed` sorts by the date when the value of the field last changed\n *  `name` sorts by the field name\n *  `screensCount` sorts by the number of screens related to a field",
+      "enum": [
+        "contextsCount",
+        "-contextsCount",
+        "+contextsCount",
+        "lastUsed",
+        "-lastUsed",
+        "+lastUsed",
+        "name",
+        "-name",
+        "+name",
+        "screensCount",
+        "-screensCount",
+        "+screensCount",
+        "projectsCount",
+        "-projectsCount",
+        "+projectsCount"
+      ],
+      "type": "string"
+    },
+    "expand": {
+      "description": "Use [expand](#expansion) to include additional information in the response. This parameter accepts a comma-separated list. Expand options include:\n\n *  `key` returns the key for each field\n *  `stableId` returns the stableId for each field\n *  `lastUsed` returns the date when the value of the field last changed\n *  `screensCount` returns the number of screens related to a field\n *  `contextsCount` returns the number of contexts related to a field\n *  `isLocked` returns information about whether the field is locked\n *  `searcherKey` returns the searcher key for each custom field",
+      "type": "string"
+    },
+    "projectIds": {
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": []
+}

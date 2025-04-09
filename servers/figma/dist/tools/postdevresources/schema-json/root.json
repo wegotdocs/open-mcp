@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "dev_resources": {
+      "type": "array",
+      "description": "An array of dev resources.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the dev resource."
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL of the dev resource."
+          },
+          "file_key": {
+            "type": "string",
+            "description": "The file key where the dev resource belongs."
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The target node to attach the dev resource to."
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "file_key",
+          "node_id"
+        ]
+      }
+    }
+  },
+  "required": [
+    "dev_resources"
+  ]
+}

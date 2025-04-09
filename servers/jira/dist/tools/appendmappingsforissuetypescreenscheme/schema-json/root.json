@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "issueTypeScreenSchemeId": {
+      "description": "The ID of the issue type screen scheme.",
+      "type": "string"
+    },
+    "issueTypeMappings": {
+      "description": "The list of issue type to screen scheme mappings. A *default* entry cannot be specified because a default entry is added when an issue type screen scheme is created.",
+      "items": {
+        "additionalProperties": false,
+        "description": "The IDs of the screen schemes for the issue type IDs.",
+        "properties": {
+          "issueTypeId": {
+            "description": "The ID of the issue type or *default*. Only issue types used in classic projects are accepted. An entry for *default* must be provided and defines the mapping for all issue types without a screen scheme.",
+            "type": "string",
+            "writeOnly": true
+          },
+          "screenSchemeId": {
+            "description": "The ID of the screen scheme. Only screen schemes used in classic projects are accepted.",
+            "type": "string",
+            "writeOnly": true
+          }
+        },
+        "required": [
+          "issueTypeId",
+          "screenSchemeId"
+        ],
+        "type": "object",
+        "writeOnly": true
+      },
+      "type": "array",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "issueTypeScreenSchemeId",
+    "issueTypeMappings"
+  ]
+}

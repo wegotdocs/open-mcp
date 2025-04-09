@@ -1,0 +1,25 @@
+{
+  "required": [
+    "type",
+    "pattern"
+  ],
+  "description": "How we want to determine a matching branch. This is optional.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Type of matcher. One of \\\"equals\\\", \\\"startsWith\\\", or \\\"endsWith\\\".",
+      "enum": [
+        "equals",
+        "startsWith",
+        "endsWith"
+      ]
+    },
+    "pattern": {
+      "description": "Git branch name or portion thereof.",
+      "type": "string",
+      "maxLength": 100,
+      "errorMessage": "Branch matcher pattern must be 100 characters or less."
+    }
+  },
+  "nullable": true
+}

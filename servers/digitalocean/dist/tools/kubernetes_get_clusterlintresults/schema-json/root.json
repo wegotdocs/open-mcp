@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "cluster_id": {
+      "description": "A unique ID that can be used to reference a Kubernetes cluster.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "run_id": {
+      "description": "Specifies the clusterlint run whose results will be retrieved.",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "cluster_id"
+  ]
+}

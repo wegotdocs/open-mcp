@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "agent_uuid": {
+      "description": "Agent id",
+      "type": "string"
+    },
+    "api_key_uuid": {
+      "description": "Api key id",
+      "type": "string"
+    },
+    "b_agent_uuid": {
+      "description": "Agent id",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "b_api_key_uuid": {
+      "description": "Api key id",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name",
+      "example": "\"Production Key\"",
+      "type": "string"
+    }
+  },
+  "required": [
+    "agent_uuid",
+    "api_key_uuid"
+  ]
+}

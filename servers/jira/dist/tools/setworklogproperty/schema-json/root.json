@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "issueIdOrKey": {
+      "description": "The ID or key of the issue.",
+      "type": "string"
+    },
+    "worklogId": {
+      "description": "The ID of the worklog.",
+      "type": "string"
+    },
+    "propertyKey": {
+      "description": "The key of the issue property. The maximum length is 255 characters.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "issueIdOrKey",
+    "worklogId",
+    "propertyKey"
+  ]
+}

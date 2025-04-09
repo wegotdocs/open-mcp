@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "cdn_id": {
+      "description": "A unique identifier for a CDN endpoint.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "path/to/image.png",
+        "path/to/css/*"
+      ],
+      "description": "An array of strings containing the path to the content to be purged from the CDN cache."
+    }
+  },
+  "required": [
+    "cdn_id",
+    "files"
+  ]
+}

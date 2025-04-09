@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "file_key": {
+      "description": "The file to get the dev resources from. This must be a main file key, not a branch key.",
+      "type": "string"
+    },
+    "node_ids": {
+      "description": "Comma separated list of nodes that you care about in the document. If specified, only dev resources attached to these nodes will be returned. If not specified, all dev resources in the file will be returned.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "file_key"
+  ]
+}

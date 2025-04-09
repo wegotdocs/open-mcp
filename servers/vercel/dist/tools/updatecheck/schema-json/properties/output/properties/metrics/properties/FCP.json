@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "value",
+    "source"
+  ],
+  "properties": {
+    "value": {
+      "type": "number",
+      "example": 1200,
+      "description": "First Contentful Paint value",
+      "nullable": true
+    },
+    "previousValue": {
+      "type": "number",
+      "example": 900,
+      "description": "Previous First Contentful Paint value to display a delta"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "web-vitals"
+      ]
+    }
+  }
+}

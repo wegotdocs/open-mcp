@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": 10,
+      "format": "int32",
+      "type": "integer"
+    },
+    "username": {
+      "description": "This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "key": {
+      "description": "This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "accountId": {
+      "description": "The account ID of a user. To specify multiple users, pass multiple `accountId` parameters. For example, `accountId=5b10a2844c20165700ede21g&accountId=5b10ac8d82e05b22cc7d4ef5`.",
+      "example": "5b10ac8d82e05b22cc7d4ef5",
+      "items": {
+        "example": "5b10ac8d82e05b22cc7d4ef5",
+        "maxLength": 128,
+        "type": "string"
+      },
+      "maxLength": 128,
+      "type": "array"
+    }
+  },
+  "required": [
+    "accountId"
+  ]
+}

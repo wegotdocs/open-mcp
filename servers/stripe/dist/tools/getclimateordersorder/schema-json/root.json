@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "order": {
+      "description": "Unique identifier of the order.",
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "expand": {
+      "description": "Specifies which fields in the response should be expanded.",
+      "items": {
+        "maxLength": 5000,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "order"
+  ]
+}

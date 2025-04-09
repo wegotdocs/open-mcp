@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "knowledge_base_id": {
+      "description": "Unique identifier for a `Knowledge Base`.",
+      "type": "string",
+      "maxLength": 28,
+      "pattern": "^kb_[a-zA-Z0-9]{25}$"
+    },
+    "source_id": {
+      "description": "Unique identifier for a `Source` that was uploaded to Totoy.",
+      "type": "string",
+      "maxLength": 29,
+      "pattern": "^src_[a-zA-Z0-9]{25}$"
+    }
+  },
+  "required": [
+    "knowledge_base_id",
+    "source_id"
+  ]
+}

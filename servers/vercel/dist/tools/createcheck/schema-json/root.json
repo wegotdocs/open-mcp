@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "deploymentId": {
+      "description": "The deployment to create the check for.",
+      "example": "dpl_2qn7PZrx89yxY34vEZPD31Y9XVj6",
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the check being created",
+      "maxLength": 100,
+      "example": "Performance Check",
+      "type": "string"
+    },
+    "path": {
+      "description": "Path of the page that is being checked",
+      "type": "string",
+      "maxLength": 255,
+      "example": "/"
+    },
+    "blocking": {
+      "description": "Whether the check should block a deployment from succeeding",
+      "type": "boolean",
+      "example": true
+    },
+    "detailsUrl": {
+      "description": "URL to display for further details",
+      "type": "string",
+      "example": "http://example.com"
+    },
+    "externalId": {
+      "description": "An identifier that can be used as an external reference",
+      "type": "string",
+      "example": "1234abc"
+    },
+    "rerequestable": {
+      "description": "Whether a user should be able to request for the check to be rerun if it fails",
+      "type": "boolean",
+      "example": true
+    }
+  },
+  "required": [
+    "deploymentId",
+    "name",
+    "blocking"
+  ]
+}

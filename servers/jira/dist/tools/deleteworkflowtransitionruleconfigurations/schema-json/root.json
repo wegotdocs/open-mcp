@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "workflows": {
+      "description": "The list of workflows with transition rules to delete.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Details about a workflow configuration update request.",
+        "properties": {
+          "workflowId": {
+            "additionalProperties": false,
+            "description": "Properties that identify a workflow.",
+            "properties": {
+              "draft": {
+                "description": "Whether the workflow is in the draft state.",
+                "type": "boolean"
+              },
+              "name": {
+                "description": "The name of the workflow.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "draft",
+              "name"
+            ],
+            "type": "object"
+          },
+          "workflowRuleIds": {
+            "description": "The list of connect workflow rule IDs.",
+            "items": {
+              "description": "The list of connect workflow rule IDs.",
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "workflowId",
+          "workflowRuleIds"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "workflows"
+  ]
+}

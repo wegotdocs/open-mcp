@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "account": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "id": {
+      "description": "Unique identifier for the external account to be deleted.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "account",
+    "id"
+  ]
+}

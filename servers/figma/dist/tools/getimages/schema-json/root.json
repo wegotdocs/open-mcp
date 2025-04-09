@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "file_key": {
+      "description": "File to export images from. This can be a file key or branch key. Use `GET /v1/files/:key` with the `branch_data` query param to get the branch key.",
+      "type": "string"
+    },
+    "ids": {
+      "description": "A comma separated list of node IDs to render.",
+      "type": "string"
+    },
+    "version": {
+      "description": "A specific version ID to get. Omitting this will get the current version of the file.",
+      "type": "string"
+    },
+    "scale": {
+      "description": "A number between 0.01 and 4, the image scaling factor.",
+      "type": "number",
+      "minimum": 0.01,
+      "maximum": 4
+    },
+    "format": {
+      "description": "A string enum for the image output format.",
+      "type": "string",
+      "enum": [
+        "jpg",
+        "png",
+        "svg",
+        "pdf"
+      ],
+      "default": "png"
+    },
+    "svg_outline_text": {
+      "description": "Whether text elements are rendered as outlines (vector paths) or as `<text>` elements in SVGs.\n\nRendering text elements as outlines guarantees that the text looks exactly the same in the SVG as it does in the browser/inside Figma.\n\nExporting as `<text>` allows text to be selectable inside SVGs and generally makes the SVG easier to read. However, this relies on the browser's rendering engine which can vary between browsers and/or operating systems. As such, visual accuracy is not guaranteed as the result could look different than in Figma.",
+      "type": "boolean",
+      "default": true
+    },
+    "svg_include_id": {
+      "description": "Whether to include id attributes for all SVG elements. Adds the layer name to the `id` attribute of an svg element.",
+      "type": "boolean",
+      "default": false
+    },
+    "svg_include_node_id": {
+      "description": "Whether to include node id attributes for all SVG elements. Adds the node id to a `data-node-id` attribute of an svg element.",
+      "type": "boolean",
+      "default": false
+    },
+    "svg_simplify_stroke": {
+      "description": "Whether to simplify inside/outside strokes and use stroke attribute if possible instead of `<mask>`.",
+      "type": "boolean",
+      "default": true
+    },
+    "contents_only": {
+      "description": "Whether content that overlaps the node should be excluded from rendering. Passing false (i.e., rendering overlaps) may increase processing time, since more of the document must be included in rendering.",
+      "type": "boolean",
+      "default": true
+    },
+    "use_absolute_bounds": {
+      "description": "Use the full dimensions of the node regardless of whether or not it is cropped or the space around it is empty. Use this to export text nodes without cropping.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "file_key",
+    "ids"
+  ]
+}

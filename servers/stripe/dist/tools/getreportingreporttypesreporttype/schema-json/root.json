@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "report_type": {
+      "type": "string"
+    },
+    "expand": {
+      "description": "Specifies which fields in the response should be expanded.",
+      "items": {
+        "maxLength": 5000,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "report_type"
+  ]
+}

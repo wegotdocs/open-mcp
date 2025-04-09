@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "enable_web_search": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "description": "Enable web search for this request. Defaults to off. On will force web search on the request. Auto will enable it based on the model's discretion. Citations will be returned either in the first chunk of a streaming result, or in the non streaming response.",
+      "example": "auto"
+    },
+    "include_venice_system_prompt": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to include the Venice supplied system prompts along side specified system prompts."
+    },
+    "character_slug": {
+      "type": "string",
+      "description": "The character slug of a public Venice character.",
+      "example": "venice"
+    }
+  },
+  "description": "Unique parameters to Venice's API implementation."
+}

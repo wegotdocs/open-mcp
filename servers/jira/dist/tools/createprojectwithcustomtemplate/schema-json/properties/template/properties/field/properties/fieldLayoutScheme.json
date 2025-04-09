@@ -1,0 +1,33 @@
+{
+  "additionalProperties": false,
+  "description": "Defines the payload for the field layout schemes. See \"Field Configuration Scheme\" - https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-field-configurations/\\#api-rest-api-3-fieldconfigurationscheme-post https://support.atlassian.com/jira-cloud-administration/docs/configure-a-field-configuration-scheme/",
+  "nullable": true,
+  "properties": {
+    "defaultFieldLayout": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `defaultFieldLayout` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/field/properties/fieldLayoutScheme/properties/defaultFieldLayout\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\\[entityType\\]:\\[type\\]:\\[entityId\\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation</property-description>",
+      "additionalProperties": true
+    },
+    "description": {
+      "description": "The description of the field layout scheme",
+      "example": "This is a field layout scheme",
+      "type": "string"
+    },
+    "explicitMappings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `explicitMappings` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/field/properties/fieldLayoutScheme/properties/explicitMappings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>There is a default configuration \"fieldlayout\" that is applied to all issue types using this scheme that don't have an explicit mapping users can create (or re-use existing) configurations for other issue types and map them to this scheme</property-description>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "The name of the field layout scheme",
+      "example": "My Field Layout Scheme",
+      "type": "string"
+    },
+    "pcri": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `pcri` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/field/properties/fieldLayoutScheme/properties/pcri\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\\[entityType\\]:\\[type\\]:\\[entityId\\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

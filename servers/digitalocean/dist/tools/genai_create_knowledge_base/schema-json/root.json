@@ -1,0 +1,141 @@
+{
+  "type": "object",
+  "properties": {
+    "database_id": {
+      "description": "Identifier of the DigitalOcean OpenSearch database this knowledge base will use, optional.\nIf not provided, we create a new database for the knowledge base in\nthe same region as the knowledge base.",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "datasources": {
+      "description": "The data sources to use for this knowledge base. See [Organize Data Sources](https://docs.digitalocean.com/products/genai-platform/concepts/best-practices/#spaces-buckets) for more information on data sources best practices.",
+      "items": {
+        "properties": {
+          "bucket_name": {
+            "description": "Deprecated, moved to data_source_details",
+            "example": "\"example name\"",
+            "type": "string"
+          },
+          "bucket_region": {
+            "description": "Deprecated, moved to data_source_details",
+            "example": "\"example string\"",
+            "type": "string"
+          },
+          "file_upload_data_source": {
+            "description": "File to upload as data source for knowledge base.",
+            "properties": {
+              "original_file_name": {
+                "description": "The original file name",
+                "example": "\"example name\"",
+                "type": "string"
+              },
+              "size_in_bytes": {
+                "description": "The size of the file in bytes",
+                "example": "\"12345\"",
+                "format": "uint64",
+                "type": "string"
+              },
+              "stored_object_key": {
+                "description": "The object key the file was stored as",
+                "example": "\"example string\"",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "item_path": {
+            "example": "\"example string\"",
+            "type": "string"
+          },
+          "spaces_data_source": {
+            "description": "Spaces Bucket Data Source",
+            "properties": {
+              "bucket_name": {
+                "description": "Spaces bucket name",
+                "example": "\"example name\"",
+                "type": "string"
+              },
+              "item_path": {
+                "example": "\"example string\"",
+                "type": "string"
+              },
+              "region": {
+                "description": "Region of bucket",
+                "example": "\"example string\"",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "web_crawler_data_source": {
+            "description": "WebCrawlerDataSource",
+            "properties": {
+              "base_url": {
+                "description": "The base url to crawl.",
+                "example": "\"example string\"",
+                "type": "string"
+              },
+              "crawling_option": {
+                "default": "UNKNOWN",
+                "description": "Options for specifying how URLs found on pages should be handled.\n\n - UNKNOWN: Default unknown value\n - SCOPED: Only include the base URL.\n - PATH: Crawl the base URL and linked pages within the URL path.\n - DOMAIN: Crawl the base URL and linked pages within the same domain.\n - SUBDOMAINS: Crawl the base URL and linked pages for any subdomain.",
+                "enum": [
+                  "UNKNOWN",
+                  "SCOPED",
+                  "PATH",
+                  "DOMAIN",
+                  "SUBDOMAINS"
+                ],
+                "example": "UNKNOWN",
+                "type": "string"
+              },
+              "embed_media": {
+                "description": "Whether to ingest and index media (images, etc.) on web pages.",
+                "example": true,
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "embedding_model_uuid": {
+      "description": "Identifier for the [embedding model](https://docs.digitalocean.com/products/genai-platform/details/models/#embedding-models).",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the knowledge base.",
+      "example": "\"My Knowledge Base\"",
+      "type": "string"
+    },
+    "project_id": {
+      "description": "Identifier of the DigitalOcean project this knowledge base will belong to.",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "region": {
+      "description": "The datacenter region to deploy the knowledge base in.",
+      "example": "\"tor1\"",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Tags to organize your knowledge base.",
+      "example": [
+        "example string"
+      ],
+      "items": {
+        "example": "\"example string\"",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "vpc_uuid": {
+      "description": "The VPC to deploy the knowledge base database in",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    }
+  },
+  "required": []
+}

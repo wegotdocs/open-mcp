@@ -1,3 +1,4 @@
+import { z } from "zod";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { enclose, getConfigExample, unflatten } from "./lib.js";
@@ -123,6 +124,40 @@ async function registerToolFromOperation(operationFileRelativePath) {
 }
 export async function runServer() {
     try {
+        server.tool("expandSchema", "Expand the input schema for a tool before calling the tool", {
+            toolName: z.string(), // could make this enum?
+            jsonPointers: z
+                .array(z
+                .string()
+                .startsWith("/")
+                .describe("The pointer to the JSON schema object which needs expanding"))
+                .describe("A list of JSON pointers"),
+        }, async ({ toolName, jsonPointers }) => {
+            const promises = jsonPointers.map((jsonPointer) => import(`./tools/${toolName}/schema-json${jsonPointer}.json`, {
+                with: { type: "json" },
+            })
+                .then((schema) => {
+                return {
+                    type: "text",
+                    text: JSON.stringify({
+                        jsonPointer,
+                        schema,
+                    }, null, 2),
+                };
+            })
+                .catch(() => {
+                return {
+                    type: "text",
+                    text: JSON.stringify({
+                        jsonPointer,
+                        schema: null,
+                        error: "Provided tool and JSON pointer do not match. Try again with a different tool/pointer combination.",
+                    }, null, 2),
+                };
+            }));
+            const content = await Promise.all(promises);
+            return { content };
+        });
         for (const file of OPERATION_FILES_RELATIVE) {
             await registerToolFromOperation(file);
         }

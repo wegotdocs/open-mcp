@@ -1,0 +1,119 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "extendAdminPermissions": {
+      "description": "Whether admin level permissions are used. It should only be true if the user has *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg)",
+      "default": false,
+      "type": "boolean"
+    },
+    "description": {
+      "description": "The description of the dashboard.",
+      "type": "string"
+    },
+    "editPermissions": {
+      "description": "The edit permissions for the dashboard.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Details of a share permission for the filter.",
+        "properties": {
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "description": "The unique identifier of the share permission.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "integer"
+          },
+          "project": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of share permission:\n\n *  `user` Shared with a user.\n *  `group` Shared with a group. If set in a request, then specify `sharePermission.group` as well.\n *  `project` Shared with a project. If set in a request, then specify `sharePermission.project` as well.\n *  `projectRole` Share with a project role in a project. This value is not returned in responses. It is used in requests, where it needs to be specify with `projectId` and `projectRoleId`.\n *  `global` Shared globally. If set in a request, no other `sharePermission` properties need to be specified.\n *  `loggedin` Shared with all logged-in users. Note: This value is set in a request by specifying `authenticated` as the `type`.\n *  `project-unknown` Shared with a project that the user does not have access to. Cannot be set in a request.",
+            "enum": [
+              "user",
+              "group",
+              "project",
+              "projectRole",
+              "global",
+              "loggedin",
+              "authenticated",
+              "project-unknown"
+            ],
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "The name of the dashboard.",
+      "type": "string"
+    },
+    "sharePermissions": {
+      "description": "The share permissions for the dashboard.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Details of a share permission for the filter.",
+        "properties": {
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "description": "The unique identifier of the share permission.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "integer"
+          },
+          "project": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of share permission:\n\n *  `user` Shared with a user.\n *  `group` Shared with a group. If set in a request, then specify `sharePermission.group` as well.\n *  `project` Shared with a project. If set in a request, then specify `sharePermission.project` as well.\n *  `projectRole` Share with a project role in a project. This value is not returned in responses. It is used in requests, where it needs to be specify with `projectId` and `projectRoleId`.\n *  `global` Shared globally. If set in a request, no other `sharePermission` properties need to be specified.\n *  `loggedin` Shared with all logged-in users. Note: This value is set in a request by specifying `authenticated` as the `type`.\n *  `project-unknown` Shared with a project that the user does not have access to. Cannot be set in a request.",
+            "enum": [
+              "user",
+              "group",
+              "project",
+              "projectRole",
+              "global",
+              "loggedin",
+              "authenticated",
+              "project-unknown"
+            ],
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "editPermissions",
+    "name",
+    "sharePermissions"
+  ]
+}

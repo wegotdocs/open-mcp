@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "droplet_id": {
+      "description": "A unique identifier for a Droplet instance.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "X-Dangerous": {
+      "description": "Acknowledge this action will destroy the Droplet and all associated resources and _can not_ be reversed.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "droplet_id",
+    "X-Dangerous"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the filter to update.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "accountId": {
+      "description": "The account ID of the new owner.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "accountId"
+  ]
+}

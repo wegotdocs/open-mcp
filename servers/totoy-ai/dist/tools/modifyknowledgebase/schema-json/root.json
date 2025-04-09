@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "knowledge_base_id": {
+      "description": "Unique identifier for a `Knowledge Base`.",
+      "type": "string",
+      "maxLength": 28,
+      "pattern": "^kb_[a-zA-Z0-9]{25}$"
+    },
+    "name": {
+      "description": "The name for the `Knowledge Base`.",
+      "type": "string",
+      "maxLength": 255,
+      "example": "Totoy Developer Support Assistant"
+    },
+    "instructions": {
+      "description": "The instructions for the `Knowledge Base`.",
+      "type": "string",
+      "maxLength": 4096,
+      "example": "You are a developer support assistant for the developers using the Totoy API."
+    },
+    "project_id": {
+      "description": "The unique identifier for the `Project` that the `Knowledge Base` should be assigned to. If the `project_id` is changed, the `project_ids` of the `Sources` that are used as `Knowledge Base Sources` will also be changed. If a `Source` is used by multiple `Knowledge Bases`, then the `project_id` of the `Knowledge Base` cannot be changed.",
+      "maxLength": 28,
+      "pattern": "^pj_[a-zA-Z0-9]{25}$",
+      "type": "string",
+      "example": "pj_avX7imfLaPcQnv5ckvGlOEBA9"
+    }
+  },
+  "required": [
+    "knowledge_base_id"
+  ]
+}

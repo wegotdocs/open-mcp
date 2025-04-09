@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "defaultPriorityId": {
+      "description": "The ID of the default priority for the priority scheme.",
+      "format": "int64",
+      "type": "integer",
+      "writeOnly": true
+    },
+    "description": {
+      "description": "The description of the priority scheme.",
+      "maxLength": 4000,
+      "type": "string",
+      "writeOnly": true
+    },
+    "mappings": {
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the priority scheme. Must be unique.",
+      "maxLength": 255,
+      "type": "string",
+      "writeOnly": true
+    },
+    "priorityIds": {
+      "description": "The IDs of priorities in the scheme.",
+      "items": {
+        "format": "int64",
+        "maxLength": 300,
+        "minLength": 1,
+        "type": "integer",
+        "writeOnly": true
+      },
+      "maxLength": 300,
+      "minLength": 1,
+      "type": "array",
+      "writeOnly": true
+    },
+    "projectIds": {
+      "description": "The IDs of projects that will use the priority scheme.",
+      "items": {
+        "format": "int64",
+        "type": "integer",
+        "writeOnly": true
+      },
+      "type": "array",
+      "uniqueItems": true,
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "defaultPriorityId",
+    "name",
+    "priorityIds"
+  ]
+}

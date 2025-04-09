@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "accountHolderCode": {
+      "description": "The code of the Account Holder from which to delete the Bank Account(s).",
+      "type": "string"
+    },
+    "bankAccountUUIDs": {
+      "description": "The code(s) of the Bank Accounts to be deleted.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "accountHolderCode",
+    "bankAccountUUIDs"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the workflow scheme that the draft belongs to.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "validateOnly": {
+      "description": "Whether the request only performs a validation.",
+      "default": false,
+      "type": "boolean"
+    },
+    "statusMappings": {
+      "description": "Mappings of statuses to new statuses for issue types.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Details about the mapping from a status to a new status for an issue type.",
+        "properties": {
+          "issueTypeId": {
+            "description": "The ID of the issue type.",
+            "type": "string"
+          },
+          "newStatusId": {
+            "description": "The ID of the new status.",
+            "type": "string"
+          },
+          "statusId": {
+            "description": "The ID of the status.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "issueTypeId",
+          "newStatusId",
+          "statusId"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

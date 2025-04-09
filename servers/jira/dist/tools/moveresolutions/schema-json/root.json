@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "after": {
+      "description": "The ID of the resolution. Required if `position` isn't provided.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "ids": {
+      "description": "The list of resolution IDs to be reordered. Cannot contain duplicates nor after ID.",
+      "items": {
+        "type": "string",
+        "writeOnly": true
+      },
+      "type": "array",
+      "writeOnly": true
+    },
+    "position": {
+      "description": "The position for issue resolutions to be moved to. Required if `after` isn't provided.",
+      "type": "string",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "ids"
+  ]
+}

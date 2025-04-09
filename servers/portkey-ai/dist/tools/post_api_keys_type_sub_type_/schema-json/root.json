@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "organisation",
+        "workspace"
+      ]
+    },
+    "sub-type": {
+      "type": "string",
+      "enum": [
+        "user",
+        "service"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "example": "Development API Key"
+    },
+    "description": {
+      "type": "string",
+      "example": "API key for development environment"
+    },
+    "workspace_id": {
+      "type": "string",
+      "example": "ws-myworkspace"
+    },
+    "user_id": {
+      "type": "string",
+      "format": "uuid",
+      "example": "c3d4e5f6-a7b8-6c7d-0e1f-2a3b4c5d6e7f"
+    },
+    "rate_limits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "requests"
+          },
+          "unit": {
+            "type": "string",
+            "example": "rpm"
+          },
+          "value": {
+            "type": "integer",
+            "example": 100
+          }
+        }
+      }
+    },
+    "usage_limits": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `usage_limits` to the tool, first call the tool `expandSchema` with \"/properties/usage_limits\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "completions.write"
+      ]
+    },
+    "defaults": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `defaults` to the tool, first call the tool `expandSchema` with \"/properties/defaults\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "alert_emails": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "email",
+        "example": "foo@bar.com"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "sub-type"
+  ]
+}

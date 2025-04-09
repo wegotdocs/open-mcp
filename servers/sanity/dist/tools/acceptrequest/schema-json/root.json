@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "description": "Resources are entities that can be managed and accessed through the\nAccess API.\n",
+      "type": "string",
+      "enum": [
+        "organization",
+        "project"
+      ],
+      "example": "project"
+    },
+    "resourceId": {
+      "description": "The resource ID to scope the access request to. Must be a valid ID for the resource type.",
+      "type": "string"
+    },
+    "requestId": {
+      "description": "The ID of the request.",
+      "type": "string"
+    },
+    "roleNames": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "admin"
+      }
+    }
+  },
+  "required": [
+    "resourceType",
+    "resourceId",
+    "requestId"
+  ]
+}

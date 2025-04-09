@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "ca": {
+      "type": "string",
+      "description": "The certificate authority"
+    },
+    "key": {
+      "type": "string",
+      "description": "The certificate key"
+    },
+    "cert": {
+      "type": "string",
+      "description": "The certificate"
+    },
+    "skipValidation": {
+      "type": "boolean",
+      "description": "Skip validation of the certificate"
+    }
+  },
+  "required": [
+    "ca",
+    "key",
+    "cert"
+  ]
+}

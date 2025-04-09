@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "database_cluster_uuid": {
+      "description": "A unique identifier for a database cluster.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "username": {
+      "description": "The name of the database user.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "database_cluster_uuid",
+    "username"
+  ]
+}

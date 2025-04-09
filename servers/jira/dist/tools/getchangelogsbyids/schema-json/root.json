@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "issueIdOrKey": {
+      "description": "The ID or key of the issue.",
+      "type": "string"
+    },
+    "changelogIds": {
+      "description": "The list of changelog IDs.",
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "issueIdOrKey",
+    "changelogIds"
+  ]
+}

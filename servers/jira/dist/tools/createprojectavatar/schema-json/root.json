@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "projectIdOrKey": {
+      "description": "The ID or (case-sensitive) key of the project.",
+      "type": "string"
+    },
+    "x": {
+      "description": "The X coordinate of the top-left corner of the crop region.",
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "y": {
+      "description": "The Y coordinate of the top-left corner of the crop region.",
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "size": {
+      "description": "The length of each side of the crop region.",
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "projectIdOrKey"
+  ]
+}

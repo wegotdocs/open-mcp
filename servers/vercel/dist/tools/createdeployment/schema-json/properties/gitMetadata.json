@@ -1,0 +1,37 @@
+{
+  "description": "Populates initial git metadata for different git providers.",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "remoteUrl": {
+      "type": "string",
+      "description": "The git repository's remote origin url",
+      "example": "https://github.com/vercel/next.js"
+    },
+    "commitAuthorName": {
+      "type": "string",
+      "description": "The name of the author of the commit",
+      "example": "kyliau"
+    },
+    "commitMessage": {
+      "type": "string",
+      "description": "The commit message",
+      "example": "add method to measure Interaction to Next Paint (INP) (#36490)"
+    },
+    "commitRef": {
+      "type": "string",
+      "description": "The branch on which the commit was made",
+      "example": "main"
+    },
+    "commitSha": {
+      "type": "string",
+      "description": "The hash of the commit",
+      "example": "dc36199b2234c6586ebe05ec94078a895c707e29"
+    },
+    "dirty": {
+      "type": "boolean",
+      "description": "Whether or not there have been modifications to the working tree since the latest commit",
+      "example": true
+    }
+  }
+}

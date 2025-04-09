@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "The description of the issue type screen scheme. The maximum length is 255 characters.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "issueTypeMappings": {
+      "description": "The IDs of the screen schemes for the issue type IDs and *default*. A *default* entry is required to create an issue type screen scheme, it defines the mapping for all issue types without a screen scheme.",
+      "items": {
+        "additionalProperties": false,
+        "description": "The IDs of the screen schemes for the issue type IDs.",
+        "properties": {
+          "issueTypeId": {
+            "description": "The ID of the issue type or *default*. Only issue types used in classic projects are accepted. An entry for *default* must be provided and defines the mapping for all issue types without a screen scheme.",
+            "type": "string",
+            "writeOnly": true
+          },
+          "screenSchemeId": {
+            "description": "The ID of the screen scheme. Only screen schemes used in classic projects are accepted.",
+            "type": "string",
+            "writeOnly": true
+          }
+        },
+        "required": [
+          "issueTypeId",
+          "screenSchemeId"
+        ],
+        "type": "object",
+        "writeOnly": true
+      },
+      "type": "array",
+      "writeOnly": true
+    },
+    "name": {
+      "description": "The name of the issue type screen scheme. The name must be unique. The maximum length is 255 characters.",
+      "type": "string",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "issueTypeMappings",
+    "name"
+  ]
+}

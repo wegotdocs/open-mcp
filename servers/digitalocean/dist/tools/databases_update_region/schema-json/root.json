@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "database_cluster_uuid": {
+      "description": "A unique identifier for a database cluster.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "region": {
+      "type": "string",
+      "example": "lon1",
+      "description": "A slug identifier for the region to which the database cluster will be migrated."
+    }
+  },
+  "required": [
+    "database_cluster_uuid",
+    "region"
+  ]
+}

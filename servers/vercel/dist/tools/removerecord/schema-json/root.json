@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "domain": {
+      "type": "string",
+      "example": "example.com"
+    },
+    "recordId": {
+      "type": "string",
+      "example": "rec_V0fra8eEgQwEpFhYG2vTzC3K"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "recordId"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "firewall_id": {
+      "description": "A unique ID that can be used to identify and reference a firewall.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "droplet_ids": {
+      "type": "array",
+      "description": "An array containing the IDs of the Droplets to be assigned to the firewall.",
+      "items": {
+        "type": "integer"
+      },
+      "example": [
+        49696269
+      ]
+    }
+  },
+  "required": [
+    "firewall_id"
+  ]
+}

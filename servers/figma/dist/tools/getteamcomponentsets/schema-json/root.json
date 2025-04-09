@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "team_id": {
+      "description": "Id of the team to list component sets from.",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "Number of items to return in a paged list of results. Defaults to 30.",
+      "type": "number",
+      "default": 30
+    },
+    "after": {
+      "description": "Cursor indicating which id after which to start retrieving component sets for. Exclusive with before. The cursor value is an internally tracked integer that doesn't correspond to any Ids.",
+      "type": "number"
+    },
+    "before": {
+      "description": "Cursor indicating which id before which to start retrieving component sets for. Exclusive with after. The cursor value is an internally tracked integer that doesn't correspond to any Ids.",
+      "type": "number"
+    }
+  },
+  "required": [
+    "team_id"
+  ]
+}

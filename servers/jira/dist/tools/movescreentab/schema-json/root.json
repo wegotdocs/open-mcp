@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "screenId": {
+      "description": "The ID of the screen.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "tabId": {
+      "description": "The ID of the screen tab.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "pos": {
+      "description": "The position of tab. The base index is 0.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "screenId",
+    "tabId",
+    "pos"
+  ]
+}

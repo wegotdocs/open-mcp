@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "cluster_id": {
+      "description": "A unique ID that can be used to reference a Kubernetes cluster.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "cluster_id"
+  ]
+}

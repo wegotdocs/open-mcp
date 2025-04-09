@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "thread_id": {
+      "description": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run.",
+      "type": "string"
+    },
+    "run_id": {
+      "description": "The ID of the run to retrieve.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "thread_id",
+    "run_id"
+  ]
+}

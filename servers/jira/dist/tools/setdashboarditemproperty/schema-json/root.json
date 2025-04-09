@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "dashboardId": {
+      "description": "The ID of the dashboard.",
+      "type": "string"
+    },
+    "itemId": {
+      "description": "The ID of the dashboard item.",
+      "type": "string"
+    },
+    "propertyKey": {
+      "description": "The key of the dashboard item property. The maximum length is 255 characters. For dashboard items with a spec URI and no complete module key, if the provided propertyKey is equal to \"config\", the request body's JSON must be an object with all keys and values as strings.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dashboardId",
+    "itemId",
+    "propertyKey"
+  ]
+}

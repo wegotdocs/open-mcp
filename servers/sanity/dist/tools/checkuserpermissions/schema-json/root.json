@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "description": "Resources are entities that can be managed and accessed through the\nAccess API.\n",
+      "type": "string",
+      "enum": [
+        "organization",
+        "project"
+      ],
+      "example": "project"
+    },
+    "resourceId": {
+      "description": "The resource ID to scope the access request to. Must be a valid ID for the resource type.",
+      "type": "string"
+    },
+    "permissions": {
+      "description": "An array of permissions to check",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "sanity.project.members.read",
+        "sanity.project.members.invite"
+      ]
+    }
+  },
+  "required": [
+    "resourceType",
+    "resourceId",
+    "permissions"
+  ]
+}

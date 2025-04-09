@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "per_page": {
+      "description": "Number of items returned per page",
+      "type": "integer",
+      "minimum": 1,
+      "default": 20,
+      "maximum": 200
+    },
+    "page": {
+      "description": "Which 'page' of paginated results to return.",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "sort": {
+      "description": "The field to sort by.",
+      "type": "string",
+      "default": "created_at"
+    },
+    "sort_direction": {
+      "description": "The direction to sort by. Possible values are `asc` or `desc`.",
+      "type": "string",
+      "default": "desc"
+    },
+    "name": {
+      "description": "The access key's name.",
+      "type": "string"
+    },
+    "bucket": {
+      "description": "The bucket's name.",
+      "type": "string"
+    },
+    "permission": {
+      "description": "The permission of the access key. Possible values are `read`, `readwrite`, `fullaccess`, or an empty string.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

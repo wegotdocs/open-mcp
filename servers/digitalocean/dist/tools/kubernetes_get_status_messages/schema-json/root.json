@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "cluster_id": {
+      "description": "A unique ID that can be used to reference a Kubernetes cluster.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "since": {
+      "description": "A timestamp used to return status messages emitted since the specified time. The timestamp should be in ISO8601 format.",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "cluster_id"
+  ]
+}

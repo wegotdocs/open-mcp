@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "database_cluster_uuid": {
+      "description": "A unique identifier for a database cluster.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "username": {
+      "description": "The name of the database user.",
+      "type": "string"
+    },
+    "mysql_settings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `mysql_settings` to the tool, first call the tool `expandSchema` with \"/properties/mysql_settings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "database_cluster_uuid",
+    "username"
+  ]
+}

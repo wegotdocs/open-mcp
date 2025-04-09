@@ -1,0 +1,149 @@
+{
+  "type": "object",
+  "properties": {
+    "defaultWorkflowId": {
+      "description": "The ID of the workflow for issue types without having a mapping defined in this workflow scheme. Only used in global-scoped workflow schemes. If the `defaultWorkflowId` isn't specified, this is set to *Jira Workflow (jira)*.",
+      "type": "string"
+    },
+    "description": {
+      "description": "The new description for this workflow scheme.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of this workflow scheme.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The new name for this workflow scheme.",
+      "type": "string"
+    },
+    "statusMappingsByIssueTypeOverride": {
+      "description": "Overrides, for the selected issue types, any status mappings provided in `statusMappingsByWorkflows`. Status mappings are required when the new workflow for an issue type doesn't contain all statuses that the old workflow has. Status mappings can be provided by a combination of `statusMappingsByWorkflows` and `statusMappingsByIssueTypeOverride`.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Overrides, for the selected issue types, any status mappings provided in `statusMappingsByWorkflows`. Status mappings are required when the new workflow for an issue type doesn't contain all statuses that the old workflow has. Status mappings can be provided by a combination of `statusMappingsByWorkflows` and `statusMappingsByIssueTypeOverride`.",
+        "properties": {
+          "issueTypeId": {
+            "description": "The ID of the issue type for this mapping.",
+            "type": "string"
+          },
+          "statusMappings": {
+            "description": "The list of status mappings.",
+            "items": {
+              "additionalProperties": false,
+              "description": "The list of status mappings.",
+              "properties": {
+                "newStatusId": {
+                  "description": "The ID of the status in the new workflow.",
+                  "type": "string"
+                },
+                "oldStatusId": {
+                  "description": "The ID of the status in the old workflow that isn't present in the new workflow.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "newStatusId",
+                "oldStatusId"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "issueTypeId",
+          "statusMappings"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "statusMappingsByWorkflows": {
+      "description": "The status mappings by workflows. Status mappings are required when the new workflow for an issue type doesn't contain all statuses that the old workflow has. Status mappings can be provided by a combination of `statusMappingsByWorkflows` and `statusMappingsByIssueTypeOverride`.",
+      "items": {
+        "additionalProperties": false,
+        "description": "The status mappings by workflows. Status mappings are required when the new workflow for an issue type doesn't contain all statuses that the old workflow has. Status mappings can be provided by a combination of `statusMappingsByWorkflows` and `statusMappingsByIssueTypeOverride`.",
+        "properties": {
+          "newWorkflowId": {
+            "description": "The ID of the new workflow.",
+            "type": "string"
+          },
+          "oldWorkflowId": {
+            "description": "The ID of the old workflow.",
+            "type": "string"
+          },
+          "statusMappings": {
+            "description": "The list of status mappings.",
+            "items": {
+              "additionalProperties": false,
+              "description": "The list of status mappings.",
+              "properties": {
+                "newStatusId": {
+                  "description": "The ID of the status in the new workflow.",
+                  "type": "string"
+                },
+                "oldStatusId": {
+                  "description": "The ID of the status in the old workflow that isn't present in the new workflow.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "newStatusId",
+                "oldStatusId"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "newWorkflowId",
+          "oldWorkflowId",
+          "statusMappings"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `version` to the tool, first call the tool `expandSchema` with \"/properties/version\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The current version details of this workflow scheme.</property-description>",
+      "additionalProperties": true
+    },
+    "workflowsForIssueTypes": {
+      "description": "Mappings from workflows to issue types.",
+      "items": {
+        "additionalProperties": false,
+        "description": "The explicit association between issue types and a workflow in a workflow scheme.",
+        "properties": {
+          "issueTypeIds": {
+            "description": "The issue types assigned to the workflow.",
+            "items": {
+              "description": "The issue types assigned to the workflow.",
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "workflowId": {
+            "description": "The ID of the workflow.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "issueTypeIds",
+          "workflowId"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "description",
+    "id",
+    "name",
+    "version"
+  ]
+}

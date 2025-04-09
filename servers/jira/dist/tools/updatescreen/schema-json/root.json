@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "screenId": {
+      "description": "The ID of the screen.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "description": {
+      "description": "The description of the screen. The maximum length is 255 characters.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "name": {
+      "description": "The name of the screen. The name must be unique. The maximum length is 255 characters.",
+      "type": "string",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "screenId"
+  ]
+}

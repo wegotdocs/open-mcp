@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "expand": {
+      "description": "Deprecated. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/changelog/#CHANGE-2298) for details.\n\nUse [expand](#expansion) to include additional information in the response. This parameter accepts a comma-separated list. Expand options include:\n\n *  `workflows.usages` Returns the project and issue types that each workflow in the workflow scheme is associated with.",
+      "type": "string"
+    },
+    "projectIds": {
+      "description": "The list of project IDs to query.",
+      "items": {
+        "description": "The list of project IDs to query.",
+        "nullable": true,
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "workflowSchemeIds": {
+      "description": "The list of workflow scheme IDs to query.",
+      "items": {
+        "description": "The list of workflow scheme IDs to query.",
+        "nullable": true,
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    }
+  },
+  "required": []
+}

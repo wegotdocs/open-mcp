@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "Maximum number of domains to list from a request.",
+      "type": "number",
+      "example": 20
+    },
+    "since": {
+      "description": "Get domains created after this JavaScript timestamp.",
+      "type": "number",
+      "example": 1609499532000
+    },
+    "until": {
+      "description": "Get domains created before this JavaScript timestamp.",
+      "type": "number",
+      "example": 1612264332000
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

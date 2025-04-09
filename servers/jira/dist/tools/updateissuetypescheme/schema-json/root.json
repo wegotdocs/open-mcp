@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "issueTypeSchemeId": {
+      "description": "The ID of the issue type scheme.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "defaultIssueTypeId": {
+      "description": "The ID of the default issue type of the issue type scheme.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "description": {
+      "description": "The description of the issue type scheme. The maximum length is 4000 characters.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "name": {
+      "description": "The name of the issue type scheme. The name must be unique. The maximum length is 255 characters.",
+      "type": "string",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "issueTypeSchemeId"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "fieldId": {
+      "description": "The ID of the custom field.",
+      "type": "string"
+    },
+    "contextId": {
+      "description": "The ID of the context.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "description": {
+      "description": "The description of the custom field context. The maximum length is 255 characters.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "name": {
+      "description": "The name of the custom field context. The name must be unique. The maximum length is 255 characters.",
+      "type": "string",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "fieldId",
+    "contextId"
+  ]
+}

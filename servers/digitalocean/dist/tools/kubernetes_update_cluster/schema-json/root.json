@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "cluster_id": {
+      "description": "A unique ID that can be used to reference a Kubernetes cluster.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "name": {
+      "type": "string",
+      "example": "prod-cluster-01",
+      "description": "A human-readable name for a Kubernetes cluster."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "k8s",
+        "k8s:bd5f5959-5e1e-4205-a714-a914373942af",
+        "production",
+        "web-team"
+      ],
+      "description": "An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged `k8s` and `k8s:$K8S_CLUSTER_ID`."
+    },
+    "maintenance_policy": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `maintenance_policy` to the tool, first call the tool `expandSchema` with \"/properties/maintenance_policy\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object specifying the maintenance window policy for the Kubernetes cluster.</property-description>",
+      "additionalProperties": true
+    },
+    "auto_upgrade": {
+      "type": "boolean",
+      "default": false,
+      "example": true,
+      "description": "A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window."
+    },
+    "surge_upgrade": {
+      "type": "boolean",
+      "default": false,
+      "example": true,
+      "description": "A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes."
+    },
+    "ha": {
+      "type": "boolean",
+      "default": false,
+      "example": true,
+      "description": "A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled."
+    },
+    "control_plane_firewall": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `control_plane_firewall` to the tool, first call the tool `expandSchema` with \"/properties/control_plane_firewall\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object specifying the control plane firewall for the Kubernetes cluster. Control plane firewall is in early availability (invite only).</property-description>",
+      "additionalProperties": true
+    },
+    "cluster_autoscaler_configuration": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `cluster_autoscaler_configuration` to the tool, first call the tool `expandSchema` with \"/properties/cluster_autoscaler_configuration\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object specifying custom cluster autoscaler configuration.</property-description>",
+      "additionalProperties": true
+    },
+    "routing_agent": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `routing_agent` to the tool, first call the tool `expandSchema` with \"/properties/routing_agent\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object specifying whether the routing-agent component should be enabled for the Kubernetes cluster.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "cluster_id",
+    "name"
+  ]
+}

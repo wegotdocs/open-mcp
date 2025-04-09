@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "created": {
+      "description": "Only return FinancialAccounts that were created during the given date interval.",
+      "anyOf": [
+        {
+          "properties": {
+            "gt": {
+              "type": "integer"
+            },
+            "gte": {
+              "type": "integer"
+            },
+            "lt": {
+              "type": "integer"
+            },
+            "lte": {
+              "type": "integer"
+            }
+          },
+          "title": "range_query_specs",
+          "type": "object"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "ending_before": {
+      "description": "An object ID cursor for use in pagination.",
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "expand": {
+      "description": "Specifies which fields in the response should be expanded.",
+      "items": {
+        "maxLength": 5000,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "limit": {
+      "description": "A limit ranging from 1 to 100 (defaults to 10).",
+      "type": "integer"
+    },
+    "starting_after": {
+      "description": "An object ID cursor for use in pagination.",
+      "maxLength": 5000,
+      "type": "string"
+    }
+  },
+  "required": []
+}

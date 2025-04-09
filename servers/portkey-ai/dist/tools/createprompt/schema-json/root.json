@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "collection_id": {
+      "type": "string",
+      "description": "UUID or slug of the collection"
+    },
+    "string": {
+      "type": "string",
+      "description": "Prompt template in string format"
+    },
+    "parameters": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `parameters` to the tool, first call the tool `expandSchema` with \"/properties/parameters\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Parameters for the prompt</property-description>",
+      "additionalProperties": true
+    },
+    "functions": {
+      "type": "array",
+      "description": "Functions for the prompt"
+    },
+    "tools": {
+      "type": "array",
+      "description": "Tools for the prompt"
+    },
+    "tool_choice": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `tool_choice` to the tool, first call the tool `expandSchema` with \"/properties/tool_choice\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Tool Choice for the prompt</property-description>",
+      "additionalProperties": true
+    },
+    "model": {
+      "type": "string",
+      "description": "The model to use for the prompt"
+    },
+    "virtual_key": {
+      "type": "string",
+      "description": "The virtual key to use for the prompt"
+    },
+    "version_description": {
+      "type": "string",
+      "description": "The description of the prompt version"
+    },
+    "template_metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `template_metadata` to the tool, first call the tool `expandSchema` with \"/properties/template_metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Metadata for the prompt</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "name",
+    "collection_id",
+    "string",
+    "parameters"
+  ]
+}
