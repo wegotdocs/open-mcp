@@ -1,7 +1,7 @@
 export { inputParams } from "./schema/root.js"
 
 export const toolName = `cancelrun`
-export const toolDescription = `Cancels a run that is `in_progress`.`
+export const toolDescription = `Cancels a run that is \`in_progress\`.`
 export const baseUrl = `https://api.portkey.ai/v1`
 export const path = `/threads/{thread_id}/runs/{run_id}/cancel`
 export const method = `post`

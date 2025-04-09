@@ -1,7 +1,7 @@
 export { inputParams } from "./schema/root.js"
 
 export const toolName = `deleteintegrationlogdrain`
-export const toolDescription = `Deletes the Integration log drain with the provided `id``
+export const toolDescription = `Deletes the Integration log drain with the provided \`id\``
 export const baseUrl = `https://api.vercel.com`
 export const path = `/v1/integrations/log-drains/{id}`
 export const method = `delete`

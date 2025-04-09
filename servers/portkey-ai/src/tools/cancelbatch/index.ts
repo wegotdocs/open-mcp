@@ -1,7 +1,7 @@
 export { inputParams } from "./schema/root.js"
 
 export const toolName = `cancelbatch`
-export const toolDescription = `Cancels an in-progress batch. The batch will be in status `cancelling` for up to 10 minutes, before changing to `cancelled`, where it will have partial results (if any) available in the output file.`
+export const toolDescription = `Cancels an in-progress batch. The batch will be in status \`cancelling\` for up to 10 minutes, before changing to \`cancelled\`, where it will have partial results (if any) available in the output file.`
 export const baseUrl = `https://api.portkey.ai/v1`
 export const path = `/batches/{batch_id}/cancel`
 export const method = `post`
