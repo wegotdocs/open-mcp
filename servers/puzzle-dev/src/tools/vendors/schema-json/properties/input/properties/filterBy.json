@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "permaNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "is1099Vendor": {
+      "type": "boolean",
+      "requestBodySchema": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Individual",
+        "Business",
+        "Unknown"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Inactive",
+        "Unknown"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "id": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `id` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/id\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "companyId": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `companyId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/companyId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "autoReversalDate": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `autoReversalDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/autoReversalDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "postingDate": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `postingDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/postingDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "lines": z.array(z.object({ "id": z.string().optional(), "amount": z.record(z.any()), "coaKey": z.string(), "description": z.string(), "manualJournalEntryId": z.record(z.any()).optional(), "classifications": z.array(z.object({ "class": z.record(z.any()), "segment": z.record(z.any()) })).optional(), "userDefinedMetadata": z.record(z.any()).optional() })),
+  "basis": z.array(z.string()),
+  "memo": z.string(),
+  "isHistorical": z.boolean().optional(),
+  "createdFor": z.string().optional()
+}

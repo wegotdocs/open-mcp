@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "required": [
+    "companyId"
+  ],
+  "properties": {
+    "companyId": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `companyId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/companyId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "statuses": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Cancelled",
+          "Completed",
+          "Open"
+        ]
+      }
+    },
+    "transactionIds": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "CategoryReview",
+          "Documentation",
+          "Message",
+          "Integration"
+        ]
+      }
+    },
+    "requestedUserIds": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "requestedByUserIds": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "startDate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `startDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/startDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "endDate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `endDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/endDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

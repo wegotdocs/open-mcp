@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "required": [
+    "firstName",
+    "lastName",
+    "startDate",
+    "type",
+    "payRate",
+    "wageType",
+    "isActive",
+    "nativeId"
+  ],
+  "properties": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "businessName": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `startDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/contractor/properties/startDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Individual",
+        "Business"
+      ]
+    },
+    "payRate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payRate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/contractor/properties/payRate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "wageType": {
+      "type": "string",
+      "enum": [
+        "Fixed",
+        "Hourly",
+        "Daily",
+        "Weekly",
+        "Monthly",
+        "Biweekly",
+        "Semimonthly",
+        "Annually",
+        "Custom"
+      ]
+    },
+    "isActive": {
+      "type": "boolean",
+      "requestBodySchema": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "departmentId": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `departmentId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/contractor/properties/departmentId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "nativeId": {
+      "type": "string"
+    }
+  }
+}

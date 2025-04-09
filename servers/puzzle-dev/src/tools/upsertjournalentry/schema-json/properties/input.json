@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "required": [
+    "lines",
+    "basis",
+    "memo"
+  ],
+  "properties": {
+    "id": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `id` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/id\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "companyId": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `companyId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/companyId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "autoReversalDate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `autoReversalDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/autoReversalDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "postingDate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `postingDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/postingDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "amount",
+          "coaKey",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "object"
+          },
+          "coaKey": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "manualJournalEntryId": {
+            "type": "object"
+          },
+          "classifications": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "class",
+                "segment"
+              ],
+              "properties": {
+                "class": {
+                  "type": "object"
+                },
+                "segment": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "userDefinedMetadata": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "basis": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "memo": {
+      "type": "string"
+    },
+    "isHistorical": {
+      "type": "boolean",
+      "requestBodySchema": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "createdFor": {
+      "type": "string"
+    }
+  }
+}
