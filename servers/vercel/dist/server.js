@@ -102,11 +102,19 @@ async function registerToolFromOperation(operationFileRelativePath) {
         })) {
             url.searchParams.set(key, stringify({ value, arrayToCSV: true }));
         }
+        const body = params.body && Object.keys(params.body).length > 0
+            ? JSON.stringify(params.body)
+            : undefined;
         const headers = {
+            ...(body ? { "Content-Type": "application/json" } : {}),
             ...(params.header || {}),
             ...securityHeadersObj,
         };
-        const response = await fetch(url, { method, headers });
+        const response = await fetch(url, {
+            method,
+            headers,
+            body,
+        });
         const text = await response.text();
         return {
             content: [
