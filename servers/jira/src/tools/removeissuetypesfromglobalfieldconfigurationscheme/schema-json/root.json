@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the field configuration scheme.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "issueTypeIds": {
+      "description": "The list of issue type IDs. Must contain unique values not longer than 255 characters and not be empty. Maximum of 100 IDs.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "issueTypeIds"
+  ]
+}

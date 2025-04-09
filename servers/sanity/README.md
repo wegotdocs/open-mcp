@@ -69,6 +69,19 @@ It should say _MCP Server running on stdio_ in red.
 
 ## Tools
 
+### expandSchema
+
+Expand the input schema for a tool before calling the tool
+
+**Input schema**
+
+```ts
+{
+  toolName: z.string(),
+  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
+}
+```
+
 ### getpermissions
 
 **Environment variables**
@@ -102,7 +115,7 @@ It should say _MCP Server running on stdio_ in red.
   "name": z.string().describe("The name of the permission resource. A unique identifier for a permission."),
   "title": z.string().describe("A human-readable title of the permission resource. This is used for display purposes."),
   "description": z.string().describe("The description of the permission resource."),
-  "config": z.record(z.any()).describe("Some permissions allow for additional configuration when used with document permissions. Accepts a groq filter or a dataset name.").optional()
+  "config": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSome permissions allow for additional configuration when used with document permissions. Accepts a groq filter or a dataset name.").optional()
 }
 ```
 
@@ -139,7 +152,7 @@ It should say _MCP Server running on stdio_ in red.
   "name": z.string().describe("The name of the permission resource. A unique identifier for a permission."),
   "title": z.string().describe("A human-readable title of the permission resource. This is used for display purposes."),
   "description": z.string().describe("The description of the permission resource."),
-  "config": z.record(z.any()).describe("Some permissions allow for additional configuration when used with document permissions. Accepts a groq filter or a dataset name.").optional()
+  "config": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSome permissions allow for additional configuration when used with document permissions. Accepts a groq filter or a dataset name.").optional()
 }
 ```
 

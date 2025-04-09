@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "cluster_id": {
+      "description": "A unique ID that can be used to reference a Kubernetes cluster.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "node_pool_id": {
+      "description": "A unique ID that can be used to reference a Kubernetes node pool.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "node_id": {
+      "description": "A unique ID that can be used to reference a node in a Kubernetes node pool.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "skip_drain": {
+      "description": "Specifies whether or not to drain workloads from a node before it is deleted. Setting it to `1` causes node draining to be skipped. Omitting the query parameter or setting its value to `0` carries out draining prior to deletion.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0
+    },
+    "replace": {
+      "description": "Specifies whether or not to replace a node after it has been deleted. Setting it to `1` causes the node to be replaced by a new one after deletion. Omitting the query parameter or setting its value to `0` deletes without replacement.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0
+    }
+  },
+  "required": [
+    "cluster_id",
+    "node_pool_id",
+    "node_id"
+  ]
+}

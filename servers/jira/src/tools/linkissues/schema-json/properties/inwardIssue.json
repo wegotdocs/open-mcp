@@ -1,0 +1,24 @@
+{
+  "additionalProperties": false,
+  "description": "The ID or key of a linked issue.",
+  "properties": {
+    "fields": {
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of an issue. Required if `key` isn't provided.",
+      "type": "string"
+    },
+    "key": {
+      "description": "The key of an issue. Required if `id` isn't provided.",
+      "type": "string"
+    },
+    "self": {
+      "description": "The URL of the issue.",
+      "format": "uri",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

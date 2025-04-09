@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "value",
+    "source"
+  ],
+  "properties": {
+    "value": {
+      "type": "integer",
+      "maximum": 100,
+      "minimum": 0,
+      "example": 30,
+      "description": "The calculated Virtual Experience Score value, between 0 and 100",
+      "nullable": true
+    },
+    "previousValue": {
+      "type": "integer",
+      "maximum": 100,
+      "minimum": 0,
+      "example": 35,
+      "description": "A previous Virtual Experience Score value to display a delta, between 0 and 100"
+    },
+    "source": {
+      "enum": [
+        "web-vitals"
+      ]
+    }
+  }
+}

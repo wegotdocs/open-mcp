@@ -1,0 +1,25 @@
+{
+  "description": "The phone number of the account holder.\n> Required if a `fullPhoneNumber` is not provided.",
+  "additionalProperties": false,
+  "properties": {
+    "phoneCountryCode": {
+      "description": "The two-character country code of the phone number.\n>The permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').",
+      "type": "string"
+    },
+    "phoneNumber": {
+      "description": "The phone number.\n>The inclusion of the phone number country code is not necessary.",
+      "type": "string"
+    },
+    "phoneType": {
+      "description": "The type of the phone number.\n>The following values are permitted: `Landline`, `Mobile`, `SIP`, `Fax`.",
+      "enum": [
+        "Fax",
+        "Landline",
+        "Mobile",
+        "SIP"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

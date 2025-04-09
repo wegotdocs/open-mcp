@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "expand": {
+      "description": "Use [expand](#expansion) to include additional information about worklogs in the response. This parameter accepts `properties` that returns the properties of each worklog.",
+      "default": "",
+      "type": "string"
+    },
+    "ids": {
+      "description": "A list of worklog IDs.",
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "ids"
+  ]
+}

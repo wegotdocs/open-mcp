@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "accountHolderCode": {
+      "description": "The code of the Account Holder from which to delete the Shareholders.",
+      "type": "string"
+    },
+    "shareholderCodes": {
+      "description": "The code(s) of the Shareholders to be deleted.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "accountHolderCode",
+    "shareholderCodes"
+  ]
+}

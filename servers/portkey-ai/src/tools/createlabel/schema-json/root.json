@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "organisation_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID of the organisation"
+    },
+    "workspace_id": {
+      "type": "string",
+      "description": "ID or slug of the workspace"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the label",
+      "pattern": "^(?!latest$)(?!default$)(?!\\d+$)[a-zA-Z0-9_-]*[^@\\s]?[a-zA-Z0-9_-]*$"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the label"
+    },
+    "color_code": {
+      "type": "string",
+      "description": "Color code for the label"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

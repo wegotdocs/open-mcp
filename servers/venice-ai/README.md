@@ -69,6 +69,19 @@ It should say _MCP Server running on stdio_ in red.
 
 ## Tools
 
+### expandSchema
+
+Expand the input schema for a tool before calling the tool
+
+**Input schema**
+
+```ts
+{
+  toolName: z.string(),
+  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
+}
+```
+
 ### createchatcompletion
 
 **Environment variables**
@@ -81,7 +94,7 @@ It should say _MCP Server running on stdio_ in red.
 {
   "model": z.string().describe("The ID of the model you wish to prompt. May also be a model trait, or a compatibility mapping. See the models endpoint for a list of models available to you.  You can use feature suffixes to enable features from the venice_parameters object. Please see \"Model Feature Suffix\" documentation for more details."),
   "messages": z.array(z.union([z.object({ "role": z.literal("user"), "content": z.union([z.string(), z.array(z.object({ "type": z.literal("text"), "text": z.string().min(1).describe("The prompt text of the message. Must be at-least one character in length") }).strict().describe("Text message type."))]) }).describe("The user message is the input from the user. It is part of the conversation and is visible to the assistant."), z.object({ "role": z.literal("assistant"), "content": z.union([z.string(), z.array(z.object({ "type": z.literal("text"), "text": z.string().min(1).describe("The prompt text of the message. Must be at-least one character in length") }).strict().describe("Text message type.")), z.any().nullable()]), "reasoning_content": z.string().nullable().optional(), "name": z.string().optional(), "tool_calls": z.array(z.any().nullable()).optional() }).describe("The assistant message contains the response from the LLM."), z.object({ "role": z.literal("tool"), "content": z.string(), "reasoning_content": z.string().nullable().optional(), "tool_calls": z.array(z.any().nullable()).optional(), "name": z.string().optional(), "tool_call_id": z.string() }).describe("The tool message is a special message that is used to call a tool. It is not part of the conversation and is not visible to the user."), z.object({ "role": z.literal("system"), "content": z.union([z.string(), z.array(z.object({ "type": z.literal("text"), "text": z.string().min(1).describe("The prompt text of the message. Must be at-least one character in length") }).strict().describe("Text message type."))]), "name": z.string().optional() }).describe("The system message is a special message that provides context to the model. It is not part of the conversation and is not visible to the user.")])).min(1).describe("A list of messages comprising the conversation so far. Depending on the model you use, different message types (modalities) are supported, like text and images. For compatibility purposes, the schema supports submitting multiple image_url messages, however, only the last image_url message will be passed to and processed by the model."),
-  "venice_parameters": z.object({ "enable_web_search": z.enum(["auto","on","off"]).describe("Enable web search for this request. Defaults to off. On will force web search on the request. Auto will enable it based on the model's discretion. Citations will be returned either in the first chunk of a streaming result, or in the non streaming response."), "include_venice_system_prompt": z.boolean().describe("Whether to include the Venice supplied system prompts along side specified system prompts."), "character_slug": z.string().describe("The character slug of a public Venice character.").optional() }).describe("Unique parameters to Venice's API implementation.").optional(),
+  "venice_parameters": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nUnique parameters to Venice's API implementation.").optional(),
   "frequency_penalty": z.number().gte(-2).lte(2).describe("Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.").optional(),
   "presence_penalty": z.number().gte(-2).lte(2).describe("Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.").optional(),
   "repetition_penalty": z.number().gte(0).describe("The parameter for repetition penalty. 1.0 means no penalty. Values > 1.0 discourage repetition.").optional(),
@@ -97,12 +110,12 @@ It should say _MCP Server running on stdio_ in red.
   "stop": z.union([z.string(), z.array(z.string()).min(1).max(4), z.any().nullable()]).describe("Up to 4 sequences where the API will stop generating further tokens. Defaults to null.").optional(),
   "stop_token_ids": z.array(z.number()).describe("Array of token IDs where the API will stop generating further tokens.").optional(),
   "stream": z.boolean().describe("Whether to stream back partial progress. Defaults to false.").optional(),
-  "stream_options": z.object({ "include_usage": z.boolean().describe("Whether to include usage information in the stream.").optional() }).optional(),
+  "stream_options": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
   "user": z.string().describe("This field is discarded on the request but is supported in the Venice API for compatibility with OpenAPI clients.").optional(),
   "parallel_tool_calls": z.boolean().describe("Whether to enable parallel function calling during tool use.").optional(),
   "tools": z.array(z.object({ "id": z.string().optional(), "type": z.string().optional(), "function": z.object({ "description": z.string().optional(), "name": z.string(), "parameters": z.record(z.any().nullable()).optional() }).strict() }).describe("A tool that can be called by the model. Currently, only functions are supported as tools.")).nullable().describe("A list of tools the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for.").optional(),
   "tool_choice": z.union([z.object({ "type": z.string(), "function": z.object({ "name": z.string() }).strict() }).strict(), z.string()]).optional(),
-  "response_format": z.object({ "type": z.literal("json_schema"), "json_schema": z.record(z.any().nullable()).describe("The JSON Schema that should be used to validate and format the response") }).strict().describe("Format in which the response should be returned. Currently supports JSON Schema formatting.").optional(),
+  "response_format": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nFormat in which the response should be returned. Currently supports JSON Schema formatting.").optional(),
   "Accept-Encoding": z.string().describe("Supported compression encodings (gzip, br). Only applied when stream is false.").optional()
 }
 ```
@@ -132,7 +145,7 @@ It should say _MCP Server running on stdio_ in red.
   "hide_watermark": z.boolean().describe("Whether to hide the Venice watermark. Venice may ignore this parameter for certain generated content.").optional(),
   "format": z.enum(["webp","png"]).describe("The image format to return. WebP are smaller and optimized for web use. PNG are higher quality but larger in file size. NOTE: This currently defaults to PNG but will change in the future to WebP. If you wish to receive PNGs, ensure your API call specifies the format.").optional(),
   "embed_exif_metadata": z.boolean().describe("Embed prompt generation information into the image's EXIF metadata.").optional(),
-  "inpaint": z.object({ "strength": z.number().int().gte(0).lte(100).describe("Strength of the inpainting."), "source_image_base64": z.string().describe("Base64 encoded source image to inpaint."), "mask": z.object({ "image_prompt": z.string().describe("A text prompt describing the original input image that an image model would use to produce a similar/identical image, including the changed features the user will be inpainting."), "object_target": z.string().describe("One or more elements contained within the original image the user wants to inpaint over; used by a segmentation model to create an image mask."), "inferred_object": z.string().describe("The content the user is adding to the image via inpainting, meant to replace the pixels occupied by object_target.") }).optional() }).optional(),
+  "inpaint": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
   "Accept-Encoding": z.string().describe("Supported compression encodings (gzip, br). Only applied when return_binary is false.").optional()
 }
 ```
@@ -242,7 +255,7 @@ It should say _MCP Server running on stdio_ in red.
   "description": z.string().describe("The API Key description"),
   "apiKeyType": z.enum(["ADMIN","INFERENCE"]).describe("The API Key type. Admin keys have full access to the API while inference keys are only able to call inference endpoints."),
   "expiresAt": z.union([z.literal(""), z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}$")), z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{3})?Z$"))]).describe("The API Key expiration date. If not provided, the key will not expire.").optional(),
-  "consumptionLimit": z.object({ "vcu": z.union([z.number().gte(0), z.any().nullable(), z.any().nullable()]).describe("VCU limit"), "usd": z.union([z.number().gte(0), z.any().nullable(), z.any().nullable()]).describe("USD limit") }).describe("The API Key consumption limits for each epoch.")
+  "consumptionLimit": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe API Key consumption limits for each epoch.")
 }
 ```
 
@@ -295,7 +308,7 @@ It should say _MCP Server running on stdio_ in red.
   "description": z.string().describe("The API Key description").optional(),
   "apiKeyType": z.enum(["ADMIN","INFERENCE"]).describe("The API Key type. Admin keys have full access to the API while inference keys are only able to call inference endpoints."),
   "expiresAt": z.union([z.literal(""), z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}$")), z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{3})?Z$"))]).describe("The API Key expiration date. If not provided, the key will not expire.").optional(),
-  "consumptionLimit": z.object({ "vcu": z.union([z.number().gte(0), z.any().nullable(), z.any().nullable()]).describe("VCU limit"), "usd": z.union([z.number().gte(0), z.any().nullable(), z.any().nullable()]).describe("USD limit") }).describe("The API Key consumption limits for each epoch."),
+  "consumptionLimit": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe API Key consumption limits for each epoch."),
   "signature": z.string().describe("The token, signed with the wallet's private key"),
   "token": z.string().describe("The token obtained from https://api.venice.ai/api/v1/api_keys/generate_web3_key"),
   "address": z.string().describe("The wallet's address")

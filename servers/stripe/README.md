@@ -70,6 +70,19 @@ It should say _MCP Server running on stdio_ in red.
 
 ## Tools
 
+### expandSchema
+
+Expand the input schema for a tool before calling the tool
+
+**Input schema**
+
+```ts
+{
+  toolName: z.string(),
+  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
+}
+```
+
 ### getaccount
 
 **Environment variables**
@@ -416,7 +429,7 @@ It should say _MCP Server running on stdio_ in red.
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "relationship": z.object({ "authorizer": z.boolean().optional(), "director": z.boolean().optional(), "executive": z.boolean().optional(), "legal_guardian": z.boolean().optional(), "owner": z.boolean().optional(), "representative": z.boolean().optional() }).describe("Filters on the list of people returned based on the person's relationship to the account's company.").optional(),
+  "relationship": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nFilters on the list of people returned based on the person's relationship to the account's company.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
 }
 ```
@@ -500,7 +513,7 @@ It should say _MCP Server running on stdio_ in red.
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "relationship": z.object({ "authorizer": z.boolean().optional(), "director": z.boolean().optional(), "executive": z.boolean().optional(), "legal_guardian": z.boolean().optional(), "owner": z.boolean().optional(), "representative": z.boolean().optional() }).describe("Filters on the list of people returned based on the person's relationship to the account's company.").optional(),
+  "relationship": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nFilters on the list of people returned based on the person's relationship to the account's company.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
 }
 ```
@@ -779,7 +792,7 @@ It should say _MCP Server running on stdio_ in red.
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "scope": z.object({ "type": z.enum(["account","user"]), "user": z.string().max(5000).optional() }).describe("Specifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user."),
+  "scope": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSpecifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user."),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
 }
 ```
@@ -823,7 +836,7 @@ It should say _MCP Server running on stdio_ in red.
 {
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "name": z.string().max(5000).describe("A name for the secret that's unique within the scope."),
-  "scope": z.object({ "type": z.enum(["account","user"]), "user": z.string().max(5000).optional() }).describe("Specifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user.")
+  "scope": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSpecifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user.")
 }
 ```
 
@@ -1027,7 +1040,7 @@ It should say _MCP Server running on stdio_ in red.
 {
   "customer": z.string().max(5000).describe("The customer for which to fetch credit balance summary."),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "filter": z.object({ "applicability_scope": z.object({ "price_type": z.literal("metered").optional(), "prices": z.array(z.object({ "id": z.string().max(5000) })).optional() }).optional(), "credit_grant": z.string().max(5000).optional(), "type": z.enum(["applicability_scope","credit_grant"]) }).describe("The filter criteria for the credit balance summary.")
+  "filter": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe filter criteria for the credit balance summary.")
 }
 ```
 
@@ -1619,7 +1632,7 @@ It should say _MCP Server running on stdio_ in red.
 {
   "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return Checkout Sessions that were created during the given date interval.").optional(),
   "customer": z.string().max(5000).describe("Only return the Checkout Sessions for the Customer specified.").optional(),
-  "customer_details": z.object({ "email": z.string() }).describe("Only return the Checkout Sessions for the Customer details specified.").optional(),
+  "customer_details": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOnly return the Checkout Sessions for the Customer details specified.").optional(),
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
@@ -2035,12 +2048,12 @@ It should say _MCP Server running on stdio_ in red.
   "invoice": z.string().max(5000).describe("ID of the invoice."),
   "lines": z.array(z.object({ "amount": z.number().int().optional(), "description": z.string().max(5000).optional(), "invoice_line_item": z.string().max(5000).optional(), "quantity": z.number().int().optional(), "tax_amounts": z.union([z.array(z.object({ "amount": z.number().int(), "tax_rate": z.string().max(5000), "taxable_amount": z.number().int() })), z.literal("")]).optional(), "tax_rates": z.union([z.array(z.string().max(5000)), z.literal("")]).optional(), "type": z.enum(["custom_line_item","invoice_line_item"]), "unit_amount": z.number().int().optional(), "unit_amount_decimal": z.string().optional() })).describe("Line items that make up the credit note.").optional(),
   "memo": z.string().max(5000).describe("The credit note's memo appears on the credit note PDF.").optional(),
-  "metadata": z.record(z.string()).describe("Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to \`metadata\`.").optional(),
+  "metadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSet of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to \`metadata\`.").optional(),
   "out_of_band_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount that is credited outside of Stripe.").optional(),
   "reason": z.enum(["duplicate","fraudulent","order_change","product_unsatisfactory"]).describe("Reason for issuing this credit note, one of \`duplicate\`, \`fraudulent\`, \`order_change\`, or \`product_unsatisfactory\`").optional(),
   "refund_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount to refund. If set, a refund will be created for the charge associated with the invoice.").optional(),
   "refunds": z.array(z.object({ "amount_refunded": z.number().int().optional(), "refund": z.string().optional() })).describe("Refunds to link to this credit note.").optional(),
-  "shipping_cost": z.object({ "shipping_rate": z.string().max(5000).optional() }).describe("When shipping_cost contains the shipping_rate from the invoice, the shipping_cost is included in the credit note.").optional()
+  "shipping_cost": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nWhen shipping_cost contains the shipping_rate from the invoice, the shipping_cost is included in the credit note.").optional()
 }
 ```
 
@@ -2065,12 +2078,12 @@ It should say _MCP Server running on stdio_ in red.
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
   "lines": z.array(z.object({ "amount": z.number().int().optional(), "description": z.string().max(5000).optional(), "invoice_line_item": z.string().max(5000).optional(), "quantity": z.number().int().optional(), "tax_amounts": z.union([z.array(z.object({ "amount": z.number().int(), "tax_rate": z.string().max(5000), "taxable_amount": z.number().int() })), z.literal("")]).optional(), "tax_rates": z.union([z.array(z.string().max(5000)), z.literal("")]).optional(), "type": z.enum(["custom_line_item","invoice_line_item"]), "unit_amount": z.number().int().optional(), "unit_amount_decimal": z.string().optional() })).describe("Line items that make up the credit note.").optional(),
   "memo": z.string().max(5000).describe("The credit note's memo appears on the credit note PDF.").optional(),
-  "metadata": z.record(z.string()).describe("Set of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to \`metadata\`.").optional(),
+  "metadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSet of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to \`metadata\`.").optional(),
   "out_of_band_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount that is credited outside of Stripe.").optional(),
   "reason": z.enum(["duplicate","fraudulent","order_change","product_unsatisfactory"]).describe("Reason for issuing this credit note, one of \`duplicate\`, \`fraudulent\`, \`order_change\`, or \`product_unsatisfactory\`").optional(),
   "refund_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount to refund. If set, a refund will be created for the charge associated with the invoice.").optional(),
   "refunds": z.array(z.object({ "amount_refunded": z.number().int().optional(), "refund": z.string().optional() })).describe("Refunds to link to this credit note.").optional(),
-  "shipping_cost": z.object({ "shipping_rate": z.string().max(5000).optional() }).describe("When shipping_cost contains the shipping_rate from the invoice, the shipping_cost is included in the credit note.").optional(),
+  "shipping_cost": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nWhen shipping_cost contains the shipping_rate from the invoice, the shipping_cost is included in the credit note.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
 }
 ```
@@ -3340,7 +3353,7 @@ It should say _MCP Server running on stdio_ in red.
 
 ```ts
 {
-  "account_holder": z.object({ "account": z.string().max(5000).optional(), "customer": z.string().max(5000).optional() }).describe("If present, only return accounts that belong to the specified account holder. \`account_holder[customer]\` and \`account_holder[account]\` are mutually exclusive.").optional(),
+  "account_holder": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nIf present, only return accounts that belong to the specified account holder. \`account_holder[customer]\` and \`account_holder[account]\` are mutually exclusive.").optional(),
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
@@ -3491,7 +3504,7 @@ It should say _MCP Server running on stdio_ in red.
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
   "transacted_at": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list based on the object \`transacted_at\` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with the following options:").optional(),
-  "transaction_refresh": z.object({ "after": z.string().max(5000) }).describe("A filter on the list based on the object \`transaction_refresh\` field. The value can be a dictionary with the following options:").optional()
+  "transaction_refresh": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nA filter on the list based on the object \`transaction_refresh\` field. The value can be a dictionary with the following options:").optional()
 }
 ```
 
@@ -3522,7 +3535,7 @@ It should say _MCP Server running on stdio_ in red.
 
 ```ts
 {
-  "created": z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }).describe("Similar to other List endpoints, filters results based on created timestamp. You can pass gt, gte, lt, and lte timestamp values.").optional(),
+  "created": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSimilar to other List endpoints, filters results based on created timestamp. You can pass gt, gte, lt, and lte timestamp values.").optional(),
   "ending_before": z.string().max(5000).describe("A pagination cursor to fetch the previous page of the list. The value must be a ForwardingRequest ID.").optional(),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
@@ -3708,7 +3721,7 @@ It should say _MCP Server running on stdio_ in red.
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "invoice": z.string().max(5000).describe("The identifier of the invoice whose payments to return.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payment": z.object({ "payment_intent": z.string().max(5000).optional(), "type": z.literal("payment_intent") }).describe("The payment details of the invoice payments to return.").optional(),
+  "payment": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe payment details of the invoice payments to return.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
   "status": z.enum(["canceled","open","paid"]).describe("The status of the invoice payments to return.").optional()
 }
@@ -4461,7 +4474,7 @@ It should say _MCP Server running on stdio_ in red.
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
   "lookup_keys": z.array(z.string().max(200)).describe("Only return personalization designs with the given lookup keys.").optional(),
-  "preferences": z.object({ "is_default": z.boolean().optional(), "is_platform_default": z.boolean().optional() }).describe("Only return personalization designs with the given preferences.").optional(),
+  "preferences": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOnly return personalization designs with the given preferences.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
   "status": z.enum(["active","inactive","rejected","review"]).describe("Only return personalization designs with the given status.").optional()
 }
@@ -4723,7 +4736,7 @@ It should say _MCP Server running on stdio_ in red.
 
 ```ts
 {
-  "account_holder": z.object({ "account": z.string().max(5000).optional(), "customer": z.string().max(5000).optional() }).describe("If present, only return accounts that belong to the specified account holder. \`account_holder[customer]\` and \`account_holder[account]\` are mutually exclusive.").optional(),
+  "account_holder": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nIf present, only return accounts that belong to the specified account holder. \`account_holder[customer]\` and \`account_holder[account]\` are mutually exclusive.").optional(),
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
@@ -5500,7 +5513,7 @@ It should say _MCP Server running on stdio_ in red.
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
   "lookup_keys": z.array(z.string().max(5000)).describe("Only return the price with these lookup_keys, if any exist. You can specify up to 10 lookup_keys.").optional(),
   "product": z.string().max(5000).describe("Only return prices for the given product.").optional(),
-  "recurring": z.object({ "interval": z.enum(["day","month","week","year"]).optional(), "meter": z.string().max(5000).optional(), "usage_type": z.enum(["licensed","metered"]).optional() }).describe("Only return prices with these recurring fields.").optional(),
+  "recurring": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOnly return prices with these recurring fields.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
   "type": z.enum(["one_time","recurring"]).describe("Only return prices of type \`recurring\` or \`one_time\`.").optional()
 }
@@ -6903,7 +6916,7 @@ It should say _MCP Server running on stdio_ in red.
 
 ```ts
 {
-  "automatic_tax": z.object({ "enabled": z.boolean() }).describe("Filter subscriptions by their automatic tax settings.").optional(),
+  "automatic_tax": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nFilter subscriptions by their automatic tax settings.").optional(),
   "collection_method": z.enum(["charge_automatically","send_invoice"]).describe("The collection method of the subscriptions to retrieve. Either \`charge_automatically\` or \`send_invoice\`.").optional(),
   "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscriptions that were created during the given date interval.").optional(),
   "current_period_end": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscriptions whose current_period_end falls within the given date interval.").optional(),
@@ -7274,7 +7287,7 @@ It should say _MCP Server running on stdio_ in red.
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "owner": z.object({ "account": z.string().optional(), "customer": z.string().max(5000).optional(), "type": z.enum(["account","application","customer","self"]) }).describe("The account or customer the tax ID belongs to. Defaults to \`owner[type]=self\`.").optional(),
+  "owner": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe account or customer the tax ID belongs to. Defaults to \`owner[type]=self\`.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
 }
 ```
@@ -8990,7 +9003,7 @@ It should say _MCP Server running on stdio_ in red.
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
   "financial_account": z.string().describe("The FinancialAccount that received the funds."),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "linked_flows": z.object({ "source_flow_type": z.enum(["credit_reversal","other","outbound_payment","outbound_transfer","payout"]) }).describe("Only return ReceivedCredits described by the flow.").optional(),
+  "linked_flows": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOnly return ReceivedCredits described by the flow.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
   "status": z.enum(["failed","succeeded"]).describe("Only return ReceivedCredits that have the given status: \`succeeded\` or \`failed\`.").optional()
 }
@@ -9106,7 +9119,7 @@ It should say _MCP Server running on stdio_ in red.
   "order_by": z.enum(["created","posted_at"]).describe("The results are in reverse chronological order by \`created\` or \`posted_at\`. The default is \`created\`.").optional(),
   "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
   "status": z.enum(["open","posted","void"]).describe("Only return Transactions that have the given status: \`open\`, \`posted\`, or \`void\`.").optional(),
-  "status_transitions": z.object({ "posted_at": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).optional() }).describe("A filter for the \`status_transitions.posted_at\` timestamp. When using this filter, \`status=posted\` and \`order_by=posted_at\` must also be specified.").optional()
+  "status_transitions": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nA filter for the \`status_transitions.posted_at\` timestamp. When using this filter, \`status=posted\` and \`order_by=posted_at\` must also be specified.").optional()
 }
 ```
 

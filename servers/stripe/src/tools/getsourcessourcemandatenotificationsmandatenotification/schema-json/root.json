@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "mandate_notification": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "source": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "expand": {
+      "description": "Specifies which fields in the response should be expanded.",
+      "items": {
+        "maxLength": 5000,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "mandate_notification",
+    "source"
+  ]
+}

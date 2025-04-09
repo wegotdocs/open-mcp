@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "projectIdOrKey": {
+      "description": "The ID or (case-sensitive) key of the project.",
+      "type": "string"
+    },
+    "featureKey": {
+      "description": "The key of the feature.",
+      "type": "string"
+    },
+    "state": {
+      "description": "The feature state.",
+      "enum": [
+        "ENABLED",
+        "DISABLED",
+        "COMING_SOON"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "projectIdOrKey",
+    "featureKey"
+  ]
+}

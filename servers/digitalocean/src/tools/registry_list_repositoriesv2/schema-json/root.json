@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "registry_name": {
+      "description": "The name of a container registry.",
+      "type": "string"
+    },
+    "per_page": {
+      "description": "Number of items returned per page",
+      "type": "integer",
+      "minimum": 1,
+      "default": 20,
+      "maximum": 200
+    },
+    "page": {
+      "description": "Which 'page' of paginated results to return. Ignored when 'page_token' is provided.",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "page_token": {
+      "description": "Token to retrieve of the next or previous set of results more quickly than using 'page'.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_name"
+  ]
+}

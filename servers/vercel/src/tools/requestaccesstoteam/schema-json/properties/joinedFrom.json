@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "origin"
+  ],
+  "properties": {
+    "origin": {
+      "type": "string",
+      "enum": [
+        "import",
+        "teams",
+        "github",
+        "gitlab",
+        "bitbucket",
+        "feedback",
+        "organization-teams"
+      ],
+      "description": "The origin of the request.",
+      "example": "github"
+    },
+    "commitId": {
+      "type": "string",
+      "description": "The commit sha if the origin is a git provider.",
+      "example": "f498d25d8bd654b578716203be73084b31130cd7"
+    },
+    "repoId": {
+      "type": "string",
+      "description": "The ID of the repository for the given Git provider.",
+      "example": "67753070"
+    },
+    "repoPath": {
+      "type": "string",
+      "description": "The path to the repository for the given Git provider.",
+      "example": "jane-doe/example"
+    },
+    "gitUserId": {
+      "description": "The ID of the Git account of the user who requests access.",
+      "example": 103053343,
+      "anyOf": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "gitUserLogin": {
+      "type": "string",
+      "description": "The login name for the Git account of the user who requests access.",
+      "example": "jane-doe"
+    }
+  }
+}

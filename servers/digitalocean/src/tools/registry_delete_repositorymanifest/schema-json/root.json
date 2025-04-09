@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "registry_name": {
+      "description": "The name of a container registry.",
+      "type": "string"
+    },
+    "repository_name": {
+      "description": "The name of a container registry repository. If the name contains `/` characters, they must be URL-encoded, e.g. `%2F`.",
+      "type": "string"
+    },
+    "manifest_digest": {
+      "description": "The manifest digest of a container registry repository tag.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_name",
+    "repository_name",
+    "manifest_digest"
+  ]
+}

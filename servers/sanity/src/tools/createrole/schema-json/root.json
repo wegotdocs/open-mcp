@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "description": "Resources are entities that can be managed and accessed through the\nAccess API.\n",
+      "type": "string",
+      "enum": [
+        "organization",
+        "project"
+      ],
+      "example": "project"
+    },
+    "resourceId": {
+      "description": "The resource ID to scope the access request to. Must be a valid ID for the resource type.",
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "example": "Custom Role"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9-_]+$",
+      "example": "custom-role"
+    },
+    "description": {
+      "type": "string",
+      "default": "",
+      "example": "Custom role for project"
+    },
+    "appliesToUsers": {
+      "type": "boolean",
+      "default": true
+    },
+    "appliesToRobots": {
+      "type": "boolean",
+      "default": true
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the permission.",
+            "example": "legal-documents"
+          },
+          "action": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "create",
+                  "read",
+                  "update",
+                  "manage",
+                  "history",
+                  "editHistory"
+                ]
+              }
+            ]
+          },
+          "params": {
+            "type": "object",
+            "description": "The parameters for the permission. This is a key-value map of the permission's configuration.",
+            "example": {
+              "dataset": "development"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "resourceType",
+    "resourceId",
+    "title",
+    "name",
+    "appliesToUsers",
+    "appliesToRobots",
+    "permissions"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "time_range": {
+      "description": "Over what time frame the affinities are computed. Valid values: `long_term` (calculated from ~1 year of data and including all new data as it becomes available), `medium_term` (approximately last 6 months), `short_term` (approximately last 4 weeks). Default: `medium_term`\n",
+      "title": "Time Range",
+      "default": "medium_term",
+      "example": "medium_term",
+      "type": "string"
+    },
+    "limit": {
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n",
+      "title": "Limit",
+      "default": 20,
+      "example": 10,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50
+    },
+    "offset": {
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items.\n",
+      "title": "Offset",
+      "default": 0,
+      "example": 5,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

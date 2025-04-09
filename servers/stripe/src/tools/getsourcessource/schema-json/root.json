@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "client_secret": {
+      "description": "The client secret of the source. Required if a publishable key is used to retrieve the source.",
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "expand": {
+      "description": "Specifies which fields in the response should be expanded.",
+      "items": {
+        "maxLength": 5000,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "source"
+  ]
+}

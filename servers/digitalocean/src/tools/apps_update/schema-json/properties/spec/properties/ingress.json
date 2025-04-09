@@ -1,0 +1,179 @@
+{
+  "type": "object",
+  "properties": {
+    "rules": {
+      "description": "Rules for configuring HTTP ingress for component routes, CORS, rewrites, and redirects.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "match": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "object",
+                "properties": {
+                  "prefix": {
+                    "type": "string",
+                    "description": "Prefix-based match. For example, `/api` will match `/api`, `/api/`, and any nested paths such as `/api/v1/endpoint`.",
+                    "maxLength": 256,
+                    "example": "/api"
+                  }
+                },
+                "description": "The path to match on.",
+                "required": [
+                  "prefix"
+                ]
+              }
+            },
+            "description": "The match configuration for the rule.",
+            "required": [
+              "path"
+            ]
+          },
+          "cors": {
+            "type": "object",
+            "properties": {
+              "allow_origins": {
+                "type": "array",
+                "description": "The set of allowed CORS origins.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "exact": {
+                      "type": "string",
+                      "description": "Exact string match. Only 1 of `exact`, `prefix`, or `regex` must be set.",
+                      "maxLength": 256,
+                      "minLength": 1,
+                      "example": "https://www.example.com"
+                    },
+                    "regex": {
+                      "type": "string",
+                      "maxLength": 256,
+                      "minLength": 1,
+                      "description": "RE2 style regex-based match. Only 1 of `exact`, `prefix`, or `regex` must be set. For more information about RE2 syntax, see: https://github.com/google/re2/wiki/Syntax",
+                      "example": "^.*example.com"
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "exact": "https://www.example.com"
+                  },
+                  {
+                    "regex": "^.*example.com"
+                  }
+                ]
+              },
+              "allow_methods": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The set of allowed HTTP methods. This configures the `Access-Control-Allow-Methods` header.",
+                "example": [
+                  "GET",
+                  "OPTIONS",
+                  "POST",
+                  "PUT",
+                  "PATCH",
+                  "DELETE"
+                ]
+              },
+              "allow_headers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The set of allowed HTTP request headers. This configures the `Access-Control-Allow-Headers` header.",
+                "example": [
+                  "Content-Type",
+                  "X-Custom-Header"
+                ]
+              },
+              "expose_headers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The set of HTTP response headers that browsers are allowed to access. This configures the `Access-Control-Expose-Headers` header.",
+                "example": [
+                  "Content-Encoding",
+                  "X-Custom-Header"
+                ]
+              },
+              "max_age": {
+                "type": "string",
+                "description": "An optional duration specifying how long browsers can cache the results of a preflight request. This configures the `Access-Control-Max-Age` header.",
+                "example": "5h30m"
+              },
+              "allow_credentials": {
+                "type": "boolean",
+                "description": "Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is include. This configures the `Access-Control-Allow-Credentials` header.",
+                "example": false
+              }
+            }
+          },
+          "component": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "The name of the component to route to.",
+                "type": "string",
+                "example": "web"
+              },
+              "preserve_path_prefix": {
+                "description": "An optional flag to preserve the path that is forwarded to the backend service. By default, the HTTP request path will be trimmed from the left when forwarded to the component. For example, a component with `path=/api` will have requests to `/api/list` trimmed to `/list`. If this value is `true`, the path will remain `/api/list`. Note: this is not applicable for Functions Components and is mutually exclusive with `rewrite`.",
+                "type": "string",
+                "example": "true"
+              },
+              "rewrite": {
+                "description": "An optional field that will rewrite the path of the component to be what is specified here. By default, the HTTP request path will be trimmed from the left when forwarded to the component. For example, a component with `path=/api` will have requests to `/api/list` trimmed to `/list`. If you specified the rewrite to be `/v1/`, requests to `/api/list` would be rewritten to `/v1/list`. Note: this is mutually exclusive with `preserve_path_prefix`.",
+                "type": "string",
+                "example": "/api/v1/"
+              }
+            },
+            "description": "The component to route to. Only one of `component` or `redirect` may be set.",
+            "required": [
+              "name"
+            ]
+          },
+          "redirect": {
+            "type": "object",
+            "properties": {
+              "uri": {
+                "description": "An optional URI path to redirect to. Note: if this is specified the whole URI of the original request will be overwritten to this value, irrespective of the original request URI being matched.",
+                "type": "string",
+                "example": "/about"
+              },
+              "authority": {
+                "description": "The authority/host to redirect to. This can be a hostname or IP address. Note: use `port` to set the port.",
+                "type": "string",
+                "example": "example.com"
+              },
+              "port": {
+                "description": "The port to redirect to.",
+                "type": "integer",
+                "format": "int64",
+                "example": 443
+              },
+              "scheme": {
+                "description": "The scheme to redirect to. Supported values are `http` or `https`. Default: `https`.",
+                "type": "string",
+                "example": "https"
+              },
+              "redirect_code": {
+                "description": "The redirect code to use. Defaults to `302`. Supported values are 300, 301, 302, 303, 304, 307, 308.",
+                "type": "integer",
+                "format": "int64",
+                "example": 302
+              }
+            },
+            "description": "The redirect configuration for the rule. Only one of `component` or `redirect` may be set."
+          }
+        }
+      }
+    }
+  },
+  "description": "Specification for app ingress configurations."
+}

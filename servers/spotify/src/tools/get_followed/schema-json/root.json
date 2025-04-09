@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "The ID type: currently only `artist` is supported.\n",
+      "title": "Item Type",
+      "enum": [
+        "artist"
+      ],
+      "example": "artist",
+      "type": "string"
+    },
+    "after": {
+      "description": "The last artist ID retrieved from the previous request.\n",
+      "title": "After",
+      "example": "0I2XqVXqHScXjHhk6AYYRe",
+      "type": "string"
+    },
+    "limit": {
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50.\n",
+      "title": "Limit",
+      "default": 20,
+      "example": 10,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

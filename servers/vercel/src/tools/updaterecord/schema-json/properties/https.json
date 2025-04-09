@@ -1,0 +1,28 @@
+{
+  "additionalProperties": false,
+  "required": [
+    "priority",
+    "target"
+  ],
+  "properties": {
+    "priority": {
+      "description": "",
+      "type": "integer",
+      "nullable": true
+    },
+    "target": {
+      "type": "string",
+      "description": "",
+      "example": "example2.com.",
+      "maxLength": 255,
+      "nullable": true
+    },
+    "params": {
+      "description": "",
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "type": "object",
+  "nullable": true
+}

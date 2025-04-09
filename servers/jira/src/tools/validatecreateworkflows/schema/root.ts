@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "payload": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payload` to the tool, first call the tool `expandSchema` with \"/properties/payload\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The create workflows payload.</property-description>"),
+  "validationOptions": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `validationOptions` to the tool, first call the tool `expandSchema` with \"/properties/validationOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The level of validation to return from the API. If no values are provided, the default would return `WARNING` and `ERROR` level validation results.</property-description>").optional()
+}

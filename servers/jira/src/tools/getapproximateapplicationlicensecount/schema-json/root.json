@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "applicationKey": {
+      "description": "The ID of the application, represents a specific version of Jira.",
+      "enum": [
+        "jira-core",
+        "jira-product-discovery",
+        "jira-software",
+        "jira-servicedesk"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "applicationKey"
+  ]
+}

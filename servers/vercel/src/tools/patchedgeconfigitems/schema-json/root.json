@@ -1,0 +1,102 @@
+{
+  "type": "object",
+  "properties": {
+    "edgeConfigId": {
+      "type": "string",
+      "pattern": "^ecfg_"
+    },
+    "dryRun": {
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "operation": {
+                "enum": [
+                  "create",
+                  "update",
+                  "upsert",
+                  "delete"
+                ]
+              },
+              "key": {
+                "maxLength": 256,
+                "pattern": "^[\\\\w-]+$",
+                "type": "string"
+              },
+              "value": {},
+              "description": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "maxLength": 512
+                  }
+                ]
+              }
+            },
+            "anyOf": [
+              {
+                "properties": {
+                  "operation": {
+                    "const": "create"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "operation": {
+                    "enum": [
+                      "update",
+                      "upsert"
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "operation": {
+                    "enum": [
+                      "update",
+                      "upsert"
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "operation": {
+                    "const": "delete"
+                  }
+                },
+                "not": {
+                  "required": [
+                    "value",
+                    "description"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "definition": {}
+  },
+  "required": [
+    "edgeConfigId",
+    "items",
+    "definition"
+  ]
+}

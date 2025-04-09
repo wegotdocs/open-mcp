@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "edgeConfigId": {
+      "type": "string"
+    },
+    "next": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 50
+    },
+    "metadata": {
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "edgeConfigId"
+  ]
+}

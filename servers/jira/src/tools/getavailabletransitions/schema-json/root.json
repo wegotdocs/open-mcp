@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "issueIdsOrKeys": {
+      "description": "Comma (,) separated Ids or keys of the issues to get transitions available for them.",
+      "type": "string"
+    },
+    "endingBefore": {
+      "description": "(Optional)The end cursor for use in pagination.",
+      "type": "string"
+    },
+    "startingAfter": {
+      "description": "(Optional)The start cursor for use in pagination.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "issueIdsOrKeys"
+  ]
+}

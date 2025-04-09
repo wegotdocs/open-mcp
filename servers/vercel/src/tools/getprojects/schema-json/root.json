@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "from": {
+      "description": "Query only projects updated after the given timestamp",
+      "type": "string"
+    },
+    "gitForkProtection": {
+      "description": "Specifies whether PRs from Git forks should require a team member's authorization before it can be deployed",
+      "type": "string",
+      "enum": [
+        "1",
+        "0"
+      ],
+      "example": "1"
+    },
+    "limit": {
+      "description": "Limit the number of projects returned",
+      "type": "string"
+    },
+    "search": {
+      "description": "Search projects by the name field",
+      "type": "string"
+    },
+    "repo": {
+      "description": "Filter results by repo. Also used for project count",
+      "type": "string"
+    },
+    "repoId": {
+      "description": "Filter results by Repository ID.",
+      "type": "string"
+    },
+    "repoUrl": {
+      "description": "Filter results by Repository URL.",
+      "type": "string",
+      "example": "https://github.com/vercel/next.js"
+    },
+    "excludeRepos": {
+      "description": "Filter results by excluding those projects that belong to a repo",
+      "type": "string"
+    },
+    "edgeConfigId": {
+      "description": "Filter results by connected Edge Config ID",
+      "type": "string"
+    },
+    "edgeConfigTokenId": {
+      "description": "Filter results by connected Edge Config Token ID",
+      "type": "string"
+    },
+    "deprecated": {
+      "type": "boolean"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

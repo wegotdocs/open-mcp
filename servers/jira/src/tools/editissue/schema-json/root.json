@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "issueIdOrKey": {
+      "description": "The ID or key of the issue.",
+      "type": "string"
+    },
+    "notifyUsers": {
+      "description": "Whether a notification email about the issue update is sent to all watchers. To disable the notification, administer Jira or administer project permissions are required. If the user doesn't have the necessary permission the request is ignored.",
+      "default": true,
+      "type": "boolean"
+    },
+    "overrideScreenSecurity": {
+      "description": "Whether screen security is overridden to enable hidden fields to be edited. Available to Connect app users with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg) and Forge apps acting on behalf of users with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+      "default": false,
+      "type": "boolean"
+    },
+    "overrideEditableFlag": {
+      "description": "Whether screen security is overridden to enable uneditable fields to be edited. Available to Connect app users with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg) and Forge apps acting on behalf of users with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+      "default": false,
+      "type": "boolean"
+    },
+    "returnIssue": {
+      "description": "Whether the response should contain the issue with fields edited in this request. The returned issue will have the same format as in the [Get issue API](#api-rest-api-3-issue-issueidorkey-get).",
+      "default": false,
+      "type": "boolean"
+    },
+    "expand": {
+      "description": "The Get issue API expand parameter to use in the response if the `returnIssue` parameter is `true`.",
+      "default": "",
+      "type": "string"
+    },
+    "fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fields` to the tool, first call the tool `expandSchema` with \"/properties/fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>List of issue screen fields to update, specifying the sub-field to update and its value for each field. This field provides a straightforward option when setting a sub-field. When multiple sub-fields or other operations are required, use `update`. Fields included in here cannot be included in `update`.</property-description>",
+      "additionalProperties": true
+    },
+    "historyMetadata": {
+      "type": "string"
+    },
+    "properties": {
+      "description": "Details of issue properties to be add or update.",
+      "items": {
+        "additionalProperties": false,
+        "description": "An entity property, for more information see [Entity properties](https://developer.atlassian.com/cloud/jira/platform/jira-entity-properties/).",
+        "properties": {
+          "key": {
+            "description": "The key of the property. Required on create and update.",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value of the property. Required on create and update."
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "transition": {
+      "type": "string"
+    },
+    "update": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `update` to the tool, first call the tool `expandSchema` with \"/properties/update\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A Map containing the field field name and a list of operations to perform on the issue screen field. Note that fields included in here cannot be included in `fields`.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "issueIdOrKey"
+  ]
+}

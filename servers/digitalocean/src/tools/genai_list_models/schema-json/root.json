@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "usecases": {
+      "description": "Include only models defined for the listed usecases.\n\n - MODEL_USECASE_UNKNOWN: The use case of the model is unknown\n - MODEL_USECASE_AGENT: The model maybe used in an agent\n - MODEL_USECASE_FINETUNED: The model maybe used for fine tuning\n - MODEL_USECASE_KNOWLEDGEBASE: The model maybe used for knowledge bases (embedding models)\n - MODEL_USECASE_GUARDRAIL: The model maybe used for guardrails\n - MODEL_USECASE_REASONING: The model usecase for reasoning",
+      "items": {
+        "enum": [
+          "MODEL_USECASE_UNKNOWN",
+          "MODEL_USECASE_AGENT",
+          "MODEL_USECASE_FINETUNED",
+          "MODEL_USECASE_KNOWLEDGEBASE",
+          "MODEL_USECASE_GUARDRAIL",
+          "MODEL_USECASE_REASONING"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "public_only": {
+      "description": "Only include models that are publicly available.",
+      "type": "boolean"
+    },
+    "page": {
+      "description": "Page number.",
+      "type": "integer"
+    },
+    "per_page": {
+      "description": "Items per page.",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

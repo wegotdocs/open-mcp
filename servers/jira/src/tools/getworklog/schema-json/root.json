@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "issueIdOrKey": {
+      "description": "The ID or key of the issue.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the worklog.",
+      "type": "string"
+    },
+    "expand": {
+      "description": "Use [expand](#expansion) to include additional information about work logs in the response. This parameter accepts\n\n`properties`, which returns worklog properties.",
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "issueIdOrKey",
+    "id"
+  ]
+}

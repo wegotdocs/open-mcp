@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "projectIdOrKey": {
+      "description": "The ID or key of the project.",
+      "type": "string"
+    },
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": 50,
+      "format": "int32",
+      "maximum": 200,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "projectIdOrKey"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrName": {
+      "description": "The unique project identifier or the project name",
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "b_slug": {
+      "description": "The slug of the custom environment to create.",
+      "type": "string",
+      "maxLength": 32,
+      "errorMessage": "Slug must be 32 characters or less."
+    },
+    "description": {
+      "description": "Description of the custom environment. This is optional.",
+      "type": "string",
+      "maxLength": 256,
+      "errorMessage": "Description must be 256 characters or less."
+    },
+    "branchMatcher": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `branchMatcher` to the tool, first call the tool `expandSchema` with \"/properties/branchMatcher\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>How we want to determine a matching branch. This is optional.</property-description>",
+      "additionalProperties": true
+    },
+    "copyEnvVarsFrom": {
+      "description": "Where to copy environment variables from. This is optional.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "idOrName"
+  ]
+}

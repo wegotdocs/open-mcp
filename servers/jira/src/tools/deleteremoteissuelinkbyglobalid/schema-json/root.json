@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "issueIdOrKey": {
+      "description": "The ID or key of the issue.",
+      "example": "10000",
+      "type": "string"
+    },
+    "globalId": {
+      "description": "The global ID of a remote issue link.",
+      "example": "system=http://www.mycompany.com/support&id=1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "issueIdOrKey",
+    "globalId"
+  ]
+}

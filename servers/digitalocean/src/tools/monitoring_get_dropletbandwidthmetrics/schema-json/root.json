@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "host_id": {
+      "description": "The droplet ID.",
+      "type": "string"
+    },
+    "interface": {
+      "description": "The network interface.",
+      "type": "string",
+      "enum": [
+        "private",
+        "public"
+      ]
+    },
+    "direction": {
+      "description": "The traffic direction.",
+      "type": "string",
+      "enum": [
+        "inbound",
+        "outbound"
+      ]
+    },
+    "start": {
+      "description": "UNIX timestamp to start metric window.",
+      "type": "string"
+    },
+    "end": {
+      "description": "UNIX timestamp to end metric window.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "host_id",
+    "interface",
+    "direction",
+    "start",
+    "end"
+  ]
+}

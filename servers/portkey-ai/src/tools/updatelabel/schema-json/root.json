@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "labelId": {
+      "description": "ID of the label to update",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the label",
+      "pattern": "^(?!latest$)(?!default$)(?!\\d+$)[a-zA-Z0-9_-]*[^@\\s]?[a-zA-Z0-9_-]*$"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the label"
+    },
+    "color_code": {
+      "type": "string",
+      "description": "Color code for the label"
+    }
+  },
+  "required": [
+    "labelId"
+  ]
+}

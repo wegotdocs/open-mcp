@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "schemeId": {
+      "description": "The ID of the issue security scheme.",
+      "type": "string"
+    },
+    "levels": {
+      "description": "The list of scheme levels which should be added to the security scheme.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "description": "The description of the issue security scheme level.",
+            "maxLength": 4000,
+            "type": "string",
+            "writeOnly": true
+          },
+          "isDefault": {
+            "description": "Specifies whether the level is the default level. False by default.",
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "members": {
+            "description": "The list of level members which should be added to the issue security scheme level.",
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "parameter": {
+                  "description": "The value corresponding to the specified member type.",
+                  "type": "string",
+                  "writeOnly": true
+                },
+                "type": {
+                  "description": "The issue security level member type, e.g `reporter`, `group`, `user`, `projectrole`, `applicationRole`.",
+                  "type": "string",
+                  "writeOnly": true
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "type": "object",
+              "writeOnly": true
+            },
+            "type": "array",
+            "writeOnly": true
+          },
+          "name": {
+            "description": "The name of the issue security scheme level. Must be unique.",
+            "maxLength": 255,
+            "type": "string",
+            "writeOnly": true
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "writeOnly": true
+      },
+      "type": "array",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "schemeId"
+  ]
+}

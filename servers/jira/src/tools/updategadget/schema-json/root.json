@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "dashboardId": {
+      "description": "The ID of the dashboard.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "gadgetId": {
+      "description": "The ID of the gadget.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "color": {
+      "description": "The color of the gadget. Should be one of `blue`, `red`, `yellow`, `green`, `cyan`, `purple`, `gray`, or `white`.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "position": {
+      "type": "string"
+    },
+    "title": {
+      "description": "The title of the gadget.",
+      "type": "string",
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "dashboardId",
+    "gadgetId"
+  ]
+}

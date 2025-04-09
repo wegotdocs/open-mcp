@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "anthropic_key_uuid": {
+      "description": "Optional Anthropic API key ID to use with Anthropic models",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "description": {
+      "description": "A text description of the agent, not used in inference",
+      "example": "\"My Agent Description\"",
+      "type": "string"
+    },
+    "instruction": {
+      "description": "Agent instruction. Instructions help your agent to perform its job effectively. See [Write Effective Agent Instructions](https://docs.digitalocean.com/products/genai-platform/concepts/best-practices/#agent-instructions) for best practices.",
+      "example": "\"You are an agent who thinks deeply about the world\"",
+      "type": "string"
+    },
+    "knowledge_base_uuid": {
+      "description": "Ids of the knowledge base(s) to attach to the agent",
+      "example": [
+        "example string"
+      ],
+      "items": {
+        "example": "\"example string\"",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_uuid": {
+      "description": "Identifier for the foundation model.",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "name": {
+      "description": "Agent name",
+      "example": "\"My Agent\"",
+      "type": "string"
+    },
+    "open_ai_key_uuid": {
+      "description": "Optional OpenAI API key ID to use with OpenAI models",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "project_id": {
+      "description": "The id of the DigitalOcean project this agent will belong to",
+      "example": "\"12345678-1234-1234-1234-123456789012\"",
+      "type": "string"
+    },
+    "region": {
+      "description": "The DigitalOcean region to deploy your agent in",
+      "example": "\"tor1\"",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Agent tag to organize related resources",
+      "example": [
+        "example string"
+      ],
+      "items": {
+        "example": "\"example string\"",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

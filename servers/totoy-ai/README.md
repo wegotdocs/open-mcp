@@ -69,6 +69,19 @@ It should say _MCP Server running on stdio_ in red.
 
 ## Tools
 
+### expandSchema
+
+Expand the input schema for a tool before calling the tool
+
+**Input schema**
+
+```ts
+{
+  toolName: z.string(),
+  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
+}
+```
+
 ### createexplanation
 
 **Environment variables**
@@ -252,7 +265,7 @@ It should say _MCP Server running on stdio_ in red.
   "valid_from": z.string().datetime({ offset: true }).nullable().describe("From what time the \`Source\` can be used by a \`Knowledge Base\` or an \`Explanation\`. If no \`valid_from\` is set, the \`Source\` is valid from the time it is added to \`Sources\`.").optional(),
   "valid_until": z.string().datetime({ offset: true }).nullable().describe("Until when the \`Source\` can be used by a \`Knowledge Base\` or an \`Explanation\`. If no \`valid_until\` is set, the \`Source\` is valid until it is removed from \`Sources\`.").optional(),
   "project_id": z.string().regex(new RegExp("^pj_[a-zA-Z0-9]{25}$")).max(28).nullable().describe("The unique identifier of the project this \`Source\` should be assigned to. \`Sources\` can only be used by resources with the same \`project_id\`. If no \`project_id\` is set, the \`Source\` will be assigned to the default project.").optional(),
-  "custom_metadata": z.record(z.any()).describe("Custom optional metadata for a \`Source\` provided by a client. Up to 10 key-value pairs.").optional()
+  "custom_metadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nCustom optional metadata for a \`Source\` provided by a client. Up to 10 key-value pairs.").optional()
 }
 ```
 
@@ -299,7 +312,7 @@ It should say _MCP Server running on stdio_ in red.
   "valid_from": z.string().datetime({ offset: true }).nullable().describe("From what time the \`Source\` can be used by a \`Knowledge Base\` or an \`Explanation\`. If no \`valid_from\` is set, the \`Source\` is valid from the time it is added to \`Sources\`.").optional(),
   "valid_until": z.string().datetime({ offset: true }).nullable().describe("Until when the \`Source\` can be used by a \`Knowledge Base\` or an \`Explanation\`. If no \`valid_until\` is set, the \`Source\` is valid until it is removed from \`Sources\`.").optional(),
   "project_id": z.string().regex(new RegExp("^pj_[a-zA-Z0-9]{25}$")).max(28).nullable().describe("The unique identifier of the project this \`Source\` should be assigned to. \`Sources\` can only be used by resources with the same \`project_id\`. If no \`project_id\` is set, the \`Source\` will be assigned to the default project. A \`Source\` can only be assigned to a different \`Project\`, if no \`Knowledge Bases\` are using the \`Source\`.").optional(),
-  "custom_metadata": z.record(z.any()).describe("Custom optional metadata for a \`Source\` provided by a client. Up to 10 key-value pairs.").optional()
+  "custom_metadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nCustom optional metadata for a \`Source\` provided by a client. Up to 10 key-value pairs.").optional()
 }
 ```
 
@@ -422,7 +435,7 @@ It should say _MCP Server running on stdio_ in red.
 
 ```ts
 {
-  "model": z.enum(["rre-de-2025-02-14","rre-de-2025-03-31","rre-de"]).describe("The name of the model that will be used for the extraction. A model name without a date is an alias to the latest version of that model, i.e. \`rre-de\` always points to the latest version of \`rre-de\`."),
+  "model": z.enum(["rre-de-2025-02-14","rre-de-2025-03-31","rre-de-2025-04-07","rre-de"]).describe("The name of the model that will be used for the extraction. A model name without a date is an alias to the latest version of that model, i.e. \`rre-de\` always points to the latest version of \`rre-de\`."),
   "document": z.string().describe("Base64-encoded contents of a document (PDF, JPG or PNG)"),
   "expand_abbreviations": z.boolean().describe("If set to true, the extraction will expand abbreviations in the extracted fields.").optional()
 }

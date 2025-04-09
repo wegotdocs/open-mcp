@@ -1,0 +1,692 @@
+{
+  "additionalProperties": false,
+  "description": "The payload for creating a workflows. See https://www.atlassian.com/software/jira/guides/workflows/overview\\#what-is-a-jira-workflow",
+  "nullable": true,
+  "properties": {
+    "statuses": {
+      "description": "The statuses for the workflow",
+      "items": {
+        "additionalProperties": false,
+        "description": "The payload for creating a status",
+        "properties": {
+          "description": {
+            "description": "The description of the status",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the status",
+            "type": "string"
+          },
+          "onConflict": {
+            "description": "The conflict strategy for the status already exists. FAIL - Fail execution, this always needs to be unique; USE - Use the existing entity and ignore new entity parameters; NEW - Create a new entity",
+            "enum": [
+              "FAIL",
+              "USE",
+              "NEW"
+            ],
+            "type": "string"
+          },
+          "pcri": {
+            "additionalProperties": false,
+            "description": "Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\\[entityType\\]:\\[type\\]:\\[entityId\\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation",
+            "example": "pcri:permissionScheme:id:10001",
+            "properties": {
+              "anID": {
+                "type": "boolean"
+              },
+              "areference": {
+                "type": "boolean"
+              },
+              "entityId": {
+                "type": "string"
+              },
+              "entityType": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "id",
+                  "ref"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "statusCategory": {
+            "description": "The status category of the status. The value is case-sensitive.",
+            "enum": [
+              "TODO",
+              "IN_PROGRESS",
+              "DONE"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "workflowScheme": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `workflowScheme` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/workflow/properties/workflowScheme\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The payload for creating a workflow scheme. See https://www.atlassian.com/software/jira/guides/workflows/overview\\#what-is-a-jira-workflow-scheme</property-description>",
+      "additionalProperties": true
+    },
+    "workflows": {
+      "description": "The transitions for the workflow",
+      "items": {
+        "additionalProperties": false,
+        "description": "The payload for creating workflow, see https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-create-post",
+        "properties": {
+          "description": {
+            "description": "The description of the workflow",
+            "example": "a software workflow",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the workflow",
+            "example": "Software Simplified Workflow",
+            "type": "string"
+          },
+          "pcri": {
+            "additionalProperties": false,
+            "description": "Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\\[entityType\\]:\\[type\\]:\\[entityId\\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation",
+            "example": "pcri:permissionScheme:id:10001",
+            "properties": {
+              "anID": {
+                "type": "boolean"
+              },
+              "areference": {
+                "type": "boolean"
+              },
+              "entityId": {
+                "type": "string"
+              },
+              "entityType": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "id",
+                  "ref"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "startPointLayout": {
+            "additionalProperties": false,
+            "description": "The layout of the workflow status.",
+            "properties": {
+              "x": {
+                "description": "The x coordinate of the status.",
+                "example": 1,
+                "format": "double",
+                "type": "number"
+              },
+              "y": {
+                "description": "The y coordinate of the status.",
+                "example": 2,
+                "format": "double",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "statuses": {
+            "description": "The statuses to be used in the workflow",
+            "items": {
+              "additionalProperties": false,
+              "description": "The statuses to be used in the workflow",
+              "properties": {
+                "layout": {
+                  "additionalProperties": false,
+                  "description": "The layout of the workflow status.",
+                  "properties": {
+                    "x": {
+                      "description": "The x coordinate of the status.",
+                      "example": 1,
+                      "format": "double",
+                      "type": "number"
+                    },
+                    "y": {
+                      "description": "The y coordinate of the status.",
+                      "example": 2,
+                      "format": "double",
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                },
+                "pcri": {
+                  "additionalProperties": false,
+                  "description": "Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\\[entityType\\]:\\[type\\]:\\[entityId\\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation",
+                  "example": "pcri:permissionScheme:id:10001",
+                  "properties": {
+                    "anID": {
+                      "type": "boolean"
+                    },
+                    "areference": {
+                      "type": "boolean"
+                    },
+                    "entityId": {
+                      "type": "string"
+                    },
+                    "entityType": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "enum": [
+                        "id",
+                        "ref"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "properties": {
+                  "additionalProperties": {
+                    "description": "The properties of the workflow status.",
+                    "type": "string"
+                  },
+                  "description": "The properties of the workflow status.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "transitions": {
+            "description": "The transitions for the workflow",
+            "items": {
+              "additionalProperties": false,
+              "description": "The payload for creating a transition in a workflow. Can be DIRECTED, GLOBAL, SELF-LOOPED, GLOBAL LOOPED",
+              "properties": {
+                "actions": {
+                  "description": "The actions that are performed when the transition is made",
+                  "items": {
+                    "additionalProperties": false,
+                    "description": "The payload for creating rules in a workflow",
+                    "properties": {
+                      "parameters": {
+                        "additionalProperties": {
+                          "description": "The parameters of the rule",
+                          "type": "string"
+                        },
+                        "description": "The parameters of the rule",
+                        "type": "object"
+                      },
+                      "ruleKey": {
+                        "description": "The key of the rule. See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-capabilities-get",
+                        "example": "system:update-field",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "conditions": {
+                  "additionalProperties": false,
+                  "description": "The payload for creating a condition group in a workflow",
+                  "properties": {
+                    "conditionGroup": {
+                      "description": "The nested conditions of the condition group.",
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "The payload for creating a condition group in a workflow",
+                        "properties": {
+                          "conditionGroup": {
+                            "description": "The nested conditions of the condition group.",
+                            "items": {
+                              "additionalProperties": false,
+                              "description": "The payload for creating a condition group in a workflow",
+                              "properties": {
+                                "conditionGroup": {
+                                  "description": "The nested conditions of the condition group.",
+                                  "items": {
+                                    "additionalProperties": false,
+                                    "description": "The payload for creating a condition group in a workflow",
+                                    "properties": {
+                                      "conditionGroup": {
+                                        "description": "The nested conditions of the condition group.",
+                                        "items": {
+                                          "additionalProperties": false,
+                                          "description": "The payload for creating a condition group in a workflow",
+                                          "properties": {
+                                            "conditionGroup": {
+                                              "description": "The nested conditions of the condition group.",
+                                              "items": {
+                                                "additionalProperties": false,
+                                                "description": "The payload for creating a condition group in a workflow",
+                                                "properties": {
+                                                  "conditionGroup": {
+                                                    "description": "The nested conditions of the condition group.",
+                                                    "items": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                  },
+                                                  "conditions": {
+                                                    "description": "The rules for this condition.",
+                                                    "items": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                  },
+                                                  "operation": {
+                                                    "description": "Determines how the conditions in the group are evaluated. Accepts either `ANY` or `ALL`. If `ANY` is used, at least one condition in the group must be true for the group to evaluate to true. If `ALL` is used, all conditions in the group must be true for the group to evaluate to true.",
+                                                    "enum": [
+                                                      "ANY",
+                                                      "ALL"
+                                                    ],
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "type": "object"
+                                              },
+                                              "type": "array"
+                                            },
+                                            "conditions": {
+                                              "description": "The rules for this condition.",
+                                              "items": {
+                                                "additionalProperties": false,
+                                                "description": "The payload for creating rules in a workflow",
+                                                "properties": {
+                                                  "parameters": {
+                                                    "additionalProperties": {
+                                                      "type": "string"
+                                                    },
+                                                    "description": "The parameters of the rule",
+                                                    "type": "object"
+                                                  },
+                                                  "ruleKey": {
+                                                    "description": "The key of the rule. See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-capabilities-get",
+                                                    "example": "system:update-field",
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "type": "object"
+                                              },
+                                              "type": "array"
+                                            },
+                                            "operation": {
+                                              "description": "Determines how the conditions in the group are evaluated. Accepts either `ANY` or `ALL`. If `ANY` is used, at least one condition in the group must be true for the group to evaluate to true. If `ALL` is used, all conditions in the group must be true for the group to evaluate to true.",
+                                              "enum": [
+                                                "ANY",
+                                                "ALL"
+                                              ],
+                                              "type": "string"
+                                            }
+                                          },
+                                          "type": "object"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "conditions": {
+                                        "description": "The rules for this condition.",
+                                        "items": {
+                                          "additionalProperties": false,
+                                          "description": "The payload for creating rules in a workflow",
+                                          "properties": {
+                                            "parameters": {
+                                              "additionalProperties": {
+                                                "description": "The parameters of the rule",
+                                                "type": "string"
+                                              },
+                                              "description": "The parameters of the rule",
+                                              "type": "object"
+                                            },
+                                            "ruleKey": {
+                                              "description": "The key of the rule. See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-capabilities-get",
+                                              "example": "system:update-field",
+                                              "type": "string"
+                                            }
+                                          },
+                                          "type": "object"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "operation": {
+                                        "description": "Determines how the conditions in the group are evaluated. Accepts either `ANY` or `ALL`. If `ANY` is used, at least one condition in the group must be true for the group to evaluate to true. If `ALL` is used, all conditions in the group must be true for the group to evaluate to true.",
+                                        "enum": [
+                                          "ANY",
+                                          "ALL"
+                                        ],
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "type": "array"
+                                },
+                                "conditions": {
+                                  "description": "The rules for this condition.",
+                                  "items": {
+                                    "additionalProperties": false,
+                                    "description": "The payload for creating rules in a workflow",
+                                    "properties": {
+                                      "parameters": {
+                                        "additionalProperties": {
+                                          "description": "The parameters of the rule",
+                                          "type": "string"
+                                        },
+                                        "description": "The parameters of the rule",
+                                        "type": "object"
+                                      },
+                                      "ruleKey": {
+                                        "description": "The key of the rule. See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-capabilities-get",
+                                        "example": "system:update-field",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "type": "array"
+                                },
+                                "operation": {
+                                  "description": "Determines how the conditions in the group are evaluated. Accepts either `ANY` or `ALL`. If `ANY` is used, at least one condition in the group must be true for the group to evaluate to true. If `ALL` is used, all conditions in the group must be true for the group to evaluate to true.",
+                                  "enum": [
+                                    "ANY",
+                                    "ALL"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "conditions": {
+                            "description": "The rules for this condition.",
+                            "items": {
+                              "additionalProperties": false,
+                              "description": "The payload for creating rules in a workflow",
+                              "properties": {
+                                "parameters": {
+                                  "additionalProperties": {
+                                    "description": "The parameters of the rule",
+                                    "type": "string"
+                                  },
+                                  "description": "The parameters of the rule",
+                                  "type": "object"
+                                },
+                                "ruleKey": {
+                                  "description": "The key of the rule. See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-capabilities-get",
+                                  "example": "system:update-field",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "operation": {
+                            "description": "Determines how the conditions in the group are evaluated. Accepts either `ANY` or `ALL`. If `ANY` is used, at least one condition in the group must be true for the group to evaluate to true. If `ALL` is used, all conditions in the group must be true for the group to evaluate to true.",
+                            "enum": [
+                              "ANY",
+                              "ALL"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "conditions": {
+                      "description": "The rules for this condition.",
+                      "items": {
+                        "additionalProperties": false,
+                        "description": "The payload for creating rules in a workflow",
+                        "properties": {
+                          "parameters": {
+                            "additionalProperties": {
+                              "description": "The parameters of the rule",
+                              "type": "string"
+                            },
+                            "description": "The parameters of the rule",
+                            "type": "object"
+                          },
+                          "ruleKey": {
+                            "description": "The key of the rule. See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-capabilities-get",
+                            "example": "system:update-field",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "operation": {
+                      "description": "Determines how the conditions in the group are evaluated. Accepts either `ANY` or `ALL`. If `ANY` is used, at least one condition in the group must be true for the group to evaluate to true. If `ALL` is used, all conditions in the group must be true for the group to evaluate to true.",
+                      "enum": [
+                        "ANY",
+                        "ALL"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "customIssueEventId": {
+                  "description": "Mechanism in Jira for triggering certain actions, like notifications, automations, etc. Unless a custom notification scheme is configure, it's better not to provide any value here",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "The description of the transition",
+                  "type": "string"
+                },
+                "from": {
+                  "description": "The statuses that the transition can be made from",
+                  "items": {
+                    "additionalProperties": false,
+                    "description": "The payload for the layout details for the start end of a transition",
+                    "properties": {
+                      "fromPort": {
+                        "description": "The port that the transition can be made from",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "status": {
+                        "additionalProperties": false,
+                        "description": "Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\\[entityType\\]:\\[type\\]:\\[entityId\\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation",
+                        "example": "pcri:permissionScheme:id:10001",
+                        "properties": {
+                          "anID": {
+                            "type": "boolean"
+                          },
+                          "areference": {
+                            "type": "boolean"
+                          },
+                          "entityId": {
+                            "type": "string"
+                          },
+                          "entityType": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "enum": [
+                              "id",
+                              "ref"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "toPortOverride": {
+                        "description": "The port that the transition goes to",
+                        "format": "int32",
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "id": {
+                  "description": "The id of the transition",
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "name": {
+                  "description": "The name of the transition",
+                  "type": "string"
+                },
+                "properties": {
+                  "additionalProperties": {
+                    "description": "The properties of the transition",
+                    "type": "string"
+                  },
+                  "description": "The properties of the transition",
+                  "type": "object"
+                },
+                "to": {
+                  "additionalProperties": false,
+                  "description": "The payload for the layout details for the destination end of a transition",
+                  "properties": {
+                    "port": {
+                      "description": "Defines where the transition line will be connected to a status. Port 0 to 7 are acceptable values.",
+                      "example": 1,
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "status": {
+                      "additionalProperties": false,
+                      "description": "Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\\[entityType\\]:\\[type\\]:\\[entityId\\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation",
+                      "example": "pcri:permissionScheme:id:10001",
+                      "properties": {
+                        "anID": {
+                          "type": "boolean"
+                        },
+                        "areference": {
+                          "type": "boolean"
+                        },
+                        "entityId": {
+                          "type": "string"
+                        },
+                        "entityType": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "enum": [
+                            "id",
+                            "ref"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "transitionScreen": {
+                  "additionalProperties": false,
+                  "description": "The payload for creating rules in a workflow",
+                  "properties": {
+                    "parameters": {
+                      "additionalProperties": {
+                        "description": "The parameters of the rule",
+                        "type": "string"
+                      },
+                      "description": "The parameters of the rule",
+                      "type": "object"
+                    },
+                    "ruleKey": {
+                      "description": "The key of the rule. See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-capabilities-get",
+                      "example": "system:update-field",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "triggers": {
+                  "description": "The triggers that are performed when the transition is made",
+                  "items": {
+                    "additionalProperties": false,
+                    "description": "The payload for creating rules in a workflow",
+                    "properties": {
+                      "parameters": {
+                        "additionalProperties": {
+                          "description": "The parameters of the rule",
+                          "type": "string"
+                        },
+                        "description": "The parameters of the rule",
+                        "type": "object"
+                      },
+                      "ruleKey": {
+                        "description": "The key of the rule. See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-capabilities-get",
+                        "example": "system:update-field",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "type": {
+                  "description": "The type of the transition",
+                  "enum": [
+                    "global",
+                    "initial",
+                    "directed"
+                  ],
+                  "type": "string"
+                },
+                "validators": {
+                  "description": "The validators that are performed when the transition is made",
+                  "items": {
+                    "additionalProperties": false,
+                    "description": "The payload for creating rules in a workflow",
+                    "properties": {
+                      "parameters": {
+                        "additionalProperties": {
+                          "description": "The parameters of the rule",
+                          "type": "string"
+                        },
+                        "description": "The parameters of the rule",
+                        "type": "object"
+                      },
+                      "ruleKey": {
+                        "description": "The key of the rule. See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/\\#api-rest-api-3-workflows-capabilities-get",
+                        "example": "system:update-field",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

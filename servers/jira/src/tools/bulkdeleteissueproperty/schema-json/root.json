@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "propertyKey": {
+      "description": "The key of the property.",
+      "type": "string"
+    },
+    "currentValue": {
+      "description": "The value of properties to perform the bulk operation on."
+    },
+    "entityIds": {
+      "description": "List of issues to perform the bulk delete operation on.",
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "propertyKey"
+  ]
+}

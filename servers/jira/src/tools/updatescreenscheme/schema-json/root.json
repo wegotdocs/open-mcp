@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "screenSchemeId": {
+      "description": "The ID of the screen scheme.",
+      "type": "string"
+    },
+    "description": {
+      "description": "The description of the screen scheme. The maximum length is 255 characters.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "name": {
+      "description": "The name of the screen scheme. The name must be unique. The maximum length is 255 characters.",
+      "type": "string",
+      "writeOnly": true
+    },
+    "screens": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "screenSchemeId"
+  ]
+}

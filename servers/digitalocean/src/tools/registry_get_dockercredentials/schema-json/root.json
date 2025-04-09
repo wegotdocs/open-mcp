@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "expiry_seconds": {
+      "description": "The duration in seconds that the returned registry credentials will be valid. If not set or 0, the credentials will not expire.",
+      "type": "integer",
+      "minimum": 0,
+      "default": 0
+    },
+    "read_write": {
+      "description": "By default, the registry credentials allow for read-only access. Set this query parameter to `true` to obtain read-write credentials.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": []
+}

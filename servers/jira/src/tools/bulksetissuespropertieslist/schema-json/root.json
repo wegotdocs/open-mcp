@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "entitiesIds": {
+      "description": "A list of entity property IDs.",
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "properties": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `properties` to the tool, first call the tool `expandSchema` with \"/properties/properties\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A list of entity property keys and values.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "accountHolderCode": z.string().describe("The code of the Account Holder to be updated."),
+  "accountHolderDetails": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `accountHolderDetails` to the tool, first call the tool `expandSchema` with \"/properties/accountHolderDetails\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The details to which the Account Holder should be updated.\n\nRequired if a processingTier is not provided.</property-description>").optional(),
+  "description": z.string().describe("A description of the account holder, maximum 256 characters. You can use alphanumeric characters (A-Z, a-z, 0-9), white spaces, and underscores `_`.").optional(),
+  "legalEntity": z.enum(["Business","Individual","NonProfit","Partnership","PublicCompany"]).describe("The legal entity type of the account holder. This determines the information that should be provided in the request.\n\nPossible values: **Business**, **Individual**, or **NonProfit**.\n\n* If set to **Business** or **NonProfit**, then `accountHolderDetails.businessDetails` must be provided, with at least one entry in the `accountHolderDetails.businessDetails.shareholders` list.\n\n* If set to **Individual**, then `accountHolderDetails.individualDetails` must be provided.").optional(),
+  "processingTier": z.number().int().describe("The processing tier to which the Account Holder should be updated.\n>The processing tier can not be lowered through this request.\n\n>Required if accountHolderDetails are not provided.").optional(),
+  "verificationProfile": z.string().describe("The identifier of the profile that applies to this entity.").optional()
+}

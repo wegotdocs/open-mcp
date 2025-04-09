@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "The icon type of the avatar.",
+      "enum": [
+        "issuetype",
+        "project",
+        "priority"
+      ],
+      "type": "string"
+    },
+    "size": {
+      "description": "The size of the avatar image. If not provided the default size is returned.",
+      "enum": [
+        "xsmall",
+        "small",
+        "medium",
+        "large",
+        "xlarge"
+      ],
+      "type": "string"
+    },
+    "format": {
+      "description": "The format to return the avatar image in. If not provided the original content format is returned.",
+      "enum": [
+        "png",
+        "svg"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

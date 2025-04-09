@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrName": {
+      "description": "The unique project identifier or the project name",
+      "type": "string",
+      "example": "prj_XLKmu1DyR1eY7zq8UgeRKbA7yVLA"
+    },
+    "id": {
+      "description": "The unique environment variable identifier",
+      "type": "string",
+      "example": "XMbOEya1gUUO1ir4"
+    },
+    "customEnvironmentId": {
+      "description": "The unique custom environment identifier within the project",
+      "type": "string",
+      "example": "env_123abc4567"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "idOrName",
+    "id"
+  ]
+}

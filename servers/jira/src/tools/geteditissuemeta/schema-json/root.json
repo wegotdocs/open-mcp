@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "issueIdOrKey": {
+      "description": "The ID or key of the issue.",
+      "type": "string"
+    },
+    "overrideScreenSecurity": {
+      "description": "Whether hidden fields are returned. Available to Connect app users with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg) and Forge apps acting on behalf of users with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+      "default": false,
+      "type": "boolean"
+    },
+    "overrideEditableFlag": {
+      "description": "Whether non-editable fields are returned. Available to Connect app users with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg) and Forge apps acting on behalf of users with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "issueIdOrKey"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "accountCode": {
+      "description": "The code of the account of which to retrieve the details.\n> Required if no `accountHolderCode` is provided.",
+      "type": "string"
+    },
+    "accountHolderCode": {
+      "description": "The code of the account holder of which to retrieve the details.\n> Required if no `accountCode` is provided.",
+      "type": "string"
+    },
+    "showDetails": {
+      "x-addedInVersion": "4",
+      "description": "True if the request should return the account holder details",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

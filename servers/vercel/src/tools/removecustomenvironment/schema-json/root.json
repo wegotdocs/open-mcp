@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrName": {
+      "description": "The unique project identifier or the project name",
+      "type": "string"
+    },
+    "environmentSlugOrId": {
+      "description": "The unique custom environment identifier within the project",
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "deleteUnassignedEnvironmentVariables": {
+      "description": "Delete Environment Variables that are not assigned to any environments.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "idOrName",
+    "environmentSlugOrId"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrUrl": {
+      "description": "The unique identifier or hostname of the deployment.",
+      "example": "dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ",
+      "type": "string"
+    },
+    "withGitRepoInfo": {
+      "description": "Whether to add in gitRepo information.",
+      "type": "string",
+      "example": "true"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "idOrUrl"
+  ]
+}

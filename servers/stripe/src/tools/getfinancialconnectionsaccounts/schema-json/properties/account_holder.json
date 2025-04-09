@@ -1,0 +1,15 @@
+{
+  "description": "If present, only return accounts that belong to the specified account holder. `account_holder[customer]` and `account_holder[account]` are mutually exclusive.",
+  "properties": {
+    "account": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "customer": {
+      "maxLength": 5000,
+      "type": "string"
+    }
+  },
+  "title": "accountholder_params",
+  "type": "object"
+}

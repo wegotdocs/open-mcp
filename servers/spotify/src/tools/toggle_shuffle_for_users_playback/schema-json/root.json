@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "state": {
+      "description": "**true** : Shuffle user's playback.<br/>\n**false** : Do not shuffle user's playback.\n",
+      "title": "State",
+      "example": true,
+      "type": "boolean"
+    },
+    "device_id": {
+      "description": "The id of the device this command is targeting. If\nnot supplied, the user's currently active device is the target.\n",
+      "title": "Device ID",
+      "example": "0d1841b0976bae2a3a310dd74c0f3df354899bc8",
+      "type": "string"
+    }
+  },
+  "required": [
+    "state"
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "type": "object",
+  "properties": {
+    "knowledge_base_id": {
+      "description": "Unique identifier for a `Knowledge Base`.",
+      "type": "string",
+      "maxLength": 28,
+      "pattern": "^kb_[a-zA-Z0-9]{25}$"
+    },
+    "output_language": {
+      "title": "OutputLanguage",
+      "description": "The ISO 639-1 code for the language in which the `Explanation` should be generated.\nSupported Languages:\n- ar: Arabic\n- bs: Bosnian\n- cs: Czech\n- de: German\n- es: Spanish\n- en: English\n- fa: Farsi\n- fr: French\n- hr: Croatian\n- hu: Hungarian\n- it: Italian\n- pl: Polish\n- ro: Romanian\n- sk: Slovak\n- sl: Slovenian\n- sr: Serbian\n- tl: Tagalog\n- tr: Turkish\n- uk: Ukrainian\n- zh: Mandarin\n",
+      "type": "string",
+      "enum": [
+        "ar",
+        "bs",
+        "cs",
+        "de",
+        "es",
+        "en",
+        "fa",
+        "fr",
+        "hr",
+        "hu",
+        "it",
+        "pl",
+        "ro",
+        "sk",
+        "sl",
+        "sr",
+        "tl",
+        "tr",
+        "uk",
+        "zh"
+      ],
+      "example": "en"
+    },
+    "language_level": {
+      "title": "LanguageLevel",
+      "description": "One of three language levels for the generated text:\n1. Simple Language: Answers are short and simple, using easy words and a clear structure.\n2. Plain Language: Answers are short and the assistant explains complicated terms.\n3. Detailed Language: Answers are not simplified and the assistant answers in detail.\n",
+      "type": "string",
+      "enum": [
+        "simple",
+        "plain",
+        "detailed"
+      ],
+      "example": "plain"
+    },
+    "messages": {
+      "description": "The conversation history. Provide at least one user message to start the conversation.",
+      "type": "array",
+      "items": {
+        "title": "Message",
+        "description": "Represents a message within an `Explanation` or a `Knowledge Base Chat`.\nFor `Explanations` - An `assistant` message is either an initial `Explanation` for the document when no messages were provided in the request or an answer to a user message in the provided conversation history.\n",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "role": {
+            "description": "The entity that produced the message. One of `user` or `assistant`.",
+            "type": "string",
+            "enum": [
+              "user",
+              "assistant"
+            ]
+          },
+          "content": {
+            "description": "The content of the message. The maximum length is 16,000 characters.",
+            "type": "string",
+            "maxLength": 16000
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "title": "Reference",
+              "description": "Represents a reference to a `Source` that was used to generate the answer.\nThe reference is used to provide backlinks to the original source and to provide context for the generated answer.\n",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "text": {
+                  "description": "String in the message content that needs to be replaced.",
+                  "type": "string",
+                  "maxLength": 8,
+                  "example": "[R1]"
+                },
+                "source_id": {
+                  "description": "What `Source` the generated answer depended on.",
+                  "maxLength": 29,
+                  "pattern": "^src_[a-zA-Z0-9]{25}$",
+                  "type": "string"
+                },
+                "page_number": {
+                  "description": "The page number in the `Source` the generated answer depended on. Only applicable for documents.",
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 5,
+                  "nullable": true,
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+                "backlink": {
+                  "description": "The backlink of the `Source`, so it can be called from the client.",
+                  "type": "string",
+                  "maxLength": 512,
+                  "example": "https://www.example.com/text.pdf"
+                },
+                "custom_metadata": {
+                  "title": "CustomMetadata",
+                  "description": "Custom optional metadata for a `Source` provided by a client. Up to 10 key-value pairs.",
+                  "type": "object",
+                  "additionalProperties": true,
+                  "maxProperties": 10,
+                  "example": {
+                    "internal_tag": "general_documents"
+                  }
+                }
+              },
+              "required": [
+                "text",
+                "source_id"
+              ],
+              "example": {
+                "text": "[R1]",
+                "source_id": "src_oXiYDg8QOc9JsOk86idRXiywD",
+                "page_number": 5,
+                "backlink": "https://www.totoy.ai/totoy-company-overview.pdf",
+                "custom_metadata": {
+                  "internal_tag": "general_documents"
+                }
+              }
+            },
+            "maxItems": 50
+          }
+        },
+        "required": [
+          "role",
+          "content"
+        ],
+        "example": {
+          "role": "assistant",
+          "content": "Hi!\nThe co-founders of Totoy are Benedikt Hielscher, Francis Rafal, Marcel Koller, Michael Perger and Simon Hoffmann.[R1]"
+        }
+      },
+      "maxItems": 50
+    },
+    "markdown_response": {
+      "description": "Whether the response should be returned as Markdown formatted text. If 'false', the response will be returned in plain text.",
+      "type": "boolean",
+      "default": true,
+      "example": true
+    }
+  },
+  "required": [
+    "knowledge_base_id",
+    "output_language",
+    "language_level",
+    "messages"
+  ]
+}

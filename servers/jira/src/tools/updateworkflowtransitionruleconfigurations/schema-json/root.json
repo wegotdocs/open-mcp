@@ -1,0 +1,197 @@
+{
+  "type": "object",
+  "properties": {
+    "workflows": {
+      "description": "The list of workflows with transition rules to update.",
+      "items": {
+        "additionalProperties": false,
+        "description": "A workflow with transition rules.",
+        "properties": {
+          "conditions": {
+            "description": "The list of conditions within the workflow.",
+            "items": {
+              "additionalProperties": false,
+              "description": "A workflow transition rule.",
+              "properties": {
+                "configuration": {
+                  "additionalProperties": false,
+                  "description": "A rule configuration.",
+                  "properties": {
+                    "disabled": {
+                      "default": false,
+                      "description": "Whether the rule is disabled.",
+                      "type": "boolean"
+                    },
+                    "tag": {
+                      "description": "A tag used to filter rules in [Get workflow transition rule configurations](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflow-transition-rules/#api-rest-api-3-workflow-rule-config-get).",
+                      "maxLength": 255,
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "Configuration of the rule, as it is stored by the Connect or the Forge app on the rule configuration page.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "id": {
+                  "description": "The ID of the transition rule.",
+                  "type": "string"
+                },
+                "key": {
+                  "description": "The key of the rule, as defined in the Connect or the Forge app descriptor.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "transition": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "configuration",
+                "id",
+                "key"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "postFunctions": {
+            "description": "The list of post functions within the workflow.",
+            "items": {
+              "additionalProperties": false,
+              "description": "A workflow transition rule.",
+              "properties": {
+                "configuration": {
+                  "additionalProperties": false,
+                  "description": "A rule configuration.",
+                  "properties": {
+                    "disabled": {
+                      "default": false,
+                      "description": "Whether the rule is disabled.",
+                      "type": "boolean"
+                    },
+                    "tag": {
+                      "description": "A tag used to filter rules in [Get workflow transition rule configurations](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflow-transition-rules/#api-rest-api-3-workflow-rule-config-get).",
+                      "maxLength": 255,
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "Configuration of the rule, as it is stored by the Connect or the Forge app on the rule configuration page.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "id": {
+                  "description": "The ID of the transition rule.",
+                  "type": "string"
+                },
+                "key": {
+                  "description": "The key of the rule, as defined in the Connect or the Forge app descriptor.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "transition": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "configuration",
+                "id",
+                "key"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "validators": {
+            "description": "The list of validators within the workflow.",
+            "items": {
+              "additionalProperties": false,
+              "description": "A workflow transition rule.",
+              "properties": {
+                "configuration": {
+                  "additionalProperties": false,
+                  "description": "A rule configuration.",
+                  "properties": {
+                    "disabled": {
+                      "default": false,
+                      "description": "Whether the rule is disabled.",
+                      "type": "boolean"
+                    },
+                    "tag": {
+                      "description": "A tag used to filter rules in [Get workflow transition rule configurations](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflow-transition-rules/#api-rest-api-3-workflow-rule-config-get).",
+                      "maxLength": 255,
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "Configuration of the rule, as it is stored by the Connect or the Forge app on the rule configuration page.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "id": {
+                  "description": "The ID of the transition rule.",
+                  "type": "string"
+                },
+                "key": {
+                  "description": "The key of the rule, as defined in the Connect or the Forge app descriptor.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "transition": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "configuration",
+                "id",
+                "key"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "workflowId": {
+            "additionalProperties": false,
+            "description": "Properties that identify a workflow.",
+            "properties": {
+              "draft": {
+                "description": "Whether the workflow is in the draft state.",
+                "type": "boolean"
+              },
+              "name": {
+                "description": "The name of the workflow.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "draft",
+              "name"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "workflowId"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "workflows"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "agent_uuid": {
+      "description": "The id of the agent the function route belongs to.",
+      "type": "string"
+    },
+    "function_uuid": {
+      "description": "The function route to be destroyed. This does not destroy the function itself.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "agent_uuid",
+    "function_uuid"
+  ]
+}

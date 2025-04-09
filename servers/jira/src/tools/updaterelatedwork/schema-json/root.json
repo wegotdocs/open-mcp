@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the version to update the related work on. For the related work id, pass it to the input JSON.",
+      "type": "string"
+    },
+    "category": {
+      "description": "The category of the related work",
+      "type": "string"
+    },
+    "issueId": {
+      "description": "The ID of the issue associated with the related work (if there is one). Cannot be updated via the Rest API.",
+      "format": "int64",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "relatedWorkId": {
+      "description": "The id of the related work. For the native release note related work item, this will be null, and Rest API does not support updating it.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "title": {
+      "description": "The title of the related work",
+      "type": "string"
+    },
+    "url": {
+      "description": "The URL of the related work. Will be null for the native release note related work item, but is otherwise required.",
+      "format": "uri",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "category"
+  ]
+}

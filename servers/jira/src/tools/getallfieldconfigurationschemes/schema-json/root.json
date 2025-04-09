@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": 50,
+      "format": "int32",
+      "type": "integer"
+    },
+    "id": {
+      "description": "The list of field configuration scheme IDs. To include multiple IDs, provide an ampersand-separated list. For example, `id=10000&id=10001`.",
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": []
+}

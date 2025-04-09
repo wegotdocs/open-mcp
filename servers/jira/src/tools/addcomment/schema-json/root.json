@@ -1,0 +1,83 @@
+{
+  "type": "object",
+  "properties": {
+    "issueIdOrKey": {
+      "description": "The ID or key of the issue.",
+      "type": "string"
+    },
+    "expand": {
+      "description": "Use [expand](#expansion) to include additional information about comments in the response. This parameter accepts `renderedBody`, which returns the comment body rendered in HTML.",
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "body": {
+      "description": "The comment text in [Atlassian Document Format](https://developer.atlassian.com/cloud/jira/platform/apis/document/structure/)."
+    },
+    "created": {
+      "description": "The date and time at which the comment was created.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the comment.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "jsdAuthorCanSeeRequest": {
+      "description": "Whether the comment was added from an email sent by a person who is not part of the issue. See [Allow external emails to be added as comments on issues](https://support.atlassian.com/jira-service-management-cloud/docs/allow-external-emails-to-be-added-as-comments-on-issues/)for information on setting up this feature.",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "jsdPublic": {
+      "description": "Whether the comment is visible in Jira Service Desk. Defaults to true when comments are created in the Jira Cloud Platform. This includes when the site doesn't use Jira Service Desk or the project isn't a Jira Service Desk project and, therefore, there is no Jira Service Desk for the issue to be visible on. To create a comment with its visibility in Jira Service Desk set to false, use the Jira Service Desk REST API [Create request comment](https://developer.atlassian.com/cloud/jira/service-desk/rest/#api-rest-servicedeskapi-request-issueIdOrKey-comment-post) operation.",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "properties": {
+      "description": "A list of comment properties. Optional on create and update.",
+      "items": {
+        "additionalProperties": false,
+        "description": "An entity property, for more information see [Entity properties](https://developer.atlassian.com/cloud/jira/platform/jira-entity-properties/).",
+        "properties": {
+          "key": {
+            "description": "The key of the property. Required on create and update.",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value of the property. Required on create and update."
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "renderedBody": {
+      "description": "The rendered version of the comment.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "self": {
+      "description": "The URL of the comment.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "updateAuthor": {
+      "type": "string"
+    },
+    "updated": {
+      "description": "The date and time at which the comment was updated last.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "issueIdOrKey"
+  ]
+}

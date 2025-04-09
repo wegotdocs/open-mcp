@@ -1,0 +1,304 @@
+{
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "firewallEnabled": {
+      "type": "boolean"
+    },
+    "managedRules": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `managedRules` to the tool, first call the tool `expandSchema` with \"/properties/managedRules\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "crs": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `crs` to the tool, first call the tool `expandSchema` with \"/properties/crs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 256
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "conditionGroup": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "conditions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "host",
+                          "path",
+                          "method",
+                          "header",
+                          "query",
+                          "cookie",
+                          "target_path",
+                          "raw_path",
+                          "ip_address",
+                          "region",
+                          "protocol",
+                          "scheme",
+                          "environment",
+                          "user_agent",
+                          "geo_continent",
+                          "geo_country",
+                          "geo_country_region",
+                          "geo_city",
+                          "geo_as_number",
+                          "ja4_digest",
+                          "ja3_digest",
+                          "rate_limit_api_id"
+                        ]
+                      },
+                      "op": {
+                        "type": "string",
+                        "enum": [
+                          "re",
+                          "eq",
+                          "neq",
+                          "ex",
+                          "nex",
+                          "inc",
+                          "ninc",
+                          "pre",
+                          "suf",
+                          "sub",
+                          "gt",
+                          "gte",
+                          "lt",
+                          "lte"
+                        ]
+                      },
+                      "neg": {
+                        "type": "boolean"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "maxItems": 75
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "op"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 65
+                }
+              },
+              "required": [
+                "conditions"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 25
+          },
+          "action": {
+            "type": "object",
+            "properties": {
+              "mitigate": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "log",
+                      "challenge",
+                      "deny",
+                      "bypass",
+                      "rate_limit",
+                      "redirect"
+                    ]
+                  },
+                  "rateLimit": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "algo": {
+                            "type": "string",
+                            "enum": [
+                              "fixed_window",
+                              "token_bucket"
+                            ]
+                          },
+                          "window": {
+                            "type": "number"
+                          },
+                          "limit": {
+                            "type": "number"
+                          },
+                          "keys": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "action": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "enum": [
+                                  "log",
+                                  "challenge",
+                                  "deny",
+                                  "rate_limit"
+                                ]
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "algo",
+                          "window",
+                          "limit",
+                          "keys"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "redirect": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "location": {
+                            "type": "string"
+                          },
+                          "permanent": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "location",
+                          "permanent"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "actionDuration": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "bypassSystem": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "action"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "active",
+          "conditionGroup",
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "ips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "hostname": {
+            "type": "string"
+          },
+          "ip": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "deny",
+              "challenge",
+              "log",
+              "bypass"
+            ]
+          }
+        },
+        "required": [
+          "hostname",
+          "ip",
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "projectId",
+    "firewallEnabled"
+  ]
+}

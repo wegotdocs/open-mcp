@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "events": {
+      "description": "Event type(s) to include in the response. Can have multiple values separated by comma. All events are returned by default.",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "Unix timestamp of the least recent event to include. This param defaults to one year ago if unspecified.",
+      "type": "number"
+    },
+    "end_time": {
+      "description": "Unix timestamp of the most recent event to include. This param defaults to the current timestamp if unspecified.",
+      "type": "number"
+    },
+    "limit": {
+      "description": "Maximum number of events to return. This param defaults to 1000 if unspecified.",
+      "type": "number"
+    },
+    "order": {
+      "description": "Event order by timestamp. This param can be either \"asc\" (default) or \"desc\".",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "asc"
+    }
+  },
+  "required": []
+}

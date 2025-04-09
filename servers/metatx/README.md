@@ -69,6 +69,19 @@ It should say _MCP Server running on stdio_ in red.
 
 ## Tools
 
+### expandSchema
+
+Expand the input schema for a tool before calling the tool
+
+**Input schema**
+
+```ts
+{
+  toolName: z.string(),
+  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
+}
+```
+
 ### blockchains_route_blockchains_get
 
 **Environment variables**

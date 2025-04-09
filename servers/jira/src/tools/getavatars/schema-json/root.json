@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "The avatar type.",
+      "enum": [
+        "project",
+        "issuetype",
+        "priority"
+      ],
+      "type": "string"
+    },
+    "entityId": {
+      "description": "The ID of the item the avatar is associated with.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "entityId"
+  ]
+}

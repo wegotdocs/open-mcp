@@ -1,0 +1,21 @@
+{
+  "description": "The payment details of the invoice payments to return.",
+  "properties": {
+    "payment_intent": {
+      "maxLength": 5000,
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "payment_intent"
+      ],
+      "type": "string",
+      "x-stripeBypassValidation": true
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "title": "payment_param",
+  "type": "object"
+}

@@ -69,6 +69,19 @@ It should say _MCP Server running on stdio_ in red.
 
 ## Tools
 
+### expandSchema
+
+Expand the input schema for a tool before calling the tool
+
+**Input schema**
+
+```ts
+{
+  toolName: z.string(),
+  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
+}
+```
+
 ### readaccessgroup
 
 **Environment variables**
@@ -444,7 +457,7 @@ It should say _MCP Server running on stdio_ in red.
   "status": z.enum(["running","completed"]).describe("The current status of the check").optional(),
   "conclusion": z.enum(["canceled","failed","neutral","succeeded","skipped"]).describe("The result of the check being run").optional(),
   "detailsUrl": z.string().describe("A URL a user may visit to see more information about the check").optional(),
-  "output": z.object({ "metrics": z.object({ "FCP": z.object({ "value": z.number().nullable().describe("First Contentful Paint value"), "previousValue": z.number().describe("Previous First Contentful Paint value to display a delta").optional(), "source": z.literal("web-vitals") }), "LCP": z.object({ "value": z.number().nullable().describe("Largest Contentful Paint value"), "previousValue": z.number().describe("Previous Largest Contentful Paint value to display a delta").optional(), "source": z.literal("web-vitals") }), "CLS": z.object({ "value": z.number().nullable().describe("Cumulative Layout Shift value"), "previousValue": z.number().describe("Previous Cumulative Layout Shift value to display a delta").optional(), "source": z.literal("web-vitals") }), "TBT": z.object({ "value": z.number().nullable().describe("Total Blocking Time value"), "previousValue": z.number().describe("Previous Total Blocking Time value to display a delta").optional(), "source": z.literal("web-vitals") }), "virtualExperienceScore": z.object({ "value": z.number().int().gte(0).lte(100).nullable().describe("The calculated Virtual Experience Score value, between 0 and 100"), "previousValue": z.number().int().gte(0).lte(100).describe("A previous Virtual Experience Score value to display a delta, between 0 and 100").optional(), "source": z.literal("web-vitals") }).optional() }).strict().describe("Metrics about the page").optional() }).describe("The results of the check Run").optional(),
+  "output": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe results of the check Run").optional(),
   "externalId": z.string().describe("An identifier that can be used as an external reference").optional()
 }
 ```
@@ -608,13 +621,13 @@ It should say _MCP Server running on stdio_ in red.
   "customEnvironmentSlugOrId": z.string().describe("Deploy to a custom environment, which will override the default environment").optional(),
   "deploymentId": z.string().describe("An deployment id for an existing deployment to redeploy").optional(),
   "files": z.array(z.object({ "data": z.string().describe("The file content, it could be either a \`base64\` (useful for images, etc.) of the files or the plain content for source code"), "encoding": z.enum(["base64","utf-8"]).describe("The file content encoding, it could be either a base64 (useful for images, etc.) of the files or the plain text for source code.").optional(), "file": z.string().describe("The file name including the whole path") }).strict().describe("Used in the case you want to inline a file inside the request")).describe("A list of objects with the files to be deployed").optional(),
-  "gitMetadata": z.object({ "remoteUrl": z.string().describe("The git repository's remote origin url").optional(), "commitAuthorName": z.string().describe("The name of the author of the commit").optional(), "commitMessage": z.string().describe("The commit message").optional(), "commitRef": z.string().describe("The branch on which the commit was made").optional(), "commitSha": z.string().describe("The hash of the commit").optional(), "dirty": z.boolean().describe("Whether or not there have been modifications to the working tree since the latest commit").optional() }).strict().describe("Populates initial git metadata for different git providers.").optional(),
+  "gitMetadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nPopulates initial git metadata for different git providers.").optional(),
   "gitSource": z.union([z.object({ "ref": z.string(), "repoId": z.number(), "sha": z.string().optional(), "type": z.literal("github") }), z.object({ "org": z.string(), "ref": z.string(), "repo": z.string(), "sha": z.string().optional(), "type": z.literal("github") }), z.object({ "projectId": z.number(), "ref": z.string(), "sha": z.string().optional(), "type": z.literal("gitlab") }), z.object({ "ref": z.string(), "repoUuid": z.string(), "sha": z.string().optional(), "type": z.literal("bitbucket"), "workspaceUuid": z.string().optional() }), z.object({ "owner": z.string(), "ref": z.string(), "sha": z.string().optional(), "slug": z.string(), "type": z.literal("bitbucket") })]).describe("Defines the Git Repository source to be deployed. This property can not be used in combination with \`files\`.").optional(),
-  "meta": z.record(z.string().max(65536)).describe("An object containing the deployment's metadata. Multiple key-value pairs can be attached to a deployment").optional(),
+  "meta": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nAn object containing the deployment's metadata. Multiple key-value pairs can be attached to a deployment").optional(),
   "monorepoManager": z.string().nullable().describe("The monorepo manager that is being used for this deployment. When \`null\` is used no monorepo manager is selected").optional(),
   "name": z.string().describe("A string with the project name used in the deployment URL"),
   "project": z.string().describe("The target project identifier in which the deployment will be created. When defined, this parameter overrides name").optional(),
-  "projectSettings": z.object({ "buildCommand": z.string().max(256).nullable().describe("The build command for this project. When \`null\` is used this value will be automatically detected").optional(), "commandForIgnoringBuildStep": z.string().max(256).nullable().optional(), "devCommand": z.string().max(256).nullable().describe("The dev command for this project. When \`null\` is used this value will be automatically detected").optional(), "framework": z.union([z.literal(null), z.literal("blitzjs"), z.literal("nextjs"), z.literal("gatsby"), z.literal("remix"), z.literal("react-router"), z.literal("astro"), z.literal("hexo"), z.literal("eleventy"), z.literal("docusaurus-2"), z.literal("docusaurus"), z.literal("preact"), z.literal("solidstart-1"), z.literal("solidstart"), z.literal("dojo"), z.literal("ember"), z.literal("vue"), z.literal("scully"), z.literal("ionic-angular"), z.literal("angular"), z.literal("polymer"), z.literal("svelte"), z.literal("sveltekit"), z.literal("sveltekit-1"), z.literal("ionic-react"), z.literal("create-react-app"), z.literal("gridsome"), z.literal("umijs"), z.literal("sapper"), z.literal("saber"), z.literal("stencil"), z.literal("nuxtjs"), z.literal("redwoodjs"), z.literal("hugo"), z.literal("jekyll"), z.literal("brunch"), z.literal("middleman"), z.literal("zola"), z.literal("hydrogen"), z.literal("vite"), z.literal("vitepress"), z.literal("vuepress"), z.literal("parcel"), z.literal("fasthtml"), z.literal("sanity-v3"), z.literal("sanity"), z.literal("storybook")]).nullable().describe("The framework that is being used for this project. When \`null\` is used no framework is selected").optional(), "installCommand": z.string().max(256).nullable().describe("The install command for this project. When \`null\` is used this value will be automatically detected").optional(), "nodeVersion": z.enum(["22.x","20.x","18.x","16.x","14.x","12.x","10.x","8.10.x"]).describe("Override the Node.js version that should be used for this deployment").optional(), "outputDirectory": z.string().max(256).nullable().describe("The output directory of the project. When \`null\` is used this value will be automatically detected").optional(), "rootDirectory": z.string().max(256).nullable().describe("The name of a directory or relative path to the source code of your project. When \`null\` is used it will default to the project root").optional(), "serverlessFunctionRegion": z.string().max(4).nullable().describe("The region to deploy Serverless Functions in this project").optional(), "sourceFilesOutsideRootDirectory": z.boolean().describe("Indicates if there are source files outside of the root directory, typically used for monorepos").optional() }).strict().describe("Project settings that will be applied to the deployment. It is required for the first deployment of a project and will be saved for any following deployments").optional(),
+  "projectSettings": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nProject settings that will be applied to the deployment. It is required for the first deployment of a project and will be saved for any following deployments").optional(),
   "target": z.string().describe("Either not defined, \`staging\`, \`production\`, or a custom environment identifier. If \`staging\`, a staging alias in the format \`<project>-<team>.vercel.app\` will be assigned. If \`production\`, any aliases defined in \`alias\` will be assigned. If omitted, the target will be \`preview\`.").optional(),
   "withLatestCommit": z.boolean().describe("When \`true\` and \`deploymentId\` is passed in, the sha from the previous deployment's \`gitSource\` is removed forcing the latest commit to be used.").optional()
 }
@@ -752,8 +765,8 @@ It should say _MCP Server running on stdio_ in red.
   "type": z.enum(["A","AAAA","ALIAS","CAA","CNAME","HTTPS","MX","SRV","TXT","NS"]).nullable().describe("The type of the DNS record").optional(),
   "ttl": z.number().int().gte(60).lte(2147483647).nullable().describe("The Time to live (TTL) value of the DNS record").optional(),
   "mxPriority": z.number().int().nullable().describe("The MX priority value of the DNS record").optional(),
-  "srv": z.object({ "target": z.string().max(255).nullable(), "weight": z.number().int().nullable(), "port": z.number().int().nullable(), "priority": z.number().int().nullable() }).strict().nullable().optional(),
-  "https": z.object({ "priority": z.number().int().nullable(), "target": z.string().max(255).nullable(), "params": z.string().nullable().optional() }).strict().nullable().optional(),
+  "srv": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
+  "https": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
   "comment": z.string().max(500).describe("A comment to add context on what this DNS record is for").optional()
 }
 ```
@@ -952,7 +965,7 @@ It should say _MCP Server running on stdio_ in red.
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
   "deliveryFormat": z.enum(["json","ndjson"]).describe("The delivery log format"),
   "url": z.string().url().regex(new RegExp("^(http|https)?://")).describe("The log drain url"),
-  "headers": z.record(z.string()).describe("Headers to be sent together with the request").optional(),
+  "headers": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nHeaders to be sent together with the request").optional(),
   "projectIds": z.array(z.string().regex(new RegExp("^[a-zA-z0-9_]+$"))).min(1).max(50).optional(),
   "sources": z.array(z.enum(["static","lambda","build","edge","external","firewall"])).min(1),
   "environments": z.array(z.enum(["preview","production"])).min(1).optional(),
@@ -990,7 +1003,7 @@ It should say _MCP Server running on stdio_ in red.
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
   "b_slug": z.string().regex(new RegExp("^[\\\\w-]+$")).max(64),
-  "items": z.record(z.any()).optional()
+  "items": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional()
 }
 ```
 
@@ -1326,7 +1339,7 @@ It should say _MCP Server running on stdio_ in red.
   "integrationConfigurationId": z.string(),
   "timestamp": z.string().datetime({ offset: true }).describe("Server time of your integration, used to determine the most recent data for race conditions & updates. Only the latest usage data for a given day, week, and month will be kept."),
   "eod": z.string().datetime({ offset: true }).describe("End of Day, the UTC datetime for when the end of the billing/usage day is in UTC time. This tells us which day the usage data is for, and also allows for your \\\"end of day\\\" to be different from UTC 00:00:00. eod must be within the period dates, and cannot be older than 24h earlier from our server's current time."),
-  "period": z.object({ "start": z.string().datetime({ offset: true }), "end": z.string().datetime({ offset: true }) }).strict().describe("Period for the billing cycle. The period end date cannot be older than 24 hours earlier than our current server's time."),
+  "period": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nPeriod for the billing cycle. The period end date cannot be older than 24 hours earlier than our current server's time."),
   "billing": z.array(z.object({ "billingPlanId": z.string().describe("Partner's billing plan ID."), "resourceId": z.string().describe("Partner's resource ID.").optional(), "start": z.string().datetime({ offset: true }).describe("Start and end are only needed if different from the period's start/end.").optional(), "end": z.string().datetime({ offset: true }).describe("Start and end are only needed if different from the period's start/end.").optional(), "name": z.string().describe("Line item name."), "details": z.string().describe("Line item details.").optional(), "price": z.string().regex(new RegExp("^[0-9]+(\\\\.[0-9]+)?$")).describe("Price per unit."), "quantity": z.number().describe("Quantity of units."), "units": z.string().describe("Units of the quantity."), "total": z.string().regex(new RegExp("^[0-9]+(\\\\.[0-9]+)?$")).describe("Total amount.") }).strict()).describe("Billing data (interim invoicing data)."),
   "usage": z.array(z.object({ "resourceId": z.string().describe("Partner's resource ID.").optional(), "name": z.string().describe("Metric name."), "type": z.enum(["total","interval","rate"]).describe("\\n              Type of the metric.\\n              - total: measured total value, such as Database size\\n              - interval: usage during the period, such as i/o or number of queries.\\n              - rate: rate of usage, such as queries per second.\\n            "), "units": z.string().describe("Metric units. Example: \\\"GB\\\""), "dayValue": z.number().describe("Metric value for the day. Could be a final or an interim value for the day."), "periodValue": z.number().describe("Metric value for the billing period. Could be a final or an interim value for the period."), "planValue": z.number().describe("The limit value of the metric for a billing period, if a limit is defined by the plan.").optional() }).strict())
 }
@@ -1346,10 +1359,10 @@ It should say _MCP Server running on stdio_ in red.
   "externalId": z.string().optional(),
   "invoiceDate": z.string().datetime({ offset: true }).describe("Invoice date. Must be within the period's start and end."),
   "memo": z.string().describe("Additional memo for the invoice.").optional(),
-  "period": z.object({ "start": z.string().datetime({ offset: true }), "end": z.string().datetime({ offset: true }) }).strict().describe("Subscription period for this billing cycle."),
+  "period": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSubscription period for this billing cycle."),
   "items": z.array(z.object({ "resourceId": z.string().describe("Partner's resource ID.").optional(), "billingPlanId": z.string().describe("Partner's billing plan ID."), "start": z.string().datetime({ offset: true }).describe("Start and end are only needed if different from the period's start/end.").optional(), "end": z.string().datetime({ offset: true }).describe("Start and end are only needed if different from the period's start/end.").optional(), "name": z.string(), "details": z.string().optional(), "price": z.string().regex(new RegExp("^[0-9]+(\\\\.[0-9]+)?$")).describe("Currency amount as a decimal string."), "quantity": z.number(), "units": z.string(), "total": z.string().regex(new RegExp("^[0-9]+(\\\\.[0-9]+)?$")).describe("Currency amount as a decimal string.") }).strict()),
   "discounts": z.array(z.object({ "resourceId": z.string().describe("Partner's resource ID.").optional(), "billingPlanId": z.string().describe("Partner's billing plan ID."), "start": z.string().datetime({ offset: true }).describe("Start and end are only needed if different from the period's start/end.").optional(), "end": z.string().datetime({ offset: true }).describe("Start and end are only needed if different from the period's start/end.").optional(), "name": z.string(), "details": z.string().optional(), "amount": z.string().regex(new RegExp("^[0-9]+(\\\\.[0-9]+)?$")).describe("Currency amount as a decimal string.") }).strict()).optional(),
-  "test": z.object({ "validate": z.boolean().optional(), "result": z.enum(["paid","notpaid"]).optional() }).strict().describe("Test mode").optional()
+  "test": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nTest mode").optional()
 }
 ```
 
@@ -1452,9 +1465,9 @@ It should say _MCP Server running on stdio_ in red.
   "productId": z.string(),
   "name": z.string(),
   "status": z.enum(["ready","pending","suspended","resumed","uninstalled","error"]),
-  "metadata": z.record(z.any()).optional(),
-  "billingPlan": z.object({ "id": z.string(), "type": z.enum(["prepayment","subscription"]), "name": z.string(), "paymentMethodRequired": z.boolean().optional() }).catchall(z.any()).optional(),
-  "notification": z.object({ "level": z.enum(["info","warn","error"]), "title": z.string(), "message": z.string().optional(), "href": z.string().url().optional() }).optional(),
+  "metadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
+  "billingPlan": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
+  "notification": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
   "secrets": z.array(z.object({ "name": z.string(), "value": z.string(), "prefix": z.string().optional() }).strict()).optional()
 }
 ```
@@ -1560,7 +1573,7 @@ It should say _MCP Server running on stdio_ in red.
   "deliveryFormat": z.enum(["json","ndjson","syslog"]).describe("The delivery log format").optional(),
   "url": z.string().url().regex(new RegExp("^(https?|syslog\\\\+tls|syslog)://")).describe("The url where you will receive logs. The protocol must be \`https://\` or \`http://\` when type is \`json\` and \`ndjson\`, and \`syslog+tls:\` or \`syslog:\` when the type is \`syslog\`."),
   "sources": z.array(z.enum(["static","lambda","build","edge","external","firewall"])).min(1).optional(),
-  "headers": z.record(z.string()).describe("Headers to be sent together with the request").optional(),
+  "headers": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nHeaders to be sent together with the request").optional(),
   "environments": z.array(z.enum(["preview","production"])).min(1).optional()
 }
 ```
@@ -1713,7 +1726,7 @@ It should say _MCP Server running on stdio_ in red.
 {
   "integrationConfigurationId": z.string(),
   "resourceId": z.string(),
-  "data": z.record(z.any())
+  "data": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
 }
 ```
 
@@ -1817,7 +1830,7 @@ It should say _MCP Server running on stdio_ in red.
   "devCommand": z.string().max(256).nullable().describe("The dev command for this project. When \`null\` is used this value will be automatically detected").optional(),
   "environmentVariables": z.array(z.object({ "key": z.string().describe("Name of the ENV variable"), "target": z.enum(["production","preview","development"]).describe("Deployment Target or Targets in which the ENV variable will be used"), "gitBranch": z.string().max(250).describe("If defined, the git branch of the environment variable (must have target=preview)").optional(), "type": z.enum(["system","secret","encrypted","plain","sensitive"]).describe("Type of the ENV variable").optional(), "value": z.string().describe("Value for the ENV variable") })).describe("Collection of ENV Variables the Project will use").optional(),
   "framework": z.union([z.literal(null), z.literal("blitzjs"), z.literal("nextjs"), z.literal("gatsby"), z.literal("remix"), z.literal("react-router"), z.literal("astro"), z.literal("hexo"), z.literal("eleventy"), z.literal("docusaurus-2"), z.literal("docusaurus"), z.literal("preact"), z.literal("solidstart-1"), z.literal("solidstart"), z.literal("dojo"), z.literal("ember"), z.literal("vue"), z.literal("scully"), z.literal("ionic-angular"), z.literal("angular"), z.literal("polymer"), z.literal("svelte"), z.literal("sveltekit"), z.literal("sveltekit-1"), z.literal("ionic-react"), z.literal("create-react-app"), z.literal("gridsome"), z.literal("umijs"), z.literal("sapper"), z.literal("saber"), z.literal("stencil"), z.literal("nuxtjs"), z.literal("redwoodjs"), z.literal("hugo"), z.literal("jekyll"), z.literal("brunch"), z.literal("middleman"), z.literal("zola"), z.literal("hydrogen"), z.literal("vite"), z.literal("vitepress"), z.literal("vuepress"), z.literal("parcel"), z.literal("fasthtml"), z.literal("sanity-v3"), z.literal("sanity"), z.literal("storybook")]).describe("The framework that is being used for this project. When \`null\` is used no framework is selected").optional(),
-  "gitRepository": z.object({ "repo": z.string().describe("The name of the git repository. For example: \\\"vercel/next.js\\\""), "type": z.enum(["github","gitlab","bitbucket"]).describe("The Git Provider of the repository") }).describe("The Git Repository that will be connected to the project. When this is defined, any pushes to the specified connected Git Repository will be automatically deployed").optional(),
+  "gitRepository": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe Git Repository that will be connected to the project. When this is defined, any pushes to the specified connected Git Repository will be automatically deployed").optional(),
   "installCommand": z.string().max(256).nullable().describe("The install command for this project. When \`null\` is used this value will be automatically detected").optional(),
   "name": z.string().max(100).describe("The desired name for the project"),
   "outputDirectory": z.string().max(256).nullable().describe("The output directory of the project. When \`null\` is used this value will be automatically detected").optional(),
@@ -1825,7 +1838,7 @@ It should say _MCP Server running on stdio_ in red.
   "rootDirectory": z.string().max(256).nullable().describe("The name of a directory or relative path to the source code of your project. When \`null\` is used it will default to the project root").optional(),
   "serverlessFunctionRegion": z.string().max(4).nullable().describe("The region to deploy Serverless Functions in this project").optional(),
   "serverlessFunctionZeroConfigFailover": z.boolean().describe("Specifies whether Zero Config Failover is enabled for this project.").optional(),
-  "oidcTokenConfig": z.object({ "enabled": z.boolean().describe("Whether or not to generate OpenID Connect JSON Web Tokens."), "issuerMode": z.enum(["team","global"]).describe("team: \`https://oidc.vercel.com/[team_slug]\` global: \`https://oidc.vercel.com\`") }).strict().describe("OpenID Connect JSON Web Token generation configuration.").optional(),
+  "oidcTokenConfig": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOpenID Connect JSON Web Token generation configuration.").optional(),
   "enableAffectedProjectsDeployments": z.boolean().describe("Opt-in to skip deployments when there are no changes to the root directory and its dependencies").optional()
 }
 ```
@@ -1903,11 +1916,11 @@ It should say _MCP Server running on stdio_ in red.
   "enablePreviewFeedback": z.boolean().nullable().describe("Opt-in to preview toolbar on the project level").optional(),
   "enableProductionFeedback": z.boolean().nullable().describe("Opt-in to production toolbar on the project level").optional(),
   "enableAffectedProjectsDeployments": z.boolean().describe("Opt-in to skip deployments when there are no changes to the root directory and its dependencies").optional(),
-  "oidcTokenConfig": z.object({ "enabled": z.boolean().describe("Whether or not to generate OpenID Connect JSON Web Tokens."), "issuerMode": z.enum(["team","global"]).describe("team: \`https://oidc.vercel.com/[team_slug]\` global: \`https://oidc.vercel.com\`") }).strict().describe("OpenID Connect JSON Web Token generation configuration.").optional(),
-  "passwordProtection": z.object({ "deploymentType": z.enum(["all","preview","prod_deployment_urls_and_all_previews"]).describe("Specify if the password will apply to every Deployment Target or just Preview"), "password": z.string().max(72).nullable().describe("The password that will be used to protect Project Deployments").optional() }).strict().nullable().describe("Allows to protect project deployments with a password").optional(),
-  "ssoProtection": z.object({ "deploymentType": z.enum(["all","preview","prod_deployment_urls_and_all_previews"]).describe("Specify if the Vercel Authentication (SSO Protection) will apply to every Deployment Target or just Preview") }).strict().nullable().describe("Ensures visitors to your Preview Deployments are logged into Vercel and have a minimum of Viewer access on your team").optional(),
-  "trustedIps": z.object({ "deploymentType": z.enum(["all","preview","production","prod_deployment_urls_and_all_previews"]).describe("Specify if the Trusted IPs will apply to every Deployment Target or just Preview"), "addresses": z.array(z.object({ "value": z.string().describe("The IP addresses that are allowlisted. Supports IPv4 addresses and CIDR notations. IPv6 is not supported"), "note": z.string().max(20).describe("An optional note explaining what the IP address or subnet is used for").optional() }).strict()).min(1), "protectionMode": z.enum(["exclusive","additional"]).describe("exclusive: ip match is enough to bypass deployment protection (regardless of other settings). additional: ip must match + any other protection should be also provided (password, vercel auth, shareable link, automation bypass header, automation bypass query param)") }).strict().nullable().describe("Restricts access to deployments based on the incoming request IP address").optional(),
-  "optionsAllowlist": z.object({ "paths": z.array(z.object({ "value": z.string().regex(new RegExp("^/.*")).describe("The regex path that should not be protected by Deployment Protection") }).strict()).min(1).max(5) }).strict().nullable().describe("Specify a list of paths that should not be protected by Deployment Protection to enable Cors preflight requests").optional()
+  "oidcTokenConfig": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOpenID Connect JSON Web Token generation configuration.").optional(),
+  "passwordProtection": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nAllows to protect project deployments with a password").optional(),
+  "ssoProtection": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nEnsures visitors to your Preview Deployments are logged into Vercel and have a minimum of Viewer access on your team").optional(),
+  "trustedIps": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nRestricts access to deployments based on the incoming request IP address").optional(),
+  "optionsAllowlist": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSpecify a list of paths that should not be protected by Deployment Protection to enable Cors preflight requests").optional()
 }
 ```
 
@@ -1942,7 +1955,7 @@ It should say _MCP Server running on stdio_ in red.
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
   "b_slug": z.string().max(32).describe("The slug of the custom environment to create.").optional(),
   "description": z.string().max(256).describe("Description of the custom environment. This is optional.").optional(),
-  "branchMatcher": z.object({ "type": z.enum(["equals","startsWith","endsWith"]).describe("Type of matcher. One of \\\"equals\\\", \\\"startsWith\\\", or \\\"endsWith\\\"."), "pattern": z.string().max(100).describe("Git branch name or portion thereof.") }).describe("How we want to determine a matching branch. This is optional.").optional(),
+  "branchMatcher": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nHow we want to determine a matching branch. This is optional.").optional(),
   "copyEnvVarsFrom": z.string().describe("Where to copy environment variables from. This is optional.").optional()
 }
 ```
@@ -1997,7 +2010,7 @@ It should say _MCP Server running on stdio_ in red.
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
   "b_slug": z.string().max(32).describe("The slug of the custom environment.").optional(),
   "description": z.string().max(256).describe("Description of the custom environment. This is optional.").optional(),
-  "branchMatcher": z.object({ "type": z.enum(["equals","startsWith","endsWith"]).describe("Type of matcher. One of \\\"equals\\\", \\\"startsWith\\\", or \\\"endsWith\\\"."), "pattern": z.string().max(100).describe("Git branch name or portion thereof.") }).nullable().describe("How we want to determine a matching branch. This is optional.").optional()
+  "branchMatcher": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nHow we want to determine a matching branch. This is optional.").optional()
 }
 ```
 
@@ -2285,7 +2298,7 @@ It should say _MCP Server running on stdio_ in red.
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
   "newProjectName": z.string().max(100).describe("The desired name for the project").optional(),
-  "paidFeatures": z.object({ "concurrentBuilds": z.number().int().nullable().optional(), "passwordProtection": z.boolean().nullable().optional(), "previewDeploymentSuffix": z.boolean().nullable().optional() }).strict().optional()
+  "paidFeatures": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional()
 }
 ```
 
@@ -2302,8 +2315,8 @@ It should say _MCP Server running on stdio_ in red.
   "idOrName": z.string().describe("The unique project identifier or the project name"),
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
-  "revoke": z.object({ "secret": z.string().describe("Automation bypass to revoked"), "regenerate": z.boolean().describe("Whether or not a new automation bypass should be created after the provided secret is revoked") }).describe("Optional instructions for revoking and regenerating a automation bypass").optional(),
-  "generate": z.object({ "secret": z.string().regex(new RegExp("^[a-zA-Z0-9]{32}$")).describe("Optional value of the secret to generate").optional() }).describe("Generate a new secret. If neither generate or revoke are provided, a new random secret will be generated.").optional()
+  "revoke": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOptional instructions for revoking and regenerating a automation bypass").optional(),
+  "generate": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nGenerate a new secret. If neither generate or revoke are provided, a new random secret will be generated.").optional()
 }
 ```
 
@@ -2408,8 +2421,8 @@ It should say _MCP Server running on stdio_ in red.
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
   "firewallEnabled": z.boolean(),
-  "managedRules": z.record(z.union([z.any().refine((value) => !z.any().safeParse(value).success, "Invalid input: Should NOT be valid against schema"), z.object({ "active": z.boolean(), "action": z.enum(["log","challenge","deny"]).optional(), "ruleGroups": z.record(z.object({ "active": z.boolean().optional(), "action": z.enum(["log","challenge","deny"]).optional() }).strict()).optional() }).strict()])).optional(),
-  "crs": z.object({ "sd": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "ma": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "lfi": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "rfi": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "rce": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "php": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "gen": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "xss": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "sqli": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "sf": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional(), "java": z.object({ "active": z.boolean(), "action": z.enum(["deny","log"]) }).strict().optional() }).strict().optional(),
+  "managedRules": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
+  "crs": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
   "rules": z.array(z.object({ "id": z.string().optional(), "name": z.string().max(160), "description": z.string().max(256).optional(), "active": z.boolean(), "conditionGroup": z.array(z.object({ "conditions": z.array(z.object({ "type": z.enum(["host","path","method","header","query","cookie","target_path","raw_path","ip_address","region","protocol","scheme","environment","user_agent","geo_continent","geo_country","geo_country_region","geo_city","geo_as_number","ja4_digest","ja3_digest","rate_limit_api_id"]), "op": z.enum(["re","eq","neq","ex","nex","inc","ninc","pre","suf","sub","gt","gte","lt","lte"]), "neg": z.boolean().optional(), "key": z.string().optional(), "value": z.union([z.string(), z.array(z.string()).max(75), z.number()]).optional() }).strict()).max(65) }).strict()).max(25), "action": z.object({ "mitigate": z.object({ "action": z.enum(["log","challenge","deny","bypass","rate_limit","redirect"]), "rateLimit": z.union([z.object({ "algo": z.enum(["fixed_window","token_bucket"]), "window": z.number(), "limit": z.number(), "keys": z.array(z.string()), "action": z.union([z.enum(["log","challenge","deny","rate_limit"]), z.null()]).optional() }).strict(), z.null()]).optional(), "redirect": z.union([z.object({ "location": z.string(), "permanent": z.boolean() }).strict(), z.null()]).optional(), "actionDuration": z.string().nullable().optional(), "bypassSystem": z.boolean().nullable().optional() }).strict().optional() }).strict() }).strict()).optional(),
   "ips": z.array(z.object({ "id": z.string().optional(), "hostname": z.string(), "ip": z.string(), "notes": z.string().optional(), "action": z.enum(["deny","challenge","log","bypass"]) }).strict()).optional()
 }
@@ -2574,7 +2587,7 @@ It should say _MCP Server running on stdio_ in red.
 
 ```ts
 {
-  "joinedFrom": z.object({ "origin": z.enum(["import","teams","github","gitlab","bitbucket","feedback","organization-teams"]).describe("The origin of the request."), "commitId": z.string().describe("The commit sha if the origin is a git provider.").optional(), "repoId": z.string().describe("The ID of the repository for the given Git provider.").optional(), "repoPath": z.string().describe("The path to the repository for the given Git provider.").optional(), "gitUserId": z.string().describe("The ID of the Git account of the user who requests access.").optional(), "gitUserLogin": z.string().describe("The login name for the Git account of the user who requests access.").optional() }).strict()
+  "joinedFrom": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
 }
 ```
 
@@ -2620,7 +2633,7 @@ It should say _MCP Server running on stdio_ in red.
   "confirmed": z.literal(true).describe("Accept a user who requested access to the team.").optional(),
   "role": z.string().describe("The role in the team of the member.").optional(),
   "projects": z.array(z.object({ "projectId": z.string().max(256).describe("The ID of the project."), "role": z.union([z.literal("ADMIN"), z.literal("PROJECT_VIEWER"), z.literal("PROJECT_DEVELOPER"), z.literal(null)]).nullable().describe("The project role of the member that will be added. \\\"null\\\" will remove this project level role.") }).strict()).optional(),
-  "joinedFrom": z.object({ "ssoUserId": z.null().optional() }).strict().optional()
+  "joinedFrom": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional()
 }
 ```
 
@@ -2672,12 +2685,12 @@ It should say _MCP Server running on stdio_ in red.
   "name": z.string().max(256).describe("The name of the team.").optional(),
   "previewDeploymentSuffix": z.string().nullable().describe("Suffix that will be used for all preview deployments.").optional(),
   "regenerateInviteCode": z.boolean().describe("Create a new invite code and replace the current one.").optional(),
-  "saml": z.object({ "enforced": z.boolean().describe("Require that members of the team use SAML Single Sign-On.").optional(), "roles": z.record(z.union([z.enum(["OWNER","MEMBER","DEVELOPER","SECURITY","BILLING","VIEWER","CONTRIBUTOR"]), z.object({ "accessGroupId": z.string().regex(new RegExp("^ag_[A-z0-9_ -]+$")) }).strict()])).describe("Directory groups to role or access group mappings.").optional() }).strict().optional(),
+  "saml": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
   "b_slug": z.string().describe("A new slug for the team.").optional(),
   "enablePreviewFeedback": z.string().describe("Enable preview toolbar: one of on, off or default.").optional(),
   "enableProductionFeedback": z.string().describe("Enable production toolbar: one of on, off or default.").optional(),
   "sensitiveEnvironmentVariablePolicy": z.string().describe("Sensitive environment variable policy: one of on, off or default.").optional(),
-  "remoteCaching": z.object({ "enabled": z.boolean().describe("Enable or disable remote caching for the team.").optional() }).strict().describe("Whether or not remote caching is enabled for the team").optional(),
+  "remoteCaching": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nWhether or not remote caching is enabled for the team").optional(),
   "hideIpAddresses": z.boolean().describe("Display or hide IP addresses in Monitoring queries.").optional(),
   "hideIpAddressesInLogDrains": z.boolean().describe("Display or hide IP addresses in Log Drains.").optional()
 }
@@ -2711,7 +2724,7 @@ It should say _MCP Server running on stdio_ in red.
 {
   "slug": z.string().max(48).describe("The desired slug for the Team"),
   "name": z.string().max(256).describe("The desired name for the Team. It will be generated from the provided slug if nothing is provided").optional(),
-  "attribution": z.object({ "sessionReferrer": z.string().describe("Session referrer").optional(), "landingPage": z.string().describe("Session landing page").optional(), "pageBeforeConversionPage": z.string().describe("Referrer to the signup page").optional(), "utm": z.object({ "utmSource": z.string().describe("UTM source").optional(), "utmMedium": z.string().describe("UTM medium").optional(), "utmCampaign": z.string().describe("UTM campaign").optional(), "utmTerm": z.string().describe("UTM term").optional() }).optional() }).describe("Attribution information for the session or current page").optional()
+  "attribution": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nAttribution information for the session or current page").optional()
 }
 ```
 

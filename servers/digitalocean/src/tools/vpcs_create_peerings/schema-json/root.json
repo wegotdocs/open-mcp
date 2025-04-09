@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "vpc_id": {
+      "description": "A unique identifier for a VPC.",
+      "type": "string",
+      "format": "uuid",
+      "minimum": 1
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9\\-\\.]+$",
+      "example": "nyc1-blr1-peering",
+      "description": "The name of the VPC peering. Must be unique and may only contain alphanumeric characters, dashes, and periods."
+    },
+    "b_vpc_id": {
+      "type": "string",
+      "format": "uuid",
+      "example": "c140286f-e6ce-4131-8b7b-df4590ce8d6a",
+      "description": "The ID of the VPC to peer with."
+    }
+  },
+  "required": [
+    "vpc_id",
+    "name",
+    "b_vpc_id"
+  ]
+}

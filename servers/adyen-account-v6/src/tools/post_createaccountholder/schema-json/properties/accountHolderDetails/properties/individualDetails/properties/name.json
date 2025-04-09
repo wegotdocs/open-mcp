@@ -1,0 +1,32 @@
+{
+  "description": "The name of the individual.\n>Make sure your account holder registers using the name shown on their Photo ID. \n Maximum length: 80 characters \n Cannot contain numbers. /n Cannot be empty.",
+  "additionalProperties": false,
+  "properties": {
+    "firstName": {
+      "description": "The first name.",
+      "maxLength": 80,
+      "type": "string"
+    },
+    "gender": {
+      "description": "The gender.\n>The following values are permitted: `MALE`, `FEMALE`, `UNKNOWN`.",
+      "enum": [
+        "MALE",
+        "FEMALE",
+        "UNKNOWN"
+      ],
+      "maxLength": 1,
+      "type": "string"
+    },
+    "infix": {
+      "description": "The name's infix, if applicable.\n>A maximum length of twenty (20) characters is imposed.",
+      "maxLength": 20,
+      "type": "string"
+    },
+    "lastName": {
+      "description": "The last name.",
+      "maxLength": 80,
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

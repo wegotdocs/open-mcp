@@ -1,0 +1,53 @@
+{
+  "additionalProperties": false,
+  "description": "Restricts access to deployments based on the incoming request IP address",
+  "properties": {
+    "deploymentType": {
+      "description": "Specify if the Trusted IPs will apply to every Deployment Target or just Preview",
+      "enum": [
+        "all",
+        "preview",
+        "production",
+        "prod_deployment_urls_and_all_previews"
+      ],
+      "type": "string"
+    },
+    "addresses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The IP addresses that are allowlisted. Supports IPv4 addresses and CIDR notations. IPv6 is not supported"
+          },
+          "note": {
+            "type": "string",
+            "description": "An optional note explaining what the IP address or subnet is used for",
+            "maxLength": 20
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "protectionMode": {
+      "description": "exclusive: ip match is enough to bypass deployment protection (regardless of other settings). additional: ip must match + any other protection should be also provided (password, vercel auth, shareable link, automation bypass header, automation bypass query param)",
+      "enum": [
+        "exclusive",
+        "additional"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "deploymentType",
+    "addresses",
+    "protectionMode"
+  ],
+  "type": "object",
+  "nullable": true
+}

@@ -1,0 +1,76 @@
+{
+  "additionalProperties": false,
+  "description": "The payload for creating a security scheme. See https://support.atlassian.com/jira-cloud-administration/docs/configure-issue-security-schemes/",
+  "nullable": true,
+  "properties": {
+    "description": {
+      "description": "The description of the security scheme",
+      "example": "Newly created issue security scheme",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the security scheme",
+      "example": "New Security Scheme",
+      "type": "string"
+    },
+    "pcri": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `pcri` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/security/properties/pcri\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\\[entityType\\]:\\[type\\]:\\[entityId\\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation</property-description>",
+      "additionalProperties": true
+    },
+    "securityLevels": {
+      "description": "The security levels for the security scheme",
+      "items": {
+        "additionalProperties": false,
+        "description": "The payload for creating a security level. See https://support.atlassian.com/jira-cloud-administration/docs/configure-issue-security-schemes/",
+        "properties": {
+          "description": {
+            "description": "The description of the security level",
+            "example": "Newly created issue security level",
+            "type": "string"
+          },
+          "isDefault": {
+            "description": "Whether the security level is default for the security scheme",
+            "enum": [
+              true,
+              false
+            ],
+            "type": "boolean"
+          },
+          "name": {
+            "description": "The name of the security level",
+            "example": "New Security Level",
+            "type": "string"
+          },
+          "securityLevelMembers": {
+            "description": "The members of the security level",
+            "items": {
+              "additionalProperties": false,
+              "description": "The payload for creating a security level member. See https://support.atlassian.com/jira-cloud-administration/docs/configure-issue-security-schemes/",
+              "properties": {
+                "parameter": {
+                  "description": "Defines the value associated with the type. For reporter this would be \\{\"null\"\\}; for users this would be the names of specific users); for group this would be group names like \\{\"administrators\", \"jira-administrators\", \"jira-users\"\\}",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the security level member",
+                  "enum": [
+                    "group",
+                    "reporter",
+                    "users"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

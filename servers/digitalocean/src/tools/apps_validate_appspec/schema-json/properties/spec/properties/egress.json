@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "description": "Specification for app egress configurations.",
+  "properties": {
+    "type": {
+      "title": "The app egress type.",
+      "type": "string",
+      "default": "AUTOASSIGN",
+      "example": "AUTOASSIGN",
+      "enum": [
+        "AUTOASSIGN",
+        "DEDICATED_IP"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Filter models by type.",
+      "type": "string",
+      "enum": [
+        "image",
+        "text",
+        "embedding",
+        "tts"
+      ],
+      "default": "text",
+      "example": "text"
+    }
+  },
+  "required": []
+}

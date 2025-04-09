@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "accountHolderCode": {
+      "description": "The code of the account holder.",
+      "type": "string"
+    },
+    "legalArrangements": {
+      "description": "List of legal arrangements.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "legalArrangementCode": {
+            "description": "The code of the legal arrangement to be deleted. If you also send `legalArrangementEntityCodes`, only the entities listed will be deleted.",
+            "type": "string"
+          },
+          "legalArrangementEntityCodes": {
+            "description": "List of legal arrangement entities to be deleted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "legalArrangementCode"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "accountHolderCode",
+    "legalArrangements"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace_id": {
+      "description": "The ID of the namespace to be managed.",
+      "type": "string"
+    },
+    "trigger_name": {
+      "description": "The name of the trigger to be managed.",
+      "type": "string"
+    },
+    "is_enabled": {
+      "type": "boolean",
+      "example": true,
+      "description": "Indicates weather the trigger is paused or unpaused."
+    },
+    "scheduled_details": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `scheduled_details` to the tool, first call the tool `expandSchema` with \"/properties/scheduled_details\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Trigger details for SCHEDULED type, where body is optional.\n</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "namespace_id",
+    "trigger_name"
+  ]
+}

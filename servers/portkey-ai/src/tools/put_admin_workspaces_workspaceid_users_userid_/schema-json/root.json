@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "member"
+      ]
+    }
+  },
+  "required": [
+    "workspaceId",
+    "userId"
+  ]
+}

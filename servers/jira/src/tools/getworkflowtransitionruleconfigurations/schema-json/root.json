@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "startAt": {
+      "description": "The index of the first item to return in a page of results (page offset).",
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The maximum number of items to return per page.",
+      "default": 10,
+      "format": "int32",
+      "maximum": 50,
+      "type": "integer"
+    },
+    "types": {
+      "description": "The types of the transition rules to return.",
+      "items": {
+        "default": "",
+        "enum": [
+          "postfunction",
+          "condition",
+          "validator"
+        ],
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "keys": {
+      "description": "The transition rule class keys, as defined in the Connect or the Forge app descriptor, of the transition rules to return.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "workflowNames": {
+      "description": "The list of workflow names to filter by.",
+      "items": {
+        "default": "",
+        "maxLength": 50,
+        "type": "string"
+      },
+      "maxLength": 50,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "withTags": {
+      "description": "The list of `tags` to filter by.",
+      "items": {
+        "default": "",
+        "maxLength": 20,
+        "type": "string"
+      },
+      "maxLength": 20,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "draft": {
+      "description": "Whether draft or published workflows are returned. If not provided, both workflow types are returned.",
+      "type": "boolean"
+    },
+    "expand": {
+      "description": "Use [expand](#expansion) to include additional information in the response. This parameter accepts `transition`, which, for each rule, returns information about the transition the rule is assigned to.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "types"
+  ]
+}

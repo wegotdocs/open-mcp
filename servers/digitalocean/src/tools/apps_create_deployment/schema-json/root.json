@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "description": "The app ID",
+      "type": "string"
+    },
+    "force_build": {
+      "title": "Indicates whether to force a build of app from source even if an existing cached build is suitable for re-use",
+      "type": "boolean",
+      "example": true
+    }
+  },
+  "required": [
+    "app_id"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "deploymentId": {
+      "type": "string"
+    },
+    "integrationConfigurationId": {
+      "type": "string"
+    },
+    "resourceId": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "running",
+        "succeeded",
+        "failed"
+      ]
+    },
+    "statusText": {
+      "type": "string"
+    },
+    "outcomes": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "const": "resource-secrets"
+              },
+              "secrets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "secrets"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "deploymentId",
+    "integrationConfigurationId",
+    "resourceId",
+    "action"
+  ]
+}
