@@ -140,6 +140,12 @@ jobs:
               set -x
               npm run build || echo "No build script or build failed"
               set +x
+
+              # Ensuring package.json version is up to date
+              echo "Ensuring package.json version is up to date"
+              set -x
+              npm version $(npm view . version) --allow-same-version
+              set +x
               
               # Bump version
               echo "Bumping version"
