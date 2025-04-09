@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "briefRepresentation": {
+      "description": "Only return basic information (only guaranteed to return id, username, created, first and last name, email, enabled state, email verification state, federation link, and access. Note that it means that namely user attributes, required actions, and not before are not returned.)",
+      "type": "boolean"
+    },
+    "first": {
+      "description": "Pagination offset",
+      "format": "int32",
+      "type": "integer"
+    },
+    "max": {
+      "description": "Maximum results size (defaults to 100)",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

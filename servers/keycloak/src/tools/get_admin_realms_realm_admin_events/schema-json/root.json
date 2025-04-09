@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "authClient": {
+      "type": "string"
+    },
+    "authIpAddress": {
+      "type": "string"
+    },
+    "authRealm": {
+      "type": "string"
+    },
+    "authUser": {
+      "description": "user id",
+      "type": "string"
+    },
+    "dateFrom": {
+      "type": "string"
+    },
+    "dateTo": {
+      "type": "string"
+    },
+    "first": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "max": {
+      "description": "Maximum results size (defaults to 100)",
+      "format": "int32",
+      "type": "integer"
+    },
+    "operationTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "resourcePath": {
+      "type": "string"
+    },
+    "resourceTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

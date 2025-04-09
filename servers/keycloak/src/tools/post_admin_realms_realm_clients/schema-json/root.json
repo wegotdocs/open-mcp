@@ -1,0 +1,167 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "clientId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "rootUrl": {
+      "type": "string"
+    },
+    "adminUrl": {
+      "type": "string"
+    },
+    "baseUrl": {
+      "type": "string"
+    },
+    "surrogateAuthRequired": {
+      "type": "boolean"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "alwaysDisplayInConsole": {
+      "type": "boolean"
+    },
+    "clientAuthenticatorType": {
+      "type": "string"
+    },
+    "secret": {
+      "type": "string"
+    },
+    "registrationAccessToken": {
+      "type": "string"
+    },
+    "redirectUris": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "webOrigins": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notBefore": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "bearerOnly": {
+      "type": "boolean"
+    },
+    "consentRequired": {
+      "type": "boolean"
+    },
+    "standardFlowEnabled": {
+      "type": "boolean"
+    },
+    "implicitFlowEnabled": {
+      "type": "boolean"
+    },
+    "directAccessGrantsEnabled": {
+      "type": "boolean"
+    },
+    "serviceAccountsEnabled": {
+      "type": "boolean"
+    },
+    "authorizationServicesEnabled": {
+      "type": "boolean"
+    },
+    "publicClient": {
+      "type": "boolean"
+    },
+    "frontchannelLogout": {
+      "type": "boolean"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `attributes` to the tool, first call the tool `expandSchema` with \"/properties/attributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "authenticationFlowBindingOverrides": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `authenticationFlowBindingOverrides` to the tool, first call the tool `expandSchema` with \"/properties/authenticationFlowBindingOverrides\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "fullScopeAllowed": {
+      "type": "boolean"
+    },
+    "nodeReRegistrationTimeout": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "registeredNodes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `registeredNodes` to the tool, first call the tool `expandSchema` with \"/properties/registeredNodes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "protocolMappers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "protocol": {
+            "type": "string"
+          },
+          "protocolMapper": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "defaultClientScopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "optionalClientScopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorizationSettings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `authorizationSettings` to the tool, first call the tool `expandSchema` with \"/properties/authorizationSettings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "access": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `access` to the tool, first call the tool `expandSchema` with \"/properties/access\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "origin": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

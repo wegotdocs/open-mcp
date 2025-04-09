@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "client-types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "parent": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "applicable": {
+                  "type": "boolean"
+                },
+                "value": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "global-client-types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "parent": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "applicable": {
+                  "type": "boolean"
+                },
+                "value": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": []
+}

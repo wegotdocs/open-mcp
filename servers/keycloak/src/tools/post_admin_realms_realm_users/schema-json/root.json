@@ -1,0 +1,174 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "emailVerified": {
+      "type": "boolean"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `attributes` to the tool, first call the tool `expandSchema` with \"/properties/attributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "userProfileMetadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `userProfileMetadata` to the tool, first call the tool `expandSchema` with \"/properties/userProfileMetadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "self": {
+      "type": "string"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "createdTimestamp": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "totp": {
+      "type": "boolean"
+    },
+    "federationLink": {
+      "type": "string"
+    },
+    "serviceAccountClientId": {
+      "type": "string"
+    },
+    "credentials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "userLabel": {
+            "type": "string"
+          },
+          "createdDate": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "secretData": {
+            "type": "string"
+          },
+          "credentialData": {
+            "type": "string"
+          },
+          "priority": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "value": {
+            "type": "string"
+          },
+          "temporary": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "disableableCredentialTypes": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiredActions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "federatedIdentities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "identityProvider": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "realmRoles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "clientRoles": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `clientRoles` to the tool, first call the tool `expandSchema` with \"/properties/clientRoles\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "clientConsents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "grantedClientScopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdDate": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "lastUpdatedDate": {
+            "format": "int64",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "notBefore": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "access": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `access` to the tool, first call the tool `expandSchema` with \"/properties/access\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "eventsEnabled": {
+      "type": "boolean"
+    },
+    "eventsExpiration": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "eventsListeners": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "enabledEventTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "adminEventsEnabled": {
+      "type": "boolean"
+    },
+    "adminEventsDetailsEnabled": {
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

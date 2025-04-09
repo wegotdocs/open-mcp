@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "briefRepresentation": {
+      "description": "Boolean which defines whether brief representations are returned (default: false)",
+      "type": "boolean"
+    },
+    "first": {
+      "description": "Pagination offset",
+      "format": "int32",
+      "type": "integer"
+    },
+    "max": {
+      "description": "Maximum results size (defaults to 100)",
+      "format": "int32",
+      "type": "integer"
+    },
+    "realmOnly": {
+      "description": "Boolean which defines if only realm-level IDPs (not associated with orgs) should be returned (default: false)",
+      "type": "boolean"
+    },
+    "search": {
+      "description": "Filter specific providers by name. Search can be prefix (name*), contains (*name*) or exact (\"name\"). Default prefixed.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

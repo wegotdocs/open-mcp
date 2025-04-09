@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "alias": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "internalId": {
+      "type": "string"
+    },
+    "providerId": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "trustEmail": {
+      "type": "boolean"
+    },
+    "storeToken": {
+      "type": "boolean"
+    },
+    "addReadTokenRoleOnCreate": {
+      "type": "boolean"
+    },
+    "authenticateByDefault": {
+      "type": "boolean"
+    },
+    "linkOnly": {
+      "type": "boolean"
+    },
+    "hideOnLogin": {
+      "type": "boolean"
+    },
+    "firstBrokerLoginFlowAlias": {
+      "type": "string"
+    },
+    "postBrokerLoginFlowAlias": {
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `config` to the tool, first call the tool `expandSchema` with \"/properties/config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "string"
+        },
+        "client": {
+          "type": "string"
+        },
+        "clientScope": {
+          "type": "string"
+        },
+        "roles": {
+          "uniqueItems": true,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {}
+}

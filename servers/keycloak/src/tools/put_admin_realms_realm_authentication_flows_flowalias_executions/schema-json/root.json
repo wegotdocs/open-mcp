@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "flowAlias": {
+      "description": "Flow alias",
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "requirement": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "requirementChoices": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "configurable": {
+      "type": "boolean"
+    },
+    "authenticationFlow": {
+      "type": "boolean"
+    },
+    "providerId": {
+      "type": "string"
+    },
+    "authenticationConfig": {
+      "type": "string"
+    },
+    "flowId": {
+      "type": "string"
+    },
+    "level": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "index": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "priority": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "flowAlias"
+  ]
+}

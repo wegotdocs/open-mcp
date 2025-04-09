@@ -1,0 +1,350 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "string"
+    },
+    "redirectUrl": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `attributes` to the tool, first call the tool `expandSchema` with \"/properties/attributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "domains": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "emailVerified": {
+            "type": "boolean"
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "userProfileMetadata": {
+            "type": "object",
+            "properties": {
+              "attributes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "readOnly": {
+                      "type": "boolean"
+                    },
+                    "annotations": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "validators": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      }
+                    },
+                    "group": {
+                      "type": "string"
+                    },
+                    "multivalued": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "groups": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "displayHeader": {
+                      "type": "string"
+                    },
+                    "displayDescription": {
+                      "type": "string"
+                    },
+                    "annotations": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "self": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "createdTimestamp": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "totp": {
+            "type": "boolean"
+          },
+          "federationLink": {
+            "type": "string"
+          },
+          "serviceAccountClientId": {
+            "type": "string"
+          },
+          "credentials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "userLabel": {
+                  "type": "string"
+                },
+                "createdDate": {
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "secretData": {
+                  "type": "string"
+                },
+                "credentialData": {
+                  "type": "string"
+                },
+                "priority": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "temporary": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "disableableCredentialTypes": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "requiredActions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "federatedIdentities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identityProvider": {
+                  "type": "string"
+                },
+                "userId": {
+                  "type": "string"
+                },
+                "userName": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "realmRoles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "clientRoles": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "clientConsents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "clientId": {
+                  "type": "string"
+                },
+                "grantedClientScopes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "createdDate": {
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "lastUpdatedDate": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "notBefore": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "access": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "boolean"
+            }
+          },
+          "membershipType": {
+            "enum": [
+              "UNMANAGED",
+              "MANAGED"
+            ],
+            "type": "string"
+          }
+        }
+      }
+    },
+    "identityProviders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "internalId": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "trustEmail": {
+            "type": "boolean"
+          },
+          "storeToken": {
+            "type": "boolean"
+          },
+          "addReadTokenRoleOnCreate": {
+            "type": "boolean"
+          },
+          "authenticateByDefault": {
+            "type": "boolean"
+          },
+          "linkOnly": {
+            "type": "boolean"
+          },
+          "hideOnLogin": {
+            "type": "boolean"
+          },
+          "firstBrokerLoginFlowAlias": {
+            "type": "string"
+          },
+          "postBrokerLoginFlowAlias": {
+            "type": "string"
+          },
+          "organizationId": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "executors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "executor": {
+                  "type": "string"
+                },
+                "configuration": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "globalProfiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "executors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "executor": {
+                  "type": "string"
+                },
+                "configuration": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": []
+}

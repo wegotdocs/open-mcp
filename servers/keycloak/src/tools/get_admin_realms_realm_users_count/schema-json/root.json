@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "description": "email filter",
+      "type": "string"
+    },
+    "emailVerified": {
+      "type": "boolean"
+    },
+    "enabled": {
+      "description": "Boolean representing if user is enabled or not",
+      "type": "boolean"
+    },
+    "firstName": {
+      "description": "first name filter",
+      "type": "string"
+    },
+    "lastName": {
+      "description": "last name filter",
+      "type": "string"
+    },
+    "q": {
+      "type": "string"
+    },
+    "search": {
+      "description": "arbitrary search string for all the fields below. Default search behavior is prefix-based (e.g., foo or foo*). Use *foo* for infix search and \"foo\" for exact search.",
+      "type": "string"
+    },
+    "username": {
+      "description": "username filter",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "description": "filter by clientId",
+      "type": "string"
+    },
+    "first": {
+      "description": "the first result",
+      "format": "int32",
+      "type": "integer"
+    },
+    "max": {
+      "description": "the max results to return",
+      "format": "int32",
+      "type": "integer"
+    },
+    "q": {
+      "type": "string"
+    },
+    "search": {
+      "description": "whether this is a search query or a getClientById query",
+      "default": false,
+      "type": "boolean"
+    },
+    "viewableOnly": {
+      "description": "filter clients that cannot be viewed in full by admin",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

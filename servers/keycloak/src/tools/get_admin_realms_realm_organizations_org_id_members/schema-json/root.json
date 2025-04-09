@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "exact": {
+      "description": "Boolean which defines whether the param 'search' must match exactly or not",
+      "type": "boolean"
+    },
+    "first": {
+      "description": "The position of the first result to be processed (pagination offset)",
+      "format": "int32",
+      "default": "0",
+      "type": "integer"
+    },
+    "max": {
+      "description": "The maximum number of results to be returned. Defaults to 10",
+      "format": "int32",
+      "default": "10",
+      "type": "integer"
+    },
+    "membershipType": {
+      "description": "The membership type",
+      "type": "string"
+    },
+    "search": {
+      "description": "A String representing either a member's username, e-mail, first name, or last name.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

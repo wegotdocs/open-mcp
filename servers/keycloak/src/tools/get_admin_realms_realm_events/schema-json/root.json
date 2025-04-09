@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "client": {
+      "description": "App or oauth client name",
+      "type": "string"
+    },
+    "dateFrom": {
+      "description": "From date",
+      "type": "string"
+    },
+    "dateTo": {
+      "description": "To date",
+      "type": "string"
+    },
+    "first": {
+      "description": "Paging offset",
+      "format": "int32",
+      "type": "integer"
+    },
+    "ipAddress": {
+      "description": "IP Address",
+      "type": "string"
+    },
+    "max": {
+      "description": "Maximum results size (defaults to 100)",
+      "format": "int32",
+      "type": "integer"
+    },
+    "type": {
+      "description": "The types of events to return",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user": {
+      "description": "User id",
+      "type": "string"
+    }
+  },
+  "required": []
+}

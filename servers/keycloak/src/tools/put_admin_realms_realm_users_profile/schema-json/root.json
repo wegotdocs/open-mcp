@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "validations": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          },
+          "annotations": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "required": {
+            "type": "object",
+            "properties": {
+              "roles": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scopes": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "view": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "edit": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "selector": {
+            "type": "object",
+            "properties": {
+              "scopes": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "group": {
+            "type": "string"
+          },
+          "multivalued": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "displayHeader": {
+            "type": "string"
+          },
+          "displayDescription": {
+            "type": "string"
+          },
+          "annotations": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        }
+      }
+    },
+    "unmanagedAttributePolicy": {
+      "enum": [
+        "ENABLED",
+        "ADMIN_VIEW",
+        "ADMIN_EDIT"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "providerId": {
+      "type": "string"
+    },
+    "topLevel": {
+      "type": "boolean"
+    },
+    "builtIn": {
+      "type": "boolean"
+    },
+    "authenticationExecutions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "authenticatorConfig": {
+            "type": "string"
+          },
+          "authenticator": {
+            "type": "string"
+          },
+          "authenticatorFlow": {
+            "type": "boolean"
+          },
+          "requirement": {
+            "type": "string"
+          },
+          "priority": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "flowAlias": {
+            "type": "string"
+          },
+          "userSetupAllowed": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

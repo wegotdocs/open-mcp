@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "readOnly": {
+            "type": "boolean"
+          },
+          "annotations": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "validators": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          },
+          "group": {
+            "type": "string"
+          },
+          "multivalued": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "displayHeader": {
+            "type": "string"
+          },
+          "displayDescription": {
+            "type": "string"
+          },
+          "annotations": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        }
+      }
+    }
+  }
+}
