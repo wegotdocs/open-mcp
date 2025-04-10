@@ -1,0 +1,100 @@
+{
+  "type": "object",
+  "properties": {
+    "team": {
+      "description": "The ID of the team as a string",
+      "type": "string"
+    },
+    "alert_name": {
+      "type": "string",
+      "description": "Name of the alert, mostly for reference in the UI and notification emails"
+    },
+    "prompt_filters": {
+      "type": "array",
+      "description": "A list of strings to scan for, with wildcard (`word*`), negation (`word NOT unwanted_word`), and phrase (`\"word word\"`) support\nHas to be between 1 and 10 items.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alert_enabled": {
+      "type": "boolean",
+      "description": "Whether the alert should run or be paused. `true` or `false`."
+    },
+    "notification_email": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "email",
+      "description": "An email address to send a notification to when a new mention is found. Defaults to your account's email or the team's email if set."
+    },
+    "notification_summary_enabled": {
+      "type": "boolean",
+      "description": "Whether to send a summary of the alert's mentions instead of one email per mention. `true` or `false`."
+    },
+    "notification_summary_frequency": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "How often to send a summary of the alert's mentions. `daily`, `weekly`, or `monthly`.",
+      "maxLength": 255
+    },
+    "webhook_enabled": {
+      "type": "boolean",
+      "description": "Whether to send a POST request to a URL when a new mention is found. `true` or `false`."
+    },
+    "webhook_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri",
+      "description": "A URL to send a POST request to when a new mention is found. The request will contain a JSON object with the mention's details."
+    },
+    "prompt_question_enabled": {
+      "type": "boolean",
+      "description": "Whether to ask an AI-answered question of teh transcript when a new mention is found. `true` or `false`. Defaults to `false`."
+    },
+    "prompt_question": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The Yes/No question to ask the AI when a new mention is found. Only used if `prompt_question_enabled` is `true`."
+    },
+    "restrict_to_category_ids": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A comma-separated list of category IDs to restrict the alert to. If not set, the alert will scan all categories."
+    },
+    "ignore_category_ids": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A comma-separated list of category IDs to ignore for the alert. If not set, the alert will ignore no categories."
+    },
+    "restrict_to_podcast_ids": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A comma-separated list of podcast IDs to restrict the alert to. If not set, the alert will scan all podcasts."
+    },
+    "ignore_podcast_ids": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A comma-separated list of podcast IDs to ignore for the alert. If not set, the alert will ignore no podcasts."
+    }
+  },
+  "required": [
+    "team",
+    "alert_name",
+    "prompt_filters"
+  ]
+}

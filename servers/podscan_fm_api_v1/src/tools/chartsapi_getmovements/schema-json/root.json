@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "platform": {
+      "description": "The platform (apple or spotify)",
+      "type": "string"
+    },
+    "countryCode": {
+      "description": "The 2-letter country code",
+      "type": "string"
+    },
+    "category": {
+      "description": "The category identifier",
+      "type": "string"
+    },
+    "days": {
+      "type": "string",
+      "default": 7
+    }
+  },
+  "required": [
+    "platform",
+    "countryCode",
+    "category"
+  ]
+}

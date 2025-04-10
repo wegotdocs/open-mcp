@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "team": {
+      "description": "The ID of the team",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "type": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "is_private": {
+      "type": "boolean"
+    },
+    "webhook_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "webhook_active": {
+      "type": "boolean"
+    },
+    "item": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `item` to the tool, first call the tool `expandSchema` with \"/properties/item\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "team",
+    "name"
+  ]
+}
