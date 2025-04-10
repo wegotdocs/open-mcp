@@ -1,0 +1,200 @@
+{
+  "type": "object",
+  "properties": {
+    "certificateParameters": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `certificateParameters` to the tool, first call the tool `expandSchema` with \"/properties/certificateParameters\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "consentArtifact": {
+      "properties": {
+        "consent": {
+          "properties": {
+            "consentId": {
+              "description": "A unique consent id in UUID format.",
+              "example": "ea9c43aa-7f5a-4bf3-a0be-e1caa24737ba",
+              "format": "uuid",
+              "minLength": 1,
+              "type": "string"
+            },
+            "data": {
+              "properties": {
+                "id": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            },
+            "dataConsumer": {
+              "properties": {
+                "id": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            },
+            "dataProvider": {
+              "properties": {
+                "id": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            },
+            "permission": {
+              "properties": {
+                "access": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "dateRange": {
+                  "properties": {
+                    "from": {
+                      "description": "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ",
+                      "format": "date-time",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "to": {
+                      "description": "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ",
+                      "format": "date-time",
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "from",
+                    "to"
+                  ],
+                  "type": "object"
+                },
+                "frequency": {
+                  "properties": {
+                    "repeats": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "unit",
+                    "value",
+                    "repeats"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "access",
+                "dateRange",
+                "frequency"
+              ],
+              "type": "object"
+            },
+            "purpose": {
+              "properties": {
+                "description": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "description"
+              ],
+              "type": "object"
+            },
+            "timestamp": {
+              "description": "Date time format in UTC, includes miliseconds YYYY-MM-DDThh:mm:ss.vZ",
+              "format": "date-time",
+              "minLength": 1,
+              "type": "string"
+            },
+            "user": {
+              "properties": {
+                "email": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "idNumber": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "idType": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "mobile": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "idType",
+                "idNumber",
+                "mobile",
+                "email"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "consentId",
+            "timestamp",
+            "dataConsumer",
+            "dataProvider",
+            "purpose",
+            "user",
+            "data",
+            "permission"
+          ],
+          "type": "object"
+        },
+        "signature": {
+          "properties": {
+            "signature": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "signature"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "format": {
+      "description": "The format of the certificate in response.",
+      "enum": [
+        "pdf"
+      ],
+      "type": "string"
+    },
+    "txnId": {
+      "description": "A unique transaction id for this request in UUID format. It is used for tracking the request.",
+      "example": "f7f1469c-29b0-4325-9dfc-c567200a70f7",
+      "format": "uuid",
+      "type": "string"
+    }
+  },
+  "required": [
+    "format",
+    "txnId"
+  ]
+}
