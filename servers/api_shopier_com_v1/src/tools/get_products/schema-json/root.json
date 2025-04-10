@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "dateStart": {
+      "description": "Show products listed at or after datetime. yyyy-MM-ddTHH:mm:ssZ format is used (e.g., 2022-07-21T13:24:51+0300)",
+      "type": "string"
+    },
+    "dateEnd": {
+      "description": "Show products listed at or before datetime. yyyy-MM-ddTHH:mm:ssZ format is used (e.g., 2022-07-25T13:24:51+0300)",
+      "type": "string"
+    },
+    "productType": {
+      "description": "Filter by a product type. ",
+      "type": "string",
+      "enum": [
+        "physical",
+        "digital"
+      ]
+    },
+    "shippingPayer": {
+      "description": "Filter by who pays for shipping. ",
+      "type": "string",
+      "enum": [
+        "buyerPays",
+        "sellerPays"
+      ]
+    },
+    "stockStatus": {
+      "description": "Filter by a stock status.",
+      "type": "string",
+      "items": {
+        "type": "string"
+      },
+      "enum": [
+        "inStock",
+        "outOfStock"
+      ]
+    },
+    "categoryId": {
+      "description": "Filter by product categories by specifying category ID(s).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selectionId": {
+      "description": "Filter by product selections by specifying selection ID(s).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "discount": {
+      "description": "Filter by products with discounts.",
+      "type": "boolean"
+    },
+    "customListing": {
+      "description": "Filter by customized listings.",
+      "type": "boolean"
+    },
+    "limit": {
+      "description": "The maximum number of items to be returned in result set.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "multipleOf": 1,
+      "default": 10
+    },
+    "page": {
+      "description": "Current page of the collection.",
+      "type": "integer",
+      "default": 1,
+      "minimum": 1
+    },
+    "sort": {
+      "description": "Sort results by date. ",
+      "type": "string",
+      "default": "dateDesc",
+      "enum": [
+        "dateAsc",
+        "dateDesc"
+      ]
+    }
+  },
+  "required": []
+}

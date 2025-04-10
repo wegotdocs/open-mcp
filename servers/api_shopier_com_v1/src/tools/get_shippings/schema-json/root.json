@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "description": "Filter by a shipping status.",
+      "type": "string",
+      "enum": [
+        "shipped",
+        "notShipped"
+      ]
+    },
+    "type": {
+      "description": "Filter by a shipping type.",
+      "type": "string",
+      "enum": [
+        "firstShipment",
+        "secondShipment",
+        "returnShipment"
+      ]
+    },
+    "company": {
+      "description": "Filter by a shipping company.",
+      "type": "string",
+      "enum": [
+        "yurtici",
+        "mng",
+        "ptt"
+      ]
+    },
+    "dateCreatedStart": {
+      "description": "Show shipping codes that are created at or after datetime. yyyy-MM-ddTHH:mm:ssZ format is used (e.g., 2022-07-21T13:24:51+0300)",
+      "type": "string"
+    },
+    "dateCreatedEnd": {
+      "description": "Show shipping codes that are created at or before datetime. yyyy-MM-ddTHH:mm:ssZ format is used (e.g., 2022-07-25T13:24:51+0300)",
+      "type": "string"
+    },
+    "dateDispatchedStart": {
+      "description": "Show shippings that are dispatched at or after datetime. yyyy-MM-ddTHH:mm:ssZ format is used (e.g., 2022-07-21T13:24:51+0300)",
+      "type": "string"
+    },
+    "dateDispatchedEnd": {
+      "description": "Show shippings that are dispatched at or before datetime. yyyy-MM-ddTHH:mm:ssZ format is used (e.g., 2022-07-25T13:24:51+0300)",
+      "type": "string"
+    },
+    "limit": {
+      "description": "The maximum number of items to be returned in result set.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "multipleOf": 1,
+      "default": 10
+    },
+    "page": {
+      "description": "Current page of the collection.",
+      "type": "integer",
+      "default": 1,
+      "minimum": 1
+    },
+    "sort": {
+      "description": "Sort results by date. ",
+      "type": "string",
+      "default": "dateDesc",
+      "enum": [
+        "dateAsc",
+        "dateDesc"
+      ]
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,156 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the product."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the product."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "physical",
+        "digital"
+      ],
+      "description": "Type of the product."
+    },
+    "media": {
+      "type": "array",
+      "description": "Details of product media files. There can be a maximum of 5 media files.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "image"
+            ],
+            "description": "Type of media file."
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL of media file. Formats supported: jpg, jpeg, png, bmp."
+          },
+          "placement": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "multipleOf": 1,
+            "description": "Ranking of the media file in product pages. Send \"1\" for the primary media file."
+          }
+        },
+        "required": [
+          "type",
+          "url",
+          "placement"
+        ]
+      }
+    },
+    "priceData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `priceData` to the tool, first call the tool `expandSchema` with \"/properties/priceData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Details of the price information.</property-description>",
+      "additionalProperties": true
+    },
+    "stockQuantity": {
+      "type": "integer",
+      "description": "Stock quantity of the product."
+    },
+    "shippingPayer": {
+      "type": "string",
+      "enum": [
+        "sellerPays",
+        "buyerPays"
+      ],
+      "description": "Represents who pays for shipping during dispatch or delivery."
+    },
+    "categories": {
+      "type": "array",
+      "description": "List of categories that product belongs to.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "string",
+            "description": "The ID of category."
+          }
+        }
+      }
+    },
+    "variants": {
+      "type": "array",
+      "description": "List of variants of the product.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "selectionId": {
+            "type": "array",
+            "description": "The ID of selection.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "stockQuantity": {
+            "type": "integer",
+            "description": "Stock quantity of the variant."
+          }
+        }
+      }
+    },
+    "options": {
+      "type": "array",
+      "description": "List of options of the product. There can be a maximum of 3 options.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "optionId": {
+            "type": "string",
+            "description": "The ID of option."
+          },
+          "optionTitle": {
+            "type": "string",
+            "description": "The title of option."
+          },
+          "optionPrice": {
+            "type": "string",
+            "description": "The price of option."
+          }
+        }
+      }
+    },
+    "singleOption": {
+      "type": "boolean",
+      "description": "Represents whether a single option or multiple options can be selected during chekout."
+    },
+    "customListing": {
+      "type": "boolean",
+      "description": "Represents whether the listing is a custom or standard one."
+    },
+    "customNote": {
+      "type": "string",
+      "description": "Overrides the placeholder for note to seller field. Used for collecting a custom information from the buyer during checkout."
+    },
+    "placementScore": {
+      "type": "integer",
+      "minimum": 1,
+      "multipleOf": 1,
+      "description": "Placement score of the product. Products with higher values are placed first in the store."
+    },
+    "dispatchDuration": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3,
+      "multipleOf": 1,
+      "description": "Dispatch duration in terms of days from seller to shipping company."
+    }
+  },
+  "required": [
+    "title",
+    "type",
+    "media",
+    "priceData",
+    "shippingPayer"
+  ]
+}

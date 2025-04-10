@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "description": "Details of the price information.",
+  "required": [
+    "currency",
+    "price"
+  ],
+  "properties": {
+    "currency": {
+      "type": "string",
+      "enum": [
+        "TRY",
+        "USD",
+        "EUR"
+      ],
+      "description": "Currency of the product."
+    },
+    "price": {
+      "type": "string",
+      "description": "Unit price of the product."
+    },
+    "discount": {
+      "type": "boolean",
+      "description": "Represents whether there is a product based discount."
+    },
+    "discountedPrice": {
+      "type": "string",
+      "description": "Discounted price of the product."
+    },
+    "shippingPrice": {
+      "type": "string",
+      "description": "Shipping price of the product."
+    }
+  }
+}
