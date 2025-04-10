@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the shop. This the brief heading located at the shop's main page."
+    },
+    "slogan": {
+      "type": "string",
+      "description": "Slogan or catchword located at the shop's main page."
+    },
+    "announcement": {
+      "type": "string",
+      "description": "Announcement to buyers located at the shop's main page."
+    },
+    "confirmation": {
+      "type": "string",
+      "description": "Order confirmation text. Is shown to buyers when an order is created after a successful payment."
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address located at the shop's main page. This can be different than the seller account's email."
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number located at the shop's main page. This can be different than the seller account's phone number."
+    },
+    "access": {
+      "type": "boolean",
+      "description": "Represents whether the shop URL is publicly accessible."
+    },
+    "cart": {
+      "type": "boolean",
+      "description": "Represents whether the shopping cart is used during checkouts. If the cart value is FALSE multiple products can not be purchased at the shop, only a single product can be purchased for each order."
+    },
+    "mobileView": {
+      "type": "string",
+      "description": "Shop's appearance for mobile devices. Products can be placed either on a single column or on double columns."
+    },
+    "filter": {
+      "type": "boolean",
+      "description": "Represents whether the product filter options are present or not."
+    },
+    "stockOutProducts": {
+      "type": "boolean",
+      "description": "Represents whether the out of stock products are shown to buyers."
+    },
+    "language": {
+      "type": "string",
+      "description": "Language selection of the shop."
+    },
+    "vacation": {
+      "type": "boolean",
+      "description": "Represents whether the seller accepts orders. TRUE if the shop is closed for orders, FALSE if the shop is open for orders."
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "type": "string",
+      "description": "The ID of the order."
+    },
+    "company": {
+      "type": "string",
+      "enum": [
+        "yurtici",
+        "mng",
+        "ptt"
+      ],
+      "description": "Shipping company."
+    },
+    "type": {
+      "type": "string",
+      "default": "firstShipment",
+      "enum": [
+        "firstShipment",
+        "secondShipment",
+        "returnShipment"
+      ],
+      "description": "Type of the shipping. firstShipment and secondShipment are used for seller to buyer direction, returnShipment is used for buyer to seller direction."
+    }
+  },
+  "required": [
+    "orderId",
+    "company"
+  ]
+}

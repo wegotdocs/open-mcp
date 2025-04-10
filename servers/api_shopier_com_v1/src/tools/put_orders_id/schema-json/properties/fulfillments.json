@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "description": "Details of the delivery.",
+  "properties": {
+    "productType": {
+      "type": "string",
+      "enum": [
+        "physical",
+        "digital"
+      ],
+      "description": "Type of the delivery."
+    },
+    "shippingCompany": {
+      "type": "string",
+      "enum": [
+        "yurtici",
+        "mng",
+        "ptt",
+        "aras",
+        "surat",
+        "ups",
+        "fedex",
+        "dhl",
+        "tnt",
+        "pts",
+        "aramex",
+        "interGlobal",
+        "other"
+      ],
+      "description": "Shipping company used for the delivery."
+    },
+    "trackingNumber": {
+      "type": "string",
+      "description": "Tracking number of the shipping."
+    },
+    "note": {
+      "type": "string",
+      "description": "Required for digital deliveries, represents how the delivery is done."
+    }
+  }
+}

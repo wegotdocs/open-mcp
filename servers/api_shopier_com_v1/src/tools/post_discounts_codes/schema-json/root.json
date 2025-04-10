@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "The discount code for the buyers used at the checkout."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "amount",
+        "percent"
+      ],
+      "description": "Type of the discount."
+    },
+    "amountOff": {
+      "type": "string",
+      "description": "The absolute value of the discount amount. Required when the discount code type is \"amount\"."
+    },
+    "percentOff": {
+      "type": "string",
+      "description": "The percentage rate of the discount. Required when the discount code type is \"percent\"."
+    },
+    "amountMinimum": {
+      "type": "string",
+      "description": "Required minimum order amount for the discount code to be applicable."
+    },
+    "currency": {
+      "type": "string",
+      "enum": [
+        "TRY",
+        "USD",
+        "EUR"
+      ],
+      "description": "Currency of the discount code."
+    },
+    "numAvailable": {
+      "type": "integer",
+      "description": "Number of discount codes that can be used."
+    },
+    "expiresAt": {
+      "type": "string",
+      "description": "Expiry date of the discount code. yyyy-MM-ddZ format is used (e.g., 2022-07-21+0300)."
+    }
+  },
+  "required": [
+    "code",
+    "type",
+    "amountMinimum",
+    "currency",
+    "numAvailable",
+    "expiresAt"
+  ]
+}
