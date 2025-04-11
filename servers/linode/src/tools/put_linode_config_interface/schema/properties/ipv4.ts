@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "nat_1_1": z.union([z.string().ip().min(1), z.literal("any")]).nullable().describe("The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the interface's VPC subnet IPv4 address.\n\n- You can set this to a specific, public IPv4 address that's available on the Linode. You can also use the `any` keyword to enable the Linode's assigned public IPv4 address.\n\n- A specified address can't be used on another Linode.\n\n- Include this as an empty object (`\"\"`) to remove an existing `nat_1_1` value.\n\n- Omit this object or include it and set it to `null` to leave an existing `nat_1_1` value as is.").optional(),
+  "vpc": z.string().ip().nullable().describe("The VPC subnet IPv4 address for this interface.\n\n- The `vpc` can't be assigned to an existing Linode as an address or in a range.\n\n- The target address can't be the first two or last two addresses in the subnet IPv4 range.\n\n- If omitted, a valid address within the subnet IPv4 range is automatically assigned.").optional()
+}

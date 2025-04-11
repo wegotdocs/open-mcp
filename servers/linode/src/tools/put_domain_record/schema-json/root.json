@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "__Filterable__ The name of this Record. For requests, this property's actual usage and whether it is required depends on the type of record this represents:\n\n`A` and `AAAA`: The hostname or FQDN of the Record.\n\n`NS`: The subdomain, if any, to use with the Domain of the Record. Wildcard NS records (`*`) are not supported.\n\n`MX`: The mail subdomain. For example, `sub` for the address `user@sub.example.com` under the `example.com` Domain.\n\n- The left-most subdomain component may be an asterisk (`*`) to designate a wildcard subdomain.\n- Other subdomain components must only contain letters, digits, and hyphens, start with a letter, end with a letter or digit, and contain less than 64 characters.\n- Must be an empty string (`\"\"`) for a Null MX Record.\n\n`CNAME`: The hostname. Must be unique. Required.\n\n`TXT`: The hostname.\n\n`SRV`: Unused. Use the `service` property to set the service name for this record.\n\n`CAA`: The subdomain. Omit or enter an empty string (`\"\"`) to apply to the entire Domain.\n\n`PTR`: See our guide on how to [Configure Your Linode for Reverse DNS\n(rDNS)](https://www.linode.com/docs/guides/configure-rdns/).",
+      "example": "{{name}}",
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 3,
+      "x-linode-filterable": true
+    },
+    "port": {
+      "description": "The port this Record points to. Only valid and required for SRV record requests.",
+      "example": "{{port}}",
+      "maximum": 65535,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "priority": {
+      "description": "The priority of the target host for this Record. Lower values are preferred. Only valid for MX and SRV record requests. Required for SRV record requests.\n\nDefaults to `0` for MX record requests. Must be `0` for Null MX records.",
+      "example": "{{priority}}",
+      "maximum": 255,
+      "minimum": 0,
+      "type": "integer",
+      "x-linode-cli-display": 6
+    },
+    "protocol": {
+      "description": "The protocol this Record's service communicates with. An underscore (`_`) is prepended automatically to the submitted value for this property. Only valid for SRV record requests.",
+      "example": "{{protocol}}",
+      "nullable": true,
+      "type": "string"
+    },
+    "service": {
+      "description": "The name of the service. An underscore (`_`) is prepended and a period (`.`) is appended automatically to the submitted value for this property. Only valid and required for SRV record requests.",
+      "example": "{{service}}",
+      "nullable": true,
+      "type": "string"
+    },
+    "tag": {
+      "description": "__Filterable__ The tag portion of a CAA record. Only valid and required for CAA record requests.",
+      "enum": [
+        "issue",
+        "issuewild",
+        "iodef"
+      ],
+      "example": "{{tag}}",
+      "nullable": true,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    },
+    "target": {
+      "description": "__Filterable__ The target for this Record. For requests, this property's actual usage and whether it is required depends on the type of record this represents:\n\n`A` and `AAAA`: The IP address. Use `[remote_addr]` to submit the IPv4 address of the request. Required.\n\n`NS`: The name server. Must be a valid domain. Required.\n\n`MX`: The mail server. Must be a valid domain unless creating a Null MX Record. Required.\n\n- Must have less than 254 total characters.\n- The left-most domain component may be an asterisk (`*`) to designate a wildcard domain.\n- Other domain components must only contain letters, digits, and hyphens, start with a letter, end with a letter or digit, and contain less than 64 characters.\n- To create a [Null MX Record](https://datatracker.ietf.org/doc/html/rfc7505), first [remove](https://techdocs.akamai.com/linode-api/reference/delete-domain-record) any additional MX records, then create an MX record with empty strings (`\"\"`) for the `target` and `name`. If a Domain has a Null MX record, new MX records cannot be created.\n\n`CNAME`: The alias. Must be a valid domain. Required.\n\n`TXT`: The value. Required.\n\n`SRV`: The target domain or subdomain. If a subdomain is entered, it is automatically used with the Domain.\nTo configure for a different domain, enter a valid FQDN. For example, the value `www` with a Domain for\n`example.com` results in a target set to `www.example.com`, whereas the value `sample.com` results in a\ntarget set to `sample.com`. Required.\n\n`CAA`: The value. For `issue` or `issuewild` tags, the domain of your certificate issuer. For the `iodef`\ntag, a contact or submission URL (domain, http, https, or mailto). Requirements depend on the tag for this record:\n\n  - `issue`: The domain of your certificate issuer. Must include a valid domain. May include additional parameters separated with semicolons (`;`), for example: `www.example.com; foo=bar`\n  - `issuewild`: The domain of your wildcard certificate issuer. Must be a valid domain and must not start with an asterisk (`*`).\n  - `iodef`: Must be either (1) a valid domain, (2) a valid domain prepended with `http://` or `https://`, or (3) a valid email address prepended with `mailto:`.\n\n`PTR`: Required. See our guide on how to [Configure Your Linode for Reverse DNS\n(rDNS)](https://www.linode.com/docs/guides/configure-rdns/).\n\nWith the exception of A, AAAA, and CAA records, this field accepts a trailing period.",
+      "example": "{{target}}",
+      "maxLength": 65535,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 4,
+      "x-linode-filterable": true
+    },
+    "ttl_sec": {
+      "description": "\"Time to Live\" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers. Valid values are 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.",
+      "example": "{{ttl_sec}}",
+      "type": "integer",
+      "x-linode-cli-display": 5
+    },
+    "weight": {
+      "description": "The relative weight of this Record used in the case of identical priority. Higher values are preferred. Only valid and required for SRV record requests.",
+      "example": "{{weight}}",
+      "maximum": 65535,
+      "minimum": 0,
+      "type": "integer",
+      "x-linode-cli-display": 7
+    }
+  },
+  "required": []
+}

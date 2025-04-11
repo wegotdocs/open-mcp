@@ -1,0 +1,22 @@
+{
+  "additionalProperties": false,
+  "description": "Information about how to reach this Contact by phone.",
+  "properties": {
+    "primary": {
+      "description": "This Contact's primary phone number.",
+      "example": "123-456-7890",
+      "format": "phone",
+      "nullable": true,
+      "type": "string"
+    },
+    "secondary": {
+      "description": "This Contact's secondary phone number.",
+      "example": null,
+      "format": "phone",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "x-linode-cli-display": 4
+}

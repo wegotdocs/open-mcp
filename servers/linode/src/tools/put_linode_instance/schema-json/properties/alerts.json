@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cpu": {
+      "description": "The percentage of CPU usage required to trigger an alert. If the average CPU usage over two hours exceeds this value, we'll send you an alert. Your Linode's total CPU capacity is represented as 100%, multiplied by its number of cores.\n\nFor example, a two core Linode's CPU capacity is represented as 200%. If you want to be alerted at 90% of a two core Linode's CPU capacity, set the alert value to `180`.\n\nThe default value is 90% multiplied by the number of cores.\n\nIf the value is set to `0` (zero), the alert is disabled.",
+      "example": 180,
+      "type": "integer"
+    },
+    "io": {
+      "description": "The amount of disk IO operation per second required to trigger an alert. If the average disk IO over two hours exceeds this value, we'll send you an alert. If set to `0` (zero), this alert is disabled.",
+      "example": 10000,
+      "type": "integer"
+    },
+    "network_in": {
+      "description": "The amount of incoming traffic, in Mbit/s, required to trigger an alert. If the average incoming traffic over two hours exceeds this value, we'll send you an alert. If this is set to `0` (zero), the alert is disabled.",
+      "example": 10,
+      "type": "integer"
+    },
+    "network_out": {
+      "description": "The amount of outbound traffic, in Mbit/s, required to trigger an alert. If the average outbound traffic over two hours exceeds this value, we'll send you an alert. If this is set to `0` (zero), the alert is disabled.",
+      "example": 10,
+      "type": "integer"
+    },
+    "transfer_quota": {
+      "description": "The percentage of network transfer that may be used before an alert is triggered. When this value is exceeded, we'll alert you. If this is set to `0` (zero), the alert is disabled.",
+      "example": 80,
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

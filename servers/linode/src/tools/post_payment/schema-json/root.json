@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "payment_method_id": {
+      "description": "The ID of the Payment Method to apply to the Payment.",
+      "example": "{{payment_method_id}}",
+      "type": "integer"
+    },
+    "usd": {
+      "description": "The amount in US Dollars of the Payment.\n\n- Can begin with or without `$`.\n- Commas (`,`) are not accepted.\n- Must end with a decimal expression, such as `.00` or `.99`.\n- Minimum: `$5.00` or the Account balance, whichever is lower.\n- Maximum: `$2000.00` or the Account balance up to `$50000.00`, whichever is greater.",
+      "example": "{{usd}}",
+      "pattern": "^\\$?\\d+\\.\\d{2}$",
+      "type": "string"
+    }
+  },
+  "required": []
+}

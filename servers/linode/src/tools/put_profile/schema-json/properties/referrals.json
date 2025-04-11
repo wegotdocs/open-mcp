@@ -1,0 +1,45 @@
+{
+  "additionalProperties": false,
+  "description": "__Read-only__ Information about your status in our referral program. The API makes this information available after this profile's account has established at least $25.00 USD of total payments.",
+  "properties": {
+    "code": {
+      "description": "__Read-only__ Your referral code. If others use this when signing up for Linode, you receive an account credit.",
+      "example": "871be32f49c1411b14f29f618aaf0c14637fb8d3",
+      "readOnly": true,
+      "type": "string"
+    },
+    "completed": {
+      "description": "__Read-only__ The number of completed sign-ups that used your referral code.",
+      "example": 0,
+      "readOnly": true,
+      "type": "integer"
+    },
+    "credit": {
+      "description": "__Read-only__ Your referral program account credit in US dollars.",
+      "example": 0,
+      "readOnly": true,
+      "type": "integer"
+    },
+    "pending": {
+      "description": "__Read-only__ The number of pending sign-ups that used your referral code. Akamai gives you credit for these sign-ups once they've completed.",
+      "example": 0,
+      "readOnly": true,
+      "type": "integer"
+    },
+    "total": {
+      "description": "__Read-only__ The number of users who have signed up with your referral code.",
+      "example": 0,
+      "readOnly": true,
+      "type": "integer"
+    },
+    "url": {
+      "description": "__Read-only__ The referral URL that Akamai uses to direct others to sign up for Akamai Cloud Computing with your referral code.",
+      "example": "https://www.linode.com/?r=871be32f49c1411b14f29f618aaf0c14637fb8d3",
+      "format": "url",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "readOnly": true,
+  "type": "object"
+}

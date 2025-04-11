@@ -1,0 +1,68 @@
+{
+  "additionalProperties": false,
+  "description": "Configuration settings for automated patch update maintenance for the Managed Database.",
+  "properties": {
+    "day_of_week": {
+      "description": "The numeric reference for the day of the week to perform maintenance. `1` is Monday, `2` is Tuesday, through to `7` which is Sunday.",
+      "example": 1,
+      "maximum": 7,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "duration": {
+      "description": "The maximum maintenance window time in hours.",
+      "example": 3,
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "frequency": {
+      "default": "weekly",
+      "description": "How frequently maintenance occurs. Currently can only be `weekly`.",
+      "enum": [
+        "weekly"
+      ],
+      "example": "weekly",
+      "type": "string"
+    },
+    "hour_of_day": {
+      "description": "The hour to begin maintenance based in UTC time.",
+      "example": 0,
+      "maximum": 23,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pending": {
+      "description": "__Read-only__ An array of pending updates.",
+      "example": [],
+      "items": {
+        "description": "A planned maintenance update.",
+        "properties": {
+          "deadline": {
+            "description": "The time when a mandatory update needs to be applied.",
+            "example": "2024-10-14 19:55:12",
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          },
+          "description": {
+            "description": "A description of the update.",
+            "example": "TimescaleDB version 2.17.1 is available.",
+            "type": "string"
+          },
+          "planned_for": {
+            "description": "The date and time a maintenance update will be applied.",
+            "example": "2024-10-14 19:55:12",
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "readOnly": true,
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "address": {
+      "description": "The URL at which this Service is monitored. URL parameters such as `?no-cache=1` are preserved. URL fragments/anchors such as `#monitor` are __not__ preserved.",
+      "example": "{{address}}",
+      "format": "url",
+      "maxLength": 100,
+      "minLength": 3,
+      "type": "string",
+      "x-linode-cli-display": 5
+    },
+    "body": {
+      "description": "What to expect to find in the response body for the Service to be considered up.",
+      "example": "{{body}}",
+      "maxLength": 100,
+      "minLength": 0,
+      "nullable": true,
+      "type": "string"
+    },
+    "consultation_group": {
+      "description": "The group of ManagedContacts who should be notified or consulted with when an Issue is detected.",
+      "example": "{{consultation_group}}",
+      "maxLength": 50,
+      "minLength": 0,
+      "type": "string",
+      "x-linode-cli-display": 6
+    },
+    "created": {
+      "description": "__Read-only__ When this Managed Service was created.",
+      "example": "{{created}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "credentials": {
+      "description": "An array of ManagedCredential IDs that should be used when attempting to resolve issues with this Service.",
+      "items": {
+        "example": 9991,
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "id": {
+      "description": "__Read-only__ This Service's unique ID.",
+      "example": "{{id}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-linode-cli-display": 1
+    },
+    "label": {
+      "description": "The label for this Service. This is for display purposes only.",
+      "example": "{{label}}",
+      "maxLength": 64,
+      "minLength": 3,
+      "pattern": "[a-zA-Z0-9-_ \\.]{3,64}",
+      "type": "string",
+      "x-linode-cli-display": 4
+    },
+    "notes": {
+      "description": "Any information relevant to the Service that Linode special forces should know when attempting to resolve Issues.",
+      "example": "{{notes}}",
+      "nullable": true,
+      "type": "string"
+    },
+    "region": {
+      "description": "The Region in which this Service is located. This is required if address is a private IP, and may not be set otherwise.",
+      "example": "{{region}}",
+      "nullable": true,
+      "type": "string"
+    },
+    "service_type": {
+      "description": "How this Service is monitored.",
+      "enum": [
+        "url",
+        "tcp"
+      ],
+      "example": "{{service_type}}",
+      "type": "string",
+      "x-linode-cli-display": 3
+    },
+    "status": {
+      "description": "__Read-only__ The current status of this Service.",
+      "enum": [
+        "disabled",
+        "pending",
+        "ok",
+        "problem"
+      ],
+      "example": "{{status}}",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-color": {
+        "default_": "yellow",
+        "disabled": "red",
+        "ok": "green"
+      },
+      "x-linode-cli-display": 2
+    },
+    "timeout": {
+      "description": "How long to wait, in seconds, for a response before considering the Service to be down.",
+      "example": "{{timeout}}",
+      "maximum": 255,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "updated": {
+      "description": "__Read-only__ When this Managed Service was last updated.",
+      "example": "{{updated}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": []
+}

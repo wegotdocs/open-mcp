@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "linode_id": {
+      "description": "The ID of a Linode you have access to that this address will be allocated to.",
+      "example": "{{linode_id}}",
+      "type": "integer"
+    },
+    "public": {
+      "description": "Whether to create a public or private IPv4 address.",
+      "example": "{{public}}",
+      "type": "boolean"
+    },
+    "type": {
+      "description": "The type of address you are requesting. Only IPv4 addresses may be allocated through this operation.",
+      "enum": [
+        "ipv4"
+      ],
+      "example": "{{type}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "linode_id",
+    "public",
+    "type"
+  ]
+}

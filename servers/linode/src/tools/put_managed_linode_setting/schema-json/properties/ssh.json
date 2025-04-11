@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "description": "The SSH settings for this Linode.",
+  "properties": {
+    "access": {
+      "default": true,
+      "description": "If `true`, Linode special forces may access this Linode over ssh to respond to Issues.",
+      "example": true,
+      "type": "boolean"
+    },
+    "ip": {
+      "default": "any",
+      "description": "The IP Linode special forces should use to access this Linode when responding to an Issue.\n\nBy default, any of a Linode's IP addresses can be used for incident response access.",
+      "example": "203.0.113.1",
+      "format": "ip",
+      "type": "string"
+    },
+    "port": {
+      "default": null,
+      "description": "The port Linode special forces should use to access this Linode over ssh to respond to an Issue.\n\nThe default `null` value corresponds to port 22.",
+      "example": 22,
+      "maximum": 65535,
+      "minimum": 1,
+      "nullable": true,
+      "type": "integer"
+    },
+    "user": {
+      "default": null,
+      "description": "The specific user, if any, Linode's special forces should use when accessing this Linode to respond to an issue.\n\nThe default `null` value corresponds to the root user.",
+      "example": "linode",
+      "maxLength": 32,
+      "minLength": 0,
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "x-linode-cli-display": 4
+}

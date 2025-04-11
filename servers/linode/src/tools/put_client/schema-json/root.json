@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "__Read-only__ The OAuth Client ID.  This is used to identify the client, and is a publicly known value (it is not a secret).",
+      "example": "{{id}}",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 1
+    },
+    "label": {
+      "description": "__Filterable__ The name of this application.  This will be presented to users when they are asked to grant it access to their Account.",
+      "example": "{{label}}",
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "public": {
+      "default": false,
+      "description": "__Filterable__ If this is a public or private OAuth Client.  Public clients have a slightly different authentication workflow than private clients.  See the [OAuth spec](https://oauth.net/2/) for more details.",
+      "example": "{{public}}",
+      "type": "boolean",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 4,
+      "x-linode-filterable": true
+    },
+    "redirect_uri": {
+      "description": "The location a successful log in from [login.linode.com](https://login.linode.com) should be redirected to for this client.  The receiver of this redirect should be ready to accept an OAuth exchange code and finish the OAuth exchange.",
+      "example": "{{redirect_uri}}",
+      "format": "url",
+      "type": "string",
+      "x-linode-cli-display": 5
+    },
+    "secret": {
+      "description": "__Read-only__ The OAuth Client secret, used in the OAuth exchange.  This is returned as `<REDACTED>` except when an OAuth Client is created or its secret is reset.  This is a secret, and should not be shared or disclosed publicly.",
+      "example": "{{secret}}",
+      "readOnly": true,
+      "type": "string"
+    },
+    "status": {
+      "description": "__Read-only__ The status of this application.  `active` by default.",
+      "enum": [
+        "active",
+        "disabled",
+        "suspended"
+      ],
+      "example": "{{status}}",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-color": {
+        "default_": "white",
+        "suspended": "red"
+      },
+      "x-linode-cli-display": 3
+    },
+    "thumbnail_url": {
+      "description": "__Read-only__ The URL where this client's thumbnail may be viewed, or `null` if this client does not have a thumbnail set.",
+      "example": "{{thumbnail_url}}",
+      "format": "url",
+      "nullable": true,
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": []
+}

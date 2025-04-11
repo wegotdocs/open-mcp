@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "__Read-only__ This Credential's unique ID.",
+      "example": "{{id}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-linode-cli-display": 1
+    },
+    "label": {
+      "description": "The unique label for this Credential. This is for display purposes only.",
+      "example": "{{label}}",
+      "maxLength": 75,
+      "minLength": 2,
+      "pattern": "[a-zA-Z0-9-_ \\.]{2,75}",
+      "type": "string",
+      "x-linode-cli-display": 2
+    },
+    "last_decrypted": {
+      "description": "__Read-only__ The date this Credential was last decrypted by a member of Linode special forces.",
+      "example": "{{last_decrypted}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 3
+    }
+  },
+  "required": []
+}

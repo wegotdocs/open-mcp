@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "day": z.enum(["Scheduling","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]).nullable().describe("The day of the week that your Linode's weekly backup is taken. If not set manually, a day will be chosen for you. Backups are taken every day, but backups taken on this day are preferred when selecting backups to retain for a longer period.\n\nIf not set manually, then when backups are initially enabled, this may come back as `Scheduling` until the `day` is automatically selected.").optional(),
+  "window": z.enum(["Scheduling","W0","W2","W4","W6","W8","W10","W12","W14","W16","W18","W20","W22"]).nullable().describe("When your backups will be taken, in UTC. A backups window is a two-hour span of time in which the backup may occur.\n\nFor example, `W10` indicates that your backups should be taken between 10:00 and 12:00. If you don't choose a backup window, the API automatically assigns one.\n\nIf not set manually, when backups are initially enabled this may come back as `Scheduling` until the `window` is automatically selected.").optional()
+}

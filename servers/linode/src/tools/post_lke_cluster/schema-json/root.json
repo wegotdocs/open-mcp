@@ -1,0 +1,254 @@
+{
+  "type": "object",
+  "properties": {
+    "control_plane": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `control_plane` to the tool, first call the tool `expandSchema` with \"/properties/control_plane\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Defines settings for the Kubernetes control plane, including High Availability (HA) and an IP-based Access Control List (ACL) for the control plane components.</property-description>",
+      "additionalProperties": true
+    },
+    "k8s_version": {
+      "description": "__Filterable__ The desired Kubernetes version for this Kubernetes cluster in the format of &lt;major&gt;.&lt;minor&gt;, and the latest supported patch version will be deployed.",
+      "example": "{{k8s_version}}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 4,
+      "x-linode-filterable": true
+    },
+    "label": {
+      "description": "__Filterable__ This Kubernetes cluster's unique label for display purposes only. Labels have the following constraints:\n\n  - UTF-8 characters will be returned by the API using escape sequences of their Unicode code points. For example, the Japanese character _か_ is 3 bytes in UTF-8 (`0xE382AB`). Its Unicode code point is 2 bytes (`0x30AB`). APIv4 supports this character and the API will return it as the escape sequence using six 1 byte characters which represent 2 bytes of Unicode code point (`\"\\u30ab\"`).\n\n  - 4 byte UTF-8 characters are not supported.\n\n  - If the label is entirely composed of UTF-8 characters, the API response will return the code points using up to 193 1 byte characters.",
+      "example": "{{label}}",
+      "maxLength": 32,
+      "minLength": 1,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "node_pools": {
+      "items": {
+        "additionalProperties": false,
+        "description": "Specifies a collection of Linodes to serve as members of a Kubernetes cluster.",
+        "properties": {
+          "autoscaler": {
+            "additionalProperties": false,
+            "description": "When enabled, the number of nodes automatically scales within the defined minimum and maximum values. When making a request, `max` and `min` require each other.",
+            "properties": {
+              "enabled": {
+                "description": "Whether automatic scaling is enabled for this node pool. Defaults to `false`.",
+                "example": true,
+                "type": "boolean"
+              },
+              "max": {
+                "description": "The maximum number of nodes to automatically scale to. Defaults to the value provided by the `count` field.",
+                "example": 12,
+                "maximum": 100,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "min": {
+                "description": "The minimum number of nodes to automatically scale to. Defaults to the node pool's `count`.",
+                "example": 3,
+                "maximum": 100,
+                "minimum": 1,
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "count": {
+            "description": "The number of nodes in the Node Pool.",
+            "example": 6,
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "disks": {
+            "description": "This node pool's custom disk layout. Each item in this array will create a new disk partition for each node in this node pool.\n\n> 📘\n>\n> Omit this field, except for special use cases. The disks specified here are partitions in _addition_ to the primary partition and reduce the size of the primary partition. This can lead to stability problems for the node.\n\n  - The custom disk layout is applied to each node in this node pool.\n\n  - The maximum number of custom disk partitions that can be configured is 7.\n\n  - Once the requested disk partitions are allocated, the remaining disk space is allocated to the node's boot disk.\n\n  - A node pool's custom disk layout is immutable over the lifetime of the node pool.",
+            "items": {
+              "additionalProperties": false,
+              "description": "The values to assign to each partition in this Node Pool's custom disk layout.",
+              "properties": {
+                "size": {
+                  "description": "The size of this custom disk partition in MB. The size of this disk partition can't exceed the capacity of the node's plan type.",
+                  "example": 1024,
+                  "type": "integer"
+                },
+                "type": {
+                  "description": "This custom disk partition's filesystem type.",
+                  "enum": [
+                    "raw",
+                    "ext4"
+                  ],
+                  "example": "ext4",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "x-linode-cli-format": "json"
+          },
+          "labels": {
+            "additionalProperties": {
+              "maxLength": 63,
+              "minLength": 0,
+              "pattern": "^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?",
+              "type": "string",
+              "x-additionalPropertiesName": "value"
+            },
+            "description": "Key-value pairs added as labels to nodes in the node pool. Labels help classify your nodes and easily select subsets of objects. To learn more, review [Add Labels and Taints to your LKE node pools](https://www.linode.com/docs/products/compute/kubernetes/guides/deploy-and-manage-cluster-with-the-linode-api/#add-labels-and-taints-to-your-lke-node-pools).\n\n**Label key:**\n\n- A key can contain alphanumeric characters, dashes (`-`), underscores (`_`), or dots (`.`). Start and end it with an alphanumeric character.\n\n- If the key begins with a DNS subdomain prefix followed by a single slash, for example `example.com/my-app`, the maximum total length of the label key is 128 characters. Domain labels can be up to 62 characters after the '/'. The prefix needs to adhere to [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123) DNS subdomain restrictions.\n\n- If the key doesn't begin with a DNS subdomain prefix, the maximum key length is 63 characters.\n\nSpecifying an empty object removes all previously set labels.\n\n**Label value:**\n\n- The label's value can contain alphanumeric characters, dashes (`-`), underscores (`_`), or dots (`.`). Start and end it with an alphanumeric character.\n\n- Can be specified as an empty string value with `\"\"`.",
+            "example": {
+              "example.com/my-app": "teams"
+            },
+            "type": "object"
+          },
+          "tags": {
+            "description": "__Filterable__ An array of tags applied to this object. Tags are for organizational purposes only.",
+            "example": [
+              "example tag",
+              "another example"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "x-akamai": {
+              "labels": [
+                "Filterable"
+              ]
+            },
+            "x-linode-filterable": true
+          },
+          "taints": {
+            "description": "Kubernetes taints to add to node pool nodes. Taints help control how pods are scheduled onto nodes, specifically allowing them to repel certain pods. To learn more, review [Add labels and taints to your LKE node pools](https://www.linode.com/docs/products/compute/kubernetes/guides/deploy-and-manage-cluster-with-the-linode-api/#add-labels-and-taints-to-your-lke-node-pools).\n\nSpecifying an empty array (`[]`) removes all previously set taints.",
+            "example": [
+              {
+                "effect": "NoSchedule",
+                "key": "example.com/my-app",
+                "value": "teamA"
+              },
+              {
+                "effect": "NoExecute",
+                "key": "myapp.io/team",
+                "value": "teamB"
+              }
+            ],
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "effect": {
+                  "description": "The Kubernetes taint effect. For `NoSchedule`, `PreferNoSchedule` and `NoExecute` descriptions, see [Kubernetes Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).",
+                  "enum": [
+                    "NoSchedule",
+                    "PreferNoSchedule",
+                    "NoExecute"
+                  ],
+                  "example": "NoSchedule",
+                  "type": "string"
+                },
+                "key": {
+                  "description": "The Kubernetes taint key.\n\n- A key can contain alphanumeric characters, dashes (`-`), underscores (`_`), or dots (`.`). Start and end it with an alphanumeric character.\n\n- If the key begins with a DNS subdomain prefix followed by a single slash, for example `example.com/my-app`, the prefix part needs to adhere to [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123) DNS subdomain restrictions and be a maximum of 253 characters.",
+                  "example": "example.com/my-app",
+                  "maxLength": 63,
+                  "minLength": 1,
+                  "pattern": "^([A-Za-z0-9][-A-Za-z0-9_.]*)?(\\/)?([A-Za-z0-9][-A-Za-z0-9_.]{1,63})?$",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The Kubernetes taint value.\n\n- A key can contain alphanumeric characters, dashes (`-`), underscores (`_`), or dots (`.`). Start and end it with an alphanumeric character.\n\n- Can be specified as an empty string value with `\"\"`.",
+                  "example": "teamC",
+                  "maxLength": 63,
+                  "minLength": 0,
+                  "pattern": "^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value",
+                "effect"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "type": {
+            "description": "The Linode Type for all of the nodes in the Node Pool.",
+            "example": "g6-standard-4",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "count"
+        ],
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/lke-node-pool-request-body.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "region": {
+      "description": "__Filterable__ This Kubernetes cluster's location.",
+      "example": "{{region}}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 3,
+      "x-linode-filterable": true
+    },
+    "tags": {
+      "description": "__Filterable__ An array of tags applied to the Kubernetes cluster. Tags are for organizational purposes only.",
+      "example": [
+        "ecomm",
+        "blogs"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    },
+    "tier": {
+      "description": "__Beta__, __Filterable__ The desired Kubernetes tier, either `standard` or `enterprise`.\n\n> 🚧\n>\n> This field is in beta and only works when using the beta API. Call the URL with the `apiVersion` path parameter set to `v4beta`.",
+      "enum": [
+        "standard",
+        "enterprise"
+      ],
+      "example": "{{tier}}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ],
+        "status": "BETA"
+      },
+      "x-linode-cli-display": 5,
+      "x-linode-filterable": true
+    }
+  },
+  "required": [
+    "k8s_version",
+    "label",
+    "node_pools",
+    "region"
+  ]
+}

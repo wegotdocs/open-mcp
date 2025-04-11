@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "content_type": {
+      "description": "The expected `Content-type` header of the request this signed URL will be valid for.  If provided, the `Content-type` header _must_ be sent with the request when this URL is used, and _must_ be the same as it was when the signed URL was created. Required for all methods _except_ `GET` or `DELETE`.",
+      "example": "{{content_type}}",
+      "nullable": true,
+      "type": "string"
+    },
+    "expires_in": {
+      "default": 3600,
+      "description": "How long this signed URL will be valid for, in seconds.  If omitted, the URL will be valid for 3600 seconds (1 hour).",
+      "example": "{{expires_in}}",
+      "maximum": 86400,
+      "minimum": 360,
+      "nullable": true,
+      "type": "integer"
+    },
+    "method": {
+      "default": "GET",
+      "description": "The HTTP method allowed to be used with the pre-signed URL.",
+      "example": "{{method}}",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the object that will be accessed with the pre-signed URL. This object need not exist, and no error will be returned if it doesn't. This behavior is useful for generating pre-signed URLs to upload new objects to by setting the `method` to `PUT`.",
+      "example": "{{name}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "method",
+    "name"
+  ]
+}

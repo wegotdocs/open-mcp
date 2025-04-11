@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "billing_agreement": {
+      "description": "Certain regions require that you share your tax identification number (TIN) with Akamai. When you do, you need to acknowledge Akamai's [privacy statement](https://www.akamai.com/legal/privacy-statement) agreement, in regards to its protection. When set to `true`, you've acknowledged this agreement.",
+      "example": "{{billing_agreement}}",
+      "type": "boolean"
+    },
+    "eu_model": {
+      "description": "The acknowledgement status for the [cross-border data transfer](https://www.akamai.com/legal/compliance/privacy-trust-center/cross-border-data-transfer-statement) agreement.",
+      "example": "{{eu_model}}",
+      "type": "boolean"
+    },
+    "master_service_agreement": {
+      "description": "The acknowledgement status for Akamai's [master service agreement](https://www.linode.com/legal-msa/).",
+      "example": "{{master_service_agreement}}",
+      "type": "boolean"
+    },
+    "privacy_policy": {
+      "description": "The acknowledgement status for Akamai's [privacy statement](https://www.akamai.com/legal/privacy-statement).",
+      "example": "{{privacy_policy}}",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

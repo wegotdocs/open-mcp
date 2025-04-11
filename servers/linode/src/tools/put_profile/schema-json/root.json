@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "authentication_type": {
+      "description": "__Read-only__ This account's Cloud Manager authentication type. You choose an authentication type in Cloud Manager and Akamai authorizes it when you log into your account. Authentication types include your user's password (in conjunction with your username), or the name of your identity provider, such as GitHub. Here are some examples:\n\n- If a user has never used third-party authentication, the authentication type will be `password`.\n\n- If a user is using third-party authentication, the name of their identity provider is used for the authentication type, for example, `github`.\n\n- If a user has used third-party authentication and has since revoked it, the authentication type is `password`.",
+      "enum": [
+        "password",
+        "github"
+      ],
+      "example": "{{authentication_type}}",
+      "readOnly": true,
+      "type": "string"
+    },
+    "authorized_keys": {
+      "description": "Your user can use these SSH Keys to access Lish. This value is ignored if `lish_auth_method` is `disabled`.",
+      "example": null,
+      "items": {
+        "format": "ssh-key",
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "email": {
+      "description": "Your email address. We use this address for Akamai Cloud Computing-related communication.",
+      "example": "{{email}}",
+      "format": "email",
+      "type": "string",
+      "x-linode-cli-display": 2
+    },
+    "email_notifications": {
+      "description": "When set to `true`, you will receive email notifications about account activity. When `false`, you may still receive business-critical communications through email.",
+      "example": "{{email_notifications}}",
+      "type": "boolean"
+    },
+    "lish_auth_method": {
+      "description": "The authentication methods that you can use when connecting to the [Linode Shell (Lish)](https://www.linode.com/docs/guides/lish/).\n\n- `keys_only` is the most secure if you intend to use Lish.\n\n- `disabled` is recommended if you don't want to use Lish.\n\n- If this account's Cloud Manager authentication type is set to a third-party authentication method, you can't use `password_keys` as your Lish authentication method. Run the [Get a profile](https://techdocs.akamai.com/linode-api/reference/get-profile) operation to view your account's Cloud Manager `authentication_type` field.",
+      "enum": [
+        "password_keys",
+        "keys_only",
+        "disabled"
+      ],
+      "example": "{{lish_auth_method}}",
+      "type": "string"
+    },
+    "referrals": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `referrals` to the tool, first call the tool `expandSchema` with \"/properties/referrals\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>__Read-only__ Information about your status in our referral program. The API makes this information available after this profile's account has established at least $25.00 USD of total payments.</property-description>",
+      "additionalProperties": true
+    },
+    "restricted": {
+      "description": "When set to `true`, there are restrictions on what your user can access on your account. Run [List grants](https://techdocs.akamai.com/linode-api/reference/get-profile-grants) to get details on what entities and actions you can access and perform.",
+      "example": "{{restricted}}",
+      "type": "boolean",
+      "x-linode-cli-display": 3
+    },
+    "timezone": {
+      "description": "The time zone you want to display for your Linode assets. This API doesn't directly use this time zone. It's provided for the benefit of clients such as the Akamai Cloud Manager and other clients built on the API. All times returned by the API are in UTC.",
+      "example": "{{timezone}}",
+      "type": "string"
+    },
+    "two_factor_auth": {
+      "description": "When set to `true`, a login from an untrusted computer requires two-factor authentication. You also need to run [Create a two factor secret](https://techdocs.akamai.com/linode-api/reference/post-tfa-enable) to enable two-factor authentication.",
+      "example": "{{two_factor_auth}}",
+      "type": "boolean",
+      "x-linode-cli-display": 4
+    },
+    "uid": {
+      "description": "__Read-only__ Your unique ID in our system. This value will never change, and can safely be used to identify your user.",
+      "example": "{{uid}}",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "username": {
+      "description": "__Read-only__ Your username, used for logging in to our system.",
+      "example": "{{username}}",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 1
+    },
+    "verified_phone_number": {
+      "description": "__Read-only__ The phone number verified for this profile with the [Verify a phone number](https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify) operation. Displayed as `null` if the profile doesn't have a verified phone number.",
+      "example": "{{verified_phone_number}}",
+      "format": "phone",
+      "nullable": true,
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "payer_id": {
+      "description": "The PayerID returned by PayPal during the transaction authorization process.",
+      "example": "{{payer_id}}",
+      "type": "string"
+    },
+    "payment_id": {
+      "description": "The PaymentID returned from [Stage a PayPal payment](https://techdocs.akamai.com/linode-api/reference/post-pay-pal-payment) that has been approved with PayPal.",
+      "example": "{{payment_id}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "payer_id",
+    "payment_id"
+  ]
+}

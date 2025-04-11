@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "description": "The page of a collection to return.",
+      "default": 1,
+      "example": 6,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "The number of items to return per page.",
+      "default": 100,
+      "example": 50,
+      "maximum": 500,
+      "minimum": 25,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "linode_id": {
+      "description": "The ID of the Linode to restore a Backup to.",
+      "example": "{{linode_id}}",
+      "type": "integer"
+    },
+    "overwrite": {
+      "description": "If `true`, deletes all Disks and Configs on the target Linode before restoring.\n\nIf `false`, and the Disk image size is larger than the available space on the Linode, an error message indicating insufficient space is returned.",
+      "example": "{{overwrite}}",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "linode_id"
+  ]
+}

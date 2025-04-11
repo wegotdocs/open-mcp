@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "allow_list": {
+      "description": "Controls access to the Managed Database.\n\n- Individually included IP addresses or CIDR ranges can access the Managed Database while all other sources are blocked.\n\n- A standalone value of `0.0.0.0/0` allows all IP addresses access to the Managed Database.\n\n- An empty array (`[]`) blocks all public and private connections to the Managed Database.",
+      "example": [
+        "203.0.113.1/32",
+        "192.0.1.0/24"
+      ],
+      "items": {
+        "format": "ipv4/prefix_length",
+        "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "label": {
+      "description": "__Filterable__ A unique, user-defined string referring to the Managed Database. This string needs to be unique per Managed Database engine type.",
+      "example": "{{label}}",
+      "maxLength": 32,
+      "minLength": 3,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "type": {
+      "description": "Request re-sizing of your cluster to a Linode Type with more disk space. For example, you could request a Linode Type that uses a higher plan.\n\n- Needs to be a Linode Type with more disk space than your current Linode.\n\n- Resizing to a larger Linode Type can accrue additional cost. Review the `price` output from the [List types](https://techdocs.akamai.com/linode-api/reference/get-linode-types) operation for more information.\n\n- You can't update the `allow_list` and set a new `type` in the same request.\n\n- Any active updates to your cluster need to complete before you can request a resize. The reverse is also true: An active resizing needs to complete before you can perform any other update.",
+      "example": "{{type}}",
+      "type": "string"
+    },
+    "updates": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `updates` to the tool, first call the tool `expandSchema` with \"/properties/updates\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration settings for automated patch update maintenance for the Managed Database.</property-description>",
+      "additionalProperties": true
+    },
+    "version": {
+      "description": "__Filterable__ The Managed Database engine version.",
+      "example": "{{version}}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 7,
+      "x-linode-filterable": true
+    }
+  },
+  "required": []
+}

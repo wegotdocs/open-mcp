@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "description": "The page of a collection to return.",
+      "default": 1,
+      "example": 6,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "The number of items to return per page.",
+      "default": 100,
+      "example": 50,
+      "maximum": 500,
+      "minimum": 25,
+      "type": "integer"
+    },
+    "X-Filter": {
+      "description": "Specifies the `X-Filter` header JSON object's filtering and sort criteria.",
+      "oneOf": [
+        {
+          "description": "Specify the name of the data field and the accompanying value.",
+          "title": "Simple filter",
+          "type": "object",
+          "x-akamai": {
+            "file-path": "schemas/x-filter-criteria.yaml"
+          }
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "+and": {
+              "description": "All conditions need to be true.",
+              "items": {
+                "description": "Specify the name of the data field and the accompanying value.",
+                "title": "Simple filter",
+                "type": "object",
+                "x-akamai": {
+                  "file-path": "schemas/x-filter-criteria.yaml"
+                }
+              },
+              "type": "array"
+            },
+            "+contains": {
+              "description": "The provided string needs to be in the value.",
+              "type": "string"
+            },
+            "+gt": {
+              "description": "The value needs to be greater than the provided number.",
+              "type": "number"
+            },
+            "+gte": {
+              "description": "The value needs to be greater than or equal to the provided number.",
+              "type": "number"
+            },
+            "+lt": {
+              "description": "The value needs to be less than the provided number.",
+              "type": "number"
+            },
+            "+lte": {
+              "description": "The value needs to be less than or equal to the provided number.",
+              "type": "number"
+            },
+            "+neq": {
+              "description": "The provided string is left out of the results.",
+              "type": "string"
+            },
+            "+or": {
+              "description": "At least one condition needs to be true.",
+              "items": {
+                "description": "Specify the name of the data field and the accompanying value.",
+                "title": "Simple filter",
+                "type": "object",
+                "x-akamai": {
+                  "file-path": "schemas/x-filter-criteria.yaml"
+                }
+              },
+              "type": "array"
+            },
+            "+order": {
+              "default": "asc",
+              "description": "Sort in ascending (`asc`) or descending (`desc`) order. This defaults to `asc`. Requires `+order_by`.",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
+            },
+            "+order_by": {
+              "description": "Order results based on the provided attribute. The attribute needs to be filterable.",
+              "type": "string"
+            }
+          },
+          "title": "Filter and sort criteria",
+          "type": "object"
+        }
+      ],
+      "x-akamai": {
+        "file-path": "schemas/x-filter.yaml"
+      }
+    }
+  },
+  "required": []
+}
