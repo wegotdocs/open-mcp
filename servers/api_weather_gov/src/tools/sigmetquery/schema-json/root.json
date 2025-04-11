@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "start": {
+      "description": "Start time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end": {
+      "description": "End time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "date": {
+      "description": "Date (in YYYY-MM-DD format).",
+      "type": "string",
+      "format": "date"
+    },
+    "atsu": {
+      "description": "ATSU Identifier",
+      "pattern": "^[A-Z]{3,4}$",
+      "type": "string"
+    },
+    "sequence": {
+      "description": "SIGMET sequence number",
+      "type": "string"
+    }
+  },
+  "required": []
+}

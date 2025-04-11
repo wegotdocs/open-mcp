@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "atsu": {
+      "description": "ATSU Identifier",
+      "pattern": "^[A-Z]{3,4}$",
+      "type": "string"
+    },
+    "date": {
+      "description": "Date (in YYYY-MM-DD format).",
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "atsu",
+    "date"
+  ]
+}

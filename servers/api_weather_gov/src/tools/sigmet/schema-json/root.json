@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "atsu": {
+      "description": "ATSU Identifier",
+      "pattern": "^[A-Z]{3,4}$",
+      "type": "string"
+    },
+    "date": {
+      "description": "Date (in YYYY-MM-DD format).",
+      "type": "string",
+      "format": "date"
+    },
+    "time": {
+      "description": "A time (in HHMM format). This is always specified in UTC (Zulu) time.",
+      "pattern": "^([01][0-9]|2[0-3])[0-5][0-9]$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "atsu",
+    "date",
+    "time"
+  ]
+}
