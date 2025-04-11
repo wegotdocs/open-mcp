@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "description": "This user's email address. Akamai uses this address for account management communications.",
+      "example": "{{email}}",
+      "format": "email",
+      "type": "string",
+      "x-linode-cli-display": 2
+    },
+    "last_login": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `last_login` to the tool, first call the tool `expandSchema` with \"/properties/last_login\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>__Read-only__ Details on this user's last login attempt. Returned as `null` if this user hasn't attempted a login since it was created. You can run the [List user logins](https://techdocs.akamai.com/linode-api/reference/get-account-logins) operation for additional login information.</property-description>",
+      "additionalProperties": true
+    },
+    "password_created": {
+      "description": "__Read-only__ When this user's current password was created. You initially create a password during the account sign-up process, and you can update it using the [Reset Password](https://login.linode.com/forgot/password) webpage. Returned as `null` if this user doesn't have a password set.",
+      "example": "{{password_created}}",
+      "format": "date-time",
+      "nullable": true,
+      "readOnly": true,
+      "type": "string"
+    },
+    "restricted": {
+      "description": "If `true`, this user needs specific access granted to perform actions or access entities on your account. Run [List a user's grants](https://techdocs.akamai.com/linode-api/reference/get-user-grants) for details on how to configure grants for a restricted user.",
+      "example": "{{restricted}}",
+      "type": "boolean",
+      "x-linode-cli-display": 3
+    },
+    "ssh_keys": {
+      "description": "__Read-only__ A list of the labels for SSH keys added by this user. Users can add keys with the [Add an SSH key](https://techdocs.akamai.com/linode-api/reference/post-add-ssh-key) operation. These keys are deployed when this user is included in the `authorized_users` field of the following requests:\n\n- [Create a Linode](https://techdocs.akamai.com/linode-api/reference/post-linode-instance)\n\n- [Rebuild a Linode](https://techdocs.akamai.com/linode-api/reference/post-rebuild-linode-instance)\n\n- [Create a disk](https://techdocs.akamai.com/linode-api/reference/post-add-linode-disk)",
+      "example": [
+        "home-pc",
+        "laptop"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "tfa_enabled": {
+      "description": "__Read-only__ Whether this user has Two Factor Authentication (TFA) enabled. Run the [Create a two factor secret](https://techdocs.akamai.com/linode-api/reference/post-tfa-enable) operation to enable TFA.",
+      "example": "{{tfa_enabled}}",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "username": {
+      "description": "__Filterable__ The name of this user. This user needs to use this value to log in. It may also display alongside actions this user performs, including events or public StackScripts.",
+      "example": "{{username}}",
+      "maxLength": 32,
+      "minLength": 3,
+      "pattern": "^[a-zA-Z0-9]((?![_-]{2,})[a-zA-Z0-9-_])+[a-zA-Z0-9]$",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 1,
+      "x-linode-filterable": true
+    },
+    "verified_phone_number": {
+      "description": "__Read-only__ The [verified](https://techdocs.akamai.com/linode-api/reference/post-profile-phone-number-verify) phone number for this user profile. Returned as `null` if the user doesn't have a verified phone number.",
+      "example": "{{verified_phone_number}}",
+      "format": "phone",
+      "nullable": true,
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": []
+}

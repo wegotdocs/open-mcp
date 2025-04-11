@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "cloud_init": {
+      "description": "Whether the uploaded Image supports cloud-init.",
+      "example": "{{cloud_init}}",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "Description for the uploaded image.",
+      "example": "{{description}}",
+      "type": "string"
+    },
+    "label": {
+      "description": "Label for the uploaded image.",
+      "example": "{{label}}",
+      "type": "string"
+    },
+    "region": {
+      "description": "The region to upload to. Once uploaded, the image can be used in any region.",
+      "example": "{{region}}",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Tags you can use to organize images. A tag can be from 3 to 100 characters long, and an image can have a maximum of 500 total tags.",
+      "example": [
+        "repair-image",
+        "fix-1"
+      ],
+      "items": {
+        "maxLength": 100,
+        "minLength": 3,
+        "type": "string"
+      },
+      "maxItems": 500,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "label",
+    "region"
+  ]
+}

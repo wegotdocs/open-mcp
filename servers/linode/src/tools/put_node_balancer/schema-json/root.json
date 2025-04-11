@@ -1,0 +1,130 @@
+{
+  "type": "object",
+  "properties": {
+    "client_conn_throttle": {
+      "description": "Throttle TCP connections per second for TCP, HTTP, and HTTPS configurations.  Set to `0` (zero) to disable throttling.",
+      "example": "{{client_conn_throttle}}",
+      "maximum": 20,
+      "minimum": 0,
+      "type": "integer",
+      "x-linode-cli-display": 9
+    },
+    "created": {
+      "description": "__Read-only__ When this NodeBalancer was created.",
+      "example": "{{created}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "hostname": {
+      "description": "__Read-only__ This NodeBalancer's hostname, beginning with its IP address and ending with _.ip.linodeusercontent.com_.",
+      "example": "{{hostname}}",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 5
+    },
+    "id": {
+      "description": "__Read-only__ This NodeBalancer's unique ID.",
+      "example": "{{id}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-linode-cli-display": 1
+    },
+    "ipv4": {
+      "description": "__Filterable__, __Read-only__ This NodeBalancer's public IPv4 address.",
+      "example": "{{ipv4}}",
+      "format": "ip",
+      "readOnly": true,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 6,
+      "x-linode-filterable": true
+    },
+    "ipv6": {
+      "description": "__Read-only__ This NodeBalancer's public IPv6 address.",
+      "example": "{{ipv6}}",
+      "format": "ip",
+      "nullable": true,
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 7
+    },
+    "label": {
+      "description": "__Filterable__ This NodeBalancer's label. These must be unique on your Account.",
+      "example": "{{label}}",
+      "maxLength": 32,
+      "minLength": 3,
+      "pattern": "[a-zA-Z0-9-_]{3,32}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "lke_cluster": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `lke_cluster` to the tool, first call the tool `expandSchema` with \"/properties/lke_cluster\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>__Read-only__ This NodeBalancer's related LKE cluster, if any. The value is `null` if this NodeBalancer isn't related to an LKE cluster.</property-description>",
+      "additionalProperties": true
+    },
+    "region": {
+      "description": "__Filterable__, __Read-only__ The Region where this NodeBalancer is located. NodeBalancers only support backends in the same Region.",
+      "example": "{{region}}",
+      "readOnly": true,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 3,
+      "x-linode-filterable": true
+    },
+    "tags": {
+      "description": "__Filterable__ An array of Tags applied to this object.  Tags are for organizational purposes only.",
+      "example": [
+        "example tag",
+        "another example"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    },
+    "transfer": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `transfer` to the tool, first call the tool `expandSchema` with \"/properties/transfer\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>__Read-only__ Information about the amount of transfer this NodeBalancer has had so far this month.</property-description>",
+      "additionalProperties": true
+    },
+    "type": {
+      "description": "__Read-only__ The type of NodeBalancer.",
+      "enum": [
+        "common"
+      ],
+      "example": "{{type}}",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 4
+    },
+    "updated": {
+      "description": "__Read-only__ When this NodeBalancer was last updated.",
+      "example": "{{updated}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": []
+}

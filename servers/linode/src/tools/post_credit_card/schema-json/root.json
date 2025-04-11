@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "card_number": {
+      "description": "Your credit card number. No spaces or hyphens (`-`) allowed.",
+      "example": "{{card_number}}",
+      "format": "digits",
+      "maxLength": 24,
+      "minLength": 14,
+      "type": "string"
+    },
+    "cvv": {
+      "description": "CVV (Card Verification Value) of the credit card, typically found on the back of the card.",
+      "example": "{{cvv}}",
+      "format": "digits",
+      "maxLength": 4,
+      "minLength": 3,
+      "type": "string"
+    },
+    "expiry_month": {
+      "description": "A value from 1-12 representing the expiration month of your credit card.\n\n  - 1 = January\n  - 2 = February\n  - 3 = March\n  - Etc.",
+      "example": "{{expiry_month}}",
+      "maximum": 12,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expiry_year": {
+      "description": "A four-digit integer representing the expiration year of your credit card.\n\nThe combination of `expiry_month` and `expiry_year` must result in a month/year combination of the current month or in the future. An expiration date set in the past is invalid.",
+      "example": "{{expiry_year}}",
+      "maxLength": 4,
+      "minLength": 4,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "card_number",
+    "cvv",
+    "expiry_month",
+    "expiry_year"
+  ]
+}

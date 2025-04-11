@@ -1,0 +1,83 @@
+{
+  "additionalProperties": false,
+  "description": "A structure containing the Account-level grants a User has.",
+  "properties": {
+    "account_access": {
+      "description": "The level of access this User has to Account-level actions, like billing information. A restricted User will never be able to manage users.\n\n__Parent and child accounts__\n\nIn a [parent and child account](https://www.linode.com/docs/guides/parent-child-accounts/) environment, this grant can be added to a child account user, to give the user `read-write` access. This gives the child user unrestricted access to expected management operations, such as creating other child users. However, child users don't have write access to billing operations. The API issues a specific error message if a write operation is attempted by a child user.",
+      "enum": [
+        "read_only",
+        "read_write"
+      ],
+      "example": "read_only",
+      "nullable": true,
+      "type": "string"
+    },
+    "add_databases": {
+      "description": "If `true`, this User may add Managed Databases.",
+      "example": true,
+      "type": "boolean"
+    },
+    "add_domains": {
+      "description": "If `true`, this User may add Domains.",
+      "example": true,
+      "type": "boolean"
+    },
+    "add_firewalls": {
+      "description": "If `true`, this User may add Firewalls.",
+      "example": true,
+      "type": "boolean"
+    },
+    "add_images": {
+      "description": "If `true`, this User may add Images.",
+      "example": true,
+      "type": "boolean"
+    },
+    "add_linodes": {
+      "description": "If `true`, this User may create Linodes.",
+      "example": true,
+      "type": "boolean"
+    },
+    "add_longview": {
+      "description": "If `true`, this User may create Longview clients and view the current plan.",
+      "example": true,
+      "type": "boolean"
+    },
+    "add_nodebalancers": {
+      "description": "If `true`, this User may add NodeBalancers.",
+      "example": true,
+      "type": "boolean"
+    },
+    "add_stackscripts": {
+      "description": "If `true`, this User may add StackScripts.",
+      "example": true,
+      "type": "boolean"
+    },
+    "add_volumes": {
+      "description": "If `true`, this User may add Volumes.",
+      "example": true,
+      "type": "boolean"
+    },
+    "add_vpcs": {
+      "description": "If `true`, this User may add VPCs.",
+      "example": true,
+      "type": "boolean"
+    },
+    "cancel_account": {
+      "description": "If `true`, this User may cancel the entire Account.",
+      "example": false,
+      "type": "boolean"
+    },
+    "child_account_access": {
+      "description": "In a [parent and child account](https://www.linode.com/docs/guides/parent-child-accounts/) environment, this gives a parent account access to endpoints that can be used to manage child accounts. Unrestricted parent account users have access to this grant, while restricted parent users don't. An unrestricted parent user can set this to `true` to add this grant to a restricted parent user. Displayed as `null` for all non-parent accounts.",
+      "example": true,
+      "nullable": true,
+      "type": "boolean"
+    },
+    "longview_subscription": {
+      "description": "If `true`, this User may manage the Account's Longview subscription.",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

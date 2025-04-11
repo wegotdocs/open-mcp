@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "regions": {
+      "description": "The unique identifier for each compute `region`. See [Regions and images](https://techdocs.akamai.com/cloud-computing/docs/images#regions-and-images) for full details on support for `regions`.",
+      "example": [
+        "us-iad",
+        "us-west"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

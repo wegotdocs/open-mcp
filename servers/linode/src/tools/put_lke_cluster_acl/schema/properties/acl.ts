@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "addresses": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `addresses` to the tool, first call the tool `expandSchema` with \"/properties/acl/properties/addresses\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Supports keys `ipv4` and `ipv6`. Defaults to `{}`.</property-description>").optional(),
+  "enabled": z.boolean().describe("Defines a default policy. A value of `true` results in a default policy of `DENY`. A value of `false` results in a default policy of `ALLOW`, such as for disabled access controls. It defaults to `true`. Creating a cluster with ACL, or upgrading a cluster to use ACL for LKE, is an irreversible change. Once upgraded, you can only toggle access controls with this field.").optional(),
+  "revision-id": z.string().describe("Enables clients to track events related to ACL update requests and enforcements. Optional field. If omitted, defaults to a randomly generated string.").optional()
+}

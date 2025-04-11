@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "domain": {
+      "description": "The domain to import.",
+      "example": "{{domain}}",
+      "type": "string"
+    },
+    "remote_nameserver": {
+      "description": "The remote nameserver that allows zone transfers (AXFR).",
+      "example": "{{remote_nameserver}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "remote_nameserver"
+  ]
+}

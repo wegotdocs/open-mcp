@@ -1,0 +1,33 @@
+{
+  "additionalProperties": false,
+  "description": "Helpers enabled when booting to this Linode configuration.",
+  "properties": {
+    "devtmpfs_automount": {
+      "default": false,
+      "description": "Populates the `/dev` directory early during boot without `udev`.  Defaults to `false`.",
+      "example": true,
+      "type": "boolean"
+    },
+    "distro": {
+      "description": "Helps maintain correct `inittab` or `upstart` console device.",
+      "example": true,
+      "type": "boolean"
+    },
+    "modules_dep": {
+      "description": "Creates a modules dependency file for the kernel you run.",
+      "example": true,
+      "type": "boolean"
+    },
+    "network": {
+      "description": "Set to `true` to automatically configure static networking.",
+      "example": true,
+      "type": "boolean"
+    },
+    "updatedb_disabled": {
+      "description": "Set to `true` to disable the `updatedb` cron job to avoid disk thrashing.",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,17 @@
+{
+  "additionalProperties": false,
+  "description": "Include this to assign this Linode to an existing [placement group](https://www.linode.com/docs/products/compute/compute-instances/guides/placement-groups/) in the data center you're migrating to. These constraints apply:\n\n- If the target Linode is in a placement group, it will be removed from it when migrating.\n- The target placement group needs to be in the same `region` you're migrating to.\n- The target placement group needs to have capacity. Run the [Get a region](https://techdocs.akamai.com/linode-api/reference/get-region) operation for the region you want to migrate to, and store the `maximum_linodes_per_pg` value. Run the [Get a placement group](https://techdocs.akamai.com/linode-api/reference/get-placement-group) operation for that same region to review how many Linodes are in that group.",
+  "properties": {
+    "id": {
+      "description": "The placement group's ID. You need to provide it for all operations that affect it.",
+      "example": 528,
+      "nullable": false,
+      "type": "integer",
+      "x-linode-cli-display": 1
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "type": "object"
+}

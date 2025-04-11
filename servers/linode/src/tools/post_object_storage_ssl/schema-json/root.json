@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "certificate": {
+      "description": "Your Base64 encoded and PEM formatted SSL certificate.\n\nLine breaks must be represented as `\\n` in the string for requests (but not when using the Linode CLI)",
+      "example": "{{certificate}}",
+      "type": "string"
+    },
+    "private_key": {
+      "description": "The private key associated with this TLS/SSL certificate.\n\nLine breaks must be represented as `\\n` in the string for requests (but not when using the Linode CLI)",
+      "example": "{{private_key}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificate",
+    "private_key"
+  ]
+}

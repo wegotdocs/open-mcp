@@ -1,0 +1,26 @@
+{
+  "additionalProperties": false,
+  "description": "__Read-only__ Details on this user's last login attempt. Returned as `null` if this user hasn't attempted a login since it was created. You can run the [List user logins](https://techdocs.akamai.com/linode-api/reference/get-account-logins) operation for additional login information.",
+  "nullable": true,
+  "properties": {
+    "login_datetime": {
+      "description": "__Read-only__ The date and time of this user's most recent login attempt.",
+      "example": "2018-01-01T01:01:01",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "status": {
+      "description": "__Read-only__ The result of this user's most recent login attempt.",
+      "enum": [
+        "successful",
+        "failed"
+      ],
+      "example": "successful",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "readOnly": true,
+  "type": "object"
+}

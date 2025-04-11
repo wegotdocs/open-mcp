@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `data` to the tool, first call the tool `expandSchema` with \"/properties/data\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object representing the credit card information you have on file with Linode to make Payments against your Account.</property-description>",
+      "additionalProperties": true
+    },
+    "is_default": {
+      "description": "Whether this Payment Method is the default method for automatically processing service charges.",
+      "example": "{{is_default}}",
+      "type": "boolean",
+      "x-linode-cli-display": 3
+    },
+    "type": {
+      "description": "The type of Payment Method.\n\nAlternative Payment Methods including Google Pay and PayPal can be added using the Cloud Manager. See the [Manage Payment Methods](https://www.linode.com/docs/products/platform/billing/guides/payment-methods/) guide\nfor details and instructions.",
+      "enum": [
+        "credit_card"
+      ],
+      "example": "{{type}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "is_default",
+    "type"
+  ]
+}

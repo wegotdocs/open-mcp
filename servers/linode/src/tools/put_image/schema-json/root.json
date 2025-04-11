@@ -1,0 +1,236 @@
+{
+  "type": "object",
+  "properties": {
+    "capabilities": {
+      "description": "__Read-only__ A list of the possible capabilities of this image.\n\n- `cloud-init`. The image supports the cloud-init multi-distribution method with our [Metadata service](https://www.linode.com/docs/products/compute/compute-instances/guides/metadata/#troubleshoot-metadata-and-cloud-init). This only applies to public images.\n\n- `distributed-sites`. Whether the image can be used in distributed compute regions. Compared to a core compute region, distributed compute regions offer limited functionality, but they're globally distributed. Your image can be geographically closer to you, potentially letting you deploy it quicker. See [Regions and images](https://techdocs.akamai.com/cloud-computing/docs/images#regions-and-images) for complete details.",
+      "example": [
+        "cloud-init",
+        "distributed-sites"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array",
+      "x-linode-cli-display": 8
+    },
+    "created": {
+      "description": "__Read-only__ When this image was created.",
+      "example": "{{created}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "created_by": {
+      "description": "__Read-only__ The name of the user who created this image, or `linode` for public images.",
+      "example": "{{created_by}}",
+      "readOnly": true,
+      "type": "string"
+    },
+    "deprecated": {
+      "description": "__Filterable__, __Read-only__ Whether this image is deprecated. Only public images can be deprecated.",
+      "example": "{{deprecated}}",
+      "readOnly": true,
+      "type": "boolean",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    },
+    "description": {
+      "description": "A detailed description of this image.",
+      "example": "{{description}}",
+      "maxLength": 65000,
+      "minLength": 1,
+      "nullable": true,
+      "type": "string",
+      "x-linode-cli-color": {
+        "None": "black",
+        "default_": "white"
+      },
+      "x-linode-cli-display": 4
+    },
+    "eol": {
+      "description": "__Read-only__ The date of the public image's planned removal from service. This is `null` for private images.",
+      "example": "{{eol}}",
+      "format": "date-time",
+      "nullable": true,
+      "readOnly": true,
+      "type": "string"
+    },
+    "expiry": {
+      "description": "__Read-only__ Only images created automatically from a deleted compute instance (type=automatic) expire. This is `null` for private images.",
+      "example": "{{expiry}}",
+      "format": "date-time",
+      "nullable": true,
+      "readOnly": true,
+      "type": "string"
+    },
+    "id": {
+      "description": "__Read-only__ The unique identifier for each image.",
+      "example": "{{id}}",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 1
+    },
+    "is_public": {
+      "description": "__Filterable__, __Read-only__ Revealed as `true` if the image is a public distribution image. Private, account-specific images are listed as `false`.",
+      "example": "{{is_public}}",
+      "readOnly": true,
+      "type": "boolean",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 5,
+      "x-linode-filterable": true
+    },
+    "label": {
+      "description": "__Filterable__ A short description of the image.",
+      "example": "{{label}}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "regions": {
+      "description": "__Read-only__ Details on the regions where this image is stored. See [Regions and images](https://techdocs.akamai.com/cloud-computing/docs/images#regions-and-images) for full details on support for `regions`.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "region": {
+            "description": "The unique identifier for the core compute region where this image is stored.",
+            "example": "us-iad",
+            "type": "string"
+          },
+          "status": {
+            "description": "The status of the image in this `region`. Possible values are `available`, `creating`, `pending`, `pending deletion`, `pending replication`, or `replicating`.",
+            "enum": [
+              "available",
+              "creating",
+              "pending",
+              "pending deletion",
+              "pending replication",
+              "replicating"
+            ],
+            "example": "available",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "readOnly": true,
+      "type": "array",
+      "x-linode-cli-format": "json"
+    },
+    "size": {
+      "description": "__Filterable__, __Read-only__ The minimum size in MB this image needs to deploy.",
+      "example": "{{size}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 6,
+      "x-linode-filterable": true
+    },
+    "status": {
+      "description": "__Filterable__, __Read-only__ The current status of the image. Possible values are `available`, `creating`, and `pending_upload`.\n\n> 📘\n>\n> The `+order_by` and `+order` operators are not available when [filtering](https://techdocs.akamai.com/linode-api/reference/filtering-and-sorting) on this key.",
+      "enum": [
+        "creating",
+        "pending_upload",
+        "available"
+      ],
+      "example": "{{status}}",
+      "readOnly": true,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 7,
+      "x-linode-filterable": true
+    },
+    "tags": {
+      "description": "__Filterable__ Tags used for organizational purposes. A tag can be from 3 to 100 characters long, and an image can have a maximum of 500 total tags.",
+      "example": [
+        "repair-image",
+        "fix-1"
+      ],
+      "items": {
+        "maxLength": 100,
+        "minLength": 3,
+        "type": "string"
+      },
+      "maxItems": 500,
+      "minItems": 0,
+      "type": "array",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 10,
+      "x-linode-filterable": true
+    },
+    "total_size": {
+      "description": "__Read-only__ The total size in bytes of all instances of this image, in all `regions`.\n\n> 📘\n>\n> This object is empty for existing images. It's intended for use with future functionality.",
+      "example": "{{total_size}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-linode-cli-display": 9
+    },
+    "type": {
+      "description": "__Filterable__, __Read-only__ How the image was created. Create a `manual` image at any time. An `automatic` image is created automatically from a deleted compute instance.",
+      "enum": [
+        "manual",
+        "automatic"
+      ],
+      "example": "{{type}}",
+      "readOnly": true,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    },
+    "updated": {
+      "description": "__Read-only__ When this image was last updated.",
+      "example": "{{updated}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "vendor": {
+      "description": "__Filterable__, __Read-only__ The upstream distribution vendor. This is `null` for private images.",
+      "example": "{{vendor}}",
+      "nullable": true,
+      "readOnly": true,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-color": {
+        "None": "black",
+        "default_": "white"
+      },
+      "x-linode-cli-display": 3,
+      "x-linode-filterable": true
+    }
+  },
+  "required": []
+}
