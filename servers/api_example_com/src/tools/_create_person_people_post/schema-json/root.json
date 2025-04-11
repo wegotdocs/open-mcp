@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "title": "Name",
+      "minLength": 1,
+      "type": "string",
+      "description": "Full name of this person",
+      "example": "John Smith"
+    },
+    "address": {
+      "type": "string"
+    },
+    "birth": {
+      "title": "Birth",
+      "type": "string",
+      "description": "Date of birth, in format YYYY-MM-DD, or Unix timestamp",
+      "format": "date",
+      "example": "1999-12-31"
+    }
+  },
+  "required": [
+    "name",
+    "address"
+  ]
+}
