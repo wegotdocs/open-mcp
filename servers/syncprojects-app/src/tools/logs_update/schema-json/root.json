@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this client log.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "user": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "log_compressed": {
+      "type": "string",
+      "format": "byte",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "id",
+    "b_id",
+    "user",
+    "log_compressed"
+  ]
+}

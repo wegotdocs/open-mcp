@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "cover": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true
+    },
+    "released": {
+      "type": "boolean"
+    },
+    "release_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "description": "If the album is not released yet, this can be used to specify the estimated release date. YYYY-MM-DD"
+    },
+    "project": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "project"
+  ]
+}

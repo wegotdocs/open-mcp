@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "text": {
+      "type": "string"
+    },
+    "song_time": {
+      "type": "string",
+      "nullable": true
+    },
+    "song_time_seconds": {
+      "type": "string",
+      "readOnly": true
+    },
+    "assignee": {
+      "type": "integer",
+      "nullable": true
+    },
+    "edited": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "project": {
+      "type": "integer",
+      "nullable": true
+    },
+    "song": {
+      "type": "integer",
+      "nullable": true
+    },
+    "posted_date": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "requires_resolution": {
+      "type": "boolean"
+    },
+    "resolved": {
+      "type": "boolean"
+    },
+    "parent": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id",
+    "b_id",
+    "text",
+    "song_time_seconds",
+    "edited",
+    "posted_date"
+  ]
+}

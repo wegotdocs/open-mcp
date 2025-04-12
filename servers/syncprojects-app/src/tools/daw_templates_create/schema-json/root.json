@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "upload_url": {
+      "type": "string",
+      "readOnly": true
+    },
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "project",
+    "name",
+    "upload_url",
+    "id"
+  ]
+}

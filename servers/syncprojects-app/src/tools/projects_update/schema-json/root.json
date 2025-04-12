@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "bio": {
+      "type": "string",
+      "nullable": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "image": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true
+    },
+    "sync_enabled": {
+      "type": "boolean"
+    },
+    "sharing": {
+      "enum": [
+        "public",
+        "unlisted",
+        "invite"
+      ],
+      "type": "string",
+      "description": "* `public` - Public\n* `unlisted` - Unlisted\n* `invite` - Invite Only"
+    },
+    "is_locked": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "songs": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "id",
+    "b_id",
+    "name",
+    "is_locked",
+    "songs"
+  ]
+}

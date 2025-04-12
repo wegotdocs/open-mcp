@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this sync.",
+      "type": "integer"
+    },
+    "user": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "sync_time": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true,
+      "default": "2025-04-11T21:33:42.531325-04:00"
+    },
+    "changelog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "text": {
+            "type": "string"
+          },
+          "song": {
+            "type": "integer"
+          },
+          "date_created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "user": {
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "id",
+          "song",
+          "text",
+          "user"
+        ]
+      },
+      "readOnly": true
+    },
+    "project": {
+      "type": "integer"
+    },
+    "songs": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

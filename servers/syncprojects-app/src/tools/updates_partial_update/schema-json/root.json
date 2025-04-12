@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this client update.",
+      "type": "integer"
+    },
+    "version": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "updater": {
+      "type": "string",
+      "readOnly": true
+    },
+    "package": {
+      "type": "string",
+      "format": "uri"
+    },
+    "target": {
+      "type": "string"
+    },
+    "package_hash": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 68
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "signature": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 300
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

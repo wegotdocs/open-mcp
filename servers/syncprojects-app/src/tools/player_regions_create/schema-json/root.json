@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "start": {
+      "type": "number",
+      "format": "double",
+      "minimum": 0
+    },
+    "end": {
+      "type": "number",
+      "format": "double",
+      "minimum": 0
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 6
+    },
+    "song": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "start",
+    "end",
+    "name",
+    "color",
+    "song"
+  ]
+}

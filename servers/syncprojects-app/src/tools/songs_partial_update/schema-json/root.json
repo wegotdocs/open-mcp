@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Note that changing the song name may affect the ability to sync DAW projects or retrieve exported audio files. Please ensure you rename the song elsewhere as needed.",
+      "maxLength": 100
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sync_enabled": {
+      "type": "boolean"
+    },
+    "directory_name": {
+      "type": "string",
+      "nullable": true,
+      "description": "Specify a different folder name for Syncprojects-client to use (optional)",
+      "maxLength": 200
+    },
+    "last_mtime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "project": {
+      "type": "integer"
+    },
+    "is_locked": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "revision": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "url": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 300
+    },
+    "archived": {
+      "type": "boolean",
+      "description": "Prevent further syncs to this song. It can be downloaded, but no new changes made."
+    },
+    "project_file": {
+      "type": "string",
+      "nullable": true,
+      "description": "By default, the most recently edited .cpr file is opened. Usethis to supply a custom filename.",
+      "maxLength": 200
+    },
+    "album": {
+      "type": "integer",
+      "nullable": true
+    },
+    "album_order": {
+      "type": "integer",
+      "nullable": true
+    },
+    "duration": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

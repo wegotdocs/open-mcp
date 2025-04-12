@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "writeOnly": true
+    },
+    "password": {
+      "type": "string",
+      "writeOnly": true
+    },
+    "access": {
+      "type": "string",
+      "readOnly": true
+    },
+    "refresh": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "email",
+    "password",
+    "access",
+    "refresh"
+  ]
+}
