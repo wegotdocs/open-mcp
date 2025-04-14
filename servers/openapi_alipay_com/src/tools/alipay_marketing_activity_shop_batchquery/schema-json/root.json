@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "activity_id": {
+      "description": "活动id",
+      "example": "2016042700826004508401111111",
+      "type": "string"
+    },
+    "merchant_id": {
+      "description": "商户PID,默认为当前接口调用商户。",
+      "example": "2088202967380463",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "分页查询页码。 \t限制: \t必须为大于0的整数",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "分页查询单页数据条数。 \t限制: \t1.必须为大于0的整数 \t2.每页最大值为20",
+      "example": 20,
+      "type": "integer"
+    },
+    "product_version": {
+      "description": "版本号\t\t枚举值:\t2.0.0",
+      "example": "2.0.0",
+      "type": "string"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    }
+  },
+  "required": [
+    "activity_id"
+  ]
+}

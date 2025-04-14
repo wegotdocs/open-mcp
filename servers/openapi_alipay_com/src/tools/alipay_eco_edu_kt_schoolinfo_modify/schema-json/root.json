@@ -1,0 +1,141 @@
+{
+  "type": "object",
+  "properties": {
+    "bank_notify_url": {
+      "description": "与浙江网商交易见证平台有交互ISV输入网商交易异步通知回调URL，教育缴费同步账单信息给网商，网商会回调此url，ISV即可获取网商相关的参数，根据教育缴费平台账单发送接口返回的 order_no和网商返回的outer_trade_no来对应账单信息。",
+      "example": "https://www.xxx.xxx/xx",
+      "type": "string"
+    },
+    "bank_partner_id": {
+      "description": "与浙江网商交易见证平台有交互的ISV,由交易见证平台分配给合作方业务平台 签约唯一ID ，由网商分配给ISV的渠道参数",
+      "example": "200002924334",
+      "type": "string"
+    },
+    "bank_uid": {
+      "description": "与浙江网商交易见证平台有交互的ISV在创建账户时的uid，也就是ISV平台上的用户ID（字母或数字）",
+      "example": "20000293230232",
+      "type": "string"
+    },
+    "bankcard_no": {
+      "description": "对应集团到卡模式的银行编号.学校与支付宝后台签约时，由学校提交给支付宝的编号",
+      "example": "P0004",
+      "type": "string"
+    },
+    "batch_no": {
+      "description": "集团收单模式：分账批次号，支付宝配置后提供的银行卡批次号",
+      "example": "201812180111030000034567270022",
+      "type": "string"
+    },
+    "card_alias_no": {
+      "description": "学校开通直付通卡编号，smid与card_alias_no必须同时填写",
+      "example": "c6c0c7a1b9d54e5db9d49eed39f00e65",
+      "type": "string"
+    },
+    "city_code": {
+      "description": "城市的国家编码。参见 <a href=\"http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/\">国家统计局出版的行政区划代码</a>。",
+      "example": "330100",
+      "type": "string"
+    },
+    "city_name": {
+      "description": "城市名称",
+      "example": "杭州市",
+      "type": "string"
+    },
+    "corporate_branch_pid": {
+      "description": "集团收单模式：BD批量上传银行卡信息后，支付宝系统分配给ISV的每个卡分配的唯一标识",
+      "example": "2088301031335812",
+      "type": "string"
+    },
+    "district_code": {
+      "description": "区县的国家编码。参见 <a href=\"http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/\">国家统计局出版的行政区划代码</a>。",
+      "example": "330106",
+      "type": "string"
+    },
+    "district_name": {
+      "description": "区县名称",
+      "example": "西湖区",
+      "type": "string"
+    },
+    "isv_name": {
+      "description": "ISV公司名称 ， 会在账单详情页面展示给用户",
+      "example": "杭州少年宫",
+      "type": "string"
+    },
+    "isv_no": {
+      "description": "注意：本参数于2017-08-03开始已经废弃，不再需要传递。\t由支付宝提供的给已经签约的isv的编码，业务上一般直接采用isv的支付宝PID。",
+      "example": "201600129391238873",
+      "type": "string"
+    },
+    "isv_notify_url": {
+      "description": "此通知地址是为了保持教育缴费平台与ISV商户支付状态一致性。用户支付成功后，支付宝会根据本isv_notify_url(异步通知说明https://docs.open.alipay.com/203/105286/)，通过POST请求的形式将支付结果作为参数通知到商户系统，ISV商户可以根据返回的参数更新账单状态。",
+      "example": "https://isv.com/xxx",
+      "type": "string"
+    },
+    "isv_phone": {
+      "description": "ISV的联系方式 ， 会在账单详情页面展示给用户，用户有问题可以直接联系此电话获取帮助",
+      "example": "13300000000",
+      "type": "string"
+    },
+    "isv_pid": {
+      "description": "填写已经签约教育缴费的isv的支付宝PID",
+      "example": "2088121212121212",
+      "type": "string"
+    },
+    "province_code": {
+      "description": "省份的国家编码，参见 <a href=\"http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/\">国家统计局出版的行政区划代码</a>。",
+      "example": "330000",
+      "type": "string"
+    },
+    "province_name": {
+      "description": "省名称",
+      "example": "浙江省",
+      "type": "string"
+    },
+    "school_icon": {
+      "description": "学校的校徽或logo，在学校展示页面作为学校的标识。该字段为图片的链接地址，只支持png或jpg图片格式，图片高度为108，宽度为108 ，不大于20k。\r\t注意：此链接要求公网可以访问，否则无法正常展示。",
+      "example": "http://ecopublic-dev.oss-cn-hangzhou.aliyuncs.com/eco/edu_alipay/school/school.png",
+      "type": "string"
+    },
+    "school_icon_type": {
+      "description": "如果填写了school_icon参数，则此字段不能为空。目前只支持png和jpg两种格式",
+      "example": "png",
+      "type": "string"
+    },
+    "school_name": {
+      "description": "学校名称",
+      "example": "杭州市西湖第一实验学校",
+      "type": "string"
+    },
+    "school_pid": {
+      "description": "学校签约支付宝教育缴费支付宝pid,如果是直付通学校，填写直付通返回的smid",
+      "example": "20880012939123234423",
+      "type": "string"
+    },
+    "school_stdcode": {
+      "description": "学校(机构)标识码（由教育部按照国家标准及编码规则编制，可以在教育局官网查询）",
+      "example": "3133005132",
+      "type": "string"
+    },
+    "school_type": {
+      "description": "学校的类型。枚举值如下：\t*1：代表托儿所。\t*2：代表幼儿园。\t*3：代表小学。\t*4：代表初中。\t*5：代表高中。\t注意：如果学校兼有多种属性，可以连写，比如：45：代表兼有初中部高中部；34：代表兼有小学部初中部。",
+      "example": "4",
+      "type": "string"
+    },
+    "smid": {
+      "description": "学校开通直付通返回的二级商户id，smid与card_alias_no必须同时填写",
+      "example": "2088301031335814",
+      "type": "string"
+    },
+    "trans_in": {
+      "description": "集团收单模式：分账批次号，支付宝配置后提供的银行卡批次号",
+      "example": "4325353",
+      "type": "string"
+    },
+    "white_channel_code": {
+      "description": "与浙江网商交易见证平台有交互的ISV,由网商分配给ISV的渠道参数",
+      "example": "TESTBANK10301",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,16 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "consumer_id": z.string().describe("消费者id， 如果consumer_source是alipay，则consumer_id必须是支付宝用户uid；如果consumer_source是wx，则consumer_id可以为空").optional(),
+  "consumer_notify": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `consumer_notify` to the tool, first call the tool `expandSchema` with \"/properties/consumer_notify\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "consumer_source": z.string().describe("消费者来源, 支付宝：alipay, 微信：wx").optional(),
+  "goods_details": z.array(z.object({ "count": z.number().int().describe("商品数量").optional(), "name": z.string().describe("商品名称").optional(), "price": z.string().describe("商品单价").optional(), "unit": z.string().describe("商品单位").optional() })).describe("商品明细").optional(),
+  "goods_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `goods_info` to the tool, first call the tool `expandSchema` with \"/properties/goods_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "logistics_companies": z.array(z.object({ "logistics_code": z.string().describe("即时配送公司编码，由支付宝分配").optional(), "service_codes": z.array(z.object({ "service_code": z.string().describe("即时配送公司服务代码").optional() })).describe("即时配送公司服务代码列表").optional() })).describe("即时配送公司配置列表").optional(),
+  "open_id": z.string().describe("消费者id， 如果consumer_source是alipay，则consumer_id必须是支付宝的openId；如果consumer_source是wx，则consumer_id可以为空").optional(),
+  "order_ext_istd": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `order_ext_istd` to the tool, first call the tool `expandSchema` with \"/properties/order_ext_istd\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "out_order_no": z.string().describe("商家订单号").optional(),
+  "receiver": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `receiver` to the tool, first call the tool `expandSchema` with \"/properties/receiver\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "sender": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sender` to the tool, first call the tool `expandSchema` with \"/properties/sender\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "shop_no": z.string().describe("商家门店编号").optional()
+}

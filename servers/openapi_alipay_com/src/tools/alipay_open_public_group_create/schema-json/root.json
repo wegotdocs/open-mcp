@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "label_rule": {
+      "description": "标签规则，满足该规则的粉丝将被圈定，标签id不能重复",
+      "items": {
+        "properties": {
+          "label_id": {
+            "description": "标签id",
+            "type": "string"
+          },
+          "label_value": {
+            "description": "标签取值，当有多个取值时用英文\",\"分隔（比如使用in操作符时）；不允许传入下划线\"_\"、竖线\"|\"或者空格\" \"",
+            "type": "string"
+          },
+          "operator": {
+            "description": "目前支持EQ（等于）、NEQ（不等于）、LT（小于），GT（大于）、LTEQ（小于等于）、GTEQ（大于等于）、LIKE（匹配）、BETWEEN（范围）、IN（包含）、NOTIN（不包含）操作",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "分组名称，仅支持中文、字母、数字、下划线的组合。",
+      "example": "测试分组",
+      "type": "string"
+    }
+  },
+  "required": []
+}

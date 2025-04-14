@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "end_time": {
+      "description": "账单结束时间",
+      "example": "2021-11-10",
+      "type": "string"
+    },
+    "generate_time": {
+      "description": "出账时间，回传出账信息时，必须传递",
+      "example": "2021-10-14 00:00:00",
+      "type": "string"
+    },
+    "item_code": {
+      "description": "服务优选商品编码",
+      "example": "SS010301000000001234",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务号，传isv系统生成的账单号，需要保证唯一",
+      "example": "2021000000000",
+      "type": "string"
+    },
+    "pay_time": {
+      "description": "账单支付时间，回传支付数时，必须传递",
+      "example": "2021-10-14 00:00:00",
+      "type": "string"
+    },
+    "price": {
+      "description": "账单金额，这里填写的是整数，单位为分，比如1元，那么输入100",
+      "example": "100",
+      "type": "string"
+    },
+    "promotor_pid": {
+      "description": "推广服务商(S2)pid",
+      "example": "2088301912341234",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "账单开始时间",
+      "example": "2021-10-10",
+      "type": "string"
+    },
+    "status": {
+      "description": "GENERATE_BILL代表”已出账“，PAID_BILL代表”已支付“，选择这两者之一",
+      "example": "GENERATE_BILL",
+      "type": "string"
+    },
+    "sub_promotor_pid": {
+      "description": "S1回传的S2的操作员工子账号，如果是子账号操作，请回传",
+      "example": "20211011000000",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "agent_channel": {
+      "description": "分配给外部机构发起扣款时的渠道码。朗新为LANGXIN",
+      "example": "LANGXIN",
+      "type": "string"
+    },
+    "agent_code": {
+      "description": "二级渠道码，预留字段",
+      "example": "SECOND",
+      "type": "string"
+    },
+    "agreement_id": {
+      "description": "支付宝代扣协议Id",
+      "example": "1234557890",
+      "type": "string"
+    },
+    "bill_date": {
+      "description": "账期",
+      "example": "201605",
+      "type": "string"
+    },
+    "bill_key": {
+      "description": "户号",
+      "example": "03932134",
+      "type": "string"
+    },
+    "extend_field": {
+      "description": "扩展字段",
+      "example": "{\"key1\":\"value1\",\"key2\":\"value2\", \"key3\":\"value3\",\"key4\":\"value4\"}",
+      "type": "string"
+    },
+    "fine_amount": {
+      "description": "滞纳金",
+      "example": "2.00",
+      "type": "string"
+    },
+    "memo": {
+      "description": "备注信息",
+      "example": "memo",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "用户UserId在应用AppId下的唯一用户标识",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "out_order_no": {
+      "description": "商户外部业务流水号",
+      "example": "1888232932",
+      "type": "string"
+    },
+    "pay_amount": {
+      "description": "扣款金额，支付总金额，包含滞纳金",
+      "example": "23.00",
+      "type": "string"
+    },
+    "pid": {
+      "description": "商户partnerId",
+      "example": "2088131312",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "用户ID",
+      "example": "208811233144123",
+      "type": "string"
+    }
+  },
+  "required": []
+}

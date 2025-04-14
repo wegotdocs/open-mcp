@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业ID",
+      "example": "2088000166192438",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425123412341234",
+      "type": "string"
+    },
+    "effective_end_date": {
+      "description": "有效期截止（yyyy-MM-dd HH:mm:ss）\t特殊说明：\t1）与起始时间必须同时传，且大于起始时间\t2）不传则默认不修改",
+      "example": "2021-04-30 23:59:59",
+      "type": "string"
+    },
+    "effective_start_date": {
+      "description": "有效期起始（yyyy-MM-dd HH:mm:ss）\t特殊说明：\t1）与截止时间必须同时传，且小于截止时间\t2）不传入则默认不修改",
+      "example": "2020-04-01 00:00:00",
+      "type": "string"
+    },
+    "project_id": {
+      "description": "项目ID",
+      "example": "2021041500152700430000004790",
+      "type": "string"
+    },
+    "project_name": {
+      "description": "项目名\t特殊说明：不传入则默认不修改",
+      "example": "修改项目名",
+      "type": "string"
+    }
+  },
+  "required": []
+}

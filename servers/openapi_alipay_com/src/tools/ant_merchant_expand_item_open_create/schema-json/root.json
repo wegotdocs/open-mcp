@@ -1,0 +1,153 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "商品描述",
+      "example": "精选东北优质非转基因大豆",
+      "type": "string"
+    },
+    "ext_info": {
+      "description": "商品扩展信息（具体KEY请参见产品文档）。 小程序订单中心场景接入参见 <a href=\"https://opendocs.alipay.com/mini/024hj4\">接入指南</a>。",
+      "items": {
+        "properties": {
+          "ext_key": {
+            "description": "扩展信息的key",
+            "type": "string"
+          },
+          "ext_value": {
+            "description": "扩展信息的值",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "material_list": {
+      "description": "素材列表（最多3个），素材内容为素材key（素材key为<a href=\"https://opendocs.alipay.com/apis/api_4/alipay.merchant.item.file.upload\">alipay.merchant.item.file.upload</a> 接口返回的 material_key）",
+      "items": {
+        "properties": {
+          "content": {
+            "description": "素材内容（素材地址或素材KEY）",
+            "type": "string"
+          },
+          "type": {
+            "description": "素材类型",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "商品名称",
+      "example": "西红柿炒蛋",
+      "type": "string"
+    },
+    "property_list": {
+      "description": "商品属性列表",
+      "items": {
+        "properties": {
+          "property_key": {
+            "description": "属性名称",
+            "type": "string"
+          },
+          "property_value_list": {
+            "description": "属性值列表",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "scene": {
+      "description": "业务场景码。",
+      "example": "APP_ORDER",
+      "type": "string"
+    },
+    "sku_list": {
+      "description": "商品SKU列表（至少1个，最多20个）",
+      "items": {
+        "properties": {
+          "inventory": {
+            "description": "库存",
+            "example": 100,
+            "type": "integer"
+          },
+          "material_list": {
+            "description": "SKU素材列表（最多3个）",
+            "items": {
+              "properties": {
+                "content": {
+                  "description": "素材内容（素材地址或素材KEY）",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "素材类型",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "original_price": {
+            "description": "标价，单位分",
+            "example": 100,
+            "type": "integer"
+          },
+          "price": {
+            "description": "售价，单位分",
+            "example": 100,
+            "type": "integer"
+          },
+          "property_list": {
+            "description": "SKU属性列表",
+            "items": {
+              "properties": {
+                "property_key": {
+                  "description": "属性",
+                  "type": "string"
+                },
+                "property_value": {
+                  "description": "属性值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "standard_category_id": {
+      "description": "商品所属标准类目ID，标品及非标品都需传入。 请填入 <a href=\"https://opendocs.alipay.com/mini/011lxt\">小程序商品类目表</a> 中三级类目ID。",
+      "example": "2019073100992228000000100000",
+      "type": "string"
+    },
+    "target_id": {
+      "description": "商品归属主体ID\t例：商品归属主体类型target_type为店铺，则商品归属主体ID为店铺ID（支付宝侧店铺ID）；归属主体类型target_type为小程序，则归属主体ID为小程序ID",
+      "example": "2018090600502000000022501261",
+      "type": "string"
+    },
+    "target_type": {
+      "description": "商品归属主体类型。枚举如下：\t5：店铺。\t8：小程序。",
+      "example": "8",
+      "type": "string"
+    },
+    "type": {
+      "description": "商品类型。枚举支持：\tSTANDARD_GOODS：标品，一般是具有明确、标准规格、型号、参数的商品，如：手机、数码产品、大多数的家电 。\tNON_STANDARD_GOODS：非标品，则是在这些方面没有统一的行业标准和参数规格的商品，如：服装、鞋袜等。",
+      "example": "STANDARD_GOODS",
+      "type": "string"
+    }
+  },
+  "required": []
+}

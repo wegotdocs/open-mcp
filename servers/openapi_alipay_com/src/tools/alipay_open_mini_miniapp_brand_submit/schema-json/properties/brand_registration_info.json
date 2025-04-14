@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "end_date": {
+      "description": "商标有效期(结束日期)",
+      "example": "2021-10-16",
+      "type": "string"
+    },
+    "reg_materials": {
+      "description": "商标注册证书信息(当前只支持图片类型，请调用alipay.open.mini.miniapp.brand.upload接口上传图片,可以上传多个商标注册证书信息)",
+      "example": "[\"ua2qD53TRpyfX-UYYin6sQAAACMAAQED\",\"ua2qD53TRpyfX-UYYin6sQAAACMAAQED\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reg_number": {
+      "description": "商标注册号",
+      "example": "654893218979520200916249621",
+      "type": "string"
+    },
+    "registrant": {
+      "description": "商标注册人",
+      "example": "张三",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "商标有效期(开始日期)",
+      "example": "2022-02-10 08:00:00",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

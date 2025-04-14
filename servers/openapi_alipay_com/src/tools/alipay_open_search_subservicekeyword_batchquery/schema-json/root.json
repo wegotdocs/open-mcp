@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "target_appid": {
+      "description": "小程序id",
+      "example": "2021001112626071",
+      "type": "string"
+    },
+    "status": {
+      "description": "审核状态，服务关键词的审核状态，枚举值，不传该字段表示查询所有状态",
+      "example": "ONLINE",
+      "type": "string"
+    },
+    "page_number": {
+      "description": "分页参数，分页查询时使用",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "分页参数，分页查询时使用",
+      "example": 10,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

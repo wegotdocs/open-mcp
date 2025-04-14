@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_token": {
+      "description": "用户授权令牌",
+      "type": "string"
+    },
+    "bank_bill_no": {
+      "description": "外部订单号",
+      "example": "20130916",
+      "type": "string"
+    },
+    "bill_date": {
+      "description": "账单的账期，格式为 yyyyMMdd。例如：202012表示2020年12月的账单。",
+      "example": "201203",
+      "type": "string"
+    },
+    "bill_key": {
+      "description": "账单单据号，例如水费单号，手机号，电费号，信用卡卡号。没有唯一性要求。",
+      "example": "3388102012376451",
+      "type": "string"
+    },
+    "charge_inst": {
+      "description": "支付宝给每个出账机构指定了一个对应的英文短名称来唯一表示该收费单位。",
+      "example": "BJCEB",
+      "type": "string"
+    },
+    "extend_field": {
+      "description": "扩展属性",
+      "example": "{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":\"value3\",\"key4\":\"value4\"}",
+      "type": "string"
+    },
+    "merchant_order_no": {
+      "description": "输出机构的业务流水号，需要保证唯一性",
+      "example": "201203031234567",
+      "type": "string"
+    },
+    "mobile": {
+      "description": "用户的手机号",
+      "example": "15987838584",
+      "type": "string"
+    },
+    "order_type": {
+      "description": "支付宝订单类型。枚举支持：\t*JF：公共事业缴纳。\t*WUYE：物业缴费。\t*HK：信用卡还款。\t*TX：通讯缴费。",
+      "example": "JF",
+      "type": "string"
+    },
+    "owner_name": {
+      "description": "拥有该账单的用户姓名",
+      "example": "织绫",
+      "type": "string"
+    },
+    "pay_amount": {
+      "description": "缴费金额。用户支付的总金额。单位为 元（人民币）。取值范围为[0.01，100000000.00]，精确到小数点后两位。",
+      "example": "23.45",
+      "type": "string"
+    },
+    "service_amount": {
+      "description": "账单的服务费。",
+      "example": "8",
+      "type": "string"
+    },
+    "sub_order_type": {
+      "description": "子业务类型是业务类型的下一级概念。枚举支持：\t*WATER：缴水费。\t*ELECTRIC：缴电费。\t*GAS：缴燃气费。\t*COMMUN：缴固话宽带费。\t*CATV：缴有线电视费。\t*WUYE：缴物业费。\t*RC：定期还车贷代扣。\t*RH：定期还房贷代扣。\t*RR：定期还房租代扣。\t*RN：定期还网贷代扣。\t*CZ：手机充值代扣。\t例如：WATER表示JF下面的水费。",
+      "example": "WATER",
+      "type": "string"
+    },
+    "traffic_location": {
+      "description": "交通违章地点，sub_order_type=TRAFFIC时填写。",
+      "example": "浙江,杭徽高速",
+      "type": "string"
+    },
+    "traffic_regulations": {
+      "description": "违章行为，sub_order_type=TRAFFIC时填写。",
+      "example": "闯红灯",
+      "type": "string"
+    }
+  },
+  "required": []
+}

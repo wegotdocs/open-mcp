@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "extend_params": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `extend_params` to the tool, first call the tool `expandSchema` with \"/properties/extend_params\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "operator_id": {
+      "description": "操作员 ID，商家自定义操作员编号。",
+      "example": "A0001",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "结算请求流水号，由商家自定义。32个字符以内，仅可包含字母、数字、下划线。需保证在商户端不重复。",
+      "example": "20160727001",
+      "type": "string"
+    },
+    "royalty_mode": {
+      "description": "分账模式，目前有两种分账同步执行sync，分账异步执行async，不传默认同步执行",
+      "example": "async",
+      "type": "string"
+    },
+    "royalty_parameters": {
+      "description": "分账明细信息。单独调用分账完结时，可以不传此参数。其他场景必传。\t注意：商家分账场景下分账收入方 trans_in 只支持支付宝账户，不支持使用 cardAliasNo 卡编号。",
+      "items": {
+        "properties": {
+          "amount": {
+            "description": "分账的金额，单位为元",
+            "type": "string"
+          },
+          "amount_percentage": {
+            "description": "分账信息中分账百分比。取值范围为大于0，少于或等于100的整数。",
+            "type": "integer"
+          },
+          "desc": {
+            "description": "分账描述",
+            "type": "string"
+          },
+          "royalty_scene": {
+            "description": "可选值：达人佣金、平台服务费、技术服务费、其他",
+            "type": "string"
+          },
+          "royalty_type": {
+            "description": "分账类型.",
+            "type": "string"
+          },
+          "trans_in": {
+            "description": "收入方账户。如果收入方账户类型为userId，本参数为收入方的支付宝账号对应的支付宝唯一用户号，以2088开头的纯16位数字；如果收入方类型为cardAliasNo，本参数为收入方在支付宝绑定的卡编号；如果收入方类型为loginName，本参数为收入方的支付宝登录号；",
+            "type": "string"
+          },
+          "trans_in_name": {
+            "description": "分账收款方姓名，上送则进行姓名与支付宝账号的一致性校验，校验不一致则分账失败。不上送则不进行姓名校验",
+            "type": "string"
+          },
+          "trans_in_type": {
+            "description": "收入方账户类型。",
+            "type": "string"
+          },
+          "trans_out": {
+            "description": "支出方账户。如果支出方账户类型为userId，本参数为支出方的支付宝账号对应的支付宝唯一用户号，以2088开头的纯16位数字；如果支出方类型为loginName，本参数为支出方的支付宝登录号。 泛金融类商户分账时，该字段不要上送。",
+            "type": "string"
+          },
+          "trans_out_type": {
+            "description": "支出方账户类型。",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "trade_no": {
+      "description": "支付宝订单号",
+      "example": "2014030411001007850000672009",
+      "type": "string"
+    }
+  },
+  "required": []
+}

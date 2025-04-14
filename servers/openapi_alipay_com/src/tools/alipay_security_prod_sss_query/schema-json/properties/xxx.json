@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "f_1_f": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `f_1_f` to the tool, first call the tool `expandSchema` with \"/properties/xxx/properties/f_1_f\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "f_2_f": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `f_2_f` to the tool, first call the tool `expandSchema` with \"/properties/xxx/properties/f_2_f\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "f_3_openid": {
+      "description": "1",
+      "example": "xxxxxscddcd",
+      "type": "string"
+    },
+    "f_3_y": {
+      "description": "1",
+      "example": "1",
+      "type": "string"
+    },
+    "f_4_n": {
+      "description": "3",
+      "example": "2",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

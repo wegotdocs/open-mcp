@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "authentication_results": {
+      "description": "ApplePay核身鉴权结果，包括：支付密码、用户确认、数字签名",
+      "items": {
+        "properties": {
+          "authentication_data": {
+            "description": "已加密的鉴权数据",
+            "example": "eyJlcGhlbWVyYWxQdWJsaWNLZXkiOiJNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBEQVFjRFFnQUVyZHU5cXRORFRYVFFnaHNoUEdSMzdxSTd",
+            "type": "string"
+          },
+          "authentication_mechanism": {
+            "description": "鉴权类型，如：支付密码、数字签名",
+            "example": "PaymentPINInput",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "device_identifier": {
+      "description": "Apple端的设备ID",
+      "example": "mKS9uBWMBT4Vv4+mgVLy7ZbMYer0XMHMfdqnOBVVr+b/iqNagFVjVWSGeSGOhDBi",
+      "type": "string"
+    },
+    "dpan_identifier": {
+      "description": "Apple绑定的BundleId",
+      "example": "DAPLSM20191217003050010000320000001002",
+      "type": "string"
+    },
+    "transaction_identifier": {
+      "description": "交易标识",
+      "example": "2020040422001424181400075556",
+      "type": "string"
+    }
+  },
+  "required": []
+}

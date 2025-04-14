@@ -1,0 +1,50 @@
+{
+  "properties": {
+    "cert_digest": {
+      "description": "cert_digest：\t身份信息摘要",
+      "example": "21232f297a57a5a743894a0e4a801fc3",
+      "type": "string"
+    },
+    "cert_name": {
+      "description": "cert_name：\t填入真实姓名",
+      "example": "张三",
+      "type": "string"
+    },
+    "cert_no": {
+      "description": "cert_no：\t填入姓名相匹配的证件号码",
+      "example": "260104197909275964",
+      "type": "string"
+    },
+    "cert_type": {
+      "description": "cert_type：\t1、若为身份证，填IDENTITY_CARD；\t2、若为港澳居民来往内地通行证，填HOME_VISIT_PERMIT_HK_MC；\t3、若为台湾居民来往内地通行证，填HOME_VISIT_PERMIT_TAIWAN；\t4、若为港澳居民居住证，填RESIDENCE_PERMIT_HK_MC；\t5、若为台湾居民居住证，填RESIDENCE_PERMIT_TAIWAN；\t6、外国人永久居留证，填PERMANENT_RESIDENCE_FOREIGNER；",
+      "example": "IDENTITY_CARD",
+      "type": "string"
+    },
+    "facial_picture_front": {
+      "description": "facial_picture_front：\t活体人脸图片base64串，主要用于离线人脸比对",
+      "example": "xydasf==",
+      "type": "string"
+    },
+    "identity_type": {
+      "description": "identity_type\t1.若本人验证，使用CERT_INFO；\t2.若代他人验证，使用AGENT_CERT_INFO；",
+      "example": "CERT_INFO",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "open_id：\t开放平台用户ID",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "phone_no": {
+      "description": "phone_no：\t填写姓名相匹配的手机号",
+      "example": "13000000000",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "user_id：\t支付宝用户ID",
+      "example": "2088xxxx",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

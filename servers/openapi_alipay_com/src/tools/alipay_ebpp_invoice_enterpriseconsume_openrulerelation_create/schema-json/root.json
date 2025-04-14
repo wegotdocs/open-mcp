@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业共同账户ID",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业ID",
+      "example": "2088000194958901",
+      "type": "string"
+    },
+    "invoice_rule_id": {
+      "description": "开票规则ID",
+      "example": "2021070101152721181000002201",
+      "type": "string"
+    },
+    "standard_id_list": {
+      "description": "费控规则ID列表",
+      "example": "[\"2021090600152601180000000358\",\"2021090600152601180000000359\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

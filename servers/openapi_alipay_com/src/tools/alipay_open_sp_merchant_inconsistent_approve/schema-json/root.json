@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "back_card": {
+      "description": "身份证背面照，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。 请传入<a href=\"https://opendocs.alipay.com/apis/01ea4t\">alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "commitment_letter": {
+      "description": "实际经营人承诺函照片，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。 请传入<a href=\"https://opendocs.alipay.com/apis/01ea4t\">alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。 该资质是否必传请参见报名资质要求。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "front_card": {
+      "description": "身份证正面照，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式. 请传<a href=\"https://opendocs.alipay.com/apis/01ea4t\">alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "handheld_business_license": {
+      "description": "手持营业执照合照，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。 请传入<a href=\"https://opendocs.alipay.com/apis/01ea4t\">alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。 该资质是否必传请参见报名资质要求。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "handheld_card": {
+      "description": "手持身份证合照，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。 请传入<a href=\"https://opendocs.alipay.com/apis/01ea4t\">alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。 该资质是否必传请参见报名资质要求。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "item_code": {
+      "description": "服务优选商品编码",
+      "example": "SS010301000000001234",
+      "type": "string"
+    },
+    "merchant_pid": {
+      "description": "商家pid",
+      "example": "2088301912341234",
+      "type": "string"
+    },
+    "mini_appid": {
+      "description": "商家小程序appId",
+      "example": "2021060612341234",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务号，需不重复",
+      "example": "2088100010001000",
+      "type": "string"
+    },
+    "promotor_pid": {
+      "description": "推广服务商(S2)pid",
+      "example": "2088301912341234",
+      "type": "string"
+    }
+  },
+  "required": []
+}

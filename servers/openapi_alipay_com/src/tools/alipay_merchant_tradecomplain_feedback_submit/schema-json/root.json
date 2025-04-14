@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "complain_event_id": {
+      "description": "支付宝侧投诉单号",
+      "example": "2020092300102000000001459758",
+      "type": "string"
+    },
+    "feedback_code": {
+      "description": "反馈类目ID\t00:使用体验保障金退款；\t02:通过其他方式退款;\t03:已发货;\t04:其他;\t05:已完成售后服务;\t06:非我方责任范围；",
+      "example": "02",
+      "type": "string"
+    },
+    "feedback_content": {
+      "description": "反馈内容，字数不超过200个字",
+      "example": "钱已退款给您，请查收",
+      "type": "string"
+    },
+    "feedback_images": {
+      "description": "商家处理投诉时反馈凭证的图片id，多个逗号隔开（图片id可以通过\"商户上传处理图片\"接口获取）",
+      "example": "wAe1XmjGS8mBSV0FFklAUgAAACMAAQED,A*C5jFT7v7SIMAAAAAAAAAAAAADpp1AQ",
+      "type": "string"
+    },
+    "operator": {
+      "description": "处理投诉人，字数不超过6个字",
+      "example": "王芳",
+      "type": "string"
+    }
+  },
+  "required": []
+}

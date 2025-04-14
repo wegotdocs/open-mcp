@@ -1,0 +1,83 @@
+{
+  "properties": {
+    "add_issue_rule_list": {
+      "description": "新增发放规则列表",
+      "items": {
+        "properties": {
+          "effective_period": {
+            "description": "生效时间段",
+            "type": "string"
+          },
+          "invalid_mode": {
+            "description": "累计类型，默认为0\t可选值：0（不可累计）、1（可累计）、2（累计天数）、3（累计到指定日期）",
+            "type": "integer"
+          },
+          "invalid_mode_value": {
+            "description": "累计类型值",
+            "type": "string"
+          },
+          "issue_amount_value": {
+            "description": "发放金额，单位元",
+            "type": "string"
+          },
+          "issue_end_date": {
+            "description": "发放规则有效结束时间",
+            "type": "string"
+          },
+          "issue_rule_id": {
+            "description": "发放规则id",
+            "type": "string"
+          },
+          "issue_rule_name": {
+            "description": "发放规则名称",
+            "type": "string"
+          },
+          "issue_start_date": {
+            "description": "发放规则有效起始时间",
+            "type": "string"
+          },
+          "issue_type": {
+            "description": "发放类型",
+            "type": "string"
+          },
+          "outer_source_id": {
+            "description": "外部发放规则id",
+            "type": "string"
+          },
+          "quota_type": {
+            "description": "额度类型",
+            "type": "string"
+          },
+          "share_mode": {
+            "description": "是否可转赠",
+            "type": "integer"
+          },
+          "target_id": {
+            "description": "目标id",
+            "type": "string"
+          },
+          "target_type": {
+            "description": "发放规则归属的目标类型",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "delete_issue_rule_id_list": {
+      "description": "删除的发放规则id列表",
+      "example": "[\"2024090500150000040000040033\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "modify_issue_rule_list": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `modify_issue_rule_list` to the tool, first call the tool `expandSchema` with \"/properties/modify_issue_rule_detail_info/properties/modify_issue_rule_list\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

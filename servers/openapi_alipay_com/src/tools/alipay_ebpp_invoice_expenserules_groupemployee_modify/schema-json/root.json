@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业共同账户id",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "add_employee_list": {
+      "description": "未切换 open_id 时请使用此字段：\t需要添加的员工UID列表\t特殊说明：一次最多50个",
+      "example": "[\"2088402266061144\",\"2088402266063146\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "add_employee_open_id_list": {
+      "description": "切换 open_id 后请使用此字段：\t需要添加的open_id/企业码员工ID列表 特殊说明：一次最多50个",
+      "example": "[\"abcdxxx\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业码企业id",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "group_id_list": {
+      "description": "费控规则ID列表",
+      "example": "[\"2021062800152601350000001466\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "remove_employee_list": {
+      "description": "未切换 open_id 时请使用此字段：\t需要移除的员工UID列表\t特殊说明：一次最多50个",
+      "example": "[\"2088402266062862\",\"2088402266060390\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "remove_employee_open_id_list": {
+      "description": "切换 open_id 后请使用此字段：\t需要移除的open_id/企业码员工ID列表 特殊说明：一次最多50个",
+      "example": "[\"abcdxxx\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

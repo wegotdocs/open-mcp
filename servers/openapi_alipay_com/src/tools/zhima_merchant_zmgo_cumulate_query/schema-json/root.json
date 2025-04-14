@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_id": {
+      "description": "芝麻go协议号，唯一标识一个芝麻go协议。",
+      "example": "20195108518085620000",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "用户 id，用户在支付宝的唯一标识，以 2088 开头的 16 位纯数字组成。",
+      "example": "2088602002015001",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "用户 id，用户在支付宝的唯一标识，以 2088 开头的 16 位纯数字组成。",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "provider_pid": {
+      "description": "数据回传的商户 ID，即和用户发生业务来往的 PID 主体。商户账号在支付宝的唯一标识，以 2088 开头的 16 位纯数字组成。",
+      "example": "2088621805983504",
+      "type": "string"
+    },
+    "need_detail": {
+      "description": "是否需要回传明细。枚举支持：\t* true：需要回传明细。\t* false：不需要回传明细。",
+      "example": false,
+      "type": "boolean"
+    },
+    "page_no": {
+      "description": "分页参数，当need_detail=true时需要，代表当前页数，从1开始。",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "分页参数，当need_detail=true时需要，代表每页大小，不能大于20。",
+      "example": 20,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

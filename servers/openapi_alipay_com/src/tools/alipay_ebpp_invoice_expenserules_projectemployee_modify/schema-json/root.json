@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "共同账户ID",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "add_employee_list": {
+      "description": "切换open_id前使用此字段：\t需要添加的员工UID列表\t约束：一次最多50个",
+      "example": "[\"2088402266061144\",\"2088402266063146\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "add_employee_open_id_list": {
+      "description": "切换open_id后使用此字段：\t需要添加的员工open_id列表\t约束：一次最多50个",
+      "example": "[\"abcdxxxx\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "project_id": {
+      "description": "项目ID",
+      "example": "2021040900152700950000000862",
+      "type": "string"
+    },
+    "remove_employee_list": {
+      "description": "切换open_id前使用此字段：\t需要移除的员工UID列表\t约束：一次最多50个",
+      "example": "[\"2088402266062862\",\"2088402266060390\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "remove_employee_open_id_list": {
+      "description": "切换open_id后前使用此字段： 需要移除的员工open_id列表 约束：一次最多50个",
+      "example": "[\"abcdxxxx\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

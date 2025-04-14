@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "max_age": {
+      "description": "年龄区间判断的上限，闭区间",
+      "example": "30",
+      "type": "string"
+    },
+    "min_age": {
+      "description": "年龄区间判断的下限，闭区间",
+      "example": "10",
+      "type": "string"
+    },
+    "query_type": {
+      "description": "query_type不填, 返回uid\r\tquery_type=1, 返回手机号\r\tquery_type=2, 返回图片",
+      "example": "1",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

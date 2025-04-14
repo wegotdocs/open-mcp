@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "start_time": {
+      "description": "充值、转账、提现流水业务时间的起始范围",
+      "example": "2019-01-01 00:00:00",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "充值、转账、提现流水业务时间的结束范围。与起始时间间隔不超过31天。查询结果为起始时间至结束时间的左闭右开区间",
+      "example": "2019-01-02 00:00:00",
+      "type": "string"
+    },
+    "type": {
+      "description": "转账类型：充值-DEPOSIT，提现-WITHDRAW，转账-TRANSFER。",
+      "example": "TRANSFER",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "协议号",
+      "example": "20205215001418078112",
+      "type": "string"
+    },
+    "store_no": {
+      "description": "子账本号，或者子账本名称。模糊查询",
+      "example": "2088000117463004",
+      "type": "string"
+    },
+    "page_no": {
+      "description": "分页号，从1开始",
+      "example": "1",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "分页大小1000-2000，默认2000",
+      "example": "2000",
+      "type": "string"
+    }
+  },
+  "required": []
+}

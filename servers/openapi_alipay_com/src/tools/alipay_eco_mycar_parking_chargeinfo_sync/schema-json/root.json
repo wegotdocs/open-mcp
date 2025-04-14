@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "business_hours": {
+      "description": "营业时间",
+      "example": "24小时",
+      "type": "string"
+    },
+    "car_daylight_advanced_price": {
+      "description": "小车-白天 非首个计费单元价格",
+      "example": "3元/小时或1.5元/30分钟",
+      "type": "string"
+    },
+    "car_daylight_base_price": {
+      "description": "小车-白天 首个计费单元价格",
+      "example": "10元/1小时或5元/30分钟",
+      "type": "string"
+    },
+    "car_night_advanced_price": {
+      "description": "小车-夜间 非首个计费单元价格",
+      "example": "3元/小时或1.5元/30分钟",
+      "type": "string"
+    },
+    "car_night_base_price": {
+      "description": "小车-夜间 首个计费单元价格",
+      "example": "10元/1小时或5元/30分钟",
+      "type": "string"
+    },
+    "car_onetime_price": {
+      "description": "小车 计次收费价格\r\txx元 / 次，按次收费的车场填写",
+      "example": "20元/次",
+      "type": "string"
+    },
+    "daily_price_upperbound": {
+      "description": "单日停车封顶价格：具体值或“不封顶”",
+      "example": "260元或不封顶",
+      "type": "string"
+    },
+    "daylight_business_hours": {
+      "description": "车场白天（收费）营业时间段",
+      "example": "9:00-21:00",
+      "type": "string"
+    },
+    "free_period": {
+      "description": "单次停车免费时长",
+      "example": "30分钟",
+      "type": "string"
+    },
+    "has_charging_pile": {
+      "description": "是否有充电桩: -1 未知,0 否,1 是",
+      "example": "1",
+      "type": "string"
+    },
+    "is_charge": {
+      "description": "是否收费：-1 未知,0 否,1 是",
+      "example": "1",
+      "type": "string"
+    },
+    "night_business_hours": {
+      "description": "车场夜间（收费）营业时间段",
+      "example": "21:00-9:00",
+      "type": "string"
+    },
+    "parking_id": {
+      "description": "停车场ID",
+      "example": "PI20190506152394234234",
+      "type": "string"
+    },
+    "parking_space_count": {
+      "description": "总车位数",
+      "example": 1600,
+      "type": "integer"
+    },
+    "remark": {
+      "description": "复杂计费补充描述\r\t收费复杂无法格式化的车场填写，以文本形式表述",
+      "example": "前3小时XXX，3-6小时之间XXX，超过6小时XXXX",
+      "type": "string"
+    },
+    "truck_daylight_advanced_price": {
+      "description": "大车-白天 非首个计费单元价格",
+      "example": "3元/小时或1.5元/30分钟",
+      "type": "string"
+    },
+    "truck_daylight_base_price": {
+      "description": "大车-白天 首个计费单元价格",
+      "example": "10元/1小时或5元/30分钟",
+      "type": "string"
+    },
+    "truck_night_advanced_price": {
+      "description": "大车-夜间 非首个计费单元价格",
+      "example": "4元/次",
+      "type": "string"
+    },
+    "truck_night_base_price": {
+      "description": "大车-夜间 首个计费单元价格",
+      "example": "3元/小时或1.5元/30分钟",
+      "type": "string"
+    },
+    "truck_onetime_price": {
+      "description": "大车 计次收费价格\r\txx元 / 次，按次收费的车场填写",
+      "example": "30元/次",
+      "type": "string"
+    }
+  },
+  "required": []
+}

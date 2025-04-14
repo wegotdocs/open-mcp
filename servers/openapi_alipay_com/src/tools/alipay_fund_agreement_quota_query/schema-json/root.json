@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_no_list": {
+      "description": "授权协议号",
+      "example": "[\"20205321001042231004\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "biz_scene": {
+      "description": "场景码，非固定值，使用的对应的资金场景码保持一致",
+      "example": "ENTRUST_TRANSFER",
+      "type": "string"
+    },
+    "product_code": {
+      "description": "额度产品码，非固定值，使用的对应的资金产品码保持一致",
+      "example": "BATCH_API_TO_ACC_NO_PWD",
+      "type": "string"
+    }
+  },
+  "required": []
+}

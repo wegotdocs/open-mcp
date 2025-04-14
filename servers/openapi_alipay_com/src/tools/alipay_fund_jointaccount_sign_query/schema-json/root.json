@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "product_code": {
+      "description": "产品码，默认值\tENTERPRISE_PAY",
+      "example": "ENTERPRISE_PAY",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "场景码，联系支付宝分配",
+      "example": "ISV_ALIYUN",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务号，查询对应账户状态，优先级高于account_id",
+      "example": "123123132",
+      "type": "string"
+    },
+    "account_id": {
+      "description": "企业签约账户ID,用于外部商户已获取企业签约ID，查询账户状态",
+      "example": "208812312313213",
+      "type": "string"
+    }
+  },
+  "required": []
+}

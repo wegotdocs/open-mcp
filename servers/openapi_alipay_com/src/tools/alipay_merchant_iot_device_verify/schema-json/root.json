@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_tid": {
+      "description": "设备 ID ，device_id_type 为 ID 时填写。",
+      "example": "01017gV1CZ1XxASNbqkTJqchletNyVXtsKy1PAs4FKZ6tjRMqyMG2Zk",
+      "type": "string"
+    },
+    "device_id_type": {
+      "description": "可选方式 [ID,SN]。ID-使用biztid作为设备唯一识别标识；SN-使用supplier_id、device_sn联合作为设备唯一识别标识。由于不同机型的supplier_id不同，推荐使用 ID 。",
+      "example": "SN",
+      "type": "string"
+    },
+    "device_sn": {
+      "description": "设备序列号 ，device_id_type 为 SN 时填写。需配合supplier_id使用。",
+      "example": "QCF420190316000107",
+      "type": "string"
+    },
+    "merchant_type": {
+      "description": "商户类型，直连商户填写direct，间连商户填写indirect",
+      "example": "indirect",
+      "type": "string"
+    },
+    "pid": {
+      "description": "直连场景填写商户收单pid，间连场景不填",
+      "example": "2088101112139885",
+      "type": "string"
+    },
+    "smid": {
+      "description": "直连场景不填，间连场景填写商户收单smid",
+      "example": "2088101112139886",
+      "type": "string"
+    },
+    "supplier_id": {
+      "description": "设备供应商ID ，device_id_type 为 SN 时填写。需注意不同机型的供应商ID可能不同。",
+      "example": "201812271300540049",
+      "type": "string"
+    }
+  },
+  "required": []
+}

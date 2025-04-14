@@ -1,0 +1,276 @@
+{
+  "type": "object",
+  "properties": {
+    "invoice_info": {
+      "description": "同步发票信息模型",
+      "items": {
+        "properties": {
+          "apply_id": {
+            "description": "支付宝端的申请id。如果在开票过程中，是通过支付宝提交的申请到机构端，支付宝会带上开票申请在支付宝生成的申请id，机构在回传发票的时候只需要回传这个申请id，不用获取用户的uid，支付宝可以根据申请id将发票归集到对应的用户名下",
+            "example": "2016112800152005000000000239",
+            "type": "string"
+          },
+          "extend_fields": {
+            "description": "key=value，每组键值对以回车分割",
+            "example": "shortPlatform=POS\r\nabx=xxx\r\neee=ccc",
+            "type": "string"
+          },
+          "file_download_type": {
+            "description": "下载的发票文件类型，可选值：\tpdf（发票原文件）\tofd（发票原文件）\tjpg（发票原文件缩略图）",
+            "example": "pdf",
+            "type": "string"
+          },
+          "file_download_url": {
+            "description": "发票原文件下载地址\t1.当tax_type=PLAIN、ALL_ELECTRONIC_GENERAL或ALL_ELECTRONIC_SPECIAL时，\tfile_download_url必传\t且file_download_type取值范围为pdf或ofd；\t2.当tax_type=SPECIAL时，\tfile_download_url必传\tfile_download_type可以传入pdf，ofd，jpg\t3.当其他票种时，file_download_url可以不传",
+            "example": "http://xxx.com",
+            "type": "string"
+          },
+          "financial_electronic_type": {
+            "description": "财政电子票据子类型，当tax_type=FINANCIAL_ELECTRONIC_BILL时要求必填\t可选值如下：\t01:非税收入通用票据 \t02:非税收入专用票据\t03:非税收入一般缴款书\t04:资金往来结算票据\t05:公益事业捐赠票据\t06:医疗收费票据\t07:社会团体会费票据\t08:社会保险基金票据\t09:工会经费收入票据\t99:其他财政票据",
+            "example": "MEDICAL_ELECTRONIC_BILL",
+            "type": "string"
+          },
+          "invoice_amount": {
+            "description": "发票金额，大于0且精确到小数点两位，以元为单位\r\t需要传入税价合计金额",
+            "example": "200.00",
+            "type": "string"
+          },
+          "invoice_code": {
+            "description": "发票代码，为国税局生成的唯一值，全电票时为空，其他情况不可为空",
+            "example": "2328742873",
+            "type": "string"
+          },
+          "invoice_content": {
+            "description": "发票内容项",
+            "items": {
+              "properties": {
+                "item_amount": {
+                  "description": "价税合计。(等于sumPrice和tax之和)",
+                  "type": "string"
+                },
+                "item_name": {
+                  "description": "发票项目名称（或商品名称）",
+                  "type": "string"
+                },
+                "item_no": {
+                  "description": "商品编号",
+                  "type": "string"
+                },
+                "item_price": {
+                  "description": "单价，格式：100.00。新版电子发票，折扣行此参数不能传，非折扣行必传",
+                  "type": "string"
+                },
+                "item_quantity": {
+                  "description": "数量。新版电子发票，折扣行此参数不能传，非折扣行必传",
+                  "type": "integer"
+                },
+                "item_sum_price": {
+                  "description": "单项总价，格式：100.00",
+                  "type": "string"
+                },
+                "item_tax_price": {
+                  "description": "税额",
+                  "type": "string"
+                },
+                "item_tax_rate": {
+                  "description": "税率",
+                  "type": "string"
+                },
+                "item_unit": {
+                  "description": "台",
+                  "type": "string"
+                },
+                "row_type": {
+                  "description": "发票行性质。0表示正常行，1表示折扣行，2表示被折扣行。比如充电器单价100元，折扣10元，则明细为2行，充电器行性质为2，折扣行性质为1。如果充电器没有折扣，则值应为0",
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "invoice_date": {
+            "description": "发票日期，用户填写，目前精确到日",
+            "example": "2016-07-19",
+            "type": "string"
+          },
+          "invoice_fake_code": {
+            "description": "发票防伪码",
+            "example": "-",
+            "type": "string"
+          },
+          "invoice_file_data": {
+            "description": "原始发票PDF/OFD文件流",
+            "example": "01010010101",
+            "type": "string"
+          },
+          "invoice_img_url": {
+            "description": "发票原始文件jpg文件地址",
+            "example": "http://xxx.com",
+            "type": "string"
+          },
+          "invoice_no": {
+            "description": "发票号码，国税局生成的唯一号码，不可为空串；\r\t使用时请注意，invoice_no+invoice_code唯一，不能重复",
+            "example": "237428768",
+            "type": "string"
+          },
+          "invoice_operator": {
+            "description": "发票开具操作人",
+            "example": "张某某",
+            "type": "string"
+          },
+          "invoice_title": {
+            "properties": {
+              "is_default": {
+                "description": "是否为用户设置默认抬头\r\t字段值包括两种情况：\r\tfalse（非默认）\r\ttrue（默认抬头）",
+                "type": "boolean"
+              },
+              "logon_id": {
+                "description": "支付宝用户登录名",
+                "type": "string"
+              },
+              "open_bank_account": {
+                "description": "银行账号",
+                "type": "string"
+              },
+              "open_bank_name": {
+                "description": "开户银行",
+                "type": "string"
+              },
+              "open_id": {
+                "description": "支付宝用户id",
+                "type": "string"
+              },
+              "tax_register_no": {
+                "description": "纳税人识别号",
+                "type": "string"
+              },
+              "tele_phone_no": {
+                "description": "用户私人手机号",
+                "type": "string"
+              },
+              "title_name": {
+                "description": "抬头名称",
+                "type": "string"
+              },
+              "title_type": {
+                "description": "抬头类型\t字段值有两种情况抬:\tPERSONAL（个人） \tCORPORATION（企业）",
+                "type": "string"
+              },
+              "user_address": {
+                "description": "地址",
+                "type": "string"
+              },
+              "user_email": {
+                "description": "邮箱",
+                "type": "string"
+              },
+              "user_id": {
+                "description": "支付宝用户id",
+                "type": "string"
+              },
+              "user_mobile": {
+                "description": "电话号码",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "invoice_type": {
+            "description": "发票类型，按照可选值只传入英文部分，该字段严格要求大小写\r\t可选值:\r\tblue（蓝票）\r\tred（红票）",
+            "example": "blue",
+            "type": "string"
+          },
+          "open_id": {
+            "description": "支付宝用户id，支付宝端的申请id存在的时候也不需要传，其他情况下，当同步的是蓝票时，必传，红票时不需传。",
+            "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+            "type": "string"
+          },
+          "original_blue_invoice_code": {
+            "description": "仅用于同步红票，原始蓝票发票代码，同步红票时必传（全电票时为空）",
+            "example": "2328742873",
+            "type": "string"
+          },
+          "original_blue_invoice_no": {
+            "description": "仅用于同步红票，原始蓝票发票号码，同步红票时必传",
+            "example": "9288277173",
+            "type": "string"
+          },
+          "out_biz_no": {
+            "description": "商户交易流水号，不可为空串;\r\t传入红票时请注意，此字段的值要和蓝票保持一致",
+            "example": "2016010139992003",
+            "type": "string"
+          },
+          "out_invoice_id": {
+            "description": "商户唯一开票申请业务流水号，同一个isv下不能重复",
+            "example": "20160707399929991001",
+            "type": "string"
+          },
+          "register_address": {
+            "description": "开票单位地址",
+            "example": "天目山路黄龙时代广场B座",
+            "type": "string"
+          },
+          "register_bank_account": {
+            "description": "开票单位开户行账号",
+            "example": "6332000023949993",
+            "type": "string"
+          },
+          "register_bank_name": {
+            "description": "开票单位开户行名称",
+            "example": "西湖区建行",
+            "type": "string"
+          },
+          "register_name": {
+            "description": "开票单位",
+            "example": "支付宝（杭州）信息技术有限公司",
+            "type": "string"
+          },
+          "register_no": {
+            "description": "纳税人识别号，不可为空串",
+            "example": "J8374LK29387",
+            "type": "string"
+          },
+          "register_phone_no": {
+            "description": "开票人电话，支持座机和手机两种格式",
+            "example": "13200029932",
+            "type": "string"
+          },
+          "sum_amount": {
+            "description": "价税合计",
+            "example": "2000.00",
+            "type": "string"
+          },
+          "tax_amount": {
+            "description": "税额",
+            "example": "1000.00",
+            "type": "string"
+          },
+          "tax_type": {
+            "description": "税种\t可选值：\tPLAIN：增值税电子普通发票\tALL_ELECTRONIC_GENERAL：电子发票（普通发票）\tALL_ELECTRONIC_SPECIAL：电子发票（增值税专用发票）\tSPECIAL：增值税专用发票\tPLAIN_INVOICE:增值税普通发票\tFINANCIAL_ELECTRONIC_BILL:财政电子票据",
+            "example": "PLAIN",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "支付宝用户id，支付宝端的申请id存在的时候也不需要传，其他情况下，当同步的是蓝票时，必传，红票时不需传。",
+            "example": "2088399922382233",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "m_short_name": {
+      "description": "商户的品牌名称简称,该字段需要接入前向发票管家申请，\r\tm_short_name+sub_m_short_name具有唯一约束\r\t如：肯德基：KFC",
+      "example": "KFC",
+      "type": "string"
+    },
+    "sub_m_short_name": {
+      "description": "支付宝为商户分配的商户门店简称，该字段需要接入前在发票管家申请\r\t如：肯德基-杭州西湖区文一西路店：KFC-HZ-XH001",
+      "example": "KFC_HZ_XH001",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "delivery_id": {
+      "description": "推广计划id",
+      "example": "20121231231242353",
+      "type": "string"
+    },
+    "belong_merchant_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `belong_merchant_info` to the tool, first call the tool `expandSchema` with \"/properties/belong_merchant_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_config_list": {
+      "description": "\"[已废弃] 待查询的投放配置列表。 最大数量限制20个。\"",
+      "items": {
+        "properties": {
+          "activity_id": {
+            "description": "活动id",
+            "type": "string"
+          },
+          "booth_code": {
+            "description": "展位码:boothCode表达的是具体渠道所属的展位码。例如：支付结果页PAYMENT_RESULT",
+            "type": "string"
+          },
+          "channel": {
+            "description": "可投放的渠道标识.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "SELF_MODE",
+      "type": "string"
+    }
+  },
+  "required": [
+    "delivery_id"
+  ]
+}

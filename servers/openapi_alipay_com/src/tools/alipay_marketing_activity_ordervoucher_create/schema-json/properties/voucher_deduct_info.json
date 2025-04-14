@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "customer_define_voucher_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customer_define_voucher_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_deduct_info/properties/customer_define_voucher_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "discount_voucher_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `discount_voucher_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_deduct_info/properties/discount_voucher_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "exchange_voucher_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `exchange_voucher_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_deduct_info/properties/exchange_voucher_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "fix_voucher_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fix_voucher_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_deduct_info/properties/fix_voucher_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "special_voucher_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `special_voucher_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_deduct_info/properties/special_voucher_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_type": {
+      "description": "券类型。",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

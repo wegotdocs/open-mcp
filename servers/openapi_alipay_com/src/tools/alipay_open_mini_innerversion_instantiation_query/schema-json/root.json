@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "app_origin": {
+      "description": "来源类型，新接入方需要向支付宝申请专用来源，否则不予接入，申请方式请参见接入手册。",
+      "example": "AAA",
+      "type": "string"
+    },
+    "bundle_id": {
+      "description": "端id",
+      "example": "com.alipay.alipaywallet",
+      "type": "string"
+    },
+    "mini_app_id": {
+      "description": "小程序ID，特殊场景专用，普通业务方无需关注该参数。",
+      "example": "2021000116680014",
+      "type": "string"
+    },
+    "app_version": {
+      "description": "实例化小程序版本号",
+      "example": "0.0.1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

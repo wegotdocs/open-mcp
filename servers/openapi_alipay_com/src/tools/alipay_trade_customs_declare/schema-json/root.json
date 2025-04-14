@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "amount": {
+      "description": "报关金额，单位为人民币“元”，精确到小数点后2位。",
+      "example": "2",
+      "type": "string"
+    },
+    "buyer_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `buyer_info` to the tool, first call the tool `expandSchema` with \"/properties/buyer_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "customs_place": {
+      "description": "海关编号（大小写皆可）。参见“ <a href=\"https://opendocs.alipay.com/pre-open/01x3kh#%E6%B5%B7%E5%85%B3%E7%BC%96%E5%8F%B7\">海关编号</a>”。",
+      "example": "ZONGSHU",
+      "type": "string"
+    },
+    "declare_mode": {
+      "description": "报关模式，默认可空，1表示需要强校验买家和支付人的身份信息。",
+      "example": 1,
+      "type": "integer"
+    },
+    "deposit_trade_no": {
+      "description": "定金在支付宝系统中的交易流水号，最长64位。当该参数不为空时，代表为”定金+尾款“报关场景。",
+      "example": "2022110322001431071435352949",
+      "type": "string"
+    },
+    "is_split": {
+      "description": "商户控制本单是否拆单的报关参数。\r\t仅当该参数传值为T或者t时，才会触发拆单。",
+      "example": "T",
+      "type": "string"
+    },
+    "merchant_customs_code": {
+      "description": "商户在海关备案的编号。",
+      "example": "737203458",
+      "type": "string"
+    },
+    "merchant_customs_name": {
+      "description": "商户海关备案名称。",
+      "example": "龙腾国际贸易有限公司",
+      "type": "string"
+    },
+    "merchant_id": {
+      "description": "国际站商户标识",
+      "example": "2188120005907173",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "报关流水号。商户生成的用于唯一标识一次报关操作的业务编号。\t建议生成规则：yyyymmdd型8位日期拼接4位序列号。每个报关请求号仅允许传入：数字、英文字母、下划线”_”、短横线”－” 。长度6-64位前后不能有空格",
+      "example": "9193457120563834",
+      "type": "string"
+    },
+    "out_trade_no": {
+      "description": "国际站外部订单号",
+      "example": "1422534255340818295",
+      "type": "string"
+    },
+    "sub_out_biz_no": {
+      "description": "拆单报关的商户子订单号。 用于区别拆单时不同子单。拆单时必须传入，否则会报INVALID_PARAMETER错误码。",
+      "example": "2015080811223212345453",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "支付宝交易号。该交易在支付宝系统中的交易流水号，最长64位。",
+      "example": "2015051446800462",
+      "type": "string"
+    }
+  },
+  "required": []
+}

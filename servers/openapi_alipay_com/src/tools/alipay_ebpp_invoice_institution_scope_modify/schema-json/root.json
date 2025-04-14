@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业共同账户id",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "adapter_type": {
+      "description": "制度适用范围类型",
+      "example": "EMPLOYEE_SELECT",
+      "type": "string"
+    },
+    "add_owner_id_list": {
+      "description": "增加适配id列表",
+      "example": "[\"2088402266061144\",\"2088402266063146\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "add_owner_open_id_list": {
+      "description": "增加适配开放id列表",
+      "example": "[\"abcdxxxx\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业id",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "institution_id": {
+      "description": "制度id",
+      "example": "2022072800152617760000002797",
+      "type": "string"
+    },
+    "owner_type": {
+      "description": "归属类型",
+      "example": "ENTERPRISE_PAY_UID",
+      "type": "string"
+    },
+    "remove_owner_id_list": {
+      "description": "删除适配id列表",
+      "example": "[\"2088402266062862\",\"2088402266060390\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "remove_owner_open_id_list": {
+      "description": "删除适配开放id列表",
+      "example": "[\"abcdxxxx\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

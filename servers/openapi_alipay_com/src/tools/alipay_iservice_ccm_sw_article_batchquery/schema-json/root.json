@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "category_id": {
+      "description": "所属类目ID，如果search_all_category为true则不用填",
+      "example": 12,
+      "type": "integer"
+    },
+    "ccs_instance_id": {
+      "description": "子部门ID，不传为默认部门",
+      "example": "ZPNASDK",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "结束时间，并且开始时间不能为空",
+      "example": "2020-12-31 23:59:59",
+      "type": "string"
+    },
+    "ids": {
+      "description": "文章ID集合",
+      "example": "[1,12]",
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "keyword": {
+      "description": "关键字",
+      "example": "支付宝",
+      "type": "string"
+    },
+    "keywords": {
+      "description": "标签",
+      "example": "[\"关键\",\"核心\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "library_id": {
+      "description": "知识库ID",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_num": {
+      "description": "页数，page_size不能为空",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "页大小，page_num不能为空",
+      "example": 20,
+      "type": "integer"
+    },
+    "search_all_category": {
+      "description": "是否搜索所有类目，如果为true则不用填写category_id值",
+      "example": true,
+      "type": "boolean"
+    },
+    "search_category_type": {
+      "description": "Current（搜索当前节点）；\tChildren（搜索当前节点以及子节点）",
+      "example": "Current",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "开始时间，并且结束时间不能为空",
+      "example": "2020-12-31 00:00:01",
+      "type": "string"
+    },
+    "status": {
+      "description": "状态，PUBLISHED（已发布），UNPUBLISH（未发布），EXPIRED（失效），DELETED（已删除）",
+      "example": "PUBLISHED",
+      "type": "string"
+    }
+  },
+  "required": []
+}

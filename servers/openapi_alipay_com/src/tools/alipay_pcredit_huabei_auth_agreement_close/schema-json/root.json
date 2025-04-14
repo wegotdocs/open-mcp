@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_no": {
+      "description": "花芝协议号，支付宝系统中用以唯一标识用户签约记录的编号，即花芝协议号。",
+      "example": "20195609549841482443",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "买家在支付宝的用户id",
+      "example": "2088101117955611",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "买家在支付宝的用户id",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "外部请求号",
+      "example": "2019080910020821390001569835",
+      "type": "string"
+    },
+    "partner_id": {
+      "description": "商户ID",
+      "example": "2088101117955611",
+      "type": "string"
+    },
+    "quit_type": {
+      "description": "用户主动意愿退出：USER_CANCEL_QUIT; 商户结算退出：SETTLE_APPLY_QUIT; 默认值为SETTLE_APPLY_QUIT；这个字段会影响用户在芝麻信用合约的状态",
+      "example": "SETTLE_APPLY_QUIT",
+      "type": "string"
+    }
+  },
+  "required": []
+}

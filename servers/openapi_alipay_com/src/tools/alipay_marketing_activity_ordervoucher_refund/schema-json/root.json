@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "activity_id": {
+      "description": "活动id",
+      "example": "2016042700826004508401111111",
+      "type": "string"
+    },
+    "voucher_code": {
+      "description": "已核销待退券的券码",
+      "example": "ABE44",
+      "type": "string"
+    },
+    "biz_dt": {
+      "description": "当前订单的退券时间。\t\t\t\t格式为：yyyy-MM-dd HH:mm:ss",
+      "example": "2017-01-01 00:00:01",
+      "type": "string"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务单号，用作幂等控制。\t\t\t\t幂等作用：\t\t参数不变的情况下，再次请求返回与上一次相同的结果。\t\t\t\t外部接入方需保证业务单号唯一",
+      "example": "20170101000001654bb46ba",
+      "type": "string"
+    },
+    "total_fee": {
+      "description": "当前订单的退款总金额(包含优惠券金额)，单位为元。",
+      "example": "999.99",
+      "type": "string"
+    },
+    "voucher_refund_detail_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_refund_detail_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_refund_detail_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "activity_id",
+    "voucher_code"
+  ]
+}

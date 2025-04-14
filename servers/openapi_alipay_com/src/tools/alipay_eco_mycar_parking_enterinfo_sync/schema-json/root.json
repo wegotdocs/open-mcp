@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_query": {
+      "description": "是否启用车牌代扣状态查询功能，true为启用，false为停用",
+      "example": true,
+      "type": "boolean"
+    },
+    "car_color": {
+      "description": "车牌颜色，车牌颜色，枚举支持：\t*BLUE：蓝。\t*GREEN：绿。\t*YELLOW：黄。\t*WHITE：白。\t*BLACK：黑。\t*LIMEGREEN：黄绿色。",
+      "example": "BLUE",
+      "type": "string"
+    },
+    "car_number": {
+      "description": "车牌号",
+      "example": "豫C33333",
+      "type": "string"
+    },
+    "entrance_id": {
+      "description": "用于识别车辆进口，多出入口车场适用",
+      "example": "SN001",
+      "type": "string"
+    },
+    "free_minutes": {
+      "description": "当前停车场的入场免费时长分钟数",
+      "example": 15,
+      "type": "integer"
+    },
+    "in_time": {
+      "description": "车辆入场的时间，格式\"YYYY-MM-DD HH:mm:ss\"，24小时制，请保证服务器时间准确，入场时间不应晚于当前网络时间",
+      "example": "2016-07-24 03:07:50",
+      "type": "string"
+    },
+    "is_encrypt_car_number": {
+      "description": "是否加密，默认为false",
+      "example": true,
+      "type": "boolean"
+    },
+    "isv_url": {
+      "description": "智能助理当前的跳转链接。为ISV/<a href=\"https://opendocs.alipay.com/support/01rb18\">商家小程序scheme地址</a>或H5页面地址。",
+      "example": "http://xxxxx",
+      "type": "string"
+    },
+    "out_serial_no": {
+      "description": "外部停车流水号(用于串通进场与出场信息)",
+      "example": "2020090711003017233600000001",
+      "type": "string"
+    },
+    "parking_id": {
+      "description": "支付宝停车平台ID，由支付宝定义的该停车场标识，同一个isv或商户范围内唯一。通过 <a href=\"https://opendocs.alipay.com/apis/api_19/alipay.eco.mycar.parking.parkinglotinfo.create\">alipay.eco.mycar.parking.parkinglotinfo.create</a>(录入停车场信息)接口获取。",
+      "example": "2015042321001004720200028594",
+      "type": "string"
+    },
+    "space_number": {
+      "description": "用于标识车辆停放车位编号，路侧适用",
+      "example": "PK001",
+      "type": "string"
+    },
+    "store_id": {
+      "description": "与parking_id对应的外部停车场编号，在门店中维护",
+      "example": "360xx",
+      "type": "string"
+    }
+  },
+  "required": []
+}
