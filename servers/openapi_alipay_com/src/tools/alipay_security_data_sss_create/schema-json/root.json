@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "a": {
+      "description": "path.数字，无枚举，有注意事项",
+      "example": 1,
+      "type": "integer"
+    },
+    "b": {
+      "description": "有枚举，必须，有openid，有注意事项",
+      "example": "12",
+      "type": "string"
+    },
+    "b_open_id": {
+      "description": "有枚举，必须，有openid，有注意事项",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "area_code": {
+      "description": "body,可选，无openid，有枚举值，注意事项",
+      "example": "aaa",
+      "type": "string"
+    },
+    "f": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `f` to the tool, first call the tool `expandSchema` with \"/properties/f\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "a"
+  ]
+}

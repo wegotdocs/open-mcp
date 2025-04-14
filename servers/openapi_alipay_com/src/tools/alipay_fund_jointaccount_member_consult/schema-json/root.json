@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业ID",
+      "example": "2088900976746215",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "协议号",
+      "example": "20205820659822371223",
+      "type": "string"
+    },
+    "business_params": {
+      "description": "扩展参数，如需使用请联系支付宝开放同学",
+      "example": "{\"k\":\"v\"}",
+      "type": "string"
+    },
+    "open_id_list": {
+      "description": "要检查的员工openId",
+      "example": "[\"074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "user_id_list": {
+      "description": "要检查的员工ID",
+      "example": "[\"2088900976746215\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

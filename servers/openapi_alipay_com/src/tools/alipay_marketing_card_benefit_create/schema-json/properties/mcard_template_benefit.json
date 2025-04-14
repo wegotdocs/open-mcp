@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "benefit_desc": {
+      "description": "权益描述信息",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "end_date": {
+      "description": "权益结束时间。\t\t注：在权益开始时间和结束时间范围内的权益才会认为是有效权益进行展示。",
+      "type": "string"
+    },
+    "ext_info": {
+      "description": "会员卡模板权益扩展信息：JSON格式; openUrl 说明：跳转到商户的优惠活动页面",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "权益开始时间",
+      "type": "string"
+    },
+    "template_id": {
+      "description": "会员卡模板ID",
+      "type": "string"
+    },
+    "title": {
+      "description": "权益标题",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

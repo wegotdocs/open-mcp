@@ -1,0 +1,40 @@
+{
+  "properties": {
+    "ext_info": {
+      "description": "扩展字段",
+      "example": "key=value",
+      "type": "string"
+    },
+    "payment_amount": {
+      "description": "支付金额，单位为该币种基础计价单位，如人民币为：元",
+      "example": "100.00",
+      "type": "string"
+    },
+    "payment_currency": {
+      "description": "支付币种（元）",
+      "example": "CNY",
+      "type": "string"
+    },
+    "settlement_amount": {
+      "description": "清算金额，单位为该币种基础计价单位，如人民币为：元",
+      "example": "10.00",
+      "type": "string"
+    },
+    "settlement_currency": {
+      "description": "清算币种（元）",
+      "example": "CNY",
+      "type": "string"
+    },
+    "trans_amount": {
+      "description": "转账金额，单位为该币种基础计价单位，如人民币为：元",
+      "example": "10.00",
+      "type": "string"
+    },
+    "trans_currency": {
+      "description": "转账币种（元）",
+      "example": "CNY",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

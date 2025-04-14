@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "delivery_content": {
+      "description": "收藏引导文案内容，不得超过14个字",
+      "example": "点击收藏，下次使用更方便",
+      "type": "string"
+    },
+    "delivery_name": {
+      "description": "收藏引导活动名称",
+      "example": "收藏引导首页投放活动",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "活动结束时间",
+      "example": "2022-12-31 15:23:43",
+      "type": "string"
+    },
+    "match_type": {
+      "description": "匹配类型",
+      "example": "TARGETURL",
+      "type": "string"
+    },
+    "match_url": {
+      "description": "目标页面地址，当匹配类型为TARGETURL时，投放文案仅在当前页面生效",
+      "example": "/page/web",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "活动开始时间",
+      "example": "2021-11-25 15:23:43",
+      "type": "string"
+    }
+  },
+  "required": []
+}

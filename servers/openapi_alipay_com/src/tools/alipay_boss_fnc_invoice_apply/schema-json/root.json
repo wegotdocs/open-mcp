@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_id": {
+      "description": "调用方身份识别标记(应用名称) 与业务单据号联合唯一",
+      "example": "SETTLE_MIDDLE_GROUND",
+      "type": "string"
+    },
+    "biz_no": {
+      "description": "业务单据号，业务流水号",
+      "example": "47674d29cadd425a7eeb3ae4b51af7d5_765915",
+      "type": "string"
+    },
+    "invoice_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `invoice_amt` to the tool, first call the tool `expandSchema` with \"/properties/invoice_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "invoice_type": {
+      "description": "申请开票类型，01：专票；02：普票",
+      "example": "01",
+      "type": "string"
+    },
+    "memo": {
+      "description": "备注",
+      "example": "备注",
+      "type": "string"
+    },
+    "mthtly_bill_nos": {
+      "description": "需开票的应收月账单号",
+      "example": "2018060510122000040400841100996001",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "operator": {
+      "description": "申请人的uid号",
+      "example": "208812345677",
+      "type": "string"
+    },
+    "out_biz_type": {
+      "description": "01主站，02芝麻，03金融云",
+      "example": "03",
+      "type": "string"
+    }
+  },
+  "required": []
+}

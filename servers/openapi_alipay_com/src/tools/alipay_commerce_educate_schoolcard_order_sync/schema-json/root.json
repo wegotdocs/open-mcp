@@ -1,0 +1,121 @@
+{
+  "type": "object",
+  "properties": {
+    "actual_amount": {
+      "description": "实际金额（总支付金额），单位为【元】",
+      "example": "0.60",
+      "type": "string"
+    },
+    "applet_app_id": {
+      "description": "小程序appid",
+      "example": "2019022763389198",
+      "type": "string"
+    },
+    "card_balance": {
+      "description": "校园卡余额",
+      "example": "20.32",
+      "type": "string"
+    },
+    "card_no": {
+      "description": "128",
+      "example": "校园卡卡号",
+      "type": "string"
+    },
+    "card_type": {
+      "description": "校园卡类型",
+      "example": "1",
+      "type": "string"
+    },
+    "create_time": {
+      "description": "该笔订单真实的创建时间，需精确到毫秒。",
+      "example": "2022-09-16 10:12:12.910",
+      "type": "string"
+    },
+    "discount_amount": {
+      "description": "优惠金额",
+      "example": "0.70",
+      "type": "string"
+    },
+    "goods_orders": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `goods_orders` to the tool, first call the tool `expandSchema` with \"/properties/goods_orders\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "merchant_name": {
+      "description": "商家名称，不传默认展示学校名称",
+      "example": "温州医科大食堂",
+      "type": "string"
+    },
+    "modified_time": {
+      "description": "订单修改时间",
+      "example": "2022-09-16 10:12:12.910",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "用户open_id",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "order_amount": {
+      "description": "订单金额",
+      "example": "1.30",
+      "type": "string"
+    },
+    "order_detail_url": {
+      "description": "订单详情链接",
+      "example": "alipays://platformapi/startapp?appId=2021002126602599&page=%2fpages%2forder-details%2forder-details%3fticketOrderId%3d20210376854",
+      "type": "string"
+    },
+    "order_status": {
+      "description": "订单状态",
+      "example": "CONSUME_S",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务号，由商家自定义，128个字符以内，仅支持字母、数字、下划线且需保证在商户端不重复。",
+      "example": "20220320010101001",
+      "type": "string"
+    },
+    "pay_address": {
+      "description": "支付地点",
+      "example": "1餐厅-3楼1号机",
+      "type": "string"
+    },
+    "pay_mode": {
+      "description": "付款方式，不传默认展示学校名称+校园卡+（卡号后四位）",
+      "example": "电子校园卡(1001)",
+      "type": "string"
+    },
+    "rake_back_pid": {
+      "description": "系统商编号。该参数作为系统商返佣数据提取的依据，请填写系统商签约协议的PID",
+      "example": "2088511833207846",
+      "type": "string"
+    },
+    "school_id": {
+      "description": "学校内标，录入学校接口返回的参数",
+      "example": "2088200341082323",
+      "type": "string"
+    },
+    "school_pid": {
+      "description": "学校收款账号",
+      "example": "2088102146225135",
+      "type": "string"
+    },
+    "service_provider_name": {
+      "description": "服务提供者名称",
+      "example": "完美校园",
+      "type": "string"
+    },
+    "type": {
+      "description": "业务类型",
+      "example": "SCHOOL_PAY",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "买家支付宝用户ID。\t2088开头的16位纯数字，小程序场景下获取用户ID请参考：用户授权;\t其它场景下获取用户ID请参考：网页授权获取用户信息;",
+      "example": "2088102146225135",
+      "type": "string"
+    }
+  },
+  "required": []
+}

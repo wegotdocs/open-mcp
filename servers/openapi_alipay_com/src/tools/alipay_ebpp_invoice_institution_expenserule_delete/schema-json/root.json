@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "enterprise_id": {
+      "description": "企业id",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "institution_id": {
+      "description": "制度id",
+      "example": "2022070600152617780000000001",
+      "type": "string"
+    },
+    "standard_id_list": {
+      "description": "删除的使用规则id列表",
+      "example": "[\"2021062800152601350000001468\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

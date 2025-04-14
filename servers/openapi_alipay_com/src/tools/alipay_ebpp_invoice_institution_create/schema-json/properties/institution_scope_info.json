@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "adapter_type": {
+      "description": "制度适用范围，支持配置全员、指定员工和指定部门",
+      "example": "EMPLOYEE_SELECT",
+      "type": "string"
+    },
+    "owner_id_list": {
+      "description": "适用范围归属id列表",
+      "example": "[\"2288004000000000\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "owner_type": {
+      "description": "员工id类型",
+      "example": "ENTERPRISE_PAY_UID",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

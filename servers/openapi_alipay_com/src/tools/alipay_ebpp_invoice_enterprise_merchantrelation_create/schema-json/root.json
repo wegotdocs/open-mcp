@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "enterprise_id": {
+      "description": "企业ID",
+      "example": "2088xxx",
+      "type": "string"
+    },
+    "account_id": {
+      "description": "共同账户ID",
+      "example": "2088xxx",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215713002876184996",
+      "type": "string"
+    },
+    "operator_id": {
+      "description": "传入操作人员标识",
+      "example": "记录操作人身份标识，可传工号，如9527",
+      "type": "string"
+    },
+    "shop_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `shop_info` to the tool, first call the tool `expandSchema` with \"/properties/shop_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "trade_no": {
+      "description": "交易流水号",
+      "example": "2019xxxxxx",
+      "type": "string"
+    }
+  },
+  "required": []
+}

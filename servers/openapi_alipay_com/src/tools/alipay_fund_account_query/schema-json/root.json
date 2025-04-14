@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "merchant_user_id": {
+      "description": "商户会员的唯一标识。如果传入的user_id为虚拟账户userId，此字段必传并比对一致性。",
+      "example": "243893499",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "支付宝会员 id。",
+      "example": "2088301409188095",
+      "type": "string"
+    },
+    "alipay_open_id": {
+      "description": "支付宝openId",
+      "example": "061P6NAblcWDWJoDRxSVvOYz-ufp-3wQaA4E_szQyMFTXse",
+      "type": "string"
+    },
+    "account_product_code": {
+      "description": "开户产品码。如果查询托管子户余额，必传且必须传入与开户时传入的值一致。",
+      "example": "DING_ACCOUNT",
+      "type": "string"
+    },
+    "account_type": {
+      "description": "查询的账号类型，查询余额账户值为ACCTRANS_ACCOUNT。必填。",
+      "example": "ACCTRANS_ACCOUNT",
+      "type": "string"
+    },
+    "account_scene_code": {
+      "description": "开户场景码，与开户产品码不可同时传递。",
+      "example": "SCENE_000_000_000",
+      "type": "string"
+    },
+    "ext_info": {
+      "description": "JSON格式，传递业务扩展参数。",
+      "example": "{\"agreement_no\":\"2019000000000\"}",
+      "type": "string"
+    }
+  },
+  "required": []
+}

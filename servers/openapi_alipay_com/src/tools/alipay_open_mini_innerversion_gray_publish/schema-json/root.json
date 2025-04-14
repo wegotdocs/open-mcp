@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "app_origin": {
+      "description": "业务来源",
+      "example": "AAA",
+      "type": "string"
+    },
+    "app_version": {
+      "description": "小程序版本",
+      "example": "0.0.1",
+      "type": "string"
+    },
+    "beta_app_id_list": {
+      "description": "待邀测应用列表，灰度插件时使用，如无邀测必要请不要传入",
+      "example": "[\"2021xxxxx\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bundle_id": {
+      "description": "端信息",
+      "example": "支付宝：com.alipay.alipaywallet 高德：com.amap.app",
+      "type": "string"
+    },
+    "gray_strategy": {
+      "description": "灰度值",
+      "example": "gray_mayi_rule、gray_alibaba_rule",
+      "type": "string"
+    },
+    "mini_app_id": {
+      "description": "小程序ID，仅特殊场景使用，普通业务方无需关注该参数",
+      "example": "2019****",
+      "type": "string"
+    },
+    "pid": {
+      "description": "小程序所属PID",
+      "example": "2088****",
+      "type": "string"
+    }
+  },
+  "required": []
+}

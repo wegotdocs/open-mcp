@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "merchant_id": {
+      "description": "商户 PID，默认为当前接口调用商户。",
+      "example": "2088202967380463",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "支付宝user_id账号",
+      "example": "2088512417841101",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "领券的支付宝用户openId",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "activity_id": {
+      "description": "活动id",
+      "example": "2016042700826004508401111111",
+      "type": "string"
+    },
+    "voucher_id": {
+      "description": "用户券 id。支付宝为用户优惠券唯一分配的 id。",
+      "example": "2021072900073002214009F8QHR3",
+      "type": "string"
+    },
+    "voucher_code": {
+      "description": "用户领取的商家券券码。",
+      "example": "ABE44",
+      "type": "string"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式。",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    }
+  },
+  "required": []
+}

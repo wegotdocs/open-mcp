@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "action_type": {
+      "description": "DEFAULT_SETTLE 默认结算模式;\tPAY_TO_ZERO 支付转0元；",
+      "example": "DEFAULT_SETTLE或PAY_TO_ZERO",
+      "type": "string"
+    },
+    "agreement_id": {
+      "description": "支付宝系统中用以唯一标识用户签约记录的编号。",
+      "example": "ZMGO_AGR2020122710020604120000000001",
+      "type": "string"
+    },
+    "alipay_open_id": {
+      "description": "买家在支付宝的用户id",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "买家在支付宝的用户id",
+      "example": "2088101117955611",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "商户本次操作的请求流水号，用于标示请求流水的唯一性，不能包含除中文、英文、数字以外的字符，需要保证在商户端不重复。",
+      "example": "8077735255938032",
+      "type": "string"
+    },
+    "partner_id": {
+      "description": "商户ID",
+      "example": "2088102146225135",
+      "type": "string"
+    },
+    "pay_amount": {
+      "description": "需要支付的金额，单位为：元（人民币），精确到小数点后两位",
+      "example": "2.00",
+      "type": "string"
+    },
+    "settle_extend_params": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `settle_extend_params` to the tool, first call the tool `expandSchema` with \"/properties/settle_extend_params\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "total_discount_amount": {
+      "description": "芝麻GO任务开始到到期过程中和任务相关享受的总优惠金额，单位为：元（人民币），精确到小数点后两位。",
+      "example": "3.00",
+      "type": "string"
+    },
+    "total_real_pay_amount": {
+      "description": "芝麻GO任务开始到到期过程中和任务相关支付的总金额，单位为：元（人民币），精确到小数点后两位。",
+      "example": "3.00",
+      "type": "string"
+    },
+    "total_task_count": {
+      "description": "芝麻GO任务开始到到期过程中和任务相关完成的任务次数",
+      "example": "0",
+      "type": "string"
+    },
+    "withhold_plan_no": {
+      "description": "芝麻GO结算时，需要传入的扣款单据号。来源于协议到期通知消息，外部商户接入时，该参数必填",
+      "example": "ZMGO_WHD2021010510020603410000006001",
+      "type": "string"
+    }
+  },
+  "required": []
+}

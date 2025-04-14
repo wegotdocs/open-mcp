@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "action": {
+      "description": "修改类型，枚举：\tMODIFY_BASIC_INFO（修改发放规则基本信息）",
+      "example": "MODIFY_BASIC_INFO",
+      "type": "string"
+    },
+    "effective": {
+      "description": "是否启用，\"0\"为停用，\"1\"为启用；",
+      "example": "1",
+      "type": "string"
+    },
+    "effective_period": {
+      "description": "生效周期（不传则不修改），不限：\"{\\\"all\\\":true}\"",
+      "example": "{\\\"all\\\":true}",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业ID",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "invalid_mode": {
+      "description": "是否可累计（不传则不修改）可选值：0（不可累计）、1（可累计），2（累计天数），3（累计到固定时间）",
+      "example": 0,
+      "type": "integer"
+    },
+    "invalid_mode_value": {
+      "description": "累计值",
+      "example": "10",
+      "type": "string"
+    },
+    "issue_amount_value": {
+      "description": "发放金额（不传则不修改），单位（元）",
+      "example": "200",
+      "type": "string"
+    },
+    "issue_end_date": {
+      "description": "发放规则的截止时间",
+      "example": "2021-01-01 12:00:00",
+      "type": "string"
+    },
+    "issue_rule_id": {
+      "description": "发放规则id",
+      "example": "2022052000152618690000000005",
+      "type": "string"
+    },
+    "issue_rule_name": {
+      "description": "发放规则名称（不传则不修改）",
+      "example": "晚餐发放",
+      "type": "string"
+    },
+    "issue_start_date": {
+      "description": "发放规则的开始时间",
+      "example": "2021-01-01 12:00:00",
+      "type": "string"
+    },
+    "issue_type": {
+      "description": "发放类型",
+      "example": "ISSUE_MONTH",
+      "type": "string"
+    },
+    "quota_type": {
+      "description": "额度类型",
+      "example": "COUPON",
+      "type": "string"
+    },
+    "share_mode": {
+      "description": "是否可转赠（不传则不修改），可选值：0（不可转赠）、1（可转赠），默认为0，按城市发放不支持可转赠",
+      "example": 0,
+      "type": "integer"
+    },
+    "target_id": {
+      "description": "发放规则关联的目标值 target_type为制度时：制度id",
+      "example": "2022052000152618690000000005",
+      "type": "string"
+    },
+    "target_type": {
+      "description": "发放规则关联的目标类型",
+      "example": "INSTITUTION",
+      "type": "string"
+    }
+  },
+  "required": []
+}

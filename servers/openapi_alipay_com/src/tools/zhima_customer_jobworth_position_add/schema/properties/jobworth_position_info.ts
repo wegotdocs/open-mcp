@@ -1,0 +1,32 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "age": z.string().describe("职位要求-年龄要求\t无要求（不传）、28岁以上(OVER28)、40岁以下(BELOW40)、25岁～35岁(25TO35)").optional(),
+  "benefit": z.string().describe("福利，现有标签，最多5个标签，使用英文,分割\t参考\thttps://www.yuque.com/docs/share/805e9840-ae9d-499c-b566-46b3b8c9fb2d?# 《4.1 服务端接入----职位传入接口》的1.3.1.1").optional(),
+  "certifications": z.string().describe("技能、证书等要求，比如学历、健康证、普通话或其他技能证书等").optional(),
+  "company_certificate": z.string().describe("发布企业统一社会信用代码").optional(),
+  "company_logo_afts_id": z.string().describe("上传的aftsid").optional(),
+  "company_name": z.string().describe("企业工商全称").optional(),
+  "count": z.number().int().describe("招聘人数").optional(),
+  "education": z.string().describe("学历要求,HIGHSCHOOL_AND_BELOW（高中及以下），POLYTECHNIC（中专），COLLEGE（大专），BACHELOR（本科），MASTER（硕士），DOCTOR_AND_ABOVE（博士及以上）").optional(),
+  "gender": z.string().describe("无要求（不传）、男或者女").optional(),
+  "ka_position_id": z.string().describe("合作方岗位id自定义保持唯一性").optional(),
+  "position_desc": z.string().describe("长文本描述").optional(),
+  "position_id": z.string().describe("工作证岗位库的职位主键，只有更新职位信息时需要传入。第一次传入岗位后返回").optional(),
+  "position_job_id": z.string().describe("岗位对应的行业id，字段参考https://www.yuque.com/docs/share/805e9840-ae9d-499c-b566-46b3b8c9fb2d?# 《4.1 服务端接入----职位传入接口》的1.3.1.2").optional(),
+  "position_job_name": z.string().describe("岗位对应的职业名称").optional(),
+  "position_profession_id": z.string().describe("岗位对应的职业id，字段参考https://www.yuque.com/docs/share/805e9840-ae9d-499c-b566-46b3b8c9fb2d?# 《4.1 服务端接入----职位传入接口》的1.3.1.2").optional(),
+  "position_property": z.string().describe("岗位属性：全职(FULL_TIME)或者兼职(PART_TIME)").optional(),
+  "position_status": z.string().describe("职位的状态，只有上架(UNCHECK)和下架(OFFLINE)两种").optional(),
+  "position_title": z.string().describe("短文本描述").optional(),
+  "salary_max": z.string().describe("薪水范围，不能低于salary_min").optional(),
+  "salary_min": z.string().describe("薪水范围，不能高于salary_max").optional(),
+  "salary_type": z.string().describe("薪资类型：日结(DAY)、月结(MONTH)、周结(WEEK)、完工结(DONE)、其他(OTHER)").optional(),
+  "salary_unit": z.string().describe("薪资单位，元/日(DAY)、元/次(TIME)、元/月(MONTH)、元/小时(HOUR)、元/件 (NUM)、元/周 (WEEK)、其他 (OTHER)").optional(),
+  "skill_tag": z.string().describe("岗位需要的技能标签，最多5个，使用英文逗号分割").optional(),
+  "skip_url": z.string().describe("职位跳转链接，当前只支持支付宝小程序，也就是alipays://platformapi/ 开头").optional(),
+  "work_city": z.string().describe("高德city code，例：北京010，线上工作9999\t参考https://www.yuque.com/docs/share/805e9840-ae9d-499c-b566-46b3b8c9fb2d?# 《4.1 服务端接入----职位传入接口》的1.3.1.3").optional(),
+  "work_longitude": z.string().describe("经纬度，前面是经度，后面是纬度，使用英文逗号隔开").optional(),
+  "work_region": z.string().describe("工作地所在的区县,使用高德的adcode，例：朝阳区110105\t参考https://www.yuque.com/docs/share/805e9840-ae9d-499c-b566-46b3b8c9fb2d?# 《4.1 服务端接入----职位传入接口》的1.3.1.2").optional(),
+  "work_year": z.string().describe("工作年限，1年以下（ONE）、1～3年（THREE）、3～5年（FIVE）、5～10年（TEN）、10年以上（OVER_TEN）").optional()
+}

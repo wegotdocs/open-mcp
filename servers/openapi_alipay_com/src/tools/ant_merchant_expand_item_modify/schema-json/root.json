@@ -1,0 +1,136 @@
+{
+  "type": "object",
+  "properties": {
+    "detail_url": {
+      "description": "商品详情地址",
+      "example": "https://www.alipay.com/item/detail01.html",
+      "type": "string"
+    },
+    "ext_info": {
+      "description": "商品扩展信息：可以解析成 Map<String, String> 的 json string",
+      "example": "{\\\"OIL_GUNS\\\":\\\"[7,8,9,10]\\\", \\\"DISCOUNT\\\":\\\"95\\\"}",
+      "type": "string"
+    },
+    "external_item_id": {
+      "description": "外部商品ID（item_id不为空时作为普通更新项，item_id为空时作为更新KEY）",
+      "example": "20190916123423654241312",
+      "type": "string"
+    },
+    "front_category_id": {
+      "description": "前台类目id, null表示未分类",
+      "example": "2018091300502200002600105884",
+      "type": "string"
+    },
+    "item_id": {
+      "description": "商品id(和external_item_id不能同时为空)",
+      "example": "2018091300502200002600104169",
+      "type": "string"
+    },
+    "label_list": {
+      "description": "商品标签列表，null表示不修改标签列表，空list表示清空标签",
+      "items": {
+        "properties": {
+          "label_key": {
+            "description": "标签键\r\tOIL_NUM：油号",
+            "example": "OIL_NUM",
+            "type": "string"
+          },
+          "label_value": {
+            "description": "标签值：\r\tOIL_NUM对应的值为：95# 92# 98# 等等",
+            "example": "95#",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "main_pic": {
+      "description": "商品主图",
+      "example": "https://img.alicdn.com/imgextra/i4/263168616/O1CN01qp60TQ2DWB06jyvVg_!!263168616.jpg",
+      "type": "string"
+    },
+    "name": {
+      "description": "商品名称",
+      "example": "西红柿炒蛋",
+      "type": "string"
+    },
+    "op_timestamp": {
+      "description": "更新时间戳（只处理时间戳最大的一次请求）",
+      "example": 1234352342353,
+      "type": "integer"
+    },
+    "scene": {
+      "description": "场景：GAS_CHARGE（加油）",
+      "example": "GAS_CHARGE",
+      "type": "string"
+    },
+    "sku_list": {
+      "description": "SKU列表（会和商品已存在SKU做差异化比较后做增删改操作）",
+      "items": {
+        "properties": {
+          "cost_price": {
+            "description": "成本价，单位分",
+            "example": 100,
+            "type": "integer"
+          },
+          "ext_info": {
+            "description": "SKU扩展信息",
+            "items": {
+              "properties": {
+                "ext_key": {
+                  "description": "扩展信息的key",
+                  "type": "string"
+                },
+                "ext_value": {
+                  "description": "扩展信息的值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "external_sku_id": {
+            "description": "外部skuId（sku_id不为空时作为普通更新项,sku_id为空时作为更新key,sku_id和该字段同时为空则新增该条数据）",
+            "example": "20190916123124234235234",
+            "type": "string"
+          },
+          "inventory": {
+            "description": "库存",
+            "example": 100,
+            "type": "integer"
+          },
+          "original_price": {
+            "description": "标价，单位分",
+            "example": 100,
+            "type": "integer"
+          },
+          "price": {
+            "description": "售价，单位分",
+            "example": 100,
+            "type": "integer"
+          },
+          "sku_id": {
+            "description": "skuId",
+            "example": "2018092600502220000000100274",
+            "type": "string"
+          },
+          "status": {
+            "description": "商品SKU状态：EFFECT、INVALID",
+            "example": "EFFECT",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status": {
+      "description": "商品状态：\r\tEFFECT（有效）、 INVALID（无效）",
+      "example": "EFFECT",
+      "type": "string"
+    }
+  },
+  "required": []
+}

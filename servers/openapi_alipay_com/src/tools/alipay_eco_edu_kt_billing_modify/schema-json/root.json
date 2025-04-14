@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "bank_success": {
+      "description": "成功Y，失败N",
+      "example": "Y",
+      "type": "string"
+    },
+    "buyer_logon_id": {
+      "description": "退款时，支付宝返回的用户的登录id",
+      "example": "159****5620",
+      "type": "string"
+    },
+    "buyer_user_id": {
+      "description": "支付宝返回的买家支付宝用户id",
+      "example": "2088101117955611",
+      "type": "string"
+    },
+    "buyer_user_open_id": {
+      "description": "支付宝返回的买家支付宝用户id加密后信息",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "fund_change": {
+      "description": "本次退款是否发生了资金变化",
+      "example": "Y",
+      "type": "string"
+    },
+    "gmt_refund": {
+      "description": "支付宝返回的退款时间，而不是商户退款申请的时间",
+      "example": "2015-11-27 15:45:57",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "标识一次退款请求，同一笔交易多次退款需要保证唯一，如需部分退款，则此参数必传。（若退款时填写，则同步退款状态时也必须填写）",
+      "example": "HZ01RF001",
+      "type": "string"
+    },
+    "out_trade_no": {
+      "description": "isv系统的订单号",
+      "example": "20160101909909354354354",
+      "type": "string"
+    },
+    "refund_amount": {
+      "description": "需要退款的金额，该金额不能大于订单金额,单位为元，支持两位小数",
+      "example": "200.12",
+      "type": "string"
+    },
+    "refund_detail_item_list": {
+      "description": "支付宝返回的退款资金渠道，json格式字符串",
+      "example": "{\r\n\t\"fund_channel\":\"ALIPAYACCOUNT\",\r\n\t\"amount\":12.00,\r\n\t\"real_amount\":12.00\r\n\t\r\n}",
+      "type": "string"
+    },
+    "refund_reason": {
+      "description": "退款原因，商家根据客户实际退款原因填写（若退款时填写，则同步退款状态时也必须填写）",
+      "example": "正常退款",
+      "type": "string"
+    },
+    "status": {
+      "description": "状态：1:缴费成功，2:关闭账单，3、退费\r\t如果为退款状态，需要填写fund_change, \r\trefund_amount, refund_reason,\r\tout_request_no, buyer_logon_id,\r\tgmt_refund,\r\tbuyer_user_id, refund_detail_item_list;\r\t4、同步网商返回的状态,如果是网商银行的账单，bank_success这个字段必填",
+      "example": "1",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "支付宝返回的交易号",
+      "example": "2014112611001004680073956707",
+      "type": "string"
+    }
+  },
+  "required": []
+}

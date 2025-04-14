@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "app_name": {
+      "description": "小程序名称，昵称半自动设定，强制后缀“的试用小程序”。且该参数会进行关键字检查，如果命中品牌关键字则会报错。\t如遇到品牌大客户要用试用小程序，建议用户先换个名字，认证后再修改成品牌名。",
+      "example": "示例小程序",
+      "type": "string"
+    },
+    "auth_notify_url": {
+      "description": "授权确认成功后回调h5链接或小程序页面",
+      "example": "pages/notify/index",
+      "type": "string"
+    },
+    "out_order_no": {
+      "description": "开发者外部订单号，通过开发者账号+外部订单号做业务幂等",
+      "example": "23948392483253534535",
+      "type": "string"
+    },
+    "uid": {
+      "description": "商户uid",
+      "example": "208822294389xxxx",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,57 @@
+{
+  "properties": {
+    "mini_app_id": {
+      "description": "券可用的小程序 appId，卡包详情页可跳转到该 appId。",
+      "example": "2021238412323412",
+      "type": "string"
+    },
+    "mini_app_path": {
+      "description": "指定跳转到 mini_app_id 时的具体页面路径。",
+      "example": "/index/path/path&query=xx%3dxx",
+      "type": "string"
+    },
+    "real_shop_ids": {
+      "description": "券可使用的商业关系门店列表,列表中的门店id是调用接口alipay.business.relation.shop.create创建门店返回的real_shop_id。",
+      "example": "[\"2018051000502000000011111111\",\"2018040200502000000011111111\",\"2018062800502000000022271997\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "service_codes": {
+      "description": "小程序服务编码，通过 alipay.open.app.appcontent.function.create(小程序服务创建)接口创建服务后获取。",
+      "example": "[\"2020030921000303380758\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "shop_ids": {
+      "description": "券可使用的门店列表。列表中的门店id是通过调用接口ant.merchant.expand.shop.create创建门店返回的支付宝门店 id 接口参数是列表类型。 接口参数是列表类型。",
+      "example": "[\"2018051000502000000011111111\",\"2018040200502000000011111111\",\"2018062800502000000022271997\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "store_ids": {
+      "description": "后续废弃。券可使用的门店列表。列表中的门店id是通过调用接口ant.merchant.expand.shop.create创建门店返回的支付宝门店  id 接口参数是列表类型。\t接口参数是列表类型。",
+      "example": "[\"2018051000502000000011111111\",\"2018040200502000000011111111\",\"2018062800502000000022271997\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "voucher_send_guide": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_send_guide` to the tool, first call the tool `expandSchema` with \"/properties/customer_guide/properties/voucher_send_guide\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_use_guide": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_use_guide` to the tool, first call the tool `expandSchema` with \"/properties/customer_guide/properties/voucher_use_guide\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

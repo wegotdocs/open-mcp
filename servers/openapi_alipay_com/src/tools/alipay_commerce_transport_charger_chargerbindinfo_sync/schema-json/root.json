@@ -1,0 +1,95 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_token": {
+      "description": "用户授权令牌",
+      "type": "string"
+    },
+    "bind_qrcode": {
+      "description": "绑定充电桩二维码值，用户扫码绑桩扫描的二维码",
+      "example": "https://qrcode.starcharge.com/#/10050638",
+      "type": "string"
+    },
+    "bind_status": {
+      "description": "绑定状态 1:绑定; 2:解绑;  0:未知",
+      "example": "1",
+      "type": "string"
+    },
+    "bind_time": {
+      "description": "绑定时间，绑定成功必传",
+      "example": "2022-11-17 17:39:27",
+      "type": "string"
+    },
+    "connector_type": {
+      "description": "1：家用插座\t2、交流接口插座\t3：交流接口插头\t4、直流接口枪头\t5、无线充电座\t6、其他",
+      "example": "2",
+      "type": "string"
+    },
+    "current_output_type": {
+      "description": "1：国标\t2：欧标\t3：美标\t4：日标\t5：其他",
+      "example": "1",
+      "type": "string"
+    },
+    "equip_id": {
+      "description": "设备编号",
+      "example": "65469765489754837868",
+      "type": "string"
+    },
+    "equip_imei": {
+      "description": "设备IMEI号",
+      "example": "2432479035808",
+      "type": "string"
+    },
+    "equip_name": {
+      "description": "设备名称，对用户展示，可以是设备名称，也可以是设备SN号，设备编号",
+      "example": "守护者XX1",
+      "type": "string"
+    },
+    "equip_sn": {
+      "description": "设备SN号",
+      "example": "24789990209409",
+      "type": "string"
+    },
+    "equip_status": {
+      "description": "设备状态，遵循中电联协议的设备状态。0：离网;1：空闲;2：占用未充电;3：占用充电中;4：占用（预约锁定）;255：故障",
+      "example": "1",
+      "type": "string"
+    },
+    "equip_type_no": {
+      "description": "设备型号",
+      "example": "2325436576768",
+      "type": "string"
+    },
+    "operator_id": {
+      "description": "运营商编码，一般为企业组织机构代码",
+      "example": "325616137",
+      "type": "string"
+    },
+    "operator_uid": {
+      "description": "商户内部唯一标识用户的用户标识",
+      "example": "13588139138",
+      "type": "string"
+    },
+    "rated_current": {
+      "description": "额定电流,单位：A",
+      "example": "20",
+      "type": "string"
+    },
+    "rated_power": {
+      "description": "额定功率，单位：kW",
+      "example": "1000",
+      "type": "string"
+    },
+    "rated_voltage": {
+      "description": "额定电压，单位：V",
+      "example": "220",
+      "type": "string"
+    },
+    "unbind_time": {
+      "description": "解绑时间，解绑必传",
+      "example": "2022-11-17 17:39:27",
+      "type": "string"
+    }
+  },
+  "required": []
+}

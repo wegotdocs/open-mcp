@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "card_pict_url": {
+      "description": "事业单位法人证书或办学许可证的图片。入驻学校时，如果流入人工审核，会根据此图片进行辅助验证。",
+      "example": "A*HZ9NTamTmx4AAAAAAAAAAAAAAQAAAQ",
+      "type": "string"
+    },
+    "city_code": {
+      "description": "市",
+      "example": "370800",
+      "type": "string"
+    },
+    "inst_name": {
+      "description": "入驻的学校名称，必须是完整的学校全称",
+      "example": "复旦大学",
+      "type": "string"
+    },
+    "inst_std_code": {
+      "description": "学校外标，使用统一社会信用编码",
+      "example": "3451000031",
+      "type": "string"
+    },
+    "learning_stage": {
+      "description": "办学阶段。\t枚举值如下：\tKINDERGARTEN（幼儿园）\tPRIMARY_SCHOOL（小学） \tMIDDLE_SCHOOL（初中） \tHIGH_SCHOOL（高中）\tSECONDARY_VOCATIONAL_SCHOOL（中职中专） \t注意：如果学校兼有多种属性，可以连写用英文逗号拆分，如：MIDDLE_SCHOOL,HIGH_SCHOOL 代表兼有初中部和高中部；",
+      "example": "MIDDLE_SCHOOL,HIGH_SCHOOL",
+      "type": "string"
+    },
+    "province_code": {
+      "description": "省份",
+      "example": "370000",
+      "type": "string"
+    },
+    "school_property": {
+      "description": "学校性质.枚举值如下：\t 1：公立 \t2：民办",
+      "example": "1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

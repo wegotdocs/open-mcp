@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "apply_id": {
+      "description": "申请单id",
+      "example": "AP20200212100002488",
+      "type": "string"
+    },
+    "apply_type": {
+      "description": "申请类型 BASE：基础信息， BRAND_BOX：品牌直达，SERVICE_BOX服务直达",
+      "example": "BASE",
+      "type": "string"
+    },
+    "brand_template_id": {
+      "description": "品牌的模板id ONE_WITH_TWO：一拖二、DEFAULT：一拖四",
+      "example": "DEFAULT",
+      "type": "string"
+    },
+    "service_code": {
+      "description": "服务code",
+      "example": "2019121121000102523089",
+      "type": "string"
+    },
+    "spec_code": {
+      "description": "服务的类型默认使用小程序 SP_MINI_APP 小程序 SP_PUBLIC_APP 生活号",
+      "example": "SP_MINI_APP",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

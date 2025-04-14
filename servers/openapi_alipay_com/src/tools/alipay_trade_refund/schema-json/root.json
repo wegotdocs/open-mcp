@@ -1,0 +1,228 @@
+{
+  "type": "object",
+  "properties": {
+    "goods_detail": {
+      "description": "退款包含的商品列表信息，Json格式。",
+      "items": {
+        "properties": {
+          "alipay_goods_id": {
+            "description": "支付宝定义的统一商品编号",
+            "type": "string"
+          },
+          "body": {
+            "description": "商品描述信息",
+            "type": "string"
+          },
+          "categories_tree": {
+            "description": "商品类目树，从商品类目根节点到叶子节点的类目id组成，类目id值使用|分割",
+            "type": "string"
+          },
+          "goods_category": {
+            "description": "商品类目",
+            "type": "string"
+          },
+          "goods_id": {
+            "description": "商品的编号，该参数传入支付券上绑定商品goods_id,\t倘若无支付券需要消费，该字段传入商品最小粒度的商品ID（如：若商品有sku粒度，则传商户sku粒度的ID）",
+            "type": "string"
+          },
+          "goods_name": {
+            "description": "商品名称",
+            "type": "string"
+          },
+          "out_item_id": {
+            "description": "商家侧小程序商品ID，指商家提报给小程序商品库的商品。当前接口的extend_params.trade_component_order_id字段不为空时该字段必填，且与交易组件订单参数保持一致。了解小程序商品请参考：<a href=\"https://opendocs.alipay.com/mini/06uila?pathHash=63b6fba7\">https://opendocs.alipay.com/mini/06uila?pathHash=63b6fba7</a>",
+            "type": "string"
+          },
+          "out_sku_id": {
+            "description": "商家侧小程序商品ID，指商家提报给小程序商品库的商品。当前接口的extend_params.trade_component_order_id字段不为空时该字段必填，且与交易组件订单参数保持一致。了解小程序商品请参考：<a target=\"_blank\" href=\"https://opendocs.alipay.com/mini/06uila?pathHash=63b6fba7\" >https://opendocs.alipay.com/mini/06uila?pathHash=63b6fba7</a>",
+            "type": "string"
+          },
+          "price": {
+            "description": "商品单价，单位为元",
+            "type": "string"
+          },
+          "quantity": {
+            "description": "商品数量",
+            "type": "integer"
+          },
+          "show_url": {
+            "description": "商品的展示地址",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "operator_id": {
+      "description": "商户的操作员编号",
+      "example": "OP001",
+      "type": "string"
+    },
+    "org_pid": {
+      "description": "银行间联模式下有用，其它场景请不要使用；\r\t双联通过该参数指定需要退款的交易所属收单机构的pid;",
+      "example": "2088101117952222",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "退款请求号。\t标识一次退款请求，需要保证在交易号下唯一，如需部分退款，则此参数必传。\t注：针对同一次退款请求，如果调用接口失败或异常了，重试时需要保证退款请求号不能变更，防止该笔交易重复退款。支付宝会保证同样的退款请求号多次请求只会退一次。",
+      "example": "HZ01RF001",
+      "type": "string"
+    },
+    "out_trade_no": {
+      "description": "商户订单号。\t订单支付时传入的商户订单号，商家自定义且保证商家系统中唯一。与支付宝交易号 trade_no 不能同时为空。",
+      "example": "20150320010101001",
+      "type": "string"
+    },
+    "query_options": {
+      "description": "查询选项。\t商户通过上送该参数来定制同步需要额外返回的信息字段，数组格式。",
+      "example": "[\"refund_detail_item_list\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "refund_advance_account": {
+      "description": "指定垫资退款账号主体，可能是用户id或登录名",
+      "example": "loginname@alitest.com",
+      "type": "string"
+    },
+    "refund_advance_account_type": {
+      "description": "指定垫资退款账号的类型，取值范围：default，userId，loginName",
+      "example": "loginName",
+      "type": "string"
+    },
+    "refund_amount": {
+      "description": "退款金额。\t需要退款的金额，该金额不能大于订单金额，单位为元，支持两位小数。\t注：如果正向交易使用了营销，该退款金额包含营销金额，支付宝会按业务规则分配营销和买家自有资金分别退多少，默认优先退买家的自有资金。如交易总金额100元，用户支付时使用了80元自有资金和20元无资金流的营销券，商家实际收款80元。如果首次请求退款60元，则60元全部从商家收款资金扣除退回给用户自有资产；如果再请求退款40元，则从商家收款资金扣除20元退回用户资产以及把20元的营销券退回给用户（券是否可再使用取决于券的规则配置）。",
+      "example": "200.12",
+      "type": "string"
+    },
+    "refund_currency": {
+      "description": "订单退款币种信息。支持英镑：GBP、港币：HKD、美元：USD、新加坡元：SGD、日元：JPY、加拿大元：CAD、澳元：AUD、欧元：EUR、新西兰元：NZD、韩元：KRW、泰铢：THB、瑞士法郎：CHF、瑞典克朗：SEK、丹麦克朗：DKK、挪威克朗：NOK、马来西亚林吉特：MYR、印尼卢比：IDR、菲律宾比索：PHP、毛里求斯卢比：MUR、以色列新谢克尔：ILS、斯里兰卡卢比：LKR、俄罗斯卢布：RUB、阿联酋迪拉姆：AED、捷克克朗：CZK、南非兰特：ZAR、人民币：CNY",
+      "example": "USD",
+      "type": "string"
+    },
+    "refund_goods_detail": {
+      "description": "退款包含的商品列表信息",
+      "items": {
+        "properties": {
+          "goods_id": {
+            "description": "商品编号。\t对应支付时传入的goods_id",
+            "example": "apple-01",
+            "type": "string"
+          },
+          "out_certificate_no_list": {
+            "description": "外部商品凭证编号列表",
+            "example": "[\"202407013232143241231243243423\"]",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "out_item_id": {
+            "description": "商家侧小程序商品ID，对应支付时传入的out_item_id",
+            "example": "outItem_01",
+            "type": "string"
+          },
+          "out_sku_id": {
+            "description": "商家侧小程序商品sku ID，对应支付时传入的out_sku_id",
+            "example": "outSku_01",
+            "type": "string"
+          },
+          "refund_amount": {
+            "description": "该商品的退款总金额，单位为元",
+            "example": "19.50",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "refund_reason": {
+      "description": "退款原因说明。\t商家自定义，将在会在商户和用户的pc退款账单详情中展示",
+      "example": "正常退款",
+      "type": "string"
+    },
+    "refund_royalty_parameters": {
+      "description": "退分账明细信息。\t 注： 1.当面付且非直付通模式无需传入退分账明细，系统自动按退款金额与订单金额的比率，从收款方和分账收入方退款，不支持指定退款金额与退款方。 \t2.直付通模式，电脑网站支付，手机 APP 支付，手机网站支付产品，须在退款请求中明确是否退分账，从哪个分账收入方退，退多少分账金额；如不明确，默认从收款方退款，收款方余额不足退款失败。不支持系统按比率退款。",
+      "items": {
+        "properties": {
+          "amount": {
+            "description": "分账的金额，单位为元",
+            "type": "string"
+          },
+          "amount_percentage": {
+            "description": "分账信息中分账百分比。取值范围为大于0，少于或等于100的整数。",
+            "type": "integer"
+          },
+          "desc": {
+            "description": "分账描述",
+            "type": "string"
+          },
+          "royalty_scene": {
+            "description": "可选值：达人佣金、平台服务费、技术服务费、其他",
+            "type": "string"
+          },
+          "royalty_type": {
+            "description": "分账类型.",
+            "type": "string"
+          },
+          "trans_in": {
+            "description": "收入方账户。如果收入方账户类型为userId，本参数为收入方的支付宝账号对应的支付宝唯一用户号，以2088开头的纯16位数字；如果收入方类型为cardAliasNo，本参数为收入方在支付宝绑定的卡编号；如果收入方类型为loginName，本参数为收入方的支付宝登录号；",
+            "type": "string"
+          },
+          "trans_in_name": {
+            "description": "分账收款方姓名，上送则进行姓名与支付宝账号的一致性校验，校验不一致则分账失败。不上送则不进行姓名校验",
+            "type": "string"
+          },
+          "trans_in_type": {
+            "description": "收入方账户类型。",
+            "type": "string"
+          },
+          "trans_out": {
+            "description": "支出方账户。如果支出方账户类型为userId，本参数为支出方的支付宝账号对应的支付宝唯一用户号，以2088开头的纯16位数字；如果支出方类型为loginName，本参数为支出方的支付宝登录号。 泛金融类商户分账时，该字段不要上送。",
+            "type": "string"
+          },
+          "trans_out_type": {
+            "description": "支出方账户类型。",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "refund_trans_out": {
+      "description": "指定退款账号，对应指定账号退款合约中的约定账号\t\t与refund_trans_out_type绑定使用\t1、refund_trans_out_type=userId时，传入对应的支付宝2088账号\t2、refund_trans_out_type=loginName时，传入对应的支付宝账号登录名",
+      "example": "2088xxxxxxxxxxxx",
+      "type": "string"
+    },
+    "refund_trans_out_type": {
+      "description": "指定退款账号类型\tuserId：支付宝账号id\tloginName：支付宝账号登录名",
+      "example": "userId",
+      "type": "string"
+    },
+    "related_settle_confirm_no": {
+      "description": "针对账期交易，在确认结算后退款的话，需要指定确认结算时的结算单号。",
+      "example": "2024041122001495000530302869",
+      "type": "string"
+    },
+    "store_id": {
+      "description": "商户门店编号，由商家自定义。需保证当前商户下唯一。",
+      "example": "NJ_S_001",
+      "type": "string"
+    },
+    "terminal_id": {
+      "description": "商户的终端编号",
+      "example": "NJ_T_001",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "支付宝交易号。\t和商户订单号 out_trade_no 不能同时为空，两者同时存在时，优先取值trade_no",
+      "example": "2014112611001004680073956707",
+      "type": "string"
+    }
+  },
+  "required": []
+}
