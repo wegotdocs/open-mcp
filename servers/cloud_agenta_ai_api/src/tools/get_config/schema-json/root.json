@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "base_id": {
+      "type": "string",
+      "title": "Base Id"
+    },
+    "config_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Config Name"
+    },
+    "environment_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Environment Name"
+    }
+  },
+  "required": [
+    "base_id"
+  ]
+}

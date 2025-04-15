@@ -1,0 +1,14 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "params": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `params` to the tool, first call the tool `expandSchema` with \"/properties/config/properties/params\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "url": z.union([z.string(), z.null()]).optional(),
+  "application_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]), "version": z.union([z.number().int(), z.null()]), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional(),
+  "service_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]), "version": z.union([z.number().int(), z.null()]), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional(),
+  "variant_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]), "version": z.union([z.number().int(), z.null()]), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional(),
+  "environment_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]), "version": z.union([z.number().int(), z.null()]), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional(),
+  "application_lifecycle": z.union([z.object({ "created_at": z.union([z.string(), z.null()]).optional(), "updated_at": z.union([z.string(), z.null()]).optional(), "updated_by_id": z.union([z.string(), z.null()]).optional(), "updated_by": z.union([z.string(), z.null()]).optional() }), z.null()]).optional(),
+  "service_lifecycle": z.union([z.object({ "created_at": z.union([z.string(), z.null()]).optional(), "updated_at": z.union([z.string(), z.null()]).optional(), "updated_by_id": z.union([z.string(), z.null()]).optional(), "updated_by": z.union([z.string(), z.null()]).optional() }), z.null()]).optional(),
+  "variant_lifecycle": z.union([z.object({ "created_at": z.union([z.string(), z.null()]).optional(), "updated_at": z.union([z.string(), z.null()]).optional(), "updated_by_id": z.union([z.string(), z.null()]).optional(), "updated_by": z.union([z.string(), z.null()]).optional() }), z.null()]).optional(),
+  "environment_lifecycle": z.union([z.object({ "created_at": z.union([z.string(), z.null()]).optional(), "updated_at": z.union([z.string(), z.null()]).optional(), "updated_by_id": z.union([z.string(), z.null()]).optional(), "updated_by": z.union([z.string(), z.null()]).optional() }), z.null()]).optional()
+}

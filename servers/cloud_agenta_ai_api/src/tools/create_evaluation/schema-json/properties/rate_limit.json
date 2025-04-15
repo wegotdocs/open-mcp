@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "batch_size": {
+      "type": "integer",
+      "title": "Batch Size"
+    },
+    "max_retries": {
+      "type": "integer",
+      "title": "Max Retries"
+    },
+    "retry_delay": {
+      "type": "integer",
+      "title": "Retry Delay"
+    },
+    "delay_between_batches": {
+      "type": "integer",
+      "title": "Delay Between Batches"
+    }
+  },
+  "type": "object",
+  "required": [
+    "batch_size",
+    "max_retries",
+    "retry_delay",
+    "delay_between_batches"
+  ],
+  "title": "LLMRunRateLimit"
+}

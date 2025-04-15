@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "environment_name": {
+      "type": "string",
+      "title": "Environment Name"
+    },
+    "variant_id": {
+      "type": "string",
+      "title": "Variant Id"
+    },
+    "commit_message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Commit Message"
+    }
+  },
+  "required": [
+    "environment_name",
+    "variant_id"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "string",
+      "title": "App Id"
+    },
+    "revisions_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Revisions Ids"
+    },
+    "evaluators_configs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Evaluators Configs"
+    },
+    "testset_id": {
+      "type": "string",
+      "title": "Testset Id"
+    },
+    "rate_limit": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `rate_limit` to the tool, first call the tool `expandSchema` with \"/properties/rate_limit\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "correct_answer_column": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Correct Answer Column"
+    }
+  },
+  "required": [
+    "app_id",
+    "revisions_ids",
+    "evaluators_configs",
+    "testset_id",
+    "rate_limit"
+  ]
+}
