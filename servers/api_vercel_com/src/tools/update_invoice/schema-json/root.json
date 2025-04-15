@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "integrationConfigurationId": {
+      "type": "string"
+    },
+    "invoiceId": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "refund"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "description": "Refund reason."
+    },
+    "total": {
+      "description": "The total amount to be refunded. Must be less than or equal to the total amount of the invoice.",
+      "type": "string",
+      "pattern": "^[0-9]+(\\\\.[0-9]+)?$"
+    }
+  },
+  "required": [
+    "integrationConfigurationId",
+    "invoiceId",
+    "action",
+    "reason",
+    "total"
+  ]
+}

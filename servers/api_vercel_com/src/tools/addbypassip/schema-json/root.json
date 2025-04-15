@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "domain": {
+      "type": "string",
+      "pattern": "([a-z]+[a-z.]+)$",
+      "maxLength": 2544
+    },
+    "projectScope": {
+      "type": "boolean",
+      "description": "If the specified bypass will apply to all domains for a project."
+    },
+    "sourceIp": {
+      "type": "string"
+    },
+    "allSources": {
+      "type": "boolean"
+    },
+    "ttl": {
+      "type": "number",
+      "description": "Time to live in milliseconds"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 500
+    }
+  },
+  "required": [
+    "projectId"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrName": {
+      "description": "The name or the unique identifier to which the secret belongs to.",
+      "type": "string",
+      "example": "sec_RKc5iV0rV3ZSrFrHiruRno7k"
+    },
+    "decrypt": {
+      "description": "Whether to try to decrypt the value of the secret. Only works if `decryptable` has been set to `true` when the secret was created.",
+      "type": "string",
+      "enum": [
+        "true",
+        "false"
+      ],
+      "example": "true"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "idOrName"
+  ]
+}

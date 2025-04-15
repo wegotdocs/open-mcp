@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "description": "Period for the billing cycle. The period end date cannot be older than 24 hours earlier than our current server's time.",
+  "properties": {
+    "start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "start",
+    "end"
+  ],
+  "additionalProperties": false
+}

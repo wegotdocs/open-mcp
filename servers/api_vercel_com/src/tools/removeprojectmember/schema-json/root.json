@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrName": {
+      "description": "The ID or name of the Project.",
+      "type": "string",
+      "example": "prj_pavWOn1iLObbXLRiwVvzmPrTWyTf"
+    },
+    "uid": {
+      "description": "The user ID of the member.",
+      "type": "string",
+      "example": "ndlgr43fadlPyCtREAqxxdyFK"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "idOrName",
+    "uid"
+  ]
+}

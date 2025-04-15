@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "anyOf": [
+      {
+        "not": {}
+      },
+      {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "log",
+              "challenge",
+              "deny"
+            ]
+          },
+          "ruleGroups": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "boolean"
+                },
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "log",
+                    "challenge",
+                    "deny"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "active"
+        ],
+        "additionalProperties": false
+      }
+    ]
+  },
+  "properties": {}
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "aliasId": {
+      "description": "The ID or alias that will be removed",
+      "example": "2WjyKQmM8ZnGcJsPWMrHRHrE",
+      "oneOf": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "aliasId"
+  ]
+}

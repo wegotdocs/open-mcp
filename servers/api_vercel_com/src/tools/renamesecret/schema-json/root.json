@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the secret.",
+      "type": "string",
+      "example": "my-api-key"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "b_name": {
+      "description": "The name of the new secret.",
+      "type": "string",
+      "example": "my-api-key",
+      "maximum": 100
+    }
+  },
+  "required": [
+    "name",
+    "b_name"
+  ]
+}

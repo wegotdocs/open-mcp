@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "deny",
+        "log"
+      ]
+    }
+  },
+  "required": [
+    "active",
+    "action"
+  ],
+  "additionalProperties": false
+}

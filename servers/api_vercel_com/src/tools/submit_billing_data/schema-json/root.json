@@ -1,0 +1,146 @@
+{
+  "type": "object",
+  "properties": {
+    "integrationConfigurationId": {
+      "type": "string"
+    },
+    "timestamp": {
+      "description": "Server time of your integration, used to determine the most recent data for race conditions & updates. Only the latest usage data for a given day, week, and month will be kept.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "eod": {
+      "description": "End of Day, the UTC datetime for when the end of the billing/usage day is in UTC time. This tells us which day the usage data is for, and also allows for your \\\"end of day\\\" to be different from UTC 00:00:00. eod must be within the period dates, and cannot be older than 24h earlier from our server's current time.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "period": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `period` to the tool, first call the tool `expandSchema` with \"/properties/period\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Period for the billing cycle. The period end date cannot be older than 24 hours earlier than our current server's time.</property-description>",
+      "additionalProperties": true
+    },
+    "billing": {
+      "description": "Billing data (interim invoicing data).",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "billingPlanId": {
+                "type": "string",
+                "description": "Partner's billing plan ID."
+              },
+              "resourceId": {
+                "type": "string",
+                "description": "Partner's resource ID."
+              },
+              "start": {
+                "description": "Start and end are only needed if different from the period's start/end.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "end": {
+                "description": "Start and end are only needed if different from the period's start/end.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "name": {
+                "type": "string",
+                "description": "Line item name."
+              },
+              "details": {
+                "type": "string",
+                "description": "Line item details."
+              },
+              "price": {
+                "description": "Price per unit.",
+                "type": "string",
+                "pattern": "^[0-9]+(\\\\.[0-9]+)?$"
+              },
+              "quantity": {
+                "type": "number",
+                "description": "Quantity of units."
+              },
+              "units": {
+                "type": "string",
+                "description": "Units of the quantity."
+              },
+              "total": {
+                "description": "Total amount.",
+                "type": "string",
+                "pattern": "^[0-9]+(\\\\.[0-9]+)?$"
+              }
+            },
+            "required": [
+              "billingPlanId",
+              "name",
+              "price",
+              "quantity",
+              "units",
+              "total"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ]
+    },
+    "usage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string",
+            "description": "Partner's resource ID."
+          },
+          "name": {
+            "type": "string",
+            "description": "Metric name."
+          },
+          "type": {
+            "type": "string",
+            "description": "\\n              Type of the metric.\\n              - total: measured total value, such as Database size\\n              - interval: usage during the period, such as i/o or number of queries.\\n              - rate: rate of usage, such as queries per second.\\n            ",
+            "enum": [
+              "total",
+              "interval",
+              "rate"
+            ]
+          },
+          "units": {
+            "type": "string",
+            "description": "Metric units. Example: \\\"GB\\\""
+          },
+          "dayValue": {
+            "type": "number",
+            "description": "Metric value for the day. Could be a final or an interim value for the day."
+          },
+          "periodValue": {
+            "type": "number",
+            "description": "Metric value for the billing period. Could be a final or an interim value for the period."
+          },
+          "planValue": {
+            "type": "number",
+            "description": "The limit value of the metric for a billing period, if a limit is defined by the plan."
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "units",
+          "dayValue",
+          "periodValue"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "integrationConfigurationId",
+    "timestamp",
+    "eod",
+    "period",
+    "billing",
+    "usage"
+  ]
+}

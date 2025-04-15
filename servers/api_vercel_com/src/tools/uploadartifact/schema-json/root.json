@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "hash": {
+      "description": "The artifact hash",
+      "example": "12HKQaOmR5t5Uy6vdcQsNIiZgHGB",
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "Content-Length": {
+      "description": "The artifact size in bytes",
+      "type": "number"
+    },
+    "x-artifact-duration": {
+      "description": "The time taken to generate the uploaded artifact in milliseconds.",
+      "type": "number",
+      "example": 400
+    },
+    "x-artifact-client-ci": {
+      "description": "The continuous integration or delivery environment where this artifact was generated.",
+      "type": "string",
+      "example": "VERCEL",
+      "maxLength": 50
+    },
+    "x-artifact-client-interactive": {
+      "description": "1 if the client is an interactive shell. Otherwise 0",
+      "type": "integer",
+      "example": 0,
+      "minimum": 0,
+      "maximum": 1
+    },
+    "x-artifact-tag": {
+      "description": "The base64 encoded tag for this artifact. The value is sent back to clients when the artifact is downloaded as the header `x-artifact-tag`",
+      "type": "string",
+      "example": "Tc0BmHvJYMIYJ62/zx87YqO0Flxk+5Ovip25NY825CQ=",
+      "maxLength": 600
+    }
+  },
+  "required": [
+    "hash",
+    "Content-Length"
+  ]
+}

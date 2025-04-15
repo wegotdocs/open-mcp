@@ -1,0 +1,14 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "buildCommand": z.string().max(256).nullable().describe("The build command for this project. When `null` is used this value will be automatically detected").optional(),
+  "commandForIgnoringBuildStep": z.string().max(256).nullable().optional(),
+  "devCommand": z.string().max(256).nullable().describe("The dev command for this project. When `null` is used this value will be automatically detected").optional(),
+  "framework": z.union([z.literal(null), z.literal("blitzjs"), z.literal("nextjs"), z.literal("gatsby"), z.literal("remix"), z.literal("react-router"), z.literal("astro"), z.literal("hexo"), z.literal("eleventy"), z.literal("docusaurus-2"), z.literal("docusaurus"), z.literal("preact"), z.literal("solidstart-1"), z.literal("solidstart"), z.literal("dojo"), z.literal("ember"), z.literal("vue"), z.literal("scully"), z.literal("ionic-angular"), z.literal("angular"), z.literal("polymer"), z.literal("svelte"), z.literal("sveltekit"), z.literal("sveltekit-1"), z.literal("ionic-react"), z.literal("create-react-app"), z.literal("gridsome"), z.literal("umijs"), z.literal("sapper"), z.literal("saber"), z.literal("stencil"), z.literal("nuxtjs"), z.literal("redwoodjs"), z.literal("hugo"), z.literal("jekyll"), z.literal("brunch"), z.literal("middleman"), z.literal("zola"), z.literal("hydrogen"), z.literal("vite"), z.literal("vitepress"), z.literal("vuepress"), z.literal("parcel"), z.literal("fasthtml"), z.literal("sanity-v3"), z.literal("sanity"), z.literal("storybook")]).nullable().describe("The framework that is being used for this project. When `null` is used no framework is selected").optional(),
+  "installCommand": z.string().max(256).nullable().describe("The install command for this project. When `null` is used this value will be automatically detected").optional(),
+  "nodeVersion": z.enum(["22.x","20.x","18.x","16.x","14.x","12.x","10.x","8.10.x"]).describe("Override the Node.js version that should be used for this deployment").optional(),
+  "outputDirectory": z.string().max(256).nullable().describe("The output directory of the project. When `null` is used this value will be automatically detected").optional(),
+  "rootDirectory": z.string().max(256).nullable().describe("The name of a directory or relative path to the source code of your project. When `null` is used it will default to the project root").optional(),
+  "serverlessFunctionRegion": z.string().max(4).nullable().describe("The region to deploy Serverless Functions in this project").optional(),
+  "sourceFilesOutsideRootDirectory": z.boolean().describe("Indicates if there are source files outside of the root directory, typically used for monorepos").optional()
+}

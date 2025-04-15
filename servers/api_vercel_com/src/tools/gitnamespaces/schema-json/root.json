@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "host": {
+      "description": "The custom Git host if using a custom Git provider, like GitHub Enterprise Server",
+      "type": "string",
+      "example": "ghes-test.now.systems"
+    },
+    "provider": {
+      "enum": [
+        "github",
+        "github-custom-host",
+        "gitlab",
+        "bitbucket"
+      ]
+    }
+  },
+  "required": []
+}

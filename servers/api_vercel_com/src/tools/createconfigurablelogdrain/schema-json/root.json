@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "properties": {
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "deliveryFormat": {
+      "description": "The delivery log format",
+      "example": "json",
+      "enum": [
+        "json",
+        "ndjson"
+      ]
+    },
+    "url": {
+      "description": "The log drain url",
+      "format": "uri",
+      "pattern": "^(http|https)?://",
+      "type": "string"
+    },
+    "headers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `headers` to the tool, first call the tool `expandSchema` with \"/properties/headers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Headers to be sent together with the request</property-description>",
+      "additionalProperties": true
+    },
+    "projectIds": {
+      "minItems": 1,
+      "maxItems": 50,
+      "type": "array",
+      "items": {
+        "pattern": "^[a-zA-z0-9_]+$",
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "static",
+          "lambda",
+          "build",
+          "edge",
+          "external",
+          "firewall"
+        ]
+      },
+      "minItems": 1
+    },
+    "environments": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "preview",
+          "production"
+        ]
+      },
+      "minItems": 1
+    },
+    "secret": {
+      "description": "Custom secret of log drain",
+      "type": "string"
+    },
+    "samplingRate": {
+      "type": "number",
+      "description": "The sampling rate for this log drain. It should be a percentage rate between 0 and 100. With max 2 decimal points",
+      "multiplesOf": 0.01,
+      "minimum": 0.01,
+      "maximum": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The custom name of this log drain."
+    }
+  },
+  "required": [
+    "deliveryFormat",
+    "url",
+    "sources"
+  ]
+}

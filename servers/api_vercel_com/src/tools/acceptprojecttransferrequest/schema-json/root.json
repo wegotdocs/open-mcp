@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "The code of the project transfer request.",
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "newProjectName": {
+      "description": "The desired name for the project",
+      "example": "a-project-name",
+      "type": "string",
+      "maxLength": 100
+    },
+    "paidFeatures": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `paidFeatures` to the tool, first call the tool `expandSchema` with \"/properties/paidFeatures\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "code"
+  ]
+}

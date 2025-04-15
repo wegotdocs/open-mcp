@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrName": {
+      "description": "The unique project identifier or the project name",
+      "type": "string",
+      "example": "prj_XLKmu1DyR1eY7zq8UgeRKbA7yVLA"
+    },
+    "id": {
+      "description": "The unique environment variable identifier",
+      "type": "string",
+      "example": "XMbOEya1gUUO1ir4"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "key": {
+      "description": "The name of the environment variable",
+      "type": "string",
+      "example": "GITHUB_APP_ID"
+    },
+    "target": {
+      "description": "The target environment of the environment variable",
+      "type": "array",
+      "items": {
+        "enum": [
+          "production",
+          "preview",
+          "development"
+        ]
+      },
+      "example": [
+        "preview"
+      ]
+    },
+    "gitBranch": {
+      "description": "If defined, the git branch of the environment variable (must have target=preview)",
+      "type": "string",
+      "maxLength": 250,
+      "example": "feature-1",
+      "nullable": true
+    },
+    "type": {
+      "description": "The type of environment variable",
+      "type": "string",
+      "enum": [
+        "system",
+        "secret",
+        "encrypted",
+        "plain",
+        "sensitive"
+      ],
+      "example": "plain"
+    },
+    "value": {
+      "description": "The value of the environment variable",
+      "type": "string",
+      "example": "bkWIjbnxcvo78"
+    },
+    "customEnvironmentIds": {
+      "type": "array",
+      "description": "The custom environments that the environment variable should be synced to",
+      "items": {
+        "type": "string",
+        "example": "env_1234567890"
+      }
+    },
+    "comment": {
+      "type": "string",
+      "description": "A comment to add context on what this env var is for",
+      "example": "database connection string for production",
+      "maxLength": 500
+    }
+  },
+  "required": [
+    "idOrName",
+    "id"
+  ]
+}

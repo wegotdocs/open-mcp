@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "deploymentId": {
+      "description": "The deployment to get the check for.",
+      "example": "dpl_2qn7PZrx89yxY34vEZPD31Y9XVj6",
+      "type": "string"
+    },
+    "checkId": {
+      "description": "The check to fetch",
+      "example": "check_2qn7PZrx89yxY34vEZPD31Y9XVj6",
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "deploymentId",
+    "checkId"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "level",
+    "title"
+  ],
+  "properties": {
+    "level": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warn",
+        "error"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}

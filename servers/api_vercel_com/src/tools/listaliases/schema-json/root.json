@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "domain": {
+      "description": "Get only aliases of the given domain name",
+      "example": "my-test-domain.com",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20,
+      "oneOf": [
+        {
+          "type": "array"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "from": {
+      "description": "Get only aliases created after the provided timestamp",
+      "deprecated": true,
+      "example": 1540095775951,
+      "type": "number"
+    },
+    "limit": {
+      "description": "Maximum number of aliases to list from a request",
+      "example": 10,
+      "type": "number"
+    },
+    "projectId": {
+      "description": "Filter aliases from the given `projectId`",
+      "example": "prj_12HKQaOmR5t5Uy6vdcQsNIiZgHGB",
+      "type": "string"
+    },
+    "since": {
+      "description": "Get aliases created after this JavaScript timestamp",
+      "example": 1540095775941,
+      "type": "number"
+    },
+    "until": {
+      "description": "Get aliases created before this JavaScript timestamp",
+      "example": 1540095775951,
+      "type": "number"
+    },
+    "rollbackDeploymentId": {
+      "description": "Get aliases that would be rolled back for the given deployment",
+      "example": "dpl_XXX",
+      "type": "string"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

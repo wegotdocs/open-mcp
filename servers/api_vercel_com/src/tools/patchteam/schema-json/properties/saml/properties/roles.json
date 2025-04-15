@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "description": "Directory groups to role or access group mappings.",
+  "additionalProperties": {
+    "anyOf": [
+      {
+        "type": "string",
+        "enum": [
+          "OWNER",
+          "MEMBER",
+          "DEVELOPER",
+          "SECURITY",
+          "BILLING",
+          "VIEWER",
+          "CONTRIBUTOR"
+        ]
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "accessGroupId"
+        ],
+        "properties": {
+          "accessGroupId": {
+            "type": "string",
+            "pattern": "^ag_[A-z0-9_ -]+$"
+          }
+        }
+      }
+    ]
+  },
+  "properties": {}
+}
