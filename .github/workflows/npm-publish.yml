@@ -31,8 +31,8 @@ jobs:
           echo "::endgroup::"
 
           echo "::group::Detecting removed directories"
-          # Get the list of directories that have been removed
-          REMOVED_DIRS=$(git diff --diff-filter=D --name-only HEAD^ HEAD | grep "^servers/" | cut -d/ -f2 | sort | uniq | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          # Get the list of directories that have had their README.md removed
+          REMOVED_DIRS=$(git diff --diff-filter=D --name-only HEAD^ HEAD | grep "^servers/.*/README.md" | cut -d/ -f2 | sort | uniq | jq -R -s -c 'split("\n") | map(select(length > 0))')
           echo "Removed directories: $REMOVED_DIRS"
           echo "removed_dirs=$REMOVED_DIRS" >> $GITHUB_OUTPUT
           echo "::endgroup::"
