@@ -1,0 +1,33 @@
+{
+  "description": "The originator's address.",
+  "type": "object",
+  "properties": {
+    "city": {
+      "type": "string",
+      "description": "The full city name."
+    },
+    "street": {
+      "type": "string",
+      "description": "The full street address."
+    },
+    "region": {
+      "type": "string",
+      "description": "The two-letter code for the state or province (e.g., \"CA\")."
+    },
+    "postal_code": {
+      "description": "The postal code (e.g., \"94103\").",
+      "type": "string"
+    },
+    "country_code": {
+      "description": "ISO-3166-1 alpha-2 country code standard.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "city",
+    "street",
+    "region",
+    "postal_code",
+    "country_code"
+  ]
+}

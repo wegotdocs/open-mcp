@@ -1,0 +1,33 @@
+{
+  "title": "SignalPersonName",
+  "type": "object",
+  "description": "The user's legal name",
+  "nullable": true,
+  "properties": {
+    "prefix": {
+      "type": "string",
+      "description": "The user's name prefix (e.g. \"Mr.\")",
+      "nullable": true
+    },
+    "given_name": {
+      "type": "string",
+      "description": "The user's given name. If the user has a one-word name, it should be provided in this field.",
+      "nullable": true
+    },
+    "middle_name": {
+      "type": "string",
+      "description": "The user's middle name",
+      "nullable": true
+    },
+    "family_name": {
+      "type": "string",
+      "description": "The user's family name / surname",
+      "nullable": true
+    },
+    "suffix": {
+      "type": "string",
+      "description": "The user's name suffix (e.g. \"II\")",
+      "nullable": true
+    }
+  }
+}

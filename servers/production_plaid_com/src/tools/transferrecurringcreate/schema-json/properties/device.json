@@ -1,0 +1,20 @@
+{
+  "title": "TransferDevice",
+  "type": "object",
+  "additionalProperties": true,
+  "description": "Information about the device being used to initiate the authorization.",
+  "properties": {
+    "ip_address": {
+      "type": "string",
+      "description": "The IP address of the device being used to initiate the authorization."
+    },
+    "user_agent": {
+      "type": "string",
+      "description": "The user agent of the device being used to initiate the authorization."
+    }
+  },
+  "required": [
+    "ip_address",
+    "user_agent"
+  ]
+}

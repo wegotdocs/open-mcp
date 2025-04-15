@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional(),
+  "originator_client_id": z.string().describe("The client ID of the originator"),
+  "requirement_submissions": z.array(z.object({ "requirement_type": z.string().describe("The type of requirement being submitted"), "value": z.string().describe("The value of the requirement, which can be a string or an object depending on the `requirement_type`. If it is an object, the object should be JSON marshaled into a string. See the documentation on this endpoint for more information and examples."), "person_id": z.string().uuid().describe("The `person_id` of the person the requirement submission is related to. A `person_id` is returned by `/transfer/platform/person/create`. This field should not be included for requirements that are not related to a person.").optional() }).describe("A single requirement submission")).min(1).max(50).describe("A list of requirement submissions that all relate to the originator. Must contain between 1 and 50 requirement submissions.")
+}

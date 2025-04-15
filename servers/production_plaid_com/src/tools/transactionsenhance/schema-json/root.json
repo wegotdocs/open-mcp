@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "account_type": {
+      "type": "string",
+      "description": "The type of account for the requested transactions (`depository` or `credit`)."
+    },
+    "transactions": {
+      "type": "array",
+      "description": "An array of raw transactions to be enhanced.",
+      "items": {
+        "title": "ClientProvidedRawTransaction",
+        "type": "object",
+        "description": "A client-provided transaction for Plaid to enhance.",
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique ID for the transaction used to help you tie data back to your systems."
+          },
+          "description": {
+            "type": "string",
+            "description": "The raw description of the transaction."
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "description": "The value of the transaction with direction. (NOTE: this will affect enrichment results, so directions are important):.\n  Negative (-) for credits (e.g., incoming transfers, refunds)\n  Positive (+) for debits (e.g., purchases, fees, outgoing transfers)"
+          },
+          "iso_currency_code": {
+            "type": "string",
+            "description": "The ISO-4217 currency code of the transaction e.g. USD."
+          }
+        },
+        "required": [
+          "id",
+          "description",
+          "amount",
+          "iso_currency_code"
+        ]
+      }
+    }
+  },
+  "required": [
+    "account_type",
+    "transactions"
+  ]
+}

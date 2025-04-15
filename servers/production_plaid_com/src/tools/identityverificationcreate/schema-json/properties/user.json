@@ -1,0 +1,43 @@
+{
+  "description": "User information collected outside of Link, most likely via your own onboarding process.\n\nEach of the following identity fields are optional:\n\n`email_address`\n\n`phone_number`\n\n`date_of_birth`\n\n`name`\n\n`address`\n\n`id_number`\n\nSpecifically, these fields are optional in that they can either be fully provided (satisfying every required field in their subschema) or omitted from the request entirely by not providing the key or value.\nProviding these fields via the API will result in Link skipping the data collection process for the associated user. All verification steps enabled in the associated Identity Verification Template will still be run. Verification steps will either be run immediately, or once the user completes the `accept_tos` step, depending on the value provided to the `gave_consent` field.\nIf you are not using the shareable URL feature, you can optionally provide these fields via `/link/token/create` instead; both `/identity_verification/create` and `/link/token/create` are valid ways to provide this information. Note that if you provide a non-`null` user data object via `/identity_verification/create`, any user data fields entered via `/link/token/create` for the same `client_user_id` will be ignored when prefilling Link.",
+  "nullable": true,
+  "properties": {
+    "email_address": {
+      "type": "string",
+      "format": "email",
+      "example": "user@example.com",
+      "title": "EmailAddress",
+      "description": "A valid email address. Must not have leading or trailing spaces and address must be RFC compliant. For more information, see [RFC 3696](https://datatracker.ietf.org/doc/html/rfc3696)."
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "A valid phone number in E.164 format.",
+      "example": "+12345678909",
+      "title": "PhoneNumber",
+      "nullable": true
+    },
+    "date_of_birth": {
+      "type": "string",
+      "format": "date",
+      "title": "ISO8601Date",
+      "example": "1990-05-29",
+      "description": "A date in the format YYYY-MM-DD (RFC 3339 Section 5.6)."
+    },
+    "name": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `name` to the tool, first call the tool `expandSchema` with \"/properties/user/properties/name\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>You can use this field to pre-populate the user's legal name; if it is provided here, they will not be prompted to enter their name in the identity verification attempt.</property-description>",
+      "additionalProperties": true
+    },
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/user/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Home address for the user. Supported values are: not provided, address with only country code or full address.\n\nFor more context on this field, see [Input Validation by Country](https://plaid.com/docs/identity-verification/hybrid-input-validation/#input-validation-by-country).</property-description>",
+      "additionalProperties": true
+    },
+    "id_number": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `id_number` to the tool, first call the tool `expandSchema` with \"/properties/user/properties/id_number\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>ID number submitted by the user, currently used only for the Identity Verification product. If the user has not submitted this data yet, this field will be `null`. Otherwise, both fields are guaranteed to be filled.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

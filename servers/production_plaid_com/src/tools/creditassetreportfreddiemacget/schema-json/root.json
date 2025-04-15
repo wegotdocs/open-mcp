@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "audit_copy_token": {
+      "type": "string",
+      "description": "A token that can be shared with a third party auditor to allow them to obtain access to the Asset Report. This token should be stored securely."
+    },
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    }
+  },
+  "required": [
+    "audit_copy_token"
+  ]
+}

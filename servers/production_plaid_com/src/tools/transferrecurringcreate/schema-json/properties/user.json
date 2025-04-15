@@ -1,0 +1,27 @@
+{
+  "title": "TransferUserInRequest",
+  "type": "object",
+  "description": "The legal name and other information for the account holder.",
+  "properties": {
+    "legal_name": {
+      "type": "string",
+      "description": "The user's legal name."
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "The user's phone number."
+    },
+    "email_address": {
+      "type": "string",
+      "description": "The user's email address."
+    },
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/user/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The address associated with the account holder.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "legal_name"
+  ]
+}

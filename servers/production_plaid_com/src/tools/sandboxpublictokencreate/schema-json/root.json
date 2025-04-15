@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "institution_id": {
+      "type": "string",
+      "description": "The ID of the institution the Item will be associated with"
+    },
+    "initial_products": {
+      "type": "array",
+      "description": "The products to initially pull for the Item. May be any products that the specified `institution_id`  supports. This array may not be empty.",
+      "items": {
+        "title": "Products",
+        "enum": [
+          "assets",
+          "auth",
+          "balance",
+          "balance_plus",
+          "beacon",
+          "identity",
+          "identity_match",
+          "investments",
+          "investments_auth",
+          "liabilities",
+          "payment_initiation",
+          "identity_verification",
+          "transactions",
+          "credit_details",
+          "income",
+          "income_verification",
+          "standing_orders",
+          "transfer",
+          "employment",
+          "recurring_transactions",
+          "transactions_refresh",
+          "signal",
+          "statements",
+          "processor_payments",
+          "processor_identity",
+          "profile",
+          "cra_base_report",
+          "cra_income_insights",
+          "cra_partner_insights",
+          "cra_network_insights",
+          "cra_cashflow_insights",
+          "layer",
+          "pay_by_bank"
+        ],
+        "description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "type": "string"
+      },
+      "minItems": 1,
+      "x-override-enum-values-shown": [
+        "assets",
+        "auth",
+        "balance",
+        "employment",
+        "identity",
+        "income_verification",
+        "identity_verification",
+        "investments",
+        "liabilities",
+        "payment_initiation",
+        "standing_orders",
+        "statements",
+        "transactions",
+        "transfer"
+      ]
+    },
+    "options": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `options` to the tool, first call the tool `expandSchema` with \"/properties/options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An optional set of options to be used when configuring the Item. If specified, must not be `null`.</property-description>",
+      "additionalProperties": true
+    },
+    "user_token": {
+      "title": "UserToken",
+      "type": "string",
+      "description": "The user token associated with the User data is being requested for."
+    }
+  },
+  "required": [
+    "institution_id",
+    "initial_products"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "description": "An optional set of options to be used when configuring the Item. If specified, must not be `null`.",
+  "properties": {
+    "override_username": {
+      "type": "string",
+      "nullable": true,
+      "default": "user_good",
+      "description": "Test username to use for the creation of the Sandbox Item. Default value is `user_good`."
+    },
+    "override_password": {
+      "type": "string",
+      "nullable": true,
+      "default": "pass_good",
+      "description": "Test password to use for the creation of the Sandbox Item. Default value is `pass_good`."
+    }
+  }
+}

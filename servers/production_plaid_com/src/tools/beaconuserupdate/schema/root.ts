@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "beacon_user_id": z.string().describe("ID of the associated Beacon User."),
+  "user": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A subset of a Beacon User's data which is used to patch the existing identity data associated with a Beacon User. At least one field must be provided. If left unset or null, user data will not be patched.</property-description>").optional(),
+  "access_tokens": z.array(z.string().describe("The access token associated with the Item data is being requested for.")).nullable().describe("Send this array of access tokens to add accounts to this user for evaluation.\nThis will add accounts to this Beacon User. If left null only existing accounts will be returned in response.\nA maximum of 50 accounts total can be added to a Beacon User.").optional(),
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional()
+}

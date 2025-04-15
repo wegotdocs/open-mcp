@@ -1,0 +1,14 @@
+{
+  "description": "International Bank Account Number for a Wallet Transaction",
+  "type": "object",
+  "nullable": true,
+  "additionalProperties": true,
+  "properties": {
+    "iban": {
+      "type": "string",
+      "description": "International Bank Account Number (IBAN).",
+      "minLength": 15,
+      "maxLength": 34
+    }
+  }
+}

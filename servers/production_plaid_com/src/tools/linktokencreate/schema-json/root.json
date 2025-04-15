@@ -1,0 +1,466 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "client_name": {
+      "type": "string",
+      "description": "The name of your application, as it should be displayed in Link. Maximum length of 30 characters. If a value longer than 30 characters is provided, Link will display \"This Application\" instead.",
+      "minLength": 1
+    },
+    "language": {
+      "type": "string",
+      "description": "The language that Link should be displayed in. When initializing with Identity Verification, this field is not used; for more details, see [Identity Verification supported languages](https://www.plaid.com/docs/identity-verification/#supported-languages).\n\nSupported languages are:\n- Danish (`'da'`)\n- Dutch (`'nl'`)\n- English (`'en'`)\n- Estonian (`'et'`)\n- French (`'fr'`)\n- German (`'de'`)\n- Hindi (`'hi'`)\n- Italian (`'it'`)\n- Latvian (`'lv'`)\n- Lithuanian (`'lt'`)\n- Norwegian (`'no'`)\n- Polish (`'pl'`)\n- Portuguese (`'pt'`)\n- Romanian (`'ro'`)\n- Spanish (`'es'`)\n- Swedish (`'sv'`)\n- Vietnamese (`'vi'`)\n\nWhen using a Link customization, the language configured here must match the setting in the customization, or the customization will not be applied.",
+      "minLength": 1
+    },
+    "country_codes": {
+      "type": "array",
+      "description": "Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown. For a complete mapping of supported products by country, see https://plaid.com/global/. By default, access is granted to US and CA. For Production or Limited Production access to other countries, [contact Sales](https://plaid.com/contact/) or your account manager.  \n\nIf using Identity Verification, `country_codes` should be set to the country where your company is based, not the country where your user is located. For all other products, `country_codes` represents the location of your user's financial institution.\n\nIf Link is launched with multiple country codes, only products that you are enabled for in all countries will be used by Link. While all countries are enabled by default in Sandbox, in Production only the countries you have requested access for are shown. To request access to additional countries, [file a product access Support ticket](https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access) via the Plaid dashboard.\n\nIf using a Link customization, make sure the country codes in the customization match those specified in `country_codes`, or the customization may not be applied.\n\nIf using the Auth features Instant Match, Instant Micro-deposits, Same-day Micro-deposits, Automated Micro-deposits, or Database Auth, `country_codes` must be set to `['US']`.",
+      "items": {
+        "type": "string",
+        "title": "CountryCode",
+        "enum": [
+          "US",
+          "GB",
+          "ES",
+          "NL",
+          "FR",
+          "IE",
+          "CA",
+          "DE",
+          "IT",
+          "PL",
+          "DK",
+          "NO",
+          "SE",
+          "EE",
+          "LT",
+          "LV",
+          "PT",
+          "BE"
+        ],
+        "description": "ISO-3166-1 alpha-2 country code standard."
+      },
+      "minItems": 1
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object specifying information about the end user who will be linking their account.</property-description>",
+      "additionalProperties": true
+    },
+    "products": {
+      "type": "array",
+      "description": "List of Plaid product(s) you wish to use. If launching Link in update mode, should be omitted (unless you are using update mode to add Income or Assets to an Item); required otherwise.\n\n`balance` is *not* a valid value, the Balance product does not require explicit initialization and will automatically be initialized when any other product is initialized.\n\nIf launching Link with CRA products, `cra_base_reports` is required and must be included in the `products` array.\n\nThe products specified here will determine which institutions will be available to your users in Link. Only institutions that support *all* requested products can be selected; a if a user attempts to select an institution that does not support a listed product, a \"Connectivity not supported\" error message will appear in Link. To maximize the number of institutions available, initialize Link with the minimal product set required for your use case.\n\nAdditional products can be included via the [`optional_products`](https://plaid.com/docs/api/link/#link-token-create-request-optional-products) or  [`required_if_supported_products`](https://plaid.com/docs/api/link/#link-token-create-request-required-if-supported-products) fields. Products can also be initialized by calling the endpoint after obtaining an access token; this may require the product to be listed in the [`additional_consented_products`](https://plaid.com/docs/api/link/#link-token-create-request-additional-consented-products) array. For details, see [Choosing when to initialize products](https://plaid.com/docs/link/initializing-products/).\n\nNote that, unless you have opted to disable Instant Match support, institutions that support Instant Match will also be shown in Link if `auth` is specified as a product, even though these institutions do not contain `auth` in their product array.\n\nIn Production, you will be billed for each product that you specify when initializing Link. Note that a product cannot be removed from an Item once the Item has been initialized with that product. To stop billing on an Item for subscription-based products, such as Liabilities, Investments, and Transactions, remove the Item via `/item/remove`.",
+      "items": {
+        "title": "Products",
+        "enum": [
+          "assets",
+          "auth",
+          "balance",
+          "balance_plus",
+          "beacon",
+          "identity",
+          "identity_match",
+          "investments",
+          "investments_auth",
+          "liabilities",
+          "payment_initiation",
+          "identity_verification",
+          "transactions",
+          "credit_details",
+          "income",
+          "income_verification",
+          "standing_orders",
+          "transfer",
+          "employment",
+          "recurring_transactions",
+          "transactions_refresh",
+          "signal",
+          "statements",
+          "processor_payments",
+          "processor_identity",
+          "profile",
+          "cra_base_report",
+          "cra_income_insights",
+          "cra_partner_insights",
+          "cra_network_insights",
+          "cra_cashflow_insights",
+          "layer",
+          "pay_by_bank"
+        ],
+        "description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "type": "string"
+      },
+      "x-override-enum-values-shown": [
+        "assets",
+        "auth",
+        "beacon",
+        "employment",
+        "identity",
+        "income_verification",
+        "identity_verification",
+        "investments",
+        "liabilities",
+        "payment_initiation",
+        "standing_orders",
+        "signal",
+        "statements",
+        "transactions",
+        "transfer",
+        "cra_base_report",
+        "cra_income_insights",
+        "cra_partner_insights",
+        "cra_network_insights",
+        "cra_cashflow_insights",
+        "layer"
+      ],
+      "nullable": true
+    },
+    "required_if_supported_products": {
+      "type": "array",
+      "description": "List of Plaid product(s) you wish to use only if the institution and account(s) selected by the user support the product. Institutions that do not support these products will still be shown in Link. The products will only be extracted and billed if the user selects an institution and account type that supports them.\n\nThere should be no overlap between this array and the `products`, `optional_products`, or `additional_consented_products` arrays. The `products` array must have at least one product.\n\nFor more details on using this feature, see [Required if Supported Products](https://www.plaid.com/docs/link/initializing-products/#required-if-supported-products).",
+      "items": {
+        "title": "Products",
+        "enum": [
+          "assets",
+          "auth",
+          "balance",
+          "balance_plus",
+          "beacon",
+          "identity",
+          "identity_match",
+          "investments",
+          "investments_auth",
+          "liabilities",
+          "payment_initiation",
+          "identity_verification",
+          "transactions",
+          "credit_details",
+          "income",
+          "income_verification",
+          "standing_orders",
+          "transfer",
+          "employment",
+          "recurring_transactions",
+          "transactions_refresh",
+          "signal",
+          "statements",
+          "processor_payments",
+          "processor_identity",
+          "profile",
+          "cra_base_report",
+          "cra_income_insights",
+          "cra_partner_insights",
+          "cra_network_insights",
+          "cra_cashflow_insights",
+          "layer",
+          "pay_by_bank"
+        ],
+        "description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "type": "string"
+      },
+      "x-override-enum-values-shown": [
+        "auth",
+        "identity",
+        "investments",
+        "liabilities",
+        "transactions",
+        "signal",
+        "statements"
+      ],
+      "nullable": true
+    },
+    "optional_products": {
+      "type": "array",
+      "description": "List of Plaid product(s) that will enhance the consumer's use case, but that your app can function without. Plaid will attempt to fetch data for these products on a best-effort basis, and failure to support these products will not affect Item creation.\n\nThere should be no overlap between this array and the `products`, `required_if_supported_products`, or `additional_consented_products` arrays. The `products` array must have at least one product.\n\nFor more details on using this feature, see [Optional Products](https://www.plaid.com/docs/link/initializing-products/#optional-products).",
+      "items": {
+        "title": "Products",
+        "enum": [
+          "assets",
+          "auth",
+          "balance",
+          "balance_plus",
+          "beacon",
+          "identity",
+          "identity_match",
+          "investments",
+          "investments_auth",
+          "liabilities",
+          "payment_initiation",
+          "identity_verification",
+          "transactions",
+          "credit_details",
+          "income",
+          "income_verification",
+          "standing_orders",
+          "transfer",
+          "employment",
+          "recurring_transactions",
+          "transactions_refresh",
+          "signal",
+          "statements",
+          "processor_payments",
+          "processor_identity",
+          "profile",
+          "cra_base_report",
+          "cra_income_insights",
+          "cra_partner_insights",
+          "cra_network_insights",
+          "cra_cashflow_insights",
+          "layer",
+          "pay_by_bank"
+        ],
+        "description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "type": "string"
+      },
+      "x-override-enum-values-shown": [
+        "auth",
+        "identity",
+        "investments",
+        "liabilities",
+        "signal",
+        "statements",
+        "transactions"
+      ],
+      "nullable": true
+    },
+    "additional_consented_products": {
+      "type": "array",
+      "description": "List of additional Plaid product(s) you wish to collect consent for to support your use case. These products will not be billed until you start using them by calling the relevant endpoints.\n\n`balance` is *not* a valid value, the Balance product does not require explicit initialization and will automatically have consent collected.\n\nInstitutions that do not support these products will still be shown in Link.\n\nThere should be no overlap between this array and the `products` or `required_if_supported_products` arrays.\n\nIf you include `signal` in `additional_consented_products`, you will need to call `/signal/prepare` before calling `/signal/evaluate` for the first time on an Item in order to get the most accurate results. For more details, see [Using `/signal/prepare`](/docs/signal/#using-signalprepare).",
+      "items": {
+        "title": "Products",
+        "enum": [
+          "assets",
+          "auth",
+          "balance",
+          "balance_plus",
+          "beacon",
+          "identity",
+          "identity_match",
+          "investments",
+          "investments_auth",
+          "liabilities",
+          "payment_initiation",
+          "identity_verification",
+          "transactions",
+          "credit_details",
+          "income",
+          "income_verification",
+          "standing_orders",
+          "transfer",
+          "employment",
+          "recurring_transactions",
+          "transactions_refresh",
+          "signal",
+          "statements",
+          "processor_payments",
+          "processor_identity",
+          "profile",
+          "cra_base_report",
+          "cra_income_insights",
+          "cra_partner_insights",
+          "cra_network_insights",
+          "cra_cashflow_insights",
+          "layer",
+          "pay_by_bank"
+        ],
+        "description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "type": "string"
+      },
+      "x-override-enum-values-shown": [
+        "auth",
+        "balance_plus",
+        "identity",
+        "investments",
+        "liabilities",
+        "transactions",
+        "signal"
+      ],
+      "nullable": true
+    },
+    "webhook": {
+      "type": "string",
+      "description": "The destination URL to which any webhooks should be sent. Note that webhooks for Payment Initiation (e-wallet transactions only), Transfer, Bank Transfer (including Auth micro-deposit notification webhooks), Monitor, and Identity Verification are configured via the Dashboard instead. In update mode, this field will not have an effect; to update the webhook receiver endpoint for an existing Item, use `/item/webhook/update` instead."
+    },
+    "access_token": {
+      "type": "string",
+      "description": "The `access_token` associated with the Item to update or reference, used when updating, modifying, or accessing an existing `access_token`. Used when launching Link in update mode, when completing the Same-day (manual) Micro-deposit flow, or (optionally) when initializing Link for a returning user as part of the Transfer UI flow.",
+      "minLength": 1,
+      "nullable": true
+    },
+    "access_tokens": {
+      "x-hidden-from-docs": true,
+      "type": "array",
+      "description": "A list of access tokens associated with the items to update in Link update mode for the Assets product. Using this instead of the `access_token` field allows the updating of multiple items at once. This feature is in closed beta, please contact your account manager for more info.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "link_customization_name": {
+      "type": "string",
+      "description": "The name of the Link customization from the Plaid Dashboard to be applied to Link. If not specified, the `default` customization will be used. When using a Link customization, the language in the customization must match the language selected via the `language` parameter, and the countries in the customization should match the country codes selected via `country_codes`."
+    },
+    "redirect_uri": {
+      "description": "A URI indicating the destination where a user should be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or another app. The `redirect_uri` should not contain any query parameters. When used in Production, must be an https URI. To specify any subdomain, use `*` as a wildcard character, e.g. `https://*.example.com/oauth.html`. Note that any redirect URI must also be added to the Allowed redirect URIs list in the [developer dashboard](https://dashboard.plaid.com/team/api). If initializing on Android, `android_package_name` must be specified instead and `redirect_uri` should be left blank.",
+      "type": "string"
+    },
+    "android_package_name": {
+      "type": "string",
+      "description": "The name of your app's Android package. Required if using the `link_token` to initialize Link on Android. Any package name specified here must also be added to the Allowed Android package names setting on the [developer dashboard](https://dashboard.plaid.com/team/api). When creating a `link_token` for initializing Link on other platforms, `android_package_name` must be left blank and `redirect_uri` should be used instead."
+    },
+    "institution_data": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `institution_data` to the tool, first call the tool `expandSchema` with \"/properties/institution_data\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A map containing data used to highlight institutions in Link.</property-description>",
+      "additionalProperties": true
+    },
+    "card_switch": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `card_switch` to the tool, first call the tool `expandSchema` with \"/properties/card_switch\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A map containing data to pass in for the Card Switch flow.</property-description>",
+      "additionalProperties": true
+    },
+    "account_filters": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `account_filters` to the tool, first call the tool `expandSchema` with \"/properties/account_filters\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>By default, Link will provide limited account filtering: it will only display Institutions that are compatible with all products supplied in the `products` parameter of `/link/token/create`, and, if `auth` is specified in the `products` array, will also filter out accounts other than `checking`, `savings`, and `cash management` accounts on the Account Select pane. You can further limit the accounts shown in Link by using `account_filters` to specify the account subtypes to be shown in Link. Only the specified subtypes will be shown. This filtering applies to both the Account Select view (if enabled) and the Institution Select view. Institutions that do not support the selected subtypes will be omitted from Link. To indicate that all subtypes should be shown, use the value `\"all\"`. If the `account_filters` filter is used, any account type for which a filter is not specified will be entirely omitted from Link. For a full list of valid types and subtypes, see the [Account schema](https://plaid.com/docs/api/accounts#account-type-schema).\n\nThe filter may or may not impact the list of accounts shown by the institution in the OAuth account selection flow, depending on the specific institution. If the user selects excluded account subtypes in the OAuth flow, these accounts will not be added to the Item. If the user selects only excluded account subtypes, the link attempt will fail and the user will be prompted to try again.\n</property-description>",
+      "additionalProperties": true
+    },
+    "eu_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `eu_config` to the tool, first call the tool `expandSchema` with \"/properties/eu_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration parameters for EU flows</property-description>",
+      "additionalProperties": true
+    },
+    "institution_id": {
+      "type": "string",
+      "description": "Used for certain Europe-only configurations, as well as certain legacy use cases in other regions."
+    },
+    "payment_configuration": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payment_configuration` to the tool, first call the tool `expandSchema` with \"/properties/payment_configuration\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Pay By Bank flow. This is an optional field to configure the user experience, and currently requires the amount field to be set.</property-description>",
+      "additionalProperties": true
+    },
+    "payment_initiation": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payment_initiation` to the tool, first call the tool `expandSchema` with \"/properties/payment_initiation\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Payment Initiation (Europe) product. This field is required if `payment_initiation` is included in the `products` array. Either `payment_id` or `consent_id` must be provided.</property-description>",
+      "additionalProperties": true
+    },
+    "employment": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `employment` to the tool, first call the tool `expandSchema` with \"/properties/employment\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Employment product. This field is required if `employment` is included in the `products` array.</property-description>",
+      "additionalProperties": true
+    },
+    "income_verification": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `income_verification` to the tool, first call the tool `expandSchema` with \"/properties/income_verification\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Income product. This field is required if `income_verification` is included in the `products` array.</property-description>",
+      "additionalProperties": true
+    },
+    "base_report": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `base_report` to the tool, first call the tool `expandSchema` with \"/properties/base_report\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Base Report product. This field is required if `assets` is included in the `products` array and the client is CRA-enabled.</property-description>",
+      "additionalProperties": true
+    },
+    "credit_partner_insights": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `credit_partner_insights` to the tool, first call the tool `expandSchema` with \"/properties/credit_partner_insights\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Credit Partner Insights product.</property-description>",
+      "additionalProperties": true
+    },
+    "cra_options": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `cra_options` to the tool, first call the tool `expandSchema` with \"/properties/cra_options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with Plaid Check products</property-description>",
+      "additionalProperties": true
+    },
+    "consumer_report_permissible_purpose": {
+      "type": "string"
+    },
+    "auth": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `auth` to the tool, first call the tool `expandSchema` with \"/properties/auth\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Auth product. This field can be used to enable or disable extended Auth flows for the resulting Link session. Omitting any field will result in a default that can be configured by your account manager. The default behavior described in the documentation is the default behavior that will apply if you have not requested your account manager to apply a different default. If you have enabled the [Dashboard Account Verification pane](https://dashboard.plaid.com/account-verification), the settings enabled there will override any settings in this object.</property-description>",
+      "additionalProperties": true
+    },
+    "transfer": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `transfer` to the tool, first call the tool `expandSchema` with \"/properties/transfer\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Transfer product.</property-description>",
+      "additionalProperties": true
+    },
+    "update": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `update` to the tool, first call the tool `expandSchema` with \"/properties/update\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for [update mode](https://plaid.com/docs/link/update-mode).</property-description>",
+      "additionalProperties": true
+    },
+    "identity_verification": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `identity_verification` to the tool, first call the tool `expandSchema` with \"/properties/identity_verification\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies option for initializing Link for use with the Identity Verification product.</property-description>",
+      "additionalProperties": true
+    },
+    "statements": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `statements` to the tool, first call the tool `expandSchema` with \"/properties/statements\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Statements product. This field is required for the statements product.</property-description>",
+      "additionalProperties": true
+    },
+    "user_token": {
+      "type": "string",
+      "description": "A user token generated using `/user/create`. Any Item created during the Link session will be associated with the user."
+    },
+    "third_party_user_token": {
+      "x-hidden-from-docs": true,
+      "type": "string",
+      "description": "A third party user token associated with the current user."
+    },
+    "investments": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `investments` to the tool, first call the tool `expandSchema` with \"/properties/investments\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration parameters for the Investments product</property-description>",
+      "additionalProperties": true
+    },
+    "investments_auth": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `investments_auth` to the tool, first call the tool `expandSchema` with \"/properties/investments_auth\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration parameters for the Investments Move product</property-description>",
+      "additionalProperties": true
+    },
+    "hosted_link": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `hosted_link` to the tool, first call the tool `expandSchema` with \"/properties/hosted_link\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration parameters for Hosted Link. To enable the session for Hosted Link, send this object in the request. It can be empty.</property-description>",
+      "additionalProperties": true
+    },
+    "transactions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `transactions` to the tool, first call the tool `expandSchema` with \"/properties/transactions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration parameters for the Transactions product</property-description>",
+      "additionalProperties": true
+    },
+    "cashflow_report": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `cashflow_report` to the tool, first call the tool `expandSchema` with \"/properties/cashflow_report\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration parameters for the Cashflow Report product. Currently in closed beta.</property-description>",
+      "additionalProperties": true
+    },
+    "cra_enabled": {
+      "x-hidden-from-docs": true,
+      "type": "boolean",
+      "description": "If `true`, request a CRA connection. Defaults to `false`."
+    },
+    "identity": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `identity` to the tool, first call the tool `expandSchema` with \"/properties/identity\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Identity object used to specify document upload</property-description>",
+      "additionalProperties": true
+    },
+    "financekit_supported": {
+      "x-hidden-from-docs": true,
+      "type": "boolean",
+      "description": "If `true`, indicates that client supports linking FinanceKit / AppleCard items. Defaults to `false`."
+    },
+    "enable_multi_item_link": {
+      "type": "boolean",
+      "description": "If `true`, enable linking multiple items in the same Link session. Defaults to `false`."
+    }
+  },
+  "required": [
+    "client_name",
+    "language",
+    "country_codes",
+    "user"
+  ]
+}

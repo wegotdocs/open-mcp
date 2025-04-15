@@ -1,0 +1,14 @@
+{
+  "x-hidden-from-docs": true,
+  "description": "Configuration parameters for the Cashflow Report product. Currently in closed beta.",
+  "type": "object",
+  "properties": {
+    "days_requested": {
+      "description": "Number of days of transaction history to request in the Cashflow Report product.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 730,
+      "default": 365
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "description": "The diligence information for the originator.",
+  "type": "object",
+  "properties": {
+    "dba": {
+      "description": "The business name of the originator.",
+      "type": "string"
+    },
+    "tax_id": {
+      "description": "The tax ID of the originator.",
+      "type": "string",
+      "minLength": 1
+    },
+    "credit_usage_configuration": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `credit_usage_configuration` to the tool, first call the tool `expandSchema` with \"/properties/originator_diligence/properties/credit_usage_configuration\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies the originator's expected usage of credits. For all dollar amounts, use a decimal string with two digits of precision e.g. \"10.00\". This field is required if the originator is expected to process credit transfers.</property-description>",
+      "additionalProperties": true
+    },
+    "debit_usage_configuration": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `debit_usage_configuration` to the tool, first call the tool `expandSchema` with \"/properties/originator_diligence/properties/debit_usage_configuration\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies the originator's expected usage of debits. For all dollar amounts, use a decimal string with two digits of precision e.g. \"10.00\". This field is required if the originator is expected to process debit transfers.</property-description>",
+      "additionalProperties": true
+    },
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/originator_diligence/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The originator's address.</property-description>",
+      "additionalProperties": true
+    },
+    "website": {
+      "description": "The website of the originator.",
+      "type": "string"
+    },
+    "naics_code": {
+      "description": "The NAICS code of the originator.",
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 6
+    },
+    "funding_account": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `funding_account` to the tool, first call the tool `expandSchema` with \"/properties/originator_diligence/properties/funding_account\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The originator's funding account, linked with Plaid Link or `/transfer/migrate_account`.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "dba",
+    "tax_id",
+    "address",
+    "website",
+    "naics_code",
+    "funding_account"
+  ]
+}

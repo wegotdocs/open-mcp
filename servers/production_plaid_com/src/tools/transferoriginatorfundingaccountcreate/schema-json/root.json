@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "originator_client_id": {
+      "type": "string",
+      "description": "The Plaid client ID of the transfer originator."
+    },
+    "funding_account": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "originator_client_id",
+    "funding_account"
+  ]
+}

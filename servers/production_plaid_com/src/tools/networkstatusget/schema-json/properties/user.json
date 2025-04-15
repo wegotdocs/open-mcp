@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "additionalProperties": true,
+  "description": "An object specifying information about the end user for the network status check.",
+  "properties": {
+    "phone_number": {
+      "type": "string",
+      "description": "The user's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format."
+    }
+  },
+  "required": [
+    "phone_number"
+  ]
+}

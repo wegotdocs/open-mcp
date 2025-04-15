@@ -1,0 +1,42 @@
+{
+  "title": "PaymentInitiationAddress",
+  "type": "object",
+  "additionalProperties": true,
+  "description": "The optional address of the payment recipient's bank account. Required by most institutions outside of the UK.",
+  "nullable": true,
+  "properties": {
+    "street": {
+      "description": "An array of length 1-2 representing the street address where the recipient is located. Maximum of 70 characters.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "city": {
+      "type": "string",
+      "description": "The city where the recipient is located. Maximum of 35 characters.",
+      "minLength": 1,
+      "maxLength": 35
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "The postal code where the recipient is located. Maximum of 16 characters.",
+      "minLength": 1,
+      "maxLength": 16
+    },
+    "country": {
+      "type": "string",
+      "description": "The ISO 3166-1 alpha-2 country code where the recipient is located.",
+      "minLength": 2,
+      "maxLength": 2
+    }
+  },
+  "required": [
+    "street",
+    "city",
+    "postal_code",
+    "country"
+  ]
+}

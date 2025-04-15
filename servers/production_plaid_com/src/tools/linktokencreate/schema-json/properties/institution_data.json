@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "description": "A map containing data used to highlight institutions in Link.",
+  "properties": {
+    "routing_number": {
+      "type": "string",
+      "description": "The routing number of the bank to highlight in Link. Note: in rare cases, a single routing number can be associated with multiple institutions, e.g. due to a brokerage using another institution to manage ACH on its sweep accounts. If this happens, the bank will not be highlighted in Link even if the routing number is provided."
+    }
+  }
+}

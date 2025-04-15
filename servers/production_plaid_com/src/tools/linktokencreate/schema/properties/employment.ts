@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "employment_source_types": z.array(z.enum(["bank","payroll"]).describe("The types of source employment data that users should be able to share")).describe("The types of source employment data that users will be permitted to share. Options include `bank` and `payroll`. Currently you can only specify one of these options.").optional(),
+  "bank_employment": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `bank_employment` to the tool, first call the tool `expandSchema` with \"/properties/employment/properties/bank_employment\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with Bank Employment. This field is required if `employment` is included in the `products` array and `bank` is specified in `employment_source_types`.</property-description>").optional()
+}

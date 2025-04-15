@@ -1,0 +1,57 @@
+{
+  "title": "Party entity",
+  "description": "FDX Participant - an entity or person that is a part of a FDX API transaction",
+  "type": "object",
+  "required": [
+    "name",
+    "type"
+  ],
+  "properties": {
+    "name": {
+      "description": "Human recognizable common name",
+      "type": "string"
+    },
+    "type": {
+      "title": "Party Type",
+      "description": "Identifies the type of a party",
+      "type": "string",
+      "enum": [
+        "DATA_ACCESS_PLATFORM",
+        "DATA_PROVIDER",
+        "DATA_RECIPIENT",
+        "INDIVIDUAL",
+        "MERCHANT",
+        "VENDOR"
+      ]
+    },
+    "homeUri": {
+      "description": "URI for party, where an end user could learn more about the company or application involved in the data sharing chain",
+      "type": "string",
+      "format": "uri"
+    },
+    "logoUri": {
+      "description": "URI for a logo asset to be displayed to the end user",
+      "type": "string",
+      "format": "uri"
+    },
+    "registry": {
+      "title": "Party Registry",
+      "description": "The registry containing the party’s registration with name and id",
+      "type": "string",
+      "enum": [
+        "FDX",
+        "GLEIF",
+        "ICANN",
+        "PRIVATE"
+      ]
+    },
+    "registeredEntityName": {
+      "description": "Registered name of party",
+      "type": "string"
+    },
+    "registeredEntityId": {
+      "description": "Registered id of party",
+      "type": "string"
+    }
+  }
+}

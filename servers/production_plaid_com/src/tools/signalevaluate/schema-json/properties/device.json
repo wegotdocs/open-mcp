@@ -1,0 +1,17 @@
+{
+  "title": "SignalEvaluateDevice",
+  "type": "object",
+  "description": "Details about the end user's device. When calling `/signal/evaluate` or `/signal/processor/evaluate`, this field is optional, but strongly recommended to increase the accuracy of Signal results.",
+  "properties": {
+    "ip_address": {
+      "type": "string",
+      "description": "The IP address of the device that initiated the transaction",
+      "nullable": true
+    },
+    "user_agent": {
+      "type": "string",
+      "description": "The user agent of the device that initiated the transaction (e.g. \"Mozilla/5.0\")",
+      "nullable": true
+    }
+  }
+}

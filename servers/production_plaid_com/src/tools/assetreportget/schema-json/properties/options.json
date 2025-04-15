@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "description": "An optional object to filter or add data to `/asset_report/get` results. If provided, must be non-`null`.",
+  "properties": {
+    "days_to_include": {
+      "type": "integer",
+      "maximum": 731,
+      "minimum": 0,
+      "nullable": true,
+      "description": "The maximum number of days of history to include in the Asset Report."
+    }
+  }
+}

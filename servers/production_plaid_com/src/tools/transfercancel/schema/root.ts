@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional(),
+  "transfer_id": z.string().describe("Plaid’s unique identifier for a transfer."),
+  "reason_code": z.enum(["AC03","AM09","CUST","DUPL","FRAD","TECH","UPAY","AC14","AM06","BE05","FOCR","MS02","MS03","RR04","RUTA"]).describe("Specifies the reason for cancelling transfer. This is required for RfP transfers, and will be ignored for other networks.\n\n`\"AC03\"` - Invalid Creditor Account Number\n\n`\"AM09\"` - Incorrect Amount\n\n`\"CUST\"` - Requested By Customer - Cancellation requested\n\n`\"DUPL\"` - Duplicate Payment\n\n`\"FRAD\"` - Fraudulent Payment - Unauthorized or fraudulently induced\n\n`\"TECH\"` - Technical Problem - Cancellation due to system issues\n\n`\"UPAY\"` - Undue Payment - Payment was made through another channel\n\n`\"AC14\"` - Invalid or Missing Creditor Account Type\n\n`\"AM06\"` - Amount Too Low\n\n`\"BE05\"` - Unrecognized Initiating Party\n\n`\"FOCR\"` - Following Refund Request\n\n`\"MS02\"` - No Specified Reason - Customer\n\n`\"MS03\"` - No Specified Reason - Agent\n\n`\"RR04\"` - Regulatory Reason\n\n`\"RUTA\"` - Return Upon Unable To Apply").optional()
+}

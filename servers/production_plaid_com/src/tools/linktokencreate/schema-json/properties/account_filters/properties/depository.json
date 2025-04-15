@@ -1,0 +1,32 @@
+{
+  "title": "DepositoryFilter",
+  "description": "A filter to apply to `depository`-type accounts",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "account_subtypes": {
+      "title": "DepositoryAccountSubtypes",
+      "type": "array",
+      "description": "An array of account subtypes to display in Link. If not specified, all account subtypes will be shown. For a full list of valid types and subtypes, see the [Account schema](https://plaid.com/docs/api/accounts#account-type-schema). ",
+      "items": {
+        "type": "string",
+        "description": "Valid account subtypes for depository accounts. For a list containing descriptions of each subtype, see [Account schemas](https://plaid.com/docs/api/accounts/#StandaloneAccountType-depository).",
+        "enum": [
+          "checking",
+          "savings",
+          "hsa",
+          "cd",
+          "money market",
+          "paypal",
+          "prepaid",
+          "cash management",
+          "ebt",
+          "all"
+        ]
+      }
+    }
+  },
+  "required": [
+    "account_subtypes"
+  ]
+}

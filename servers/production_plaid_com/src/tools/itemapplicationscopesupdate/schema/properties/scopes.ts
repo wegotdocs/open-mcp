@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "product_access": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `product_access` to the tool, first call the tool `expandSchema` with \"/properties/scopes/properties/product_access\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The product access being requested. Used to or disallow product access across all accounts. If unset, defaults to all products allowed.</property-description>").optional(),
+  "accounts": z.array(z.object({ "unique_id": z.string().describe("The unique account identifier for this account. This value must match that returned by the data access API for this account."), "authorized": z.boolean().nullable().describe("Allow the application to see this account (and associated details, including balance) in the list of accounts  If unset, defaults to `true`."), "account_product_access": z.string().optional() }).describe("Allow or disallow product access by account. Unlisted (e.g. missing) accounts will be considered `new_accounts`.")).optional(),
+  "new_accounts": z.boolean().nullable().describe("Allow access to newly opened accounts as they are opened. If unset, defaults to `true`.").optional()
+}

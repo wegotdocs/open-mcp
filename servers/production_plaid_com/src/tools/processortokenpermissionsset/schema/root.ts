@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional(),
+  "processor_token": z.string().describe("The processor token obtained from the Plaid integration partner. Processor tokens are in the format: `processor-<environment>-<identifier>`"),
+  "products": z.array(z.enum(["assets","auth","balance","balance_plus","beacon","identity","identity_match","investments","investments_auth","liabilities","payment_initiation","identity_verification","transactions","credit_details","income","income_verification","standing_orders","transfer","employment","recurring_transactions","transactions_refresh","signal","statements","processor_payments","processor_identity","profile","cra_base_report","cra_income_insights","cra_partner_insights","cra_network_insights","cra_cashflow_insights","layer","pay_by_bank"]).describe("A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.")).describe("A list of products the processor token should have access to. An empty list will grant access to all products.")
+}

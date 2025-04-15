@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "entity_watchlist_screening_id": {
+      "type": "string",
+      "example": "entscr_52xR9LKo77r1Np",
+      "title": "EntityWatchlistScreeningID",
+      "description": "ID of the associated entity screening."
+    },
+    "cursor": {
+      "description": "An identifier that determines which page of results you receive.",
+      "type": "string",
+      "example": "eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM",
+      "nullable": true
+    }
+  },
+  "required": [
+    "entity_watchlist_screening_id"
+  ]
+}

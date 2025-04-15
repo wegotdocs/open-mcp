@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "originator_client_id": {
+      "type": "string",
+      "description": "Client ID of the end customer."
+    },
+    "redirect_uri": {
+      "type": "string",
+      "description": "URL the end customer will be redirected to after completing questions in Plaid-hosted onboarding flow."
+    }
+  },
+  "required": [
+    "originator_client_id",
+    "redirect_uri"
+  ]
+}

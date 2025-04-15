@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "webhook": {
+      "type": "string",
+      "description": "The URL endpoint to which Plaid should send webhooks related to the progress of the income verification process."
+    },
+    "precheck_id": {
+      "type": "string",
+      "description": "The ID of a precheck created with `/income/verification/precheck`. Will be used to improve conversion of the income verification flow."
+    },
+    "options": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `options` to the tool, first call the tool `expandSchema` with \"/properties/options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Optional arguments for `/income/verification/create`</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "webhook"
+  ]
+}

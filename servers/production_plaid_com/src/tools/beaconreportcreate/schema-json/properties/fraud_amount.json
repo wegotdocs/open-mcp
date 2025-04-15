@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "title": "FraudAmount",
+  "description": "The amount and currency of the fraud or attempted fraud.\n`fraud_amount` should be omitted to indicate an unknown fraud amount.",
+  "properties": {
+    "iso_currency_code": {
+      "type": "string",
+      "title": "ISOCurrencyCode",
+      "enum": [
+        "USD"
+      ],
+      "description": "An ISO-4217 currency code."
+    },
+    "value": {
+      "type": "number",
+      "format": "double",
+      "example": 100,
+      "description": "The amount value.\nThis value can be 0 to indicate no money was lost.\nMust not contain more than two digits of precision (e.g., `1.23`)."
+    }
+  },
+  "required": [
+    "iso_currency_code",
+    "value"
+  ],
+  "nullable": true,
+  "additionalProperties": true
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "user_token": {
+      "title": "UserToken",
+      "type": "string",
+      "description": "The user token associated with the User data is being requested for."
+    }
+  },
+  "required": [
+    "user_token"
+  ]
+}

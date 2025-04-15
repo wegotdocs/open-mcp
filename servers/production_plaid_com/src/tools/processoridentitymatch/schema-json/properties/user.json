@@ -1,0 +1,26 @@
+{
+  "title": "IdentityMatchUser",
+  "type": "object",
+  "additionalProperties": true,
+  "description": "The user's legal name, phone number, email address and address used to perform fuzzy match. If Financial Account Matching is enabled in the Identity Verification product, leave this field empty to automatically match against PII collected from the Identity Verification checks.",
+  "properties": {
+    "legal_name": {
+      "type": "string",
+      "description": "The user's full legal name.",
+      "nullable": true
+    },
+    "phone_number": {
+      "type": "string",
+      "nullable": true,
+      "description": "The user's phone number, in E.164 format: +{countrycode}{number}. For example: \"+14157452130\". Phone numbers provided in other formats will be parsed on a best-effort basis. Phone number input is validated against valid number ranges; number strings that do not match a real-world phone numbering scheme may cause the request to fail, even in the Sandbox test environment."
+    },
+    "email_address": {
+      "type": "string",
+      "description": "The user's email address.",
+      "nullable": true
+    },
+    "address": {
+      "type": "string"
+    }
+  }
+}

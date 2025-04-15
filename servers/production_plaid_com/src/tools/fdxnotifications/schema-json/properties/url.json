@@ -1,0 +1,48 @@
+{
+  "title": "HATEOAS Link",
+  "description": "REST application constraint (Hypermedia As The Engine Of Application State)",
+  "required": [
+    "href"
+  ],
+  "type": "object",
+  "properties": {
+    "href": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "URL to invoke the action on the resource",
+      "example": "https://api.fi.com/fdx/v4/accounts/12345"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE",
+        "PUT"
+      ],
+      "description": "HTTP Method to use for the request"
+    },
+    "rel": {
+      "description": "Relation of this link to its containing entity, as defined by and with many example relation values at [IETF RFC5988](https://datatracker.ietf.org/doc/html/rfc5988)",
+      "type": "string"
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "title": "Content Types",
+        "description": "Types of document formats. (Suggested values)",
+        "type": "string",
+        "enum": [
+          "application/pdf",
+          "image/gif",
+          "image/jpeg",
+          "image/tiff",
+          "image/png",
+          "application/json"
+        ]
+      },
+      "description": "Content-types that can be used in the Accept header"
+    }
+  }
+}

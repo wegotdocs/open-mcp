@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "origination_account_id": {
+      "type": "string",
+      "description": "If multiple origination accounts are available, `origination_account_id` must be used to specify the account that the sweeps belong to.",
+      "nullable": true
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The start datetime of sweeps to return (RFC 3339 format).",
+      "nullable": true
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The end datetime of sweeps to return (RFC 3339 format).",
+      "nullable": true
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 25,
+      "default": 25,
+      "description": "The maximum number of sweeps to return.",
+      "nullable": true
+    }
+  },
+  "required": []
+}

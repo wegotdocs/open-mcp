@@ -1,0 +1,35 @@
+{
+  "title": "PaymentOptions",
+  "description": "Additional payment options",
+  "type": "object",
+  "nullable": true,
+  "properties": {
+    "request_refund_details": {
+      "type": "boolean",
+      "nullable": true,
+      "description": "When `true`, Plaid will attempt to request refund details from the payee's financial institution.  Support varies between financial institutions and will not always be available.  If refund details could be retrieved, they will be available in the `/payment_initiation/payment/get` response."
+    },
+    "iban": {
+      "type": "string",
+      "nullable": true,
+      "minLength": 15,
+      "maxLength": 34,
+      "description": "The International Bank Account Number (IBAN) for the payer's account. Where possible, the end user will be able to send payments only from the specified bank account if provided."
+    },
+    "bacs": {
+      "type": "string"
+    },
+    "scheme": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        null,
+        "LOCAL_DEFAULT",
+        "LOCAL_INSTANT",
+        "SEPA_CREDIT_TRANSFER",
+        "SEPA_CREDIT_TRANSFER_INSTANT"
+      ],
+      "description": "Payment scheme. If not specified - the default in the region will be used (e.g. `SEPA_CREDIT_TRANSFER` for EU). Using unsupported values will result in a failed payment.\n\n`LOCAL_DEFAULT`: The default payment scheme for the selected market and currency will be used.\n\n`LOCAL_INSTANT`: The instant payment scheme for the selected market and currency will be used (if applicable). Fees may be applied by the institution. If the market does not support an Instant Scheme (e.g. Denmark), the default in the region will be used.\n\n`SEPA_CREDIT_TRANSFER`: The standard payment to a beneficiary within the SEPA area.\n\n`SEPA_CREDIT_TRANSFER_INSTANT`: Instant payment within the SEPA area. May involve additional fees and may not be available at some banks."
+    }
+  }
+}

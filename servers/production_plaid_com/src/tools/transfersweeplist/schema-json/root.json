@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The start datetime of sweeps to return (RFC 3339 format).",
+      "nullable": true
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The end datetime of sweeps to return (RFC 3339 format).",
+      "nullable": true
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 25,
+      "default": 25,
+      "description": "The maximum number of sweeps to return.",
+      "nullable": true
+    },
+    "offset": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "description": "The number of sweeps to skip before returning results."
+    },
+    "amount": {
+      "type": "string",
+      "nullable": true,
+      "description": "Filter sweeps to only those with the specified amount."
+    },
+    "status": {
+      "title": "SweepStatus",
+      "type": "string",
+      "enum": [
+        "pending",
+        "posted",
+        "settled",
+        "funds_available",
+        "returned",
+        "failed",
+        null
+      ],
+      "nullable": true,
+      "description": "The status of a sweep transfer\n\n`\"pending\"` - The sweep is currently pending\n`\"posted\"` - The sweep has been posted\n`\"settled\"` - The sweep has settled\n`\"returned\"` - The sweep has been returned\n`\"funds_available\"` - Funds from the sweep have been released from hold and applied to the ledger's available balance. (Only applicable to deposits)\n`\"failed\"` - The sweep has failed"
+    },
+    "originator_client_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Filter sweeps to only those with the specified originator client."
+    },
+    "funding_account_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Filter sweeps to only those with the specified `funding_account_id`."
+    },
+    "transfer_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Filter sweeps to only those with the included `transfer_id`."
+    },
+    "trigger": {
+      "title": "SweepTrigger",
+      "type": "string",
+      "enum": [
+        "manual",
+        "incoming",
+        "balance_threshold",
+        "automatic_aggregate"
+      ],
+      "nullable": true,
+      "description": "The trigger of the sweep\n\n`\"manual\"` - The sweep is created manually by the customer\n`\"incoming\"` - The sweep is created by incoming funds flow (e.g. Incoming Wire)\n`\"balance_threshold\"` - The sweep is created by balance threshold setting\n`\"automatic_aggregate\"` - The sweep is created by the Plaid automatic aggregation process. These funds did not pass through the Plaid Ledger balance."
+    }
+  },
+  "required": []
+}

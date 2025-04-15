@@ -1,0 +1,18 @@
+{
+  "title": "IncomeVerificationPrecheckMilitaryInfo",
+  "description": "Data about military info in the income verification precheck.",
+  "type": "object",
+  "nullable": true,
+  "properties": {
+    "is_active_duty": {
+      "type": "boolean",
+      "nullable": true,
+      "description": "Is the user currently active duty in the US military"
+    },
+    "branch": {
+      "type": "string",
+      "nullable": true,
+      "description": "If the user is currently serving in the US military, the branch of the military in which they are serving\nValid values: 'AIR FORCE', 'ARMY', 'COAST GUARD', 'MARINES', 'NAVY', 'UNKNOWN'"
+    }
+  }
+}

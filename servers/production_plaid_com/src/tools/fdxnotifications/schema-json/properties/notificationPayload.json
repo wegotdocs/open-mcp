@@ -1,0 +1,46 @@
+{
+  "title": "Notification Payload entity",
+  "type": "object",
+  "description": "Custom key-value pairs payload for a notification",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "ID for the origination entity related to the notification"
+    },
+    "idType": {
+      "type": "string",
+      "title": "Notification Payload Id Type",
+      "enum": [
+        "ACCOUNT",
+        "CUSTOMER",
+        "PARTY",
+        "MAINTENANCE",
+        "CONSENT"
+      ],
+      "description": "Type of entity causing origination of a notification"
+    },
+    "customFields": {
+      "type": "array",
+      "items": {
+        "title": "FI Attribute entity",
+        "description": "Financial Institution provider-specific attribute",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of attribute"
+          },
+          "value": {
+            "type": "string",
+            "description": "Value of attribute"
+          }
+        },
+        "required": [
+          "name",
+          "value"
+        ]
+      }
+    }
+  }
+}

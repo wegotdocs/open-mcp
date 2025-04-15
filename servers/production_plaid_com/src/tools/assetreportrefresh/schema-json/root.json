@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "asset_report_token": {
+      "title": "AssetReportRefreshAssetReportToken",
+      "type": "string",
+      "description": "The `asset_report_token` returned by the original call to `/asset_report/create`"
+    },
+    "days_requested": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 731,
+      "description": "The maximum number of days of history to include in the Asset Report. Must be an integer. If not specified, the value from the original call to `/asset_report/create` will be used.",
+      "nullable": true
+    },
+    "options": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `options` to the tool, first call the tool `expandSchema` with \"/properties/options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An optional object to filter `/asset_report/refresh` results. If provided, cannot be `null`. If not specified, the `options` from the original call to `/asset_report/create` will be used.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "asset_report_token"
+  ]
+}

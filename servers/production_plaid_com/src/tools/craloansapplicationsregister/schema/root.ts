@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional(),
+  "applications": z.array(z.object({ "user_token": z.string().describe("The user token for the user associated with the loan."), "application_id": z.string().describe("A unique identifier for the loan application.\nPersonally identifiable information, such as an email address or phone number, should not be used in the `application_id`."), "type": z.enum(["PERSONAL","CREDIT_CARD","BUSINESS","MORTGAGE","AUTO","PAYDAY","STUDENT","HOME_EQUITY","OTHER"]).describe("The type of loan the user applied for."), "decision": z.enum(["APPROVED","DECLINED","OTHER"]).describe("The decision of the loan application."), "application_date": z.string().date().describe("The date the user applied for the loan. The date should be in ISO 8601 format (YYYY-MM-DD).").optional(), "decision_date": z.string().date().describe("The date when the loan application's decision was made. The date should be in ISO 8601 format (YYYY-MM-DD).").optional() }).catchall(z.any()).describe("Contains loan application data.")).describe("A list of loan applications to register.")
+}

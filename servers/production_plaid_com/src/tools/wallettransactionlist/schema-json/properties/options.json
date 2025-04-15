@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "description": "Additional wallet transaction options",
+  "nullable": true,
+  "properties": {
+    "start_time": {
+      "type": "string",
+      "description": "Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DDThh:mm:ssZ) for filtering transactions, inclusive of the provided date.",
+      "format": "date-time"
+    },
+    "end_time": {
+      "type": "string",
+      "description": "Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DDThh:mm:ssZ) for filtering transactions, inclusive of the provided date.",
+      "format": "date-time"
+    }
+  }
+}

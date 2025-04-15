@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "identity_verification_id": {
+      "type": "string",
+      "example": "idv_52xR9LKo77r1Np",
+      "title": "IdentityVerificationID",
+      "description": "ID of the associated Identity Verification attempt."
+    },
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    }
+  },
+  "required": [
+    "identity_verification_id"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "user_token": {
+      "title": "UserToken",
+      "type": "string",
+      "description": "The user token associated with the User data is being requested for."
+    },
+    "third_party_user_token": {
+      "x-hidden-from-docs": true,
+      "title": "ThirdPartyUserToken",
+      "type": "string",
+      "description": "The third-party user token associated with the requested User data."
+    },
+    "item_ids": {
+      "type": "array",
+      "description": "The item IDs to include in the Base Report. If not provided, all items associated with the user will be included.",
+      "nullable": true,
+      "x-hidden-from-docs": true,
+      "items": {
+        "title": "ItemId",
+        "type": "string",
+        "description": "The `item_id` of the Item associated with this webhook, warning, or error"
+      }
+    }
+  },
+  "required": []
+}

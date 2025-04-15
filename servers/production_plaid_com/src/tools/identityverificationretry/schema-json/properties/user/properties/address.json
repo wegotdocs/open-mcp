@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "street": {
+      "type": "string",
+      "example": "123 Main St.",
+      "title": "Street",
+      "description": "The primary street portion of an address. If an address is provided, this field will always be filled. A string with at least one non-whitespace alphabetical character, with a max length of 80 characters.",
+      "nullable": true
+    },
+    "street2": {
+      "type": "string",
+      "example": "Unit 42",
+      "title": "Street2",
+      "description": "Extra street information, like an apartment or suite number. If provided, a string with at least one non-whitespace character, with a max length of 50 characters.",
+      "nullable": true
+    },
+    "city": {
+      "type": "string",
+      "example": "Pawnee",
+      "title": "CityName",
+      "description": "City from the end user's address. A string with at least one non-whitespace alphabetical character, with a max length of 100 characters.\"",
+      "nullable": true
+    },
+    "region": {
+      "type": "string",
+      "example": "IN",
+      "title": "Region",
+      "description": "An ISO 3166-2 subdivision code. Related terms would be \"state\", \"province\", \"prefecture\", \"zone\", \"subdivision\", etc.",
+      "nullable": true
+    },
+    "postal_code": {
+      "type": "string",
+      "example": "46001",
+      "title": "PostalCode",
+      "description": "The postal code for the associated address. Between 2 and 10 alphanumeric characters. For US-based addresses this must be 5 numeric digits.",
+      "nullable": true
+    },
+    "country": {
+      "type": "string",
+      "title": "GenericCountryCode",
+      "example": "US",
+      "description": "Valid, capitalized, two-letter ISO code representing the country of this object. Must be in ISO 3166-1 alpha-2 form."
+    }
+  },
+  "required": [
+    "country"
+  ],
+  "description": "Home address for the user. Supported values are: not provided, address with only country code or full address.\n\nFor more context on this field, see [Input Validation by Country](https://plaid.com/docs/identity-verification/hybrid-input-validation/#input-validation-by-country).",
+  "nullable": true,
+  "additionalProperties": true
+}

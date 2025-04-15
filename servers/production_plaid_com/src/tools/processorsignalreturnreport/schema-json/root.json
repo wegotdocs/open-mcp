@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "processor_token": {
+      "title": "ProcessorToken",
+      "type": "string",
+      "description": "The processor token obtained from the Plaid integration partner. Processor tokens are in the format: `processor-<environment>-<identifier>`"
+    },
+    "client_transaction_id": {
+      "type": "string",
+      "description": "Must be the same as the `client_transaction_id` supplied when calling `/processor/signal/evaluate`",
+      "minLength": 1,
+      "maxLength": 36
+    },
+    "return_code": {
+      "type": "string",
+      "description": "Must be a valid ACH return code (e.g. \"R01\")\n\nIf formatted incorrectly, this will result in an [`INVALID_FIELD`](/docs/errors/invalid-request/#invalid_field) error."
+    },
+    "returned_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when you receive the returns from your payment processors, in ISO 8601 format (`YYYY-MM-DDTHH:mm:ssZ`).",
+      "nullable": true
+    }
+  },
+  "required": [
+    "processor_token",
+    "client_transaction_id",
+    "return_code"
+  ]
+}

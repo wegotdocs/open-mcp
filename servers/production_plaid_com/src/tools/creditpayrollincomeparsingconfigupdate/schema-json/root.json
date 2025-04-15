@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "user_token": {
+      "title": "UserToken",
+      "type": "string",
+      "description": "The user token associated with the User data is being requested for."
+    },
+    "item_id": {
+      "title": "ItemId",
+      "type": "string",
+      "description": "The `item_id` of the Item associated with this webhook, warning, or error"
+    },
+    "parsing_config": {
+      "type": "array",
+      "description": "The types of analysis to enable for the document income verification session",
+      "items": {
+        "title": "IncomeVerificationDocParsingConfig",
+        "enum": [
+          "ocr",
+          "risk_signals"
+        ],
+        "description": "Analysis options to enable for document parsing",
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "user_token",
+    "parsing_config"
+  ]
+}

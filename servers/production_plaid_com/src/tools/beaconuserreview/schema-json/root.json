@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "beacon_user_id": {
+      "type": "string",
+      "title": "BeaconUserID",
+      "example": "becusr_42cF1MNo42r9Xj",
+      "description": "ID of the associated Beacon User."
+    },
+    "status": {
+      "type": "string",
+      "title": "BeaconUserStatus",
+      "description": "A status of a Beacon User.\n\n`rejected`: The Beacon User has been rejected for fraud. Users can be automatically or manually rejected.\n\n`pending_review`: The Beacon User has been marked for review.\n\n`cleared`: The Beacon User has been cleared of fraud.",
+      "enum": [
+        "rejected",
+        "pending_review",
+        "cleared"
+      ],
+      "example": "cleared"
+    },
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    }
+  },
+  "required": [
+    "beacon_user_id",
+    "status"
+  ]
+}

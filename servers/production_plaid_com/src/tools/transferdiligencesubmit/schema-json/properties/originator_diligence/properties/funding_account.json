@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "title": "TransferFundingAccount",
+  "description": "The originator's funding account, linked with Plaid Link or `/transfer/migrate_account`.",
+  "properties": {
+    "access_token": {
+      "title": "AccessToken",
+      "type": "string",
+      "description": "The access token associated with the Item data is being requested for."
+    },
+    "account_id": {
+      "type": "string",
+      "description": "The Plaid `account_id` for the newly created Item."
+    }
+  },
+  "required": [
+    "access_token",
+    "account_id"
+  ]
+}

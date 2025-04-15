@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the recipient. We recommend using strings of length 18 or less and avoid special characters to ensure compatibility with all institutions.",
+      "minLength": 1
+    },
+    "iban": {
+      "type": "string",
+      "description": "The International Bank Account Number (IBAN) for the recipient. If BACS data is not provided, an IBAN is required.",
+      "nullable": true,
+      "minLength": 15,
+      "maxLength": 34
+    },
+    "bacs": {
+      "type": "string"
+    },
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The optional address of the payment recipient's bank account. Required by most institutions outside of the UK.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

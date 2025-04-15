@@ -1,0 +1,51 @@
+{
+  "description": "Specifies the originator's expected usage of credits. For all dollar amounts, use a decimal string with two digits of precision e.g. \"10.00\". This field is required if the originator is expected to process credit transfers.",
+  "type": "object",
+  "nullable": true,
+  "properties": {
+    "expected_frequency": {
+      "type": "string",
+      "title": "OriginatorExpectedTransferFrequency",
+      "description": "The originator's expected transfer frequency.",
+      "enum": [
+        "once_per_month",
+        "twice_per_month",
+        "once_per_week",
+        "daily"
+      ]
+    },
+    "expected_highest_amount": {
+      "description": "The originator’s expected highest amount for a single credit transfer.",
+      "type": "string"
+    },
+    "expected_average_amount": {
+      "description": "The originator’s expected average amount per credit.",
+      "type": "string"
+    },
+    "expected_monthly_amount": {
+      "description": "The originator’s monthly expected ACH credit processing amount for the next 6-12 months.",
+      "type": "string"
+    },
+    "sec_codes": {
+      "description": "Specifies the expected use cases for the originator’s credit transfers. This should be a list that contains one or more of the following codes:\n\n`\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts\n\n`\"ppd\"` - Prearranged Payment or Deposit - The transfer is part of a pre-existing relationship with a consumer. Authorization was obtained in writing either in person or via an electronic document signing, e.g. Docusign, by the consumer. Can be used for credits or debits.\n\n`\"web\"` - Internet-Initiated Entry. The transfer debits a consumer’s bank account. Authorization from the consumer is obtained over the Internet (e.g. a web or mobile application). Can be used for single debits or recurring debits.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "title": "CreditACHClass",
+        "enum": [
+          "ccd",
+          "ppd",
+          "web"
+        ],
+        "description": "Specifies the use case of the transfer. Required for transfers on an ACH network.\n\n`\"ccd\"` - Corporate Credit or Debit - fund transfer between two corporate bank accounts\n\n`\"ppd\"` - Prearranged Payment or Deposit - The transfer is part of a pre-existing relationship with a consumer. Authorization was obtained in writing either in person or via an electronic document signing, e.g. Docusign, by the consumer. Can be used for credits or debits.\n\n`\"web\"` - Internet-Initiated Entry. The transfer debits a consumer’s bank account. Authorization from the consumer is obtained over the Internet (e.g. a web or mobile application). Can be used for single debits or recurring debits."
+      }
+    }
+  },
+  "required": [
+    "expected_frequency",
+    "expected_highest_amount",
+    "expected_average_amount",
+    "expected_monthly_amount",
+    "sec_codes"
+  ]
+}

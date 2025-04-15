@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "originator_client_id": {
+      "type": "string",
+      "description": "The Client ID of the originator whose document that you want to upload."
+    },
+    "file": {
+      "type": "string",
+      "format": "binary",
+      "description": "A file to upload. The file size must be less than 20MB. Supported file extensions: .pdf."
+    },
+    "purpose": {
+      "type": "string",
+      "title": "purpose",
+      "enum": [
+        "DUE_DILIGENCE"
+      ],
+      "description": "Specifies the purpose of the uploaded file.\n\n`\"DUE_DILIGENCE\"` - The transfer due diligence document of the originator."
+    }
+  },
+  "required": [
+    "originator_client_id",
+    "file",
+    "purpose"
+  ]
+}

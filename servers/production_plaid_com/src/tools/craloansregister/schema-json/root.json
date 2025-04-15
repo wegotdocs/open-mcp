@@ -1,0 +1,130 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "loans": {
+      "type": "array",
+      "description": "A list of loans to register.",
+      "items": {
+        "type": "object",
+        "description": "Contains loan data to register.",
+        "additionalProperties": true,
+        "properties": {
+          "user_token": {
+            "type": "string",
+            "description": "The user token for the user associated with the loan."
+          },
+          "loan_id": {
+            "type": "string",
+            "description": "A unique identifier for the loan.\nPersonally identifiable information, such as an email address or phone number, should not be used in the `loan_id`."
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of loan the user applied for.",
+            "enum": [
+              "PERSONAL",
+              "CREDIT_CARD",
+              "BUSINESS",
+              "MORTGAGE",
+              "AUTO",
+              "PAYDAY",
+              "STUDENT",
+              "HOME_EQUITY",
+              "OTHER"
+            ]
+          },
+          "payment_schedule": {
+            "type": "string",
+            "description": "The frequency of a loan's payment schedule.\n`BIWEEKLY` represents one payment every two weeks.",
+            "enum": [
+              "DAILY",
+              "WEEKLY",
+              "BIWEEKLY",
+              "MONTHLY",
+              "QUARTERLY",
+              "ANNUALLY",
+              "OTHER"
+            ]
+          },
+          "opened_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The date the loan account was opened. The date should be in ISO 8601 format (YYYY-MM-DD)."
+          },
+          "opened_with_status": {
+            "type": "object",
+            "description": "Contains the status and date information of the loan when registering.",
+            "additionalProperties": true,
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "The status of the loan.",
+                "enum": [
+                  "APPROVED",
+                  "DECLINED",
+                  "BOOKED",
+                  "CURRENT",
+                  "DELINQUENT",
+                  "DEFAULT",
+                  "CHARGED_OFF",
+                  "TRANSFERRED",
+                  "PAID_OFF",
+                  "OTHER"
+                ]
+              },
+              "date": {
+                "type": "string",
+                "format": "date",
+                "description": "The effective date for the status of the loan. The date should be in ISO 8601 format (YYYY-MM-DD)."
+              }
+            },
+            "required": [
+              "status",
+              "date"
+            ]
+          },
+          "loan_amount": {
+            "type": "number",
+            "description": "The total amount of the approved loan."
+          },
+          "application": {
+            "type": "object",
+            "description": "Contains loan application data to register.",
+            "additionalProperties": true,
+            "properties": {
+              "application_id": {
+                "type": "string",
+                "description": "A unique identifier for the loan application.\nPersonally identifiable information, such as an email address or phone number, should not be used in the `application_id`."
+              },
+              "application_date": {
+                "type": "string",
+                "format": "date",
+                "description": "The date the user applied for the loan. The date should be in ISO 8601 format (YYYY-MM-DD)."
+              }
+            }
+          }
+        },
+        "required": [
+          "user_token",
+          "loan_id",
+          "type",
+          "opened_date",
+          "payment_schedule",
+          "opened_with_status"
+        ]
+      }
+    }
+  },
+  "required": [
+    "loans"
+  ]
+}

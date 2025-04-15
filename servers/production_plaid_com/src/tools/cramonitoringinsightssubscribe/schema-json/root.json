@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "user_token": {
+      "title": "UserToken",
+      "type": "string",
+      "description": "The user token associated with the User data is being requested for."
+    },
+    "webhook": {
+      "type": "string",
+      "description": "URL to which Plaid will send Monitoring Insights webhooks, for example when the requested Monitoring Insights is ready."
+    },
+    "income_categories": {
+      "type": "array",
+      "description": "Income categories to include in Cash Flow Updates. If empty or `null`, this field will default to including all possible categories.",
+      "items": {
+        "type": "string",
+        "description": "The income category.\n`BANK_INTEREST`: Interest earned from a bank account.\n`BENEFIT_OTHER`: Government benefits other than retirement, unemployment, child support, or disability. Currently used only in the UK, to represent benefits such as Cost of Living Payments.\n`CASH`: Deprecated and used only for existing legacy implementations. Has been replaced by `CASH_DEPOSIT` and `TRANSFER_FROM_APPLICATION`.\n`CASH_DEPOSIT`: A cash or check deposit.\n`CHILD_SUPPORT`: Child support payments received.\n`GIG_ECONOMY`: Income earned as a gig economy worker, e.g. driving for Uber, Lyft, Postmates, DoorDash, etc.\n`LONG_TERM_DISABILITY`: Disability payments, including Social Security disability benefits.\n`OTHER`: Income that could not be categorized as any other income category.\n`MILITARY`: Veterans benefits. Income earned as salary for serving in the military (e.g. through DFAS) will be classified as `SALARY` rather than `MILITARY`.\n`RENTAL`: Income earned from a rental property. Income may be identified as rental when the payment is received through a rental platform, e.g. Airbnb; rent paid directly by the tenant to the property owner (e.g. via cash, check, or ACH) will typically not be classified as rental income.\n`RETIREMENT`: Payments from private retirement systems, pensions, and government retirement programs, including Social Security retirement benefits.\n`SALARY`: Payment from an employer to an earner or other form of permanent employment.\n`TAX_REFUND`: A tax refund.\n`TRANSFER_FROM_APPLICATION`: Deposits from a money transfer app, such as Venmo, Cash App, or Zelle.\n`UNEMPLOYMENT`: Unemployment benefits. In the UK, includes certain low-income benefits such as the Universal Credit.",
+        "enum": [
+          "SALARY",
+          "UNEMPLOYMENT",
+          "CASH",
+          "GIG_ECONOMY",
+          "RENTAL",
+          "CHILD_SUPPORT",
+          "MILITARY",
+          "RETIREMENT",
+          "LONG_TERM_DISABILITY",
+          "BANK_INTEREST",
+          "CASH_DEPOSIT",
+          "TRANSFER_FROM_APPLICATION",
+          "TAX_REFUND",
+          "BENEFIT_OTHER",
+          "OTHER"
+        ]
+      },
+      "nullable": true
+    }
+  },
+  "required": [
+    "user_token",
+    "webhook"
+  ]
+}

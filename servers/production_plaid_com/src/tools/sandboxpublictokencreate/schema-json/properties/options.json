@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "description": "An optional set of options to be used when configuring the Item. If specified, must not be `null`.",
+  "properties": {
+    "webhook": {
+      "type": "string",
+      "description": "Specify a webhook to associate with the new Item."
+    },
+    "override_username": {
+      "type": "string",
+      "nullable": true,
+      "default": "user_good",
+      "description": "Test username to use for the creation of the Sandbox Item. Default value is `user_good`."
+    },
+    "override_password": {
+      "type": "string",
+      "nullable": true,
+      "default": "pass_good",
+      "description": "Test password to use for the creation of the Sandbox Item. Default value is `pass_good`."
+    },
+    "transactions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `transactions` to the tool, first call the tool `expandSchema` with \"/properties/options/properties/transactions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An optional set of parameters corresponding to transactions options.</property-description>",
+      "additionalProperties": true
+    },
+    "statements": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `statements` to the tool, first call the tool `expandSchema` with \"/properties/options/properties/statements\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An optional set of parameters corresponding to statements options.</property-description>",
+      "additionalProperties": true
+    },
+    "income_verification": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `income_verification` to the tool, first call the tool `expandSchema` with \"/properties/options/properties/income_verification\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A set of parameters for income verification options. This field is required if `income_verification` is included in the `initial_products` array.</property-description>",
+      "additionalProperties": true
+    }
+  }
+}

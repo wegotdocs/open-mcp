@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "description": "Specifies option for initializing Link for use with the Identity Verification product.",
+  "properties": {
+    "template_id": {
+      "type": "string"
+    },
+    "consent": {
+      "type": "string"
+    },
+    "gave_consent": {
+      "type": "boolean",
+      "example": true,
+      "default": false,
+      "title": "IdentityVerificationConsent",
+      "description": "A flag specifying whether the end user has already agreed to a privacy policy specifying that their data will be shared with Plaid for verification purposes.\n\nIf `gave_consent` is set to `true`, the `accept_tos` step will be marked as `skipped` and the end user's session will start at the next step requirement."
+    }
+  },
+  "required": [
+    "template_id"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "title": "CraCheckReportPartnerInsightsGetOptions",
+  "type": "object",
+  "nullable": true,
+  "description": "Defines configuration options to generate Partner Insights",
+  "properties": {
+    "prism_products": {
+      "type": "array",
+      "description": "The specific Prism Data products to return. If none are passed in, then all products will be returned.",
+      "items": {
+        "title": "PrismProduct",
+        "x-hidden-from-docs": true,
+        "enum": [
+          "insights",
+          "scores"
+        ],
+        "description": "The Prism products that can be returned by the Plaid API",
+        "type": "string"
+      }
+    },
+    "prism_versions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `prism_versions` to the tool, first call the tool `expandSchema` with \"/properties/options/properties/prism_versions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The versions of Prism products to evaluate</property-description>",
+      "additionalProperties": true
+    }
+  }
+}

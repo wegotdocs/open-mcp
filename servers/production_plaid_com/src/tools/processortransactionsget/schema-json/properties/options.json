@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "description": "An optional object to be used with the request. If specified, `options` must not be `null`.",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "default": 100,
+      "description": "The number of transactions to fetch.",
+      "minimum": 1,
+      "maximum": 500,
+      "exclusiveMinimum": false
+    },
+    "offset": {
+      "type": "integer",
+      "default": 0,
+      "description": "The number of transactions to skip. The default value is 0.",
+      "minimum": 0
+    },
+    "include_original_description": {
+      "type": "boolean",
+      "default": false,
+      "description": "Include the raw unparsed transaction description from the financial institution.",
+      "nullable": true
+    }
+  }
+}
