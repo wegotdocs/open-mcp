@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "access_token": {
+      "description": "The Plaid `access_token` for the account that will be debited or credited.",
+      "type": "string"
+    },
+    "account_id": {
+      "type": "string",
+      "description": "The Plaid `account_id` corresponding to the end-user account that will be debited or credited."
+    },
+    "payment_profile_token": {
+      "type": "string",
+      "title": "PaymentProfileToken",
+      "description": "A payment profile token associated with the Payment Profile data that is being requested.",
+      "x-hidden-from-docs": true
+    }
+  },
+  "required": [
+    "access_token",
+    "account_id"
+  ]
+}

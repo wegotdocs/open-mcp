@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "beacon_user_id": {
+      "type": "string",
+      "title": "BeaconUserID",
+      "example": "becusr_42cF1MNo42r9Xj",
+      "description": "ID of the associated Beacon User."
+    },
+    "cursor": {
+      "description": "An identifier that determines which page of results you receive.",
+      "type": "string",
+      "example": "eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM",
+      "nullable": true
+    },
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    }
+  },
+  "required": [
+    "beacon_user_id"
+  ]
+}

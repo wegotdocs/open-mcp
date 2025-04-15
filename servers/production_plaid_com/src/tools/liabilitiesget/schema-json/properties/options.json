@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "description": "An optional object to filter `/liabilities/get` results. If provided, `options` cannot be null.",
+  "properties": {
+    "account_ids": {
+      "type": "array",
+      "description": "A list of accounts to retrieve for the Item.\n\nAn error will be returned if a provided `account_id` is not associated with the Item",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

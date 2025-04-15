@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "confirmed_hits": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "enthit_52xR9LKo77r1Np",
+        "title": "EntityWatchlistScreeningHitID",
+        "description": "ID of the associated entity screening hit."
+      },
+      "description": "Hits to mark as a true positive after thorough manual review. These hits will never recur or be updated once dismissed. In most cases, confirmed hits indicate that the customer should be rejected."
+    },
+    "dismissed_hits": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "enthit_52xR9LKo77r1Np",
+        "title": "EntityWatchlistScreeningHitID",
+        "description": "ID of the associated entity screening hit."
+      },
+      "description": "Hits to mark as a false positive after thorough manual review. These hits will never recur or be updated once dismissed."
+    },
+    "comment": {
+      "description": "A comment submitted by a team member as part of reviewing a watchlist screening.",
+      "type": "string",
+      "title": "ReviewComment",
+      "example": "These look like legitimate matches, rejecting the customer.",
+      "nullable": true
+    },
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "entity_watchlist_screening_id": {
+      "type": "string",
+      "example": "entscr_52xR9LKo77r1Np",
+      "title": "EntityWatchlistScreeningID",
+      "description": "ID of the associated entity screening."
+    }
+  },
+  "required": [
+    "confirmed_hits",
+    "dismissed_hits",
+    "entity_watchlist_screening_id"
+  ]
+}

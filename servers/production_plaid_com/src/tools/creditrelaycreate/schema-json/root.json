@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "report_tokens": {
+      "type": "array",
+      "description": "List of report token strings, with at most one token of each report type. Currently only Asset Report token is supported.",
+      "items": {
+        "type": "string",
+        "description": "The report token. It can only be an asset report token token.",
+        "nullable": false
+      }
+    },
+    "secondary_client_id": {
+      "type": "string",
+      "description": "The `secondary_client_id` is the client id of the third party with whom you would like to share the relay token."
+    },
+    "webhook": {
+      "type": "string",
+      "description": "URL to which Plaid will send webhooks when the Secondary Client successfully retrieves an Asset Report by calling `/credit/relay/get`.",
+      "nullable": true
+    }
+  },
+  "required": [
+    "report_tokens",
+    "secondary_client_id"
+  ]
+}

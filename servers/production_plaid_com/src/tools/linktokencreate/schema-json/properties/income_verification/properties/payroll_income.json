@@ -1,0 +1,45 @@
+{
+  "title": "LinkTokenCreateRequestIncomeVerificationPayrollIncome",
+  "type": "object",
+  "description": "Specifies options for initializing Link for use with Payroll Income (including Document Income). Further customization options for Document Income, such as customizing which document types may be uploaded, are also available via the [Link Customization pane](https://dashboard.plaid.com/link) in the Dashboard. (Requires Production enablement.)",
+  "properties": {
+    "flow_types": {
+      "type": "array",
+      "nullable": true,
+      "description": "The types of payroll income verification to enable for the Link session. If none are specified, then users will see both document and digital payroll income.",
+      "items": {
+        "title": "IncomeVerificationPayrollFlowType",
+        "enum": [
+          "payroll_digital_income",
+          "payroll_document_income"
+        ],
+        "description": "Flow types to retrieve payroll income data",
+        "type": "string"
+      }
+    },
+    "is_update_mode": {
+      "type": "boolean",
+      "description": "An identifier to indicate whether the income verification Link token will be used for update mode. This field is only relevant for participants in the Payroll Income Refresh beta.",
+      "default": false
+    },
+    "item_id_to_update": {
+      "type": "string",
+      "description": "Uniquely identify a payroll income Item to update with.  This field is only relevant for participants in the Payroll Income Refresh beta.",
+      "nullable": true
+    },
+    "parsing_config": {
+      "type": "array",
+      "nullable": true,
+      "description": "The types of analysis to enable for document uploads. If this field is not provided, then docs will undergo OCR parsing only.",
+      "items": {
+        "title": "IncomeVerificationDocParsingConfig",
+        "enum": [
+          "ocr",
+          "risk_signals"
+        ],
+        "description": "Analysis options to enable for document parsing",
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "description": "An object specifying information about the end user who will be linking their account.",
+  "properties": {
+    "client_user_id": {
+      "type": "string",
+      "description": "A unique ID representing the end user. Typically this will be a user ID number from your application. Personally identifiable information, such as an email address or phone number, should not be used in the `client_user_id`. It is currently used as a means of searching logs for the given user in the Plaid Dashboard.",
+      "minLength": 1
+    },
+    "legal_name": {
+      "type": "string",
+      "description": "The user's full legal name, used for [micro-deposit based verification flows](https://plaid.com/docs/auth/coverage/). For a small number of customers on legacy flows, providing this field is required to enable micro-deposit-based flows. For all other customers, this field is optional. Providing the user's name in this field when using micro-deposit-based verification will streamline the end user experience, as the user will not be prompted to enter their name during the Link flow; Plaid will use the provided legal name instead."
+    },
+    "name": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "The user's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. If supplied, will be used when applicable to prefill phone number fields in Link for the [returning user flow](https://www.plaid.com/docs/link/returning-user) and the [Identity Verification flow](https://www.plaid.com/docs/identity-verification)."
+    },
+    "email_address": {
+      "type": "string",
+      "description": "The user's email address. Can be used to prefill Link fields when used with [Identity Verification](https://www.plaid.com/docs/identity-verification)."
+    },
+    "date_of_birth": {
+      "type": "string",
+      "nullable": true,
+      "format": "date",
+      "description": "To be provided in the format \"yyyy-mm-dd\". Can be used to prefill Link fields when used with Identity Verification."
+    },
+    "address": {
+      "type": "string"
+    },
+    "id_number": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "client_user_id"
+  ]
+}

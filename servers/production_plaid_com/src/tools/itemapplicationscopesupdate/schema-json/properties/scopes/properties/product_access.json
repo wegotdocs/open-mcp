@@ -1,0 +1,61 @@
+{
+  "description": "The product access being requested. Used to or disallow product access across all accounts. If unset, defaults to all products allowed.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "statements": {
+      "description": "Allow access to statements. Only used by certain partners. If relevant to the partner and unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    },
+    "identity": {
+      "description": "Allow access to the Identity product (name, email, phone, address). Only used by certain partners. If relevant to the partner and unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    },
+    "auth": {
+      "description": "Allow access to account number details. Only used by certain partners. If relevant to the partner and unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    },
+    "transactions": {
+      "description": "Allow access to transaction details. Only used by certain partners. If relevant to the partner and unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    },
+    "accounts_details_transactions": {
+      "description": "Allow access to \"accounts_details_transactions\". Only used by certain partners. If relevant to the partner and unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    },
+    "accounts_routing_number": {
+      "description": "Allow access to \"accounts_routing_number\". Only used by certain partners. If relevant to the partner and unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    },
+    "accounts_statements": {
+      "description": "Allow access to \"accounts_statements\". Only used by certain partners. If relevant to the partner and unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    },
+    "accounts_tax_statements": {
+      "description": "Allow access to \"accounts_tax_statements\". Only used by certain partners. If relevant to the partner and unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    },
+    "customers_profiles": {
+      "description": "Allow access to \"customers_profiles\". Only used by certain partners. If relevant to the partner and unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    }
+  }
+}

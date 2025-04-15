@@ -1,0 +1,105 @@
+{
+  "title": "LinkTokenCreateRequestIncomeVerification",
+  "type": "object",
+  "description": "Specifies options for initializing Link for use with the Income product. This field is required if `income_verification` is included in the `products` array.",
+  "properties": {
+    "asset_report_id": {
+      "type": "string",
+      "description": "The `asset_report_id` of an asset report associated with the user, as provided by `/asset_report/create`. Providing an `asset_report_id` is optional and can be used to verify the user through a streamlined flow. If provided, the bank linking flow will be skipped."
+    },
+    "access_tokens": {
+      "type": "array",
+      "items": {
+        "title": "AccessToken",
+        "type": "string",
+        "description": "The access token associated with the Item data is being requested for."
+      },
+      "description": "An array of access tokens corresponding to Items that a user has previously connected with. Data from these institutions will be cross-referenced with document data received during the Document Income flow to help verify that the uploaded documents are accurate. If the `transactions` product was not initialized for these Items during link, it will be initialized after this Link session.\n\nThis field should only be used with the `payroll` income source type.",
+      "nullable": true
+    },
+    "income_source_types": {
+      "type": "array",
+      "description": "The types of source income data that users will be permitted to share. Options include `bank` and `payroll`. Currently you can only specify one of these options.",
+      "items": {
+        "title": "IncomeVerificationSourceType",
+        "enum": [
+          "bank",
+          "payroll"
+        ],
+        "description": "The types of source income data that users should be able to share",
+        "type": "string"
+      }
+    },
+    "bank_income": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `bank_income` to the tool, first call the tool `expandSchema` with \"/properties/income_verification/properties/bank_income\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with Bank Income. This field is required if `income_verification` is included in the `products` array and `bank` is specified in `income_source_types`.</property-description>",
+      "additionalProperties": true
+    },
+    "payroll_income": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payroll_income` to the tool, first call the tool `expandSchema` with \"/properties/income_verification/properties/payroll_income\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with Payroll Income (including Document Income). Further customization options for Document Income, such as customizing which document types may be uploaded, are also available via the [Link Customization pane](https://dashboard.plaid.com/link) in the Dashboard. (Requires Production enablement.)</property-description>",
+      "additionalProperties": true
+    },
+    "stated_income_sources": {
+      "type": "array",
+      "description": "A list of user stated income sources",
+      "items": {
+        "type": "object",
+        "description": "Specifies user stated income sources for the Income product",
+        "properties": {
+          "employer": {
+            "type": "string",
+            "description": "The employer corresponding to an income source specified by the user"
+          },
+          "category": {
+            "type": "string",
+            "description": "The income category for a specified income source",
+            "enum": [
+              "OTHER",
+              "SALARY",
+              "UNEMPLOYMENT",
+              "CASH",
+              "GIG_ECONOMY",
+              "RENTAL",
+              "CHILD_SUPPORT",
+              "MILITARY",
+              "RETIREMENT",
+              "LONG_TERM_DISABILITY",
+              "BANK_INTEREST"
+            ]
+          },
+          "pay_per_cycle": {
+            "type": "number",
+            "format": "double",
+            "description": "The income amount paid per cycle for a specified income source"
+          },
+          "pay_annual": {
+            "type": "number",
+            "format": "double",
+            "description": "The income amount paid annually for a specified income source"
+          },
+          "pay_type": {
+            "type": "string",
+            "description": "The pay type - `GROSS`, `NET`, or `UNKNOWN` for a specified income source",
+            "enum": [
+              "UNKNOWN",
+              "GROSS",
+              "NET"
+            ]
+          },
+          "pay_frequency": {
+            "type": "string",
+            "description": "The pay frequency of a specified income source",
+            "enum": [
+              "UNKNOWN",
+              "WEEKLY",
+              "BIWEEKLY",
+              "SEMI_MONTHLY",
+              "MONTHLY"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

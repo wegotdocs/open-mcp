@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "description": "Search terms for editing an entity watchlist screening",
+  "properties": {
+    "entity_watchlist_program_id": {
+      "type": "string",
+      "example": "entprg_2eRPsDnL66rZ7H",
+      "title": "EntityWatchlistProgramID",
+      "description": "ID of the associated entity program."
+    },
+    "legal_name": {
+      "type": "string",
+      "title": "EntityWatchlistScreeningName",
+      "example": "Al-Qaida",
+      "description": "The name of the organization being screened. Must have at least one alphabetical character, have a maximum length of 100 characters, and not include leading or trailing spaces."
+    },
+    "document_number": {
+      "type": "string",
+      "title": "WatchlistScreeningDocumentValue",
+      "example": "C31195855",
+      "description": "The numeric or alphanumeric identifier associated with this document. Must be between 4 and 32 characters long, and cannot have leading or trailing spaces."
+    },
+    "email_address": {
+      "type": "string",
+      "format": "email",
+      "example": "user@example.com",
+      "title": "EmailAddress",
+      "description": "A valid email address. Must not have leading or trailing spaces and address must be RFC compliant. For more information, see [RFC 3696](https://datatracker.ietf.org/doc/html/rfc3696)."
+    },
+    "country": {
+      "type": "string",
+      "title": "GenericCountryCode",
+      "example": "US",
+      "description": "Valid, capitalized, two-letter ISO code representing the country of this object. Must be in ISO 3166-1 alpha-2 form."
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "A phone number in E.164 format.",
+      "example": "+14025671234",
+      "title": "WatchlistScreeningPhoneNumber"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "title": "URL",
+      "example": "https://example.com",
+      "description": "An 'http' or 'https' URL (must begin with either of those)."
+    }
+  },
+  "required": [
+    "entity_watchlist_program_id"
+  ],
+  "nullable": true
+}

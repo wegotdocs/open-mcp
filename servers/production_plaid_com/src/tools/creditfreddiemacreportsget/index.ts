@@ -1,0 +1,40 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "creditfreddiemacreportsget",
+  "toolDescription": "Retrieve an Asset Report with Freddie Mac format (aka VOA - Verification Of Assets), and a Verification Of Employment (VOE) report if this one is available. Only Freddie Mac can use this endpoint.",
+  "baseUrl": "https://production.plaid.com",
+  "path": "/credit/freddie_mac/reports/get",
+  "method": "post",
+  "security": [
+    {
+      "key": "PLAID-CLIENT-ID",
+      "value": "<mcp-env-var>PLAID_CLIENT_ID</mcp-env-var>",
+      "in": "header",
+      "envVarName": "PLAID_CLIENT_ID"
+    },
+    {
+      "key": "PLAID-SECRET",
+      "value": "<mcp-env-var>PLAID_SECRET</mcp-env-var>",
+      "in": "header",
+      "envVarName": "PLAID_SECRET"
+    },
+    {
+      "key": "Plaid-Version",
+      "value": "<mcp-env-var>PLAID_VERSION</mcp-env-var>",
+      "in": "header",
+      "envVarName": "PLAID_VERSION"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "audit_copy_token": "audit_copy_token",
+      "client_id": "client_id",
+      "secret": "secret"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

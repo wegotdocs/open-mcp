@@ -1,0 +1,36 @@
+{
+  "title": "PrismVersions",
+  "type": "object",
+  "nullable": true,
+  "description": "The versions of Prism products to evaluate",
+  "properties": {
+    "firstdetect": {
+      "type": "string",
+      "description": "The version of Prism FirstDetect. If not specified, will default to v3.",
+      "nullable": true,
+      "enum": [
+        3,
+        null
+      ]
+    },
+    "cashscore": {
+      "type": "string",
+      "description": "The version of Prism CashScore. If not specified, will default to v3.",
+      "nullable": true,
+      "enum": [
+        "3_lite",
+        3,
+        null
+      ]
+    },
+    "insights": {
+      "type": "string",
+      "description": "The version of Prism Insights. If not specified, will default to v3.",
+      "nullable": true,
+      "enum": [
+        3,
+        null
+      ]
+    }
+  }
+}

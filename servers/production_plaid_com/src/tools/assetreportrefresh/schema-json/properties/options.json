@@ -1,0 +1,21 @@
+{
+  "description": "An optional object to filter `/asset_report/refresh` results. If provided, cannot be `null`. If not specified, the `options` from the original call to `/asset_report/create` will be used.",
+  "type": "object",
+  "properties": {
+    "client_report_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Client-generated identifier, which can be used by lenders to track loan applications."
+    },
+    "webhook": {
+      "type": "string",
+      "description": "URL to which Plaid will send Assets webhooks, for example when the requested Asset Report is ready.",
+      "nullable": true
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/options/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The user object allows you to provide additional information about the user to be appended to the Asset Report. All fields are optional. The `first_name`, `last_name`, and `ssn` fields are required if you would like the Report to be eligible for Fannie Mae’s Day 1 Certainty™ program.</property-description>",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "relay_token": {
+      "type": "string",
+      "description": "The `relay_token` granting access to the report you would like to get."
+    },
+    "report_type": {
+      "title": "ReportType",
+      "type": "string",
+      "description": "The report type. It can be `asset`. Income report types are not yet supported.",
+      "enum": [
+        "asset"
+      ],
+      "nullable": false
+    }
+  },
+  "required": [
+    "relay_token",
+    "report_type"
+  ]
+}

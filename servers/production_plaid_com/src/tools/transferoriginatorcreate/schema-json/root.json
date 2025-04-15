@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "company_name": {
+      "type": "string",
+      "description": "The company name of the end customer being created. This will be displayed in public-facing surfaces, e.g. Plaid Dashboard.",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "company_name"
+  ]
+}

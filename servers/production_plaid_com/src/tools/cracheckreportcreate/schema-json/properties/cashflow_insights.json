@@ -1,0 +1,26 @@
+{
+  "title": "CraCheckReportCashflowInsightsGetOptions",
+  "type": "object",
+  "nullable": true,
+  "description": "Defines configuration options to generate Cashflow Insights",
+  "properties": {
+    "plaid_check_score_version": {
+      "x-hidden-from-docs": true,
+      "type": "string",
+      "description": "The version of the Plaid Check Score",
+      "nullable": true,
+      "enum": [
+        "v1.0",
+        "v2.0"
+      ]
+    },
+    "attributes_version": {
+      "type": "string",
+      "description": "The version of cashflow attributes",
+      "nullable": true,
+      "enum": [
+        "v1.0"
+      ]
+    }
+  }
+}

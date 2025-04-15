@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "user_token": {
+      "title": "UserToken",
+      "type": "string",
+      "description": "The user token associated with the User data is being requested for."
+    },
+    "item_ids": {
+      "type": "array",
+      "items": {
+        "title": "ItemId",
+        "type": "string",
+        "description": "The `item_id` of the Item associated with this webhook, warning, or error"
+      },
+      "nullable": true,
+      "description": "An array of `item_id`s associated with the User to be reset.  If empty or `null`, this field will default to resetting all Items associated with the User."
+    }
+  },
+  "required": [
+    "user_token"
+  ]
+}

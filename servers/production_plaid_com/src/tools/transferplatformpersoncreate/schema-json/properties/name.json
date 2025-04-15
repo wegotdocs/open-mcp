@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "given_name": {
+      "type": "string",
+      "example": "Leslie",
+      "title": "GivenName",
+      "description": "A string with at least one non-whitespace character, with a max length of 100 characters."
+    },
+    "family_name": {
+      "type": "string",
+      "example": "Knope",
+      "title": "FamilyName",
+      "description": "A string with at least one non-whitespace character, with a max length of 100 characters."
+    }
+  },
+  "required": [
+    "given_name",
+    "family_name"
+  ],
+  "description": "The person's legal name"
+}

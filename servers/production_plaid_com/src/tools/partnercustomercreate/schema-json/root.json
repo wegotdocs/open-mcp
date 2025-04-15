@@ -1,0 +1,142 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "company_name": {
+      "description": "The company name of the end customer being created. This will be used to display the end customer in the Plaid Dashboard. It will not be shown to end users.",
+      "type": "string"
+    },
+    "is_diligence_attested": {
+      "description": "Denotes whether or not the partner has completed attestation of diligence for the end customer to be created.",
+      "type": "boolean"
+    },
+    "products": {
+      "description": "The products to be enabled for the end customer. If empty or `null`, this field will default to the products enabled for the reseller at the time this endpoint is called.",
+      "type": "array",
+      "items": {
+        "title": "Products",
+        "enum": [
+          "assets",
+          "auth",
+          "balance",
+          "balance_plus",
+          "beacon",
+          "identity",
+          "identity_match",
+          "investments",
+          "investments_auth",
+          "liabilities",
+          "payment_initiation",
+          "identity_verification",
+          "transactions",
+          "credit_details",
+          "income",
+          "income_verification",
+          "standing_orders",
+          "transfer",
+          "employment",
+          "recurring_transactions",
+          "transactions_refresh",
+          "signal",
+          "statements",
+          "processor_payments",
+          "processor_identity",
+          "profile",
+          "cra_base_report",
+          "cra_income_insights",
+          "cra_partner_insights",
+          "cra_network_insights",
+          "cra_cashflow_insights",
+          "layer",
+          "pay_by_bank"
+        ],
+        "description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "type": "string"
+      },
+      "x-override-enum-values-shown": [
+        "assets",
+        "auth",
+        "balance",
+        "identity",
+        "income_verification",
+        "investments",
+        "liabilities",
+        "transactions",
+        "employment",
+        "cra_base_report",
+        "cra_income_insights",
+        "cra_partner_insights"
+      ]
+    },
+    "create_link_customization": {
+      "description": "If `true`, the end customer's default Link customization will be set to match the partner's. You can always change the end customer's Link customization in the Plaid Dashboard. See the [Link Customization docs](https://plaid.com/docs/link/customization/) for more information.",
+      "type": "boolean"
+    },
+    "logo": {
+      "description": "Base64-encoded representation of the end customer's logo. Must be a PNG of size 1024x1024 under 4MB. The logo will be shared with financial institutions and shown to the end user during Link flows. A logo is required if `create_link_customization` is `true`. If `create_link_customization` is `false` and the logo is omitted, the partner's logo will be used if one exists, otherwise a stock logo will be used.",
+      "type": "string"
+    },
+    "legal_entity_name": {
+      "description": "The end customer's legal name. This will be shared with financial institutions as part of the OAuth registration process. It will not be shown to end users.",
+      "type": "string"
+    },
+    "website": {
+      "description": "The end customer's website.",
+      "type": "string"
+    },
+    "application_name": {
+      "description": "The name of the end customer's application. This will be shown to end users when they go through the Plaid Link flow. The application name must be unique and cannot match the name of another application already registered with Plaid.",
+      "type": "string"
+    },
+    "technical_contact": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `technical_contact` to the tool, first call the tool `expandSchema` with \"/properties/technical_contact\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The technical contact for the end customer. Defaults to partner's technical contact if omitted.</property-description>",
+      "additionalProperties": true
+    },
+    "billing_contact": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `billing_contact` to the tool, first call the tool `expandSchema` with \"/properties/billing_contact\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The billing contact for the end customer. Defaults to partner's billing contact if omitted.</property-description>",
+      "additionalProperties": true
+    },
+    "customer_support_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customer_support_info` to the tool, first call the tool `expandSchema` with \"/properties/customer_support_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>This information is public. Users of your app will see this information when managing connections between your app and their bank accounts in Plaid Portal. Defaults to partner's customer support info if omitted.</property-description>",
+      "additionalProperties": true
+    },
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The end customer's address.</property-description>",
+      "additionalProperties": true
+    },
+    "is_bank_addendum_completed": {
+      "description": "Denotes whether the partner has forwarded the Plaid bank addendum to the end customer.",
+      "type": "boolean"
+    },
+    "assets_under_management": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `assets_under_management` to the tool, first call the tool `expandSchema` with \"/properties/assets_under_management\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Assets under management for the given end customer. Required for end customers with monthly service commitments.</property-description>",
+      "additionalProperties": true
+    },
+    "redirect_uris": {
+      "description": "A list of URIs indicating the destination(s) where a user can be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or another app. URIs should not contain any query parameters. When used in Production, URIs must use https. To specify any subdomain, use `*` as a wildcard character, e.g. `https://*.example.com/oauth.html`. To modify redirect URIs for an end customer after creating them, go to the end customer's [API page](https://dashboard.plaid.com/team/api) in the Dashboard.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "registration_number": {
+      "description": "The unique identifier assigned to a financial institution by regulatory authorities, if applicable. For banks, this is the FDIC Certificate Number. For credit unions, this is the Credit Union Charter Number.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

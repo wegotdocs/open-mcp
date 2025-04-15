@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "access_token": {
+      "title": "AccessToken",
+      "type": "string",
+      "description": "The access token associated with the Item data is being requested for."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "personal_finance_category": {
+      "type": "string",
+      "description": "Personal finance detailed category.\n\nAll implementations are encouraged to use this field instead of `category`, as it provides more meaningful and accurate categorization.\n\nSee the [`taxonomy csv file`](https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv) for a full list of personal finance categories.\n"
+    },
+    "rule_details": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `rule_details` to the tool, first call the tool `expandSchema` with \"/properties/rule_details\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A representation of transactions rule details.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "access_token",
+    "personal_finance_category",
+    "rule_details"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "LinkTokenCreateRequestBaseReport",
+  "type": "object",
+  "x-hidden-from-docs": true,
+  "description": "Specifies options for initializing Link for use with the Base Report product. This field is required if `assets` is included in the `products` array and the client is CRA-enabled.",
+  "properties": {
+    "days_requested": {
+      "type": "integer",
+      "description": "The maximum integer number of days of history to include in the Base Report.",
+      "minimum": 1,
+      "maximum": 730
+    },
+    "client_report_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Client-generated identifier, which can be used by lenders to track loan applications."
+    }
+  },
+  "required": [
+    "days_requested"
+  ]
+}

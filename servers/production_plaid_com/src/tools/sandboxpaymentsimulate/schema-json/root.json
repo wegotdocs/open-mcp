@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "payment_id": {
+      "type": "string",
+      "description": "The ID of the payment to simulate"
+    },
+    "status": {
+      "type": "string",
+      "description": "The status to set the payment to.\n\nValid statuses include:\n- `PAYMENT_STATUS_INITIATED`\n- `PAYMENT_STATUS_INSUFFICIENT_FUNDS`\n- `PAYMENT_STATUS_FAILED`\n- `PAYMENT_STATUS_EXECUTED`\n- `PAYMENT_STATUS_SETTLED`\n- `PAYMENT_STATUS_CANCELLED`\n- `PAYMENT_STATUS_REJECTED`"
+    }
+  },
+  "required": [
+    "payment_id",
+    "status"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "title": "InvestmentFilter",
+  "description": "A filter to apply to `investment`-type accounts (or `brokerage`-type accounts for API versions 2018-05-22 and earlier).",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "account_subtypes": {
+      "title": "InvestmentAccountSubtypes",
+      "type": "array",
+      "description": "An array of account subtypes to display in Link. If not specified, all account subtypes will be shown. For a full list of valid types and subtypes, see the [Account schema](https://plaid.com/docs/api/accounts#account-type-schema). ",
+      "items": {
+        "type": "string",
+        "description": "Valid account subtypes for investment accounts. For a list containing descriptions of each subtype, see [Account schemas](https://plaid.com/docs/api/accounts/#StandaloneAccountType-investment).",
+        "enum": [
+          "529",
+          "401a",
+          "401k",
+          "403B",
+          "457b",
+          "brokerage",
+          "cash isa",
+          "crypto exchange",
+          "education savings account",
+          "fixed annuity",
+          "gic",
+          "health reimbursement arrangement",
+          "hsa",
+          "ira",
+          "isa",
+          "keogh",
+          "lif",
+          "life insurance",
+          "lira",
+          "lrif",
+          "lrsp",
+          "mutual fund",
+          "non-custodial wallet",
+          "non-taxable brokerage account",
+          "other",
+          "other annuity",
+          "other insurance",
+          "pension",
+          "prif",
+          "profit sharing plan",
+          "qshr",
+          "rdsp",
+          "resp",
+          "retirement",
+          "rlif",
+          "roth",
+          "roth 401k",
+          "rrif",
+          "rrsp",
+          "sarsep",
+          "sep ira",
+          "simple ira",
+          "sipp",
+          "stock plan",
+          "tfsa",
+          "trust",
+          "ugma",
+          "utma",
+          "variable annuity",
+          "all"
+        ]
+      }
+    }
+  },
+  "required": [
+    "account_subtypes"
+  ]
+}

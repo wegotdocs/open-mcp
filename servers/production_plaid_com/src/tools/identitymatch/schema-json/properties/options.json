@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "description": "An optional object to filter /identity/match results",
+  "properties": {
+    "account_ids": {
+      "type": "array",
+      "description": "An array of `account_ids` to perform fuzzy match",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

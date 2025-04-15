@@ -1,0 +1,22 @@
+{
+  "title": "SandboxPublicTokenCreateRequestOptionsStatements",
+  "type": "object",
+  "nullable": true,
+  "description": "An optional set of parameters corresponding to statements options.",
+  "properties": {
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The earliest date for which to fetch statements history. Dates should be formatted as YYYY-MM-DD."
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The most recent date for which to fetch statements history. Dates should be formatted as YYYY-MM-DD."
+    }
+  },
+  "required": [
+    "start_date",
+    "end_date"
+  ]
+}

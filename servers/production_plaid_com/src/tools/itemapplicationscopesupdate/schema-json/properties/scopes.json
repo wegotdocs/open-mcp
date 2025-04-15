@@ -1,0 +1,42 @@
+{
+  "description": "The scopes object",
+  "type": "object",
+  "properties": {
+    "product_access": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `product_access` to the tool, first call the tool `expandSchema` with \"/properties/scopes/properties/product_access\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The product access being requested. Used to or disallow product access across all accounts. If unset, defaults to all products allowed.</property-description>",
+      "additionalProperties": true
+    },
+    "accounts": {
+      "type": "array",
+      "items": {
+        "description": "Allow or disallow product access by account. Unlisted (e.g. missing) accounts will be considered `new_accounts`.",
+        "type": "object",
+        "properties": {
+          "unique_id": {
+            "description": "The unique account identifier for this account. This value must match that returned by the data access API for this account.",
+            "type": "string"
+          },
+          "authorized": {
+            "description": "Allow the application to see this account (and associated details, including balance) in the list of accounts  If unset, defaults to `true`.",
+            "type": "boolean",
+            "nullable": true,
+            "default": true
+          },
+          "account_product_access": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "unique_id"
+        ]
+      }
+    },
+    "new_accounts": {
+      "description": "Allow access to newly opened accounts as they are opened. If unset, defaults to `true`.",
+      "type": "boolean",
+      "nullable": true,
+      "default": true
+    }
+  }
+}

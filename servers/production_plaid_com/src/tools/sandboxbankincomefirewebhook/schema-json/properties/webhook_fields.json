@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "The user id to be returned in INCOME webhooks"
+    },
+    "bank_income_refresh_complete_result": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "FAILURE"
+      ],
+      "description": "The result of the bank income refresh report generation\n\n`SUCCESS`: The refreshed report was successfully generated and can be retrieved via `/credit/bank_income/get`.\n\n`FAILURE`: The refreshed report failed to be generated"
+    }
+  },
+  "description": "Optional fields which will be populated in the simulated webhook",
+  "required": [
+    "user_id"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "originator_client_id": {
+      "type": "string",
+      "description": "The client ID of the originator"
+    },
+    "requirement_submissions": {
+      "type": "array",
+      "description": "A list of requirement submissions that all relate to the originator. Must contain between 1 and 50 requirement submissions.",
+      "items": {
+        "title": "RequirementSubmission",
+        "type": "object",
+        "x-hidden-from-docs": true,
+        "description": "A single requirement submission",
+        "properties": {
+          "requirement_type": {
+            "type": "string",
+            "description": "The type of requirement being submitted"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the requirement, which can be a string or an object depending on the `requirement_type`. If it is an object, the object should be JSON marshaled into a string. See the documentation on this endpoint for more information and examples."
+          },
+          "person_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The `person_id` of the person the requirement submission is related to. A `person_id` is returned by `/transfer/platform/person/create`. This field should not be included for requirements that are not related to a person."
+          }
+        },
+        "required": [
+          "requirement_type",
+          "value"
+        ]
+      },
+      "maxItems": 50,
+      "minItems": 1
+    }
+  },
+  "required": [
+    "originator_client_id",
+    "requirement_submissions"
+  ]
+}

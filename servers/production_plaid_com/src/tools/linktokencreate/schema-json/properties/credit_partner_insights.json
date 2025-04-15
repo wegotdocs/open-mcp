@@ -1,0 +1,28 @@
+{
+  "title": "LinkTokenCreateRequestCreditPartnerInsights",
+  "type": "object",
+  "x-hidden-from-docs": true,
+  "description": "Specifies options for initializing Link for use with the Credit Partner Insights product.",
+  "properties": {
+    "days_requested": {
+      "type": "integer",
+      "description": "The maximum integer number of days of history to compute Credit Partner Insights. Defaults to 180 if not specified",
+      "minimum": 1,
+      "maximum": 730
+    },
+    "prism_products": {
+      "type": "array",
+      "description": "The specific Prism products to return. If none are passed in, then all products will be returned.",
+      "items": {
+        "title": "PrismProduct",
+        "x-hidden-from-docs": true,
+        "enum": [
+          "insights",
+          "scores"
+        ],
+        "description": "The Prism products that can be returned by the Plaid API",
+        "type": "string"
+      }
+    }
+  }
+}

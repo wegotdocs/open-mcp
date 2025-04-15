@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "description": "Metadata related to the recipient. If the information required to populate this field is not available, leave it blank.",
+  "properties": {
+    "communication_methods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "The communication method containing both the type and address to send the URL.",
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [
+              "SMS",
+              "EMAIL"
+            ],
+            "description": "The delivery method to be used to deliver the Hosted Link session URL.\n\n`SMS`: The URL will be delivered through SMS\n\n`EMAIL`: The URL will be delivered through email"
+          },
+          "address": {
+            "type": "string",
+            "description": "The phone number / email address that Hosted Link sessions are delivered to. Phone numbers must be in E.164 format."
+          }
+        }
+      },
+      "description": "The list of communication methods to send the Hosted Link session URL to. If delivery is not required, leave this field blank."
+    },
+    "first_name": {
+      "type": "string",
+      "description": "First name of the recipient. Will be used in the body of the email / text (if configured). If this information is not available, leave this field blank."
+    }
+  }
+}

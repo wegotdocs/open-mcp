@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "required": [
+    "user_id",
+    "auth_token"
+  ],
+  "description": "Object of user ID and auth token pair, permitting Plaid to aggregate a user’s accounts",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "Opaque user identifier"
+    },
+    "auth_token": {
+      "type": "string",
+      "description": "Authorization token Plaid will use to aggregate this user’s accounts"
+    }
+  }
+}

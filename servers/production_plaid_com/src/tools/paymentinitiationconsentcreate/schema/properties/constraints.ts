@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "valid_date_time": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `valid_date_time` to the tool, first call the tool `expandSchema` with \"/properties/constraints/properties/valid_date_time\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Life span for the payment consent. After the `to` date the payment consent expires and can no longer be used for payment initiation.</property-description>").optional(),
+  "max_payment_amount": z.string(),
+  "periodic_amounts": z.array(z.object({ "amount": z.string(), "interval": z.enum(["DAY","WEEK","MONTH","YEAR"]).describe("Payment consent periodic interval."), "alignment": z.enum(["CALENDAR","CONSENT"]).describe("Where the payment consent period should start.\n\nIf the institution is Monzo, only `CONSENT` alignments are supported.\n\n`CALENDAR`: line up with a calendar.\n\n`CONSENT`: on the date of consent creation.") }).describe("Defines consent payments limitations per period.")).min(1).describe("A list of amount limitations per period of time.")
+}

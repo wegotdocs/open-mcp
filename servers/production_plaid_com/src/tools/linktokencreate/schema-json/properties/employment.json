@@ -1,0 +1,26 @@
+{
+  "title": "LinkTokenCreateRequestEmployment",
+  "type": "object",
+  "x-hidden-from-docs": true,
+  "description": "Specifies options for initializing Link for use with the Employment product. This field is required if `employment` is included in the `products` array.",
+  "properties": {
+    "employment_source_types": {
+      "type": "array",
+      "description": "The types of source employment data that users will be permitted to share. Options include `bank` and `payroll`. Currently you can only specify one of these options.",
+      "items": {
+        "title": "EmploymentSourceType",
+        "enum": [
+          "bank",
+          "payroll"
+        ],
+        "description": "The types of source employment data that users should be able to share",
+        "type": "string"
+      }
+    },
+    "bank_employment": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `bank_employment` to the tool, first call the tool `expandSchema` with \"/properties/employment/properties/bank_employment\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with Bank Employment. This field is required if `employment` is included in the `products` array and `bank` is specified in `employment_source_types`.</property-description>",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "applications": {
+      "type": "array",
+      "description": "A list of loan applications to register.",
+      "items": {
+        "type": "object",
+        "description": "Contains loan application data.",
+        "additionalProperties": true,
+        "properties": {
+          "user_token": {
+            "type": "string",
+            "description": "The user token for the user associated with the loan."
+          },
+          "application_id": {
+            "type": "string",
+            "description": "A unique identifier for the loan application.\nPersonally identifiable information, such as an email address or phone number, should not be used in the `application_id`."
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of loan the user applied for.",
+            "enum": [
+              "PERSONAL",
+              "CREDIT_CARD",
+              "BUSINESS",
+              "MORTGAGE",
+              "AUTO",
+              "PAYDAY",
+              "STUDENT",
+              "HOME_EQUITY",
+              "OTHER"
+            ]
+          },
+          "decision": {
+            "type": "string",
+            "description": "The decision of the loan application.",
+            "enum": [
+              "APPROVED",
+              "DECLINED",
+              "OTHER"
+            ]
+          },
+          "application_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The date the user applied for the loan. The date should be in ISO 8601 format (YYYY-MM-DD)."
+          },
+          "decision_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The date when the loan application's decision was made. The date should be in ISO 8601 format (YYYY-MM-DD)."
+          }
+        },
+        "required": [
+          "user_token",
+          "application_id",
+          "type",
+          "decision"
+        ]
+      }
+    }
+  },
+  "required": [
+    "applications"
+  ]
+}

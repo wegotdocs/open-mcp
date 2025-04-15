@@ -1,0 +1,48 @@
+{
+  "title": "PaymentInitiationConsentPayerDetails",
+  "type": "object",
+  "nullable": true,
+  "additionalProperties": true,
+  "description": "An object representing the payment consent payer details.\nPayer `name` and account `numbers` are required to lock the account to which the consent can be created.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the payer as it appears in their bank account",
+      "minLength": 1
+    },
+    "numbers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `numbers` to the tool, first call the tool `expandSchema` with \"/properties/payer_details/properties/numbers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The counterparty's bank account numbers. Exactly one of IBAN or BACS data is required.</property-description>",
+      "additionalProperties": true
+    },
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/payer_details/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The optional address of the payment recipient's bank account. Required by most institutions outside of the UK.</property-description>",
+      "additionalProperties": true
+    },
+    "date_of_birth": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "description": "The payer's birthdate, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) (YYYY-MM-DD) format."
+    },
+    "phone_numbers": {
+      "description": "The payer's phone numbers in E.164 format: +{countrycode}{number}",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "emails": {
+      "description": "The payer's emails",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "numbers"
+  ]
+}

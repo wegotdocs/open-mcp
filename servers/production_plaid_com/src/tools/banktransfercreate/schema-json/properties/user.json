@@ -1,0 +1,25 @@
+{
+  "title": "BankTransferUser",
+  "type": "object",
+  "additionalProperties": true,
+  "description": "The legal name and other information for the account holder.",
+  "properties": {
+    "legal_name": {
+      "type": "string",
+      "description": "The account holder’s full legal name. If the transfer `ach_class` is `ccd`, this should be the business name of the account holder."
+    },
+    "email_address": {
+      "type": "string",
+      "description": "The account holder’s email.",
+      "nullable": true
+    },
+    "routing_number": {
+      "type": "string",
+      "description": "The account holder's routing number. This field is only used in response data. Do not provide this field when making requests.",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "legal_name"
+  ]
+}

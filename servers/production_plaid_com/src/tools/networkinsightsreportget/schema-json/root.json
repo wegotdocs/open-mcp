@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "access_tokens": {
+      "type": "array",
+      "items": {
+        "title": "AccessToken",
+        "type": "string",
+        "description": "The access token associated with the Item data is being requested for."
+      },
+      "description": "A list of access tokens that the Network Insights will be requested for. These correspond to previous Items a user has connected."
+    }
+  },
+  "required": [
+    "access_tokens"
+  ]
+}

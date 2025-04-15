@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "type": {
+      "type": "string",
+      "title": "TransferBalanceType",
+      "enum": [
+        "prefunded_rtp_credits",
+        "prefunded_ach_credits"
+      ],
+      "description": "The type of balance.\n\n`prefunded_rtp_credits` - Your prefunded RTP credit balance with Plaid\n`prefunded_ach_credits` - Your prefunded ACH credit balance with Plaid"
+    }
+  },
+  "required": []
+}
