@@ -169,11 +169,29 @@ jobs:
             echo "::endgroup::"
           done
 
+          # Track unsuccessful packages
+          UNSUCCESSFUL_PACKAGES=()
+          for dir in "${PACKAGES[@]}"; do
+            if [[ ! " ${SUCCESSFUL_PACKAGES[@]} " =~ " ${dir} " ]]; then
+              UNSUCCESSFUL_PACKAGES+=("$dir")
+            fi
+          done
+
+          if [ ${#UNSUCCESSFUL_PACKAGES[@]} -gt 0 ]; then
+            echo "Failed to process packages: ${UNSUCCESSFUL_PACKAGES[*]}"
+          fi
+
           # Only commit version changes if at least one package was successful
           if [ ${#SUCCESSFUL_PACKAGES[@]} -gt 0 ]; then
             echo "::group::Committing version changes"
             echo "Successfully processed packages: ${SUCCESSFUL_PACKAGES[*]}"
             git add .
+
+            echo "::group::Unstaging unsuccessful packages"
+            for dir in "${UNSUCCESSFUL_PACKAGES[@]}"; do
+              git restore --staged "servers/$dir"
+            done
+
             git commit -m "chore: update package versions [skip ci]" || echo "No changes to commit"
             git push origin main || echo "Push failed"
             echo "::endgroup::"
