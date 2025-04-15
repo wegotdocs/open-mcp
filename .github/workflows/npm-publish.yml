@@ -171,7 +171,7 @@ jobs:
 
           # Track unsuccessful packages
           UNSUCCESSFUL_PACKAGES=()
-          for dir in "${PACKAGES[@]}"; do
+          for dir in "${CHANGED_DIRS_ARRAY[@]}"; do
             if [[ ! " ${SUCCESSFUL_PACKAGES[@]} " =~ " ${dir} " ]]; then
               UNSUCCESSFUL_PACKAGES+=("$dir")
             fi
@@ -187,8 +187,8 @@ jobs:
             echo "Successfully processed packages: ${SUCCESSFUL_PACKAGES[*]}"
             git add .
 
-            echo "::group::Unstaging unsuccessful packages"
             for dir in "${UNSUCCESSFUL_PACKAGES[@]}"; do
+              echo "Unstaging unsuccessful package: $dir"
               git restore --staged "servers/$dir"
             done
 
