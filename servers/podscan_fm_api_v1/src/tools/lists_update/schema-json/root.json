@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "team": {
+      "description": "The ID of the team",
+      "type": "string"
+    },
+    "list": {
+      "description": "The ID of the list",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "is_private": {
+      "type": "boolean"
+    },
+    "webhook_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "webhook_active": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "team",
+    "list"
+  ]
+}

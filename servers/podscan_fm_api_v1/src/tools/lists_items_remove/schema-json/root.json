@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "team": {
+      "description": "The ID of the team",
+      "type": "string"
+    },
+    "list": {
+      "description": "The ID of the list",
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Podcast",
+        "PodcastEpisode",
+        "Alert",
+        "Mention",
+        "Topic",
+        "Entity"
+      ]
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "team",
+    "list",
+    "type",
+    "id"
+  ]
+}
