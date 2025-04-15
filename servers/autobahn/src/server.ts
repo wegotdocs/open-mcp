@@ -17,7 +17,7 @@ export async function runServer() {
   try {
     const tools: OpenMCPServerTool[] = []
     for (const file of OPERATION_FILES_RELATIVE) {
-      const tool = (await import(file)) as OpenMCPServerTool
+      const tool = (await import(file)).default as OpenMCPServerTool
       const requiredKeys: (keyof typeof tool)[] = [
         "path",
         "method",
