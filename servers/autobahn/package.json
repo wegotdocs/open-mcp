@@ -14,7 +14,8 @@
     "copy-json-schema": "mkdir -p dist/tools && find src/tools -type d -name 'schema-json' -exec sh -c 'mkdir -p dist/tools/$(dirname {} | sed \"s/src\\/tools\\///\") && cp -r {} dist/tools/$(dirname {} | sed \"s/src\\/tools\\///\")/' \\;",
     "prebuild": "npm run clean && npm run copy-json-schema",
     "build": "tsc && chmod 755 dist/index.js",
-    "test": "echo \"No test specified\""
+    "test": "echo \"No test specified\"",
+    "prepublishOnly": "npm install && npm run build && npm run test"
   },
   "keywords": [],
   "author": "",

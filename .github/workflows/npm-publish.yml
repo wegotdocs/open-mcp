@@ -98,39 +98,39 @@ jobs:
               # Track if all steps succeed
               PACKAGE_SUCCESS=true
               
-              # Install dependencies
-              echo "Installing dependencies for $dir"
-              if [ -f "package-lock.json" ]; then
-                if ! npm ci; then
-                  echo "Failed to install dependencies for $dir"
-                  PACKAGE_SUCCESS=false
-                fi
-              else
-                if ! npm install; then
-                  echo "Failed to install dependencies for $dir"
-                  PACKAGE_SUCCESS=false
-                fi
-              fi
+              # # Install dependencies
+              # echo "Installing dependencies for $dir"
+              # if [ -f "package-lock.json" ]; then
+              #   if ! npm ci; then
+              #     echo "Failed to install dependencies for $dir"
+              #     PACKAGE_SUCCESS=false
+              #   fi
+              # else
+              #   if ! npm install; then
+              #     echo "Failed to install dependencies for $dir"
+              #     PACKAGE_SUCCESS=false
+              #   fi
+              # fi
               
-              # Only continue if install succeeded
-              if [ "$PACKAGE_SUCCESS" = true ]; then
-                # Run tests
-                echo "Running tests for $dir"
-                if ! npm test; then
-                  echo "Tests failed for $dir"
-                  PACKAGE_SUCCESS=false
-                fi
-              fi
+              # # Only continue if install succeeded
+              # if [ "$PACKAGE_SUCCESS" = true ]; then
+              #   # Run tests
+              #   echo "Running tests for $dir"
+              #   if ! npm test; then
+              #     echo "Tests failed for $dir"
+              #     PACKAGE_SUCCESS=false
+              #   fi
+              # fi
               
-              # Only continue if tests succeeded
-              if [ "$PACKAGE_SUCCESS" = true ]; then
-                # Build package
-                echo "Building $dir"
-                if ! npm run build; then
-                  echo "Build failed for $dir"
-                  PACKAGE_SUCCESS=false
-                fi
-              fi
+              # # Only continue if tests succeeded
+              # if [ "$PACKAGE_SUCCESS" = true ]; then
+              #   # Build package
+              #   echo "Building $dir"
+              #   if ! npm run build; then
+              #     echo "Build failed for $dir"
+              #     PACKAGE_SUCCESS=false
+              #   fi
+              # fi
               
               # If all steps succeeded, prepare for publishing
               if [ "$PACKAGE_SUCCESS" = true ]; then
