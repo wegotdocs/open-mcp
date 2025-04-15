@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "ft_id": {
+      "description": "Fine-tune ID to download. A string that starts with `ft-`.",
+      "type": "string"
+    },
+    "checkpoint_step": {
+      "description": "Specifies step number for checkpoint to download. Ignores `checkpoint` value if set.",
+      "type": "integer"
+    },
+    "checkpoint": {
+      "description": "Specifies checkpoint type to download - `merged` vs `adapter`. This field is required if the checkpoint_step is not set.",
+      "type": "string",
+      "enum": [
+        "merged",
+        "adapter"
+      ]
+    },
+    "output": {
+      "description": "Specifies output file name for downloaded model. Defaults to `$PWD/{model_name}.{extension}`.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ft_id"
+  ]
+}

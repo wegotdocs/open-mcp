@@ -1,0 +1,118 @@
+{
+  "type": "object",
+  "properties": {
+    "training_file": {
+      "type": "string",
+      "description": "File-ID of a training file uploaded to the Together API"
+    },
+    "validation_file": {
+      "type": "string",
+      "description": "File-ID of a validation file uploaded to the Together API"
+    },
+    "model": {
+      "type": "string",
+      "description": "Name of the base model to run fine-tune job on"
+    },
+    "n_epochs": {
+      "type": "integer",
+      "default": 1,
+      "description": "Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)"
+    },
+    "n_checkpoints": {
+      "type": "integer",
+      "default": 1,
+      "description": "Number of intermediate model versions saved during training for evaluation"
+    },
+    "n_evals": {
+      "type": "integer",
+      "default": 0,
+      "description": "Number of evaluations to be run on a given validation set during training"
+    },
+    "batch_size": {
+      "default": "max",
+      "description": "Number of training examples processed together (larger batches use more memory but may train faster). Defaults to \"max\". We use training optimizations like packing, so the effective batch size may be different than the value you set.",
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "learning_rate": {
+      "type": "number",
+      "format": "float",
+      "default": 0.00001,
+      "description": "Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)"
+    },
+    "lr_scheduler": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `lr_scheduler` to the tool, first call the tool `expandSchema` with \"/properties/lr_scheduler\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The learning rate scheduler to use. It specifies how the learning rate is adjusted during training.</property-description>",
+      "additionalProperties": true
+    },
+    "warmup_ratio": {
+      "type": "number",
+      "format": "float",
+      "default": 0,
+      "description": "The percent of steps at the start of training to linearly increase the learning rate."
+    },
+    "max_grad_norm": {
+      "type": "number",
+      "format": "float",
+      "default": 1,
+      "description": "Max gradient norm to be used for gradient clipping. Set to 0 to disable."
+    },
+    "weight_decay": {
+      "type": "number",
+      "format": "float",
+      "default": 0,
+      "description": "Weight decay. Regularization parameter for the optimizer."
+    },
+    "suffix": {
+      "type": "string",
+      "description": "Suffix that will be added to your fine-tuned model name"
+    },
+    "wandb_api_key": {
+      "type": "string",
+      "description": "Integration key for tracking experiments and model metrics on W&B platform"
+    },
+    "wandb_base_url": {
+      "type": "string",
+      "description": "The base URL of a dedicated Weights & Biases instance."
+    },
+    "wandb_project_name": {
+      "type": "string",
+      "description": "The Weights & Biases project for your run. If not specified, will use `together` as the project name."
+    },
+    "wandb_name": {
+      "type": "string",
+      "description": "The Weights & Biases name for your run."
+    },
+    "train_on_inputs": {
+      "type": "boolean",
+      "default": "auto",
+      "description": "Whether to mask the user messages in conversational data or prompts in instruction data.",
+      "anyOf": [
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "training_method": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `training_method` to the tool, first call the tool `expandSchema` with \"/properties/training_method\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.</property-description>",
+      "additionalProperties": true
+    },
+    "training_type": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `training_type` to the tool, first call the tool `expandSchema` with \"/properties/training_type\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "from_checkpoint": {
+      "type": "string",
+      "description": "The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used."
+    }
+  },
+  "required": [
+    "training_file",
+    "model"
+  ]
+}

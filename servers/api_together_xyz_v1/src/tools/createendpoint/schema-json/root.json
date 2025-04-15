@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "display_name": {
+      "type": "string",
+      "description": "A human-readable name for the endpoint",
+      "examples": [
+        "My Llama3 70b endpoint"
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "The model to deploy on this endpoint",
+      "examples": [
+        "meta-llama/Llama-3-8b-chat-hf"
+      ]
+    },
+    "hardware": {
+      "type": "string",
+      "description": "The hardware configuration to use for this endpoint",
+      "examples": [
+        "1x_nvidia_a100_80gb_sxm"
+      ]
+    },
+    "autoscaling": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `autoscaling` to the tool, first call the tool `expandSchema` with \"/properties/autoscaling\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration for automatic scaling of the endpoint</property-description>",
+      "additionalProperties": true
+    },
+    "disable_prompt_cache": {
+      "type": "boolean",
+      "description": "Whether to disable the prompt cache for this endpoint",
+      "default": false
+    },
+    "disable_speculative_decoding": {
+      "type": "boolean",
+      "description": "Whether to disable speculative decoding for this endpoint",
+      "default": false
+    },
+    "state": {
+      "type": "string",
+      "description": "The desired state of the endpoint",
+      "enum": [
+        "STARTED",
+        "STOPPED"
+      ],
+      "default": "STARTED",
+      "example": "STARTED"
+    },
+    "inactive_timeout": {
+      "type": "integer",
+      "description": "The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to null, omit or set to 0 to disable automatic timeout.",
+      "nullable": true,
+      "example": 60
+    }
+  },
+  "required": [
+    "model",
+    "hardware",
+    "autoscaling"
+  ]
+}

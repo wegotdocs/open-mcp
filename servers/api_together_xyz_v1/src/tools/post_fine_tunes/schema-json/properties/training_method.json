@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "description": "The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "sft"
+          ]
+        }
+      },
+      "required": [
+        "method"
+      ]
+    }
+  ],
+  "properties": {}
+}
