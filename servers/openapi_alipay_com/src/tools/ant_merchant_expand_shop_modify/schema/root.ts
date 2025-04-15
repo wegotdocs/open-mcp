@@ -1,0 +1,33 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "biz_cards": z.array(z.object({ "account_branch_name": z.string().describe("开户支行名").optional(), "account_holder_name": z.string().describe("卡户名").optional(), "account_inst_city": z.string().describe("开户行所在地-市").optional(), "account_inst_id": z.string().describe("开户行简称缩写").optional(), "account_inst_name": z.string().describe("银行名称").optional(), "account_inst_province": z.string().describe("开户行所在地-省").optional(), "account_no": z.string().describe("银行卡号").optional(), "account_type": z.string().describe("卡类型\r\t借记卡-DC\r\t信用卡-CC").optional(), "bank_code": z.string().describe("联行号").optional(), "usage_type": z.string().describe("账号使用类型\r\t对公-01\r\t对私-02").optional() })).describe("\"门店结算卡信息。本业务当前只允许传入一张结算卡。 说明：本参数仅直付通业务使用，其余业务无需关注。\"").optional(),
+  "brand_id": z.string().describe("品牌id。若无需更新本信息项，可以不填写。可以从B/P站品牌工具箱获取品牌id").optional(),
+  "business_address": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `business_address` to the tool, first call the tool `expandSchema` with \"/properties/business_address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "business_time": z.array(z.object({ "close_time": z.string().describe("关门时间 格式：HH:mm").optional(), "open_time": z.string().describe("开门时间 格式：HH:mm").optional(), "week_day": z.number().int().describe("本对象表示周几的营业时间。1~6表示周一到周六，7表示周日").optional() })).describe("店铺经营时间。若无需更新本信息项，可以不填写").optional(),
+  "cert_image": z.string().describe("营业执照图片KEY").optional(),
+  "cert_name": z.string().describe("营业执照名称，填写值为营业执照或统一社会信用代码证上的名称。").optional(),
+  "cert_no": z.string().describe("证件号码。请填写店铺营业执照号。").optional(),
+  "cert_type": z.string().describe("证件类型").optional(),
+  "contact_infos": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `contact_infos` to the tool, first call the tool `expandSchema` with \"/properties/contact_infos\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "contact_mobile": z.string().describe("店铺联系手机").optional(),
+  "contact_phone": z.string().describe("店铺的联系固话").optional(),
+  "cover": z.string().describe("封面图，其值为使用ant.merchant.expand.indirect.image.upload上传图片得到的一串oss key。若无需更新本信息项，可以不填写。若填写则会整体覆盖原有的封面图").optional(),
+  "ext_infos": z.array(z.object({ "key_name": z.string().describe("KV数据对的key，表示该kv对象表示什么含义。").optional(), "value": z.string().describe("kv对象的值").optional() })).describe("扩展信息列表。key值需要向对应行业的bd进行申请。传入本项时，按key进行更新或补充").optional(),
+  "industry_info": z.array(z.object({ "info_code": z.string().describe("行业信息CODE").optional(), "info_value": z.array(z.string()).describe("行业信息值，具体值根据info_code决定。\t当info_code=SHOP_MEDICAL_LOGO/SHOP_MEDICAL_IN_PIC这类文件信息时，\t需要传入ant.merchant.expand.indirect.image.upload接口上传的文件key；当info_code= SHOP_MEDICAL_LEVEL_TAG时，需要<a href=\"https://mdn.alipayobjects.com/mrcheshop/afts/file/ZuDmQKgBifgAAAAAAAAAAAAADiWmAQBr?af_filename=医院类型.xlsx\">医院类型</a>中CODE；其他场景传入自定义文本即可。").optional() })).describe("行业信息，例如所属集团、特殊标签").optional(),
+  "industry_license": z.array(z.object({ "license_pic": z.string().describe("资质图片信息").optional(), "license_type": z.string().describe("行业资质类型，需使用<a href=\"https://mdn.alipayobjects.com/mrcheshop/afts/file/DfOPQYKgg_sAAAAAAAAAAAAAeiWmAQBr\">资质列表</a>中类型").optional() })).describe("门店资质信息").optional(),
+  "ip_role_id": z.string().describe("商户角色id，表示将要修改的店属于哪个商户角色，和store_id一起定位待修改的门店。对于直连场景，填写商户pid；对于间连场景（线上、线下、直付通），填写商户smid。本信息项不可修改").optional(),
+  "legal_cert_no": z.string().describe("法人身份证号。如果要更新，必须和legal_name成对传入").optional(),
+  "legal_name": z.string().describe("法人名称。如果要更新，必须和legal_cert_no成对传入").optional(),
+  "license_auth_letter_image": z.string().describe("营业执照授权函。其值为使用ant.merchant.expand.indirect.image.upload上传图片得到的一串oss key。若无需更新本信息项，可以不填写").optional(),
+  "memo": z.string().describe("备注").optional(),
+  "out_door_images": z.array(z.string()).describe("门头照，其值为使用ant.merchant.expand.indirect.image.upload上传图片得到的一串oss key。若无需更新本信息项，可以不填写。若填写则会整体覆盖原有的门头照列表").optional(),
+  "qualifications": z.array(z.object({ "industry_qualification_image": z.string().describe("商户行业资质图片。其值为通过ant.merchant.expand.indirect.image.upload上传图片得到的image_id").optional(), "industry_qualification_type": z.string().describe("<a href=\"https://gw.alipayobjects.com/os/bmw-prod/7aa3a36b-2bc2-4d57-815f-08edd55ef67e.xlsx\">商户行业资质类型，具体选值参见文档</a>").optional() })).describe("行业特殊资质。若无需更新本信息项，可以不填写。填写会按类型进行更新或补充").optional(),
+  "scene": z.string().describe("场景。若无需更新本信息项，可以不填写").optional(),
+  "settle_alipay_logon_id": z.string().describe("结算支付宝账号的登录号。若无需更新本信息项，可以不填写").optional(),
+  "shop_category": z.string().describe("新版门店类目标准二级类目code。类目标准及与原类目映射关系参见 <a href=\"https://gw.alipayobjects.com/os/bmw-prod/4b3f82df-e53e-4b84-bc41-fe025101e726.xlsx\">支付宝门店类目-最新</a> 表格。").optional(),
+  "shop_id": z.string().describe("蚂蚁店铺id，用于查出待修改的门店。填写本参数的话，store_id和ip_role_id可以不填。本信息项不可修改").optional(),
+  "shop_main_type": z.string().describe("主要针对医疗行业门店主体类型进件使用，不同门店认证主体需要相应的主体资质证书。 \t企业营业执照: ENTERPRISE; \t事业单位法人证书: INST_RGST_CTF; \t民办非企业单位登记证书 PRIVATE_NON_ENTERPRISE").optional(),
+  "shop_name": z.string().describe("店铺名称。直连开店要保证全局店铺名称+地址唯一，间连开店要保证服务商pid下店铺名称+地址唯一。若无需更新本信息项，可以不填写").optional(),
+  "store_id": z.string().describe("门店编号，表示该门店在该商户角色id(直连pid，间连smid)下，由商户自己定义的外部门店编号。用于查出待修改的门店。").optional()
+}

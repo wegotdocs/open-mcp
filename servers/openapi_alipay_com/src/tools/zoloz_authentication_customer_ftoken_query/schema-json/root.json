@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_type": {
+      "description": "1、1：1人脸验证能力\r\t2、1：n人脸搜索能力（支付宝uid入库）\r\t3、1：n人脸搜索能力（支付宝手机号入库）\r\t4、手机号和人脸识别综合能力",
+      "example": "1",
+      "type": "string"
+    },
+    "ext_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ext_info` to the tool, first call the tool `expandSchema` with \"/properties/ext_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "ftoken": {
+      "description": "人脸token",
+      "example": "fp0593e8d5c136277f13fd5bc36c13a7db7",
+      "type": "string"
+    },
+    "zim_id": {
+      "description": "刷脸初始化流程中产生的zimId值",
+      "example": "3b35b4677de2c69bb5bab69a4a5168d62",
+      "type": "string"
+    }
+  },
+  "required": []
+}

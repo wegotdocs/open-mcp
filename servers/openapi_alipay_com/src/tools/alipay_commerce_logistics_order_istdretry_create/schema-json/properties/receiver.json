@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "address": {
+      "description": "地址(街道、小区、大厦等，用于定位)",
+      "type": "string"
+    },
+    "address_detail": {
+      "description": "地址详情(楼号、单元号、层号)",
+      "type": "string"
+    },
+    "city": {
+      "description": "城市名称，如杭州市",
+      "type": "string"
+    },
+    "coordinate_type": {
+      "description": "坐标类型，0：火星坐标（高德，腾讯地图均采用火星坐标） 1：百度坐标。目前只支持0:火星坐标",
+      "type": "integer"
+    },
+    "lat": {
+      "description": "纬度",
+      "type": "string"
+    },
+    "lng": {
+      "description": "经度",
+      "type": "string"
+    },
+    "mobile_no": {
+      "description": "手机号",
+      "type": "string"
+    },
+    "name": {
+      "description": "姓名",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

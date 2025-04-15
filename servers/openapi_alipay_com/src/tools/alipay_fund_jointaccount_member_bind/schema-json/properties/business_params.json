@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "employee_id": {
+      "description": "企业员工工卡",
+      "example": "983748293742",
+      "type": "string"
+    },
+    "fund_ext_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fund_ext_info` to the tool, first call the tool `expandSchema` with \"/properties/business_params/properties/fund_ext_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "group_id_list": {
+      "description": "员工关联的群组ID，当前系统仅支持一个",
+      "example": "[\"11\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

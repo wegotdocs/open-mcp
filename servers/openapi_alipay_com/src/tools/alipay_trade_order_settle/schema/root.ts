@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "extend_params": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `extend_params` to the tool, first call the tool `expandSchema` with \"/properties/extend_params\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "operator_id": z.string().describe("操作员 ID，商家自定义操作员编号。").optional(),
+  "out_request_no": z.string().describe("结算请求流水号，由商家自定义。32个字符以内，仅可包含字母、数字、下划线。需保证在商户端不重复。").optional(),
+  "royalty_mode": z.string().describe("分账模式，目前有两种分账同步执行sync，分账异步执行async，不传默认同步执行").optional(),
+  "royalty_parameters": z.array(z.object({ "amount": z.string().describe("分账的金额，单位为元").optional(), "amount_percentage": z.number().int().describe("分账信息中分账百分比。取值范围为大于0，少于或等于100的整数。").optional(), "desc": z.string().describe("分账描述").optional(), "royalty_scene": z.string().describe("可选值：达人佣金、平台服务费、技术服务费、其他").optional(), "royalty_type": z.string().describe("分账类型.").optional(), "trans_in": z.string().describe("收入方账户。如果收入方账户类型为userId，本参数为收入方的支付宝账号对应的支付宝唯一用户号，以2088开头的纯16位数字；如果收入方类型为cardAliasNo，本参数为收入方在支付宝绑定的卡编号；如果收入方类型为loginName，本参数为收入方的支付宝登录号；").optional(), "trans_in_name": z.string().describe("分账收款方姓名，上送则进行姓名与支付宝账号的一致性校验，校验不一致则分账失败。不上送则不进行姓名校验").optional(), "trans_in_type": z.string().describe("收入方账户类型。").optional(), "trans_out": z.string().describe("支出方账户。如果支出方账户类型为userId，本参数为支出方的支付宝账号对应的支付宝唯一用户号，以2088开头的纯16位数字；如果支出方类型为loginName，本参数为支出方的支付宝登录号。 泛金融类商户分账时，该字段不要上送。").optional(), "trans_out_type": z.string().describe("支出方账户类型。").optional() })).describe("分账明细信息。单独调用分账完结时，可以不传此参数。其他场景必传。\t注意：商家分账场景下分账收入方 trans_in 只支持支付宝账户，不支持使用 cardAliasNo 卡编号。").optional(),
+  "trade_no": z.string().describe("支付宝订单号").optional()
+}

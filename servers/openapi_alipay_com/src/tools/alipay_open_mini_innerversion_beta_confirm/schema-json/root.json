@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "app_origin": {
+      "description": "业务来源",
+      "example": "AAA",
+      "type": "string"
+    },
+    "memo": {
+      "description": "拒绝理由",
+      "example": "业务验证不通过",
+      "type": "string"
+    },
+    "mini_app_id": {
+      "description": "小程序ID，仅特殊场景使用，普通业务方无需关注该参数",
+      "example": "2019*****",
+      "type": "string"
+    },
+    "operate": {
+      "description": "操作：pass/reject。接受或者拒绝",
+      "example": "pass",
+      "type": "string"
+    },
+    "pid": {
+      "description": "小程序所属PID",
+      "example": "2088****",
+      "type": "string"
+    },
+    "plugin_id": {
+      "description": "要确认邀测结果的插件appid",
+      "example": "2019*****",
+      "type": "string"
+    }
+  },
+  "required": []
+}

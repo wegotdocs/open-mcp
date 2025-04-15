@@ -1,0 +1,111 @@
+{
+  "type": "object",
+  "properties": {
+    "extend_params": {
+      "description": "业务扩展参数",
+      "example": "{\"key\":\"value\"}",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "结算请求外部流水号，32个字符以内、可包含字母、数字、下划线；需保证在商户端不重复",
+      "example": "20180101",
+      "type": "string"
+    },
+    "royalty_parameters": {
+      "description": "分账条款明细\t特别注意：最好一次只传一个分账条款。\t如果传多个，则要求出账方只能有一个，\t举例：A分给B+A分给C+A分给D=OK\tA分给B+C分给D=不行",
+      "items": {
+        "properties": {
+          "amount": {
+            "description": "分账金额，单位为元",
+            "example": "10.00",
+            "type": "string"
+          },
+          "desc": {
+            "description": "分账描述",
+            "example": "分账给2088101126708402",
+            "type": "string"
+          },
+          "scene": {
+            "description": "分账场景，目前仅支持5中类型，RETURN_MONEY(垫资还款), CHARGE（费用）, REPLENISH（补贴），FUND_TRANS_IN_SWITCHING（存量资金搬迁），PUNISHMENT（处罚）",
+            "example": "PUNISHMENT",
+            "type": "string"
+          },
+          "trans_in_account_id": {
+            "description": "分账转入账户id。当分账账户id类型是cardSerialNo时，本参数为用户在支付宝绑定的卡编号；当分账账户id类型是userId时，本参数为用户的支付宝账号对应的支付宝唯一用户号；当分账账户id类型是loginName时，本参数为用户的支付宝登录号;当分账账户id类型是openId时，本参数为用户的在该应用下的支付宝OpenId; 当 trans_in_account_type 为defaultSettle时，本参数必须为空",
+            "example": "2088101126708402",
+            "type": "string"
+          },
+          "trans_in_account_id_type": {
+            "description": "分账转入账户id类型。 当trans_in_account_type 为bankCard时，本参数为cardSerialNo，表示分账账户id是银行卡编号; 当trans_in_account_type 为alipayBalance时，本参数为userId或者loginName或者openId，其中userId表示分账账户id是支付宝唯一用户号，loginName表示分账账户id是支付宝登录号，openId表示分账账户id是支付宝OpenId; 当 trans_in_account_type 为 defaultSettle 时，本参数必须为空。",
+            "example": "cardSerialNo",
+            "type": "string"
+          },
+          "trans_in_account_type": {
+            "description": "分账账户类型。 bankCard: 分账账户为银行卡； alipayBalance: 分账账户为支付宝余额户; defaultSettle: 按默认结算规则分账",
+            "example": "alipayBalance",
+            "type": "string"
+          },
+          "trans_in_entity_biz_type": {
+            "description": "分账账户业务类型，目前仅支持已结算类型 settled",
+            "example": "settled",
+            "type": "string"
+          },
+          "trans_in_entity_id": {
+            "description": "分账转出主体账 号。\r\t\r\t当分账转出主体类型为SecondMerchant，本参数为二级商户的SecondMerchantID\r\t\r\t当分账转出类型为Store，本参数为StoreID",
+            "example": "SecondMerchant",
+            "type": "string"
+          },
+          "trans_in_entity_type": {
+            "description": "分账转入主体类型。 SecondMerchant：分账转入主体为二级商户\tStore: 分账转入主体为门店",
+            "example": "Store",
+            "type": "string"
+          },
+          "trans_in_sub_merchant": {
+            "properties": {
+              "merchant_id": {
+                "description": "支付宝二级商户编号。\t间连受理商户的支付宝商户编号，通过间连商户入驻接口后由支付宝生成。\t直付通和机构间连业务场景下必传。",
+                "type": "string"
+              },
+              "merchant_type": {
+                "description": "二级商户编号类型。\t枚举值：\talipay:支付宝分配的间联商户编号；\t目前仅支持alipay，默认可以不传。",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "trans_out_entity_biz_type": {
+            "description": "分账转出方主体业务类型，目前仅支持已结算类型 settled",
+            "example": "settled",
+            "type": "string"
+          },
+          "trans_out_entity_id": {
+            "description": "分账转出主体账。\r\t\r\t当分账转出主体类型为SecondMerchant，本参数为二级商户的SecondMerchantId\r\t\r\t当分账转出类型为Store，本参数为StoreID",
+            "example": "2088",
+            "type": "string"
+          },
+          "trans_out_entity_type": {
+            "description": "分账转出主体类型。 SecondMerchant：结算主体为二级商户\tStore: 结算主体为门店",
+            "example": "SecondMerchant",
+            "type": "string"
+          },
+          "trans_out_sub_merchant": {
+            "properties": {
+              "merchant_id": {
+                "description": "支付宝二级商户编号。\t间连受理商户的支付宝商户编号，通过间连商户入驻接口后由支付宝生成。\t直付通和机构间连业务场景下必传。",
+                "type": "string"
+              },
+              "merchant_type": {
+                "description": "二级商户编号类型。\t枚举值：\talipay:支付宝分配的间联商户编号；\t目前仅支持alipay，默认可以不传。",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

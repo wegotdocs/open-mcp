@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "delivery_content_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_content_info` to the tool, first call the tool `expandSchema` with \"/properties/delivery_play_config/properties/delivery_full_send_config/properties/delivery_content_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_floor_amount": {
+      "description": "满足消费金额门槛，左闭区间，单位元。\t说明：限制支付时的订单金额最少满足的金额门槛。\t限制：value > 0 && value <= 99999。",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

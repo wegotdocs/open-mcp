@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_id": {
+      "description": "协议号，商户会员在支付宝服务窗账号中的唯一标识，与bind_account_no不能同时为空",
+      "example": "29022222",
+      "type": "string"
+    },
+    "bind_account_no": {
+      "description": "绑定帐号，建议在开发者的系统中保持唯一性，与agreement_id不能同时为空",
+      "example": "test001",
+      "type": "string"
+    },
+    "from_user_id": {
+      "description": "绑定用户的支付宝userid，2088开头16位长度的字符串，与agreementId不能同时为空",
+      "example": "2088656734541243",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "支付宝用户的唯一标识",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    }
+  },
+  "required": []
+}

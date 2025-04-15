@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "共同账户id - 适用于在企业码小程序创建的共同账户，和agreement_no搭配使用",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "bill_day": {
+      "description": "月账单账期",
+      "example": 31,
+      "type": "integer"
+    },
+    "enterprise_id": {
+      "description": "企业ID - 适用于在企业码PC端创建的企业账号",
+      "example": "2088000194958956",
+      "type": "string"
+    }
+  },
+  "required": []
+}

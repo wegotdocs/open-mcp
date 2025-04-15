@@ -1,0 +1,97 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "共同账户id",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "effective_end_date": {
+      "description": "有效期截止（yyyy-MM-dd HH:mm:ss，必须大于起始时间）",
+      "example": "2021-03-01 00:00:00",
+      "type": "string"
+    },
+    "effective_start_date": {
+      "description": "有效期起始（yyyy-MM-dd HH:mm:ss，必须小于截止时间）",
+      "example": "2021-03-01 00:00:00",
+      "type": "string"
+    },
+    "employee_list": {
+      "description": "切换open_id前使用此字段：员工支付宝ID列表\t特殊说明：单次传入的最大员工数为50，后续通过修改项目的员工列表接口进行员工调整",
+      "example": "[\"2088123412341234\",\"2088123412342234\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "employee_open_id_list": {
+      "description": "切换open_id后使用此字段：员工open_id列表 特殊说明：单次传入的最大员工数为50，后续通过修改项目的员工列表接口进行员工调整",
+      "example": "[\"abcdxxxx\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "expense_ctrl_rule_info_group_list": {
+      "description": "费控规则列表",
+      "items": {
+        "properties": {
+          "expense_ctrl_rule_info_list": {
+            "description": "费控条件列表",
+            "items": {
+              "properties": {
+                "rule_factor": {
+                  "description": "费控维度",
+                  "type": "string"
+                },
+                "rule_id": {
+                  "description": "费控条件ID",
+                  "type": "string"
+                },
+                "rule_name": {
+                  "description": "费控条件名称",
+                  "type": "string"
+                },
+                "rule_operator": {
+                  "description": "费控条件操作符\t枚举值：\tLT(\"<\",\"小于\")\tLE(\"<=\",\"小于等于\")\tEQ(\"=\",\"等于\")\tNE(\"!=\",\"不等于\")\tGE(\">=\",\"大于等于\")\tGT(\">\",\"大于\")",
+                  "type": "string"
+                },
+                "rule_value": {
+                  "description": "费控条件值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "expense_type": {
+            "description": "费用类型\t特殊说明：仅支持费用类型DEFAULT",
+            "type": "string"
+          },
+          "group_id": {
+            "description": "费控规则ID",
+            "type": "string"
+          },
+          "group_name": {
+            "description": "费控规则名称\t约束：\t1）敏感词校验\t2）不能重复",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "project_name": {
+      "description": "项目名称\t约束：\t1）敏感词校验\t2）不能重复",
+      "example": "项目",
+      "type": "string"
+    }
+  },
+  "required": []
+}

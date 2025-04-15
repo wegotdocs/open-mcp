@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_product": {
+      "description": "收单产品码，商家和支付宝签约的产品码",
+      "example": "FACE_TO_FACE_PAYMENT",
+      "type": "string"
+    },
+    "extend_params": {
+      "description": "扩展参数",
+      "example": "{\"key\":\"value\"}",
+      "type": "string"
+    },
+    "merchant_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `merchant_info` to the tool, first call the tool `expandSchema` with \"/properties/merchant_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "out_request_no": {
+      "description": "外部请求号，32个字符以内，可包含字母、数字、下划线。",
+      "example": "2019040100000001",
+      "type": "string"
+    },
+    "query_his_date": {
+      "description": "当trade_no不为空时，该字段不生效。\t查询历史日期，格式为 yyyyMMdd ，取值范围为昨日起至往前30日内；\t不传入时，查询实时待结算余额返回；\t传入过去某一天日期，查询对应日期的日终待结算余额返回（注意：日常场景下，昨日日终待结算余额只可在当天 02:00 后查询，在当天 02:00 前查询返回查询错误；大促场景下昨日日终可查时间会适当延后）；\t传入过去某一天非近30天内，返回参数错误。",
+      "example": "20200313",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "支付宝交易号，当该笔交易为直付通账期模式，查询该笔交易待确认结算金额时必传",
+      "example": "2022081722001432461452204877",
+      "type": "string"
+    }
+  },
+  "required": []
+}

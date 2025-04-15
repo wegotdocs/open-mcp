@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "共同账户ID",
+      "example": "20888888888",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "三方授权协议号",
+      "example": "3424324324324",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "业务场景",
+      "example": "ISV_DEFAULT",
+      "type": "string"
+    },
+    "identity": {
+      "description": "企业账号：identity_type是ALIPAY_USER_ID填支付宝会员ID（2088开头）；\t是ALIPAY_LOGON_ID 填支付宝登录号",
+      "example": "name@email.com",
+      "type": "string"
+    },
+    "identity_type": {
+      "description": "账号类型，目前支持如下类型： 1、ALIPAY_USER_ID 支付宝的会员ID 2、ALIPAY_LOGON_ID：支付宝登录号，支持邮箱和手机号格式",
+      "example": "ALIPAY_LOGON_ID",
+      "type": "string"
+    },
+    "last_open_id": {
+      "description": "按游标查询，传入上次查询最后一个用户的openId",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "last_user_id": {
+      "description": "按游标查询，传入上次查询最后一个用户ID，适用于逐页查询。优先级大于page_num",
+      "example": "2088900976746215",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "采用分页查询，本参数为空或0默认显示第一页。如果输入的值大于总页数，则支付宝返回最后一页数据。",
+      "example": "1",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "每页大小，不传的情况下默认20条，上限100；不足20条则按实际记录数返回",
+      "example": "20",
+      "type": "string"
+    },
+    "product_code": {
+      "description": "销售产品码",
+      "example": "ENTERPRISE_PAY",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,31 @@
+{
+  "properties": {
+    "adapter_type": {
+      "description": "制度的适用范围类型",
+      "example": "EMPLOYEE_ALL",
+      "type": "string"
+    },
+    "add_owner_id_list": {
+      "description": "增加的归属id列表",
+      "example": "[\"1001004110381022\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "delete_owner_id_list": {
+      "description": "删除归属id列表",
+      "example": "[\"2288000000040864\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "owner_type": {
+      "description": "归属id类型",
+      "example": "ENTERPRISE_PAY_UID",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

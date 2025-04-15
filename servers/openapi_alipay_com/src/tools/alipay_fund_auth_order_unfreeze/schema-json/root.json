@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "amount": {
+      "description": "本次操作解冻的金额，单位为：元（人民币），精确到小数点后两位。\t取值范围：[0.01,100000000.00]",
+      "example": "20.11",
+      "type": "string"
+    },
+    "auth_no": {
+      "description": "支付宝资金授权订单号。",
+      "example": "2016101210002001810258115912",
+      "type": "string"
+    },
+    "extra_param": {
+      "description": "解冻扩展信息。map<string, string>的json格式，目前支持如下key：\tunfreezeBizInfo：由芝麻消费，当前支持value如下：\t\"bizComplete\":\"true\"——标识本次解冻用户已履约，true表示信用单履约完结",
+      "example": "{\"unfreezeBizInfo\": \"{\\\"bizComplete\\\":\\\"true\\\"}\"}",
+      "type": "string"
+    },
+    "notify_url": {
+      "description": "通知地址",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "解冻请求流水号。\t如果是针对同一笔授权单不同的解冻请求，如第一次解冻1元，第二次解冻2元，则解冻请求流水号必须不重复；\t如果是针对同一笔解冻请求的多次发起，则需要保证每次发起，解冻请求流水号和解冻金额都相同",
+      "example": "2016101200104001110081001",
+      "type": "string"
+    },
+    "remark": {
+      "description": "商户对本次解冻操作的附言描述",
+      "example": "2014-05期解冻200.00元",
+      "type": "string"
+    }
+  },
+  "required": []
+}

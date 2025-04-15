@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `auth_info` to the tool, first call the tool `expandSchema` with \"/properties/auth_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "biz_scene": {
+      "description": "业务场景，比如群收款、红包等",
+      "example": "PARTY_MEMBERSHIP_DUES",
+      "type": "string"
+    },
+    "business_params": {
+      "description": "JSON格式，传递业务扩展参数，使用前请与支付宝工程师联系！",
+      "example": "{\"MERCHANT_PAYER_ID\":\"1234567890\",\"MERCHANT_PAYER_PHONE:\"15012341234\"}",
+      "type": "string"
+    },
+    "order_title": {
+      "description": "订单的标题，用于在收银台和消费记录展示",
+      "example": "钉钉红包",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "商户端的唯一订单号，对于同一笔转账请求，商户需保证该订单号唯一。",
+      "example": "201806300001",
+      "type": "string"
+    },
+    "passback_params": {
+      "description": "回传参数，如果请求时传递了该参数，则异步通知商户时会回传该参数。",
+      "example": "{\"merchantBizType\":\"peerPay\"}",
+      "type": "string"
+    },
+    "payee_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payee_info` to the tool, first call the tool `expandSchema` with \"/properties/payee_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "payer_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payer_info` to the tool, first call the tool `expandSchema` with \"/properties/payer_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "product_code": {
+      "description": "销售产品码，商家和支付宝签约的产品码",
+      "example": "STD_APP_TRANSFER",
+      "type": "string"
+    },
+    "refund_time_expire": {
+      "description": "退款超时时间，格式yyyy-MM-dd HH:mm。到指定时间后，系统会自动触发退款，并原路退回到付款账户。如果指定了退款时间，必须早于销售方案里设置的最晚退款时间。",
+      "example": "2018-11-08 10:00",
+      "type": "string"
+    },
+    "remark": {
+      "description": "备注",
+      "example": "报销付款",
+      "type": "string"
+    },
+    "time_expire": {
+      "description": "绝对超时时间，格式为yyyy-MM-dd HH:mm",
+      "example": "2018-03-23 19:15",
+      "type": "string"
+    },
+    "trans_amount": {
+      "description": "订单总金额，单位为元，精确到小数点后两位，取值范围[0.01,100000000]",
+      "example": "8.88",
+      "type": "string"
+    }
+  },
+  "required": []
+}

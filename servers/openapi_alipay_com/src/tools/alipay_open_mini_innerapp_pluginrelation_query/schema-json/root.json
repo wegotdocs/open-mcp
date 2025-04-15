@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "mini_app_id_list": {
+      "description": "应用ID列表",
+      "example": "['2012211102012056','2012211102012057']",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "page_num": {
+      "description": "页码",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "页大小",
+      "example": 10,
+      "type": "integer"
+    },
+    "plugin_id": {
+      "description": "插件ID",
+      "example": "2012211102012088",
+      "type": "string"
+    },
+    "plugin_relation_status_list": {
+      "description": "插件使用关系状态，取值包括WORKING/WAIT_WORKING/STOP_WORKING/EXECUTING",
+      "example": "[\"WORKING\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "run_model_type": {
+      "description": "运行类型，取值包括ONLINE/TRIAL/REVIEW/DEBUG",
+      "example": "ONLINE",
+      "type": "string"
+    },
+    "show_beta_info": {
+      "description": "是否展示邀测信息",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业ID",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "action": {
+      "description": "修改操作\t枚举值：MODIFY_RULE（修改费控条件），仅支持MODIFY_RULE",
+      "example": "MODIFY_RULE",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "expense_ctrl_rule_info_group_list": {
+      "description": "费控规则列表",
+      "items": {
+        "properties": {
+          "expense_ctrl_rule_info_list": {
+            "description": "费控条件列表",
+            "items": {
+              "properties": {
+                "rule_factor": {
+                  "description": "费控维度",
+                  "type": "string"
+                },
+                "rule_id": {
+                  "description": "费控条件ID",
+                  "type": "string"
+                },
+                "rule_name": {
+                  "description": "费控条件名称",
+                  "type": "string"
+                },
+                "rule_operator": {
+                  "description": "费控条件操作符\t枚举值：\tLT(\"<\",\"小于\")\tLE(\"<=\",\"小于等于\")\tEQ(\"=\",\"等于\")\tNE(\"!=\",\"不等于\")\tGE(\">=\",\"大于等于\")\tGT(\">\",\"大于\")",
+                  "type": "string"
+                },
+                "rule_value": {
+                  "description": "费控条件值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "expense_type": {
+            "description": "费用类型\t特殊说明：仅支持费用类型DEFAULT",
+            "type": "string"
+          },
+          "group_id": {
+            "description": "费控规则ID",
+            "type": "string"
+          },
+          "group_name": {
+            "description": "费控规则名称\t约束：\t1）敏感词校验\t2）不能重复",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "project_id": {
+      "description": "项目ID",
+      "example": "2021041300152700950000001050",
+      "type": "string"
+    }
+  },
+  "required": []
+}

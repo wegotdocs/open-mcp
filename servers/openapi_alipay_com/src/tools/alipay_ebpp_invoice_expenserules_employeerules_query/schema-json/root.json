@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业ID",
+      "example": "208800019495xxxx",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "2021542500111234xxxx",
+      "type": "string"
+    },
+    "employee_id": {
+      "description": "未切换open_id时使用此字段：员工ID",
+      "example": "208852286537xxxx",
+      "type": "string"
+    },
+    "employee_open_id": {
+      "description": "切换open_id后使用此字段：员工的open_id",
+      "example": "abcdxxxx",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "页码，默认值为1",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "每页行数，默认值为20",
+      "example": 20,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

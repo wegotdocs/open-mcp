@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "challenge": {
+      "description": "业务的业务流水号，例如订单id",
+      "example": "00123456",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "蚂蚁统一会员ID，验证时会与做身份认证时候会话中的openid做比对，如不相符核验结果不通过",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "蚂蚁统一会员ID，验证时会与做身份认证时候会话中的userId做比对，如不相符核验结果不通过",
+      "example": "2088302857831249",
+      "type": "string"
+    },
+    "verify_id": {
+      "description": "核身校验id，是一次核身校验服务中唯一性的id",
+      "example": "0xa213nfdajbav17521",
+      "type": "string"
+    }
+  },
+  "required": []
+}

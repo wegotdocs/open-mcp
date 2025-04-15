@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "mini_app_id": {
+      "description": "插件id或模板id",
+      "example": "2012211102012056",
+      "type": "string"
+    },
+    "app_sub_type": {
+      "description": "小程序应用子类型",
+      "example": "TINYAPP_TEMPLATE、TINYAPP_PLUGIN",
+      "type": "string"
+    },
+    "show_type": {
+      "description": "是否在服务市场透出，SHOW展示、HIDE隐藏",
+      "example": "SHOW",
+      "type": "string"
+    },
+    "keyword": {
+      "description": "关键词",
+      "example": "xxxx插件",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "页码，默认第一页",
+      "example": "1",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "分页数，默认每页10个",
+      "example": "10",
+      "type": "string"
+    },
+    "app_origin": {
+      "description": "业务来源，新接入方需要向支付宝申请专用来源，否则不予接入。https://yuque.antfin-inc.com/tinyapp-all/qddncu/bidushixiang",
+      "example": "https://yuque.antfin-inc.com/tinyapp-all/qddncu/bidushixiang",
+      "type": "string"
+    },
+    "include_offline": {
+      "description": "是否需要展示offline状态插件，不传默认为false（不展示）",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,1178 @@
+{
+  "type": "object",
+  "properties": {
+    "amount": {
+      "description": "订单总金额：某笔交易订单优惠前的总金额，单位为【元】</br>\t<a href=\"https://mdn.alipayobjects.com/portal_ykdvdu/afts/img/A*UuuWRpmekegAAAAAAAAAAAAAAQAAAQ/original\" target=\"_blank\">实际案例一</a>\t<br><a href=\"https://mdn.alipayobjects.com/portal_ykdvdu/afts/img/A*kBkOTZpqP40AAAAAAAAAAAAAAQAAAQ/original\" target=\"_blank\">实际案例二</a>\t<br><a href=\"https://mdn.alipayobjects.com/portal_ykdvdu/afts/img/A*ZpkjTJQlFVAAAAAAAAAAAAAAAQAAAQ/original\" target=\"_blank\">实际案例三</a>",
+      "example": "12.34",
+      "type": "string"
+    },
+    "buyer_id": {
+      "description": "买家userId",
+      "example": "20880010xxxxxxxx",
+      "type": "string"
+    },
+    "buyer_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `buyer_info` to the tool, first call the tool `expandSchema` with \"/properties/buyer_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "buyer_open_id": {
+      "description": "用户open_id",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "category_id": {
+      "description": "标准服务类目",
+      "example": "C000003191",
+      "type": "string"
+    },
+    "discount_amount": {
+      "description": "商户总计优惠金额：代表商户侧给予用户的总计优惠金额 （不包含选择支付宝付款时，支付宝给予的优惠减免金额），单位为【元】。</br>\t<a href=\"https://mdn.alipayobjects.com/portal_ykdvdu/afts/img/A*UuuWRpmekegAAAAAAAAAAAAAAQAAAQ/original\" target=\"_blank\">实际案例一</a>\t<br><a href=\"https://mdn.alipayobjects.com/portal_ykdvdu/afts/img/A*kBkOTZpqP40AAAAAAAAAAAAAAQAAAQ/original\" target=\"_blank\">实际案例二</a>\t<br><a href=\"https://mdn.alipayobjects.com/portal_ykdvdu/afts/img/A*ZpkjTJQlFVAAAAAAAAAAAAAAAQAAAQ/original\" target=\"_blank\">实际案例三</a>",
+      "example": "2.44",
+      "type": "string"
+    },
+    "discount_info_list": {
+      "description": "订单优惠信息",
+      "items": {
+        "properties": {
+          "discount_amount": {
+            "description": "优惠金额",
+            "example": "2.44",
+            "type": "string"
+          },
+          "discount_name": {
+            "description": "优惠名称",
+            "example": "商家红包",
+            "type": "string"
+          },
+          "discount_page_link": {
+            "description": "优惠跳转链接地址",
+            "example": "https://www.alipay.com/",
+            "type": "string"
+          },
+          "discount_quantity": {
+            "description": "优惠数量",
+            "example": 1,
+            "type": "integer"
+          },
+          "external_discount_id": {
+            "description": "外部优惠id",
+            "example": "discount001",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ext_info": {
+      "description": "扩展信息，请参见 <a href=\"https://opendocs.alipay.com/mini/04zsxt?pathHash=654d4f10\">小程序订单中心模板</a>",
+      "items": {
+        "properties": {
+          "ext_key": {
+            "description": "键值",
+            "type": "string"
+          },
+          "ext_value": {
+            "description": "值",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "item_order_list": {
+      "description": "商品信息列表",
+      "items": {
+        "properties": {
+          "ext_info": {
+            "description": "扩展信息，请参见产品文档。小程序订单助手业务中，扩展参数必须传递素材id；其他业务场景参见对应的产品文档。",
+            "items": {
+              "properties": {
+                "ext_key": {
+                  "description": "键值",
+                  "type": "string"
+                },
+                "ext_value": {
+                  "description": "值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "item_id": {
+            "description": "商品ID",
+            "example": "2019073100702219000000100000",
+            "type": "string"
+          },
+          "item_name": {
+            "description": "商品名称",
+            "example": "苹果",
+            "type": "string"
+          },
+          "quantity": {
+            "description": "商品数量（单位：自拟）",
+            "example": 20,
+            "type": "integer"
+          },
+          "sku_id": {
+            "description": "商品 sku id",
+            "example": "2018111300502205000000176601",
+            "type": "string"
+          },
+          "status": {
+            "description": "商品状态枚举",
+            "example": "PAID",
+            "type": "string"
+          },
+          "status_desc": {
+            "description": "商品状态描述，默认无需传入，如需使用请联系业务负责人",
+            "example": "已付款",
+            "type": "string"
+          },
+          "unit": {
+            "description": "商品规格",
+            "example": "斤",
+            "type": "string"
+          },
+          "unit_price": {
+            "description": "商品单价（单位：元）",
+            "example": "13.18",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "journey_order_list": {
+      "description": "行程信息",
+      "items": {
+        "properties": {
+          "action": {
+            "description": "操作动作",
+            "example": "DELETE",
+            "type": "string"
+          },
+          "ext_info": {
+            "description": "扩展信息",
+            "items": {
+              "properties": {
+                "ext_key": {
+                  "description": "键值",
+                  "type": "string"
+                },
+                "ext_value": {
+                  "description": "值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "journey_create_time": {
+            "description": "行程创建时间",
+            "example": "2021-01-16 12:12:12",
+            "type": "string"
+          },
+          "journey_desc": {
+            "description": "行程描述",
+            "example": "中国航空公司 C8888 上海-北京",
+            "type": "string"
+          },
+          "journey_elements": {
+            "description": "行程元素列表",
+            "items": {
+              "properties": {
+                "arrival": {
+                  "properties": {
+                    "aoi_id": {
+                      "description": "支付宝域内aoiId",
+                      "type": "string"
+                    },
+                    "city": {
+                      "description": "城市名",
+                      "type": "string"
+                    },
+                    "ext_info": {
+                      "description": "扩展信息",
+                      "items": {
+                        "properties": {
+                          "ext_key": {
+                            "description": "键值",
+                            "type": "string"
+                          },
+                          "ext_value": {
+                            "description": "值",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "location_id": {
+                      "description": "支付宝侧地点id",
+                      "type": "string"
+                    },
+                    "location_id_type": {
+                      "description": "地点id类型",
+                      "type": "string"
+                    },
+                    "merchant_division_id": {
+                      "description": "商户侧行政区划代码",
+                      "type": "string"
+                    },
+                    "merchant_id": {
+                      "description": "(废弃)商户侧地点id",
+                      "type": "string"
+                    },
+                    "merchant_poi": {
+                      "description": "商户侧poi信息",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "地点名称",
+                      "type": "string"
+                    },
+                    "poi_id": {
+                      "description": "支付宝域内poiId",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "departure": {
+                  "properties": {
+                    "aoi_id": {
+                      "description": "支付宝域内aoiId",
+                      "type": "string"
+                    },
+                    "city": {
+                      "description": "城市名",
+                      "type": "string"
+                    },
+                    "ext_info": {
+                      "description": "扩展信息",
+                      "items": {
+                        "properties": {
+                          "ext_key": {
+                            "description": "键值",
+                            "type": "string"
+                          },
+                          "ext_value": {
+                            "description": "值",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "location_id": {
+                      "description": "支付宝侧地点id",
+                      "type": "string"
+                    },
+                    "location_id_type": {
+                      "description": "地点id类型",
+                      "type": "string"
+                    },
+                    "merchant_division_id": {
+                      "description": "商户侧行政区划代码",
+                      "type": "string"
+                    },
+                    "merchant_id": {
+                      "description": "(废弃)商户侧地点id",
+                      "type": "string"
+                    },
+                    "merchant_poi": {
+                      "description": "商户侧poi信息",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "地点名称",
+                      "type": "string"
+                    },
+                    "poi_id": {
+                      "description": "支付宝域内poiId",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "duration": {
+                  "description": "行程时长",
+                  "example": "3600",
+                  "type": "string"
+                },
+                "end_time": {
+                  "description": "结束时间",
+                  "example": "2021-01-02 12:21:22",
+                  "type": "string"
+                },
+                "end_time_desc": {
+                  "description": "结束时间描述（非结构化）",
+                  "example": "1月2号",
+                  "type": "string"
+                },
+                "ext_info": {
+                  "description": "扩展信息",
+                  "items": {
+                    "properties": {
+                      "ext_key": {
+                        "description": "键值",
+                        "type": "string"
+                      },
+                      "ext_value": {
+                        "description": "值",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "functional_services": {
+                  "description": "功能服务列表",
+                  "items": {
+                    "properties": {
+                      "content": {
+                        "description": "功能内容",
+                        "type": "string"
+                      },
+                      "ext_info": {
+                        "description": "扩展信息",
+                        "items": {
+                          "properties": {
+                            "ext_key": {
+                              "description": "键值",
+                              "type": "string"
+                            },
+                            "ext_value": {
+                              "description": "值",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "function_code": {
+                        "description": "功能码\t支持的功能码请与产品或对应技术确认",
+                        "type": "string"
+                      },
+                      "function_name": {
+                        "description": "功能名称",
+                        "type": "string"
+                      },
+                      "function_type": {
+                        "description": "功能类型",
+                        "type": "string"
+                      },
+                      "function_url": {
+                        "description": "功能入口",
+                        "type": "string"
+                      },
+                      "memo": {
+                        "description": "备注信息",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "passagers": {
+                  "description": "出行人",
+                  "items": {
+                    "properties": {
+                      "cert_no": {
+                        "description": "证件号",
+                        "type": "string"
+                      },
+                      "cert_type": {
+                        "description": "证件类型。",
+                        "type": "string"
+                      },
+                      "ext_info": {
+                        "description": "扩展信息",
+                        "items": {
+                          "properties": {
+                            "ext_key": {
+                              "description": "键值",
+                              "type": "string"
+                            },
+                            "ext_value": {
+                              "description": "值",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "mobile": {
+                        "description": "手机号",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "姓名",
+                        "type": "string"
+                      },
+                      "open_id": {
+                        "description": "支付宝用户openId",
+                        "type": "string"
+                      },
+                      "user_id": {
+                        "description": "支付宝用户ID，可以通过支付结果通知、用户授权等渠道获取",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "service_change_info": {
+                  "properties": {
+                    "change_status": {
+                      "description": "变更状态",
+                      "example": "DELAY",
+                      "type": "string"
+                    },
+                    "detail_url": {
+                      "description": "详情url",
+                      "example": "alipays://platformapi/startApp?appId=2019050664392666&page=page/test/detailurl",
+                      "type": "string"
+                    },
+                    "ext_info": {
+                      "description": "扩展信息",
+                      "items": {
+                        "properties": {
+                          "ext_key": {
+                            "description": "键值",
+                            "type": "string"
+                          },
+                          "ext_value": {
+                            "description": "值",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "remind_content": {
+                      "description": "提醒内容",
+                      "example": "该航班预计起飞时间由2月1日14:40延后至2月2日01:00。",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "service_provider": {
+                  "properties": {
+                    "ext_info": {
+                      "description": "扩展信息",
+                      "items": {
+                        "properties": {
+                          "ext_key": {
+                            "description": "键值",
+                            "type": "string"
+                          },
+                          "ext_value": {
+                            "description": "值",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "logo": {
+                      "description": "商户logo链接",
+                      "example": "logo.jpg",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "商家名称",
+                      "example": "中国航空公司",
+                      "type": "string"
+                    },
+                    "short_name": {
+                      "description": "商家简称",
+                      "example": "中国航空",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "start_time": {
+                  "description": "开始时间",
+                  "example": "2021-01-01 12:21:22",
+                  "type": "string"
+                },
+                "start_time_desc": {
+                  "description": "开始时间描述（非结构化）",
+                  "example": "1月1号",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "journey_index": {
+            "description": "描述本行程为整个行程中的第几程",
+            "example": "2",
+            "type": "string"
+          },
+          "journey_modify_time": {
+            "description": "行程修改时间",
+            "example": "2021-01-16 16:16:16",
+            "type": "string"
+          },
+          "merchant_journey_no": {
+            "description": "商户行程单号",
+            "example": "202101130000001",
+            "type": "string"
+          },
+          "status": {
+            "description": "行程状态",
+            "example": "MERCHANT_FINISHED",
+            "type": "string"
+          },
+          "status_desc": {
+            "description": "行程状态描述",
+            "example": "已完成",
+            "type": "string"
+          },
+          "sub_type": {
+            "description": "行程子类型",
+            "example": "abroad",
+            "type": "string"
+          },
+          "title": {
+            "description": "行程标题",
+            "example": "标题",
+            "type": "string"
+          },
+          "type": {
+            "description": "行程类型",
+            "example": "airticket",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "logistics_info_list": {
+      "description": "物流信息列表",
+      "items": {
+        "properties": {
+          "logistics_code": {
+            "description": "物流公司编号。物流公司编号值请查看<a href=\"https://opendocs.alipay.com/mini/00au7e?highlight_field=logistics_code\" target=\"_blank\">产品文档</a>",
+            "example": "STO",
+            "type": "string"
+          },
+          "phone_no": {
+            "description": "手机号后四位",
+            "example": "1234",
+            "type": "string"
+          },
+          "tracking_no": {
+            "description": "物流单号",
+            "example": "P201802091000000002W",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "order_create_time": {
+      "description": "订单创建时间",
+      "example": "2020-01-01 08:00:00",
+      "type": "string"
+    },
+    "order_modified_time": {
+      "description": "订单修改时间",
+      "example": "2020-01-01 08:00:01",
+      "type": "string"
+    },
+    "order_pay_time": {
+      "description": "订单支付时间",
+      "example": "2020-01-02 08:00:00",
+      "type": "string"
+    },
+    "order_type": {
+      "description": "订单类型",
+      "example": "SERVICE_ORDER",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部订单号\tout_biz_no唯一对应一笔订单，相同的订单需传入相同的out_biz_no",
+      "example": "1234",
+      "type": "string"
+    },
+    "pay_amount": {
+      "description": "用户应付金额 ：用户最终结算时需要支付金额（不包含选择支付宝付款时，支付宝给予的优惠减免金额），单位为【元】</br>\t<a href=\"https://mdn.alipayobjects.com/portal_ykdvdu/afts/img/A*UuuWRpmekegAAAAAAAAAAAAAAQAAAQ/original\" target=\"_blank\">实际案例一</a>\t<br><a href=\"https://mdn.alipayobjects.com/portal_ykdvdu/afts/img/A*kBkOTZpqP40AAAAAAAAAAAAAAQAAAQ/original\" target=\"_blank\">实际案例二</a>\t<br><a href=\"https://mdn.alipayobjects.com/portal_ykdvdu/afts/img/A*ZpkjTJQlFVAAAAAAAAAAAAAAAQAAAQ/original\" target=\"_blank\">实际案例三</a>",
+      "example": "9.99",
+      "type": "string"
+    },
+    "pay_timeout_express": {
+      "description": "支付超时时间，超过时间支付宝自行关闭订单",
+      "example": "15h",
+      "type": "string"
+    },
+    "send_msg": {
+      "description": "是否需要小程序订单代理发送模版消息。不传默认不发送",
+      "example": "Y",
+      "type": "string"
+    },
+    "service_code": {
+      "description": "服务code：传入小程序后台提报的服务id，将订单与服务关联，有利于提高服务曝光机会；入参服务id的类目须与订单类型相符，若不相符将会报错；如订单类型为“外卖”，则入参的服务ID所对应的服务类目也必须得是”外卖“；service_code 通过 <a href=\"https://opendocs.alipay.com/mini/e1c835a1_alipay.open.app.service.apply\" target=\"_blank\">alipay.open.app.service.apply</a> ，(服务提报申请)接口创建服务后获取。",
+      "example": "2018072411000000099497",
+      "type": "string"
+    },
+    "shop_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `shop_info` to the tool, first call the tool `expandSchema` with \"/properties/shop_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "source_app": {
+      "description": "用于区分用户下单的订单来源",
+      "example": "Alipay",
+      "type": "string"
+    },
+    "sync_content": {
+      "description": "同步内容",
+      "example": "ALL",
+      "type": "string"
+    },
+    "ticket_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ticket_info` to the tool, first call the tool `expandSchema` with \"/properties/ticket_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "ticket_order_list": {
+      "description": "凭证信息",
+      "items": {
+        "properties": {
+          "arrival": {
+            "properties": {
+              "aoi_id": {
+                "description": "支付宝域内aoiId",
+                "type": "string"
+              },
+              "city": {
+                "description": "城市名",
+                "type": "string"
+              },
+              "ext_info": {
+                "description": "扩展信息",
+                "items": {
+                  "properties": {
+                    "ext_key": {
+                      "description": "键值",
+                      "type": "string"
+                    },
+                    "ext_value": {
+                      "description": "值",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "location_id": {
+                "description": "支付宝侧地点id",
+                "type": "string"
+              },
+              "location_id_type": {
+                "description": "地点id类型",
+                "type": "string"
+              },
+              "merchant_division_id": {
+                "description": "商户侧行政区划代码",
+                "type": "string"
+              },
+              "merchant_id": {
+                "description": "(废弃)商户侧地点id",
+                "type": "string"
+              },
+              "merchant_poi": {
+                "description": "商户侧poi信息",
+                "type": "string"
+              },
+              "name": {
+                "description": "地点名称",
+                "type": "string"
+              },
+              "poi_id": {
+                "description": "支付宝域内poiId",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "content": {
+            "description": "凭证内容",
+            "example": "凭证内容",
+            "type": "string"
+          },
+          "departure": {
+            "properties": {
+              "aoi_id": {
+                "description": "支付宝域内aoiId",
+                "type": "string"
+              },
+              "city": {
+                "description": "城市名",
+                "type": "string"
+              },
+              "ext_info": {
+                "description": "扩展信息",
+                "items": {
+                  "properties": {
+                    "ext_key": {
+                      "description": "键值",
+                      "type": "string"
+                    },
+                    "ext_value": {
+                      "description": "值",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "location_id": {
+                "description": "支付宝侧地点id",
+                "type": "string"
+              },
+              "location_id_type": {
+                "description": "地点id类型",
+                "type": "string"
+              },
+              "merchant_division_id": {
+                "description": "商户侧行政区划代码",
+                "type": "string"
+              },
+              "merchant_id": {
+                "description": "(废弃)商户侧地点id",
+                "type": "string"
+              },
+              "merchant_poi": {
+                "description": "商户侧poi信息",
+                "type": "string"
+              },
+              "name": {
+                "description": "地点名称",
+                "type": "string"
+              },
+              "poi_id": {
+                "description": "支付宝域内poiId",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "effective_num": {
+            "description": "凭证有效数",
+            "example": 1,
+            "type": "integer"
+          },
+          "end_time": {
+            "description": "凭证结束时间",
+            "example": "2021-01-02 12:21:22",
+            "type": "string"
+          },
+          "ext_info": {
+            "description": "扩展信息",
+            "items": {
+              "properties": {
+                "ext_key": {
+                  "description": "键值",
+                  "type": "string"
+                },
+                "ext_value": {
+                  "description": "值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "face_value": {
+            "description": "票面价",
+            "example": "9.99",
+            "type": "string"
+          },
+          "functional_services": {
+            "description": "功能服务信息",
+            "items": {
+              "properties": {
+                "content": {
+                  "description": "功能内容",
+                  "type": "string"
+                },
+                "ext_info": {
+                  "description": "扩展信息",
+                  "items": {
+                    "properties": {
+                      "ext_key": {
+                        "description": "键值",
+                        "type": "string"
+                      },
+                      "ext_value": {
+                        "description": "值",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "function_code": {
+                  "description": "功能码\t支持的功能码请与产品或对应技术确认",
+                  "type": "string"
+                },
+                "function_name": {
+                  "description": "功能名称",
+                  "type": "string"
+                },
+                "function_type": {
+                  "description": "功能类型",
+                  "type": "string"
+                },
+                "function_url": {
+                  "description": "功能入口",
+                  "type": "string"
+                },
+                "memo": {
+                  "description": "备注信息",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "invalid_reason": {
+            "description": "凭证失效原因",
+            "example": "用户取消",
+            "type": "string"
+          },
+          "locations": {
+            "description": "凭证可使用地点",
+            "items": {
+              "properties": {
+                "aoi_id": {
+                  "description": "支付宝域内aoiId",
+                  "type": "string"
+                },
+                "city": {
+                  "description": "城市名",
+                  "type": "string"
+                },
+                "ext_info": {
+                  "description": "扩展信息",
+                  "items": {
+                    "properties": {
+                      "ext_key": {
+                        "description": "键值",
+                        "type": "string"
+                      },
+                      "ext_value": {
+                        "description": "值",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "location_id": {
+                  "description": "支付宝侧地点id",
+                  "type": "string"
+                },
+                "location_id_type": {
+                  "description": "地点id类型",
+                  "type": "string"
+                },
+                "merchant_division_id": {
+                  "description": "商户侧行政区划代码",
+                  "type": "string"
+                },
+                "merchant_id": {
+                  "description": "(废弃)商户侧地点id",
+                  "type": "string"
+                },
+                "merchant_poi": {
+                  "description": "商户侧poi信息",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "地点名称",
+                  "type": "string"
+                },
+                "poi_id": {
+                  "description": "支付宝域内poiId",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "merchant_ticket_no": {
+            "description": "商户侧凭证ID或核销码",
+            "example": "out_20210820",
+            "type": "string"
+          },
+          "seat_infos": {
+            "description": "座位信息",
+            "items": {
+              "properties": {
+                "seat_class": {
+                  "description": "座位等级",
+                  "example": "一等座",
+                  "type": "string"
+                },
+                "seat_no": {
+                  "description": "座位号",
+                  "example": "12车12D",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "service_provider": {
+            "properties": {
+              "ext_info": {
+                "description": "扩展信息",
+                "items": {
+                  "properties": {
+                    "ext_key": {
+                      "description": "键值",
+                      "type": "string"
+                    },
+                    "ext_value": {
+                      "description": "值",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "logo_material_id": {
+                "description": "参与方logo素材id\t开发者通过 alipay.merchant.item.file.upload(商品文件上传接口)上传图片，获取到对应的素材 ID( material_id )",
+                "example": "2019010100502200000000000001",
+                "type": "string"
+              },
+              "name": {
+                "description": "参与方名称",
+                "example": "东方航空",
+                "type": "string"
+              },
+              "short_name": {
+                "description": "参与方简称",
+                "example": "东航",
+                "type": "string"
+              },
+              "type": {
+                "description": "参与方类型",
+                "example": "服务提供商",
+                "type": "string"
+              },
+              "uid": {
+                "description": "参与方支付宝uid",
+                "example": "2088202905583404",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "shops": {
+            "description": "凭证可使用门店列表",
+            "items": {
+              "properties": {
+                "address": {
+                  "description": "店铺地址",
+                  "type": "string"
+                },
+                "alipay_shop_id": {
+                  "description": "蚂蚁门店shop_id",
+                  "type": "string"
+                },
+                "ext_info": {
+                  "description": "门店其他业务属性，不同业务场景KEY枚举值不同，使用前请参考产品文档",
+                  "items": {
+                    "properties": {
+                      "ext_key": {
+                        "description": "键值",
+                        "type": "string"
+                      },
+                      "ext_value": {
+                        "description": "值",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "merchant_shop_id": {
+                  "description": "商户门店id\t支持英文、数字的组合",
+                  "type": "string"
+                },
+                "merchant_shop_link_page": {
+                  "description": "店铺详情链接地址",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "店铺名称",
+                  "type": "string"
+                },
+                "phone_num": {
+                  "description": "联系电话-支持固话或手机号 仅支持数字、+、- 。例如 手机：1380***1111、固话：021-888**888",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "仅当alipay_shop_id字段值为非标准蚂蚁门店时使用，其他场景无需传入",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "start_time": {
+            "description": "凭证开始时间",
+            "example": "2020-01-01 08:00:00",
+            "type": "string"
+          },
+          "status": {
+            "description": "凭证状态",
+            "example": "TICKETED",
+            "type": "string"
+          },
+          "ticket_create_time": {
+            "description": "凭证创建时间",
+            "example": "2020-01-01 08:00:01",
+            "type": "string"
+          },
+          "ticket_modify_time": {
+            "description": "凭证修改时间",
+            "example": "2020-01-01 08:00:01",
+            "type": "string"
+          },
+          "ticket_num": {
+            "description": "凭证购买数",
+            "example": 2,
+            "type": "integer"
+          },
+          "ticket_users": {
+            "description": "凭证使用者信息",
+            "items": {
+              "properties": {
+                "cert_no": {
+                  "description": "证件号",
+                  "type": "string"
+                },
+                "cert_type": {
+                  "description": "证件类型。",
+                  "type": "string"
+                },
+                "ext_info": {
+                  "description": "扩展信息",
+                  "items": {
+                    "properties": {
+                      "ext_key": {
+                        "description": "键值",
+                        "type": "string"
+                      },
+                      "ext_value": {
+                        "description": "值",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "mobile": {
+                  "description": "手机号",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "姓名",
+                  "type": "string"
+                },
+                "open_id": {
+                  "description": "支付宝用户openId",
+                  "type": "string"
+                },
+                "user_id": {
+                  "description": "支付宝用户ID，可以通过支付结果通知、用户授权等渠道获取",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "title": {
+            "description": "凭证标题",
+            "example": "上海-杭州",
+            "type": "string"
+          },
+          "vehicle_info": {
+            "properties": {
+              "license_plate_no": {
+                "description": "交通工具牌照号，如车牌号等",
+                "example": "沪A888888",
+                "type": "string"
+              },
+              "memo": {
+                "description": "备注信息",
+                "example": "备注",
+                "type": "string"
+              },
+              "shift_no": {
+                "description": "班次",
+                "example": "班次",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "trade_no": {
+      "description": "订单所对应的支付宝交易号",
+      "example": "2019052322001400191000023731",
+      "type": "string"
+    },
+    "trade_type": {
+      "description": "交易号类型",
+      "example": "TRADE",
+      "type": "string"
+    }
+  },
+  "required": []
+}

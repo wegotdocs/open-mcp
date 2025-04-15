@@ -1,0 +1,300 @@
+{
+  "type": "object",
+  "properties": {
+    "invoice_info_list": {
+      "description": "发票信息列表",
+      "items": {
+        "properties": {
+          "apply_id": {
+            "description": "支付宝端的申请id。如果在开票过程中，是通过支付宝提交的申请到机构端，支付宝会带上开票申请在支付宝生成的申请id，机构在回传发票的时候只需要回传这个申请id，不用获取用户的uid，支付宝可以根据申请id将发票归集到对应的用户名下",
+            "example": "2016112800152005000000000239",
+            "type": "string"
+          },
+          "check_code": {
+            "description": "票面上的校验码信息。",
+            "example": "15170246985745164986",
+            "type": "string"
+          },
+          "checker": {
+            "description": "票面上复核人信息。",
+            "example": "李四",
+            "type": "string"
+          },
+          "clerk": {
+            "description": "票面上开票员信息。",
+            "example": "赵吴",
+            "type": "string"
+          },
+          "ex_tax_amount": {
+            "description": "不含税金额，票面上的不含税金额，单位（元），保留两位小数。",
+            "example": "100.00",
+            "type": "string"
+          },
+          "extend_fields": {
+            "description": "预留的扩展字段，格式如：key1=value1\\nkey2=value2\\nkey3=value3，字段之间以\\n分隔。",
+            "example": "m_invoice_detail_url=http://196.021.871.011:8080/invoice/detail.action?fpdm= 4112740003&fphm=41791003",
+            "type": "string"
+          },
+          "file_download_type": {
+            "description": "下载版式文件类型，需要回传文件下载链接的情况下必传",
+            "example": "PDF",
+            "type": "string"
+          },
+          "file_download_url": {
+            "description": "发票版式文件下载地址。",
+            "example": "http://img.hadalo.com/aa/kq/ddhrtdefgxKVXXXXa6apXXXXXXXXXX.pdf",
+            "type": "string"
+          },
+          "financial_electronic_type": {
+            "description": "财政电子票据子类型",
+            "example": "01",
+            "type": "string"
+          },
+          "invoice_code": {
+            "description": "发票代码，该字段与invoice_no构成一张发票的唯一标识。",
+            "example": "4112740003",
+            "type": "string"
+          },
+          "invoice_content": {
+            "description": "发票明细项。",
+            "items": {
+              "properties": {
+                "item_ex_tax_amount": {
+                  "description": "明细行不含税金额，单位元，保留两位小数",
+                  "type": "string"
+                },
+                "item_name": {
+                  "description": "开票项目：货物或应税劳务、服务名称",
+                  "type": "string"
+                },
+                "item_no": {
+                  "description": "国税局制定的商品税收编码，必须是最末级",
+                  "type": "string"
+                },
+                "item_quantity": {
+                  "description": "数量；\t1.当row_type=0或2且item_unit_price为空，可空；\t2.可精确到小数点后6位",
+                  "type": "integer"
+                },
+                "item_spec": {
+                  "description": "规格型号",
+                  "type": "string"
+                },
+                "item_sum_amount": {
+                  "description": "明细行价税合计，单位元，必须保证item_sum_amount=item_ex_tax_amount+item_tax_amount。",
+                  "type": "string"
+                },
+                "item_tax_amount": {
+                  "description": "明细行税额，单位元，保留两位小数，无税或者免税情况下输入：0.00。",
+                  "type": "string"
+                },
+                "item_tax_rate": {
+                  "description": "明细行税率，无税或者免税情况下输入：0.00。",
+                  "type": "string"
+                },
+                "item_unit": {
+                  "description": "单位",
+                  "type": "string"
+                },
+                "item_unit_price": {
+                  "description": "不含税单价（元）;\t1.当row_type=0或2且item_quantity为空，可空\t2.可精确到小数点后8位；",
+                  "type": "string"
+                },
+                "row_type": {
+                  "description": "发票行性质：0表示正常行，1表示折扣行，2表示被折扣行。",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "invoice_date": {
+            "description": "开票日期，格式如：YYYY-MM-DD。",
+            "example": "2017-10-10",
+            "type": "string"
+          },
+          "invoice_kind": {
+            "description": "标识发票的类型，\tPLAIN:增值税电子普通发票;\tSPECIAL:增值税专用发票;\tALL_ELECTRONIC_GENERAL:电子发票（普通发票）;\tALL_ELECTRONIC_SPECIAL:电子发票（增值税专用发票）;\tPLAIN_INVOICE:增值税普通发票;\tFINANCIAL_ELECTRONIC_BILL:财政电子票据;",
+            "example": "PLAIN",
+            "type": "string"
+          },
+          "invoice_memo": {
+            "description": "票面上备注信息。",
+            "example": "订单号：2017120800001",
+            "type": "string"
+          },
+          "invoice_no": {
+            "description": "发票号码，该字段与invoice_code构成一张发票的唯一标识。",
+            "example": "41791003",
+            "type": "string"
+          },
+          "invoice_title": {
+            "properties": {
+              "payer_address_tel": {
+                "description": "票面上的购买方地址、电话",
+                "type": "string"
+              },
+              "payer_bank_name_account": {
+                "description": "票面上的购买方开户行及账户",
+                "type": "string"
+              },
+              "payer_register_no": {
+                "description": "票面上的购买方纳税人识别号",
+                "type": "string"
+              },
+              "title_name": {
+                "description": "票面上的购买方名称",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "invoice_type": {
+            "description": "标识是红票还是蓝票，RED:红票;BLUE:蓝票。",
+            "example": "BLUE",
+            "type": "string"
+          },
+          "open_id": {
+            "description": "支付宝用户userId，当发送红字发票时，即invoice_type＝RED时，可选填；或者apply_id不为空的时候，可选填；其他情况必填。",
+            "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+            "type": "string"
+          },
+          "ori_blue_inv_code": {
+            "description": "红票情况下，必须填入原始蓝票的发票代码（全电票时为空）。",
+            "example": "4112740002",
+            "type": "string"
+          },
+          "ori_blue_inv_no": {
+            "description": "红票情况下，必须填入原始蓝票的发票号码。",
+            "example": "41791002",
+            "type": "string"
+          },
+          "out_invoice_id": {
+            "description": "外部发票id，isv生成发票之后所生成的发票流水号，主要用做存储。",
+            "example": "201710283459661232435535",
+            "type": "string"
+          },
+          "out_trade_no": {
+            "description": "该发票基于的实际交易流水号。",
+            "example": "20171023293456785924325",
+            "type": "string"
+          },
+          "payee": {
+            "description": "票面上收款人信息。",
+            "example": "张三",
+            "type": "string"
+          },
+          "payee_address_tel": {
+            "description": "票面上销售方地址、电话信息。",
+            "example": "杭州市西湖区某某办公楼 0571-237405862",
+            "type": "string"
+          },
+          "payee_bank_name_account": {
+            "description": "票面上销售方开户行及账号。",
+            "example": "西湖区建行11111111111",
+            "type": "string"
+          },
+          "payee_register_name": {
+            "description": "票面上销售方企业名称。",
+            "example": "支付宝（杭州）信息技术有限公司",
+            "type": "string"
+          },
+          "payee_register_no": {
+            "description": "票面上销售方税号信息。",
+            "example": "310101000000090",
+            "type": "string"
+          },
+          "sum_amount": {
+            "description": "价税合计，票面上的总开票金额，单位（元），保留两位小数，sum_amount=ex_tax_amount+tax_amount。",
+            "example": "101.00",
+            "type": "string"
+          },
+          "tax_amount": {
+            "description": "合计税额，票面上的合计税额，单位（元），保留两位小数。",
+            "example": "1.00",
+            "type": "string"
+          },
+          "trade_list": {
+            "description": "交易内容，非必填但是不可以传空值，如果无需回传trade_list则不需要传该对象",
+            "items": {
+              "properties": {
+                "bill_no": {
+                  "description": "订单编号",
+                  "type": "string"
+                },
+                "bill_time": {
+                  "description": "下单时间",
+                  "type": "string"
+                },
+                "city_name": {
+                  "description": "商户所在城市(经营地址)",
+                  "type": "string"
+                },
+                "detail_json": {
+                  "description": "账单明细信息，酒店水单信息，行程单信息，餐饮小票信息",
+                  "type": "string"
+                },
+                "download_url": {
+                  "description": "账单明细信息，酒店水单，行程单，餐饮小票等pdf原件链接",
+                  "type": "string"
+                },
+                "extend_map": {
+                  "description": "扩展参数\t\t不同组的k-v通过换行符区分",
+                  "type": "string"
+                },
+                "merchant_name": {
+                  "description": "商家名称（显示名称，非企业名称，餐饮店、酒店、打车平台名称）",
+                  "type": "string"
+                },
+                "out_json": {
+                  "description": "透传字段，不做处理，用于isv向后续报销税控方传递特殊信息标记",
+                  "type": "string"
+                },
+                "payee_name": {
+                  "description": "销方名称",
+                  "type": "string"
+                },
+                "payment_amount": {
+                  "description": "支付金额，单位（元），\t对应账单中的交易金额",
+                  "type": "string"
+                },
+                "payment_time": {
+                  "description": "支付时间\t\t对应账单中的账单日期",
+                  "type": "string"
+                },
+                "souce": {
+                  "description": "交易类型来源 需要按照枚举映射",
+                  "type": "string"
+                },
+                "trade_type": {
+                  "description": "交易类型/账单分类",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "user_id": {
+            "description": "支付宝用户userId，当发送红字发票时，即invoice_type＝RED时，可选填；或者apply_id不为空的时候，可选填；其他情况必填。",
+            "example": "2088399922382233",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "m_short_name": {
+      "description": "开票商户品牌简称，与商户入驻时的品牌简称保持一致。",
+      "example": "XSD",
+      "type": "string"
+    },
+    "sub_m_short_name": {
+      "description": "开票商户门店简称，与商户入驻时的门店简称保持一致。",
+      "example": "XSD_HL",
+      "type": "string"
+    }
+  },
+  "required": []
+}

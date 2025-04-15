@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_token": {
+      "description": "用户授权令牌",
+      "type": "string"
+    },
+    "voucher_package_id_list": {
+      "description": "券包id列表",
+      "example": "[\"IP20220628016671405804297103167741\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

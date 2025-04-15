@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "goods_description": {
+      "description": "商品描述信息。 用于券面展示，向用户介绍商品",
+      "example": "美味甜甜圈很美味",
+      "type": "string"
+    },
+    "goods_ids": {
+      "description": "可优惠商品编码，商家自定义商品编码。当用户支付时，交易中的商品编码和支付券配置的商品编码有任一匹配时，可以使用优惠券。",
+      "example": "[\"apple-01\",\"apple-02\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "goods_name": {
+      "description": "商品名称",
+      "example": "美味甜甜圈",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

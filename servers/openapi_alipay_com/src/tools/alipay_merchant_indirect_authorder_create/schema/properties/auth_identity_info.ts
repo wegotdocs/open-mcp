@@ -1,0 +1,12 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "certificate_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `certificate_info` to the tool, first call the tool `expandSchema` with \"/properties/auth_identity_info/properties/certificate_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "certificate_type": z.string().describe("主体类型为企业/个体户/政府机关/事业单位/社会组织时，必填；\t证照类型：营业执照(BUSINESS_CERT)/登记证书(REGISTER_CERT)\t主体为政府机关/事业单位/社会组织时，填登记证书；\t主体类型为企业/个体户时，填营业执照；").optional(),
+  "employer_letter_img": z.string().describe("单位证明函照片（使用图片上传接口）主体类型为政府机关/事业单位时，单位证明函照片必填").optional(),
+  "financial_org_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `financial_org_info` to the tool, first call the tool `expandSchema` with \"/properties/auth_identity_info/properties/financial_org_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "identity_type": z.string().describe("主体类型，枚举定义：企业(ENTERPRISE)、个体工商户(IND_BIZ)、事业单位(INST)、党政机关(GOV)、社会组织(ORG)、小微商户(MSE)").optional(),
+  "is_financial_org": z.boolean().describe("是否金融机构").optional(),
+  "qualification_info_list": z.array(z.object({ "image_list": z.array(z.string()).describe("行业经营许可证资质照片，一个行业类目下最多上传6张资质照片（使用图片上传接口）").optional(), "mcc_code": z.string().describe("行业类目编号，支付宝商家行业二级类目code").optional() })).describe("经营许可证列表，填写特殊行业的经营许可证信息，一个主体最多5个行业").optional(),
+  "support_credentials": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `support_credentials` to the tool, first call the tool `expandSchema` with \"/properties/auth_identity_info/properties/support_credentials\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional()
+}

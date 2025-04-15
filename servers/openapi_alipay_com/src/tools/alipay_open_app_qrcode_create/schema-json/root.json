@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "color": {
+      "description": "圆形二维码颜色（十六进制颜色色值），仅圆形二维码支持颜色设置，方形二维码默认为黑色。",
+      "example": 49151,
+      "type": "string"
+    },
+    "describe": {
+      "description": "对应的二维码描述",
+      "example": "二维码描述",
+      "type": "string"
+    },
+    "query_param": {
+      "description": "小程序启动参数，内容按照格式为参数名=参数值&参数名=参数值。打开小程序的query ，在小程序 onLaunch的方法中获取。可查看 <a href=\"https://opendocs.alipay.com/support/01rb2a\">如何获取各种场景的启动参数</a>。",
+      "example": "key1=value1&key2=value2",
+      "type": "string"
+    },
+    "size": {
+      "description": "合成后图片的大小规格，有s、m、l三档可选。",
+      "example": "s",
+      "type": "string"
+    },
+    "url_param": {
+      "description": "page/component/component-pages/view/view为小程序中能访问到的页面路径",
+      "example": "page/component/component-pages/view/view",
+      "type": "string"
+    }
+  },
+  "required": []
+}

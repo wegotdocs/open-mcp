@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业ID",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "aggregation_name": {
+      "description": "聚合关系名称\t特殊说明：敏感词校验",
+      "example": "测试聚合关系",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "standard_id_list": {
+      "description": "费控规则ID列表",
+      "example": "[\"2021082700152601730000003677\",\"2021082700152601730000003679\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

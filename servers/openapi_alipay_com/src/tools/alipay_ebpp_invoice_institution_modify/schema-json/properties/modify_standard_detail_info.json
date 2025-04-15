@@ -1,0 +1,201 @@
+{
+  "properties": {
+    "add_standard_list": {
+      "description": "新增的使用规则列表",
+      "items": {
+        "properties": {
+          "asset_share_source_info": {
+            "properties": {
+              "share_mode": {
+                "description": "当前规则可用的资产来源类型，搭配source_id_list使用。",
+                "type": "string"
+              },
+              "source_id_list": {
+                "description": "资产共享来源id列表，与share_mode配合设置，如果share_mode为INSTITUTION，该值则填写制度id列表",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "consume_mode": {
+            "description": "消费模式，不填为默认模式，枚举值：COUPON_ONLY（仅支持点券）\tCOUPON_AND_CAP（支持点券+余额）\tDEFAULT（默认模式）\t点券：消费时找员工的点券，没有或者用完了不可付；\t点券+余额：消费时找员工的点券，没有找员工的余额，没有或者用完了不可付。\t默认：有给员工设置员工余额以员工余额为准，用完为止。否则只受规则里的限额和企业账户资金上限管控；",
+            "type": "string"
+          },
+          "expense_type_sub_category": {
+            "description": "费用类型子类",
+            "type": "string"
+          },
+          "open_rule_id": {
+            "description": "开票规则id，可通过接口alipay.ebpp.invoice.enterpriseconsume.enterpriseopenrule.create 创建并得到开票规则ID",
+            "type": "string"
+          },
+          "outer_source_id": {
+            "description": "外部使用规则id，制度内使用规则该字段不允许重复",
+            "type": "string"
+          },
+          "payment_policy": {
+            "description": "支付策略 当笔消费金额大于规则可用余额时，用于控制支付策略，该字段缺省时采取因公账户和个人账户组合支付策略",
+            "type": "string"
+          },
+          "personal_qrcode_mode": {
+            "description": "个人收款码转账是否支持因公付，默认为0。可选值：0（不支持）、1（支持）",
+            "type": "integer"
+          },
+          "standard_condition_info_list": {
+            "description": "使用规则条件列表",
+            "items": {
+              "properties": {
+                "rule_factor": {
+                  "description": "条件类型",
+                  "type": "string"
+                },
+                "rule_id": {
+                  "description": "费控条件ID",
+                  "type": "string"
+                },
+                "rule_name": {
+                  "description": "费控条件名称",
+                  "type": "string"
+                },
+                "rule_value": {
+                  "description": "费控条件值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "standard_desc": {
+            "description": "使用规则描述(敏感词校验)",
+            "type": "string"
+          },
+          "standard_id": {
+            "description": "制度ID（创建使用规则时非必填）",
+            "type": "string"
+          },
+          "standard_name": {
+            "description": "规则名称",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "delete_standard_id_list": {
+      "description": "待删除的使用规则id列表",
+      "example": "[\"2024090500000000000000008502\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "modify_standard_list": {
+      "description": "待修改的使用规则信息列表",
+      "items": {
+        "properties": {
+          "add_condition_list": {
+            "description": "要添加的条件列表",
+            "items": {
+              "properties": {
+                "rule_factor": {
+                  "description": "条件类型",
+                  "type": "string"
+                },
+                "rule_id": {
+                  "description": "费控条件ID",
+                  "type": "string"
+                },
+                "rule_name": {
+                  "description": "费控条件名称",
+                  "type": "string"
+                },
+                "rule_value": {
+                  "description": "费控条件值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "consume_mode": {
+            "description": "消费模式",
+            "example": "COUPON_ONLY",
+            "type": "string"
+          },
+          "delete_condition_id_list": {
+            "description": "待删除的条件id列表",
+            "example": "[\"2024090500152600000000008502\"]",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "modify_condition_list": {
+            "description": "修改的条件列表",
+            "items": {
+              "properties": {
+                "rule_factor": {
+                  "description": "条件类型",
+                  "type": "string"
+                },
+                "rule_id": {
+                  "description": "费控条件ID",
+                  "type": "string"
+                },
+                "rule_name": {
+                  "description": "费控条件名称",
+                  "type": "string"
+                },
+                "rule_value": {
+                  "description": "费控条件值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "open_rule_id": {
+            "description": "使用规则绑定的开票规则id",
+            "example": "\"2024090500152000040000008668\"",
+            "type": "string"
+          },
+          "payment_policy": {
+            "description": "支付策略 当笔消费金额大于规则可用余额时，用于控制支付策略。COMBINATION表示支持因公资产和个人资产组合支付，PERSONAL表示整单个人支付。",
+            "example": "COMBINATION",
+            "type": "string"
+          },
+          "personal_qrcode_mode": {
+            "description": "个人收款码转账是否支持因公付。可选值：0（不支持）、1（支持）",
+            "example": 1,
+            "type": "integer"
+          },
+          "standard_desc": {
+            "description": "使用规则描述",
+            "example": "到店就餐使用规则",
+            "type": "string"
+          },
+          "standard_id": {
+            "description": "修改的使用规则id",
+            "example": "\"2024090500152000000000008502\"",
+            "type": "string"
+          },
+          "standard_name": {
+            "description": "使用规则名称",
+            "example": "到店规则",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

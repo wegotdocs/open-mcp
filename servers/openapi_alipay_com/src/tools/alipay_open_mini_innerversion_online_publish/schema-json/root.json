@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "app_origin": {
+      "description": "业务来源",
+      "example": "AAA",
+      "type": "string"
+    },
+    "app_version": {
+      "description": "小程序版本",
+      "example": "0.0.1",
+      "type": "string"
+    },
+    "bundle_id": {
+      "description": "端信息",
+      "example": "支付宝：com.alipay.alipaywallet 高德：com.amap.app",
+      "type": "string"
+    },
+    "downgrade": {
+      "description": "否服务降级，如果降级，拉包策略如果端上有本地包，则使用本地包打开，同时异步下载新包，待下次打开则使用新包",
+      "example": true,
+      "type": "boolean"
+    },
+    "mini_app_id": {
+      "description": "小程序ID，仅特殊场景使用，普通业务方无需关注该参数",
+      "example": "2019*****",
+      "type": "string"
+    },
+    "pid": {
+      "description": "小程序所属PID",
+      "example": "2088****",
+      "type": "string"
+    },
+    "release_type": {
+      "description": "normal默认普通发布，high 高保发布",
+      "example": "normal/high",
+      "type": "string"
+    }
+  },
+  "required": []
+}

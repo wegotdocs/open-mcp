@@ -1,0 +1,127 @@
+{
+  "type": "object",
+  "properties": {
+    "bbb": {
+      "description": "activity_id 词条描述",
+      "example": "1",
+      "type": "string"
+    },
+    "aaa": {
+      "description": "1",
+      "example": "3333",
+      "type": "string"
+    },
+    "aaa_open_id": {
+      "description": "1",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "tesst": {
+      "description": "stst",
+      "items": {
+        "properties": {
+          "auth_status": {
+            "description": "授权状态",
+            "example": true,
+            "type": "boolean"
+          },
+          "create_time": {
+            "description": "任务创建时间",
+            "example": "yyyy-mm-dd hh:mm:ss",
+            "type": "string"
+          },
+          "end_time": {
+            "description": "任务结束时间",
+            "example": "yyyy-mm-dd hh:mm:ss",
+            "type": "string"
+          },
+          "final_time": {
+            "description": "任务到达终态的时间",
+            "example": "yyyy-mm-dd hh:mm:ss",
+            "type": "string"
+          },
+          "finish_periods": {
+            "description": "任务完成期数",
+            "example": 1,
+            "type": "integer"
+          },
+          "merchant_id": {
+            "description": "芝麻侧的商户id",
+            "example": "lefit",
+            "type": "string"
+          },
+          "merchant_logo": {
+            "description": "商户logo",
+            "example": "https://icon.png",
+            "type": "string"
+          },
+          "merchant_name": {
+            "description": "商户名称",
+            "example": "乐刻",
+            "type": "string"
+          },
+          "out_biz_no": {
+            "description": "生活记录加入时的外部业务号",
+            "example": "84927419",
+            "type": "string"
+          },
+          "period_type": {
+            "description": "周期类型",
+            "example": "multi",
+            "type": "string"
+          },
+          "promise_name": {
+            "description": "生活记录模板名称",
+            "example": "每周攒钱，完成心愿",
+            "type": "string"
+          },
+          "record_id": {
+            "description": "生活记录主记录id",
+            "example": "2022101865652385257",
+            "type": "string"
+          },
+          "record_status": {
+            "description": "主任务状态",
+            "example": "PROCESSING、UN_FINISH、CANCELED、FINISH，分别对应进行中、未完成、已取消、已完成",
+            "type": "string"
+          },
+          "start_time": {
+            "description": "任务开始时间",
+            "example": "yyyy-mm-dd hh:mm:ss",
+            "type": "string"
+          },
+          "sub_record_status": {
+            "description": "子记录状态",
+            "example": "PROCESSING、UN_FINISH、CANCELED、FINISH，分别对应进行中、未完成、已取消、已完成",
+            "type": "string"
+          },
+          "sub_title": {
+            "description": "副标题",
+            "example": "加入后7天内完成1次攒钱",
+            "type": "string"
+          },
+          "template_id": {
+            "description": "生活记录模板id",
+            "example": "save_money_every_week",
+            "type": "string"
+          },
+          "total_periods": {
+            "description": "任务总期数",
+            "example": 4,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "xxx": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `xxx` to the tool, first call the tool `expandSchema` with \"/properties/xxx\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "bbb"
+  ]
+}

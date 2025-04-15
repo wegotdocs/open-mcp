@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "contact_name": {
+      "description": "联系人姓名",
+      "example": "张三",
+      "type": "string"
+    },
+    "logistics_codes": {
+      "description": "要更新的配送公司列表，必须包含已经创建过该门店的配送公司，可以新增开通了账户的配送公司",
+      "example": "ISTD",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "out_biz_no": {
+      "description": "外部业务号",
+      "example": "out_biz_no_202008311750004",
+      "type": "string"
+    },
+    "phone": {
+      "description": "联系人电话/手机号",
+      "example": "13666666666",
+      "type": "string"
+    },
+    "shop_no": {
+      "description": "商家门店编码",
+      "example": "1000",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "advert_id": {
+      "description": "广告位id，通过<a href=\"https://opendocs.alipay.com/apis/api_6/alipay.open.public.advert.create\">alipay.open.public.advert.create</a>(生活号广告位添加接口)添加广告位获取。",
+      "example": "123",
+      "type": "string"
+    },
+    "advert_items": {
+      "description": "广告位轮播内容列表。数量限制：大于1个，小于5个。广告位轮播内容顺序：与接口传入的顺序排列一致。",
+      "items": {
+        "properties": {
+          "img_url": {
+            "description": "广告图片url, 尺寸为996*240，最大不超过5M，支持格式:.jpg、.png ，请先调用<a href=\"https://docs.open.alipay.com/api_3/alipay.offline.material.image.upload\"> 图片上传接口</a>获得图片url",
+            "type": "string"
+          },
+          "link_type": {
+            "description": "跳转类型，网页:HTTP、小程序:APP，不传默认HTTP",
+            "type": "string"
+          },
+          "link_url": {
+            "description": "跳转链接，点击广告图片跳到的链接url",
+            "type": "string"
+          },
+          "name": {
+            "description": "广告帧名称，可选",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

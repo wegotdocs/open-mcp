@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "author_id": {
+      "description": "媒体唤起时传入的支付宝id",
+      "example": "2121******",
+      "type": "string"
+    },
+    "mini_app_id": {
+      "description": "支付宝appid，代表一个小程序的唯一标识",
+      "example": "201***********",
+      "type": "string"
+    },
+    "params": {
+      "description": "媒体唤起时提供的额外参数值列表，这里可能有多个值，打平以后拼入。即url_decode(authcbparams)",
+      "example": "app_id=1024562&a=1&b=2&c=3&bind_entry=12",
+      "type": "string"
+    },
+    "site_id": {
+      "description": "回调的siteid 淘宝账号唯一",
+      "example": "12323232",
+      "type": "string"
+    },
+    "source": {
+      "description": "媒体来源，标识调用方",
+      "example": "zfb_xcx",
+      "type": "string"
+    },
+    "taobao_id": {
+      "description": "淘宝id",
+      "example": "1***********",
+      "type": "string"
+    },
+    "taobao_nick": {
+      "description": "淘宝昵称",
+      "example": "**昵称",
+      "type": "string"
+    }
+  },
+  "required": []
+}

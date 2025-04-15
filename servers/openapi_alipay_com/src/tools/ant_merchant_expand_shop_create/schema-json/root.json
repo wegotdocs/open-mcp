@@ -1,0 +1,300 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_cards": {
+      "description": "门店结算卡信息。本业务当前只允许传入一张结算卡。 说明：本参数仅直付通业务使用，其余业务无需关注。",
+      "items": {
+        "properties": {
+          "account_branch_name": {
+            "description": "开户支行名",
+            "type": "string"
+          },
+          "account_holder_name": {
+            "description": "卡户名",
+            "type": "string"
+          },
+          "account_inst_city": {
+            "description": "开户行所在地-市",
+            "type": "string"
+          },
+          "account_inst_id": {
+            "description": "开户行简称缩写",
+            "type": "string"
+          },
+          "account_inst_name": {
+            "description": "银行名称",
+            "type": "string"
+          },
+          "account_inst_province": {
+            "description": "开户行所在地-省",
+            "type": "string"
+          },
+          "account_no": {
+            "description": "银行卡号",
+            "type": "string"
+          },
+          "account_type": {
+            "description": "卡类型\r\t借记卡-DC\r\t信用卡-CC",
+            "type": "string"
+          },
+          "bank_code": {
+            "description": "联行号",
+            "type": "string"
+          },
+          "usage_type": {
+            "description": "账号使用类型\r\t对公-01\r\t对私-02",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "brand_id": {
+      "description": "品牌id，非加油站等特殊门店无需关注。通过BP站品牌工具箱可以获取品牌id",
+      "example": "20181026000001",
+      "type": "string"
+    },
+    "business_address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `business_address` to the tool, first call the tool `expandSchema` with \"/properties/business_address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "business_time": {
+      "description": "店铺经营时间。",
+      "items": {
+        "properties": {
+          "close_time": {
+            "description": "关门时间 格式：HH:mm",
+            "type": "string"
+          },
+          "open_time": {
+            "description": "开门时间 格式：HH:mm",
+            "type": "string"
+          },
+          "week_day": {
+            "description": "本对象表示周几的营业时间。1~6表示周一到周六，7表示周日",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cert_image": {
+      "description": "营业执照图片KEY",
+      "example": "营业执照图片id",
+      "type": "string"
+    },
+    "cert_name": {
+      "description": "营业执照名称，填写值为营业执照或统一社会信用代码证上的名称。",
+      "example": "支付宝东门小卖铺",
+      "type": "string"
+    },
+    "cert_no": {
+      "description": "证件号码，请填写店铺营业执照号。",
+      "example": "9133010608210550XR",
+      "type": "string"
+    },
+    "cert_type": {
+      "description": "证件类型",
+      "example": "201",
+      "type": "string"
+    },
+    "contact_infos": {
+      "description": "联系人信息",
+      "items": {
+        "properties": {
+          "email": {
+            "description": "电子邮箱",
+            "type": "string"
+          },
+          "id_card_no": {
+            "description": "身份证号",
+            "type": "string"
+          },
+          "mobile": {
+            "description": "手机号",
+            "type": "string"
+          },
+          "name": {
+            "description": "联系人名字",
+            "type": "string"
+          },
+          "phone": {
+            "description": "电话",
+            "type": "string"
+          },
+          "tag": {
+            "description": "商户联系人业务标识枚举，表示商户联系人的职责",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": {
+            "description": "联系人类型，取值范围：LEGAL_PERSON：法人；CONTROLLER：实际控制人；AGENT：代理人；OTHER：其他",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "contact_mobile": {
+      "description": "店铺联系手机号",
+      "example": "13901390139",
+      "type": "string"
+    },
+    "contact_phone": {
+      "description": "店铺的联系固定电话",
+      "example": "010-62286228",
+      "type": "string"
+    },
+    "cover": {
+      "description": "需传入<a href=\"https://opendocs.alipay.com/apis/api_1/ant.merchant.expand.indirect.image.upload\">ant.merchant.expand.indirect.image.upload</a> 接口上传图片后得到的 image_id。",
+      "example": "c6c0c7a1-b9d5-4e5d-b9d4-9eed39f00e65.jpg",
+      "type": "string"
+    },
+    "ext_infos": {
+      "description": "扩展信息列表。key值需要向对应行业的bd进行申请。",
+      "items": {
+        "properties": {
+          "key_name": {
+            "description": "KV数据对的key，表示该kv对象表示什么含义。",
+            "type": "string"
+          },
+          "value": {
+            "description": "kv对象的值",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "industry_info": {
+      "description": "行业信息，例如所属集团、特殊标签",
+      "items": {
+        "properties": {
+          "info_code": {
+            "description": "行业信息CODE",
+            "type": "string"
+          },
+          "info_value": {
+            "description": "行业信息值，具体值根据info_code决定。\t当info_code=SHOP_MEDICAL_LOGO/SHOP_MEDICAL_IN_PIC这类文件信息时，\t需要传入ant.merchant.expand.indirect.image.upload接口上传的文件key；当info_code= SHOP_MEDICAL_LEVEL_TAG时，需要<a href=\"https://mdn.alipayobjects.com/mrcheshop/afts/file/ZuDmQKgBifgAAAAAAAAAAAAADiWmAQBr?af_filename=医院类型.xlsx\">医院类型</a>中CODE；其他场景传入自定义文本即可。",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "industry_license": {
+      "description": "门店资质信息",
+      "items": {
+        "properties": {
+          "license_pic": {
+            "description": "资质图片信息",
+            "type": "string"
+          },
+          "license_type": {
+            "description": "行业资质类型，需使用<a href=\"https://mdn.alipayobjects.com/mrcheshop/afts/file/DfOPQYKgg_sAAAAAAAAAAAAAeiWmAQBr\">资质列表</a>中类型",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ip_role_id": {
+      "description": "当前门店归属的商户角色 ID，表示当前进件的店铺的归属商户。对于直连开店场景，填写商户 PID。对于间连开店场景（线上、线下、直付通），商户SMID",
+      "example": "2088301155943087",
+      "type": "string"
+    },
+    "legal_cert_no": {
+      "description": "法人身份证号",
+      "example": "100100198811110001",
+      "type": "string"
+    },
+    "legal_name": {
+      "description": "法人名称",
+      "example": "支小宝",
+      "type": "string"
+    },
+    "license_auth_letter_image": {
+      "description": "营业执照授权函图片id，通过 ant.merchant.expand.indirect.image.upload 接口上传图片后得到的 image_id",
+      "example": "营业执照授权函图片id",
+      "type": "string"
+    },
+    "memo": {
+      "description": "备注",
+      "example": "备注",
+      "type": "string"
+    },
+    "out_door_images": {
+      "description": "需传入<a href=\"https://opendocs.alipay.com/apis/api_1/ant.merchant.expand.indirect.image.upload\">ant.merchant.expand.indirect.image.upload</a> 接口上传图片后得到的 image_id。",
+      "example": "[\"c6c0c7a1-b9d5-4e5d-b9d4-9eed39f00e65.jpg\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "qualifications": {
+      "description": "行业特殊资质。",
+      "items": {
+        "properties": {
+          "industry_qualification_image": {
+            "description": "商户行业资质图片。其值为通过ant.merchant.expand.indirect.image.upload上传图片得到的image_id",
+            "type": "string"
+          },
+          "industry_qualification_type": {
+            "description": "<a href=\"https://gw.alipayobjects.com/os/bmw-prod/7aa3a36b-2bc2-4d57-815f-08edd55ef67e.xlsx\">商户行业资质类型，具体选值参见文档</a>",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "scene": {
+      "description": "场景，非加油站/酒店等特殊门店无需关注。",
+      "example": "PARK",
+      "type": "string"
+    },
+    "settle_alipay_logon_id": {
+      "description": "门店结算收款的支付宝账号",
+      "example": "demo@163.com",
+      "type": "string"
+    },
+    "shop_category": {
+      "description": "新版门店类目标准二级类目code。类目标准及与原类目映射关系参见 <a href=\"https://gw.alipayobjects.com/os/bmw-prod/4b3f82df-e53e-4b84-bc41-fe025101e726.xlsx\">支付宝门店类目-最新</a> 表格。",
+      "example": "B0001",
+      "type": "string"
+    },
+    "shop_main_type": {
+      "description": "主要针对医疗行业门店主体类型进件使用，不同门店认证主体需要相应的主体资质证书。 \t企业营业执照: ENTERPRISE; \t事业单位法人证书: INST_RGST_CTF; \t民办非企业单位登记证书 PRIVATE_NON_ENTERPRISE",
+      "example": "ENTERPRISE",
+      "type": "string"
+    },
+    "shop_name": {
+      "description": "店铺名称, 由商户定义在支付宝内的店铺名称",
+      "example": "支付宝（西溪路店）",
+      "type": "string"
+    },
+    "shop_type": {
+      "description": "店铺经营类型，01表示直营，02表示加盟",
+      "example": "01",
+      "type": "string"
+    },
+    "store_id": {
+      "description": "门店编号，表示该门店在该商户角色id(直连pid，间连smid)下，由商户自己定义的外部门店编号",
+      "example": "NO0001",
+      "type": "string"
+    }
+  },
+  "required": []
+}

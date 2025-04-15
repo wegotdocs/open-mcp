@@ -1,0 +1,55 @@
+{
+  "properties": {
+    "apply_id": {
+      "description": "支付宝开票申请id",
+      "example": "2016112800152005000000000239",
+      "type": "string"
+    },
+    "extend_fields": {
+      "description": "预留的扩展字段，格式如：key1=value1\\nkey2=value2\\nkey3=value3，字段之间以\\n(换行符)分隔。",
+      "example": "m_invoice_detail_url=http://127.0.0.1:8080/invoice/detail.action?fpdm= 1234567&fphm=123456",
+      "type": "string"
+    },
+    "file_base": {
+      "description": "base64化的字符串，与file_download_url不可同时为空。",
+      "example": "5LqR5YyW56iO5o6nDQoNCjIuMjjnur/kuIrlj6/llK7ljZYNCg0KVzHvvJrlrozmiJDnlJ/kuqflj5H",
+      "type": "string"
+    },
+    "file_download_type": {
+      "description": "文件类型，必填。\tPDF类型文件填写PDF，\tOFD类型文件填写ofd，\tJPG类型文件填写JPG(JPG文件请先询问对接人当前是否支持)",
+      "example": "PDF",
+      "type": "string"
+    },
+    "file_download_url": {
+      "description": "发票文件下载地址，和file_base不可同时为空。",
+      "example": "http://img.hadalo.com/aa/kq/ddhrtdefgxKVXXXXa6apXXXXXXXXXX.pdf",
+      "type": "string"
+    },
+    "login_id": {
+      "description": "支付宝登录账号",
+      "example": "155xxxxxxxx",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "支付宝用户id，当apply_id为空时，open_id必填",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "out_invoice_id": {
+      "description": "外部ISV的唯一发票标识",
+      "example": "2088100022223333",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "支付宝用户userId",
+      "example": "2088399922382233",
+      "type": "string"
+    },
+    "zip": {
+      "description": "压缩方式",
+      "example": "zip",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

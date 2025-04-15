@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "consumer_id": {
+      "description": "消费者id， 如果consumer_source是alipay，则consumer_id必须是支付宝用户uid；如果consumer_source是wx，则consumer_id可以为空",
+      "example": "2088xxx",
+      "type": "string"
+    },
+    "consumer_notify": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `consumer_notify` to the tool, first call the tool `expandSchema` with \"/properties/consumer_notify\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "consumer_source": {
+      "description": "消费者来源, 支付宝：alipay, 微信：wx",
+      "example": "alipay",
+      "type": "string"
+    },
+    "goods_details": {
+      "description": "商品明细",
+      "items": {
+        "properties": {
+          "count": {
+            "description": "商品数量",
+            "type": "integer"
+          },
+          "name": {
+            "description": "商品名称",
+            "type": "string"
+          },
+          "price": {
+            "description": "商品单价",
+            "type": "string"
+          },
+          "unit": {
+            "description": "商品单位",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "goods_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `goods_info` to the tool, first call the tool `expandSchema` with \"/properties/goods_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "logistics_companies": {
+      "description": "即时配送公司配置列表",
+      "items": {
+        "properties": {
+          "logistics_code": {
+            "description": "即时配送公司编码，由支付宝分配",
+            "example": "FENGNIAO",
+            "type": "string"
+          },
+          "service_codes": {
+            "description": "即时配送公司服务代码列表",
+            "items": {
+              "properties": {
+                "service_code": {
+                  "description": "即时配送公司服务代码",
+                  "example": "fengniao01",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "open_id": {
+      "description": "消费者id， 如果consumer_source是alipay，则consumer_id必须是支付宝的openId；如果consumer_source是wx，则consumer_id可以为空",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "order_ext_istd": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `order_ext_istd` to the tool, first call the tool `expandSchema` with \"/properties/order_ext_istd\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "out_order_no": {
+      "description": "商家订单号",
+      "example": "2020090411140000000000777000216122",
+      "type": "string"
+    },
+    "receiver": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `receiver` to the tool, first call the tool `expandSchema` with \"/properties/receiver\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "sender": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sender` to the tool, first call the tool `expandSchema` with \"/properties/sender\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "shop_no": {
+      "description": "商家门店编号",
+      "example": "shopno001",
+      "type": "string"
+    }
+  },
+  "required": []
+}

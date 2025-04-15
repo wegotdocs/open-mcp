@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_token": {
+      "description": "用户授权令牌",
+      "type": "string"
+    },
+    "enable_trade_out": {
+      "description": "默认值为false。true为输出交易信息，false为不输出交易信息。",
+      "example": "true",
+      "type": "string"
+    },
+    "end_invoice_date": {
+      "description": "查询结束时间，精确到天（按开票日期查询）\tstart_invoice_date和end_invoice_date传值要求\t1.同时为空时，返回最近半年200条数据\t2.必须同时为空 或 同时不为空\t3.结束日期不能大于当前日期\t4.开始时间和结束时间跨度不能超过6个月",
+      "example": "2017-07-11",
+      "type": "string"
+    },
+    "invoice_kind_list": {
+      "description": "查询票种列表",
+      "example": "[\"PLAIN\",\"SPECIAL\",\"ALL_ELECTRONIC_GENERAL\",\"ALL_ELECTRONIC_SPECIAL\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "limit_size": {
+      "description": "查询结果上限笔数，最大值20",
+      "example": 20,
+      "type": "integer"
+    },
+    "page_num": {
+      "description": "当前页码，为空时默认第一页",
+      "example": 1,
+      "type": "integer"
+    },
+    "scene": {
+      "description": "发票要素获取应用场景。<a href=\"https://opendocs.alipay.com/open/10691/bv8s88\">\"拉\"模式报销</a> 固定为 INVOICE_EXPENSE 表示发票报销。",
+      "example": "INVOICE_EXPENSE",
+      "type": "string"
+    },
+    "start_invoice_date": {
+      "description": "查询起始时间，精确到天（按开票日期查询）\tstart_invoice_date和end_invoice_date传值要求\t1.同时为空时，返回最近半年200条数据\t2.必须同时为空 或 同时不为空\t3.结束日期不能大于当前日期\t4.开始时间和结束时间跨度不能超过6个月",
+      "example": "2017-01-11",
+      "type": "string"
+    },
+    "tax_no": {
+      "description": "企业税号",
+      "example": "123",
+      "type": "string"
+    }
+  },
+  "required": []
+}

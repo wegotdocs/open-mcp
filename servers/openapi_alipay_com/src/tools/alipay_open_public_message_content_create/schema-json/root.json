@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "benefit": {
+      "description": "活动利益点，最多10个字符。仅 ctype 为 activity 类型时才需传入。",
+      "example": "满**减**",
+      "type": "string"
+    },
+    "content": {
+      "description": "消息正文（支持富文本）",
+      "example": "<html>示例</html>",
+      "type": "string"
+    },
+    "could_comment": {
+      "description": "是否允许评论。枚举支持：\t*T：允许。\t*F：不允许，默认不允许。",
+      "example": "T",
+      "type": "string"
+    },
+    "cover": {
+      "description": "封面图url，需传入 <a href=\"https://opendocs.alipay.com/apis/api_3/alipay.offline.material.image.upload\">图片上传接口</a>上传图片获取的 image_url。\t注意：尺寸为 996*450，最大不超过3M，支持格式：jpg、.png 。",
+      "example": "https://oalipay-dl-django.alicdn.com/rest/1.0/image?fileIds=xxx&zoom=xxx",
+      "type": "string"
+    },
+    "ctype": {
+      "description": "图文类型，不填默认普通图文。还支持 activity（活动图文）。",
+      "example": "activity",
+      "type": "string"
+    },
+    "ext_tags": {
+      "description": "关键词列表，英文逗号分隔，最多不超过5个",
+      "example": "关键,热度",
+      "type": "string"
+    },
+    "login_ids": {
+      "description": "可预览支付宝账号列表，需要预览时才填写， 英文逗号分隔，最多不超过10个",
+      "example": "13434343432,xxx@163.com",
+      "type": "string"
+    },
+    "title": {
+      "description": "标题",
+      "example": "标题",
+      "type": "string"
+    }
+  },
+  "required": []
+}

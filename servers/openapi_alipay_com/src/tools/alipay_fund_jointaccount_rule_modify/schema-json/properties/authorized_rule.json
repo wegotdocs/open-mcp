@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "authorized_detail_list": {
+      "description": "授权商户列表",
+      "items": {
+        "properties": {
+          "authorized_principal_id": {
+            "description": "收单主体PID",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "authorized_type": {
+      "description": "WHITELIST-白名单\tALL-全部",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

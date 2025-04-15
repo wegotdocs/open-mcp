@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "target_appid": {
+      "description": "小程序id",
+      "example": "2021001120654127",
+      "type": "string"
+    },
+    "status": {
+      "description": "关键词的状态，枚举值，不传该字段表示查询所有状态",
+      "example": "ONLINE",
+      "type": "string"
+    },
+    "page_number": {
+      "description": "当前页",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "每页显示条数",
+      "example": 10,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

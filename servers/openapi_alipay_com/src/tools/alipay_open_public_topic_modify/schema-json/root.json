@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "img_url": {
+      "description": "营销位图片url, 尺寸为996*450，最大不超过5M，支持格式:.jpg、.png ，请先调用<a href=\"https://docs.open.alipay.com/api_3/alipay.offline.material.image.upload\"> 图片上传接口</a>获得图片url。营销位需要展示头图时，必须填写该参数。",
+      "example": "https://oalipay-dl-django.alicdn.com/rest/1.0/image?fileIds=xxx&zoom=xxx",
+      "type": "string"
+    },
+    "link_type": {
+      "description": "跳转类型，网页:HTTP、小程序:APP，不传默认HTTP",
+      "example": "HTTP",
+      "type": "string"
+    },
+    "link_url": {
+      "description": "营销位跳转地址，点击营销位头图跳到的链接url。营销位需要展示头图时，必须填写该参数。",
+      "example": "https://www.alipay.com",
+      "type": "string"
+    },
+    "sub_title": {
+      "description": "营销位描述。营销位需要展示头图时，必须填写该参数",
+      "example": "营销位描述",
+      "type": "string"
+    },
+    "title": {
+      "description": "营销位名称",
+      "example": "营销位名称",
+      "type": "string"
+    },
+    "topic_id": {
+      "description": "营销位id",
+      "example": "CG202011131013300867029",
+      "type": "string"
+    },
+    "topic_items": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `topic_items` to the tool, first call the tool `expandSchema` with \"/properties/topic_items\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

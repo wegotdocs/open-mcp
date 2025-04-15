@@ -1,0 +1,58 @@
+{
+  "properties": {
+    "apply_type": {
+      "description": "申请类型 BASE：基础信息， BRAND_BOX：品牌直达，SERVICE_BOX服务直达",
+      "example": "BRAND_BOX",
+      "type": "string"
+    },
+    "audit_status_list": {
+      "description": "筛选状态数组 AUDIT AGREE REJECT CANCEL EDIT",
+      "example": "[\"AUDIT\",\"AGREE\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "category_code": {
+      "description": "类目编码",
+      "example": "2021001162676276",
+      "type": "string"
+    },
+    "name": {
+      "description": "服务名称",
+      "example": "服务名称",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "当前页码",
+      "example": "10",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "页面的显示记录条数",
+      "example": "3",
+      "type": "string"
+    },
+    "service_code": {
+      "description": "服务code",
+      "example": "2020062021000575859547",
+      "type": "string"
+    },
+    "service_id": {
+      "description": "小程序appid",
+      "example": "2020072301000006648885",
+      "type": "string"
+    },
+    "start_row": {
+      "description": "起始记录，起始：0",
+      "example": "1",
+      "type": "string"
+    },
+    "sub_service_code": {
+      "description": "二级服务code",
+      "example": "2020062021000575859547",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

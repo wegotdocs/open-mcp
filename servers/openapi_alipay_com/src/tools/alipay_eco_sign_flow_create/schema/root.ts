@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "target_app_id": z.string().describe("目标isv应用ID").optional(),
+  "attachments": z.array(z.object({ "attachment_name": z.string().describe("流程附件名称").optional(), "file_id": z.string().describe("流程附件id").optional() })).describe("附件信息").optional(),
+  "business_scene": z.string().describe("流程主题").optional(),
+  "config_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `config_info` to the tool, first call the tool `expandSchema` with \"/properties/config_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "template_infos": z.array(z.object({ "fill_contents": z.array(z.object({ "struct_key": z.string().describe("模板组件自定义key").optional(), "value": z.string().describe("模板值,该值长度取决于配置模板时该字段的限制").optional() })).describe("模板填充项").optional(), "name": z.string().describe("文件名称").optional(), "signfields": z.object({ "auto_execute": z.string().describe("平台自动签").optional(), "signer": z.object({ "email": z.string().describe("邮箱").optional(), "id_number": z.string().describe("证件号").optional(), "id_type": z.string().describe("证件类型,详见个人证件类型说明（http://open.esign.cn/docs/xy/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/%E9%99%84%E5%BD%95/%E4%B8%AA%E4%BA%BA%E8%AF%81%E4%BB%B6%E7%B1%BB%E5%9E%8B.html），默认CRED_PSN_CH_IDCARD (证件号不为空，则必填)").optional(), "mobile": z.string().describe("手机号").optional(), "name": z.string().describe("姓名").optional(), "user_id": z.string().describe("支付宝userId").optional() }).optional(), "struct_key": z.string().describe("模板组件id").optional() }).optional(), "template_id": z.string().describe("模板id").optional() })).describe("模板信息").optional()
+}

@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "attribute": {
+      "description": "商品属性列表",
+      "items": {
+        "properties": {
+          "name": {
+            "description": "商品属性名",
+            "example": "材质",
+            "type": "string"
+          },
+          "value": {
+            "description": "商品属性值",
+            "example": "[\"纯棉\",\"条轮\"]",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "brand": {
+      "description": "商品品牌",
+      "example": "米其林",
+      "type": "string"
+    },
+    "category": {
+      "description": "商品类目，用于商品库中分类",
+      "example": "美妆",
+      "type": "string"
+    },
+    "description": {
+      "description": "商品描述",
+      "example": "商品质量符合XX标准，支持7天无理由退换",
+      "type": "string"
+    },
+    "icon": {
+      "description": "商品图片链接\t特殊可选规则：is_delete=false的情况下必填",
+      "example": "https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d",
+      "type": "string"
+    },
+    "is_delete": {
+      "description": "默认为false，为true，表示删除知识点",
+      "example": "false",
+      "type": "string"
+    },
+    "library_id": {
+      "description": "知识库id",
+      "example": 23,
+      "type": "integer"
+    },
+    "library_name": {
+      "description": "知识库名称",
+      "example": "商品知识库",
+      "type": "string"
+    },
+    "link_url": {
+      "description": "商品链接\t特殊可选规则：is_delete=false的情况下必填",
+      "example": "https://detail.tmall.com/item.htm?id=530187047412&ali_trackid=2:mm_26632614_0_0:1603785697_244_935652742",
+      "type": "string"
+    },
+    "original_price": {
+      "description": "商品原价",
+      "example": "123.58",
+      "type": "string"
+    },
+    "price": {
+      "description": "商品售价\t特殊可选规则：is_delete=false的情况下必填",
+      "example": "99.99",
+      "type": "string"
+    },
+    "spu_id": {
+      "description": "商品ID",
+      "example": "spu1212391923",
+      "type": "string"
+    },
+    "status": {
+      "description": "商品状态：AVAILABLE 表示可售卖,SOLD_OUT为售罄/不可卖，默认可售卖",
+      "example": "AVAILABLE",
+      "type": "string"
+    },
+    "title": {
+      "description": "商品名称\t特殊可选规则：is_delete=false的情况下必填",
+      "example": "汽车盲点BSD并线辅助系统盲点监测变道后视镜盲区监控雷达预警",
+      "type": "string"
+    }
+  },
+  "required": []
+}

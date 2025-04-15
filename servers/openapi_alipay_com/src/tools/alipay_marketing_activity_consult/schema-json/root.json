@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "consult_activity_info_list": {
+      "description": "待咨询的活动信息列表",
+      "items": {
+        "properties": {
+          "activity_id": {
+            "description": "活动id",
+            "example": "2016042700826004508401111111",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    },
+    "merchant_id": {
+      "description": "商户PID,默认为当前接口调用商户。",
+      "example": "2088102111111111",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "领券的支付宝用户openId",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "领券的用户uid",
+      "example": "2088xxxx",
+      "type": "string"
+    }
+  },
+  "required": []
+}

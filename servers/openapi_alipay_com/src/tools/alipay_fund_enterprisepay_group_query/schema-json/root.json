@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "product_code": {
+      "description": "产品码，默认值 ENTERPRISE_PAY",
+      "example": "ENTERPRISE_PAY",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "场景码，联系支付宝分配",
+      "example": "ANT_GROUP",
+      "type": "string"
+    },
+    "account_id": {
+      "description": "企业签约账户ID",
+      "example": "2088888888",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "平台和企业的三方授权协议号",
+      "example": "1231231321323",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务号，外部群组号",
+      "example": "12312313",
+      "type": "string"
+    }
+  },
+  "required": []
+}

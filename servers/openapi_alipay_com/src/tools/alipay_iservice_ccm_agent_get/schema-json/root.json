@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "客服id",
+      "example": "2018101801902073",
+      "type": "string"
+    },
+    "job_number": {
+      "description": "客服工号",
+      "example": "0001",
+      "type": "string"
+    },
+    "user_channel": {
+      "description": "客服账号渠道, ALIPAY:支付宝账号\tuser_channel和external_user_id必须配对使用",
+      "example": "ALIPAY",
+      "type": "string"
+    },
+    "external_user_id": {
+      "description": "客服账号id，当user_channel=ALIPAY时，此id为支付宝2088id\texternal_user_id和user_channel必须配对使用",
+      "example": "2088xxx",
+      "type": "string"
+    }
+  },
+  "required": []
+}

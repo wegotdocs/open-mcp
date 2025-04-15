@@ -1,0 +1,16 @@
+export { inputParams } from "./schema/root.js"
+
+export const toolName = `alipay_open_instantdelivery_account_query`
+export const toolDescription = `即时配送商家账户查询`
+export const baseUrl = `https://openapi.alipay.com`
+export const path = `/v3/alipay/open/instantdelivery/account/query`
+export const method = `get`
+export const security = []
+export const keys = {
+  "query": [],
+  "header": [],
+  "path": [],
+  "cookie": [],
+  "body": []
+}
+export const flatMap = {}

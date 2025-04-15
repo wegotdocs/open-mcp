@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_token": {
+      "description": "代理商访问灯火平台的token",
+      "example": "HYjofejnnlp89730202bcklHH",
+      "type": "string"
+    },
+    "principal_tag": {
+      "description": "商家标志",
+      "example": "yfvbv133498",
+      "type": "string"
+    },
+    "type": {
+      "description": "推广页类型：COLLECT_INFO -  免费留资；TRADE - 付费留资； OPERATION_PAID - 运营商付费留资；待扩展",
+      "example": "COLLECT_INFO",
+      "type": "string"
+    },
+    "page_no": {
+      "description": "分页参数之页数，从1开始",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "分页参数之每页大小，最大1000",
+      "example": 100,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

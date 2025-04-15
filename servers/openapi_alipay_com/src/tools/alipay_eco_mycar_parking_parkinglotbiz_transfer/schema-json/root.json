@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "business_isv": {
+      "description": "车场业务归属关系列表",
+      "items": {
+        "properties": {
+          "business_appid": {
+            "description": "业务归属appid",
+            "type": "string"
+          },
+          "business_payee_id": {
+            "description": "业务收款pid，business_type为AGREEMENT_PAY时，此参数必传",
+            "type": "string"
+          },
+          "business_pid": {
+            "description": "业务归属pid",
+            "type": "string"
+          },
+          "business_type": {
+            "description": "业务类型ONLINE_PAY(在线缴费) 、AGREEMENT_PAY(无感停车)\tDEVICE_ONLINE_PAY(车机在线缴费)",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "parking_id": {
+      "description": "车场创建返回的parking_id字段",
+      "example": "PI1480989659571286385",
+      "type": "string"
+    }
+  },
+  "required": []
+}

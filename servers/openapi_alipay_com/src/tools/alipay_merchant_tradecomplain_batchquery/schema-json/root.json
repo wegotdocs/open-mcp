@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "begin_time": {
+      "description": "查询开始时间\t时间格式：yyyy-MM-dd HH:mm:ss\t若不填写，则默认当前时间30天前。\t注意：begin_time和end_time时间跨度最大一年",
+      "example": "\"2020-02-14 14:23:12\"",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "查询结束时间\t时间格式：yyyy-MM-dd HH:mm:ss\t若不填写，则默认当前时间。\t注意：begin_time和end_time时间跨度最大一年",
+      "example": "\"2020-02-14 14:23:12\"",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "当前页，从1开始",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "每页条数，默认10条，最多支持20条",
+      "example": 10,
+      "type": "integer"
+    },
+    "status": {
+      "description": "状态如下\t待处理：MERCHANT_PROCESSING \t已处理：MERCHANT_FEEDBACKED \t投诉完结：FINISHED \t投诉关闭：CANCELLED \t客服处理中：PLATFORM_PROCESSING \t客服处理完结：PLATFORM_FINISH \t投诉关闭：CLOSED",
+      "example": "MERCHANT_PROCESSING",
+      "type": "string"
+    },
+    "target_infos": {
+      "description": "应用信息",
+      "items": {
+        "properties": {
+          "target_id": {
+            "description": "应用id，例如小程序id",
+            "example": "2018001307627807",
+            "type": "string"
+          },
+          "target_type": {
+            "description": "应用类型\t小程序传入：APPID\t生活号传入：PUBLICID",
+            "example": "APPID",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

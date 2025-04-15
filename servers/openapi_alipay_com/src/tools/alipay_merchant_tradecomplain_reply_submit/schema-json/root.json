@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "complain_event_id": {
+      "description": "支付宝侧投诉单号",
+      "example": "2022032200102000000001459758",
+      "type": "string"
+    },
+    "reply_content": {
+      "description": "回复留言内容",
+      "example": "你好，已发货，快递单号:*****",
+      "type": "string"
+    },
+    "reply_images": {
+      "description": "商家处理问题反馈时的回复凭证的图片id，多个逗号隔开（图片id可以通过\"商户上传处理图片\"接口获取）",
+      "example": "ySYHS5CtTCmag14Wk8jeNAAAACMAAQEW,ySYHS5CtTCmag14Wk8jeNAAAACMAAQAX",
+      "type": "string"
+    }
+  },
+  "required": []
+}

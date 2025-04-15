@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "cancel_reason": {
+      "description": "取消原因，取消原因id为i_6时必填",
+      "example": "其他原因取消运单",
+      "type": "string"
+    },
+    "cancel_reason_id": {
+      "description": "取消原因id",
+      "example": "i_6",
+      "type": "string"
+    },
+    "logistics_code": {
+      "description": "即时配送公司编码",
+      "example": "FENGNIAO",
+      "type": "string"
+    },
+    "order_no": {
+      "description": "支付宝订单流水号",
+      "example": "2020090411130000000000772400280352",
+      "type": "string"
+    },
+    "out_order_no": {
+      "description": "商家订单号，与order_no不能同时为空",
+      "example": "2020090411140000000000777000216122",
+      "type": "string"
+    },
+    "waybill_no": {
+      "description": "即时配送运单编号",
+      "example": "waybillno001",
+      "type": "string"
+    }
+  },
+  "required": []
+}

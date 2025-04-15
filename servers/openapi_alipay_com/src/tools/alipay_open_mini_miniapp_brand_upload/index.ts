@@ -1,0 +1,16 @@
+export { inputParams } from "./schema/root.js"
+
+export const toolName = `alipay_open_mini_miniapp_brand_upload`
+export const toolDescription = `小程序品牌提交认证时上传用户资质以及身份信息`
+export const baseUrl = `https://openapi.alipay.com`
+export const path = `/v3/alipay/open/mini/miniapp/brand/upload`
+export const method = `post`
+export const security = []
+export const keys = {
+  "query": [],
+  "header": [],
+  "path": [],
+  "cookie": [],
+  "body": []
+}
+export const flatMap = {}

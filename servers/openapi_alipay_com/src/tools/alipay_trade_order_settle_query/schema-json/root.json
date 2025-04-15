@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "settle_no": {
+      "description": "支付宝分账请求单号，传入该字段，无需再传外部请求号和支付宝交易号",
+      "example": "20210706002530020036530021395831",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "调用分账接口时指定的外部请求号。分账查询时需要和支付宝交易号一起传入",
+      "example": "20210727001",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "支付宝交易号，传入该字段，需要和外部请求号一起传入",
+      "example": "2021112611001004680 073956707",
+      "type": "string"
+    }
+  },
+  "required": []
+}

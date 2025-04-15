@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_id": {
+      "description": "签约芝麻GO的业务协议号，在签约成功、结算成功等通知中回回传给商户。",
+      "example": "ZMGO_AGR2021010510020604080000006001",
+      "type": "string"
+    },
+    "alipay_open_id": {
+      "description": "支付宝用户ID",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "支付宝用户ID",
+      "example": "2088302841345600",
+      "type": "string"
+    },
+    "memo": {
+      "description": "本次退款说明",
+      "example": "退款",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "外部请求号",
+      "example": "99202005050100930053707258",
+      "type": "string"
+    },
+    "partner_id": {
+      "description": "商户ID",
+      "example": "2088302424614288",
+      "type": "string"
+    },
+    "refund_amount": {
+      "description": "退款金额，单位为：元（人民币），精确到小数点后两位",
+      "example": "3.00",
+      "type": "string"
+    },
+    "refund_type": {
+      "description": "退款类型：\tMEMBER_FEE_REFUND 会员费结算退款 ，WITHHOLD_FEE_REFUND 周期扣款金额退款。\t不填写默认为 MEMBER_FEE_REFUND",
+      "example": "MEMBER_FEE_REFUND",
+      "type": "string"
+    },
+    "withhold_plan_no": {
+      "description": "芝麻侧扣款计划单据号，在结算扣款成功的通知消息中会回传。",
+      "example": "ZMGO_WHD2021010510020603410000006001",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "apdid_token": {
+      "description": "设备指纹，用于唯一标识一台设备",
+      "example": "40Kl9e97cQcMJka5gfT0arVPq7GTaR6yE5f73mj8zqBW9eOPZQEAAA==",
+      "type": "string"
+    },
+    "app_name": {
+      "description": "人脸识别应用名称",
+      "example": "com.alipay.zoloz.smile",
+      "type": "string"
+    },
+    "app_version": {
+      "description": "人脸识别应用版本号",
+      "example": "3.7.0.201809191618",
+      "type": "string"
+    },
+    "base_ver": {
+      "description": "基础包版本号",
+      "example": "7.1.1",
+      "type": "string"
+    },
+    "bio_meta_info": {
+      "description": "生物识别元信息",
+      "example": "3.13.0:12419136,6",
+      "type": "string"
+    },
+    "device_model": {
+      "description": "设备型号",
+      "example": "T2",
+      "type": "string"
+    },
+    "device_type": {
+      "description": "设备类型",
+      "example": "android",
+      "type": "string"
+    },
+    "ext_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ext_info` to the tool, first call the tool `expandSchema` with \"/properties/ext_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "machine_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `machine_info` to the tool, first call the tool `expandSchema` with \"/properties/machine_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "merchant_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `merchant_info` to the tool, first call the tool `expandSchema` with \"/properties/merchant_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "os_version": {
+      "description": "操作系统版本号",
+      "example": "7.1.1",
+      "type": "string"
+    },
+    "remote_log_id": {
+      "description": "业务ID",
+      "example": "bcf71c4290f288f4421ee9d49eedbf1e2840ba",
+      "type": "string"
+    },
+    "zim_ver": {
+      "description": "ZIM版本号",
+      "example": "1.0.0",
+      "type": "string"
+    }
+  },
+  "required": []
+}

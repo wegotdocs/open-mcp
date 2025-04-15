@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "properties": {
+    "attachments": {
+      "description": "附件列表",
+      "items": {
+        "properties": {
+          "file_name": {
+            "description": "文章附件",
+            "type": "string"
+          },
+          "id": {
+            "description": "附件id",
+            "type": "integer"
+          },
+          "key": {
+            "description": "附件完整Key",
+            "type": "string"
+          },
+          "url": {
+            "description": "附件的url",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "category_id": {
+      "description": "所属类目ID，如果search_all_category为true则不用填",
+      "example": 12,
+      "type": "integer"
+    },
+    "ccs_instance_id": {
+      "description": "子部门ID，不传为默认部门",
+      "example": "ZPNASDK",
+      "type": "string"
+    },
+    "content": {
+      "description": "内容",
+      "example": "这是一个普通的内容文本",
+      "type": "string"
+    },
+    "extend_titles": {
+      "description": "扩展标题",
+      "example": "[\"支付宝\",\"知识库\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "keywords": {
+      "description": "标签",
+      "example": "[\"关键\",\"核心\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "library_id": {
+      "description": "知识库ID",
+      "example": "1",
+      "type": "string"
+    },
+    "publish_end": {
+      "description": "默认为 2999-12-31 23:59:59",
+      "example": "2024-06-01 19:00:00",
+      "type": "string"
+    },
+    "publish_start": {
+      "description": "默认为当前时间",
+      "example": "2024-06-01 10:00:00",
+      "type": "string"
+    },
+    "related_articles": {
+      "description": "关联知识点",
+      "items": {
+        "properties": {
+          "id": {
+            "description": "知识点id",
+            "type": "integer"
+          },
+          "title": {
+            "description": "知识点标题",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "scene_codes": {
+      "description": "场景ID。KNOWLEDGE（内部知识库）；ROBOT（机器人）;HELP（帮助中心）；WHELP（无线帮助中心）",
+      "example": "[\"KNOWLEDGE\",\"ROBOT\",\"HELP\",\"WHELP\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "title": {
+      "description": "标题",
+      "example": "这是一个普通的标题",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_tid": {
+      "description": "设备 ID ，仅device_id_type 为 ID 时填写。",
+      "example": "01017gV1CZ1XxASNbqkTJqchletNyVXtsKy1PAs4FKZ6tjRMqyMG2Zk",
+      "type": "string"
+    },
+    "device_id_type": {
+      "description": "可选方式。枚举支持：\t*  ID：表示使用 biztid 作为设备唯一识别标识，\t*  SN：表示使用 supplier_id、device_sn联合作为设备唯一识别标识。\t注意：由于不同机型的supplier_id不同，推荐使用 ID 。",
+      "example": "SN",
+      "type": "string"
+    },
+    "device_sn": {
+      "description": "设备序列号 ，device_id_type 为 SN 时填写。需配合supplier_id使用。",
+      "example": "QCF420190316000107",
+      "type": "string"
+    },
+    "merchant_type": {
+      "description": "商户类型。枚举支持：\t*  direct：直连商户；\t*  indirect：间连商户。",
+      "example": "indirect",
+      "type": "string"
+    },
+    "pid": {
+      "description": "直连场景填写商户收单pid。间连场景填写smid绑定的pid（可通过代运营授权API获取）。",
+      "example": "2088101112139885",
+      "type": "string"
+    },
+    "shop_id": {
+      "description": "商户pid名下的门店 ID。可通过门店管理API获取，需注意请勿使用smid创建门店 ID。",
+      "example": "2020081700502012300038796029",
+      "type": "string"
+    },
+    "smid": {
+      "description": "直连场景不填，间连场景填写商户收单smid",
+      "example": "2088101112139886",
+      "type": "string"
+    },
+    "supplier_id": {
+      "description": "设备供应商ID ，device_id_type 为 SN 时填写。需注意不同机型的供应商ID可能不同。",
+      "example": "201812271300540049",
+      "type": "string"
+    }
+  },
+  "required": []
+}

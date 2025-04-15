@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "certify_id": {
+      "description": "传入初始化接口datadigital.fincloud.generalsaas.face.check.initialize 得到的certify_id",
+      "example": "dddddfsss88833ssf",
+      "type": "string"
+    },
+    "need_alive_photo": {
+      "description": "是否需要返回活体结果图片，needAlivePhoto：Y_O （原始图片）、Y_M（虚化，背景马赛克）、N（不返图）。非必填，默认为N",
+      "example": "Y_M",
+      "type": "string"
+    },
+    "need_score": {
+      "description": "该入参已经废弃。",
+      "example": "Y",
+      "type": "string"
+    },
+    "need_quality_score": {
+      "description": "是否需要返回图片质量分，非必填，默认值为N。 N表示不需要，Y表示需要",
+      "example": "N",
+      "type": "string"
+    },
+    "need_attack_result": {
+      "description": "该参数已废弃",
+      "example": "N",
+      "type": "string"
+    }
+  },
+  "required": []
+}

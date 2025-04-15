@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "activity_id": {
+      "description": "活动id",
+      "example": "2016042700826004508401111111",
+      "type": "string"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务单号，用作幂等控制。 幂等作用： 参数不变的情况下，再次请求返回与上一次相同的结果。 外部接入方需保证业务单号唯一。",
+      "example": "20170101000001654bb46ba",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "该交易在支付宝系统中的交易流水号。",
+      "example": "2021042322001426261436764012",
+      "type": "string"
+    },
+    "voucher_code": {
+      "description": "券码。 限制: 券码必须已发放给用户。",
+      "example": "ABE44",
+      "type": "string"
+    }
+  },
+  "required": []
+}

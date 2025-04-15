@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "app_origin": {
+      "description": "来源类型，新接入方需要向支付宝申请专用来源，否则不予接入。",
+      "example": "AAA",
+      "type": "string"
+    },
+    "app_version": {
+      "description": "格式为: x.y.z，其中x、y、z均为整型数字，版本不能重复构建，且新版本号必须高于旧版本",
+      "example": "0.0.1",
+      "type": "string"
+    },
+    "bundle_id": {
+      "description": "端id",
+      "example": "com.alipay.alipaywallet",
+      "type": "string"
+    },
+    "ext": {
+      "description": "模板的配置参数，完整内容请参见：https://docs.alipay.com/mini/isv/ortga1",
+      "example": "{\"extEnable\": true, \"extPages\": {\"pages/face/index\": {\"defaultTitle\": \"默认页面标题\"}},\"window\": {\"defaultTitle\": \"默认标题\"}}",
+      "type": "string"
+    },
+    "mini_app_id": {
+      "description": "小程序ID，特殊场景专用，普通业务方无需关注该参数。",
+      "example": "2019051464523527",
+      "type": "string"
+    },
+    "template_id": {
+      "description": "模板id，模板必须已经处于上架/下架状态",
+      "example": "2019032163637014",
+      "type": "string"
+    },
+    "template_version": {
+      "description": "模板版本，必须处于上架/下架状态。如果为空，默认取当前在架，或者最新下架的版本。",
+      "example": "0.0.1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

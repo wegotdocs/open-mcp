@@ -1,0 +1,50 @@
+{
+  "properties": {
+    "email": {
+      "description": "邮箱地址",
+      "example": "123@123.com",
+      "type": "string"
+    },
+    "invoice_content": {
+      "description": "发票内容，配送服务费",
+      "example": "40",
+      "type": "string"
+    },
+    "invoice_fee": {
+      "description": "发票金额",
+      "example": "100",
+      "type": "string"
+    },
+    "invoice_title": {
+      "description": "发票抬头，如支付宝（杭州）信息技术有限公司",
+      "example": "支付宝（杭州）信息技术有限公司",
+      "type": "string"
+    },
+    "invoice_type": {
+      "description": "发票类型，0：默认电子发票",
+      "example": 0,
+      "type": "integer"
+    },
+    "phone": {
+      "description": "手机号码",
+      "example": "15171008605",
+      "type": "string"
+    },
+    "receiver": {
+      "description": "收件人姓名",
+      "example": "语轩",
+      "type": "string"
+    },
+    "tax_number": {
+      "description": "税号",
+      "example": "9133 0106 MA27 Y4U4 7R",
+      "type": "string"
+    },
+    "title_type": {
+      "description": "抬头类型，0：企业单位，1：个人/非企业",
+      "example": 0,
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "account_book_id": {
+      "description": "记账本ID",
+      "example": "2088000147677710",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "协议号。\t若是基于协议的记账本，则agreement_no必传；\t若是自创建的记账本，则agreement_no不传；",
+      "example": "20205724001102186227",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "场景码。固定为DEFAULT",
+      "example": "DEFAULT",
+      "type": "string"
+    },
+    "product_code": {
+      "description": "产品码。固定为SATF_FUND_BOOK",
+      "example": "SATF_FUND_BOOK",
+      "type": "string"
+    }
+  },
+  "required": []
+}

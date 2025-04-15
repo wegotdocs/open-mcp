@@ -1,0 +1,279 @@
+{
+  "properties": {
+    "account_day": {
+      "description": "出账日",
+      "example": "20180723",
+      "type": "string"
+    },
+    "accrued_date": {
+      "description": "应收日期(yyyyMMdd)",
+      "example": "20180723",
+      "type": "string"
+    },
+    "adjust_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `adjust_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/adjust_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "analysis_dmsn_1": {
+      "description": "分析维度1",
+      "example": "biz_pd_code=G1010100100000000004",
+      "type": "string"
+    },
+    "analysis_dmsn_2": {
+      "description": "分析维度2",
+      "example": "recon_inst=V_F51_SZBK",
+      "type": "string"
+    },
+    "analysis_dmsn_3": {
+      "description": "分析维度3",
+      "example": "payer_inst_code=SZBK",
+      "type": "string"
+    },
+    "analysis_dmsn_4": {
+      "description": "分析维度4",
+      "example": "groupIpId=123&groupIpRoleId=def",
+      "type": "string"
+    },
+    "arrangement_no": {
+      "description": "合约号，商户签约产品对应的合约号",
+      "example": "20180321I1019001104967771632",
+      "type": "string"
+    },
+    "bill_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `bill_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/bill_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "bill_end_date": {
+      "description": "账单结束日期",
+      "example": "20180723",
+      "type": "string"
+    },
+    "bill_month": {
+      "description": "账单月",
+      "example": "201807",
+      "type": "string"
+    },
+    "bill_no": {
+      "description": "月账单号,唯一标识月账单的ID",
+      "example": "2016092910122000040400930000000001",
+      "type": "string"
+    },
+    "bill_start_date": {
+      "description": "账单开始日期",
+      "example": "20180723",
+      "type": "string"
+    },
+    "bill_type": {
+      "description": "账单类型\r\t21：应收月账单\r\t目前仅支持该类型的账单类型",
+      "example": "21",
+      "type": "string"
+    },
+    "charge_item_code": {
+      "description": "收费项编码",
+      "example": "CREDIT_QUERY_FEE",
+      "type": "string"
+    },
+    "charge_type": {
+      "description": "计费类型\r\t01：云在线计费，02：离线计费，03：老主站计收费，04：芝麻在线计收费",
+      "example": "01",
+      "type": "string"
+    },
+    "check_status": {
+      "description": "出账状态\r\t01：账单生成，02：待确认出账，03：已出账，04：客户已对账，05：对账差异，06：部分出账",
+      "example": "03",
+      "type": "string"
+    },
+    "checked_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `checked_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/checked_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "checking_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `checking_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/checking_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "clcn_basic_amt": {
+      "description": "计算依据",
+      "example": 100,
+      "type": "integer"
+    },
+    "clcn_basic_type": {
+      "description": "计算依据类型\r\t01：交易金额，02：交易笔数，03：交易张数，04：资费依据扩展，05：其他",
+      "example": "01",
+      "type": "string"
+    },
+    "clcn_method": {
+      "description": "计算方法\r\t01：差额累进，02：全额累进，03：按传入金额收费，04：价格包量，05：包时间周期，06：按时间全额累进，07：包时间周期差额累进，08：期间差额累进，09：期间全额累进，10：包时间周期单笔，11：标准单笔计费，12：包时间周期单笔-按照传入金额计费，13：期间靠档差额累进，靠档计息使用，14：自定义",
+      "example": "02",
+      "type": "string"
+    },
+    "freeze_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `freeze_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/freeze_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "gmt_create": {
+      "description": "创建时间（创建备份时需要）",
+      "example": "1533039333744",
+      "type": "string"
+    },
+    "gmt_modified": {
+      "description": "修改时间（创建备份时需要）",
+      "example": "1533039333744",
+      "type": "string"
+    },
+    "gmt_pay": {
+      "description": "付款时间",
+      "example": "1533039333744",
+      "type": "string"
+    },
+    "inst_id": {
+      "description": "分支机构号",
+      "example": "Z50",
+      "type": "string"
+    },
+    "invoice_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `invoice_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/invoice_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "invoiced_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `invoiced_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/invoiced_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "ip_id": {
+      "description": "结算对象参与者标识",
+      "example": "17998789",
+      "type": "string"
+    },
+    "ip_name": {
+      "description": "参与者名字",
+      "example": "ip_name",
+      "type": "string"
+    },
+    "ip_role_id": {
+      "description": "结算对象参与者角色标识",
+      "example": "2088421727939934",
+      "type": "string"
+    },
+    "last_moder": {
+      "description": "最后修改人",
+      "example": "李某某",
+      "type": "string"
+    },
+    "link_invoice_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `link_invoice_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/link_invoice_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "pay_original": {
+      "description": "付款来源\r\t1：主账务，2：包量，3：预收，4：预存，5：银行，6：积分，7：统一支付，8：支付受理",
+      "example": "1",
+      "type": "string"
+    },
+    "pay_status": {
+      "description": "付款状态\r\t01：待结算；02：部分结算；03：结算完成",
+      "example": "01",
+      "type": "string"
+    },
+    "pay_way": {
+      "description": "付款方式\r\t1：资金；2：包量",
+      "example": "1",
+      "type": "string"
+    },
+    "payee_account": {
+      "description": "收款方账号",
+      "example": "20880013684318990156",
+      "type": "string"
+    },
+    "payer_account": {
+      "description": "付款方账号",
+      "example": "20880013684318990156",
+      "type": "string"
+    },
+    "payer_ip_role_id": {
+      "description": "扣款对象pid",
+      "example": "2088301287583636",
+      "type": "string"
+    },
+    "prod_code": {
+      "description": "产品码",
+      "example": "w1010100100000000018",
+      "type": "string"
+    },
+    "received_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `received_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/received_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "record_id": {
+      "description": "记录id，账单全局唯一号",
+      "example": "70cf1a075478780bc0c38d1e9e28c001",
+      "type": "string"
+    },
+    "service_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `service_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/service_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "settle_type": {
+      "description": "结算类型\r\t01：实时；02：预收；03：后收；04：周期结算；05：按日汇总结算；09：延期结算",
+      "example": "03",
+      "type": "string"
+    },
+    "sign_ip_id": {
+      "description": "签约对象参与者标识",
+      "example": "203668",
+      "type": "string"
+    },
+    "sign_ip_role_id": {
+      "description": "签约对象参与者角色标识",
+      "example": "2088101106290325",
+      "type": "string"
+    },
+    "stl_ip_role_id": {
+      "description": "结算对象PID",
+      "example": "2088301287583636",
+      "type": "string"
+    },
+    "tax_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `tax_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/tax_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "tax_rate": {
+      "description": "税率",
+      "type": "integer"
+    },
+    "tax_type": {
+      "description": "税收类型，01：增值税，02：营业税\r\t营业税已经在大部分行业废弃，要传入需咨询后再确认",
+      "example": "01",
+      "type": "string"
+    },
+    "to_writeoff_detail_count": {
+      "description": "待核销明细数量",
+      "example": 3,
+      "type": "integer"
+    },
+    "type": {
+      "description": "账单分类 1应收，2返点",
+      "example": "1",
+      "type": "string"
+    },
+    "writeoff_detail_dount": {
+      "description": "核销明细数量",
+      "example": 5,
+      "type": "integer"
+    },
+    "writingoff_amt": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `writingoff_amt` to the tool, first call the tool `expandSchema` with \"/properties/monthly_bill/properties/writingoff_amt\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

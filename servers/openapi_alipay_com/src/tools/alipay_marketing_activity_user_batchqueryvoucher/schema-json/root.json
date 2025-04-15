@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "description": "支付宝用户 id",
+      "example": "2088512417841101",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "支付宝用户openId",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "activity_id": {
+      "description": "活动 id",
+      "example": "2016042700826004508401111111",
+      "type": "string"
+    },
+    "belong_merchant_id": {
+      "description": "券归属商户",
+      "example": "2088202967380463",
+      "type": "string"
+    },
+    "sender_merchant_id": {
+      "description": "券发放商户",
+      "example": "2088102161342862",
+      "type": "string"
+    },
+    "voucher_status": {
+      "description": "券状态，其中已过期状态可查询6个月内的数据",
+      "example": "SENDED",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "分页查询页码",
+      "example": 1,
+      "type": "integer"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "分页查询单页数据条数",
+      "example": 20,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

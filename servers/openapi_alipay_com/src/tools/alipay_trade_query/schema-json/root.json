@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "org_pid": {
+      "description": "银行间联模式下有用，其它场景请不要使用；\r\t双联通过该参数指定需要查询的交易所属收单机构的pid;",
+      "example": "2088101117952222",
+      "type": "string"
+    },
+    "out_trade_no": {
+      "description": "订单支付时传入的商户订单号,和支付宝交易号不能同时为空。\r\ttrade_no,out_trade_no如果同时存在优先取trade_no",
+      "example": "20150320010101001",
+      "type": "string"
+    },
+    "query_options": {
+      "description": "查询选项，商户传入该参数可定制本接口同步响应额外返回的信息字段，数组格式。",
+      "example": "[\"trade_settle_info\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "trade_no": {
+      "description": "支付宝交易号，和商户订单号不能同时为空",
+      "example": "2014112611001004680 073956707",
+      "type": "string"
+    }
+  },
+  "required": []
+}

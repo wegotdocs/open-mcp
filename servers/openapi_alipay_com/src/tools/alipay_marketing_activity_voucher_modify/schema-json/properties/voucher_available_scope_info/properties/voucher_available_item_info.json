@@ -1,0 +1,26 @@
+{
+  "properties": {
+    "item_id": {
+      "description": "内部商品ID",
+      "type": "string"
+    },
+    "out_item_info": {
+      "description": "外部商品信息",
+      "items": {
+        "properties": {
+          "item_app_id": {
+            "description": "小程序ID",
+            "type": "string"
+          },
+          "out_item_id": {
+            "description": "外部商品ID",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

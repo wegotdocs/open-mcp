@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "effective_period": {
+      "description": "发放资产的有效时间段，该字段为空时，默认为不限制。当发放资产为余额时，仅支持设置为不限，当发放资产为点券时，可支持设置多种值。具体传值格式请参考文档 <a href=\"https://opendocs.alipay.com/pre-open/07nwcs\">接入文档</a>",
+      "example": "{\\\"all\\\":true}",
+      "type": "string"
+    },
+    "issue_rule_id": {
+      "description": "发放规则id",
+      "example": "\"2024090500152621040000040033\"",
+      "type": "string"
+    },
+    "issue_rule_name": {
+      "description": "发放规则名称",
+      "example": "发放餐补",
+      "type": "string"
+    },
+    "issue_type": {
+      "description": "额度发放周期",
+      "example": "ISSUE_DAY",
+      "type": "string"
+    },
+    "quota_type": {
+      "description": "发放规则发放的额度类型",
+      "example": "COUPON",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

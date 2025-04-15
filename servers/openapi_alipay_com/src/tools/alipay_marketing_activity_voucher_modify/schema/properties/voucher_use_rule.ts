@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "available_app_ids": z.string().describe("可核销的支付宝小程序id \t\t限制： \t1、必须是支付宝小程序 \t2、如果包含重复的小程序id会自动进行去重操作。\t3、可核销小程序范围只能扩大不能缩小").optional(),
+  "available_goods": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `available_goods` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/available_goods\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "available_merchant": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `available_merchant` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/available_merchant\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "available_store_ids": z.string().describe("可核销支付门店id。 \t\t限制： \t1、available_store_ids中的门店id必须是支付宝门店id。 \t2、available_store_ids如果包含重复的门店id会自动进行去重操作。\t3、可核销门店范围只能扩大不能缩小").optional(),
+  "voucher_valid_period": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_valid_period` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/voucher_valid_period\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional()
+}

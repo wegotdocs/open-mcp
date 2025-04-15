@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "articles": {
+      "description": "图文消息子消息项集合，单条消息最多6个子项，否则会发送失败",
+      "items": {
+        "properties": {
+          "action_name": {
+            "description": "链接文字",
+            "type": "string"
+          },
+          "desc": {
+            "description": "图文消息内容",
+            "type": "string"
+          },
+          "image_url": {
+            "description": "图片链接，对于多条图文消息的第一条消息，该字段不能为空; 请先调用<a href=\"https://docs.open.alipay.com/api_3/alipay.offline.material.image.upload\"> 图片上传接口</a>获得图片url",
+            "type": "string"
+          },
+          "title": {
+            "description": "图文消息标题",
+            "type": "string"
+          },
+          "url": {
+            "description": "点击图文消息跳转的链接",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "msg_type": {
+      "description": "消息类型，text：文本类型，image-text：图文类型。当消息类型为text时，text参数必传，当消息类型为image-text时，articles参数必传",
+      "example": "text",
+      "type": "string"
+    },
+    "text": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `text` to the tool, first call the tool `expandSchema` with \"/properties/material/properties/text\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

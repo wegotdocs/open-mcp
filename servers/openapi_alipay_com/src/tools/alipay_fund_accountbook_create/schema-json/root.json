@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "ext_info": {
+      "description": "JSON格式，传递业务扩展参数",
+      "example": "{\"agreement_no\":\"2019000000000\",\"cert_no\":\"61102619921108888\"}",
+      "type": "string"
+    },
+    "merchant_user_id": {
+      "description": "外部商户系统会员的唯一标识，自定义传入",
+      "example": "10000001",
+      "type": "string"
+    },
+    "merchant_user_type": {
+      "description": "外部商户用户类型:BUSINESS_EMPLOYEE",
+      "example": "BUSINESS_ORGANIZATION",
+      "type": "string"
+    },
+    "scene_code": {
+      "description": "资金记账本的业务场景",
+      "example": "SATF_FUND_BOOK",
+      "type": "string"
+    }
+  },
+  "required": []
+}

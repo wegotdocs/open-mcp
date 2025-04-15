@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "服务描述",
+      "example": "热线工作台",
+      "type": "string"
+    },
+    "icon": {
+      "description": "服务图标url。支持 http(s) 链接。",
+      "example": "http://127.0.0.1/",
+      "type": "string"
+    },
+    "service_code": {
+      "description": "服务编码。可在服务上架后，在服务市场上查询此信息。",
+      "example": "testCode",
+      "type": "string"
+    },
+    "service_name": {
+      "description": "服务名称。可在服务上架后，在服务市场上查询此信息。",
+      "example": "热线工作台",
+      "type": "string"
+    },
+    "service_order_url": {
+      "description": "服务订购二维码链接",
+      "example": "http://127.0.0.1/",
+      "type": "string"
+    },
+    "spis": {
+      "description": "spi定义列表",
+      "items": {
+        "properties": {
+          "biz_code": {
+            "description": "ISV自定义的标识功能的业务代码，不可重复",
+            "example": "hotline",
+            "type": "string"
+          },
+          "description": {
+            "description": "spi功能描述",
+            "example": "spi功能描述",
+            "type": "string"
+          },
+          "icon": {
+            "description": "功能图标文件url",
+            "example": "http://127.0.0.1/",
+            "type": "string"
+          },
+          "spi_endpoint": {
+            "description": "spi接口服务地址",
+            "example": "http://127.0.0.1/",
+            "type": "string"
+          },
+          "spi_ext_property": {
+            "description": "spi接口扩展参数，json格式字符串",
+            "example": "{\"key\":\"value\"}",
+            "type": "string"
+          },
+          "spi_key": {
+            "description": "CCM预先定义的spi key，与插件位置有关",
+            "example": "spi_alipay_iservice_ccm_menu",
+            "type": "string"
+          },
+          "spi_name": {
+            "description": "SPI 名称",
+            "example": "热线工作台",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

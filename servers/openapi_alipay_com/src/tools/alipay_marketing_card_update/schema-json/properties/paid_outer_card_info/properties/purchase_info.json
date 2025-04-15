@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "action_date": {
+      "description": "用户购买、升级、降级、续费的操作时间。格式为：yyyy-MM-dd hh:mm:ss",
+      "type": "string"
+    },
+    "alipay_trade_no": {
+      "description": "支付宝交易号，由api: alipay.trade.create 返回",
+      "type": "string"
+    },
+    "out_trade_no": {
+      "description": "商户订单号。与创建订单api：alipay.trade.create保持一致",
+      "type": "string"
+    },
+    "price": {
+      "description": "用户购买金额。当购买/升级/续费场景必填，单位元，精确到小数点后2位",
+      "type": "string"
+    },
+    "source": {
+      "description": "用户操作来源",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

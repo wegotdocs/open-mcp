@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "card_type": {
+      "description": "卡类型",
+      "type": "string"
+    },
+    "credit_ext_info": {
+      "description": "信用参数，可选，如有需要请与芝麻约定后传入，信用服务说明见",
+      "type": "string"
+    },
+    "hb_fq_num": {
+      "description": "使用花呗分期要进行的分期数",
+      "type": "string"
+    },
+    "hb_fq_seller_percent": {
+      "description": "使用花呗分期需要卖家承担的手续费比例的百分值，传入100代表100%",
+      "type": "string"
+    },
+    "industry_reflux_info": {
+      "description": "行业数据回流信息, 详见：地铁支付接口参数补充说明",
+      "type": "string"
+    },
+    "royalty_freeze": {
+      "description": "是否进行资金冻结，用于后续分账，true表示资金冻结，false或不传表示资金不冻结",
+      "type": "string"
+    },
+    "specified_seller_name": {
+      "description": "特殊场景下，允许商户指定交易展示的卖家名称",
+      "type": "string"
+    },
+    "sys_service_provider_id": {
+      "description": "系统商编号\r\t该参数作为系统商返佣数据提取的依据，请填写系统商签约协议的PID",
+      "type": "string"
+    },
+    "tc_installment_order_id": {
+      "description": "公域商品交易分期单ID，小程序交易组件订单特殊场景使用，请传入 订单分期接口(alipay.open.mini.order.installment.create)中返回的installment_order_id",
+      "type": "string"
+    },
+    "trade_component_order_id": {
+      "description": "公域商品交易业务订单ID",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
