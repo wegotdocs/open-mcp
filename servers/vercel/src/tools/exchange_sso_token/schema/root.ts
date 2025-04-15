@@ -5,5 +5,6 @@ export const inputParamsSchema = {
   "state": z.string().describe("The state received from the initialization request").optional(),
   "client_id": z.string().describe("The integration client id"),
   "client_secret": z.string().describe("The integration client secret"),
-  "redirect_uri": z.string().describe("The integration redirect URI").optional()
+  "redirect_uri": z.string().describe("The integration redirect URI").optional(),
+  "grant_type": z.literal("authorization_code").describe("The grant type, when using x-www-form-urlencoded content type").optional()
 }

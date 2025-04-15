@@ -20,6 +20,13 @@
     "redirect_uri": {
       "type": "string",
       "description": "The integration redirect URI"
+    },
+    "grant_type": {
+      "type": "string",
+      "description": "The grant type, when using x-www-form-urlencoded content type",
+      "enum": [
+        "authorization_code"
+      ]
     }
   },
   "required": [

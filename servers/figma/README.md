@@ -2,12 +2,15 @@
 
 ## Installing
 
-Use the helper command `add-to-client` to add the server to your MCP client:
+Use the OpenMCP config CLI to add the server to your MCP client:
 
 ### Claude desktop
 
 ```bash
-npx @open-mcp/figma add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
+npx @open-mcp/config add figma \
+  ~/Library/Application\ Support/Claude/claude_desktop_config.json \
+  --OAUTH2_TOKEN=... \
+  --X_FIGMA_TOKEN=...
 ```
 
 ### Cursor
@@ -15,13 +18,19 @@ npx @open-mcp/figma add-to-client ~/Library/Application\ Support/Claude/claude_d
 Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
 
 ```bash
-npx @open-mcp/figma add-to-client .cursor/mcp.json
+npx @open-mcp/config add figma \
+  .cursor/mcp.json \
+  --OAUTH2_TOKEN=... \
+  --X_FIGMA_TOKEN=...
 ```
 
 ### Other
 
 ```bash
-npx @open-mcp/figma add-to-client /path/to/client/config.json
+npx @open-mcp/config add figma \
+  /path/to/client/config.json \
+  --OAUTH2_TOKEN=... \
+  --X_FIGMA_TOKEN=...
 ```
 
 ### Manually

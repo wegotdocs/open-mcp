@@ -2,12 +2,15 @@
 
 ## Installing
 
-Use the helper command `add-to-client` to add the server to your MCP client:
+Use the OpenMCP config CLI to add the server to your MCP client:
 
 ### Claude desktop
 
 ```bash
-npx @open-mcp/adyen-account-v6 add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
+npx @open-mcp/config add adyen-account-v6 \
+  ~/Library/Application\ Support/Claude/claude_desktop_config.json \
+  --USERNAME_PASSWORD_BASE64=... \
+  --X_API_KEY=...
 ```
 
 ### Cursor
@@ -15,13 +18,19 @@ npx @open-mcp/adyen-account-v6 add-to-client ~/Library/Application\ Support/Clau
 Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
 
 ```bash
-npx @open-mcp/adyen-account-v6 add-to-client .cursor/mcp.json
+npx @open-mcp/config add adyen-account-v6 \
+  .cursor/mcp.json \
+  --USERNAME_PASSWORD_BASE64=... \
+  --X_API_KEY=...
 ```
 
 ### Other
 
 ```bash
-npx @open-mcp/adyen-account-v6 add-to-client /path/to/client/config.json
+npx @open-mcp/config add adyen-account-v6 \
+  /path/to/client/config.json \
+  --USERNAME_PASSWORD_BASE64=... \
+  --X_API_KEY=...
 ```
 
 ### Manually

@@ -2,12 +2,14 @@
 
 ## Installing
 
-Use the helper command `add-to-client` to add the server to your MCP client:
+Use the OpenMCP config CLI to add the server to your MCP client:
 
 ### Claude desktop
 
 ```bash
-npx @open-mcp/mintlify add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
+npx @open-mcp/config add mintlify \
+  ~/Library/Application\ Support/Claude/claude_desktop_config.json \
+  --API_KEY=...
 ```
 
 ### Cursor
@@ -15,13 +17,17 @@ npx @open-mcp/mintlify add-to-client ~/Library/Application\ Support/Claude/claud
 Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
 
 ```bash
-npx @open-mcp/mintlify add-to-client .cursor/mcp.json
+npx @open-mcp/config add mintlify \
+  .cursor/mcp.json \
+  --API_KEY=...
 ```
 
 ### Other
 
 ```bash
-npx @open-mcp/mintlify add-to-client /path/to/client/config.json
+npx @open-mcp/config add mintlify \
+  /path/to/client/config.json \
+  --API_KEY=...
 ```
 
 ### Manually

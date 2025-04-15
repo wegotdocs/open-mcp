@@ -2,12 +2,14 @@
 
 ## Installing
 
-Use the helper command `add-to-client` to add the server to your MCP client:
+Use the OpenMCP config CLI to add the server to your MCP client:
 
 ### Claude desktop
 
 ```bash
-npx @open-mcp/vercel add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
+npx @open-mcp/config add vercel \
+  ~/Library/Application\ Support/Claude/claude_desktop_config.json \
+  --API_KEY=...
 ```
 
 ### Cursor
@@ -15,13 +17,17 @@ npx @open-mcp/vercel add-to-client ~/Library/Application\ Support/Claude/claude_
 Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
 
 ```bash
-npx @open-mcp/vercel add-to-client .cursor/mcp.json
+npx @open-mcp/config add vercel \
+  .cursor/mcp.json \
+  --API_KEY=...
 ```
 
 ### Other
 
 ```bash
-npx @open-mcp/vercel add-to-client /path/to/client/config.json
+npx @open-mcp/config add vercel \
+  /path/to/client/config.json \
+  --API_KEY=...
 ```
 
 ### Manually
@@ -1536,7 +1542,8 @@ Expand the input schema for a tool before calling the tool
   "state": z.string().describe("The state received from the initialization request").optional(),
   "client_id": z.string().describe("The integration client id"),
   "client_secret": z.string().describe("The integration client secret"),
-  "redirect_uri": z.string().describe("The integration redirect URI").optional()
+  "redirect_uri": z.string().describe("The integration redirect URI").optional(),
+  "grant_type": z.literal("authorization_code").describe("The grant type, when using x-www-form-urlencoded content type").optional()
 }
 ```
 

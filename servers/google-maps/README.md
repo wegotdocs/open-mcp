@@ -2,12 +2,14 @@
 
 ## Installing
 
-Use the helper command `add-to-client` to add the server to your MCP client:
+Use the OpenMCP config CLI to add the server to your MCP client:
 
 ### Claude desktop
 
 ```bash
-npx @open-mcp/google-maps add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
+npx @open-mcp/config add google-maps \
+  ~/Library/Application\ Support/Claude/claude_desktop_config.json \
+  --KEY=...
 ```
 
 ### Cursor
@@ -15,13 +17,17 @@ npx @open-mcp/google-maps add-to-client ~/Library/Application\ Support/Claude/cl
 Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
 
 ```bash
-npx @open-mcp/google-maps add-to-client .cursor/mcp.json
+npx @open-mcp/config add google-maps \
+  .cursor/mcp.json \
+  --KEY=...
 ```
 
 ### Other
 
 ```bash
-npx @open-mcp/google-maps add-to-client /path/to/client/config.json
+npx @open-mcp/config add google-maps \
+  /path/to/client/config.json \
+  --KEY=...
 ```
 
 ### Manually
