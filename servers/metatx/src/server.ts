@@ -18,22 +18,9 @@ export async function runServer() {
     const tools: OpenMCPServerTool[] = []
     for (const file of OPERATION_FILES_RELATIVE) {
       const tool = (await import(file)).default as OpenMCPServerTool
-      const requiredKeys: (keyof typeof tool)[] = [
-        "path",
-        "method",
-        "toolName",
-        "inputParamsSchema",
-        "paramsMap",
-      ]
-      for (const key of requiredKeys) {
-        if (!tool[key]) {
-          throw new Error(`Parameter '${key}' in '${file}' is not well-defined`)
-        }
-      }
       tools.push(tool)
     }
     await registerTools(server, tools)
-
     const transport = new StdioServerTransport()
     await server.connect(transport)
     console.error("MCP Server running on stdio")
