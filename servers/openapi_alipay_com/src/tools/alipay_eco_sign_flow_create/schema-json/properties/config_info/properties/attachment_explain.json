@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "allow_more_uploads": {
+      "description": "允许上传更多附件。开启后，除了“附件列表”中指定的内容，签署人可自由上传之多10张图片。默认值为false",
+      "example": true,
+      "type": "boolean"
+    },
+    "description": {
+      "description": "描述",
+      "example": "请仔细检查手机外观，如有划痕部位请仔细拍摄。",
+      "type": "string"
+    },
+    "details": {
+      "description": "附件列表",
+      "items": {
+        "properties": {
+          "code": {
+            "description": "英文描述（collectAttachement值为true时必填）\t以下是系统固定code,对上传的图片做相应的校验。\t身份证校验情况：\t身份证正面照片：ESIGN_IDCARD\t身份证背面照片：ESIGN_BACK_IDCARD",
+            "example": "phonePicture",
+            "type": "string"
+          },
+          "description": {
+            "description": "请上传手机正面照",
+            "example": "中文描述（collectAttachement值为true时必填）",
+            "type": "string"
+          },
+          "order": {
+            "description": "顺序（collectAttachement值为true时必填）",
+            "example": 1,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "title": {
+      "description": "附件标题（collect_attachement值为true时必填",
+      "example": "请上传手机照片",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

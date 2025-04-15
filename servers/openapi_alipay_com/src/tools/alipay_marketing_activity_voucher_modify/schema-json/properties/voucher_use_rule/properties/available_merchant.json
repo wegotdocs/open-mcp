@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "available_pids": {
+      "description": "优惠券可以核销的直连商户PID。默认不修改。\t 限制： \t1、核销商户范围只能增大不能减小。",
+      "example": "[\"2088102111111111\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "available_smids": {
+      "description": "优惠券可以核销的间连商户SMID。默认不修改。\t 限制： \t 1、核销商户范围只能增大不能减小。",
+      "example": "[\"2088102111111111\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

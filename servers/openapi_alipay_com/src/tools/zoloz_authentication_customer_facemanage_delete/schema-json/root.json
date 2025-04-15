@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "areacode": {
+      "description": "地域编码",
+      "example": "010",
+      "type": "string"
+    },
+    "biz_type": {
+      "description": "人脸产品能力",
+      "example": "1",
+      "type": "string"
+    },
+    "bizscale": {
+      "description": "业务量",
+      "example": "9999999999",
+      "type": "string"
+    },
+    "brandcode": {
+      "description": "商户品牌",
+      "example": "KFC",
+      "type": "string"
+    },
+    "devicenum": {
+      "description": "商户机具唯一编码，关键参数",
+      "example": "商户机具唯一编码",
+      "type": "string"
+    },
+    "extinfo": {
+      "description": "拓展参数",
+      "example": "{}",
+      "type": "string"
+    },
+    "facetype": {
+      "description": "入库类型\tIDCARD:身份证\tALIPAY_USER:支付宝用户id,\tALIPAY_TEL:手机号入库\tCUSTOMER:自定义",
+      "example": "IDCARD,ALIPAY_USER, ALIPAY_TEL,CUSTOMER",
+      "type": "string"
+    },
+    "faceval": {
+      "description": "入库用户信息",
+      "example": "类型为IDCARD数据格式：[{\"certName\": \"张三\",\"certNo\":\"3101101999xxxxxxxx\",\"certType\":\"IDCARD\"}]类型ALIPAY_USER数据格式:[{\"alipayUid\":\"20885022\"}]",
+      "type": "string"
+    },
+    "group": {
+      "description": "分组",
+      "example": "group0",
+      "type": "string"
+    },
+    "storecode": {
+      "description": "门店编码",
+      "example": "HZ1000435",
+      "type": "string"
+    },
+    "validtimes": {
+      "description": "有效期天数，如7天、30天、365天",
+      "example": "7",
+      "type": "string"
+    }
+  },
+  "required": []
+}

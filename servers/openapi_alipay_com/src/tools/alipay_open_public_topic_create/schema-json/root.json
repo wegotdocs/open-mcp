@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "img_url": {
+      "description": "营销位图片url, 尺寸为996*450，最大不超过5M，支持格式:.jpg、.png ，请先调用<a href=\"https://docs.open.alipay.com/api_3/alipay.offline.material.image.upload\"> 图片上传接口</a>获得图片url。营销位需要展示头图时，必须填写该参数。",
+      "example": "https://oalipay-dl-django.alicdn.com/rest/1.0/image?fileIds=xxx&zoom=xxx",
+      "type": "string"
+    },
+    "link_type": {
+      "description": "跳转类型，网页:HTTP、小程序:APP，不传默认HTTP",
+      "example": "HTTP",
+      "type": "string"
+    },
+    "link_url": {
+      "description": "营销位跳转地址，点击营销位头图跳到的链接url。营销位需要展示头图时，必须填写该参数。",
+      "example": "https://www.alipay.com",
+      "type": "string"
+    },
+    "sub_title": {
+      "description": "营销位描述。营销位需要展示头图时，必须填写该参数。",
+      "example": "营销位描述",
+      "type": "string"
+    },
+    "title": {
+      "description": "营销位名称",
+      "example": "营销位名称",
+      "type": "string"
+    },
+    "topic_items": {
+      "description": "营销位内容，数量限制：大于4个，小于8个",
+      "items": {
+        "properties": {
+          "img_url": {
+            "description": "内容图片url, 尺寸为300*300，最大不超过3M，支持格式:.jpg、.png ，请先调用<a href=\"https://docs.open.alipay.com/api_3/alipay.offline.material.image.upload\"> 图片上传接口</a>获得图片url",
+            "type": "string"
+          },
+          "link_type": {
+            "description": "跳转类型，网页:HTTP、小程序:APP，不传默认HTTP",
+            "type": "string"
+          },
+          "link_url": {
+            "description": "跳转链接，点击营销位内容图片跳到的链接url",
+            "type": "string"
+          },
+          "sub_title": {
+            "description": "内容说明",
+            "type": "string"
+          },
+          "title": {
+            "description": "内容标题",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_token": {
+      "description": "用户授权令牌",
+      "type": "string"
+    },
+    "template": {
+      "description": "模板",
+      "example": "{\"appId\":\"${ALIPAY.appId}\",\"createTime\":${ALIPAY.createTime},\"toUserId\":\"${ALIPAY.toUserId}\",\"msgType\":\"text\",\"push\":\"true\"}",
+      "type": "string"
+    },
+    "template_id": {
+      "description": "模板id",
+      "example": "6900b58b65ce457eb67ad94cadadc64e",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "available_app_ids": {
+      "description": "可核销的支付宝小程序id \t\t限制： \t1、必须是支付宝小程序 \t2、如果包含重复的小程序id会自动进行去重操作。\t3、可核销小程序范围只能扩大不能缩小",
+      "example": "[\"2021238412323412\"]",
+      "type": "string"
+    },
+    "available_goods": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `available_goods` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/available_goods\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "available_merchant": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `available_merchant` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/available_merchant\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "available_store_ids": {
+      "description": "可核销支付门店id。 \t\t限制： \t1、available_store_ids中的门店id必须是支付宝门店id。 \t2、available_store_ids如果包含重复的门店id会自动进行去重操作。\t3、可核销门店范围只能扩大不能缩小",
+      "example": "[\"2018051000502000000011111111\",\"2018040200502000000011111111\",\"2018062800502000000022271997\"]",
+      "type": "string"
+    },
+    "voucher_valid_period": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_valid_period` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/voucher_valid_period\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,227 @@
+{
+  "properties": {
+    "disable_period_info": {
+      "description": "不可用时间段",
+      "items": {
+        "properties": {
+          "date_rule_info": {
+            "properties": {
+              "date_range_info": {
+                "properties": {
+                  "begin_date": {
+                    "description": "开始日期  格式：yyyy-MM-dd",
+                    "type": "string"
+                  },
+                  "end_date": {
+                    "description": "结束日期  格式：yyyy-MM-dd",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "time_range_info": {
+                "properties": {
+                  "begin_time": {
+                    "description": "开始时间  格式：HH:mm:ss",
+                    "type": "string"
+                  },
+                  "end_time_info": {
+                    "properties": {
+                      "end_time": {
+                        "description": "结束时间  格式：HH:mm:ss",
+                        "type": "string"
+                      },
+                      "end_time_type": {
+                        "description": "结束时间类型",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "holiday_rule_info": {
+            "properties": {
+              "time_range_info": {
+                "properties": {
+                  "begin_time": {
+                    "description": "开始时间  格式：HH:mm:ss",
+                    "type": "string"
+                  },
+                  "end_time_info": {
+                    "properties": {
+                      "end_time": {
+                        "description": "结束时间  格式：HH:mm:ss",
+                        "type": "string"
+                      },
+                      "end_time_type": {
+                        "description": "结束时间类型",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "rule_type": {
+            "description": "规则类型",
+            "type": "string"
+          },
+          "week_rule_info": {
+            "properties": {
+              "time_range_info": {
+                "properties": {
+                  "begin_time": {
+                    "description": "开始时间  格式：HH:mm:ss",
+                    "type": "string"
+                  },
+                  "end_time_info": {
+                    "properties": {
+                      "end_time": {
+                        "description": "结束时间  格式：HH:mm:ss",
+                        "type": "string"
+                      },
+                      "end_time_type": {
+                        "description": "结束时间类型",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "week_day": {
+                "description": "星期数，以“,”连接多个星期数",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "usable_period_info": {
+      "description": "可用时间段",
+      "items": {
+        "properties": {
+          "date_rule_info": {
+            "properties": {
+              "date_range_info": {
+                "properties": {
+                  "begin_date": {
+                    "description": "开始日期  格式：yyyy-MM-dd",
+                    "type": "string"
+                  },
+                  "end_date": {
+                    "description": "结束日期  格式：yyyy-MM-dd",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "time_range_info": {
+                "properties": {
+                  "begin_time": {
+                    "description": "开始时间  格式：HH:mm:ss",
+                    "type": "string"
+                  },
+                  "end_time_info": {
+                    "properties": {
+                      "end_time": {
+                        "description": "结束时间  格式：HH:mm:ss",
+                        "type": "string"
+                      },
+                      "end_time_type": {
+                        "description": "结束时间类型",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "holiday_rule_info": {
+            "properties": {
+              "time_range_info": {
+                "properties": {
+                  "begin_time": {
+                    "description": "开始时间  格式：HH:mm:ss",
+                    "type": "string"
+                  },
+                  "end_time_info": {
+                    "properties": {
+                      "end_time": {
+                        "description": "结束时间  格式：HH:mm:ss",
+                        "type": "string"
+                      },
+                      "end_time_type": {
+                        "description": "结束时间类型",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "rule_type": {
+            "description": "规则类型",
+            "type": "string"
+          },
+          "week_rule_info": {
+            "properties": {
+              "time_range_info": {
+                "properties": {
+                  "begin_time": {
+                    "description": "开始时间  格式：HH:mm:ss",
+                    "type": "string"
+                  },
+                  "end_time_info": {
+                    "properties": {
+                      "end_time": {
+                        "description": "结束时间  格式：HH:mm:ss",
+                        "type": "string"
+                      },
+                      "end_time_type": {
+                        "description": "结束时间类型",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "week_day": {
+                "description": "星期数，以“,”连接多个星期数",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

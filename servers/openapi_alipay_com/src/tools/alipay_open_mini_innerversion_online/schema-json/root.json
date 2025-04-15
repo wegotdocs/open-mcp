@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "app_offline_version": {
+      "description": "下架版本",
+      "example": "0.0.5",
+      "type": "string"
+    },
+    "app_online_version": {
+      "description": "上架版本",
+      "example": "0.0.6",
+      "type": "string"
+    },
+    "app_origin": {
+      "description": "业务来源",
+      "example": "ASTORE",
+      "type": "string"
+    },
+    "bundle_id": {
+      "description": "一个端的标识，用于区分不同的客户端，每接入一个客户端，都需要向小程序应用中心申请bundelId入驻",
+      "example": "com.alipay.alipaywallet",
+      "type": "string"
+    },
+    "inst_code": {
+      "description": "租户code，alipay or taobao",
+      "example": "taobao",
+      "type": "string"
+    },
+    "mini_app_id": {
+      "description": "小程序ID",
+      "example": "2018012201365222",
+      "type": "string"
+    }
+  },
+  "required": []
+}

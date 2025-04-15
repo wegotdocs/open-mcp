@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "login_id": {
+      "description": "收款账号，需要绑定的收款支付宝账号，请勿与 pid 同时传入。",
+      "example": "13429393030",
+      "type": "string"
+    },
+    "pid": {
+      "description": "支付宝用户id，2088开头的16位长度字符串，请勿与 login_id 同时传入。",
+      "example": "2088344343289143",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,246 @@
+{
+  "type": "object",
+  "properties": {
+    "anti_fake_code": {
+      "description": "发票防伪码/密码",
+      "example": "acbgjjk13jsadjkfdajkadf123",
+      "type": "string"
+    },
+    "apply_id": {
+      "description": "发票申请ID, 由阿里发票平台生成。 拆单开票后一笔申请可能对应多张发票。 source=apply时必填，其他source可为空",
+      "example": "12345678",
+      "type": "string"
+    },
+    "biz_error_code": {
+      "description": "开票失败错误码， 开票失败(create_result=fail)时必填",
+      "example": "sys",
+      "type": "string"
+    },
+    "biz_error_msg": {
+      "description": "开票失败错误信息， 开票失败(create_result=fail)时必填",
+      "example": "系统异常",
+      "type": "string"
+    },
+    "business_type": {
+      "description": "抬头类型。可选值： 0：个人 1：企业",
+      "example": 0,
+      "type": "integer"
+    },
+    "check_code": {
+      "description": "校验码",
+      "example": "acbgjjk13",
+      "type": "string"
+    },
+    "create_result": {
+      "description": "开票结果，枚举值： success: 发票开具成功； fail: 开票失败； source=async时必填，传实际的开票结果。其他source可不传，默认为success",
+      "example": "success",
+      "type": "string"
+    },
+    "device_no": {
+      "description": "开票分机号/机器编号",
+      "example": "12345678",
+      "type": "string"
+    },
+    "invoice_amount": {
+      "description": "合计含税金额（开票金额），格式为2位小数。 当开红票时，该字段为负数。 开票成功时(create_result=success)必填",
+      "example": "1170.00",
+      "type": "string"
+    },
+    "invoice_code": {
+      "description": "发票代码。 开票成功时(create_result=success)必填",
+      "example": "123123123412",
+      "type": "string"
+    },
+    "invoice_date": {
+      "description": "开票日期，格式 yyyy-MM-dd. 开票成功时(create_result=success)必填",
+      "example": "2020-09-10",
+      "type": "string"
+    },
+    "invoice_file_content": {
+      "description": "发票版式文件数据，base64化的字符串； 电子发票必填",
+      "example": "sfsdfhgsgs",
+      "type": "string"
+    },
+    "invoice_file_type": {
+      "description": "发票板式文件类型。可选值： PDF, OFD。 开电票且开票成功时(create_result=success)必填",
+      "example": "PDF",
+      "type": "string"
+    },
+    "invoice_items": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `invoice_items` to the tool, first call the tool `expandSchema` with \"/properties/invoice_items\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "invoice_kind": {
+      "description": "开票发票类型 可选值： 0: 电票； 1：纸质普票； 2：纸质专票； 开票成功时(create_result=success)必填",
+      "example": 0,
+      "type": "integer"
+    },
+    "invoice_memo": {
+      "description": "发票备注，会显示在票面",
+      "example": "电子发票测试",
+      "type": "string"
+    },
+    "invoice_no": {
+      "description": "发票号码。 开票成功时(create_result=success)必填",
+      "example": "12345678",
+      "type": "string"
+    },
+    "invoice_type": {
+      "description": "发票(开票)类型，可选值： blue: 蓝票； red: 红票； 开票成功时(create_result=success)必填",
+      "example": "blue",
+      "type": "string"
+    },
+    "levy_type": {
+      "description": "征税方式，0普通征收，1减按征收，2差额征收",
+      "example": "0",
+      "type": "string"
+    },
+    "normal_invoice_code": {
+      "description": "原发票代码。 冲红且开票成功时(create_result=success)必填",
+      "example": "111100000000",
+      "type": "string"
+    },
+    "normal_invoice_no": {
+      "description": "原发票号码。 冲红且开票成功时(create_result=success)必填",
+      "example": "00004349",
+      "type": "string"
+    },
+    "payee_address": {
+      "description": "销方地址。 开票成功时(create_result=success)必填",
+      "example": "杭州市西湖区",
+      "type": "string"
+    },
+    "payee_bank_account_id": {
+      "description": "销方银行账号",
+      "example": "8888888888888888",
+      "type": "string"
+    },
+    "payee_bank_name": {
+      "description": "销方开户行名称",
+      "example": "92523123213412341234",
+      "type": "string"
+    },
+    "payee_checker": {
+      "description": "复核人",
+      "example": "王五",
+      "type": "string"
+    },
+    "payee_name": {
+      "description": "销方名称。 开票成功时(create_result=success)必填",
+      "example": "测试企业",
+      "type": "string"
+    },
+    "payee_operator": {
+      "description": "开票人。 开票成功时(create_result=success)必填",
+      "example": "张三",
+      "type": "string"
+    },
+    "payee_phone": {
+      "description": "销方联系电话。 开票成功时(create_result=success)必填",
+      "example": "18234561212",
+      "type": "string"
+    },
+    "payee_receiver": {
+      "description": "收款人",
+      "example": "李四",
+      "type": "string"
+    },
+    "payee_register_no": {
+      "description": "销方税务登记证号。由大写字母或数字组成，长度要求15~20位。 开票成功时(create_result=success)必填",
+      "example": "20150201321123",
+      "type": "string"
+    },
+    "payer_address": {
+      "description": "购方地址， 专票且开票成功时(create_result=success)必填",
+      "example": "浙江省杭州市余杭区文一西路xxx号",
+      "type": "string"
+    },
+    "payer_bank_account_id": {
+      "description": "购方银行账号， 专票且开票成功时(create_result=success)必填",
+      "example": "123412341234",
+      "type": "string"
+    },
+    "payer_bank_name": {
+      "description": "购方开户行名称， 专票且开票成功时(create_result=success)必填",
+      "example": "招商银行",
+      "type": "string"
+    },
+    "payer_email": {
+      "description": "购方电子邮箱，需满足邮箱格式。 格式要求：\\\\w+([-+.]\\\\w+)*@\\\\w+([-.]\\\\w+)*\\\\.\\\\w+([-.]\\\\w+)*",
+      "example": "mytest@xxx.com",
+      "type": "string"
+    },
+    "payer_name": {
+      "description": "购方抬头。 开票成功时(create_result=success)必填",
+      "example": "张三",
+      "type": "string"
+    },
+    "payer_phone": {
+      "description": "购方联系电话， 专票且开票成功时(create_result=success)必填",
+      "example": "18234561212",
+      "type": "string"
+    },
+    "payer_register_no": {
+      "description": "购方税务登记证号，由大写字母或数字组成，长度要求15~20位。 开企业抬头时必填， 专票且开票成功时(create_result=success)必填",
+      "example": "2015020123123",
+      "type": "string"
+    },
+    "platform_code": {
+      "description": "业务平台Code, 由发票中台分配。 用于标识需交付发票的业务平台，source=upload时必填，其他source可为空",
+      "example": "TB",
+      "type": "string"
+    },
+    "platform_tid": {
+      "description": "业务平台发票申请对应的订单号。 用于区分业务平台订单号，source=upload时必填，其他source可为空",
+      "example": "100011101",
+      "type": "string"
+    },
+    "platform_user_id": {
+      "description": "业务平台发票申请对应的订单号。 用于区分业务平台订单号，source=upload时必填，其他source可为空",
+      "example": "12345678",
+      "type": "string"
+    },
+    "qr_code": {
+      "description": "二维码",
+      "example": "adsf123",
+      "type": "string"
+    },
+    "receive_mobile": {
+      "description": "购方手机号码，用于收票",
+      "example": "13388889999",
+      "type": "string"
+    },
+    "red_notice_no": {
+      "description": "红字通知单号； 专票冲红且开票成功时(create_result=success)必填",
+      "example": "123",
+      "type": "string"
+    },
+    "serial_no": {
+      "description": "开票流水号/序列号，唯一标志一笔开票请求，由于阿里发票中台生成。 source=async时必填，其他source可为空",
+      "example": "TB1001_1331",
+      "type": "string"
+    },
+    "source": {
+      "description": "发票来源，可选值： apply: 间连开票模式，ISV回传商家基于申请开具的发票； async：直连开票模式，ISV回传开票结果； upload：直接回传，进行归集与交付的发票",
+      "example": "apply",
+      "type": "string"
+    },
+    "special_flag": {
+      "description": "特殊票种标识，可选值： “00”非特殊票种 （默认值） “02”农产品收购 “06”抵扣通行费 “07”其它通行费 “08”成品油销售 “18”成品油专票负数发票",
+      "example": "02",
+      "type": "string"
+    },
+    "sum_price": {
+      "description": "合计金额（不含税），格式为2位小数。 当开红票时，该字段为负数。 开票成功时(create_result=success)必填",
+      "example": "1000.00",
+      "type": "string"
+    },
+    "sum_tax": {
+      "description": "合计税额，格式为2位小数。 当开红票时，该字段为0或负数。 开票成功时(create_result=success)必填",
+      "example": "170.00",
+      "type": "string"
+    }
+  },
+  "required": []
+}

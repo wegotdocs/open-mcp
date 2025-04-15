@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "category_id": {
+      "description": "所属类目ID",
+      "example": 12,
+      "type": "integer"
+    },
+    "category_name": {
+      "description": "知识点所属类目",
+      "example": "平板电脑",
+      "type": "string"
+    },
+    "content": {
+      "description": "知识点答案内容",
+      "example": "商品的发货地是广东佛山",
+      "type": "string"
+    },
+    "ext_id": {
+      "description": "外部知识点ID",
+      "example": "qa0002003004005006",
+      "type": "string"
+    },
+    "extend_titles": {
+      "description": "扩展标题（问法）",
+      "example": "[\"商品从哪里发货\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "icon": {
+      "description": "问答关联图片附件地址",
+      "example": "https://image.baidu.com/search/detail?ct=503316480&z=0",
+      "type": "string"
+    },
+    "id": {
+      "description": "知识点ID",
+      "example": 123456,
+      "type": "integer"
+    },
+    "is_delete": {
+      "description": "默认为false，为true且id非空时，表示删除知识点",
+      "example": false,
+      "type": "boolean"
+    },
+    "is_searchable": {
+      "description": "是否被检索到，默认false，系统希望为true",
+      "example": true,
+      "type": "boolean"
+    },
+    "library_id": {
+      "description": "知识库ID",
+      "example": 23,
+      "type": "integer"
+    },
+    "library_name": {
+      "description": "知识库名称",
+      "example": "商品知识库",
+      "type": "string"
+    },
+    "spu": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `spu` to the tool, first call the tool `expandSchema` with \"/properties/spu\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "tags": {
+      "description": "以逗号分割的字符串列表",
+      "example": "[\"发货地\",\"发货点\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "title": {
+      "description": "知识点标题",
+      "example": "商品的发货地是哪里?",
+      "type": "string"
+    }
+  },
+  "required": []
+}

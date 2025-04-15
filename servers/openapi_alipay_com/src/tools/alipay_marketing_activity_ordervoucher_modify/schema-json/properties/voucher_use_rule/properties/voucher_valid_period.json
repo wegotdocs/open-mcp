@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "valid_begin_time": {
+      "description": "券可使用的开始时间。格式为：yyyy-MM-dd HH:mm:ss。",
+      "example": "2017-01-10 00:00:00",
+      "type": "string"
+    },
+    "valid_days_after_receive": {
+      "description": "券生效后 N 天内可以使用。",
+      "example": 3,
+      "type": "integer"
+    },
+    "valid_end_time": {
+      "description": "券可使用的结束时间。格式为yyyy-MM-dd HH:mm:ss。",
+      "example": "2017-01-13 23:59:59",
+      "type": "string"
+    },
+    "wait_days_after_receive": {
+      "description": "用户领券后需要等待 N 天，券才可以生效。",
+      "example": 2,
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

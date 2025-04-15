@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业共同账户id（该字段将废弃，不建议使用，可用enterprise_id字段替换）(该字段将废弃，不建议使用，可用enterprise_id字段替换)",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号（该字段将废弃，不建议使用，可用enterprise_id字段替换）(该字段将废弃，不建议使用，可用enterprise_id字段替换)",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业id",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "institution_id": {
+      "description": "制度id",
+      "example": "2022071800152609780000004052",
+      "type": "string"
+    },
+    "owner_type": {
+      "description": "适配id类型",
+      "example": "PHONE",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "页码",
+      "example": 10,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "页大小",
+      "example": 100,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

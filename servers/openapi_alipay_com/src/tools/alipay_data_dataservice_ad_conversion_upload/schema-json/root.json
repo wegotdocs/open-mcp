@@ -1,0 +1,169 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_token": {
+      "description": "代理商访问灯火平台的token",
+      "example": "HYjofejnnlp89730202bcklHH",
+      "type": "string"
+    },
+    "conversion_data_list": {
+      "description": "转化数据列表, 最多1000条",
+      "items": {
+        "properties": {
+          "ad_id": {
+            "description": "广告创意id，来自：<a href='https://adpub.alipay.com/lark/adrlark/qm1v2gtpvcftele4'>监测上报</a>或<a href='https://adpub.alipay.com/lark/adrlark/gw3740rggm4n5gar'>落地页宏替换</a>配置的__AD_ID__宏参发生用户点击替换后的值",
+            "example": "123",
+            "type": "string"
+          },
+          "attribute_list": {
+            "description": "转化事件属性信息，用于转化事件类型相关属性规则上传。\t可支持上传属性的转化事件类型及属性规则请参考该文档：<a href='https://adpub.alipay.com/adrlark/ivdktpyh511x9r6i'>转化事件类型属性规则</a>",
+            "items": {
+              "properties": {
+                "key": {
+                  "description": "业务转化数据属性",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "转化属性名称",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "业务转化属性实例值，\tproperty_list的value值需与转化管理里创建转化事件时填写的归因口径值保持一致<br>\tattrbute_list的value值请参考该文档：<a href='https://adpub.alipay.com/adrlark/ivdktpyh511x9r6i'>转化事件类型属性规则</a>",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "attributes": {
+            "properties": {
+              "key": {
+                "description": "业务转化数据属性",
+                "type": "string"
+              },
+              "name": {
+                "description": "转化属性名称",
+                "type": "string"
+              },
+              "value": {
+                "description": "业务转化属性实例值，\tproperty_list的value值需与转化管理里创建转化事件时填写的归因口径值保持一致<br>\tattrbute_list的value值请参考该文档：<a href='https://adpub.alipay.com/adrlark/ivdktpyh511x9r6i'>转化事件类型属性规则</a>",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "biz_no": {
+            "description": "转化流水号：由用户自定义，用于幂等",
+            "example": "Zybnom890437Mvcu",
+            "type": "string"
+          },
+          "callback_ext_info": {
+            "description": "来自：<a href='https://adpub.alipay.com/lark/adrlark/qm1v2gtpvcftele4'>监测上报</a>或<a href='https://adpub.alipay.com/lark/adrlark/gw3740rggm4n5gar'>落地页宏替换</a>配置的__CALLBACK_EXT_INFO__宏参发生用户点击替换后的值，需url decode后传回。",
+            "example": "hAXLRVRoQHTgh2CQLhjfkX_0HR80F7ktEabHmKgD_XSSXPF2Pwv-a_pEAQVW2FS-6FCLShsXMMU4Ctx0X61swqcK4Qme3YdxzrjynZ_gYjQ8Iv4MNcM0d8oHKFiDWyOx",
+            "type": "string"
+          },
+          "cid": {
+            "description": "用于精准归因，来自：<a href='https://adpub.alipay.com/lark/adrlark/qm1v2gtpvcftele4'>监测上报</a>或<a href='https://adpub.alipay.com/lark/adrlark/gw3740rggm4n5gar'>落地页宏替换</a>配置的__CID__宏参发生用户点击替换后的值。<br>\t支持cid上报的转化事件类型请参见：<br>\t<a href='https://adpub.alipay.com/lark/adrlark/pg4vb1c0g0u6fx7b'>app推广类转化事件类型</a><br>\t<a href='https://adpub.alipay.com/lark/adrlark/rvzylhryxh37yplt'>通用类转化事件类型</a>",
+            "example": "8e91eca2-930d-4b4e-bb38-1ba74146cd06",
+            "type": "string"
+          },
+          "conversion_amount": {
+            "description": "转化金额，单位分。\t金额类转化事件必传",
+            "example": "20",
+            "type": "string"
+          },
+          "conversion_id": {
+            "description": "转化事件id，当source=COMMON_CONVERSION_ID需上传该字段，其他情况无需上传。",
+            "example": "167390987332",
+            "type": "string"
+          },
+          "conversion_time": {
+            "description": "转化时间，UTC 时间戳，单位：秒",
+            "example": 12389637,
+            "type": "integer"
+          },
+          "conversion_type": {
+            "description": "转化事件类型数字",
+            "example": "225",
+            "type": "string"
+          },
+          "creative_id": {
+            "description": "广告创意id，来自：<a href='https://adpub.alipay.com/lark/adrlark/qm1v2gtpvcftele4'>监测上报</a>或<a href='https://adpub.alipay.com/lark/adrlark/gw3740rggm4n5gar'>落地页宏替换</a>配置的__AD_ID__宏参发生用户点击替换后的值",
+            "example": "6785",
+            "type": "string"
+          },
+          "group_id": {
+            "description": "广告单元id，来自：<a href='https://adpub.alipay.com/lark/adrlark/qm1v2gtpvcftele4'>监测上报</a>或<a href='https://adpub.alipay.com/lark/adrlark/gw3740rggm4n5gar'>落地页宏替换</a>配置的__GROUP_ID__宏参发生用户点击替换后的值",
+            "example": "7896",
+            "type": "string"
+          },
+          "join_channel": {
+            "description": "XLIGHT - 灯火归因\tMERCHANT -商家自主归因\t该字段若为空则默认为XLIGHT",
+            "example": "XLIGHT",
+            "type": "string"
+          },
+          "plan_id": {
+            "description": "广告计划id，来自：<a href='https://adpub.alipay.com/lark/adrlark/qm1v2gtpvcftele4'>监测上报</a>或<a href='https://adpub.alipay.com/lark/adrlark/gw3740rggm4n5gar'>落地页宏替换</a>配置的__PLAN_ID__宏参发生用户点击替换后的值",
+            "example": "1789",
+            "type": "string"
+          },
+          "principal_id": {
+            "description": "商户在灯火pb端的id, 可代替principal_tag。",
+            "example": "1",
+            "type": "string"
+          },
+          "principal_tag": {
+            "description": "商家标志，可代替principal_id。获取方法：\t<a href='https://adpub.alipay.com/lark/adrlark/sbk3vetg6ki5m4r8'>principal_tag获取sop</a><br>",
+            "example": "HYjofejnnlp89730202bcklHH",
+            "type": "string"
+          },
+          "property_list": {
+            "description": "转化归因字段列表。不同转化事件类型回传property_list不同。请参见回传示例：<br>\t<a href=\"https://adpub.alipay.com/lark/adrlark/pvbgwf72ea090877\">通用类转化事件回传示例</a><br>\t<a href=\"https://adpub.alipay.com/lark/adrlark/kgnnk94p0p1mwbgp\">APP推广类转化事件回传示例</a><br>",
+            "items": {
+              "properties": {
+                "key": {
+                  "description": "业务转化数据属性",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "转化属性名称",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "业务转化属性实例值，\tproperty_list的value值需与转化管理里创建转化事件时填写的归因口径值保持一致<br>\tattrbute_list的value值请参考该文档：<a href='https://adpub.alipay.com/adrlark/ivdktpyh511x9r6i'>转化事件类型属性规则</a>",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "source": {
+            "description": "<br>\tCOMMON_TARGET：<a href='https://adpub.alipay.com/lark/adrlark/rvzylhryxh37yplt'>通用类转化事件类型</a>适用<br>\tCALLBACK：<a href='https://adpub.alipay.com/lark/adrlark/pg4vb1c0g0u6fx7b'>APP推广类转化事件类型</a>适用<br>\t不同source的参数回传规则请参考：\tCOMMON_TARGET：<a href='https://adpub.alipay.com/lark/adrlark/dxw7fkkdnhm45spm'>通用转化回传参数说明</a><br>\tCALLBACK：\t<a href='https://adpub.alipay.com/lark/adrlark/wxou6agg3z1o6wyn'>APP推广类转化回传参数说明</a>",
+            "example": "COMMON_TARGET",
+            "type": "string"
+          },
+          "uuid": {
+            "description": "发生转化用户的唯一标识。\tuuid_type不同，uuid传值不同：<br>\t1. 若uuid_type=【PID】：uuid为发生转化用户的2088id。若获取不到，可固定一个值后，上传callback_ext_info参数。<br>\t2. 若uuid_type=【OAID_MD5】【IDFA_MD5】【IP_UA】【CAID】【MEI】: uuid传的值为<a href='https://adpub.alipay.com/lark/adrlark/qm1v2gtpvcftele4'>监测上报</a>或<a href='https://adpub.alipay.com/lark/adrlark/gw3740rggm4n5gar'>落地页宏替换</a>配置的对应宏参下发的值<br>\t其中当uuid_type=IP_UA时：__IP__、__UA__宏参需用\"_\"拼接上传<br>",
+            "example": "7893ybc7032173",
+            "type": "string"
+          },
+          "uuid_open_id": {
+            "description": "支付宝用户在应用维度下的唯一标识",
+            "example": "oPXyY4O0ZTmUqSX4MRxYDDCccT6Kc9EXX",
+            "type": "string"
+          },
+          "uuid_type": {
+            "description": "<a href='https://adpub.alipay.com/lark/adrlark/rvzylhryxh37yplt'>通用类转化事件类型：</a><br>\tuuid_type固定为PID：表示转化用户唯一标识<br>\t<a href='https://adpub.alipay.com/lark/adrlark/pg4vb1c0g0u6fx7b'>APP推广类转化事件类型：</a><br>\tOAID_MD5：表示OAID原值MD5加密后的值<br>\tIDFA_MD5：表示IDFA原值MD5加密后的值<br>\tIP_UA：表示IP_UA拼接值，以下划线拼接<br>\tCAID：表示CAID原值<br>\tIMEI：表示IMEI原值<br>",
+            "example": "PID",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

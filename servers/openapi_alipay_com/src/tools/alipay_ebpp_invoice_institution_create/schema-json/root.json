@@ -1,0 +1,207 @@
+{
+  "type": "object",
+  "properties": {
+    "consult_mode": {
+      "description": "费控咨询模式，默认为0。",
+      "example": "0",
+      "type": "string"
+    },
+    "currency": {
+      "description": "该字段用于管控制度下发放的资产币种，不填写默认为人民币，设置该字段后，制度下手工发放的资产币种均为设置值。",
+      "example": "USD",
+      "type": "string"
+    },
+    "effective_end_date": {
+      "description": "制度生效结束时间",
+      "example": "2022-09-30 23:59:59",
+      "type": "string"
+    },
+    "effective_start_date": {
+      "description": "制度生效起始时间",
+      "example": "2022-09-10 00:00:00",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业id",
+      "example": "2088123412341234",
+      "type": "string"
+    },
+    "expense_type": {
+      "description": "费用类型",
+      "example": "MEAL",
+      "type": "string"
+    },
+    "institution_desc": {
+      "description": "制度描述",
+      "example": "餐补制度",
+      "type": "string"
+    },
+    "institution_name": {
+      "description": "制度名称",
+      "example": "费用制度",
+      "type": "string"
+    },
+    "institution_scope_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `institution_scope_info` to the tool, first call the tool `expandSchema` with \"/properties/institution_scope_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "issue_rule_info_list": {
+      "description": "发放规则列表",
+      "items": {
+        "properties": {
+          "effective_period": {
+            "description": "生效时间段",
+            "type": "string"
+          },
+          "invalid_mode": {
+            "description": "累计类型，默认为0\t可选值：0（不可累计）、1（可累计）、2（累计天数）、3（累计到指定日期）",
+            "type": "integer"
+          },
+          "invalid_mode_value": {
+            "description": "累计类型值",
+            "type": "string"
+          },
+          "issue_amount_value": {
+            "description": "发放金额，单位元",
+            "type": "string"
+          },
+          "issue_end_date": {
+            "description": "发放规则有效结束时间",
+            "type": "string"
+          },
+          "issue_rule_id": {
+            "description": "发放规则id",
+            "type": "string"
+          },
+          "issue_rule_name": {
+            "description": "发放规则名称",
+            "type": "string"
+          },
+          "issue_start_date": {
+            "description": "发放规则有效起始时间",
+            "type": "string"
+          },
+          "issue_type": {
+            "description": "发放类型",
+            "type": "string"
+          },
+          "outer_source_id": {
+            "description": "外部发放规则id",
+            "type": "string"
+          },
+          "quota_type": {
+            "description": "额度类型",
+            "type": "string"
+          },
+          "share_mode": {
+            "description": "是否可转赠",
+            "type": "integer"
+          },
+          "target_id": {
+            "description": "目标id",
+            "type": "string"
+          },
+          "target_type": {
+            "description": "发放规则归属的目标类型",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "outer_source_id": {
+      "description": "外部唯一标识，可用于防止重复创建",
+      "example": "0b26c12b16900047742372557ee431",
+      "type": "string"
+    },
+    "standard_info_list": {
+      "description": "使用规则列表",
+      "items": {
+        "properties": {
+          "asset_share_source_info": {
+            "properties": {
+              "share_mode": {
+                "description": "当前规则可用的资产来源类型，搭配source_id_list使用。",
+                "type": "string"
+              },
+              "source_id_list": {
+                "description": "资产共享来源id列表，与share_mode配合设置，如果share_mode为INSTITUTION，该值则填写制度id列表",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "consume_mode": {
+            "description": "消费模式，不填为默认模式，枚举值：COUPON_ONLY（仅支持点券）\tCOUPON_AND_CAP（支持点券+余额）\tDEFAULT（默认模式）\t点券：消费时找员工的点券，没有或者用完了不可付；\t点券+余额：消费时找员工的点券，没有找员工的余额，没有或者用完了不可付。\t默认：有给员工设置员工余额以员工余额为准，用完为止。否则只受规则里的限额和企业账户资金上限管控；",
+            "type": "string"
+          },
+          "expense_type_sub_category": {
+            "description": "费用类型子类",
+            "type": "string"
+          },
+          "open_rule_id": {
+            "description": "开票规则id，可通过接口alipay.ebpp.invoice.enterpriseconsume.enterpriseopenrule.create 创建并得到开票规则ID",
+            "type": "string"
+          },
+          "outer_source_id": {
+            "description": "外部使用规则id，制度内使用规则该字段不允许重复",
+            "type": "string"
+          },
+          "payment_policy": {
+            "description": "支付策略 当笔消费金额大于规则可用余额时，用于控制支付策略，该字段缺省时采取因公账户和个人账户组合支付策略",
+            "type": "string"
+          },
+          "personal_qrcode_mode": {
+            "description": "个人收款码转账是否支持因公付，默认为0。可选值：0（不支持）、1（支持）",
+            "type": "integer"
+          },
+          "standard_condition_info_list": {
+            "description": "使用规则条件列表",
+            "items": {
+              "properties": {
+                "rule_factor": {
+                  "description": "条件类型",
+                  "type": "string"
+                },
+                "rule_id": {
+                  "description": "费控条件ID",
+                  "type": "string"
+                },
+                "rule_name": {
+                  "description": "费控条件名称",
+                  "type": "string"
+                },
+                "rule_value": {
+                  "description": "费控条件值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "standard_desc": {
+            "description": "使用规则描述(敏感词校验)",
+            "type": "string"
+          },
+          "standard_id": {
+            "description": "制度ID（创建使用规则时非必填）",
+            "type": "string"
+          },
+          "standard_name": {
+            "description": "规则名称",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

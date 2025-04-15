@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "agent_channel": {
+      "description": "渠道码，如用户通过机构通过服务窗进来签约则是PUBLICFORM，此值可随意传，只要不空就行",
+      "example": "PUBLICFORM",
+      "type": "string"
+    },
+    "agent_code": {
+      "description": "二级渠道码，预留字段",
+      "example": "SECOND",
+      "type": "string"
+    },
+    "agreement_id": {
+      "description": "支付宝代扣协议Id",
+      "example": "1234557890",
+      "type": "string"
+    },
+    "bill_date": {
+      "description": "账期",
+      "example": "201410",
+      "type": "string"
+    },
+    "bill_key": {
+      "description": "户号，缴费单位用于标识每一户的唯一性的",
+      "example": "262327843",
+      "type": "string"
+    },
+    "extend_field": {
+      "description": "扩展参数。必须以key value形式定义，\r\t转为json为格式：{\"key1\":\"value1\",\"key2\":\"value2\",\r\t\"key3\":\"value3\",\"key4\":\"value4\"}\r\t 后端会直接转换为MAP对象，转换异常会报参数格式错误",
+      "example": "{\"key1\":\"value1\",\"key2\":\"value2\",\r\n\"key3\":\"value3\",\"key4\":\"value4\"}",
+      "type": "string"
+    },
+    "fine_amount": {
+      "description": "滞纳金",
+      "example": "2.00",
+      "type": "string"
+    },
+    "memo": {
+      "description": "备注信息",
+      "example": "memo",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "用户UserId在应用AppId下的唯一用户标识",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "out_order_no": {
+      "description": "商户外部业务流水号",
+      "example": "18882329324",
+      "type": "string"
+    },
+    "pay_amount": {
+      "description": "扣款金额，支付总金额，包含滞纳金",
+      "example": "23.00",
+      "type": "string"
+    },
+    "pid": {
+      "description": "商户PartnerId",
+      "example": "2088611103588892",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "用户ID",
+      "example": "2088123411243554",
+      "type": "string"
+    }
+  },
+  "required": []
+}

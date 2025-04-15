@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "buying_url": {
+      "description": "需要修改的商品小程序购买链接",
+      "example": "alipays://platformapi/startapp?appId= 2017072607907880&page=pages/index/index?param=xxxx",
+      "type": "string"
+    },
+    "goods_brand": {
+      "description": "需要修改的商品品牌",
+      "example": "肯德基",
+      "type": "string"
+    },
+    "goods_comment": {
+      "description": "需要修改的商品辅助说明文案",
+      "example": "这是一个商品辅助说明文案",
+      "type": "string"
+    },
+    "goods_description_label": {
+      "description": "需要修改的商品说明标签（如-随心退）",
+      "example": "随心退",
+      "type": "string"
+    },
+    "goods_id": {
+      "description": "商品的唯一标识，根据该字段修改商品",
+      "example": "8948968498",
+      "type": "string"
+    },
+    "goods_label": {
+      "description": "需要修改的商品营销标签（如-限量特价），每个商品仅支持一个营销标签",
+      "example": "限量特价",
+      "type": "string"
+    },
+    "goods_name": {
+      "description": "需要修改的商品名称",
+      "example": "这是一个商品名称",
+      "type": "string"
+    },
+    "goods_type": {
+      "description": "需要修改的商品所属品类",
+      "example": "服装",
+      "type": "string"
+    },
+    "main_pic_url": {
+      "description": "需要修改的商品主图片地址",
+      "example": "https://xxx.xxx.com/xxx.jpg",
+      "type": "string"
+    },
+    "need_public_promo": {
+      "description": "是否需要进行公域推广",
+      "example": true,
+      "type": "boolean"
+    },
+    "order_number": {
+      "description": "需要修改的商品排序，自然整数, 数字越小越靠前",
+      "example": 1,
+      "type": "integer"
+    },
+    "original_price": {
+      "description": "需要修改的商品原价，单位\"元\"，传入数字，不需要传入\"元\"",
+      "example": "88.88",
+      "type": "string"
+    },
+    "publish_cities": {
+      "description": "需要修改的商品投放城市的列表，详见https://www.mca.gov.cn/article/sj/xzqh/2020/2020/202007170301.html，有多个用英文,分隔。如果没有限制则不传入",
+      "example": "110000",
+      "type": "string"
+    },
+    "sell_price": {
+      "description": "需要修改的商品售价，位\"元\"，传入数字，不需要传入\"元\"",
+      "example": "66.66",
+      "type": "string"
+    },
+    "sell_tag_list": {
+      "description": "需要修改的商品卖点标签",
+      "example": "[\"特惠\",\"热卖\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

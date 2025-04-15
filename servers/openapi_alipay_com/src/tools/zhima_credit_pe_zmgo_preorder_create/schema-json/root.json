@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "alipay_open_id": {
+      "description": "支付宝用户ID。同一个外部请求号，调用方要确保支付宝userId取值不变",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "支付宝用户ID。同一个外部请求号，调用方要确保支付宝userId取值不变",
+      "example": "2088759402857364",
+      "type": "string"
+    },
+    "biz_time": {
+      "description": "业务发生时间，如2016-07-06 00:00:02\t签约超时关单时间依赖这个时间\t这个时间会做幂等校验，如果创单幂等，但时间不同会失败",
+      "example": "2016-07-06 00:00:02",
+      "type": "string"
+    },
+    "custom_temp_conf": {
+      "description": "废弃字段，勿用",
+      "example": "SHOW_AGREEMENT_LIST=true",
+      "type": "string"
+    },
+    "expire_aisle_data": {
+      "description": "协议到期后通知",
+      "example": "业务方到期标识",
+      "type": "string"
+    },
+    "ext_template_conf": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ext_template_conf` to the tool, first call the tool `expandSchema` with \"/properties/ext_template_conf\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "extend_params": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `extend_params` to the tool, first call the tool `expandSchema` with \"/properties/extend_params\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "freeze_amount": {
+      "description": "冻结金额，单位：元",
+      "example": "1.00",
+      "type": "string"
+    },
+    "isv_pid": {
+      "description": "ISV商户ID",
+      "example": "2088374762857463",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "外部请求号，唯一",
+      "example": "ORDER_12345678",
+      "type": "string"
+    },
+    "partner_id": {
+      "description": "商户ID",
+      "example": "2088437463829741",
+      "type": "string"
+    },
+    "partner_user_identifier": {
+      "description": "商户侧用户唯一标识。ex.商户侧uid",
+      "example": "user102934889234",
+      "type": "string"
+    },
+    "pay_aisle_data": {
+      "description": "结算成功后通知",
+      "example": "业务方结算标识",
+      "type": "string"
+    },
+    "sign_aisle_data": {
+      "description": "签约成功后通知",
+      "example": "业务方签约标识",
+      "type": "string"
+    },
+    "template_id": {
+      "description": "签约芝麻GO的模板ID",
+      "example": "2020122200020903760008552025",
+      "type": "string"
+    },
+    "timeout_express": {
+      "description": "超时关单时间\t默认1H。1m～15d。m表示分钟，h表示小时，d表示天。该参数数值不接受小数点， 如1.5h，可转换为90m\t签约超时关单时间依赖这个时间",
+      "example": "15m",
+      "type": "string"
+    }
+  },
+  "required": []
+}

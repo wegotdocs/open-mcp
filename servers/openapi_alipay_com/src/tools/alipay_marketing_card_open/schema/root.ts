@@ -1,0 +1,13 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "auth_token": z.string().describe("用户授权令牌").optional(),
+  "card_ext_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `card_ext_info` to the tool, first call the tool `expandSchema` with \"/properties/card_ext_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "card_template_id": z.string().describe("支付宝分配的卡模板Id（卡模板创建接口返回的模板ID）").optional(),
+  "card_user_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `card_user_info` to the tool, first call the tool `expandSchema` with \"/properties/card_user_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "member_ext_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `member_ext_info` to the tool, first call the tool `expandSchema` with \"/properties/member_ext_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "open_card_channel": z.string().describe("领卡渠道，用于记录外部商户端领卡来源的渠道信息，渠道值可自行定义（仅限数字、字母、下划线） \t\t可直接标识领卡渠道，也可配合open_card_channel_id标识领卡渠道类型：\t\t例如：\t\t线下门店领取:20161534000000000008863（直接标识领卡渠道，门店shopId）\t\t线下扫二维码领取:QR（标识领卡类型）;\t\t线下活动领取:20170522000000000003609（直接标识领卡渠道，商户活动ID）").optional(),
+  "open_card_channel_id": z.string().describe("领卡来源的渠道id，注意区别于open_card_channel领卡渠道；\t\t一般使用场景：\t\topen_card_channel用于区分渠道类型，例如取值为\"SHOP\"（门店），\"ACTIVITY\"（活动）；\t\t则open_card_channel_id可用于区分同渠道的不同实体，对应取各门店ID或各活动的标识ID等；").optional(),
+  "out_serial_no": z.string().describe("外部商户流水号。由商户自定义，需保证商户系统中唯一。").optional(),
+  "paid_outer_card_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `paid_outer_card_info` to the tool, first call the tool `expandSchema` with \"/properties/paid_outer_card_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional()
+}

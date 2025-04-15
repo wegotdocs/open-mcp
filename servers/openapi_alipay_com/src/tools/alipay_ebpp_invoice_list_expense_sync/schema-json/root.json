@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "business_time": {
+      "description": "报销进度变更时间",
+      "example": "2017-08-14 10:10:00",
+      "type": "string"
+    },
+    "expense_order_no": {
+      "description": "商户报销单据号",
+      "example": "20180808128739874213",
+      "type": "string"
+    },
+    "expense_tax_no": {
+      "description": "报销企业税号",
+      "example": "113071TRDX8RQU8",
+      "type": "string"
+    },
+    "invoice_element_list": {
+      "description": "需要同步报销状态的发票列表",
+      "items": {
+        "properties": {
+          "apply_id": {
+            "description": "同步申请id，每次发起同步时生成，isv每次请求需要保证唯一",
+            "example": "2016112500152003000000000245",
+            "type": "string"
+          },
+          "expense_detail_url": {
+            "description": "报销详情地址，提供用户通过发票管家查看报销进度的地址\r\t如果报销企业入驻发票管家时需要isv传入报销详情地址，则必须提供",
+            "example": "http://www.baidu.com",
+            "type": "string"
+          },
+          "invoice_code": {
+            "description": "发票代码",
+            "example": "031001600111",
+            "type": "string"
+          },
+          "invoice_no": {
+            "description": "发票号码",
+            "example": "10001040",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "memo": {
+      "description": "报销审批备注",
+      "example": "财务已打款",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "用户uid",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "status": {
+      "description": "EXPENSE_APPLY:报销申请提交;EXPENSE_APPROVAL_PASS:报销申请审核通过;EXPENSE_FINISHED:报销申请完成;EXPENSE_CANCEL:报销申请撤回",
+      "example": "EXPENSE_APPLY",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "用户uid",
+      "example": "2088002000321000",
+      "type": "string"
+    }
+  },
+  "required": []
+}

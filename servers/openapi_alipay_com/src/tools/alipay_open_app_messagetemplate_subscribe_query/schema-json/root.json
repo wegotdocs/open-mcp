@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "open_id": {
+      "description": "支付宝openId，用于支付宝用户在当前应用下的用户标识。",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "template_id_list": {
+      "description": "消息模板id，可以填写多个，最多不超过3个。模板id需要保持同一个应用主体，并且展示在同一个订阅组件中的模板id。\t模板id获取详情参见<a href=\"https://opendocs.alipay.com/mini/01rnqx\">模板消息</a>。",
+      "example": "[\"6511999536b14ba5830e3a0289ea69a\",\"0b1fcca882aa435382ae98641e14d37\",\"a3b396be6fd345579221af5dea35028\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "user_id": {
+      "description": "订阅消息模板用户的支付宝唯一标识，2088开头。",
+      "example": "20882028****0410",
+      "type": "string"
+    }
+  },
+  "required": []
+}

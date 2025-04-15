@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "properties": {
+    "answering_mode": {
+      "description": "热线接入方式",
+      "example": "0",
+      "type": "string"
+    },
+    "ccs_instance_id": {
+      "description": "部门id",
+      "example": "XAHSNRBS",
+      "type": "string"
+    },
+    "chat_ext_group_ids": {
+      "description": "在线扩展技能组id",
+      "example": "[\"123\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "chat_group_ids": {
+      "description": "在线技能组id",
+      "example": "[\"123\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "chat_level_ids": {
+      "description": "在线服务等级",
+      "example": "[\"123\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "email": {
+      "description": "客服邮箱",
+      "example": "test@163.com",
+      "type": "string"
+    },
+    "hotline_group_ids": {
+      "description": "热线扩展技能组id",
+      "example": "[\"123\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "page_num": {
+      "description": "查询结果的页码，起始值为 1，默认值为 1",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "分页查询时设置的每页记录数，最大值 100 行，默认为 10",
+      "example": 10,
+      "type": "integer"
+    },
+    "real_name": {
+      "description": "客服姓名",
+      "example": "张三",
+      "type": "string"
+    },
+    "role_ids": {
+      "description": "客服角色id",
+      "example": "[\"123\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

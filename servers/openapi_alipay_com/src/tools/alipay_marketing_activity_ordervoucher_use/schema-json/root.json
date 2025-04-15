@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "activity_id": {
+      "description": "活动id",
+      "example": "2016042700826004508401111111",
+      "type": "string"
+    },
+    "voucher_code": {
+      "description": "待核销的券码。",
+      "example": "ABE44",
+      "type": "string"
+    },
+    "biz_dt": {
+      "description": "外部优惠券的核销时间，用于流水记录。 格式为：yyyy-MM-dd HH:mm:ss",
+      "example": "2017-01-01 00:00:01",
+      "type": "string"
+    },
+    "goods_detail": {
+      "description": "商品明细信息",
+      "items": {
+        "properties": {
+          "goods_id": {
+            "description": "商品编号",
+            "example": "apple-01",
+            "type": "string"
+          },
+          "goods_name": {
+            "description": "商品名称",
+            "example": "ipad",
+            "type": "string"
+          },
+          "price": {
+            "description": "商品单价。单位 元\t\t精确到小数点后2位。",
+            "example": "2000.00",
+            "type": "string"
+          },
+          "quantity": {
+            "description": "商品数量",
+            "example": 1,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务单号，用作幂等控制。\t\t\t\t幂等作用：\t\t参数不变的情况下，再次请求返回与上一次相同的结果。\t\t\t\t外部接入方需保证业务单号唯一。",
+      "example": "20170101000001654bb46ba",
+      "type": "string"
+    },
+    "real_shop_id": {
+      "description": "用户核销优惠券的代运营商业关系门店id，调用接口alipay.business.relation.shop.create创建门店返回的real_shop_id。\t限制:\t传入的门店id必须是创建商家券voucher_use_rule. voucher_available_scope.  order_voucher_available_shop对象中real_shop_ids中的门店id",
+      "example": "2018051000502000000011111111",
+      "type": "string"
+    },
+    "store_id": {
+      "description": "用户核销优惠券的支付门店id,调用接口<a href=\"https://opendocs.alipay.com/open/03s3jk?pathHash=04312530&scene=common\" target=\"_blank\">ant.merchant.expand.shop.create</a>创建门店返回的门店id。\t限制:\t传入的门店id必须是创建商家券voucher_use_rule. voucher_available_scope.  order_voucher_available_shop对象中shop_ids中的门店id",
+      "example": "2018051000502000000011111111",
+      "type": "string"
+    },
+    "total_fee": {
+      "description": "订单总金额",
+      "example": "999.99",
+      "type": "string"
+    },
+    "trade_channel": {
+      "description": "交易渠道。",
+      "example": "ZHIFUBAO_TRADE_CHANNEL",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "该交易在支付宝系统中的交易流水号。\t注意：若用户使用支付宝为交易的渠道，本参数必填。",
+      "example": "2021042322001426261436764012",
+      "type": "string"
+    },
+    "voucher_use_detail_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_use_detail_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_detail_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "activity_id",
+    "voucher_code"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "app_category_ids": {
+      "description": "小程序类目，可不传，不传取基础信息中的小程序类目",
+      "example": "107209_107226",
+      "type": "string"
+    },
+    "app_desc": {
+      "description": "小程序描述，可不传，不传取基础信息中的小程序描述",
+      "example": "小程序描述",
+      "type": "string"
+    },
+    "app_english_name": {
+      "description": "小程序在从未上架过版本之前，英文名称是可以修改的，该字段用于在提交审核时候修改小程序英文名称。注意：小程序一旦有过上架版本之后就不可以修改英文名称。",
+      "example": "小程序英文名称",
+      "type": "string"
+    },
+    "app_logo": {
+      "description": "小程序logo，可不传，不传取基础信息中的小程序logo，请调用专用的logo上传接口上传logo文件，并将返回的地址作为本字段传入",
+      "example": "https://appstoreisvpic.alipayobjects.com/prod/e2bcf04b-da46-4b7f-a020-e9d224df7689.png",
+      "type": "string"
+    },
+    "app_name": {
+      "description": "小程序在从未上架过版本之前，中文名称是可以修改的，该字段用于在提交审核时候修改小程序中文名称。注意：小程序一旦有过上架版本之后就不可以修改中文名称。",
+      "example": "小程序名称",
+      "type": "string"
+    },
+    "app_origin": {
+      "description": "来源类型，新接入方需要向支付宝申请专用来源，否则不予接入，申请方式请参见接入手册。",
+      "example": "AAA",
+      "type": "string"
+    },
+    "app_slogan": {
+      "description": "小程序应用简介，一句话描述小程序功能，如果不填默认采用当前小程序应用简介，10~32个字符",
+      "example": "小程序简介",
+      "type": "string"
+    },
+    "app_version": {
+      "description": "小程序版本号",
+      "example": "1.0.1",
+      "type": "string"
+    },
+    "build_ext": {
+      "description": "构建扩展参数",
+      "example": "{\"ext\":{\"appId\":\"2019********\",\"pid\":\"2088*******\"},\"extEnable\":true}",
+      "type": "string"
+    },
+    "bundle_id": {
+      "description": "端信息",
+      "example": "com.alipay.alipaywallet",
+      "type": "string"
+    },
+    "isv_app_id": {
+      "description": "三方应用ID",
+      "example": "2018********",
+      "type": "string"
+    },
+    "license_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `license_info` to the tool, first call the tool `expandSchema` with \"/properties/license_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "mini_app_id": {
+      "description": "小程序ID，特殊场景专用，普通业务方无需关注该参数。",
+      "example": "2018********",
+      "type": "string"
+    },
+    "mini_category_ids": {
+      "description": "新小程序前台类目，格式为 第一个一级类目_第一个二级类目;第二个一级类目_第二个二级类目_第二个三级类目，详细类目可以通过 https://docs.open.alipay.com/api_49/alipay.open.mini.category.query接口查询mini_category_list，如果不填默认采用当前小程序应用类目。使用默认应用类目后不需要再次上传营业执照号、营业执照名、营业执照截图、营业执照有效期。使用后不再读取app_category_ids值，老前台类目将废弃",
+      "example": "XS1001_XS2001_XS3002;XS1011_XS2089;XS1002_XS2008_XS3024",
+      "type": "string"
+    },
+    "pid": {
+      "description": "小程序开发者ID，可不传，不传取基础信息中的小程序开发者ID",
+      "example": "2088********",
+      "type": "string"
+    },
+    "region_type": {
+      "description": "服务区域类型,可不传，不传取基础信息中的小程序服务区域类型",
+      "example": "GLOBAL",
+      "type": "string"
+    },
+    "screen_shot_list": {
+      "description": "版本截图，最少2张，最多5张，必传",
+      "example": "https://appstoreisvpic.alipayobjects.com/prod/e2bcf04b-da46-4b7f-a020-e9d224df7689.png,https://appstoreisvpic.alipayobjects.com/prod/e2bcf04b-da46-4b7f-a020-e9d224df7689.png",
+      "type": "string"
+    },
+    "service_phone": {
+      "description": "客服电话，可不传，不传取基础信息中的小程序客服电话",
+      "example": "021-2222222",
+      "type": "string"
+    },
+    "special_license_pic_list": {
+      "description": "特殊资质图片地址列表，逗号分割,",
+      "example": "https://appstoreisvpic.alipayobjects.com/prod/f2e32236-b537-405b-8764-613ea50c2f6b.png,https://appstoreisvpic.alipayobjects.com/prod/f2e32236-b537-405b-8764-613ea50c2f6b.png",
+      "type": "string"
+    },
+    "template_id": {
+      "description": "小程序模板ID",
+      "example": "2018********",
+      "type": "string"
+    },
+    "template_version": {
+      "description": "模板的版本号，如果不填写，则默认用模板当前最新的在架版本",
+      "example": "1.0.0",
+      "type": "string"
+    },
+    "version_desc": {
+      "description": "小程序版本描述，30-500个字符，一个中文占两个字符，一个英文或者数字占一个字符",
+      "example": "本版本新增了XXX功能，修复了XXXbug，解决了XXX问题，欢迎大家体验提出意见。",
+      "type": "string"
+    }
+  },
+  "required": []
+}

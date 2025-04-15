@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "notify_info": {
+      "description": "消息通知详情，包含消息通知需要的信息，map 格式存储。\t积分过期提醒：\t<br>expired_point 过期积分值\t<br>expired_time 过期时间",
+      "example": "{\"expired_point\":\"121\"}",
+      "type": "string"
+    },
+    "notify_no": {
+      "description": "消息通知幂等标识，业务流水号",
+      "example": "2000000000001",
+      "type": "string"
+    },
+    "notify_type": {
+      "description": "消息通知类型,\t<br>POINT_REMIND 积分过期提醒",
+      "example": "POINT_REMIND",
+      "type": "string"
+    },
+    "occur_time": {
+      "description": "标识业务发生时间，时间格式为\"yyyy-MM-dd HH:mm:ss\"。",
+      "example": "2020-12-27 12:12:12",
+      "type": "string"
+    },
+    "target_card_no": {
+      "description": "支付宝业务卡号，即通过 alipay.marketing.card.open 接口开卡后获取的 card_info.biz_card_no 值。",
+      "example": "000001",
+      "type": "string"
+    },
+    "target_card_no_type": {
+      "description": "卡号ID类型",
+      "example": "BIZ_CARD",
+      "type": "string"
+    }
+  },
+  "required": []
+}

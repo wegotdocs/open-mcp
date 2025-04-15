@@ -1,0 +1,30 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "acid": z.string().describe("来电唯一标识").optional(),
+  "aid": z.string().describe("客服坐席号(软电话中定义的)").optional(),
+  "ani": z.string().describe("主叫号码").optional(),
+  "asid": z.string().describe("恒生专用来电唯一标识").optional(),
+  "category_list": z.array(z.object({ "cat_name": z.string().describe("类目名称(需要每一级用;分隔封装)").optional(), "first_cat": z.string().describe("一级类目编码").optional(), "fourth_cat": z.string().describe("四级类目编码").optional(), "instence_code": z.string().describe("类目树编码").optional(), "second_cat": z.string().describe("二级类目编码").optional(), "third_cat": z.string().describe("三级类目编码").optional() })).describe("类目信息(详细信息请参考具体类型描述)").optional(),
+  "chat_begin_time": z.string().describe("标准时间格式：yyyy-MM-dd HH:mm:ss").optional(),
+  "chat_end_time": z.string().describe("标准时间格式：yyyy-MM-dd HH:mm:ss").optional(),
+  "city": z.string().describe("来电地址").optional(),
+  "creator_id": z.string().describe("创建者ID").optional(),
+  "discon_symbol": z.string().describe("先挂断方\tAGENT:客服\tCUSTOMER:客户").optional(),
+  "dnis": z.string().describe("被叫号码").optional(),
+  "file_size": z.number().int().describe("文件大小").optional(),
+  "gmt_create": z.string().describe("创建时间(yyyy-MM-dd HH:mm:ss)").optional(),
+  "gmt_modified": z.string().describe("修改时间").optional(),
+  "memo": z.string().describe("服务记录备注信息").optional(),
+  "modifier_id": z.string().describe("修改人ID").optional(),
+  "outbound_task_id": z.string().describe("外呼任务ID").optional(),
+  "satisfaction": z.string().describe("满意度\t0:非常满意\t1:满意\t2:一般\t3:不满意\t4:非常不满意").optional(),
+  "satisfaction_memo": z.string().describe("满意度补充信息").optional(),
+  "service_source": z.string().describe("1:客户来电\t4:电话回访\t5:网点服务\t6:在线服务\t7:外呼任务\t8:手动外呼\t9:在线离线留言").optional(),
+  "service_time": z.number().int().describe("服务时长(单位:秒)").optional(),
+  "skillgroup_id": z.string().describe("技能组ID").optional(),
+  "skillgroup_name": z.string().describe("技能组名称(技能组ID对应的技能组名称)").optional(),
+  "tnt_inst_id": z.string().describe("业务租户").optional(),
+  "user_id": z.string().describe("来访用户唯一标识ID").optional(),
+  "verify_result": z.string().describe("IVR验证结果\tROLE_N:未定位到用户\tCERTNO_Y_PWD_Y:证件号码+交易密码验证通过\tCERTNO_Y_PWD_N:证件号码验证通过+交易密码不通过\tCERTNO_Y_PWD_UNKNOW:证件号码验证通过\tPHONE_Y_PWD_Y:来电手机+交易密码验证通过\tPHONE_Y_PWD_N:来电手机+交易密码未通过\tPHONE_Y_PWD_UNKNOW:来电手机账户\tSEARCH_Y_PWD_Y:搜索定位用户+推屏交易密码通过\tSEARCH_Y_PWD_N:搜索定位用户+推屏交易密码未通过\tSEARCH_Y_PWD_UNKNOW:搜索定位用户").optional()
+}

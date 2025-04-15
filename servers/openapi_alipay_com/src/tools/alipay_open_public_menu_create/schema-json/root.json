@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "button": {
+      "description": "一级菜单列表。说明：\t* 如果是文本菜单，最多有4个一级菜单，若开发者在后台打开了\"咨询反馈\"的开关，则只能有3个一级菜单。\t* 如果是 ICON 菜单信息，最多有80个一级菜单(忽略二级菜单)。",
+      "items": {
+        "properties": {
+          "action_param": {
+            "description": "当actionType为link时，该参数为url链接；\r\t当actionType为out时，该参数为用户自定义参数；\r\t当actionType为tel时，该参数为电话号码。\r\t当action_type为map时，该参数为查看地图的关键字。\r\t当action_type为consumption时，该参数可不传。\r\t该参数最长255个字符，不允许冒号等特殊字符。",
+            "type": "string"
+          },
+          "action_type": {
+            "description": "菜单类型：\r\tout——事件型菜单；\r\tlink——链接型菜单；\r\ttel——点击拨打电话；\r\tmap——点击查看地图；\r\tconsumption——点击查看用户与生活号管理员账号之间的消费记录",
+            "type": "string"
+          },
+          "icon": {
+            "description": "icon图片url，必须是http协议的url，尺寸为60X60，最大不超过5M，请先调用<a href=\"https://docs.open.alipay.com/api_3/alipay.offline.material.image.upload\"> 图片上传接口</a>获得图片url",
+            "type": "string"
+          },
+          "name": {
+            "description": "菜单名称，icon菜单名称不超过5个汉字，文本菜单名称不超过9个汉字，编码格式为GBK",
+            "type": "string"
+          },
+          "sub_button": {
+            "description": "二级菜单数组，若sub_button为空，则一级菜单必须指定action_type和action_param的值，二级菜单个数可以为1~5个。",
+            "items": {
+              "properties": {
+                "action_param": {
+                  "description": "当actionType为link时，该参数为url链接； \r\t当actionType为out时，该参数为用户自定义参数； \r\t当actionType为tel时，该参数为电话号码。 \r\t当action_type为map时，该参数为查看地图的关键字。\r\t 当action_type为consumption时，该参数可不传。 \r\t该参数最长255个字符，不允许冒号等特殊字符。",
+                  "type": "string"
+                },
+                "action_type": {
+                  "description": "菜单类型：\r\tout——事件型菜单；\r\tlink——链接型菜单；\r\ttel——点击拨打电话；\r\tmap——点击查看地图；\r\tconsumption——点击查看用户与生活号管理员账号之间的消费记录",
+                  "type": "string"
+                },
+                "icon": {
+                  "description": "icon图片url，必须是http协议的url，尺寸为60X60，最大不超过5M，请先调用<a href=\"https://docs.open.alipay.com/api_3/alipay.offline.material.image.upload\"> 图片上传接口</a>获得图片url",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "菜单名称，icon菜单名称不超过5个汉字，文本菜单名称不超过9个汉字，编码格式为GBK",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "菜单类型，不填时默认为 text（文本型菜单）。枚举值如下：\t* text：文本型菜单。\t* icon：表示 icon 型菜单，当传值为\"icon\"时，菜单节点的icon字段必传。",
+      "example": "text",
+      "type": "string"
+    }
+  },
+  "required": []
+}

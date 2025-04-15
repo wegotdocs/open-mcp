@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "cert_name": {
+      "description": "填入真实姓名",
+      "example": "张三",
+      "type": "string"
+    },
+    "cert_no": {
+      "description": "填入姓名相匹配的证件号码",
+      "example": "260104197909275964",
+      "type": "string"
+    },
+    "cert_type": {
+      "description": "当前仅支持IDENTITY_CARD",
+      "example": "IDENTITY_CARD",
+      "type": "string"
+    },
+    "identity_type": {
+      "description": "当前仅支持CERT_INFO",
+      "example": "CERT_INFO",
+      "type": "string"
+    },
+    "phone_no": {
+      "description": "选填手机号",
+      "example": "13000000000",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

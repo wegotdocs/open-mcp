@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "enterprise_id": {
+      "description": "企业ID",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "issue_rule_id_list": {
+      "description": "需要删除的发放规则id列表",
+      "example": "[\"2022052000152618690000000005\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "target_id": {
+      "description": "目标值id",
+      "example": "2022052000152618690000000005",
+      "type": "string"
+    },
+    "target_type": {
+      "description": "发放规则关联的目标类型",
+      "example": "INSTITUTION",
+      "type": "string"
+    }
+  },
+  "required": []
+}

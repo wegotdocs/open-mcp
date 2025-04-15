@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "config_id": {
+      "description": "关键词配置id，由支付宝生成，关键词申请通过后会通知接口返回，也可以申请单状态获取",
+      "example": "20221108000000245181",
+      "type": "string"
+    },
+    "key_words": {
+      "description": "提报的关键词",
+      "example": "[\"关键词1\",\"关键词2\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "target_appid": {
+      "description": "小程序id",
+      "example": "2021001120654127",
+      "type": "string"
+    }
+  },
+  "required": []
+}

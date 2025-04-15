@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "action_type": {
+      "description": "操作类型，默认为 MERCHANT_SETTLE（结算）。枚举值如下：\t*  MERCHANT_SETTLE：结算（需要主动退出在发起结算）;\t*  QUIT_SETTLE：退出协议（解约协议）;\t*  PERIOD_SETTLE：分阶段结算（不解约协议）。",
+      "example": "PERIOD_SETTLE",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "支付宝系统中用以唯一标识用户签约记录的编号。",
+      "example": "20170502000610755993",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "用户在支付宝的唯一标识，以 2088 开头的 16 位纯数字组成。",
+      "example": "2088101117955611",
+      "type": "string"
+    },
+    "extend_params": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `extend_params` to the tool, first call the tool `expandSchema` with \"/properties/extend_params\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "need_terminated": {
+      "description": "是否解约，该参数控制结算完成之后的操作，为空则表示结算后解约。枚举值如下：\t*  true：代表解约，默认为true。\t*  false：代表不解约。",
+      "example": "true",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "用户在支付宝的唯一标识",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "商户本次操作的请求流水号，用于标示请求流水的唯一性，不能包含除中文、英文、数字以外的字符，需要保证在商户端不重复。",
+      "example": "8077735255938032",
+      "type": "string"
+    },
+    "pay_amount": {
+      "description": "需要支付的金额，单位为：元（人民币），精确到小数点后两位",
+      "example": "3.00",
+      "type": "string"
+    },
+    "seller_id": {
+      "description": "支付宝商家ID，即商家账号在支付宝的唯一标识，以 2088 开头的 16 位纯数字组成。\t说明：若该值为空，则默认为商户签约账号对应的支付宝用户ID。",
+      "example": "2088102146225135",
+      "type": "string"
+    }
+  },
+  "required": []
+}

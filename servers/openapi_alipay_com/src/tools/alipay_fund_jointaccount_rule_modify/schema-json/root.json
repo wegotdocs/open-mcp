@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "账本ID",
+      "example": "2088402123951081",
+      "type": "string"
+    },
+    "account_name": {
+      "description": "账本名称",
+      "example": "账本名称",
+      "type": "string"
+    },
+    "account_quota": {
+      "description": "账户额度",
+      "items": {
+        "properties": {
+          "custom_begin_date": {
+            "description": "自定义周期起始日期，精确到分钟，yyyy-MM-dd HH:mm",
+            "type": "string"
+          },
+          "custom_end_date": {
+            "description": "自定义周期结束日期，精确到分钟，yyyy-MM-dd HH:mm",
+            "type": "string"
+          },
+          "quota_dimension": {
+            "description": "额度维度\t单笔上限：ONCE\t日：DAY\t月：MONTH\t季度：QUARTER\t年：YEAR\t终身：LIFETIME\t一次性使用额度：ONLYONE",
+            "type": "string"
+          },
+          "quota_total": {
+            "description": "协议额度",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "agreement_no": {
+      "description": "授权协议号",
+      "example": "2088402124305476",
+      "type": "string"
+    },
+    "authorized_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `authorized_rule` to the tool, first call the tool `expandSchema` with \"/properties/authorized_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "biz_scene": {
+      "description": "场景码",
+      "example": "DEFAULT",
+      "type": "string"
+    },
+    "product_code": {
+      "description": "产品码",
+      "example": "ENTERPRISE_PAY",
+      "type": "string"
+    }
+  },
+  "required": []
+}

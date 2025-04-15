@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_no": {
+      "description": "协议号",
+      "example": "20205215001418078112",
+      "type": "string"
+    },
+    "key": {
+      "description": "明细凭证，传入流水号（转账接口查询结果）。汇总凭证，传入起止时间，格式yyyy-MM-dd_yyyy-MM-dd。",
+      "example": "2020-01-01_2020-01-10",
+      "type": "string"
+    },
+    "store_no": {
+      "description": "子账本号，或者子账本名称。模糊查询",
+      "example": "2088000117463004",
+      "type": "string"
+    },
+    "type": {
+      "description": "申请的类型。可传入：FUND_PLATFORM_DETAIL - 资金明细证明，FUND_PLATFORM_SUM - 资金汇总证明",
+      "example": "FUND_PLATFORM_DETAIL",
+      "type": "string"
+    }
+  },
+  "required": []
+}

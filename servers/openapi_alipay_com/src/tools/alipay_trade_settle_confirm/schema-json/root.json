@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "extend_params": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `extend_params` to the tool, first call the tool `expandSchema` with \"/properties/extend_params\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "out_request_no": {
+      "description": "确认结算请求流水号，开发者自行生成并保证唯一性，作为业务幂等性控制",
+      "example": "20160727001",
+      "type": "string"
+    },
+    "settle_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `settle_info` to the tool, first call the tool `expandSchema` with \"/properties/settle_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "trade_no": {
+      "description": "支付宝交易号",
+      "example": "2015070921001004130000127421",
+      "type": "string"
+    }
+  },
+  "required": []
+}

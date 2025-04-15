@@ -1,0 +1,120 @@
+{
+  "type": "object",
+  "properties": {
+    "alipay_trade_no": {
+      "description": "支付宝交易号；",
+      "example": "2024051122001459531435123456",
+      "type": "string"
+    },
+    "discount_amount": {
+      "description": "停车费折扣金额；单位元；",
+      "example": "2.00",
+      "type": "string"
+    },
+    "discount_information": {
+      "description": "停车费缴费折扣信息；",
+      "items": {
+        "properties": {
+          "discount_amount": {
+            "description": "折扣金额；单位元；",
+            "example": "10.00",
+            "type": "string"
+          },
+          "discount_type": {
+            "description": "折扣类型；\tCOMPREHENSIVE：综合；\tDISCOUNT：打折；\tVOUCHER：券；\tPOINTS：积分；",
+            "example": "COMPREHENSIVE",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "free_exit_minutes": {
+      "description": "停车场内缴费后，允许出场的免费时长分钟数",
+      "example": "15",
+      "type": "string"
+    },
+    "inactive_user": {
+      "description": "365天未使用支付宝付停车费用户",
+      "example": true,
+      "type": "boolean"
+    },
+    "is_encrypt_plate_no": {
+      "description": "车牌是否加密，true为加密，false为不加密，默认为false",
+      "example": true,
+      "type": "boolean"
+    },
+    "mobile_number": {
+      "description": "缴费用户的手机号；",
+      "example": "13800000000",
+      "type": "string"
+    },
+    "open_appid": {
+      "description": "蚂蚁会员统一ID对应的归属应用appid",
+      "example": "2023xxxxxxxxxxxx",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "蚂蚁会员统一ID",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "out_order_no": {
+      "description": "服务商停车费支付订单号；",
+      "example": "abx20240981811199912",
+      "type": "string"
+    },
+    "out_serial_no": {
+      "description": "外部停车流水号(用于串通进场与出场信息)",
+      "example": "2020090711003017233600000001",
+      "type": "string"
+    },
+    "pay_frequency": {
+      "description": "用户在支付宝侧支付停车费次数",
+      "example": "5次",
+      "type": "string"
+    },
+    "payment_amount": {
+      "description": "停车费实付金额；单位元；",
+      "example": "8.00",
+      "type": "string"
+    },
+    "payment_time": {
+      "description": "场内缴费时间，格式\"YYYY-MM-DD HH:mm:ss\"，24小时制，请保证服务器时间准确，场内缴费不应晚于当前网络时间",
+      "example": "2021-06-12 15:29:55",
+      "type": "string"
+    },
+    "payment_type": {
+      "description": "支付方式；\tALIPAY：支付宝\tWECHAT：微信\tCUQP：云闪付\tCASH：现金\tOTHER：其他渠道\tFREE: 免费",
+      "example": "ALIPAY",
+      "type": "string"
+    },
+    "payment_user_open_id": {
+      "description": "停车缴费用户的OPENID；",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "plate_color": {
+      "description": "车牌颜色，车牌颜色，枚举支持：\t*BLUE：蓝。\t*GREEN：绿。\t*YELLOW：黄。\t*WHITE：白。\t*BLACK：黑。\t*LIMEGREEN：黄绿色。",
+      "example": "BLUE",
+      "type": "string"
+    },
+    "plate_no": {
+      "description": "车牌号（支持加密格式）",
+      "example": "豫C33333",
+      "type": "string"
+    },
+    "service_url": {
+      "description": "停车服务页面地址。\t1、服务商停车服务页面地址必须是支付宝小程序URL（无需转换https），详见： <a href=\"https://opendocs.alipay.com/support/01rb18#URL%20%E6%A0%BC%E5%BC%8F \"> https://opendocs.alipay.com/support/01rb18#URL%20%E6%A0%BC%E5%BC%8F  </a>\t2、若服务商没有服务链接，可传输支付宝停车官方小程序的服务链接：alipays://platformapi/startapp?appId=2021001102642986&page=pages%2Fparking-fee%2Findex \t3、若此次对接的是无感支付，则服务链接传输为：alipays://platformapi/startapp?appId=2021001102642986&page=%2Fpages%2Fparking-bill%2Findex",
+      "example": "alipays://platformapi/startapp?appId=2021001102642986&page=pages%2Fparking-fee%2Findex",
+      "type": "string"
+    },
+    "total_amount": {
+      "description": "停车费总金额；单位元；理论应等于实付金额+折扣金额",
+      "example": "10.00",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "author_id": {
+      "description": "媒体唤起时传入的支付宝id",
+      "example": "201***********",
+      "type": "string"
+    },
+    "params": {
+      "description": "媒体唤起时提供的额外参数值列表，这里可能有多个值，打平以后拼入。即url_decode(authcbparams)",
+      "example": "app_id=1024562&a=1&b=2&c=3&bind_entry=12",
+      "type": "string"
+    },
+    "promotion_id": {
+      "description": "推广位id",
+      "example": "mm_mm_123213123123131_21",
+      "type": "string"
+    },
+    "promotion_name": {
+      "description": "推广位名称",
+      "example": "推广位名称",
+      "type": "string"
+    },
+    "source": {
+      "description": "媒体来源，标识调用方",
+      "example": "zfb_xcx",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,140 @@
+{
+  "type": "object",
+  "properties": {
+    "amount": {
+      "description": "总金额，单位为元，精确到小数点后两位，取值范围[0.01,100000000]，\r\t如果是非多选项，是要和缴费项的总和相同，多选模式不做验证",
+      "example": "88.88",
+      "type": "string"
+    },
+    "charge_bill_title": {
+      "description": "缴费账单名称",
+      "example": "学生开学收费项",
+      "type": "string"
+    },
+    "charge_item": {
+      "description": "缴费详情：输入json格式字符串。Json定义：key填写缴费项名称，value填写缴费项金额，金额保留2位小数（单位：元）",
+      "items": {
+        "properties": {
+          "item_mandatory": {
+            "description": "缴费项是否必选\r\t如果缴费项是多选模式，此参数生效。 “Y”表示必填，“N”或空表示非必填。",
+            "example": "N",
+            "type": "string"
+          },
+          "item_maximum": {
+            "description": "缴费项最大可选数\r\t如果缴费项是多选模式，此参数生效，范围是1-9，如果为空，则最大项默认为9",
+            "example": 5,
+            "type": "integer"
+          },
+          "item_name": {
+            "description": "缴费项名称",
+            "example": "校服费",
+            "type": "string"
+          },
+          "item_price": {
+            "description": "缴费项金额",
+            "example": "8.88",
+            "type": "string"
+          },
+          "item_serial_number": {
+            "description": "缴费项序号，如果缴费项是多选模式，此项为必填，建议从1开始的连续数字，\r\t用户支付成功后，通过passback_params参数带回已选择的缴费项。例如:orderNo=uoo234234&isvOrderNo=24werwe&items=1-2|2-1|3-5\r\t1-2|2-1|3-5 表示：缴费项序列号-缴费项数|缴费项序列号-缴费项数",
+            "example": 1,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "charge_type": {
+      "description": "缴费项模式：空或\"N\"，表示缴费项不可选，\r\t\"M\"表示缴费项为可选 ，支持单选和多选。",
+      "example": "M",
+      "type": "string"
+    },
+    "child_name": {
+      "description": "孩子名字",
+      "example": "张晓晓",
+      "type": "string"
+    },
+    "class_in": {
+      "description": "孩子所在班级",
+      "example": "3班",
+      "type": "string"
+    },
+    "end_enable": {
+      "description": "截止日期是否生效，与gmt_end发布配合使用,N为gmt_end不生效，用户过期后仍可以缴费；Y为gmt_end生效，用户过期后，不能再缴费。",
+      "example": "Y",
+      "type": "string"
+    },
+    "ext_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ext_info` to the tool, first call the tool `expandSchema` with \"/properties/ext_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "gmt_end": {
+      "description": "缴费截止时间，格式\"yyyy-MM-dd HH:mm:ss\"，日期要大于当前时间。请注意，过期时间不宜设置过短。",
+      "example": "2016-01-01 13:13:13",
+      "type": "string"
+    },
+    "grade": {
+      "description": "孩子所在年级",
+      "example": "高一",
+      "type": "string"
+    },
+    "out_trade_no": {
+      "description": "ISV端的缴费账单编号",
+      "example": "20160232343253253453",
+      "type": "string"
+    },
+    "partner_id": {
+      "description": "Isv支付宝pid, 支付宝签约后，返回给ISV编号",
+      "example": "201600129391238873",
+      "type": "string"
+    },
+    "school_no": {
+      "description": "学校编码，录入学校接口返回的参数",
+      "example": "11010100000002",
+      "type": "string"
+    },
+    "school_pid": {
+      "description": "学校支付宝pid,直付通填写smid",
+      "example": "20880012939123234423",
+      "type": "string"
+    },
+    "student_code": {
+      "description": "学生的学号，只支持字母和数字类型，一般以教育局学号为准，作为学生的唯一标识。此字段与student_identify、家长user_mobile至少选一个",
+      "example": "2098453900091",
+      "type": "string"
+    },
+    "student_identify": {
+      "description": "学生的身份证号，如果ISV有学生身份证号，则同步身份证号作为学生唯一标识。此字段与student_code、家长user_mobile至少选一个。\r\t大陆身份证必须是18位 ， 其它地区或国家的身份证开头需要加\"IC\"开头区分并且不超过18位，但查询账单的时候不要带\"IC\"",
+      "example": "310193199905289483",
+      "type": "string"
+    },
+    "users": {
+      "description": "孩子的家长信息，最多一次输入10个家长，此字段做为识别家长的孩子用，与student_identify、student_code至少选一个",
+      "items": {
+        "properties": {
+          "user_change_mobile": {
+            "description": "用户变更手机号，替换旧的手机号",
+            "type": "string"
+          },
+          "user_mobile": {
+            "description": "孩子家长的手机号",
+            "type": "string"
+          },
+          "user_name": {
+            "description": "张三",
+            "type": "string"
+          },
+          "user_relation": {
+            "description": "孩子与家长的关系： 1、爸爸  2、妈妈  3、爷爷  4、奶奶  5、外公  6、外婆  7、家长",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

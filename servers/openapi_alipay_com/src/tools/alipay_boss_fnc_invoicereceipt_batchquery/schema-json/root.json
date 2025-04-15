@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "bill_nos": {
+      "description": "月账单号集合，唯一性ID集合，月账单表唯一主键ID集合",
+      "example": "2015050910120900000001120000000001",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "out_biz_type": {
+      "description": "来源类型，01：主站；02：芝麻；03：金融云；04：微贷",
+      "example": "03",
+      "type": "string"
+    }
+  },
+  "required": []
+}

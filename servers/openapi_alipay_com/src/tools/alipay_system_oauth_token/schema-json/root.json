@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "授权码，用户对应用授权后得到。本参数在 grant_type 为 authorization_code 时必填；为 refresh_token 时不填。",
+      "example": "4b203fe6c11548bcabd8da5bb087a83b",
+      "type": "string"
+    },
+    "grant_type": {
+      "description": "授权方式",
+      "example": "authorization_code",
+      "type": "string"
+    },
+    "refresh_token": {
+      "description": "刷新令牌，上次换取访问令牌时得到。本参数在 grant_type 为 authorization_code 时不填；为 refresh_token 时必填，且该值来源于此接口的返回值 app_refresh_token（即至少需要通过 grant_type=authorization_code 调用此接口一次才能获取）。",
+      "example": "201208134b203fe6c11548bcabd8da5bb087a83b",
+      "type": "string"
+    }
+  },
+  "required": []
+}

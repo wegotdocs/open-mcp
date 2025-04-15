@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "employee_title_list": {
+      "description": "员工抬头列表",
+      "items": {
+        "properties": {
+          "account_id": {
+            "description": "共同账户id,与enterprise_id两者必填其一",
+            "type": "string"
+          },
+          "create_by": {
+            "description": "创建人",
+            "type": "string"
+          },
+          "employee_id": {
+            "description": "企业域定义的员工id，与user_id两者必填其一",
+            "type": "string"
+          },
+          "enterprise_id": {
+            "description": "企业域定义的企业id，与account_id两者必填其一",
+            "type": "string"
+          },
+          "modify_by": {
+            "description": "修改人",
+            "type": "string"
+          },
+          "open_id": {
+            "description": "员工支付宝账号open_id,与employee_id两者必填其一",
+            "type": "string"
+          },
+          "title_id": {
+            "description": "抬头id",
+            "type": "string"
+          },
+          "title_tag": {
+            "description": "关系标记",
+            "type": "string"
+          },
+          "user_id": {
+            "description": "员工支付宝账号2088,与employee_id两者必填其一",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

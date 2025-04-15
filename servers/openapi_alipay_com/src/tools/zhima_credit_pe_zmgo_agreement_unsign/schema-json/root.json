@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_id": {
+      "description": "支付宝系统中用以唯一标识用户签约记录的编号。",
+      "example": "ZMGO_AGR2020122710020604120000000001",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "支付宝的用户id",
+      "example": "2088302841345600",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "支付宝的用户id",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "partner_id": {
+      "description": "商户ID",
+      "example": "2088302424614288",
+      "type": "string"
+    },
+    "quit_type": {
+      "description": "quit_type为USER_CANCEL_QUIT或者SETTLE_APPLY_QUIT",
+      "example": "SETTLE_APPLY_QUIT",
+      "type": "string"
+    }
+  },
+  "required": []
+}

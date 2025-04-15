@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "账本id",
+      "example": "2088000166406784",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权协议号",
+      "example": "20214922001380716008",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "场景码",
+      "example": "DEFAULT",
+      "type": "string"
+    },
+    "identity": {
+      "description": "成员账号：\tidentity_type是ALIPAY_USER_ID填支付宝会员ID（2088开头）；\t是ALIPAY_LOGON_ID 填支付宝登录号",
+      "example": "name@email.com",
+      "type": "string"
+    },
+    "identity_type": {
+      "description": "账号类型，目前支持如下类型： 1、ALIPAY_USER_ID 支付宝的会员ID 2、ALIPAY_LOGON_ID：支付宝登录号，支持邮箱和手机号格式",
+      "example": "ALIPAY_LOGON_ID",
+      "type": "string"
+    },
+    "name": {
+      "description": "姓名，账号类型为ALIPAY_LOGON_ID时必填",
+      "example": "张三",
+      "type": "string"
+    },
+    "product_code": {
+      "description": "产品码",
+      "example": "ENTERPRISE_PAY",
+      "type": "string"
+    },
+    "status": {
+      "description": "成员当前状态：\t邀请中（PROCESSING）、正常（NORMAL）",
+      "example": "NORMAL",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,290 @@
+{
+  "type": "object",
+  "properties": {
+    "agent_id": {
+      "description": "服务商的支付宝账号ID（2088开头的16位纯数字，<a href=\"https://opendocs.alipay.com/common/02ncut\">获取方式</a>），由服务商提供给ISV",
+      "example": "2088456825942563",
+      "type": "string"
+    },
+    "business_isv": {
+      "description": "车场业务归属列表",
+      "items": {
+        "properties": {
+          "business_appid": {
+            "description": "业务归属appid",
+            "type": "string"
+          },
+          "business_payee_id": {
+            "description": "业务收款pid，business_type为AGREEMENT_PAY时，此参数必传",
+            "type": "string"
+          },
+          "business_pid": {
+            "description": "业务归属pid",
+            "type": "string"
+          },
+          "business_type": {
+            "description": "业务类型ONLINE_PAY(在线缴费) 、AGREEMENT_PAY(无感停车)\tDEVICE_ONLINE_PAY(车机在线缴费)",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "charging_rule": {
+      "description": "停车场详细计费规则",
+      "items": {
+        "properties": {
+          "charging_period": {
+            "description": "停车收费时间段，输入24小时制的小时时间段格式: \t开始时间-结束时间,\t结束时间必须大于开始时间\t时间取值范围：0到24",
+            "type": "string"
+          },
+          "charging_strategy": {
+            "description": "计费策略；\tUP：向上取整\tDOMN：向下取整",
+            "type": "string"
+          },
+          "charging_unit_fee": {
+            "description": "跳费金额 单位元",
+            "type": "string"
+          },
+          "charging_unit_minutes": {
+            "description": "跳费间隔分钟数",
+            "type": "string"
+          },
+          "enable_rollover_charge_period": {
+            "description": "超时是否顺延到下个计费区间",
+            "type": "boolean"
+          },
+          "first_charging_span_minutes": {
+            "description": "首段计费周期分钟数",
+            "type": "string"
+          },
+          "first_charging_unit_fee": {
+            "description": "首段计费周期跳费金额 单位: 元",
+            "type": "string"
+          },
+          "first_charging_unit_minutes": {
+            "description": "首段计费周期跳费间隔 单位分钟",
+            "type": "string"
+          },
+          "free_enter_minutes": {
+            "description": "入场免费时间 单位:分钟",
+            "type": "string"
+          },
+          "free_exit_minutes": {
+            "description": "离场免费时间 单位:分钟",
+            "type": "string"
+          },
+          "max_fee_per_day": {
+            "description": "日封顶金额 单位: 元",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "city_id": {
+      "description": "该参数废弃",
+      "example": "110101",
+      "type": "string"
+    },
+    "contact_alipay": {
+      "description": "该参数废弃",
+      "example": "189xxxxxxxx",
+      "type": "string"
+    },
+    "contact_emali": {
+      "description": "该参数废弃",
+      "example": "alipay@alipay.com",
+      "type": "string"
+    },
+    "contact_mobile": {
+      "description": "该参数废弃",
+      "example": "189xxxxxxxx",
+      "type": "string"
+    },
+    "contact_name": {
+      "description": "该参数废弃",
+      "example": "张三",
+      "type": "string"
+    },
+    "contact_tel": {
+      "description": "该参数废弃",
+      "example": "0571xxxxxxxx",
+      "type": "string"
+    },
+    "contact_weixin": {
+      "description": "该参数废弃",
+      "example": "923422342",
+      "type": "string"
+    },
+    "equipment_name": {
+      "description": "该参数废弃",
+      "example": "杭州立方",
+      "type": "string"
+    },
+    "is_support_invoice": {
+      "description": "是否支持电子发票。枚举支持：\t0：表示不支持。\t1：表示支持。",
+      "example": "1",
+      "type": "string"
+    },
+    "isv_mobile": {
+      "description": "ISV电话，传入original_isv_pid、original_isv_appid时，此处为服务商电话",
+      "example": "571-8643-2799",
+      "type": "string"
+    },
+    "latitude": {
+      "description": "纬度 单位:度",
+      "example": "30.548828",
+      "type": "string"
+    },
+    "longitude": {
+      "description": "经度 单位:度",
+      "example": "114.266418",
+      "type": "string"
+    },
+    "mchnt_id": {
+      "description": "收款方的支付宝账号ID（2088开头的16位纯数字，<a href=\"https://opendocs.alipay.com/common/02ncut\">获取方式</a>），由停车场收款的业主方提供给ISV，该字段暂用于机具和物料申领",
+      "example": "2088456825942563",
+      "type": "string"
+    },
+    "original_isv_appid": {
+      "description": "ISV的APPID,服务商调用必传，由ISV提供给服务商",
+      "example": "2021002108619277",
+      "type": "string"
+    },
+    "original_isv_mobile": {
+      "description": "ISV电话，此值与isv_mobile组合使用",
+      "example": "571-8643-2799",
+      "type": "string"
+    },
+    "original_isv_name": {
+      "description": "ISV的名称，服务商调用必传，由ISV提供给服务商",
+      "example": "杭州立方",
+      "type": "string"
+    },
+    "original_isv_pid": {
+      "description": "ISV的PID，服务商调用必传,由ISV提供给服务商",
+      "example": "2088456825942563",
+      "type": "string"
+    },
+    "out_parking_id": {
+      "description": "ISV停车场ID，由ISV 自定义，同一个isv或商户范围内唯一",
+      "example": "10000110001",
+      "type": "string"
+    },
+    "parking_address": {
+      "description": "停车场地址",
+      "example": "浙江省杭州市古墩路与疏港公路的交汇处",
+      "type": "string"
+    },
+    "parking_end_time": {
+      "description": "该参数废弃",
+      "example": "03:07:50",
+      "type": "string"
+    },
+    "parking_fee_description": {
+      "description": "收费说明",
+      "example": "免费时长30分钟，首2小时10元/小时，超过首2小时后2元/小时，封顶20元",
+      "type": "string"
+    },
+    "parking_fee_description_img": {
+      "description": "商户在停车平台露出的停车价格图片；注意：该图片为PNG格式内容为BASE64的字符串，大小不要超过1MB",
+      "example": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAE0lEQVQImWP81mfxn4GJAYQgAAAqvgLBUG4ufAAAAABJRU5ErkJggg==",
+      "type": "string"
+    },
+    "parking_lot_type": {
+      "description": "停车场类型，1为居民小区、2为商圈停车场（购物中心商业广场商场等）、3为路侧停车、4为公园景点（景点乐园公园老街古镇等）、5为商务楼宇（酒店写字楼商务楼园区等）、6为其他、7为交通枢纽（机场火车站汽车站码头港口等）、8为市政设施（体育场博物图书馆医院学校等）",
+      "example": "1",
+      "type": "string"
+    },
+    "parking_mobile": {
+      "description": "停车场客服电话",
+      "example": "189XXXXXXXX",
+      "type": "string"
+    },
+    "parking_name": {
+      "description": "停车场名称，由ISV定义，尽量与高德地图上的一致。",
+      "example": "城西停车场",
+      "type": "string"
+    },
+    "parking_number": {
+      "description": "该参数废弃",
+      "example": "10000",
+      "type": "string"
+    },
+    "parking_poiid": {
+      "description": "如何获取parking_poiid（高德地图唯一标标识）参考文档 <a href=\"https://opendocs.alipay.com/support/01rghx\">https://opendocs.alipay.com/support/01rghx</a> ；若无法成功获取高德POI时，也可选用经纬度的方式注册。",
+      "example": "B000A9JM2H",
+      "type": "string"
+    },
+    "parking_start_time": {
+      "description": "该参数废弃",
+      "example": "07:00:00",
+      "type": "string"
+    },
+    "parking_type": {
+      "description": "该参数废弃",
+      "example": "2",
+      "type": "string"
+    },
+    "pay_type": {
+      "description": "支付方式。枚举支持：\t1：表示支付宝在线缴费。\t2：表示支付宝代扣缴费。\t3：表示当面付。\t4:  现金\t说明：如支持多种方式以 ',' 进行分隔。",
+      "example": "2",
+      "type": "string"
+    },
+    "payment_mode": {
+      "description": "该参数废弃",
+      "example": "1",
+      "type": "string"
+    },
+    "serivce_url": {
+      "description": "提供用户查看停车状态、缴费功能",
+      "example": "alipays://platformapi/startapp",
+      "type": "string"
+    },
+    "service_list": {
+      "description": "停车场服务信息列表",
+      "items": {
+        "properties": {
+          "service_name": {
+            "description": "在线缴费服务名称",
+            "type": "string"
+          },
+          "service_type": {
+            "description": "停车场可提供的服务类型\t发票服务：INVOICE_SERVICE\t优惠套餐: DISCOUNT_PACKAGE\t预约停车: RESERVED_PARKING",
+            "type": "string"
+          },
+          "service_url": {
+            "description": "商户提供服务对应的跳转链接",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "shopingmall_id": {
+      "description": "商圈id",
+      "example": "100001008",
+      "type": "string"
+    },
+    "sum_space": {
+      "description": "停车场车位数 单位:个",
+      "example": "3000",
+      "type": "string"
+    },
+    "support_after_pay": {
+      "description": "是否支持先离后付。枚举支持：\tY：支持。\tN：不支持。\t说明：默认为空不支持，此参数适用于签约信用代扣的商户。",
+      "example": "Y",
+      "type": "string"
+    },
+    "time_out": {
+      "description": "用户支付未离场的超时时间(以分钟为单位)",
+      "example": "13",
+      "type": "string"
+    }
+  },
+  "required": []
+}

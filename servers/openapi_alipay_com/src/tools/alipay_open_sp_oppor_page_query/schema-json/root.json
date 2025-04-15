@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "isv_pid": {
+      "description": "服务商pid",
+      "example": "2088302213873401",
+      "type": "string"
+    },
+    "status_list": {
+      "description": "作业记录状态列表,以,拼接传入",
+      "example": "WAIT_MER_CONFIRM,MER_CONFIRMED,MER_REJECTED,EXPANDING,EXPANDED,EXPAND_FAILED",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "页大小",
+      "example": "10",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "页数",
+      "example": "1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

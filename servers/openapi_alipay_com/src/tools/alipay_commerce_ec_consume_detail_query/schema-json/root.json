@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "enterprise_id": {
+      "description": "企业ID",
+      "example": "2088123456789000",
+      "type": "string"
+    },
+    "pay_no": {
+      "description": "支付宝账单号",
+      "example": "2020123100152601930000003650",
+      "type": "string"
+    },
+    "query_options": {
+      "description": "查询选项",
+      "example": "[\"Refund\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

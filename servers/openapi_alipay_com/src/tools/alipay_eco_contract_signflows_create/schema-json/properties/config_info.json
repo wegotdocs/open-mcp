@@ -1,0 +1,100 @@
+{
+  "properties": {
+    "attachment_explain": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `attachment_explain` to the tool, first call the tool `expandSchema` with \"/properties/config_info/properties/attachment_explain\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "auto_archive": {
+      "description": "签署完成是否自动归档，默认true，如果false，则归档需要调用签署流程归档接口",
+      "example": false,
+      "type": "boolean"
+    },
+    "collect_attachement": {
+      "description": "是否收集附件（需签署人上传身份证或者其他文件的，需设置为true）",
+      "example": true,
+      "type": "boolean"
+    },
+    "company_no": {
+      "description": "物流公司编号（目前仅支持顺丰\"SF\"）\t注：避免影响生产订单，联调及测试环境请传入SF_TEST。",
+      "example": "SF",
+      "type": "string"
+    },
+    "contract_validity": {
+      "description": "合同过期时间：该参数设置的时间若到期，则会触发流程文件过期通知",
+      "example": 1577243641153,
+      "type": "integer"
+    },
+    "jump_url": {
+      "description": "签署完成后跳转商户小程序的地址（signModel字段值为2时 选填）",
+      "example": "alipays://platformapi/startapp?appId=2019042364288308&page=pages%2Fwater%2Fwater%3FactivityId%3D0ow26mr0eowt22mqz1gap8bale802821",
+      "type": "string"
+    },
+    "merchant_mini_sign_url": {
+      "description": "商户小程序签署地址（signModel字段值为1时 必填）",
+      "example": "alipays://platformapi/startapp?appId=2019042364288308&page=pages%2Fwater%2Fwater%3FactivityId%3D0ow26mr0eowt22mqz1gap8bale802821",
+      "type": "string"
+    },
+    "notice_developer_url": {
+      "description": "https://esign.cn/callback",
+      "example": "回调通知地址，签署的过程和签署完成都会回调",
+      "type": "string"
+    },
+    "platform_order_no": {
+      "description": "平台订单号，可将商户订单与电子合同进行关联。用户通过支付宝官方小程序 合同管家 查看合同时，可快速进入商家的小程序及对应的订单详情页，为商家的小程序提供了流量入口，提高用户的活跃度和留存率；",
+      "example": "DD1234",
+      "type": "string"
+    },
+    "serial_no": {
+      "description": "12或15位物流单号",
+      "example": "444258617994",
+      "type": "string"
+    },
+    "sign_model": {
+      "description": "快递扫码签收方式：\t1-商户小程序：扫码后跳转商户小程序进行签收；\t0-e签宝小程序：如商户没有支付宝小程序，可使用e签宝小程序完成签收。",
+      "example": 0,
+      "type": "integer"
+    },
+    "specify_attachment_infos": {
+      "description": "指定签署人需要上传的附件列表，例如：A、B、C三方签署，A需上传附件1，B需指定附件2，C需上传附件1,2,3",
+      "items": {
+        "properties": {
+          "allow_more_uploads": {
+            "description": "是否允许上传更多附件，默认值为false。开启后，除了“collect_common_codes”中指定的附件，签署人可自由上传至多10张图片。",
+            "example": true,
+            "type": "boolean"
+          },
+          "allow_more_uploads_max_count": {
+            "description": "允许上传更多附件时，可上传的最大附件数，一次流程中累计的上传附件数至多30（含“附件列表”数量）",
+            "example": 3,
+            "type": "integer"
+          },
+          "collect_cert_types": {
+            "description": "需要签署人上传的证件照片，可进行ORC识别，目前仅支持IDCARD",
+            "example": "IDCARD",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "collect_common_codes": {
+            "description": "需要签署人上传的其他附件列表，即attachment_explain.details中定义的code列表",
+            "example": "phonePicture1",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "third_party_user_id": {
+            "description": "个人唯一标识，对应签署区中指定的签署人",
+            "example": "tgxxteck",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

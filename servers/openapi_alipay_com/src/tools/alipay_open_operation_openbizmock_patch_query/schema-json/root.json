@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "b_query": {
+      "description": "test2222",
+      "example": "test",
+      "type": "string"
+    },
+    "c_body": {
+      "description": "test",
+      "example": "test",
+      "type": "string"
+    },
+    "complex_a": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `complex_a` to the tool, first call the tool `expandSchema` with \"/properties/complex_a\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "complex_b": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `complex_b` to the tool, first call the tool `expandSchema` with \"/properties/complex_b\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "complex_c": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `complex_c` to the tool, first call the tool `expandSchema` with \"/properties/complex_c\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "complex_d": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `complex_d` to the tool, first call the tool `expandSchema` with \"/properties/complex_d\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "id_type_modify_open_id": {
+      "description": "1",
+      "example": "1",
+      "type": "string"
+    },
+    "id_typea": {
+      "description": "id_type",
+      "example": "id_type",
+      "type": "string"
+    },
+    "price": {
+      "description": "元",
+      "example": "1.21",
+      "type": "string"
+    },
+    "uida": {
+      "description": "1",
+      "example": "1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

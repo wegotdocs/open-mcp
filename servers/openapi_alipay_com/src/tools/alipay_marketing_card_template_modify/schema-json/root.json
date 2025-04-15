@@ -1,0 +1,277 @@
+{
+  "type": "object",
+  "properties": {
+    "access_version": {
+      "description": "接口接入版本",
+      "example": "basic",
+      "type": "string"
+    },
+    "biz_no_prefix": {
+      "description": "业务卡号前缀，由商户指定\t\t支付宝业务卡号生成规则：biz_no_prefix(商户指定)卡号前缀 + biz_no_suffix(实时生成）卡号后缀",
+      "example": "prex",
+      "type": "string"
+    },
+    "biz_no_suffix_len": {
+      "description": "业务卡号后缀长度，与biz_no_prefix配合，扣除系统预留2位，剩下对应seq长度。在生成卡号时，若seq位数不足前置补0，若seq位数超出则以实际为准。举例：设为10，其中8位用于生成seq，可覆盖1亿用户，即使seq超过1亿，生成卡号也不报错，但总长度不得超过32位。建议按需设置合适的值，以获得长度一致的业务卡号，建议长度20，性能更好。单位：/位",
+      "example": "10",
+      "type": "string"
+    },
+    "card_action_list": {
+      "description": "\"卡行动点配置； 行动点，即用户可点击跳转的区块，类似按钮控件的交互； 单张卡最多定制4个行动点。\"",
+      "items": {
+        "properties": {
+          "code": {
+            "description": "行动点业务CODE，商户自定义",
+            "type": "string"
+          },
+          "mini_app_url": {
+            "properties": {
+              "display_on_list": {
+                "description": "行动点按钮是否在列表页展示，true 或 false，不填则默认false；\t\t列表页可以配置展示最多2项小程序跳转行动点。",
+                "type": "string"
+              },
+              "mini_app_id": {
+                "description": "小程序appId",
+                "type": "string"
+              },
+              "mini_page_param": {
+                "description": "指定小程序页面，不填则默认跳转至对应小程序首页",
+                "type": "string"
+              },
+              "mini_query_param": {
+                "description": "query参数，商户自定义传参，填入值将以\"query\"为参数名提交至指定小程序页面",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "text": {
+            "description": "行动点展示文案",
+            "type": "string"
+          },
+          "url": {
+            "description": "行动点跳转链接，当url_type填\"url\"或不填时必填，支持http(s)和支付宝schema地址等",
+            "type": "string"
+          },
+          "url_type": {
+            "description": "跳转链接类型，不填则默认为url类型：\t\turl：对应填写url参数\t\tminiAppUrl: 对应填写mini_app_url参数，跳转至指定的支付宝小程序页面",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "card_level_conf": {
+      "description": "卡级别配置",
+      "items": {
+        "properties": {
+          "level": {
+            "description": "会员级别 该级别和开卡接口中的level要一致",
+            "type": "string"
+          },
+          "level_desc": {
+            "description": "会员级别描述",
+            "type": "string"
+          },
+          "level_icon": {
+            "description": "会员级别对应icon图片，\t\t会员信息预留字段，暂不在用户端展示；\t\t通过接口（alipay.offline.material.image.upload）上传图片",
+            "type": "string"
+          },
+          "level_show_name": {
+            "description": "会员级别显示名称",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "card_spec_tag": {
+      "description": "卡特定标签，只供特定业务使用，通常接入无需关注",
+      "example": "NONE",
+      "type": "string"
+    },
+    "column_info_list": {
+      "description": "栏位信息（卡包详情页面展现的栏位）",
+      "items": {
+        "properties": {
+          "code": {
+            "description": "标准栏位：行为由支付宝统一定，同时已经分配标准Code\t\tBALANCE：会员卡余额\t\tPOINT：积分\t\tLEVEL：等级\t\tTELEPHONE：联系方式\t\t自定义栏位：行为由商户定义，自定义Code码（只要无重复）",
+            "type": "string"
+          },
+          "group_title": {
+            "description": "若template_style_info.column_info_layout\t的值为grid，此项为宫格项所属分组标题。可空。如果需要展示该项，还需支付宝内部进行特殊配置。",
+            "type": "string"
+          },
+          "icon_id": {
+            "description": "当template_style_info.column_info_layout\t的值为grid时，此参数必填。此项为宫格项的展示icon。通过接口（alipay.offline.material.image.upload）上传图片。",
+            "type": "string"
+          },
+          "more_info": {
+            "properties": {
+              "descs": {
+                "description": "描述，当operate_type为openNative必填",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "params": {
+                "description": "扩展参数，需要URL地址回带的值，JSON格式(openweb时填)",
+                "type": "string"
+              },
+              "title": {
+                "description": "二级页面标题，只有当operate_type为openNative时有效。",
+                "type": "string"
+              },
+              "url": {
+                "description": "超链接(选择openweb的时候必须填写url参数内容)",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "operate_type": {
+            "description": "1、openNative：打开二级页面，展现 more中descs\t\t2、openWeb：打开URL\t\t3、staticinfo：静态信息\t\t注意：\t\t不填则默认staticinfo；\t\t标准code尽量使用staticinfo，例如TELEPHONE商家电话栏位就只支持staticinfo；",
+            "type": "string"
+          },
+          "tag": {
+            "description": "只有当template_style_info.column_info_layout\t的值为grid时，此参数有效。此项为宫格项标签，最多只会展示一个标签。",
+            "type": "string"
+          },
+          "title": {
+            "description": "栏目标题",
+            "type": "string"
+          },
+          "value": {
+            "description": "卡包详情页面，卡栏位右边展现的值\t\t\t\tTELEPHONE栏位的商家联系电话号码由此value字段传入",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "field_rule_list": {
+      "description": "\"字段规则列表，会员卡开卡过程中，会员卡信息的生成规则， 例如：卡有效期为开卡后两年内有效，则设置为：DATE_IN_FUTURE 注意：商家会员卡场景不支持修改该内容。 \"",
+      "items": {
+        "properties": {
+          "field_name": {
+            "description": "模板字段规则\t字段名称(用于定义会员卡开卡接口时卡相应的参数)\t余额：Balance\t积分：Point\t等级：Level\t开卡日期：OpenDate\t过期日期：ValidDate",
+            "type": "string"
+          },
+          "rule_name": {
+            "description": "规则名\t\t1、ASSIGN_FROM_REQUEST:   以rule_value为key值，表示该栏位的值从会员卡开卡接口中获取，会员卡开卡接口的card_info中获取对应参数值\t\t2、DATE_IN_FUTURE: 生成一个未来的日期（格式YYYY-MM-DD)，当选择DATE_IN_FUTURE的时候，field_name  必须是OpenDate或ValidDate， 值为(10m或10d 分别表示10个月或10天)\t\t3、CONST: 常量，会员卡开卡接口进行开卡的时候使用模板创建时候设置的值，即取rule_value的值",
+            "type": "string"
+          },
+          "rule_value": {
+            "description": "规则值，根据rule_name，采取相应取值策略\t\tCONST：直接取rule_value作为卡属性值\t\tDATE_IN_FUTURE：10m或10d 分别表示10个月或10天\t\tASSIGN_FROM_REQUEST：在开卡Reuqest请求中按rule_value取值，现在和field_name对应的为（OpenDate、ValidDate、Level、Point、Balance）",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "mdcode_notify_conf": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `mdcode_notify_conf` to the tool, first call the tool `expandSchema` with \"/properties/mdcode_notify_conf\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "open_card_conf": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `open_card_conf` to the tool, first call the tool `expandSchema` with \"/properties/open_card_conf\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "paid_outer_card_conf": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `paid_outer_card_conf` to the tool, first call the tool `expandSchema` with \"/properties/paid_outer_card_conf\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "pub_channels": {
+      "description": "卡模板投放渠道",
+      "items": {
+        "properties": {
+          "ext_info": {
+            "description": "扩展信息，无需配置",
+            "type": "string"
+          },
+          "pub_channel": {
+            "description": "投放渠道类型（选择需要推广投放的渠道）\tSHOP_DETAIL：店铺详情页",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "request_id": {
+      "description": "请求 ID，商户自定义且需确保每次请求唯一。",
+      "example": "2016072100000000001",
+      "type": "string"
+    },
+    "shop_ids": {
+      "description": "会员卡上架门店 id（支付宝门店id），即发放会员卡的商家门店id。不传则保持创建模板时信息。\t注意：不支持删除已有shop_id，仅支持新增。",
+      "example": "[\"2015122900077000000002409504\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "spi_app_id": {
+      "description": "spi应用id，为实现spi.alipay.user.opencard.get接口的app_id。若是第三方代理模式，可以设置成服务商的 APPID 或者是商家自己的 APPID；\t若不是第三方代理模式，只能设置商家自己的 APPID。",
+      "example": "2014072300007148",
+      "type": "string"
+    },
+    "template_benefit_info": {
+      "description": "\"权益信息， 1、在卡包的卡详情页面会自动添加权益栏位，展现会员卡特权， 2、如果添加门店渠道，则可在门店页展现会员卡的权益\"",
+      "items": {
+        "properties": {
+          "benefit_desc": {
+            "description": "权益描述信息",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "end_date": {
+            "description": "权益结束时间",
+            "type": "string"
+          },
+          "start_date": {
+            "description": "权益开始时间",
+            "type": "string"
+          },
+          "title": {
+            "description": "权益描述",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "template_form_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `template_form_config` to the tool, first call the tool `expandSchema` with \"/properties/template_form_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "template_id": {
+      "description": "会员卡模板id。调用alipay.marketing.card.template.create（会员卡模板创建接口）创建模板后同步返回。",
+      "example": "201607180000001",
+      "type": "string"
+    },
+    "template_style_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `template_style_info` to the tool, first call the tool `expandSchema` with \"/properties/template_style_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "write_off_type": {
+      "description": "卡包详情页面中展现出的卡码（可用于扫码核销）\t\t(1) 静态码\tqrcode: 二维码，扫码得商户开卡传入的external_card_no\tbarcode: 条形码，扫码得商户开卡传入的external_card_no\t\t(2) 动态码-支付宝生成码值(动态码会在2分钟左右后过期)\tdqrcode: 动态二维码，扫码得到的码值可配合会员卡查询接口使用\tdbarcode: 动态条形码，扫码得到的码值可配合会员卡查询接口使用\t\t(3) 动态码-商家自主生成码值（码值、时效性都由商户控制）\tmdqrcode: 商户动态二维码，扫码得商户自主传入的码值\tmdbarcode: 商户动态条码，扫码得商户自主传入的码值。\t如需使用商户动态码，请联系支付宝技术支持获取相关文档。",
+      "example": "qrcode",
+      "type": "string"
+    }
+  },
+  "required": []
+}

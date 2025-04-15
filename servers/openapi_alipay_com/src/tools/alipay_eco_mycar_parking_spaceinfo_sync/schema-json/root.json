@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "free_charging_pile": {
+      "description": "空闲充电桩车位数",
+      "example": 30,
+      "type": "integer"
+    },
+    "free_parking_space": {
+      "description": "车场空闲可用的车位数",
+      "example": 500,
+      "type": "integer"
+    },
+    "parking_id": {
+      "description": "停车场ID",
+      "example": "PI20190506152394234234",
+      "type": "string"
+    },
+    "parking_space_status": {
+      "description": "停车场实时状态: 0 拥堵,1 正常，2 空闲",
+      "example": "1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

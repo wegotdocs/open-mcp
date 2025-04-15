@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "commodity_code": {
+      "description": "开通的数字人的商品码",
+      "example": "P_STD_AVATAR_CCM",
+      "type": "string"
+    },
+    "method_params": {
+      "description": "method_params:对应target_method请求方法的具体传参值k-v map",
+      "example": "{\"key1\":\"name\",}",
+      "type": "string"
+    },
+    "target_method": {
+      "description": "targetMethod；数字人目标方法调用",
+      "example": "init.json",
+      "type": "string"
+    },
+    "tenant_code": {
+      "description": "租户code&租户id，对于子部门客户需要上传子部门id",
+      "example": "bUC_Weh3",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "product_code": {
+      "description": "因公付产品码",
+      "example": "ENTERPRISE_PAY",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "业务场景",
+      "example": "DEFAULT",
+      "type": "string"
+    },
+    "account_id": {
+      "description": "账户ID",
+      "example": "2088900976746215",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "采用分页查询，本参数为空或0默认显示第一页。如果输入的值大于总页数，则支付宝返回最后一页数据",
+      "example": "1",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "每页大小，不传的情况下默认20条，超过20条默认按20条查询；不足20条则按实际记录数返回",
+      "example": "1",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "员工ID",
+      "example": "2088900976746215",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "员工的openId",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "起始日期",
+      "example": "yyyy-MM-dd",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "截止日期",
+      "example": "yyyy-MM-dd",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权协议号",
+      "example": "2088900976746215123123",
+      "type": "string"
+    }
+  },
+  "required": []
+}

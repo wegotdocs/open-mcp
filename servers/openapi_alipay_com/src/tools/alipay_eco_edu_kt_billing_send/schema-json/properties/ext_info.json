@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "ext_school_id": {
+      "description": "学校外标编号",
+      "example": "33010400000184",
+      "type": "string"
+    },
+    "order_pay_type": {
+      "description": "账单唤起收银台的方式：\t1-手机wap;2-当面付。默认值为1（不传值或传非数字值）",
+      "example": "1",
+      "type": "string"
+    },
+    "royalty_amount": {
+      "description": "分账金额，单位：元",
+      "example": "0.01",
+      "type": "string"
+    },
+    "school_name": {
+      "description": "学校名称",
+      "example": "缴费测试小学",
+      "type": "string"
+    },
+    "trans_in_pid": {
+      "description": "分账收入户PID",
+      "example": "2088xxx",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

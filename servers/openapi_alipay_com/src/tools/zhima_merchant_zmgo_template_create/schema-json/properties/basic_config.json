@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "biz_type": {
+      "description": "商户在芝麻GO配置的业务身份编码",
+      "type": "string"
+    },
+    "contact": {
+      "description": "商家客服电话",
+      "type": "string"
+    },
+    "isv_pid": {
+      "description": "运营商商户支付宝ID。若非ISV代理模式，也就是商户自运营模式，此属性取值与partner_id一致。",
+      "type": "string"
+    },
+    "merchant_custom_logo": {
+      "description": "商户LOGO",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务单号，供幂等使用，需保证每次请求的值都不同",
+      "type": "string"
+    },
+    "partner_id": {
+      "description": "商户的支付宝ID，即为此商户创建芝麻GO模板",
+      "type": "string"
+    },
+    "template_name": {
+      "description": "芝麻GO模板名称",
+      "type": "string"
+    },
+    "template_no": {
+      "description": "模板编号",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

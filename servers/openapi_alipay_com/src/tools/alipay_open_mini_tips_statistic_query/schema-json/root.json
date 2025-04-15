@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "delivery_id": {
+      "description": "收藏引导投放活动ID，供查询收藏引导活动配置接口调用\t，当以小程序维度查询数据（query_type为app）时delivery_id为空",
+      "example": "20220308000000934758",
+      "type": "string"
+    },
+    "query_type": {
+      "description": "查询类型，表示以当前维度进行数据聚合。",
+      "example": "app",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "查询开始日期，精度为天",
+      "example": "20220322",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "查询截止日期，精度为天",
+      "example": "20220328",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "box_id": {
+      "description": "搜索直达id",
+      "example": "20211130000000100415",
+      "type": "string"
+    },
+    "merchant_id": {
+      "description": "商户id，代运营模式下传入。代运营模式，需要服务商已获得商家\"运营支付宝小程序\"授权。",
+      "example": "2088xxxxxxxxxxxx",
+      "type": "string"
+    },
+    "page_number": {
+      "description": "分页查询的当前页号,从1开始",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "每页查询的数量，默认10，不超过50",
+      "example": 10,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

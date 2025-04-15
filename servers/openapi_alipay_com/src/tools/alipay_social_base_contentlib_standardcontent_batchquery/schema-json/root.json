@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "need_detail": {
+      "description": "指示是否返回内容详情, 默认为false\tfalse: 仅返回内容ID列表\ttrue:返回 content_details",
+      "example": true,
+      "type": "boolean"
+    },
+    "page_num": {
+      "description": "当页分页,默认为1",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "分页记录数，最大20,默认20",
+      "example": 20,
+      "type": "integer"
+    },
+    "public_id": {
+      "description": "生活号+号ID，只有MCN机构为达人号ID查询内容才需要传入",
+      "example": "2030000013518xxx",
+      "type": "string"
+    },
+    "status": {
+      "description": "内容状态，默认查询所有状态",
+      "example": "1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "service_id": {
+      "description": "刷脸服务Id",
+      "example": "pay-刷脸支付\nauth-刷脸核身",
+      "type": "string"
+    },
+    "service_params": {
+      "description": "商户可传入刷脸服务所需的扩展参数，json格式",
+      "example": "{\"key1\": \"value1\"}",
+      "type": "string"
+    },
+    "zimmetainfo": {
+      "description": "{ \"apdidToken\": \"设备指纹\", \"appName\": \"应用名称\", \"appVersion\": \"应用版本\", \"bioMetaInfo\": \"生物信息如2.3.0:3,-4\" }",
+      "example": "{ \"apdidToken\": \"设备指纹\", \"appName\": \"应用名称\", \"appVersion\": \"应用版本\", \"bioMetaInfo\": \"生物信息如2.3.0:3,-4\" }",
+      "type": "string"
+    }
+  },
+  "required": []
+}

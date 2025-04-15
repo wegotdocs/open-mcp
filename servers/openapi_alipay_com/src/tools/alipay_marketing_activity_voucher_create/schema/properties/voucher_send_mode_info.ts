@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "voucher_package_mode_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_package_mode_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_send_mode_info/properties/voucher_package_mode_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "voucher_sale_mode_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_sale_mode_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_send_mode_info/properties/voucher_sale_mode_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "voucher_send_mode": z.string().describe("券发放模式。").optional(),
+  "voucher_send_rule_info": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_send_rule_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_send_mode_info/properties/voucher_send_rule_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional()
+}

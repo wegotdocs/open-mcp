@@ -1,0 +1,75 @@
+{
+  "properties": {
+    "brand_id_list": {
+      "description": "指定品牌id。\t说明：如商户需选择某个品牌下维护的收款账号，请上传相关品牌id",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "delivery_available_scope": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_available_scope` to the tool, first call the tool `expandSchema` with \"/properties/delivery_target_rule/properties/delivery_available_scope\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_city_code_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_city_code_rule` to the tool, first call the tool `expandSchema` with \"/properties/delivery_target_rule/properties/delivery_city_code_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_crowd_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_crowd_rule` to the tool, first call the tool `expandSchema` with \"/properties/delivery_target_rule/properties/delivery_crowd_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_merchant_infos": {
+      "description": "\"曝光商户选取列表。 说明：需要传入您期望曝光的商户的商户号，传入为空时默认使用投放优惠券活动的适用范围。 限制：曝光商户号需与投放归属商户号相同，或传入有跨主体授权关系的商户号或有弱绑定关系的M3账号\"",
+      "items": {
+        "properties": {
+          "merchant_id": {
+            "description": "商户id",
+            "type": "string"
+          },
+          "merchant_id_type": {
+            "description": "商户id类型。",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "delivery_merchant_mode": {
+      "description": "指定支付成功页模式。",
+      "type": "string"
+    },
+    "delivery_merchant_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_merchant_rule` to the tool, first call the tool `expandSchema` with \"/properties/delivery_target_rule/properties/delivery_merchant_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_promo_tags": {
+      "description": "推荐定向曝光订单优惠标记。\t1. 创建交易订单时，上传符合的订单优惠标。在业务参数信息“business_params”的子字段“delivery_promo_tags”填充订单优惠标。“统一收单交易支付接口”详情查看：<a href =\"https://opendocs.alipay.com/open/02ekfp?scene=32\"> https://opendocs.alipay.com/open/02ekfp?scene=32</a> \t2. 订单优惠标，检验规则：\t* 单个优惠标最大长度32字节。多个标记值以英文逗号分隔。\t* 单个优惠标仅支持字母/数字/下划线。\t3. 订单优惠标规则和其他推荐规则同时叠加。",
+      "type": "string"
+    },
+    "delivery_recall_mode": {
+      "description": "投放召回模式，现在支持CITY_RECALL（城市召回)和SHOP_RECALL（门店召回)两种模式。",
+      "type": "string"
+    },
+    "delivery_search_box_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_search_box_rule` to the tool, first call the tool `expandSchema` with \"/properties/delivery_target_rule/properties/delivery_search_box_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_template_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_template_rule` to the tool, first call the tool `expandSchema` with \"/properties/delivery_target_rule/properties/delivery_template_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_type": {
+      "description": "小程序推广可用。",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

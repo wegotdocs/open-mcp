@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "activity_base_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `activity_base_info` to the tool, first call the tool `expandSchema` with \"/properties/activity_base_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "activity_name": {
+      "description": "活动名称。不对用户进行展示，仅供商家在后台管理活动使用。",
+      "example": "满10减1活动",
+      "type": "string"
+    },
+    "belong_merchant_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `belong_merchant_info` to the tool, first call the tool `expandSchema` with \"/properties/belong_merchant_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "biz_tag": {
+      "description": "该字段废弃！后续不要使用该字段！商家券业务标签，影响商家券对C端用户的展示形式。",
+      "example": "GROUP_BUY_EXCHANGE_VOUCHER",
+      "type": "string"
+    },
+    "code_mode": {
+      "description": "码模式。MERCHANT_UPLOAD：商户上传自定义code，发券时系统随机选取上传的券code发放。MERCHANT_API：发奖时指定券码发奖，此模式无须提前上传券码。",
+      "example": "MERCHANT_UPLOAD",
+      "type": "string"
+    },
+    "customer_guide": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customer_guide` to the tool, first call the tool `expandSchema` with \"/properties/customer_guide\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务单号，用作幂等控制。\t幂等作用：参数不变的情况下，再次请求返回与上一次相同的结果。",
+      "example": "20170101000001654bb46ba",
+      "type": "string"
+    },
+    "publish_end_time": {
+      "description": "券发放结束时间。格式为：yyyy-MM-dd HH:mm:ss",
+      "example": "2017-01-29 23:59:59",
+      "type": "string"
+    },
+    "publish_start_time": {
+      "description": "券发放开始时间。格式为：yyyy-MM-dd HH:mm:ss",
+      "example": "2017-01-01 00:00:01",
+      "type": "string"
+    },
+    "voucher_available_scope_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_available_scope_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_available_scope_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_customer_guide_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_customer_guide_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_customer_guide_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_deduct_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_deduct_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_deduct_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_display_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_display_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_display_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_display_pattern_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_display_pattern_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_display_pattern_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_send_mode_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_send_mode_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_send_mode_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_send_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_send_rule` to the tool, first call the tool `expandSchema` with \"/properties/voucher_send_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_type": {
+      "description": "券类型。\t兑换券仅支持一类券类型：EXCHANGE_VOUCHER: 兑换券；",
+      "example": "FIX_VOUCHER",
+      "type": "string"
+    },
+    "voucher_use_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_use_rule` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "voucher_use_rule_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_use_rule_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

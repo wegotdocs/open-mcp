@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "commodity_id": {
+      "description": "服务商品ID，并不是uid，取值来源于前端的获取",
+      "example": "SS010101000000003954",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "每页数量，范围(1-100)。默认：10",
+      "example": 10,
+      "type": "integer"
+    },
+    "page_num": {
+      "description": "当前页码，从1开始。默认：1",
+      "example": 1,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,40 @@
+{
+  "properties": {
+    "account_quota": {
+      "description": "额度模型",
+      "items": {
+        "properties": {
+          "custom_begin_date": {
+            "description": "自定义周期起始日期，精确到分钟，yyyy-MM-dd HH:mm",
+            "type": "string"
+          },
+          "custom_end_date": {
+            "description": "自定义周期结束日期，精确到分钟，yyyy-MM-dd HH:mm",
+            "type": "string"
+          },
+          "quota_dimension": {
+            "description": "额度维度\t单笔上限：ONCE\t日：DAY\t月：MONTH\t季度：QUARTER\t年：YEAR\t终身：LIFETIME\t一次性使用额度：ONLYONE",
+            "type": "string"
+          },
+          "quota_total": {
+            "description": "协议额度",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "open_id": {
+      "description": "成员openId",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "成员ID",
+      "example": "2088900976746215",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

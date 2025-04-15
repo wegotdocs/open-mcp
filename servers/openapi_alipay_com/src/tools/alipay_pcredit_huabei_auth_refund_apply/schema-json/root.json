@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_no": {
+      "description": "签约花芝的业务协议号，在签约成功、结算成功等通知中回回传给商户。",
+      "example": "20205105001164318008",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "支付宝用户ID",
+      "example": "2088302841345600",
+      "type": "string"
+    },
+    "auth_opt_id": {
+      "description": "支付宝侧授权操作单据id,在结算扣款成功的通知消息中会回传。在周期扣款场景下，和trade_no必传其中一个值。",
+      "example": "2018041721001001230571065758",
+      "type": "string"
+    },
+    "memo": {
+      "description": "本次退款说明",
+      "example": "退款",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "支付宝用户ID",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "外部请求号",
+      "example": "99202005050100930053707258",
+      "type": "string"
+    },
+    "partner_id": {
+      "description": "商户ID",
+      "example": "2088302424614288",
+      "type": "string"
+    },
+    "refund_amount": {
+      "description": "退款金额，单位为：元（人民币），精确到小数点后两位",
+      "example": "3.00",
+      "type": "string"
+    },
+    "refund_type": {
+      "description": "MEMBER_FEE_REFUND 会员费结算退款\tWITHHOLD_FEE_REFUND 周期扣款金额退款\t默认为MEMBER_FEE_REFUND",
+      "example": "MEMBER_FEE_REFUND",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "支付宝交易号,在结算扣款成功的通知中会回传。\t在周期扣款场景下，和auth_opt_id必传其中一个值。",
+      "example": "2013112011001004330000121536",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "merchant_sales_detail": {
+      "description": "商户销售数据回传的参数对象，形式为一个列表，每天回传昨日商户的销售数据。",
+      "items": {
+        "properties": {
+          "coupons_quantity": {
+            "description": "配券数",
+            "example": "1",
+            "type": "string"
+          },
+          "device_detail": {
+            "description": "设备详情",
+            "example": "此处为该设备的详细描述",
+            "type": "string"
+          },
+          "merchant_pid": {
+            "description": "商户pid",
+            "example": "2088301912341234",
+            "type": "string"
+          },
+          "mini_appid": {
+            "description": "小程序appid，若推广的商品不为小程序，则不传此参数",
+            "example": "2018082861168647",
+            "type": "string"
+          },
+          "operation_place": {
+            "description": "作业地",
+            "example": "浙江省杭州市西湖区蚂蚁A空间",
+            "type": "string"
+          },
+          "out_biz_no": {
+            "description": "外部业务号，传isv系统生成的账单号，需要保证唯一",
+            "example": "2021000000000",
+            "type": "string"
+          },
+          "promotor_pid": {
+            "description": "推广服务商(S2)pid",
+            "example": "2088301912341234",
+            "type": "string"
+          },
+          "sales_amount": {
+            "description": "销售金额，这里填写的是整数，单位为分，比如1元，那么输入100",
+            "example": "100",
+            "type": "string"
+          },
+          "sales_quantity": {
+            "description": "销售笔数",
+            "example": "100",
+            "type": "string"
+          },
+          "sub_promotor_pid": {
+            "description": "推广服务商(S2)子账号pid",
+            "example": "2088301912341234",
+            "type": "string"
+          },
+          "write_off_amount": {
+            "description": "核销金额，这里填写的是整数，单位为分，比如1元，那么输入100",
+            "example": "100",
+            "type": "string"
+          },
+          "write_off_quantity": {
+            "description": "核销数",
+            "example": "1",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

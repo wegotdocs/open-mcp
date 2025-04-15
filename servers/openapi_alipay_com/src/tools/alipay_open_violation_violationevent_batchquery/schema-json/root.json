@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "begin_time": {
+      "description": "查询开始时间 时间格式：yyyy-MM-dd HH:mm:ss 若不填写，则默认当前时间30天前。 注意：begin_time和end_time时间跨度最大一年",
+      "example": "2020-01-01 00:00:01",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "查询结束时间 时间格式：yyyy-MM-dd HH:mm:ss 若不填写，则默认当前时间。 注意：begin_time和end_time时间跨度最大一年",
+      "example": "2020-01-01 00:00:01",
+      "type": "string"
+    },
+    "status": {
+      "description": "违规工单状态",
+      "example": "PUNISH_DONE",
+      "type": "string"
+    }
+  },
+  "required": []
+}

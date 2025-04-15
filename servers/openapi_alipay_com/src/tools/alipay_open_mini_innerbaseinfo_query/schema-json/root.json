@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "mini_app_id": {
+      "description": "小程序ID，mini_app_id 和 mini_app_name 两个需要有其中一个必填，当填了mini_app_id时只使用id去进行查询。",
+      "example": "2014060600164699",
+      "type": "string"
+    },
+    "inst_code": {
+      "description": "租户code，alipay or taobao",
+      "example": "taobao",
+      "type": "string"
+    },
+    "mini_app_name": {
+      "description": "小程序name，mini_app_id 和 mini_app_name 两个需要有其中一个必填，当填了mini_app_id时只使用id去进行查询。",
+      "example": "test",
+      "type": "string"
+    },
+    "app_sub_type": {
+      "description": "小程序类型，TINYAPP_TEMPLATE，TINYAPP_NORMAL，TINYAPP_PLUGIN，使用mini_app_name查询的时候，该字段要求必传。",
+      "example": "TINYAPP_TEMPLATE",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "ability_type_list": {
+      "description": "功能类型，目前支持的有：1039支付, 1040会员, 1041基础, 1056资金, 1058信用, 1111口碑, 330120安全, 360101营销",
+      "example": "1040",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "app_logo": {
+      "description": "服务发布logo",
+      "example": "https://appstoreisvpic.alipayobjects.com/prod/f9e291ed-0de5-4f5e-97ec-f76b8414a3e0.png",
+      "type": "string"
+    },
+    "app_origin": {
+      "description": "业务来源",
+      "example": "TAOBAO",
+      "type": "string"
+    },
+    "description": {
+      "description": "服务描述",
+      "example": "这是一段关于插件的描述",
+      "type": "string"
+    },
+    "detail_for_client": {
+      "description": "移动端详情，用于能力中心展示",
+      "example": "<p>client detail</p>",
+      "type": "string"
+    },
+    "detail_for_pc": {
+      "description": "pc端详情，用于能力中心展示",
+      "example": "<p>pc detail</p>",
+      "type": "string"
+    },
+    "mini_app_id": {
+      "description": "插件id",
+      "example": "2012211102012056",
+      "type": "string"
+    },
+    "sell_crowd": {
+      "description": "可订购人群，1003个人, 1004企业，-1无限制",
+      "example": "-1",
+      "type": "string"
+    },
+    "show_type": {
+      "description": "发布后是否展示，01展示（默认）、02隐藏",
+      "example": "01",
+      "type": "string"
+    },
+    "title": {
+      "description": "服务标题",
+      "example": "互投插件",
+      "type": "string"
+    },
+    "visit_url_for_pc": {
+      "description": "pc端url地址，不需要则为空",
+      "example": "https://nengli.alipay.com/abilityprod/detail?abilityCode=SM010000000000001100",
+      "type": "string"
+    }
+  },
+  "required": []
+}

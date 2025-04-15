@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "角色名称",
+      "example": "普通客服",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "查询结果的页码，起始值为 1，默认值为 1",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "分页查询时设置的每页记录数，最大值 100 行，默认为 10",
+      "example": 10,
+      "type": "integer"
+    },
+    "ccs_instance_id": {
+      "description": "部门id（即租户实例ID、数据权限ID）",
+      "example": "kaj_9DA1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

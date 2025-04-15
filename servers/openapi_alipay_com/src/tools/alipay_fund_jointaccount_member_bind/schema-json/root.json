@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "账本ID",
+      "example": "2088000166406784",
+      "type": "string"
+    },
+    "account_quota": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `account_quota` to the tool, first call the tool `expandSchema` with \"/properties/account_quota\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20214922001380716008",
+      "type": "string"
+    },
+    "agreement_sign_info": {
+      "description": "关联代扣协议签约串",
+      "example": "alipay_sdk%3Dalipay-sdk-java-dynamicVersionNo%26app_id%3D2019072465924554%26biz_content%3D%257B%2522sign_validity_p",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "业务场景，联系支付宝分配",
+      "example": "ISV_STANDARD",
+      "type": "string"
+    },
+    "business_params": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `business_params` to the tool, first call the tool `expandSchema` with \"/properties/business_params\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "identity": {
+      "description": "该字段为被邀请方账号ID：\t当identity_type为ALIPAY_USER_ID时，需要填支付宝ID；当identity_type为ALIPAY_LOGON_ID时，需要填支付宝登录号；当identity_type为ALIPAY_OPEN_ID时，需要填支付宝openId",
+      "example": "name@email.com",
+      "type": "string"
+    },
+    "identity_type": {
+      "description": "账号类型，目前支持如下类型：\t1、ALIPAY_USER_ID 支付宝的会员ID \t2、ALIPAY_LOGON_ID：支付宝登录号，支持邮箱和手机号格式\t3、ALIPAY_OPEN_ID：支付宝openId",
+      "example": "ALIPAY_LOGON_ID",
+      "type": "string"
+    },
+    "identity_verified_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `identity_verified_info` to the tool, first call the tool `expandSchema` with \"/properties/identity_verified_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "成员姓名，账号类型为ALIPAY_LOGON_ID时必填",
+      "example": "张三",
+      "type": "string"
+    },
+    "product_code": {
+      "description": "产品码",
+      "example": "ENTERPRISE_PAY",
+      "type": "string"
+    }
+  },
+  "required": []
+}

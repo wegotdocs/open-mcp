@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "mini_app_id": {
+      "description": "根据承接品的商家小程序ID查询",
+      "example": "2017072607907880",
+      "type": "string"
+    },
+    "pid": {
+      "description": "根据承接该品的小程序背后的商家查询",
+      "example": "2088xxxxxxxxx",
+      "type": "string"
+    },
+    "goods_id": {
+      "description": "根据商品的唯一标识查询",
+      "example": "8948968498",
+      "type": "string"
+    },
+    "page_num": {
+      "description": "查询第几页，最小值为1",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "查询页面数量，最大值为50",
+      "example": 10,
+      "type": "integer"
+    }
+  },
+  "required": []
+}
