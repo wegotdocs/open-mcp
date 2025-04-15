@@ -1,5 +1,5 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "session": z.string().max(5000)
 }

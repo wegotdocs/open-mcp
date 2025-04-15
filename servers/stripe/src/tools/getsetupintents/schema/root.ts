@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "attach_to_self": z.boolean().describe("If present, the SetupIntent's payment method will be attached to the in-context Stripe Account.\n\nIt can only be used for this Stripe Account’s own money movement flows like InboundTransfer and OutboundTransfers. It cannot be set to true when setting up a PaymentMethod for a Customer, and defaults to false when attaching a PaymentMethod to a Customer.").optional(),
   "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.").optional(),
   "customer": z.string().max(5000).describe("Only return SetupIntents for the customer specified by this customer ID.").optional(),

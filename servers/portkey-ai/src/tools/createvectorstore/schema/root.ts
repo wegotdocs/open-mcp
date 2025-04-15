@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "file_ids": z.array(z.string()).max(500).describe("A list of [File](https://platform.openai.com/docs/api-reference/files) IDs that the vector store should use. Useful for tools like `file_search` that can access files.").optional(),
   "name": z.string().describe("The name of the vector store.").optional(),
   "expires_after": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `expires_after` to the tool, first call the tool `expandSchema` with \"/properties/expires_after\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The expiration policy for a vector store.</property-description>").optional(),

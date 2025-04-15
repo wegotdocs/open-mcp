@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "anthropic_key_uuid": z.string().describe("Optional Anthropic API key ID to use with Anthropic models").optional(),
   "description": z.string().describe("A text description of the agent, not used in inference").optional(),
   "instruction": z.string().describe("Agent instruction. Instructions help your agent to perform its job effectively. See [Write Effective Agent Instructions](https://docs.digitalocean.com/products/genai-platform/concepts/best-practices/#agent-instructions) for best practices.").optional(),

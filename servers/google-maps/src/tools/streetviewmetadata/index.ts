@@ -1,35 +1,34 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `streetviewmetadata`
-export const toolDescription = `The Street View Static API metadata requests provide data about Street View panoramas. Using the metadata, you can find out if a Street View image is available at a given location, as well as getting programmatic access to the latitude and`
-export const baseUrl = `https://maps.googleapis.com`
-export const path = `/maps/api/streetview/metadata`
-export const method = `get`
-export const security = [
-  {
-    "key": "key",
-    "value": "<mcp-env-var>KEY</mcp-env-var>",
-    "in": "query",
-    "envVarName": "KEY",
-    "schemeType": "apiKey",
-    "schemeName": "key"
-  }
-]
-export const keys = {
-  "query": [
-    "heading",
-    "location",
-    "pano",
-    "pitch",
-    "radius",
-    "return_error_code",
-    "signature",
-    "size",
-    "source"
+const tool: OpenMCPServerTool = {
+  "toolName": "streetviewmetadata",
+  "toolDescription": "The Street View Static API metadata requests provide data about Street View panoramas. Using the metadata, you can find out if a Street View image is available at a given location, as well as getting programmatic access to the latitude and",
+  "baseUrl": "https://maps.googleapis.com",
+  "path": "/maps/api/streetview/metadata",
+  "method": "get",
+  "security": [
+    {
+      "key": "key",
+      "value": "<mcp-env-var>KEY</mcp-env-var>",
+      "in": "query",
+      "envVarName": "KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "heading": "heading",
+      "location": "location",
+      "pano": "pano",
+      "pitch": "pitch",
+      "radius": "radius",
+      "return_error_code": "return_error_code",
+      "signature": "signature",
+      "size": "size",
+      "source": "source"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

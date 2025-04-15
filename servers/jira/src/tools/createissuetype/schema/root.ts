@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "description": z.string().describe("The description of the issue type.").optional(),
   "hierarchyLevel": z.number().int().describe("The hierarchy level of the issue type. Use:\n\n *  `-1` for Subtask.\n *  `0` for Base.\n\nDefaults to `0`.").optional(),
   "name": z.string().describe("The unique name for the issue type. The maximum length is 60 characters."),

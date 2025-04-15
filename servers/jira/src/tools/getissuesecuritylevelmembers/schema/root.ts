@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "issueSecuritySchemeId": z.number().int().describe("The ID of the issue security scheme. Use the [Get issue security schemes](#api-rest-api-3-issuesecurityschemes-get) operation to get a list of issue security scheme IDs."),
   "startAt": z.number().int().describe("The index of the first item to return in a page of results (page offset).").optional(),
   "maxResults": z.number().int().describe("The maximum number of items to return per page.").optional(),

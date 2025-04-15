@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "projectIdOrKey": z.string().describe("The ID or (case-sensitive) key of the project."),
   "fileName": z.string().describe("The file name of the avatar icon. Returned for system avatars.").readonly().optional(),
   "id": z.string().describe("The ID of the avatar."),

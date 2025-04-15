@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "name": z.string(),
   "collection_id": z.string().describe("UUID or slug of the collection"),
   "string": z.string().describe("Prompt template in string format"),

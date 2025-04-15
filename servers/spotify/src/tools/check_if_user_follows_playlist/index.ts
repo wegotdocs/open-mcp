@@ -1,28 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `check_if_user_follows_playlist`
-export const toolDescription = `Check if Current User Follows Playlist`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/playlists/{playlist_id}/followers/contains`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "ids"
+const tool: OpenMCPServerTool = {
+  "toolName": "check_if_user_follows_playlist",
+  "toolDescription": "Check if Current User Follows Playlist",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/playlists/{playlist_id}/followers/contains",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [
-    "playlist_id"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "playlist_id": "playlist_id"
+    },
+    "query": {
+      "ids": "ids"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

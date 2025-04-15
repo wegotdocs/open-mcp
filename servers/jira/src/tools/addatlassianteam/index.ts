@@ -1,40 +1,39 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `addatlassianteam`
-export const toolDescription = `Add Atlassian team to plan`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/plans/plan/{planId}/team/atlassian`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "planId"
+const tool: OpenMCPServerTool = {
+  "toolName": "addatlassianteam",
+  "toolDescription": "Add Atlassian team to plan",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/plans/plan/{planId}/team/atlassian",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "capacity",
-    "id",
-    "issueSourceId",
-    "planningStyle",
-    "sprintLength"
-  ]
+  "paramsMap": {
+    "path": {
+      "planId": "planId"
+    },
+    "body": {
+      "capacity": "capacity",
+      "id": "id",
+      "issueSourceId": "issueSourceId",
+      "planningStyle": "planningStyle",
+      "sprintLength": "sprintLength"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

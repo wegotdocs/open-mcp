@@ -1,42 +1,41 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getcustomfieldsconfigurations`
-export const toolDescription = `Bulk get custom field configurations`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/app/field/context/configuration/list`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "id",
-    "fieldContextId",
-    "issueId",
-    "projectKeyOrId",
-    "issueTypeId",
-    "startAt",
-    "maxResults"
+const tool: OpenMCPServerTool = {
+  "toolName": "getcustomfieldsconfigurations",
+  "toolDescription": "Bulk get custom field configurations",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/app/field/context/configuration/list",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "fieldIdsOrKeys"
-  ]
+  "paramsMap": {
+    "query": {
+      "id": "id",
+      "fieldContextId": "fieldContextId",
+      "issueId": "issueId",
+      "projectKeyOrId": "projectKeyOrId",
+      "issueTypeId": "issueTypeId",
+      "startAt": "startAt",
+      "maxResults": "maxResults"
+    },
+    "body": {
+      "fieldIdsOrKeys": "fieldIdsOrKeys"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

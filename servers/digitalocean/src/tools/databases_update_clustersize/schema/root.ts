@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
   "size": z.string().describe("A slug identifier representing desired the size of the nodes in the database cluster."),
   "num_nodes": z.number().int().describe("The number of nodes in the database cluster. Valid values are are 1-3. In addition to the primary node, up to two standby nodes may be added for highly available configurations."),

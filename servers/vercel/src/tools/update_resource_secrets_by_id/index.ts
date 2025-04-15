@@ -1,31 +1,31 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `update_resource_secrets_by_id`
-export const toolDescription = `Update Resource Secrets`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/installations/{integrationConfigurationId}/resources/{resourceId}/secrets`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "integrationConfigurationId",
-    "resourceId"
+const tool: OpenMCPServerTool = {
+  "toolName": "update_resource_secrets_by_id",
+  "toolDescription": "Update Resource Secrets",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/installations/{integrationConfigurationId}/resources/{resourceId}/secrets",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "secrets",
-    "partial"
-  ]
+  "paramsMap": {
+    "path": {
+      "integrationConfigurationId": "integrationConfigurationId",
+      "resourceId": "resourceId"
+    },
+    "body": {
+      "secrets": "secrets",
+      "partial": "partial"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

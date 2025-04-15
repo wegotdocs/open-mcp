@@ -1,35 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `postfilelinkslink`
-export const toolDescription = `Update a file link`
-export const baseUrl = `https://api.stripe.com`
-export const path = `/v1/file_links/{link}`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "link"
+const tool: OpenMCPServerTool = {
+  "toolName": "postfilelinkslink",
+  "toolDescription": "Update a file link",
+  "baseUrl": "https://api.stripe.com",
+  "path": "/v1/file_links/{link}",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "link": "link"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

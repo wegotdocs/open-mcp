@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "exact": z.boolean().describe("Boolean which defines whether the param 'search' must match exactly or not").optional(),
   "first": z.number().int().describe("The position of the first result to be processed (pagination offset)").optional(),
   "max": z.number().int().describe("The maximum number of results to be returned. Defaults to 10").optional(),

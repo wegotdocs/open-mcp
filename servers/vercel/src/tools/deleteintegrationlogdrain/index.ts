@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `deleteintegrationlogdrain`
-export const toolDescription = `Deletes the Integration log drain with the provided \`id\``
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/integrations/log-drains/{id}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "deleteintegrationlogdrain",
+  "toolDescription": "Deletes the Integration log drain with the provided `id`",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/integrations/log-drains/{id}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "id"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "id": "id"
+    },
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "credit_grant": z.string().max(5000).describe("The credit grant for which to fetch credit balance transactions.").optional(),
   "customer": z.string().max(5000).describe("The customer for which to fetch credit balance transactions."),
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.").optional(),

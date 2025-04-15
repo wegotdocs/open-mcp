@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "remoteUrl": z.string().describe("The git repository's remote origin url").optional(),
   "commitAuthorName": z.string().describe("The name of the author of the commit").optional(),
   "commitMessage": z.string().describe("The commit message").optional(),

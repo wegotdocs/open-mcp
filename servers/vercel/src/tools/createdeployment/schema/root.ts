@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "forceNew": z.enum(["0","1"]).describe("Forces a new deployment even if there is a previous similar deployment").optional(),
   "skipAutoDetectionConfirmation": z.enum(["0","1"]).describe("Allows to skip framework detection so the API would not fail to ask for confirmation").optional(),
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),

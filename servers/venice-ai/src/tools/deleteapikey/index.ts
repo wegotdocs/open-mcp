@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `deleteapikey`
-export const toolDescription = `/api/v1/api_keys`
-export const baseUrl = `https://api.venice.ai/api/v1`
-export const path = `/api_keys`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "id"
+const tool: OpenMCPServerTool = {
+  "toolName": "deleteapikey",
+  "toolDescription": "/api/v1/api_keys",
+  "baseUrl": "https://api.venice.ai/api/v1",
+  "path": "/api_keys",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "id": "id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `patch_data_cache_billing_settings`
-export const toolDescription = ``
-export const baseUrl = `https://api.vercel.com`
-export const path = `/data-cache/billing-settings`
-export const method = `patch`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "excessBillingEnabled"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "patch_data_cache_billing_settings",
+  "toolDescription": "",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/data-cache/billing-settings",
+  "method": "patch",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "excessBillingEnabled": "excessBillingEnabled"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

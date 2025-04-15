@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "limit": z.number().gte(1).describe("Limit how many teams should be returned").optional(),
   "since": z.number().describe("Timestamp in milliseconds to only include members added since then.").optional(),
   "until": z.number().describe("Timestamp in milliseconds to only include members added until then.").optional(),

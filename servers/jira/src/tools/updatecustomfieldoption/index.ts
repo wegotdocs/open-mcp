@@ -1,37 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `updatecustomfieldoption`
-export const toolDescription = `Update custom field options (context)`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/field/{fieldId}/context/{contextId}/option`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "fieldId",
-    "contextId"
+const tool: OpenMCPServerTool = {
+  "toolName": "updatecustomfieldoption",
+  "toolDescription": "Update custom field options (context)",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/field/{fieldId}/context/{contextId}/option",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "options"
-  ]
+  "paramsMap": {
+    "path": {
+      "fieldId": "fieldId",
+      "contextId": "contextId"
+    },
+    "body": {
+      "options": "options"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

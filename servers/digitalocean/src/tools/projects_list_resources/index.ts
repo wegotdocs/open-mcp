@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `projects_list_resources`
-export const toolDescription = `List Project Resources`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/projects/{project_id}/resources`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "per_page",
-    "page"
+const tool: OpenMCPServerTool = {
+  "toolName": "projects_list_resources",
+  "toolDescription": "List Project Resources",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/projects/{project_id}/resources",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "project_id"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "project_id": "project_id"
+    },
+    "query": {
+      "per_page": "per_page",
+      "page": "page"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

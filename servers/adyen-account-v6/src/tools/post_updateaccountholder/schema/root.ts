@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "accountHolderCode": z.string().describe("The code of the Account Holder to be updated."),
   "accountHolderDetails": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `accountHolderDetails` to the tool, first call the tool `expandSchema` with \"/properties/accountHolderDetails\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The details to which the Account Holder should be updated.\n\nRequired if a processingTier is not provided.</property-description>").optional(),
   "description": z.string().describe("A description of the account holder, maximum 256 characters. You can use alphanumeric characters (A-Z, a-z, 0-9), white spaces, and underscores `_`.").optional(),

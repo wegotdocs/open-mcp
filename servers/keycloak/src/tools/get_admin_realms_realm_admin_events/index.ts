@@ -1,28 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_admin_realms_realm_admin_events`
-export const toolDescription = `Get admin events Returns all admin events, or filters events based on URL query parameters listed here`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/admin-events`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [
-    "authClient",
-    "authIpAddress",
-    "authRealm",
-    "authUser",
-    "dateFrom",
-    "dateTo",
-    "first",
-    "max",
-    "operationTypes",
-    "resourcePath",
-    "resourceTypes"
-  ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_admin_realms_realm_admin_events",
+  "toolDescription": "Get admin events Returns all admin events, or filters events based on URL query parameters listed here",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/admin-events",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "query": {
+      "authClient": "authClient",
+      "authIpAddress": "authIpAddress",
+      "authRealm": "authRealm",
+      "authUser": "authUser",
+      "dateFrom": "dateFrom",
+      "dateTo": "dateTo",
+      "direction": "direction",
+      "first": "first",
+      "max": "max",
+      "operationTypes": "operationTypes",
+      "resourcePath": "resourcePath",
+      "resourceTypes": "resourceTypes"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

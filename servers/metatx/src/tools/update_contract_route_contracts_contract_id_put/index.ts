@@ -1,31 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `update_contract_route_contracts_contract_id_put`
-export const toolDescription = `Update Contract Route`
-export const baseUrl = `https://engineapi.moonstream.to/metatx`
-export const path = `/contracts/{contract_id}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "contract_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "update_contract_route_contracts_contract_id_put",
+  "toolDescription": "Update Contract Route",
+  "baseUrl": "https://engineapi.moonstream.to/metatx",
+  "path": "/contracts/{contract_id}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "title",
-    "description",
-    "image_uri",
-    "ignore_nulls"
-  ]
+  "paramsMap": {
+    "path": {
+      "contract_id": "contract_id"
+    },
+    "body": {
+      "title": "title",
+      "description": "description",
+      "image_uri": "image_uri",
+      "ignore_nulls": "ignore_nulls"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

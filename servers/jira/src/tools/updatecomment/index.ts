@@ -1,54 +1,52 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `updatecomment`
-export const toolDescription = `Update comment`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/issue/{issueIdOrKey}/comment/{id}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "updatecomment",
+  "toolDescription": "Update comment",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/issue/{issueIdOrKey}/comment/{id}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "issueIdOrKey": "issueIdOrKey",
+      "id": "id"
+    },
+    "query": {
+      "notifyUsers": "notifyUsers",
+      "overrideEditableFlag": "overrideEditableFlag",
+      "expand": "expand"
+    },
+    "body": {
+      "author": "author",
+      "body": "body",
+      "created": "created",
+      "id": "b_id",
+      "jsdAuthorCanSeeRequest": "jsdAuthorCanSeeRequest",
+      "jsdPublic": "jsdPublic",
+      "properties": "properties",
+      "renderedBody": "renderedBody",
+      "self": "self",
+      "updateAuthor": "updateAuthor",
+      "updated": "updated",
+      "visibility": "visibility"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "notifyUsers",
-    "overrideEditableFlag",
-    "expand"
-  ],
-  "header": [],
-  "path": [
-    "issueIdOrKey",
-    "id"
-  ],
-  "cookie": [],
-  "body": [
-    "author",
-    "body",
-    "created",
-    "b_id",
-    "jsdAuthorCanSeeRequest",
-    "jsdPublic",
-    "properties",
-    "renderedBody",
-    "self",
-    "updateAuthor",
-    "updated",
-    "visibility"
-  ]
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_id": "id"
-}
+
+export default tool

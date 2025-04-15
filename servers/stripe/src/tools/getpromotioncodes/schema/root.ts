@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "active": z.boolean().describe("Filter promotion codes by whether they are active.").optional(),
   "code": z.string().max(5000).describe("Only return promotion codes that have this case-insensitive code.").optional(),
   "coupon": z.string().max(5000).describe("Only return promotion codes for this coupon.").optional(),

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "fieldId": z.string().describe("The ID of the custom field."),
   "optionId": z.number().int().describe("The ID of the option to be deselected."),
   "contextId": z.number().int().describe("The ID of the context."),

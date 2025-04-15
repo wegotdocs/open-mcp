@@ -1,33 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `put_admin_realms_realm_authentication_flows_flowalias_executions`
-export const toolDescription = `Update authentication executions of a Flow`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/authentication/flows/{flowAlias}/executions`
-export const method = `put`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "flowAlias"
-  ],
-  "cookie": [],
-  "body": [
-    "id",
-    "requirement",
-    "displayName",
-    "alias",
-    "description",
-    "requirementChoices",
-    "configurable",
-    "authenticationFlow",
-    "providerId",
-    "authenticationConfig",
-    "flowId",
-    "level",
-    "index",
-    "priority"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "put_admin_realms_realm_authentication_flows_flowalias_executions",
+  "toolDescription": "Update authentication executions of a Flow",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/authentication/flows/{flowAlias}/executions",
+  "method": "put",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "flowAlias": "flowAlias"
+    },
+    "body": {
+      "id": "id",
+      "requirement": "requirement",
+      "displayName": "displayName",
+      "alias": "alias",
+      "description": "description",
+      "requirementChoices": "requirementChoices",
+      "configurable": "configurable",
+      "authenticationFlow": "authenticationFlow",
+      "providerId": "providerId",
+      "authenticationConfig": "authenticationConfig",
+      "flowId": "flowId",
+      "level": "level",
+      "index": "index",
+      "priority": "priority"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

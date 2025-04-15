@@ -1,34 +1,33 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `listaccessgroups`
-export const toolDescription = `List access groups for a team, project or member`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/access-groups`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "projectId",
-    "search",
-    "membersLimit",
-    "projectsLimit",
-    "limit",
-    "next",
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "listaccessgroups",
+  "toolDescription": "List access groups for a team, project or member",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/access-groups",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "projectId": "projectId",
+      "search": "search",
+      "membersLimit": "membersLimit",
+      "projectsLimit": "projectsLimit",
+      "limit": "limit",
+      "next": "next",
+      "teamId": "teamId",
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

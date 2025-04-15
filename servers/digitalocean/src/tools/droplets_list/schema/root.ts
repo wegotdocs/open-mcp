@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),
   "page": z.number().int().gte(1).describe("Which 'page' of paginated results to return.").optional(),
   "tag_name": z.string().describe("Used to filter Droplets by a specific tag. Can not be combined with `name` or `type`.").optional(),

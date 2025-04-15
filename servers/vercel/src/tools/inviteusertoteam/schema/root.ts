@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "uid": z.string().describe("The id of the user to invite").optional(),
   "email": z.string().email().describe("The email address of the user to invite").optional(),
   "role": z.enum(["OWNER","MEMBER","DEVELOPER","SECURITY","BILLING","VIEWER","CONTRIBUTOR"]).describe("The role of the user to invite").optional(),

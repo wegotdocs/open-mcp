@@ -1,39 +1,37 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getnotificationschemes`
-export const toolDescription = `Get notification schemes paginated`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/notificationscheme`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "startAt",
-    "maxResults",
-    "id",
-    "projectId",
-    "onlyDefault",
-    "expand"
+const tool: OpenMCPServerTool = {
+  "toolName": "getnotificationschemes",
+  "toolDescription": "Get notification schemes paginated",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/notificationscheme",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "startAt": "startAt",
+      "maxResults": "maxResults",
+      "id": "id",
+      "projectId": "projectId",
+      "onlyDefault": "onlyDefault",
+      "expand": "expand"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

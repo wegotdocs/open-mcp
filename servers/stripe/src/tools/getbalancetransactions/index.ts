@@ -1,43 +1,40 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getbalancetransactions`
-export const toolDescription = `List all balance transactions`
-export const baseUrl = `https://api.stripe.com`
-export const path = `/v1/balance_transactions`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "created",
-    "currency",
-    "ending_before",
-    "expand",
-    "limit",
-    "payout",
-    "source",
-    "starting_after",
-    "type"
+const tool: OpenMCPServerTool = {
+  "toolName": "getbalancetransactions",
+  "toolDescription": "List all balance transactions",
+  "baseUrl": "https://api.stripe.com",
+  "path": "/v1/balance_transactions",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "created": "created",
+      "currency": "currency",
+      "ending_before": "ending_before",
+      "expand": "expand",
+      "limit": "limit",
+      "payout": "payout",
+      "source": "source",
+      "starting_after": "starting_after",
+      "type": "type"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

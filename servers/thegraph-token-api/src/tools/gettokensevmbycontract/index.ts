@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `gettokensevmbycontract`
-export const toolDescription = `Token Metadata by Contract`
-export const baseUrl = `https://token-api.thegraph.com`
-export const path = `/tokens/evm/{contract}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "network_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "gettokensevmbycontract",
+  "toolDescription": "Token Metadata by Contract",
+  "baseUrl": "https://token-api.thegraph.com",
+  "path": "/tokens/evm/{contract}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "contract"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "contract": "contract"
+    },
+    "query": {
+      "network_id": "network_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

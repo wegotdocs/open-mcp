@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "idOrAlias": z.string().describe("The alias or alias ID to be retrieved"),
   "from": z.number().describe("Get the alias only if it was created after the provided timestamp").optional(),
   "projectId": z.string().describe("Get the alias only if it is assigned to the provided project ID").optional(),

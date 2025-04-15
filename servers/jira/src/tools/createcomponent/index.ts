@@ -1,49 +1,47 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createcomponent`
-export const toolDescription = `Create component`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/component`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "createcomponent",
+  "toolDescription": "Create component",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/component",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "ari": "ari",
+      "assignee": "assignee",
+      "assigneeType": "assigneeType",
+      "description": "description",
+      "id": "id",
+      "isAssigneeTypeValid": "isAssigneeTypeValid",
+      "lead": "lead",
+      "leadAccountId": "leadAccountId",
+      "leadUserName": "leadUserName",
+      "metadata": "metadata",
+      "name": "name",
+      "project": "project",
+      "projectId": "projectId",
+      "realAssignee": "realAssignee",
+      "realAssigneeType": "realAssigneeType",
+      "self": "self"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "ari",
-    "assignee",
-    "assigneeType",
-    "description",
-    "id",
-    "isAssigneeTypeValid",
-    "lead",
-    "leadAccountId",
-    "leadUserName",
-    "metadata",
-    "name",
-    "project",
-    "projectId",
-    "realAssignee",
-    "realAssigneeType",
-    "self"
-  ]
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

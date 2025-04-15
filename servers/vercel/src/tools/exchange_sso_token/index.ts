@@ -1,22 +1,23 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `exchange_sso_token`
-export const toolDescription = `SSO Token Exchange`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/integrations/sso/token`
-export const method = `post`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "code",
-    "state",
-    "client_id",
-    "client_secret",
-    "redirect_uri"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "exchange_sso_token",
+  "toolDescription": "SSO Token Exchange",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/integrations/sso/token",
+  "method": "post",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "code": "code",
+      "state": "state",
+      "client_id": "client_id",
+      "client_secret": "client_secret",
+      "redirect_uri": "redirect_uri"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

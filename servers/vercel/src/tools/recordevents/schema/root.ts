@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
   "x-artifact-client-ci": z.string().max(50).describe("The continuous integration or delivery environment where this artifact is downloaded.").optional(),

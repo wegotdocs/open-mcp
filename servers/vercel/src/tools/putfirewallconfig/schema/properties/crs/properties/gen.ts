@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "active": z.boolean(),
   "action": z.enum(["deny","log"])
 }

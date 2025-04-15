@@ -1,33 +1,33 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `gettransfersevmbyaddress`
-export const toolDescription = `Token Transfers by Wallet Address`
-export const baseUrl = `https://token-api.thegraph.com`
-export const path = `/transfers/evm/{address}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "network_id",
-    "age",
-    "contract",
-    "limit",
-    "page"
+const tool: OpenMCPServerTool = {
+  "toolName": "gettransfersevmbyaddress",
+  "toolDescription": "Token Transfers by Wallet Address",
+  "baseUrl": "https://token-api.thegraph.com",
+  "path": "/transfers/evm/{address}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "address"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "address": "address"
+    },
+    "query": {
+      "network_id": "network_id",
+      "age": "age",
+      "contract": "contract",
+      "limit": "limit",
+      "page": "page"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

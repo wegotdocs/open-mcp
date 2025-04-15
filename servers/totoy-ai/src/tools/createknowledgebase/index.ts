@@ -1,29 +1,28 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createknowledgebase`
-export const toolDescription = `Creates a Knowledge Base.`
-export const baseUrl = `https://api.totoy.ai/v1`
-export const path = `/knowledge-bases`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "name",
-    "instructions",
-    "project_id"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "createknowledgebase",
+  "toolDescription": "Creates a Knowledge Base.",
+  "baseUrl": "https://api.totoy.ai/v1",
+  "path": "/knowledge-bases",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "name": "name",
+      "instructions": "instructions",
+      "project_id": "project_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

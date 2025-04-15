@@ -1,34 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `spaceskey_patch`
-export const toolDescription = `Update Spaces Access Keys`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/spaces/keys/{access_key}`
-export const method = `patch`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "access_key"
+const tool: OpenMCPServerTool = {
+  "toolName": "spaceskey_patch",
+  "toolDescription": "Update Spaces Access Keys",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/spaces/keys/{access_key}",
+  "method": "patch",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "name",
-    "grants",
-    "b_access_key",
-    "created_at"
-  ]
+  "paramsMap": {
+    "path": {
+      "access_key": "access_key"
+    },
+    "body": {
+      "name": "name",
+      "grants": "grants",
+      "access_key": "b_access_key",
+      "created_at": "created_at"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_access_key": "access_key"
-}
+
+export default tool

@@ -1,39 +1,37 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `postwebhook`
-export const toolDescription = `Create a webhook`
-export const baseUrl = `https://api.figma.com`
-export const path = `/v2/webhooks`
-export const method = `post`
-export const security = [
-  {
-    "key": "X-Figma-Token",
-    "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_FIGMA_TOKEN",
-    "schemeType": "apiKey",
-    "schemeName": "X-Figma-Token"
+const tool: OpenMCPServerTool = {
+  "toolName": "postwebhook",
+  "toolDescription": "Create a webhook",
+  "baseUrl": "https://api.figma.com",
+  "path": "/v2/webhooks",
+  "method": "post",
+  "security": [
+    {
+      "key": "X-Figma-Token",
+      "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_FIGMA_TOKEN"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "event_type": "event_type",
+      "team_id": "team_id",
+      "endpoint": "endpoint",
+      "passcode": "passcode",
+      "status": "status",
+      "description": "description"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "event_type",
-    "team_id",
-    "endpoint",
-    "passcode",
-    "status",
-    "description"
-  ]
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

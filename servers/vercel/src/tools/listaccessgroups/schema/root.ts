@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "projectId": z.string().describe("Filter access groups by project.").optional(),
   "search": z.string().describe("Search for access groups by name.").optional(),
   "membersLimit": z.number().int().gte(1).lte(100).describe("Number of members to include in the response.").optional(),

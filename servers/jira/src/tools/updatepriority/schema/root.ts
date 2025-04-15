@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.string().describe("The ID of the issue priority."),
   "avatarId": z.number().int().describe("The ID for the avatar for the priority. This parameter is nullable and both iconUrl and avatarId cannot be defined.").optional(),
   "description": z.string().max(255).nullable().describe("The description of the priority.").optional(),

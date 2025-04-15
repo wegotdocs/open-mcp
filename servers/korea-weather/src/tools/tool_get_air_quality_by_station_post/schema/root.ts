@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "location": z.string(),
   "station_name": z.string().optional()
 }

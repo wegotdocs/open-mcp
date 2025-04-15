@@ -1,41 +1,39 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `finduserswithallpermissions`
-export const toolDescription = `Find users with permissions`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/user/permission/search`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "query",
-    "username",
-    "accountId",
-    "permissions",
-    "issueKey",
-    "projectKey",
-    "startAt",
-    "maxResults"
+const tool: OpenMCPServerTool = {
+  "toolName": "finduserswithallpermissions",
+  "toolDescription": "Find users with permissions",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/user/permission/search",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "query": "query",
+      "username": "username",
+      "accountId": "accountId",
+      "permissions": "permissions",
+      "issueKey": "issueKey",
+      "projectKey": "projectKey",
+      "startAt": "startAt",
+      "maxResults": "maxResults"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

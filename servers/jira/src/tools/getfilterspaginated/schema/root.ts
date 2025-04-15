@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "filterName": z.string().describe("String used to perform a case-insensitive partial match with `name`.").optional(),
   "accountId": z.string().min(0).max(128).describe("User account ID used to return filters with the matching `owner.accountId`. This parameter cannot be used with `owner`.").optional(),
   "owner": z.string().describe("This parameter is deprecated because of privacy changes. Use `accountId` instead. See the [migration guide](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details. User name used to return filters with the matching `owner.name`. This parameter cannot be used with `accountId`.").optional(),

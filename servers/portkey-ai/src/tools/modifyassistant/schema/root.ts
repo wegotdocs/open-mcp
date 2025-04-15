@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "assistant_id": z.string().describe("The ID of the assistant to modify."),
   "model": z.string().describe("ID of the model to use. You can use the [List models](https://platform.openai.com/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](https://platform.openai.com/docs/models/overview) for descriptions of them.\n").optional(),
   "name": z.string().max(256).nullable().describe("The name of the assistant. The maximum length is 256 characters.\n").optional(),

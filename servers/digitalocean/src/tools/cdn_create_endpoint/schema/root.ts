@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.string().uuid().describe("A unique ID that can be used to identify and reference a CDN endpoint.").readonly().optional(),
   "origin": z.string().describe("The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space."),
   "endpoint": z.string().describe("The fully qualified domain name (FQDN) from which the CDN-backed content is served.").readonly().optional(),

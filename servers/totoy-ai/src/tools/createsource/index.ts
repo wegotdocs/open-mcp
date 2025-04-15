@@ -1,33 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createsource`
-export const toolDescription = `Creates a Document or Text Source`
-export const baseUrl = `https://api.totoy.ai/v1`
-export const path = `/sources`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "text_content",
-    "title",
-    "backlink",
-    "valid_from",
-    "valid_until",
-    "project_id",
-    "custom_metadata"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "createsource",
+  "toolDescription": "Creates a Document or Text Source",
+  "baseUrl": "https://api.totoy.ai/v1",
+  "path": "/sources",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "text_content": "text_content",
+      "title": "title",
+      "backlink": "backlink",
+      "valid_from": "valid_from",
+      "valid_until": "valid_until",
+      "project_id": "project_id",
+      "custom_metadata": "custom_metadata"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

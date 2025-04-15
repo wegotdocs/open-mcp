@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `apps_validate_appspec`
-export const toolDescription = `Propose an App Spec`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/apps/propose`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "spec",
-    "app_id"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "apps_validate_appspec",
+  "toolDescription": "Propose an App Spec",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/apps/propose",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "spec": "spec",
+      "app_id": "app_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

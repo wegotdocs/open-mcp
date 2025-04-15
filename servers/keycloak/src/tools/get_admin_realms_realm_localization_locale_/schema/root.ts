@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "locale": z.string(),
   "useRealmDefaultLocaleFallback": z.boolean().optional()
 }

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "idOrName": z.string().describe("The unique project identifier or the project name"),
   "gitBranch": z.string().max(250).describe("If defined, the git branch of the environment variable to filter the results (must have target=preview)").optional(),
   "decrypt": z.enum(["true","false"]).describe("If true, the environment variable value will be decrypted").optional(),

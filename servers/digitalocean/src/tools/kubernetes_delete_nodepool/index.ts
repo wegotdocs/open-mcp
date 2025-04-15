@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `kubernetes_delete_nodepool`
-export const toolDescription = `Delete a Node Pool in a Kubernetes Cluster`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/kubernetes/clusters/{cluster_id}/node_pools/{node_pool_id}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "cluster_id",
-    "node_pool_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "kubernetes_delete_nodepool",
+  "toolDescription": "Delete a Node Pool in a Kubernetes Cluster",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/kubernetes/clusters/{cluster_id}/node_pools/{node_pool_id}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "cluster_id": "cluster_id",
+      "node_pool_id": "node_pool_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `updatepromptversion`
-export const toolDescription = `Update a specific version of a prompt`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/prompts/{promptId}/versions/{versionId}`
-export const method = `put`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "promptId",
-    "versionId"
+const tool: OpenMCPServerTool = {
+  "toolName": "updatepromptversion",
+  "toolDescription": "Update a specific version of a prompt",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/prompts/{promptId}/versions/{versionId}",
+  "method": "put",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "label_id"
-  ]
+  "paramsMap": {
+    "path": {
+      "promptId": "promptId",
+      "versionId": "versionId"
+    },
+    "body": {
+      "label_id": "label_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

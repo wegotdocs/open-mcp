@@ -1,31 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `start_a_users_playback`
-export const toolDescription = `Start/Resume Playback`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/me/player/play`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "device_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "start_a_users_playback",
+  "toolDescription": "Start/Resume Playback",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/me/player/play",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "context_uri",
-    "uris",
-    "offset",
-    "position_ms"
-  ]
+  "paramsMap": {
+    "query": {
+      "device_id": "device_id"
+    },
+    "body": {
+      "context_uri": "context_uri",
+      "uris": "uris",
+      "offset": "offset",
+      "position_ms": "position_ms"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

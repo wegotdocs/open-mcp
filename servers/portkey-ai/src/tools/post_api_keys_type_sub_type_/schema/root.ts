@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "type": z.enum(["organisation","workspace"]),
   "sub-type": z.enum(["user","service"]),
   "name": z.string().optional(),

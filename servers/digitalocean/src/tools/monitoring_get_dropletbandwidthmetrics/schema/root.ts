@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "host_id": z.string().describe("The droplet ID."),
   "interface": z.enum(["private","public"]).describe("The network interface."),
   "direction": z.enum(["inbound","outbound"]).describe("The traffic direction."),

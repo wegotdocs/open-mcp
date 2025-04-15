@@ -1,29 +1,28 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `monitoring_get_lb_frontend_nlb_udp_network_throughput`
-export const toolDescription = `Get Network Load Balancer Frontend UDP Throughput Metrics`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/monitoring/metrics/load_balancer/frontend_nlb_udp_network_throughput`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "lb_id",
-    "start",
-    "end"
+const tool: OpenMCPServerTool = {
+  "toolName": "monitoring_get_lb_frontend_nlb_udp_network_throughput",
+  "toolDescription": "Get Network Load Balancer Frontend UDP Throughput Metrics",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/monitoring/metrics/load_balancer/frontend_nlb_udp_network_throughput",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "lb_id": "lb_id",
+      "start": "start",
+      "end": "end"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,5 +1,5 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.string().describe("The ID of the issue type.")
 }

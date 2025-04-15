@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "useGroupId": z.boolean().describe("Whether to accept group IDs instead of group names. Group names are deprecated.").optional(),
   "crossProjectReleases": z.array(z.object({ "name": z.string().describe("The cross-project release name."), "releaseIds": z.array(z.number().int()).describe("The IDs of the releases to include in the cross-project release.").optional() }).strict()).describe("The cross-project releases to include in the plan.").optional(),
   "customFields": z.array(z.object({ "customFieldId": z.number().int().describe("The custom field ID."), "filter": z.boolean().describe("Allows filtering issues based on their values for the custom field.").optional() }).strict()).describe("The custom fields for the plan.").optional(),

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "pageSize": z.number().int().optional(),
   "currentPage": z.number().int().optional(),
   "role": z.enum(["admin","member"]).optional(),

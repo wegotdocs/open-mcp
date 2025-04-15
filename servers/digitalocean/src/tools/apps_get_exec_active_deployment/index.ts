@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `apps_get_exec_active_deployment`
-export const toolDescription = `Retrieve Exec URL`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/apps/{app_id}/components/{component_name}/exec`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "app_id",
-    "component_name"
+const tool: OpenMCPServerTool = {
+  "toolName": "apps_get_exec_active_deployment",
+  "toolDescription": "Retrieve Exec URL",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/apps/{app_id}/components/{component_name}/exec",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "app_id": "app_id",
+      "component_name": "component_name"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

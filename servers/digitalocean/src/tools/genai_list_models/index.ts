@@ -1,30 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `genai_list_models`
-export const toolDescription = `List Available Models`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/gen-ai/models`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "usecases",
-    "public_only",
-    "page",
-    "per_page"
+const tool: OpenMCPServerTool = {
+  "toolName": "genai_list_models",
+  "toolDescription": "List Available Models",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/gen-ai/models",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "usecases": "usecases",
+      "public_only": "public_only",
+      "page": "page",
+      "per_page": "per_page"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

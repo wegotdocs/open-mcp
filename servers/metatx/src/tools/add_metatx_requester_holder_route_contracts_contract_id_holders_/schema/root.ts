@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "contract_id": z.string().uuid(),
   "holder_id": z.string().uuid(),
   "holder_type": z.enum(["user","group"]).describe("An enumeration."),

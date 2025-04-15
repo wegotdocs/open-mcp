@@ -1,5 +1,5 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "request_id": z.string().uuid()
 }

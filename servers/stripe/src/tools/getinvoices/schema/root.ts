@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "collection_method": z.enum(["charge_automatically","send_invoice"]).describe("The collection method of the invoice to retrieve. Either `charge_automatically` or `send_invoice`.").optional(),
   "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return invoices that were created during the given date interval.").optional(),
   "customer": z.string().max(5000).describe("Only return invoices for the customer specified by this customer ID.").optional(),

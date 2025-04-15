@@ -1,34 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getcomponentset`
-export const toolDescription = `Get component set`
-export const baseUrl = `https://api.figma.com`
-export const path = `/v1/component_sets/{key}`
-export const method = `get`
-export const security = [
-  {
-    "key": "X-Figma-Token",
-    "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_FIGMA_TOKEN",
-    "schemeType": "apiKey",
-    "schemeName": "X-Figma-Token"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "key"
+const tool: OpenMCPServerTool = {
+  "toolName": "getcomponentset",
+  "toolDescription": "Get component set",
+  "baseUrl": "https://api.figma.com",
+  "path": "/v1/component_sets/{key}",
+  "method": "get",
+  "security": [
+    {
+      "key": "X-Figma-Token",
+      "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_FIGMA_TOKEN"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "key": "key"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

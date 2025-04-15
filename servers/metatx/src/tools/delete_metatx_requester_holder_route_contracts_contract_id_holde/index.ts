@@ -1,30 +1,31 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `delete_metatx_requester_holder_route_contracts_contract_id_holde`
-export const toolDescription = `Delete Metatx Requester Holder Route`
-export const baseUrl = `https://engineapi.moonstream.to/metatx`
-export const path = `/contracts/{contract_id}/holders`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "contract_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "delete_metatx_requester_holder_route_contracts_contract_id_holde",
+  "toolDescription": "Delete Metatx Requester Holder Route",
+  "baseUrl": "https://engineapi.moonstream.to/metatx",
+  "path": "/contracts/{contract_id}/holders",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "holder_id",
-    "holder_type",
-    "permissions"
-  ]
+  "paramsMap": {
+    "path": {
+      "contract_id": "contract_id"
+    },
+    "body": {
+      "holder_id": "holder_id",
+      "holder_type": "holder_type",
+      "permissions": "permissions"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

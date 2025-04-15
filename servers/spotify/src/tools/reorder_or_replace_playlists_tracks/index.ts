@@ -1,36 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `reorder_or_replace_playlists_tracks`
-export const toolDescription = `Update Playlist Items`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/playlists/{playlist_id}/tracks`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "uris"
+const tool: OpenMCPServerTool = {
+  "toolName": "reorder_or_replace_playlists_tracks",
+  "toolDescription": "Update Playlist Items",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/playlists/{playlist_id}/tracks",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [
-    "playlist_id"
-  ],
-  "cookie": [],
-  "body": [
-    "b_uris",
-    "range_start",
-    "insert_before",
-    "range_length",
-    "snapshot_id"
-  ]
+  "paramsMap": {
+    "path": {
+      "playlist_id": "playlist_id"
+    },
+    "query": {
+      "uris": "uris"
+    },
+    "body": {
+      "uris": "b_uris",
+      "range_start": "range_start",
+      "insert_before": "insert_before",
+      "range_length": "range_length",
+      "snapshot_id": "snapshot_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_uris": "uris"
-}
+
+export default tool

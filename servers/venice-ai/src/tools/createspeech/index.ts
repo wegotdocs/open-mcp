@@ -1,32 +1,31 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createspeech`
-export const toolDescription = `/api/v1/audio/speech`
-export const baseUrl = `https://api.venice.ai/api/v1`
-export const path = `/audio/speech`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "model",
-    "input",
-    "voice",
-    "response_format",
-    "speed",
-    "streaming"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "createspeech",
+  "toolDescription": "/api/v1/audio/speech",
+  "baseUrl": "https://api.venice.ai/api/v1",
+  "path": "/audio/speech",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "model": "model",
+      "input": "input",
+      "voice": "voice",
+      "response_format": "response_format",
+      "speed": "speed",
+      "streaming": "streaming"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

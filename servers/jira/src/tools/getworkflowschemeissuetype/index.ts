@@ -1,37 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getworkflowschemeissuetype`
-export const toolDescription = `Get workflow for issue type in workflow scheme`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/workflowscheme/{id}/issuetype/{issueType}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "getworkflowschemeissuetype",
+  "toolDescription": "Get workflow for issue type in workflow scheme",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/workflowscheme/{id}/issuetype/{issueType}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "id": "id",
+      "issueType": "issueType"
+    },
+    "query": {
+      "returnDraftIfExists": "returnDraftIfExists"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "returnDraftIfExists"
-  ],
-  "header": [],
-  "path": [
-    "id",
-    "issueType"
-  ],
-  "cookie": [],
-  "body": []
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

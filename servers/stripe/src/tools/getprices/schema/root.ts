@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "active": z.boolean().describe("Only return prices that are active or inactive (e.g., pass `false` to list all inactive prices).").optional(),
   "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object `created` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.").optional(),
   "currency": z.string().describe("Only return prices for the given currency.").optional(),

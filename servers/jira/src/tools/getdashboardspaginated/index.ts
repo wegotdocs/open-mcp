@@ -1,44 +1,42 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getdashboardspaginated`
-export const toolDescription = `Search for dashboards`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/dashboard/search`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "dashboardName",
-    "accountId",
-    "owner",
-    "groupname",
-    "groupId",
-    "projectId",
-    "orderBy",
-    "startAt",
-    "maxResults",
-    "status",
-    "expand"
+const tool: OpenMCPServerTool = {
+  "toolName": "getdashboardspaginated",
+  "toolDescription": "Search for dashboards",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/dashboard/search",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "dashboardName": "dashboardName",
+      "accountId": "accountId",
+      "owner": "owner",
+      "groupname": "groupname",
+      "groupId": "groupId",
+      "projectId": "projectId",
+      "orderBy": "orderBy",
+      "startAt": "startAt",
+      "maxResults": "maxResults",
+      "status": "status",
+      "expand": "expand"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

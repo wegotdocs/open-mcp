@@ -1,36 +1,34 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `moveresolutions`
-export const toolDescription = `Move resolutions`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/resolution/move`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "moveresolutions",
+  "toolDescription": "Move resolutions",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/resolution/move",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "after": "after",
+      "ids": "ids",
+      "position": "position"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "after",
-    "ids",
-    "position"
-  ]
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,107 +1,86 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getassistant`
-export const toolDescription = `Retrieves an assistant.`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/assistants/{assistant_id}`
-export const method = `get`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  },
-  {
-    "key": "x-portkey-virtual-key",
-    "value": "<mcp-env-var>X_PORTKEY_VIRTUAL_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_VIRTUAL_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-virtual-key"
-  },
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  },
-  {
-    "key": "x-portkey-provider",
-    "value": "<mcp-env-var>X_PORTKEY_PROVIDER</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_PROVIDER",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-provider"
-  },
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  },
-  {
-    "key": "x-portkey-config",
-    "value": "<mcp-env-var>X_PORTKEY_CONFIG</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_CONFIG",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-config"
-  },
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  },
-  {
-    "key": "x-portkey-provider",
-    "value": "<mcp-env-var>X_PORTKEY_PROVIDER</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_PROVIDER",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-provider"
-  },
-  {
-    "key": "x-portkey-custom-host",
-    "value": "<mcp-env-var>X_PORTKEY_CUSTOM_HOST</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_CUSTOM_HOST",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-custom-host"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "assistant_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "getassistant",
+  "toolDescription": "Retrieves an assistant.",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/assistants/{assistant_id}",
+  "method": "get",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    },
+    {
+      "key": "x-portkey-virtual-key",
+      "value": "<mcp-env-var>X_PORTKEY_VIRTUAL_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_VIRTUAL_KEY"
+    },
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    },
+    {
+      "key": "x-portkey-provider",
+      "value": "<mcp-env-var>X_PORTKEY_PROVIDER</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_PROVIDER"
+    },
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    },
+    {
+      "key": "x-portkey-config",
+      "value": "<mcp-env-var>X_PORTKEY_CONFIG</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_CONFIG"
+    },
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    },
+    {
+      "key": "x-portkey-provider",
+      "value": "<mcp-env-var>X_PORTKEY_PROVIDER</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_PROVIDER"
+    },
+    {
+      "key": "x-portkey-custom-host",
+      "value": "<mcp-env-var>X_PORTKEY_CUSTOM_HOST</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_CUSTOM_HOST"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "assistant_id": "assistant_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

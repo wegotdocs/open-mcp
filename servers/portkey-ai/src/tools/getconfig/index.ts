@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getconfig`
-export const toolDescription = `Get a config`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/configs/{slug}`
-export const method = `get`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "getconfig",
+  "toolDescription": "Get a config",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/configs/{slug}",
+  "method": "get",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

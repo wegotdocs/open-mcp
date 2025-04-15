@@ -1,37 +1,37 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `kubernetes_update_cluster`
-export const toolDescription = `Update a Kubernetes Cluster`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/kubernetes/clusters/{cluster_id}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "cluster_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "kubernetes_update_cluster",
+  "toolDescription": "Update a Kubernetes Cluster",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/kubernetes/clusters/{cluster_id}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "name",
-    "tags",
-    "maintenance_policy",
-    "auto_upgrade",
-    "surge_upgrade",
-    "ha",
-    "control_plane_firewall",
-    "cluster_autoscaler_configuration",
-    "routing_agent"
-  ]
+  "paramsMap": {
+    "path": {
+      "cluster_id": "cluster_id"
+    },
+    "body": {
+      "name": "name",
+      "tags": "tags",
+      "maintenance_policy": "maintenance_policy",
+      "auto_upgrade": "auto_upgrade",
+      "surge_upgrade": "surge_upgrade",
+      "ha": "ha",
+      "control_plane_firewall": "control_plane_firewall",
+      "cluster_autoscaler_configuration": "cluster_autoscaler_configuration",
+      "routing_agent": "routing_agent"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

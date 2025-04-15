@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.string().max(5000).describe("Unique identifier for the object."),
   "customer": z.string().max(5000).describe("The customer for which to fetch event summaries."),
   "end_time": z.number().int().describe("The timestamp from when to stop aggregating meter events (exclusive). Must be aligned with minute boundaries."),

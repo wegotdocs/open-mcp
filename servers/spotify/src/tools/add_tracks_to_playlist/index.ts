@@ -1,35 +1,34 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `add_tracks_to_playlist`
-export const toolDescription = `Add Items to Playlist`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/playlists/{playlist_id}/tracks`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "position",
-    "uris"
+const tool: OpenMCPServerTool = {
+  "toolName": "add_tracks_to_playlist",
+  "toolDescription": "Add Items to Playlist",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/playlists/{playlist_id}/tracks",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [
-    "playlist_id"
-  ],
-  "cookie": [],
-  "body": [
-    "b_uris",
-    "b_position"
-  ]
+  "paramsMap": {
+    "path": {
+      "playlist_id": "playlist_id"
+    },
+    "query": {
+      "position": "position",
+      "uris": "uris"
+    },
+    "body": {
+      "uris": "b_uris",
+      "position": "b_position"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_uris": "uris",
-  "b_position": "position"
-}
+
+export default tool

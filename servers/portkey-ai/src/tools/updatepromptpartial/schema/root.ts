@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "promptPartialId": z.string(),
   "name": z.string().optional(),
   "string": z.string().optional(),

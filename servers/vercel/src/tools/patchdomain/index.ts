@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `patchdomain`
-export const toolDescription = `Update or move apex domain`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v3/domains/{domain}`
-export const method = `patch`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "patchdomain",
+  "toolDescription": "Update or move apex domain",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v3/domains/{domain}",
+  "method": "patch",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "domain"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "domain": "domain"
+    },
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

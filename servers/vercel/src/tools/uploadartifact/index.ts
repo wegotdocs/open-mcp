@@ -1,36 +1,37 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `uploadartifact`
-export const toolDescription = `Upload a cache artifact`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v8/artifacts/{hash}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "uploadartifact",
+  "toolDescription": "Upload a cache artifact",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v8/artifacts/{hash}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [
-    "Content-Length",
-    "x-artifact-duration",
-    "x-artifact-client-ci",
-    "x-artifact-client-interactive",
-    "x-artifact-tag"
-  ],
-  "path": [
-    "hash"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "hash": "hash"
+    },
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "header": {
+      "Content-Length": "Content-Length",
+      "x-artifact-duration": "x-artifact-duration",
+      "x-artifact-client-ci": "x-artifact-client-ci",
+      "x-artifact-client-interactive": "x-artifact-client-interactive",
+      "x-artifact-tag": "x-artifact-tag"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

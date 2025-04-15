@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "projectId": z.string(),
   "limit": z.number().lte(100).describe("Maximum number of aliases to list from a request (max 100).").optional(),
   "since": z.number().describe("Get aliases created after this epoch timestamp.").optional(),

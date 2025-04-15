@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getpromptpartial`
-export const toolDescription = `Get a prompt partial by ID or slug`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/prompts/partials/{promptPartialId}`
-export const method = `get`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "promptPartialId"
+const tool: OpenMCPServerTool = {
+  "toolName": "getpromptpartial",
+  "toolDescription": "Get a prompt partial by ID or slug",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/prompts/partials/{promptPartialId}",
+  "method": "get",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "promptPartialId": "promptPartialId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

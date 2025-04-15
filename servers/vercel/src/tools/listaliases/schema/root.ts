@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "domain": z.any().superRefine((x, ctx) => {
     const schemas = [z.array(z.any()), z.string()];
     const errors = schemas.reduce<z.ZodError[]>(

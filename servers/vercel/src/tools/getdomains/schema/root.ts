@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "limit": z.number().describe("Maximum number of domains to list from a request.").optional(),
   "since": z.number().describe("Get domains created after this JavaScript timestamp.").optional(),
   "until": z.number().describe("Get domains created before this JavaScript timestamp.").optional(),

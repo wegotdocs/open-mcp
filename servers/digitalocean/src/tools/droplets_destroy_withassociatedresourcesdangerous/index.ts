@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `droplets_destroy_withassociatedresourcesdangerous`
-export const toolDescription = `Destroy a Droplet and All of its Associated Resources (Dangerous)`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/droplets/{droplet_id}/destroy_with_associated_resources/dangerous`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [
-    "X-Dangerous"
+const tool: OpenMCPServerTool = {
+  "toolName": "droplets_destroy_withassociatedresourcesdangerous",
+  "toolDescription": "Destroy a Droplet and All of its Associated Resources (Dangerous)",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/droplets/{droplet_id}/destroy_with_associated_resources/dangerous",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "path": [
-    "droplet_id"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "droplet_id": "droplet_id"
+    },
+    "header": {
+      "X-Dangerous": "X-Dangerous"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

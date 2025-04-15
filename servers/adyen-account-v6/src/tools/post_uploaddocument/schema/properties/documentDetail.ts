@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "accountHolderCode": z.string().describe("The code of account holder, to which the document applies.").optional(),
   "bankAccountUUID": z.string().describe("The Adyen-generated [`bankAccountUUID`](https://docs.adyen.com/api-explorer/#/Account/latest/post/createAccountHolder__resParam_accountHolderDetails-bankAccountDetails-bankAccountUUID) to which the document must be linked. Refer to [Bank account check](https://docs.adyen.com/classic-platforms/verification-checks/bank-account-check#uploading-a-bank-statement) for details on when a document should be submitted.\n>Required if the `documentType` is **BANK_STATEMENT**, where a document is being submitted in order to verify a bank account.\n").optional(),
   "description": z.string().describe("Description of the document.").optional(),

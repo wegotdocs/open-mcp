@@ -12,6 +12,19 @@
         "items": {
           "type": "string"
         }
+      },
+      "scopeAliases": {
+        "type": "object",
+        "additionalProperties": {
+          "uniqueItems": true,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "groupType": {
+        "type": "string"
       }
     }
   },

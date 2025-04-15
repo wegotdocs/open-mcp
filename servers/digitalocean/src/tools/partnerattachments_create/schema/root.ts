@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "name": z.string().regex(new RegExp("^[a-zA-Z0-9\\-\\.]+$")).describe("The name of the partner attachment. Must be unique and may only contain alphanumeric characters, dashes, and periods."),
   "connection_bandwidth_in_mbps": z.union([z.literal(1000), z.literal(2000), z.literal(5000), z.literal(10000)]).describe("Bandwidth (in Mbps) of the connection."),
   "region": z.string(),

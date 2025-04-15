@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "edgeConfigId": z.string(),
   "next": z.string().optional(),
   "limit": z.number().gte(0).lte(50).optional(),

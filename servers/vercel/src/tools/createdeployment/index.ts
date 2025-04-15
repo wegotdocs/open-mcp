@@ -1,43 +1,43 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createdeployment`
-export const toolDescription = `Create a new deployment`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v13/deployments`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "forceNew",
-    "skipAutoDetectionConfirmation",
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "createdeployment",
+  "toolDescription": "Create a new deployment",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v13/deployments",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "customEnvironmentSlugOrId",
-    "deploymentId",
-    "files",
-    "gitMetadata",
-    "gitSource",
-    "meta",
-    "monorepoManager",
-    "name",
-    "project",
-    "projectSettings",
-    "target",
-    "withLatestCommit"
-  ]
+  "paramsMap": {
+    "query": {
+      "forceNew": "forceNew",
+      "skipAutoDetectionConfirmation": "skipAutoDetectionConfirmation",
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "body": {
+      "customEnvironmentSlugOrId": "customEnvironmentSlugOrId",
+      "deploymentId": "deploymentId",
+      "files": "files",
+      "gitMetadata": "gitMetadata",
+      "gitSource": "gitSource",
+      "meta": "meta",
+      "monorepoManager": "monorepoManager",
+      "name": "name",
+      "project": "project",
+      "projectSettings": "projectSettings",
+      "target": "target",
+      "withLatestCommit": "withLatestCommit"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

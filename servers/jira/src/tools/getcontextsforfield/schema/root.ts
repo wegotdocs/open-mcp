@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "fieldId": z.string().describe("The ID of the custom field."),
   "isAnyIssueType": z.boolean().describe("Whether to return contexts that apply to all issue types.").optional(),
   "isGlobalContext": z.boolean().describe("Whether to return contexts that apply to all projects.").optional(),

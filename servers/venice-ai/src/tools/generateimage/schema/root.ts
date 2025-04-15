@@ -1,13 +1,13 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "model": z.string().describe("The model to use for image generation."),
   "prompt": z.string().min(1).max(1500).describe("The description for the image. Character limit is model specific and is listed in the promptCharacterLimit setting in the model list endpoint."),
   "negative_prompt": z.string().max(1500).describe("A description of what should not be in the image. Character limit is model specific and is listed in the promptCharacterLimit constraint in the model list endpoint.").optional(),
   "style_preset": z.string().describe("An image style to apply to the image. Visit https://docs.venice.ai/apiv1imagegenerate for more details.").optional(),
   "height": z.number().int().gt(0).lte(1280).describe("Height of the generated image. Each model has a specific height and width divisor listed in the widthHeightDivisor constraint in the model list endpoint.").optional(),
   "width": z.number().int().gt(0).lte(1280).describe("Width of the generated image. Each model has a specific height and width divisor listed in the widthHeightDivisor constraint in the model list endpoint.").optional(),
-  "steps": z.number().int().gt(0).lte(50).describe("Number of inference steps. The following models have reduced max steps from the global max: flux-dev: 30 max steps, flux-dev-uncensored: 30 max steps, stable-diffusion-3.5: 30 max steps, stable-diffusion-3.5-rev2: 30 max steps. These constraints are exposed in the model list endpoint for each model.").optional(),
+  "steps": z.number().int().gt(0).lte(50).describe("Number of inference steps. The following models have reduced max steps from the global max: flux-dev: 30 max steps, flux-dev-uncensored: 30 max steps, stable-diffusion-3.5: 30 max steps, venice-sd-35: 30 max steps. These constraints are exposed in the model list endpoint for each model.").optional(),
   "cfg_scale": z.number().gt(0).lte(20).describe("CFG scale parameter. Higher values lead to more adherence to the prompt.").optional(),
   "seed": z.number().int().gte(-999999999).lte(999999999).describe("Random seed for generation. If not provided, a random seed will be used.").optional(),
   "lora_strength": z.number().int().gte(0).lte(100).describe("Lora strength for the model. Only applies if the model uses additional Loras.").optional(),

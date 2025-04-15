@@ -1,32 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `genai_update_agent_deployment_visibility`
-export const toolDescription = `Update Agent Status`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/gen-ai/agents/{uuid}/deployment_visibility`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "uuid"
+const tool: OpenMCPServerTool = {
+  "toolName": "genai_update_agent_deployment_visibility",
+  "toolDescription": "Update Agent Status",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/gen-ai/agents/{uuid}/deployment_visibility",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "b_uuid",
-    "visibility"
-  ]
+  "paramsMap": {
+    "path": {
+      "uuid": "uuid"
+    },
+    "body": {
+      "uuid": "b_uuid",
+      "visibility": "visibility"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_uuid": "uuid"
-}
+
+export default tool

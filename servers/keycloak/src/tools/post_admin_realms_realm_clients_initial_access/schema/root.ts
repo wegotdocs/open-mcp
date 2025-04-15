@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "expiration": z.number().int().optional(),
   "count": z.number().int().optional()
 }

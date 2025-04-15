@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "output_language": z.enum(["ar","bs","cs","de","es","en","fa","fr","hr","hu","it","pl","ro","sk","sl","sr","tl","tr","uk","zh"]).describe("The ISO 639-1 code for the language in which the `Explanation` should be generated.\nSupported Languages:\n- ar: Arabic\n- bs: Bosnian\n- cs: Czech\n- de: German\n- es: Spanish\n- en: English\n- fa: Farsi\n- fr: French\n- hr: Croatian\n- hu: Hungarian\n- it: Italian\n- pl: Polish\n- ro: Romanian\n- sk: Slovak\n- sl: Slovenian\n- sr: Serbian\n- tl: Tagalog\n- tr: Turkish\n- uk: Ukrainian\n- zh: Mandarin\n"),
   "language_level": z.enum(["simple","plain","detailed"]).describe("One of three language levels for the generated text:\n1. Simple Language: Answers are short and simple, using easy words and a clear structure.\n2. Plain Language: Answers are short and the assistant explains complicated terms.\n3. Detailed Language: Answers are not simplified and the assistant answers in detail.\n"),
   "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("The unique identifier of the uploaded `Source` to be used as context for the `Explanation`."),

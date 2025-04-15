@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `registry_update_garbagecollection`
-export const toolDescription = `Update Garbage Collection`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/registry/{registry_name}/garbage-collection/{garbage_collection_uuid}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "registry_name",
-    "garbage_collection_uuid"
+const tool: OpenMCPServerTool = {
+  "toolName": "registry_update_garbagecollection",
+  "toolDescription": "Update Garbage Collection",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/registry/{registry_name}/garbage-collection/{garbage_collection_uuid}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "cancel"
-  ]
+  "paramsMap": {
+    "path": {
+      "registry_name": "registry_name",
+      "garbage_collection_uuid": "garbage_collection_uuid"
+    },
+    "body": {
+      "cancel": "cancel"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

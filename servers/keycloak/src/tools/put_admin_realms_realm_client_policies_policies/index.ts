@@ -1,19 +1,20 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `put_admin_realms_realm_client_policies_policies`
-export const toolDescription = ``
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/client-policies/policies`
-export const method = `put`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "policies",
-    "globalPolicies"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "put_admin_realms_realm_client_policies_policies",
+  "toolDescription": "",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/client-policies/policies",
+  "method": "put",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "policies": "policies",
+      "globalPolicies": "globalPolicies"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

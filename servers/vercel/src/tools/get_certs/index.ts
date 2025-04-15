@@ -1,16 +1,15 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_certs`
-export const toolDescription = ``
-export const baseUrl = `https://api.vercel.com`
-export const path = `/certs`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_certs",
+  "toolDescription": "",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/certs",
+  "method": "get",
+  "security": [],
+  "paramsMap": {},
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

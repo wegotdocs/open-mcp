@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "deploymentId": z.string(),
   "integrationConfigurationId": z.string(),
   "resourceId": z.string(),

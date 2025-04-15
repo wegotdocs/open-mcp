@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "registry_name": z.string().describe("The name of a container registry."),
   "repository_name": z.string().describe("The name of a container registry repository. If the name contains `/` characters, they must be URL-encoded, e.g. `%2F`."),
   "per_page": z.number().int().gte(1).lte(200).describe("Number of items returned per page").optional(),

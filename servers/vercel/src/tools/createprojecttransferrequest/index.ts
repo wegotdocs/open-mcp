@@ -1,33 +1,34 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createprojecttransferrequest`
-export const toolDescription = `Create project transfer request`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/projects/{idOrName}/transfer-request`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "createprojecttransferrequest",
+  "toolDescription": "Create project transfer request",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/projects/{idOrName}/transfer-request",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "idOrName"
-  ],
-  "cookie": [],
-  "body": [
-    "callbackUrl",
-    "callbackSecret"
-  ]
+  "paramsMap": {
+    "path": {
+      "idOrName": "idOrName"
+    },
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "body": {
+      "callbackUrl": "callbackUrl",
+      "callbackSecret": "callbackSecret"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

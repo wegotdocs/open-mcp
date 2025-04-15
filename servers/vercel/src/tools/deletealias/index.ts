@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `deletealias`
-export const toolDescription = `Delete an Alias`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v2/aliases/{aliasId}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "deletealias",
+  "toolDescription": "Delete an Alias",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v2/aliases/{aliasId}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "aliasId"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "aliasId": "aliasId"
+    },
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

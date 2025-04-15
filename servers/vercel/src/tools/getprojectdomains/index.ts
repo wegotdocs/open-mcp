@@ -1,41 +1,41 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getprojectdomains`
-export const toolDescription = `Retrieve project domains by project by id or name`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v9/projects/{idOrName}/domains`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "production",
-    "target",
-    "customEnvironmentId",
-    "gitBranch",
-    "redirects",
-    "redirect",
-    "verified",
-    "limit",
-    "since",
-    "until",
-    "order",
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "getprojectdomains",
+  "toolDescription": "Retrieve project domains by project by id or name",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v9/projects/{idOrName}/domains",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "idOrName"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "idOrName": "idOrName"
+    },
+    "query": {
+      "production": "production",
+      "target": "target",
+      "customEnvironmentId": "customEnvironmentId",
+      "gitBranch": "gitBranch",
+      "redirects": "redirects",
+      "redirect": "redirect",
+      "verified": "verified",
+      "limit": "limit",
+      "since": "since",
+      "until": "until",
+      "order": "order",
+      "teamId": "teamId",
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

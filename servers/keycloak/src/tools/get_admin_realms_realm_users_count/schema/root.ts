@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "email": z.string().describe("email filter").optional(),
   "emailVerified": z.boolean().optional(),
   "enabled": z.boolean().describe("Boolean representing if user is enabled or not").optional(),

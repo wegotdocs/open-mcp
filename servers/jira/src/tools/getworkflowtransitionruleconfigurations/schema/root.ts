@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "startAt": z.number().int().describe("The index of the first item to return in a page of results (page offset).").optional(),
   "maxResults": z.number().int().lte(50).describe("The maximum number of items to return per page.").optional(),
   "types": z.array(z.enum(["postfunction","condition","validator"])).describe("The types of the transition rules to return."),

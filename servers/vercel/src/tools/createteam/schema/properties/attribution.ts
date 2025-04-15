@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "sessionReferrer": z.string().describe("Session referrer").optional(),
   "landingPage": z.string().describe("Session landing page").optional(),
   "pageBeforeConversionPage": z.string().describe("Referrer to the signup page").optional(),

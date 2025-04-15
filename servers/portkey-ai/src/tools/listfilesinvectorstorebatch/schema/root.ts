@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "vector_store_id": z.string().describe("The ID of the vector store that the files belong to."),
   "batch_id": z.string().describe("The ID of the file batch that the files belong to."),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),

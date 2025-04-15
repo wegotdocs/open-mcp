@@ -1,35 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `modifysource`
-export const toolDescription = `Modifies a Source.`
-export const baseUrl = `https://api.totoy.ai/v1`
-export const path = `/sources/{source_id}`
-export const method = `patch`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "source_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "modifysource",
+  "toolDescription": "Modifies a Source.",
+  "baseUrl": "https://api.totoy.ai/v1",
+  "path": "/sources/{source_id}",
+  "method": "patch",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "text_content",
-    "title",
-    "backlink",
-    "valid_from",
-    "valid_until",
-    "project_id",
-    "custom_metadata"
-  ]
+  "paramsMap": {
+    "path": {
+      "source_id": "source_id"
+    },
+    "body": {
+      "text_content": "text_content",
+      "title": "title",
+      "backlink": "backlink",
+      "valid_from": "valid_from",
+      "valid_until": "valid_until",
+      "project_id": "project_id",
+      "custom_metadata": "custom_metadata"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

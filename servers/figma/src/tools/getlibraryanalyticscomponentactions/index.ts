@@ -1,39 +1,38 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getlibraryanalyticscomponentactions`
-export const toolDescription = `Get library analytics component action data.`
-export const baseUrl = `https://api.figma.com`
-export const path = `/v1/analytics/libraries/{file_key}/component/actions`
-export const method = `get`
-export const security = [
-  {
-    "key": "X-Figma-Token",
-    "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_FIGMA_TOKEN",
-    "schemeType": "apiKey",
-    "schemeName": "X-Figma-Token"
+const tool: OpenMCPServerTool = {
+  "toolName": "getlibraryanalyticscomponentactions",
+  "toolDescription": "Get library analytics component action data.",
+  "baseUrl": "https://api.figma.com",
+  "path": "/v1/analytics/libraries/{file_key}/component/actions",
+  "method": "get",
+  "security": [
+    {
+      "key": "X-Figma-Token",
+      "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_FIGMA_TOKEN"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "file_key": "file_key"
+    },
+    "query": {
+      "cursor": "cursor",
+      "group_by": "group_by",
+      "start_date": "start_date",
+      "end_date": "end_date"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "cursor",
-    "group_by",
-    "start_date",
-    "end_date"
-  ],
-  "header": [],
-  "path": [
-    "file_key"
-  ],
-  "cookie": [],
-  "body": []
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "location": z.string().describe("The point around which to retrieve place information. This must be specified as `latitude,longitude`. \n\n<div class=\"note\">The <code>location</code> parameter may be overriden if the <code>query</code> contains an explicit location such as <code>Market in Barcelona</code>. Using quotes around the query may also influence the weight given to the <code>location</code> and <code>radius</code>.</div>\n").optional(),
   "maxprice": z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).describe("Restricts results to only those places within the specified range. Valid values range between 0 (most affordable) to 4 (most expensive), inclusive. The exact amount indicated by a specific value will vary from region to region.\n").optional(),
   "minprice": z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).describe("Restricts results to only those places within the specified range. Valid values range between 0 (most affordable) to 4 (most expensive), inclusive. The exact amount indicated by a specific value will vary from region to region.\n").optional(),

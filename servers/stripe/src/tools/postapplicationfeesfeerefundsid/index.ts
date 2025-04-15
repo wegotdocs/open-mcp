@@ -1,36 +1,33 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `postapplicationfeesfeerefundsid`
-export const toolDescription = `Update an application fee refund`
-export const baseUrl = `https://api.stripe.com`
-export const path = `/v1/application_fees/{fee}/refunds/{id}`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "fee",
-    "id"
+const tool: OpenMCPServerTool = {
+  "toolName": "postapplicationfeesfeerefundsid",
+  "toolDescription": "Update an application fee refund",
+  "baseUrl": "https://api.stripe.com",
+  "path": "/v1/application_fees/{fee}/refunds/{id}",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "fee": "fee",
+      "id": "id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

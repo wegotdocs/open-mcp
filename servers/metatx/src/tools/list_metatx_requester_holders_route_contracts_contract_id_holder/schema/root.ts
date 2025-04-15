@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "contract_id": z.string().uuid(),
   "extended": z.boolean().optional()
 }

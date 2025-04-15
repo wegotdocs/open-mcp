@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "startAt": z.number().int().describe("The index of the first item to return in a page of results (page offset).").optional(),
   "maxResults": z.number().int().describe("The maximum number of items to return per page.").optional(),
   "groupId": z.array(z.string()).describe("The ID of a group. To specify multiple IDs, pass multiple `groupId` parameters. For example, `groupId=5b10a2844c20165700ede21g&groupId=5b10ac8d82e05b22cc7d4ef5`.").optional(),

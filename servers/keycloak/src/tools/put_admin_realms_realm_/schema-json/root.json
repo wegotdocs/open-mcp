@@ -953,6 +953,9 @@
                 },
                 "temporary": {
                   "type": "boolean"
+                },
+                "federationLink": {
+                  "type": "string"
                 }
               }
             }
@@ -1196,6 +1199,9 @@
                 },
                 "temporary": {
                   "type": "boolean"
+                },
+                "federationLink": {
+                  "type": "string"
                 }
               }
             }
@@ -18934,6 +18940,19 @@
                           "items": {
                             "type": "string"
                           }
+                        },
+                        "scopeAliases": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "uniqueItems": true,
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "groupType": {
+                          "type": "string"
                         }
                       }
                     }
@@ -19597,6 +19616,9 @@
                       },
                       "temporary": {
                         "type": "boolean"
+                      },
+                      "federationLink": {
+                        "type": "string"
                       }
                     }
                   }

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "file_key": z.string().describe("File to export images from. This can be a file key or branch key. Use `GET /v1/files/:key` with the `branch_data` query param to get the branch key."),
   "ids": z.string().describe("A comma separated list of node IDs to render."),
   "version": z.string().describe("A specific version ID to get. Omitting this will get the current version of the file.").optional(),

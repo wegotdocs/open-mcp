@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "idOrUrl": z.string().describe("The unique identifier or hostname of the deployment."),
   "direction": z.enum(["backward","forward"]).describe("Order of the returned events based on the timestamp.").optional(),
   "follow": z.union([z.literal(0), z.literal(1)]).describe("When enabled, this endpoint will return live events as they happen.").optional(),

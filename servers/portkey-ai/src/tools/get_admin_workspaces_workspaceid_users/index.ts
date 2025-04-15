@@ -1,32 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_admin_workspaces_workspaceid_users`
-export const toolDescription = `Get workspace members`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/admin/workspaces/{workspaceId}/users`
-export const method = `get`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [
-    "current_page",
-    "page_size",
-    "role",
-    "email"
+const tool: OpenMCPServerTool = {
+  "toolName": "get_admin_workspaces_workspaceid_users",
+  "toolDescription": "Get workspace members",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/admin/workspaces/{workspaceId}/users",
+  "method": "get",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "workspaceId"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "workspaceId": "workspaceId"
+    },
+    "query": {
+      "current_page": "current_page",
+      "page_size": "page_size",
+      "role": "role",
+      "email": "email"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

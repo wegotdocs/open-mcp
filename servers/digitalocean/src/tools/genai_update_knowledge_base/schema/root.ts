@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "uuid": z.string().describe("Knowledge base id"),
   "database_id": z.string().describe("The id of the DigitalOcean database this knowledge base will use, optiona.").optional(),
   "embedding_model_uuid": z.string().describe("Identifier for the foundation model.").optional(),

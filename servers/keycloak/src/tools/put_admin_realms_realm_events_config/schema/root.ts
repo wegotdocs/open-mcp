@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "eventsEnabled": z.boolean().optional(),
   "eventsExpiration": z.number().int().optional(),
   "eventsListeners": z.array(z.string()).optional(),

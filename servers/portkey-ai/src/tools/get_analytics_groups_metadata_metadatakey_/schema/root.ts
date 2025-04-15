@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "metadataKey": z.string(),
   "time_of_generation_min": z.string().datetime({ offset: true }).describe("Minimum time of generation (ISO8601 format)"),
   "time_of_generation_max": z.string().datetime({ offset: true }).describe("Maximum time of generation (ISO8601 format)"),

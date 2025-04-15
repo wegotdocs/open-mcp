@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "alias": z.string().max(100).describe("The alias used to reference the value list when writing rules.").optional(),
   "contains": z.string().max(800).describe("A value contained within a value list - returns all value lists containing this value.").optional(),
   "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return value lists that were created during the given date interval.").optional(),

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "approvers": z.array(z.object({ "accountId": z.string().describe("The Atlassian account ID of the approver.").readonly().optional(), "declineReason": z.string().describe("A description of why the user is declining the approval.").readonly().optional(), "description": z.string().describe("A description of what the user is approving within the specified version.").readonly().optional(), "status": z.string().describe("The status of the approval, which can be *PENDING*, *APPROVED*, or *DECLINED*").readonly().optional() }).catchall(z.any()).describe("Contains details about a version approver.")).describe("If the expand option `approvers` is used, returns a list containing the approvers for this version.").readonly().optional(),
   "archived": z.boolean().describe("Indicates that the version is archived. Optional when creating or updating a version.").optional(),
   "description": z.string().describe("The description of the version. Optional when creating or updating a version. The maximum size is 16,384 bytes.").optional(),

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "knowledge_base_id": z.string().regex(new RegExp("^kb_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a `Knowledge Base`."),
   "name": z.string().max(255).describe("The name for the `Knowledge Base`.").optional(),
   "instructions": z.string().max(4096).describe("The instructions for the `Knowledge Base`.").optional(),

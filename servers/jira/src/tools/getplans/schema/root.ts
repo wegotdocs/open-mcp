@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "includeTrashed": z.boolean().describe("Whether to include trashed plans in the results.").optional(),
   "includeArchived": z.boolean().describe("Whether to include archived plans in the results.").optional(),
   "cursor": z.string().describe("The cursor to start from. If not provided, the first page will be returned.").optional(),

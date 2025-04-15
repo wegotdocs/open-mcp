@@ -1,40 +1,39 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getcontextsforfield`
-export const toolDescription = `Get custom field contexts`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/field/{fieldId}/context`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "getcontextsforfield",
+  "toolDescription": "Get custom field contexts",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/field/{fieldId}/context",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "fieldId": "fieldId"
+    },
+    "query": {
+      "isAnyIssueType": "isAnyIssueType",
+      "isGlobalContext": "isGlobalContext",
+      "contextId": "contextId",
+      "startAt": "startAt",
+      "maxResults": "maxResults"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "isAnyIssueType",
-    "isGlobalContext",
-    "contextId",
-    "startAt",
-    "maxResults"
-  ],
-  "header": [],
-  "path": [
-    "fieldId"
-  ],
-  "cookie": [],
-  "body": []
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,30 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `remove_tracks_user`
-export const toolDescription = `Remove User's Saved Tracks`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/me/tracks`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "ids"
+const tool: OpenMCPServerTool = {
+  "toolName": "remove_tracks_user",
+  "toolDescription": "Remove User's Saved Tracks",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/me/tracks",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "b_ids"
-  ]
+  "paramsMap": {
+    "query": {
+      "ids": "ids"
+    },
+    "body": {
+      "ids": "b_ids"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_ids": "ids"
-}
+
+export default tool

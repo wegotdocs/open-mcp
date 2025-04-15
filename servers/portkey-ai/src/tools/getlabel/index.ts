@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getlabel`
-export const toolDescription = `Get a label by ID`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/labels/{labelId}`
-export const method = `get`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [
-    "organisation_id",
-    "workspace_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "getlabel",
+  "toolDescription": "Get a label by ID",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/labels/{labelId}",
+  "method": "get",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "labelId"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "labelId": "labelId"
+    },
+    "query": {
+      "organisation_id": "organisation_id",
+      "workspace_id": "workspace_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

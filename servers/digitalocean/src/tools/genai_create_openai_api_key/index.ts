@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `genai_create_openai_api_key`
-export const toolDescription = `Create OpenAI API Key`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/gen-ai/openai/keys`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "api_key",
-    "name"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "genai_create_openai_api_key",
+  "toolDescription": "Create OpenAI API Key",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/gen-ai/openai/keys",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "api_key": "api_key",
+      "name": "name"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

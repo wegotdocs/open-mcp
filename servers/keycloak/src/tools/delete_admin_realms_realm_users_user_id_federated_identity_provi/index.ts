@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `delete_admin_realms_realm_users_user_id_federated_identity_provi`
-export const toolDescription = `Remove a social login provider from user`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/users/{user-id}/federated-identity/{provider}`
-export const method = `delete`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "provider"
-  ],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "delete_admin_realms_realm_users_user_id_federated_identity_provi",
+  "toolDescription": "Remove a social login provider from user",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/users/{user-id}/federated-identity/{provider}",
+  "method": "delete",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "provider": "provider"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

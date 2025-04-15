@@ -1,29 +1,28 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `elevation`
-export const toolDescription = `The Elevation API provides a simple interface to query locations on the earth for elevation data. Additionally, you may request sampled elevation data along paths, allowing you to calculate elevation changes along routes. With the Elevation`
-export const baseUrl = `https://maps.googleapis.com`
-export const path = `/maps/api/elevation/json`
-export const method = `get`
-export const security = [
-  {
-    "key": "key",
-    "value": "<mcp-env-var>KEY</mcp-env-var>",
-    "in": "query",
-    "envVarName": "KEY",
-    "schemeType": "apiKey",
-    "schemeName": "key"
-  }
-]
-export const keys = {
-  "query": [
-    "locations",
-    "path",
-    "samples"
+const tool: OpenMCPServerTool = {
+  "toolName": "elevation",
+  "toolDescription": "The Elevation API provides a simple interface to query locations on the earth for elevation data. Additionally, you may request sampled elevation data along paths, allowing you to calculate elevation changes along routes. With the Elevation",
+  "baseUrl": "https://maps.googleapis.com",
+  "path": "/maps/api/elevation/json",
+  "method": "get",
+  "security": [
+    {
+      "key": "key",
+      "value": "<mcp-env-var>KEY</mcp-env-var>",
+      "in": "query",
+      "envVarName": "KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "locations": "locations",
+      "path": "path",
+      "samples": "samples"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

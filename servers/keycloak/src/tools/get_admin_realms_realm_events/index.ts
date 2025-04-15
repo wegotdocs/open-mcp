@@ -1,25 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_admin_realms_realm_events`
-export const toolDescription = `Get events Returns all events, or filters them based on URL query parameters listed here`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/events`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [
-    "client",
-    "dateFrom",
-    "dateTo",
-    "first",
-    "ipAddress",
-    "max",
-    "type",
-    "user"
-  ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_admin_realms_realm_events",
+  "toolDescription": "Get events Returns all events, or filters them based on URL query parameters listed here",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/events",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "query": {
+      "client": "client",
+      "dateFrom": "dateFrom",
+      "dateTo": "dateTo",
+      "direction": "direction",
+      "first": "first",
+      "ipAddress": "ipAddress",
+      "max": "max",
+      "type": "type",
+      "user": "user"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

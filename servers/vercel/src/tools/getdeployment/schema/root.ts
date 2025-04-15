@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "idOrUrl": z.string().describe("The unique identifier or hostname of the deployment."),
   "withGitRepoInfo": z.string().describe("Whether to add in gitRepo information.").optional(),
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),

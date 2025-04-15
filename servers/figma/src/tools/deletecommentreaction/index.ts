@@ -1,37 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `deletecommentreaction`
-export const toolDescription = `Delete a reaction`
-export const baseUrl = `https://api.figma.com`
-export const path = `/v1/files/{file_key}/comments/{comment_id}/reactions`
-export const method = `delete`
-export const security = [
-  {
-    "key": "X-Figma-Token",
-    "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_FIGMA_TOKEN",
-    "schemeType": "apiKey",
-    "schemeName": "X-Figma-Token"
+const tool: OpenMCPServerTool = {
+  "toolName": "deletecommentreaction",
+  "toolDescription": "Delete a reaction",
+  "baseUrl": "https://api.figma.com",
+  "path": "/v1/files/{file_key}/comments/{comment_id}/reactions",
+  "method": "delete",
+  "security": [
+    {
+      "key": "X-Figma-Token",
+      "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_FIGMA_TOKEN"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "file_key": "file_key",
+      "comment_id": "comment_id"
+    },
+    "query": {
+      "emoji": "emoji"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "emoji"
-  ],
-  "header": [],
-  "path": [
-    "file_key",
-    "comment_id"
-  ],
-  "cookie": [],
-  "body": []
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

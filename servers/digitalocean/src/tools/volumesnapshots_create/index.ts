@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `volumesnapshots_create`
-export const toolDescription = `Create Snapshot from a Volume`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/volumes/{volume_id}/snapshots`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "volume_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "volumesnapshots_create",
+  "toolDescription": "Create Snapshot from a Volume",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/volumes/{volume_id}/snapshots",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "name",
-    "tags"
-  ]
+  "paramsMap": {
+    "path": {
+      "volume_id": "volume_id"
+    },
+    "body": {
+      "name": "name",
+      "tags": "tags"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

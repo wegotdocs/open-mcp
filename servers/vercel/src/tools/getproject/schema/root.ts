@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "idOrName": z.any().superRefine((x, ctx) => {
     const schemas = [z.string(), z.boolean()];
     const errors = schemas.reduce<z.ZodError[]>(

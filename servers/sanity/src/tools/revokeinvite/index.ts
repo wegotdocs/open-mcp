@@ -1,29 +1,28 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `revokeinvite`
-export const toolDescription = `Revoke invite`
-export const baseUrl = `https://api.sanity.io`
-export const path = `/vX/access/{resourceType}/{resourceId}/invites/{inviteId}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "resourceType",
-    "resourceId",
-    "inviteId"
+const tool: OpenMCPServerTool = {
+  "toolName": "revokeinvite",
+  "toolDescription": "Revoke invite",
+  "baseUrl": "https://api.sanity.io",
+  "path": "/vX/access/{resourceType}/{resourceId}/invites/{inviteId}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "resourceType": "resourceType",
+      "resourceId": "resourceId",
+      "inviteId": "inviteId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

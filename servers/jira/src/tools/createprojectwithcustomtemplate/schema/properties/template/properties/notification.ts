@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "description": z.string().describe("The description of the notification scheme").optional(),
   "name": z.string().describe("The name of the notification scheme").optional(),
   "notificationSchemeEvents": z.array(z.object({ "event": z.object({ "id": z.string().describe("The event ID to use for reference in the payload").optional() }).strict().describe("The event ID to use for reference in the payload").optional(), "notifications": z.array(z.object({ "notificationType": z.string().describe("The type of notification.").optional(), "parameter": z.string().describe("The parameter of the notification, should be eiither null if not required, or PCRI.").optional() }).strict().describe("The configuration for notification recipents")).describe("The configuration for notification recipents").optional() }).strict().describe("The payload for creating a notification scheme event. Defines which notifications should be sent for a specific event")).describe("The events and notifications for the notification scheme").optional(),

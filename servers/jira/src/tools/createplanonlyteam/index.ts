@@ -1,41 +1,40 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createplanonlyteam`
-export const toolDescription = `Create plan-only team`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/plans/plan/{planId}/team/planonly`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "planId"
+const tool: OpenMCPServerTool = {
+  "toolName": "createplanonlyteam",
+  "toolDescription": "Create plan-only team",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/plans/plan/{planId}/team/planonly",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "capacity",
-    "issueSourceId",
-    "memberAccountIds",
-    "name",
-    "planningStyle",
-    "sprintLength"
-  ]
+  "paramsMap": {
+    "path": {
+      "planId": "planId"
+    },
+    "body": {
+      "capacity": "capacity",
+      "issueSourceId": "issueSourceId",
+      "memberAccountIds": "memberAccountIds",
+      "name": "name",
+      "planningStyle": "planningStyle",
+      "sprintLength": "sprintLength"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

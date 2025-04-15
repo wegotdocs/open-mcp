@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "name": z.string().optional(),
   "provider": z.enum(["openai","azure-openai","ai21","anthropic","anyscale","azure-openai","bedrock","cohere","deepinfra","fireworks-ai","google","groq","hugging-face","jina","lingyi","mistral-ai","monsterapi","moonshot","nomic","novita-ai","open-ai","openrouter","palm","perplexity-ai","predibase","reka-ai","segmind","stability-ai","together-ai","vertex-ai","workers-ai","zhipu"]).optional(),
   "key": z.string().optional(),

@@ -1,30 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `post_admin_workspaces`
-export const toolDescription = `Create Workspace`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/admin/workspaces`
-export const method = `post`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "name",
-    "description",
-    "defaults",
-    "users"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "post_admin_workspaces",
+  "toolDescription": "Create Workspace",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/admin/workspaces",
+  "method": "post",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "name": "name",
+      "description": "description",
+      "defaults": "defaults",
+      "users": "users"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

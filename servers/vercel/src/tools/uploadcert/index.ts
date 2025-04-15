@@ -1,33 +1,33 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `uploadcert`
-export const toolDescription = `Upload a cert`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v7/certs`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "uploadcert",
+  "toolDescription": "Upload a cert",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v7/certs",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "ca",
-    "key",
-    "cert",
-    "skipValidation"
-  ]
+  "paramsMap": {
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "body": {
+      "ca": "ca",
+      "key": "key",
+      "cert": "cert",
+      "skipValidation": "skipValidation"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

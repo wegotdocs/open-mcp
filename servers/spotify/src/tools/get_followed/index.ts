@@ -1,28 +1,28 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_followed`
-export const toolDescription = `Get Followed Artists`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/me/following`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "type",
-    "after",
-    "limit"
+const tool: OpenMCPServerTool = {
+  "toolName": "get_followed",
+  "toolDescription": "Get Followed Artists",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/me/following",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "type": "type",
+      "after": "after",
+      "limit": "limit"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

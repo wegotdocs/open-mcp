@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "text_content": z.string().max(1000000).describe("Plain-text string to be uploaded to `Sources`."),
   "title": z.string().max(512).nullable().describe("Title of the text `Source`.").optional(),
   "backlink": z.string().max(512).describe("A url to the text `Source` that can be used by clients to link back to the original text.").optional(),

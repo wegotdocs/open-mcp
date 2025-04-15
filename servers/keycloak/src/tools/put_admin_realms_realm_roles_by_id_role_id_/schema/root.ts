@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "role-id": z.string().describe("id of role"),
   "id": z.string().optional(),
   "name": z.string().optional(),

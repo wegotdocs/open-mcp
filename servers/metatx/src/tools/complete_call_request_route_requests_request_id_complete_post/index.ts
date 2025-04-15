@@ -1,22 +1,25 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `complete_call_request_route_requests_request_id_complete_post`
-export const toolDescription = `Complete Call Request Route`
-export const baseUrl = `https://engineapi.moonstream.to/metatx`
-export const path = `/requests/{request_id}/complete`
-export const method = `post`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [
-    "authorization"
-  ],
-  "path": [
-    "request_id"
-  ],
-  "cookie": [],
-  "body": [
-    "tx_hash"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "complete_call_request_route_requests_request_id_complete_post",
+  "toolDescription": "Complete Call Request Route",
+  "baseUrl": "https://engineapi.moonstream.to/metatx",
+  "path": "/requests/{request_id}/complete",
+  "method": "post",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "request_id": "request_id"
+    },
+    "body": {
+      "tx_hash": "tx_hash"
+    },
+    "header": {
+      "authorization": "authorization"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

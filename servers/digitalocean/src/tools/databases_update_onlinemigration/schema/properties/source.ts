@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "host": z.string().describe("The FQDN pointing to the database cluster's current primary node.").optional(),
   "port": z.number().int().describe("The port on which the database cluster is listening.").optional(),
   "dbname": z.string().describe("The name of the default database.").optional(),

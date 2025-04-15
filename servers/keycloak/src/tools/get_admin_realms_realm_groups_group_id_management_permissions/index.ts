@@ -1,16 +1,15 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_admin_realms_realm_groups_group_id_management_permissions`
-export const toolDescription = `Return object stating whether client Authorization permissions have been initialized or not and a reference`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/groups/{group-id}/management/permissions`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_admin_realms_realm_groups_group_id_management_permissions",
+  "toolDescription": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/groups/{group-id}/management/permissions",
+  "method": "get",
+  "security": [],
+  "paramsMap": {},
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "authorizer": z.boolean().optional(),
   "director": z.boolean().optional(),
   "executive": z.boolean().optional(),

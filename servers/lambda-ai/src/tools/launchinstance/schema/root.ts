@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "region_name": z.enum(["europe-central-1","asia-south-1","australia-east-1","me-west-1","asia-northeast-1","asia-northeast-2","us-east-1","us-west-2","us-west-1","us-south-1","us-west-3","us-midwest-1","us-east-2","us-south-2","us-south-3","us-east-3","us-midwest-2","test-east-1","test-west-1"]).describe("The region into which you want to launch the instance."),
   "instance_type_name": z.string().describe("The type of instance you want to launch. To retrieve a list of available instance types, see\n[List available instance types](#get-/api/v1/instance-types)."),
   "ssh_key_names": z.array(z.string()).describe("The names of the SSH keys you want to use to provide access to the instance.\nCurrently, exactly one SSH key must be specified."),

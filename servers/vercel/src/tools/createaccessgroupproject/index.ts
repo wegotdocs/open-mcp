@@ -1,33 +1,34 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createaccessgroupproject`
-export const toolDescription = `Create an access group project`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/access-groups/{accessGroupIdOrName}/projects`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "createaccessgroupproject",
+  "toolDescription": "Create an access group project",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/access-groups/{accessGroupIdOrName}/projects",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "accessGroupIdOrName"
-  ],
-  "cookie": [],
-  "body": [
-    "projectId",
-    "role"
-  ]
+  "paramsMap": {
+    "path": {
+      "accessGroupIdOrName": "accessGroupIdOrName"
+    },
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "body": {
+      "projectId": "projectId",
+      "role": "role"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

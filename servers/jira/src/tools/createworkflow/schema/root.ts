@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "description": z.string().describe("The description of the workflow. The maximum length is 1000 characters.").optional(),
   "name": z.string().describe("The name of the workflow. The name must be unique. The maximum length is 255 characters. Characters can be separated by a whitespace but the name cannot start or end with a whitespace."),
   "statuses": z.array(z.object({ "id": z.string().describe("The ID of the status."), "properties": z.record(z.string()).describe("The properties of the status.").optional() }).strict().describe("The details of a transition status.")).describe("The statuses of the workflow. Any status that does not include a transition is added to the workflow without a transition."),

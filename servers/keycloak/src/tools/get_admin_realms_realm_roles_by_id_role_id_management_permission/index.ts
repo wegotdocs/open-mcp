@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_admin_realms_realm_roles_by_id_role_id_management_permission`
-export const toolDescription = `Return object stating whether role Authorization permissions have been initialized or not and a reference`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/roles-by-id/{role-id}/management/permissions`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "role-id"
-  ],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_admin_realms_realm_roles_by_id_role_id_management_permission",
+  "toolDescription": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/roles-by-id/{role-id}/management/permissions",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "role-id": "role-id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

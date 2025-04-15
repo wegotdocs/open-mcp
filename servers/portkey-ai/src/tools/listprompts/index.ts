@@ -1,31 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `listprompts`
-export const toolDescription = `List prompts`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/prompts`
-export const method = `get`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [
-    "collection_id",
-    "workspace_id",
-    "current_page",
-    "page_size",
-    "search"
+const tool: OpenMCPServerTool = {
+  "toolName": "listprompts",
+  "toolDescription": "List prompts",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/prompts",
+  "method": "get",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "collection_id": "collection_id",
+      "workspace_id": "workspace_id",
+      "current_page": "current_page",
+      "page_size": "page_size",
+      "search": "search"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

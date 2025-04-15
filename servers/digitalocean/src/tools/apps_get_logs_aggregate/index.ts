@@ -1,32 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `apps_get_logs_aggregate`
-export const toolDescription = `Retrieve Aggregate Deployment Logs`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/apps/{app_id}/deployments/{deployment_id}/logs`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "follow",
-    "type",
-    "pod_connection_timeout"
+const tool: OpenMCPServerTool = {
+  "toolName": "apps_get_logs_aggregate",
+  "toolDescription": "Retrieve Aggregate Deployment Logs",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/apps/{app_id}/deployments/{deployment_id}/logs",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "app_id",
-    "deployment_id"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "app_id": "app_id",
+      "deployment_id": "deployment_id"
+    },
+    "query": {
+      "follow": "follow",
+      "type": "type",
+      "pod_connection_timeout": "pod_connection_timeout"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

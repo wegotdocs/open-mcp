@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "from": z.string().describe("Query only projects updated after the given timestamp").optional(),
   "gitForkProtection": z.enum(["1","0"]).describe("Specifies whether PRs from Git forks should require a team member's authorization before it can be deployed").optional(),
   "limit": z.string().describe("Limit the number of projects returned").optional(),

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "authenticatorConfig": z.string().optional(),
   "authenticator": z.string().optional(),
   "authenticatorFlow": z.boolean().optional(),

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "author": z.string().optional(),
   "body": z.any().describe("The comment text in [Atlassian Document Format](https://developer.atlassian.com/cloud/jira/platform/apis/document/structure/).").optional(),
   "created": z.string().datetime({ offset: true }).describe("The date and time at which the comment was created.").readonly().optional(),

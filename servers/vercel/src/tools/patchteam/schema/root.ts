@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of."),
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
   "avatar": z.string().describe("The hash value of an uploaded image.").optional(),

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "projectId": z.string(),
   "limit": z.number().lte(128).optional(),
   "sourceIp": z.string().max(49).describe("Filter by source IP").optional(),

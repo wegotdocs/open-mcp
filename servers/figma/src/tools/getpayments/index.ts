@@ -1,31 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getpayments`
-export const toolDescription = `Get payments`
-export const baseUrl = `https://api.figma.com`
-export const path = `/v1/payments`
-export const method = `get`
-export const security = [
-  {
-    "key": "X-Figma-Token",
-    "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_FIGMA_TOKEN",
-    "schemeType": "apiKey",
-    "schemeName": "X-Figma-Token"
-  }
-]
-export const keys = {
-  "query": [
-    "plugin_payment_token",
-    "user_id",
-    "community_file_id",
-    "plugin_id",
-    "widget_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "getpayments",
+  "toolDescription": "Get payments",
+  "baseUrl": "https://api.figma.com",
+  "path": "/v1/payments",
+  "method": "get",
+  "security": [
+    {
+      "key": "X-Figma-Token",
+      "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_FIGMA_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "plugin_payment_token": "plugin_payment_token",
+      "user_id": "user_id",
+      "community_file_id": "community_file_id",
+      "plugin_id": "plugin_id",
+      "widget_id": "widget_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

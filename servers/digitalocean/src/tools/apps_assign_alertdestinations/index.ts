@@ -1,31 +1,31 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `apps_assign_alertdestinations`
-export const toolDescription = `Update destinations for alerts`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/apps/{app_id}/alerts/{alert_id}/destinations`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "app_id",
-    "alert_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "apps_assign_alertdestinations",
+  "toolDescription": "Update destinations for alerts",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/apps/{app_id}/alerts/{alert_id}/destinations",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "emails",
-    "slack_webhooks"
-  ]
+  "paramsMap": {
+    "path": {
+      "app_id": "app_id",
+      "alert_id": "alert_id"
+    },
+    "body": {
+      "emails": "emails",
+      "slack_webhooks": "slack_webhooks"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

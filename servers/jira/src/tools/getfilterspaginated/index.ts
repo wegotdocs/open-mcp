@@ -1,46 +1,44 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getfilterspaginated`
-export const toolDescription = `Search for filters`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/filter/search`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "filterName",
-    "accountId",
-    "owner",
-    "groupname",
-    "groupId",
-    "projectId",
-    "id",
-    "orderBy",
-    "startAt",
-    "maxResults",
-    "expand",
-    "overrideSharePermissions",
-    "isSubstringMatch"
+const tool: OpenMCPServerTool = {
+  "toolName": "getfilterspaginated",
+  "toolDescription": "Search for filters",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/filter/search",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "filterName": "filterName",
+      "accountId": "accountId",
+      "owner": "owner",
+      "groupname": "groupname",
+      "groupId": "groupId",
+      "projectId": "projectId",
+      "id": "id",
+      "orderBy": "orderBy",
+      "startAt": "startAt",
+      "maxResults": "maxResults",
+      "expand": "expand",
+      "overrideSharePermissions": "overrideSharePermissions",
+      "isSubstringMatch": "isSubstringMatch"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

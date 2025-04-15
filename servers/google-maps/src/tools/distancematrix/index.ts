@@ -1,38 +1,37 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `distancematrix`
-export const toolDescription = `The Distance Matrix API is a service that provides travel distance and time for a matrix of origins and destinations. The API returns information based on the recommended route between start and end points, as calculated by the Google Maps`
-export const baseUrl = `https://maps.googleapis.com`
-export const path = `/maps/api/distancematrix/json`
-export const method = `get`
-export const security = [
-  {
-    "key": "key",
-    "value": "<mcp-env-var>KEY</mcp-env-var>",
-    "in": "query",
-    "envVarName": "KEY",
-    "schemeType": "apiKey",
-    "schemeName": "key"
-  }
-]
-export const keys = {
-  "query": [
-    "arrival_time",
-    "departure_time",
-    "avoid",
-    "destinations",
-    "origins",
-    "units",
-    "language",
-    "mode",
-    "region",
-    "traffic_model",
-    "transit_mode",
-    "transit_routing_preference"
+const tool: OpenMCPServerTool = {
+  "toolName": "distancematrix",
+  "toolDescription": "The Distance Matrix API is a service that provides travel distance and time for a matrix of origins and destinations. The API returns information based on the recommended route between start and end points, as calculated by the Google Maps",
+  "baseUrl": "https://maps.googleapis.com",
+  "path": "/maps/api/distancematrix/json",
+  "method": "get",
+  "security": [
+    {
+      "key": "key",
+      "value": "<mcp-env-var>KEY</mcp-env-var>",
+      "in": "query",
+      "envVarName": "KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "arrival_time": "arrival_time",
+      "departure_time": "departure_time",
+      "avoid": "avoid",
+      "destinations": "destinations",
+      "origins": "origins",
+      "units": "units",
+      "language": "language",
+      "mode": "mode",
+      "region": "region",
+      "traffic_model": "traffic_model",
+      "transit_mode": "transit_mode",
+      "transit_routing_preference": "transit_routing_preference"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

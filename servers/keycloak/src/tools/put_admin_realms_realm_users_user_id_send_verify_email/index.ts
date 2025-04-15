@@ -1,20 +1,21 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `put_admin_realms_realm_users_user_id_send_verify_email`
-export const toolDescription = `Send an email-verification email to the user An email contains a link the user can click to verify their email address.`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/users/{user-id}/send-verify-email`
-export const method = `put`
-export const security = []
-export const keys = {
-  "query": [
-    "client_id",
-    "lifespan",
-    "redirect_uri"
-  ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "put_admin_realms_realm_users_user_id_send_verify_email",
+  "toolDescription": "Send an email-verification email to the user An email contains a link the user can click to verify their email address.",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/users/{user-id}/send-verify-email",
+  "method": "put",
+  "security": [],
+  "paramsMap": {
+    "query": {
+      "client_id": "client_id",
+      "lifespan": "lifespan",
+      "redirect_uri": "redirect_uri"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,55 +1,53 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `updatefilter`
-export const toolDescription = `Update filter`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/filter/{id}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "updatefilter",
+  "toolDescription": "Update filter",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/filter/{id}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "id": "id"
+    },
+    "query": {
+      "expand": "expand",
+      "overrideSharePermissions": "overrideSharePermissions"
+    },
+    "body": {
+      "approximateLastUsed": "approximateLastUsed",
+      "description": "description",
+      "editPermissions": "editPermissions",
+      "favourite": "favourite",
+      "favouritedCount": "favouritedCount",
+      "id": "b_id",
+      "jql": "jql",
+      "name": "name",
+      "owner": "owner",
+      "searchUrl": "searchUrl",
+      "self": "self",
+      "sharePermissions": "sharePermissions",
+      "sharedUsers": "sharedUsers",
+      "subscriptions": "subscriptions",
+      "viewUrl": "viewUrl"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "expand",
-    "overrideSharePermissions"
-  ],
-  "header": [],
-  "path": [
-    "id"
-  ],
-  "cookie": [],
-  "body": [
-    "approximateLastUsed",
-    "description",
-    "editPermissions",
-    "favourite",
-    "favouritedCount",
-    "b_id",
-    "jql",
-    "name",
-    "owner",
-    "searchUrl",
-    "self",
-    "sharePermissions",
-    "sharedUsers",
-    "subscriptions",
-    "viewUrl"
-  ]
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_id": "id"
-}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "type": z.enum(["application","distribution"]).describe("Filters results based on image type which can be either `application` or `distribution`.").optional(),
   "private": z.boolean().describe("Used to filter only user images.").optional(),
   "tag_name": z.string().describe("Used to filter images by a specific tag.").optional(),

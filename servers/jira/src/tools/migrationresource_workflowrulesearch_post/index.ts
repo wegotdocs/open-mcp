@@ -1,22 +1,24 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `migrationresource_workflowrulesearch_post`
-export const toolDescription = `Get workflow transition rule configurations`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/atlassian-connect/1/migration/workflow/rule/search`
-export const method = `post`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [
-    "Atlassian-Transfer-Id"
-  ],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "expand",
-    "ruleIds",
-    "workflowEntityId"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "migrationresource_workflowrulesearch_post",
+  "toolDescription": "Get workflow transition rule configurations",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/atlassian-connect/1/migration/workflow/rule/search",
+  "method": "post",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "expand": "expand",
+      "ruleIds": "ruleIds",
+      "workflowEntityId": "workflowEntityId"
+    },
+    "header": {
+      "Atlassian-Transfer-Id": "Atlassian-Transfer-Id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "startAt": z.string().describe("The index of the first item to return in a page of results (page offset).").optional(),
   "maxResults": z.string().describe("The maximum number of items to return per page.").optional(),
   "id": z.array(z.string()).describe("The list of notification schemes IDs to be filtered by").optional(),

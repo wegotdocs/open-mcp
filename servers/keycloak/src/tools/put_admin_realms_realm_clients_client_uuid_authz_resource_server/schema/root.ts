@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "scope-id": z.string(),
   "id": z.string().optional(),
   "name": z.string().optional(),

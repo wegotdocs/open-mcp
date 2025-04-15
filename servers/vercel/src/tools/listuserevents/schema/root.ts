@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "limit": z.number().describe("Maximum number of items which may be returned.").optional(),
   "since": z.string().describe("Timestamp to only include items created since then.").optional(),
   "until": z.string().describe("Timestamp to only include items created until then.").optional(),

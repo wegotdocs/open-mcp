@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `databases_patch_config`
-export const toolDescription = `Update the Database Configuration for an Existing Database`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/databases/{database_cluster_uuid}/config`
-export const method = `patch`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "database_cluster_uuid"
+const tool: OpenMCPServerTool = {
+  "toolName": "databases_patch_config",
+  "toolDescription": "Update the Database Configuration for an Existing Database",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/databases/{database_cluster_uuid}/config",
+  "method": "patch",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "config"
-  ]
+  "paramsMap": {
+    "path": {
+      "database_cluster_uuid": "database_cluster_uuid"
+    },
+    "body": {
+      "config": "config"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

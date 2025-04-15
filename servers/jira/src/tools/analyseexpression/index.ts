@@ -1,37 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `analyseexpression`
-export const toolDescription = `Analyse Jira expression`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/expression/analyse`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "check"
+const tool: OpenMCPServerTool = {
+  "toolName": "analyseexpression",
+  "toolDescription": "Analyse Jira expression",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/expression/analyse",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "contextVariables",
-    "expressions"
-  ]
+  "paramsMap": {
+    "query": {
+      "check": "check"
+    },
+    "body": {
+      "contextVariables": "contextVariables",
+      "expressions": "expressions"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,38 +1,37 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `postcomment`
-export const toolDescription = `Add a comment to a file`
-export const baseUrl = `https://api.figma.com`
-export const path = `/v1/files/{file_key}/comments`
-export const method = `post`
-export const security = [
-  {
-    "key": "X-Figma-Token",
-    "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_FIGMA_TOKEN",
-    "schemeType": "apiKey",
-    "schemeName": "X-Figma-Token"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "file_key"
+const tool: OpenMCPServerTool = {
+  "toolName": "postcomment",
+  "toolDescription": "Add a comment to a file",
+  "baseUrl": "https://api.figma.com",
+  "path": "/v1/files/{file_key}/comments",
+  "method": "post",
+  "security": [
+    {
+      "key": "X-Figma-Token",
+      "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_FIGMA_TOKEN"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "message",
-    "comment_id",
-    "client_meta"
-  ]
+  "paramsMap": {
+    "path": {
+      "file_key": "file_key"
+    },
+    "body": {
+      "message": "message",
+      "comment_id": "comment_id",
+      "client_meta": "client_meta"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `delete_admin_workspaces_workspaceid_users_userid_`
-export const toolDescription = `Remove workspace member`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/admin/workspaces/{workspaceId}/users/{userId}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "workspaceId",
-    "userId"
+const tool: OpenMCPServerTool = {
+  "toolName": "delete_admin_workspaces_workspaceid_users_userid_",
+  "toolDescription": "Remove workspace member",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/admin/workspaces/{workspaceId}/users/{userId}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "workspaceId": "workspaceId",
+      "userId": "userId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

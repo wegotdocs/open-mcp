@@ -1,36 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `streetview`
-export const toolDescription = `The Street View Static API lets you embed a static (non-interactive) Street View panorama or thumbnail into your web page, without the use of JavaScript. The viewport is defined with URL parameters sent through a standard HTTP request, and`
-export const baseUrl = `https://maps.googleapis.com`
-export const path = `/maps/api/streetview`
-export const method = `get`
-export const security = [
-  {
-    "key": "key",
-    "value": "<mcp-env-var>KEY</mcp-env-var>",
-    "in": "query",
-    "envVarName": "KEY",
-    "schemeType": "apiKey",
-    "schemeName": "key"
-  }
-]
-export const keys = {
-  "query": [
-    "fov",
-    "heading",
-    "location",
-    "pano",
-    "pitch",
-    "radius",
-    "return_error_code",
-    "signature",
-    "size",
-    "source"
+const tool: OpenMCPServerTool = {
+  "toolName": "streetview",
+  "toolDescription": "The Street View Static API lets you embed a static (non-interactive) Street View panorama or thumbnail into your web page, without the use of JavaScript. The viewport is defined with URL parameters sent through a standard HTTP request, and",
+  "baseUrl": "https://maps.googleapis.com",
+  "path": "/maps/api/streetview",
+  "method": "get",
+  "security": [
+    {
+      "key": "key",
+      "value": "<mcp-env-var>KEY</mcp-env-var>",
+      "in": "query",
+      "envVarName": "KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "fov": "fov",
+      "heading": "heading",
+      "location": "location",
+      "pano": "pano",
+      "pitch": "pitch",
+      "radius": "radius",
+      "return_error_code": "return_error_code",
+      "signature": "signature",
+      "size": "size",
+      "source": "source"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

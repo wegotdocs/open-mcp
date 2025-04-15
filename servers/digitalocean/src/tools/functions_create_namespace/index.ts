@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `functions_create_namespace`
-export const toolDescription = `Create Namespace`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/functions/namespaces`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "region",
-    "label"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "functions_create_namespace",
+  "toolDescription": "Create Namespace",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/functions/namespaces",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "region": "region",
+      "label": "label"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,34 +1,34 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getohlcpricesevmbycontract`
-export const toolDescription = `Token OHLCV prices by Contract Address`
-export const baseUrl = `https://token-api.thegraph.com`
-export const path = `/ohlc/prices/evm/{contract}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "network_id",
-    "interval",
-    "startTime",
-    "endTime",
-    "limit",
-    "page"
+const tool: OpenMCPServerTool = {
+  "toolName": "getohlcpricesevmbycontract",
+  "toolDescription": "Token OHLCV prices by Contract Address",
+  "baseUrl": "https://token-api.thegraph.com",
+  "path": "/ohlc/prices/evm/{contract}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "contract"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "contract": "contract"
+    },
+    "query": {
+      "network_id": "network_id",
+      "interval": "interval",
+      "startTime": "startTime",
+      "endTime": "endTime",
+      "limit": "limit",
+      "page": "page"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

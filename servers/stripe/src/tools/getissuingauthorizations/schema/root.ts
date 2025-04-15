@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "card": z.string().max(5000).describe("Only return authorizations that belong to the given card.").optional(),
   "cardholder": z.string().max(5000).describe("Only return authorizations that belong to the given cardholder.").optional(),
   "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return authorizations that were created during the given date interval.").optional(),

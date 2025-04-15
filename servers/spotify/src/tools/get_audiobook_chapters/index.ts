@@ -1,30 +1,31 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_audiobook_chapters`
-export const toolDescription = `Get Audiobook Chapters`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/audiobooks/{id}/chapters`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "market",
-    "limit",
-    "offset"
+const tool: OpenMCPServerTool = {
+  "toolName": "get_audiobook_chapters",
+  "toolDescription": "Get Audiobook Chapters",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/audiobooks/{id}/chapters",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [
-    "id"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "id": "id"
+    },
+    "query": {
+      "market": "market",
+      "limit": "limit",
+      "offset": "offset"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

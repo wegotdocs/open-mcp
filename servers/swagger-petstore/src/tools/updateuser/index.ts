@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `updateuser`
-export const toolDescription = `Update user resource.`
-export const baseUrl = `https://petstore3.swagger.io/api/v3`
-export const path = `/user/{username}`
-export const method = `put`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "username"
-  ],
-  "cookie": [],
-  "body": [
-    "id",
-    "b_username",
-    "firstName",
-    "lastName",
-    "email",
-    "password",
-    "phone",
-    "userStatus"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "updateuser",
+  "toolDescription": "Update user resource.",
+  "baseUrl": "https://petstore3.swagger.io/api/v3",
+  "path": "/user/{username}",
+  "method": "put",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "username": "username"
+    },
+    "body": {
+      "id": "id",
+      "username": "b_username",
+      "firstName": "firstName",
+      "lastName": "lastName",
+      "email": "email",
+      "password": "password",
+      "phone": "phone",
+      "userStatus": "userStatus"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_username": "username"
-}
+
+export default tool

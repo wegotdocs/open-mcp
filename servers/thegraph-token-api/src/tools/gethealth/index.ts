@@ -1,16 +1,15 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `gethealth`
-export const toolDescription = `Get health status of the API`
-export const baseUrl = `https://token-api.thegraph.com`
-export const path = `/health`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "gethealth",
+  "toolDescription": "Get health status of the API",
+  "baseUrl": "https://token-api.thegraph.com",
+  "path": "/health",
+  "method": "get",
+  "security": [],
+  "paramsMap": {},
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

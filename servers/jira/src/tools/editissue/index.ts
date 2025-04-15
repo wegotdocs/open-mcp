@@ -1,46 +1,46 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `editissue`
-export const toolDescription = `Edit issue`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/issue/{issueIdOrKey}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "editissue",
+  "toolDescription": "Edit issue",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/issue/{issueIdOrKey}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "issueIdOrKey": "issueIdOrKey"
+    },
+    "query": {
+      "notifyUsers": "notifyUsers",
+      "overrideScreenSecurity": "overrideScreenSecurity",
+      "overrideEditableFlag": "overrideEditableFlag",
+      "returnIssue": "returnIssue",
+      "expand": "expand"
+    },
+    "body": {
+      "fields": "fields",
+      "historyMetadata": "historyMetadata",
+      "properties": "properties",
+      "transition": "transition",
+      "update": "update"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "notifyUsers",
-    "overrideScreenSecurity",
-    "overrideEditableFlag",
-    "returnIssue",
-    "expand"
-  ],
-  "header": [],
-  "path": [
-    "issueIdOrKey"
-  ],
-  "cookie": [],
-  "body": [
-    "fields",
-    "historyMetadata",
-    "properties",
-    "transition",
-    "update"
-  ]
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

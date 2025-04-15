@@ -1,34 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getpetbyid`
-export const toolDescription = `Find pet by ID.`
-export const baseUrl = `https://petstore3.swagger.io/api/v3`
-export const path = `/pet/{petId}`
-export const method = `get`
-export const security = [
-  {
-    "key": "api_key",
-    "value": "<mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "api_key"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "petId"
+const tool: OpenMCPServerTool = {
+  "toolName": "getpetbyid",
+  "toolDescription": "Find pet by ID.",
+  "baseUrl": "https://petstore3.swagger.io/api/v3",
+  "path": "/pet/{petId}",
+  "method": "get",
+  "security": [
+    {
+      "key": "api_key",
+      "value": "<mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "petId": "petId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

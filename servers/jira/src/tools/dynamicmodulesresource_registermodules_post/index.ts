@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `dynamicmodulesresource_registermodules_post`
-export const toolDescription = `Register modules`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/atlassian-connect/1/app/module/dynamic`
-export const method = `post`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "modules"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "dynamicmodulesresource_registermodules_post",
+  "toolDescription": "Register modules",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/atlassian-connect/1/app/module/dynamic",
+  "method": "post",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "modules": "modules"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

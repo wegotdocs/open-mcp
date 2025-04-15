@@ -1,22 +1,24 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `calculaterfactorget`
-export const toolDescription = `Determine your eligibility for the LEW`
-export const baseUrl = `https://api.epa.gov/lew`
-export const path = `/v1/rfactor`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [
-    "start_date",
-    "end_date",
-    "location"
-  ],
-  "header": [
-    "X-Api-Key"
-  ],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "calculaterfactorget",
+  "toolDescription": "Determine your eligibility for the LEW",
+  "baseUrl": "https://api.epa.gov/lew",
+  "path": "/v1/rfactor",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "query": {
+      "start_date": "start_date",
+      "end_date": "end_date",
+      "location": "location"
+    },
+    "header": {
+      "X-Api-Key": "X-Api-Key"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

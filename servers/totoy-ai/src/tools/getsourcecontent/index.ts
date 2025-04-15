@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getsourcecontent`
-export const toolDescription = `Retrieves the content of a Source.`
-export const baseUrl = `https://api.totoy.ai/v1`
-export const path = `/sources/{source_id}/content`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "source_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "getsourcecontent",
+  "toolDescription": "Retrieves the content of a Source.",
+  "baseUrl": "https://api.totoy.ai/v1",
+  "path": "/sources/{source_id}/content",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "source_id": "source_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

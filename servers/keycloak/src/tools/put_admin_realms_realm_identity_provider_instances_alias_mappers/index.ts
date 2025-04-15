@@ -1,26 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `put_admin_realms_realm_identity_provider_instances_alias_mappers`
-export const toolDescription = `Update a mapper for the identity provider`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}`
-export const method = `put`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "id"
-  ],
-  "cookie": [],
-  "body": [
-    "b_id",
-    "name",
-    "identityProviderAlias",
-    "identityProviderMapper",
-    "config"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "put_admin_realms_realm_identity_provider_instances_alias_mappers",
+  "toolDescription": "Update a mapper for the identity provider",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}",
+  "method": "put",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "id": "id"
+    },
+    "body": {
+      "id": "b_id",
+      "name": "name",
+      "identityProviderAlias": "identityProviderAlias",
+      "identityProviderMapper": "identityProviderMapper",
+      "config": "config"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_id": "id"
-}
+
+export default tool

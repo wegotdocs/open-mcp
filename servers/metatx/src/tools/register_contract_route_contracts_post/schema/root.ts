@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "blockchain": z.string(),
   "address": z.string(),
   "title": z.string().optional(),

@@ -1,40 +1,33 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `postaccountsaccountbankaccountsid`
-export const toolDescription = `<p>Updates the metadata, account holder name, account holder type of a bank account belonging to
-a connected account and optionally sets it as the default for its currency. Other bank account
-details are not editable by design.</p>
-
-<p>You`
-export const baseUrl = `https://api.stripe.com`
-export const path = `/v1/accounts/{account}/bank_accounts/{id}`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "account",
-    "id"
+const tool: OpenMCPServerTool = {
+  "toolName": "postaccountsaccountbankaccountsid",
+  "toolDescription": "<p>Updates the metadata, account holder name, account holder type of a bank account belonging to\na connected account and optionally sets it as the default for its currency. Other bank account\ndetails are not editable by design.</p>\n\n<p>You",
+  "baseUrl": "https://api.stripe.com",
+  "path": "/v1/accounts/{account}/bank_accounts/{id}",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "account": "account",
+      "id": "id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

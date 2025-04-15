@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "organisation_id": z.string().uuid().describe("ID of the organisation").optional(),
   "workspace_id": z.string().describe("ID or slug of the workspace").optional(),
   "name": z.string().regex(new RegExp("^(?!latest$)(?!default$)(?!\\d+$)[a-zA-Z0-9_-]*[^@\\s]?[a-zA-Z0-9_-]*$")).describe("Name of the label"),

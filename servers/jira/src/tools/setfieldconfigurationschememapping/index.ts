@@ -1,36 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `setfieldconfigurationschememapping`
-export const toolDescription = `Assign issue types to field configurations`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/fieldconfigurationscheme/{id}/mapping`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "id"
+const tool: OpenMCPServerTool = {
+  "toolName": "setfieldconfigurationschememapping",
+  "toolDescription": "Assign issue types to field configurations",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/fieldconfigurationscheme/{id}/mapping",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "mappings"
-  ]
+  "paramsMap": {
+    "path": {
+      "id": "id"
+    },
+    "body": {
+      "mappings": "mappings"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

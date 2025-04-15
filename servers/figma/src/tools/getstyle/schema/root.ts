@@ -1,5 +1,5 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "key": z.string().describe("The unique identifier of the style.")
 }

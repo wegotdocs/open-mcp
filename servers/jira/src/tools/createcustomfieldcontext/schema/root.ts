@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "fieldId": z.string().describe("The ID of the custom field."),
   "description": z.string().describe("The description of the context.").optional(),
   "id": z.string().describe("The ID of the context.").readonly().optional(),

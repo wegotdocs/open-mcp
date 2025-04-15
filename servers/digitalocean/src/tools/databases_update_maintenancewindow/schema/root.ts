@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
   "day": z.string().describe("The day of the week on which to apply maintenance updates."),
   "hour": z.string().describe("The hour in UTC at which maintenance updates will be applied in 24 hour format."),

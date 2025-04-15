@@ -1,40 +1,39 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `directions`
-export const toolDescription = `The Directions API is a web service that uses an HTTP request to return JSON or XML-formatted directions between locations. You can receive directions for several modes of transportation, such as transit, driving, walking, or cycling.`
-export const baseUrl = `https://maps.googleapis.com`
-export const path = `/maps/api/directions/json`
-export const method = `get`
-export const security = [
-  {
-    "key": "key",
-    "value": "<mcp-env-var>KEY</mcp-env-var>",
-    "in": "query",
-    "envVarName": "KEY",
-    "schemeType": "apiKey",
-    "schemeName": "key"
-  }
-]
-export const keys = {
-  "query": [
-    "arrival_time",
-    "departure_time",
-    "alternatives",
-    "avoid",
-    "destination",
-    "origin",
-    "units",
-    "waypoints",
-    "language",
-    "mode",
-    "region",
-    "traffic_model",
-    "transit_mode",
-    "transit_routing_preference"
+const tool: OpenMCPServerTool = {
+  "toolName": "directions",
+  "toolDescription": "The Directions API is a web service that uses an HTTP request to return JSON or XML-formatted directions between locations. You can receive directions for several modes of transportation, such as transit, driving, walking, or cycling.",
+  "baseUrl": "https://maps.googleapis.com",
+  "path": "/maps/api/directions/json",
+  "method": "get",
+  "security": [
+    {
+      "key": "key",
+      "value": "<mcp-env-var>KEY</mcp-env-var>",
+      "in": "query",
+      "envVarName": "KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "arrival_time": "arrival_time",
+      "departure_time": "departure_time",
+      "alternatives": "alternatives",
+      "avoid": "avoid",
+      "destination": "destination",
+      "origin": "origin",
+      "units": "units",
+      "waypoints": "waypoints",
+      "language": "language",
+      "mode": "mode",
+      "region": "region",
+      "traffic_model": "traffic_model",
+      "transit_mode": "transit_mode",
+      "transit_routing_preference": "transit_routing_preference"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

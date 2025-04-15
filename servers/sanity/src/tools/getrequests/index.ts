@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getrequests`
-export const toolDescription = `List all requests for given project/organization.`
-export const baseUrl = `https://api.sanity.io`
-export const path = `/v2024-07-01/access/{resourceType}/{resourceId}/requests`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "includeChildren"
+const tool: OpenMCPServerTool = {
+  "toolName": "getrequests",
+  "toolDescription": "List all requests for given project/organization.",
+  "baseUrl": "https://api.sanity.io",
+  "path": "/v2024-07-01/access/{resourceType}/{resourceId}/requests",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "resourceType",
-    "resourceId"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "resourceType": "resourceType",
+      "resourceId": "resourceId"
+    },
+    "query": {
+      "includeChildren": "includeChildren"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

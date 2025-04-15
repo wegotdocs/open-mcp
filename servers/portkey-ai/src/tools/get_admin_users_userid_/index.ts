@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_admin_users_userid_`
-export const toolDescription = `Get user`
-export const baseUrl = `https://api.portkey.ai`
-export const path = `/admin/users/{userId}`
-export const method = `get`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "userId"
+const tool: OpenMCPServerTool = {
+  "toolName": "get_admin_users_userid_",
+  "toolDescription": "Get user",
+  "baseUrl": "https://api.portkey.ai",
+  "path": "/admin/users/{userId}",
+  "method": "get",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "userId": "userId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

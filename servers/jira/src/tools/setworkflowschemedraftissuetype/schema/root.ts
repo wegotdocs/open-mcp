@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.number().int().describe("The ID of the workflow scheme that the draft belongs to."),
   "issueType": z.string().describe("The ID of the issue type."),
   "b_issueType": z.string().describe("The ID of the issue type. Not required if updating the issue type-workflow mapping.").optional(),

@@ -1,38 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getallfieldconfigurations`
-export const toolDescription = `Get all field configurations`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/fieldconfiguration`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "startAt",
-    "maxResults",
-    "id",
-    "isDefault",
-    "query"
+const tool: OpenMCPServerTool = {
+  "toolName": "getallfieldconfigurations",
+  "toolDescription": "Get all field configurations",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/fieldconfiguration",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "startAt": "startAt",
+      "maxResults": "maxResults",
+      "id": "id",
+      "isDefault": "isDefault",
+      "query": "query"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

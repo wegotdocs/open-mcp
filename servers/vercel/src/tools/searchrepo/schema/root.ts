@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "query": z.string().optional(),
   "namespaceId": z.union([z.string(), z.number()]).nullable().optional(),
   "provider": z.enum(["github","github-custom-host","gitlab","bitbucket"]).optional(),

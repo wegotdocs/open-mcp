@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "utmSource": z.string().describe("UTM source").optional(),
   "utmMedium": z.string().describe("UTM medium").optional(),
   "utmCampaign": z.string().describe("UTM campaign").optional(),

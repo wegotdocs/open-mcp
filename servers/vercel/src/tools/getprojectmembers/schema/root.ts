@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "idOrName": z.string().describe("The ID or name of the Project."),
   "limit": z.number().int().gte(1).lte(100).describe("Limit how many project members should be returned").optional(),
   "since": z.number().int().describe("Timestamp in milliseconds to only include members added since then.").optional(),

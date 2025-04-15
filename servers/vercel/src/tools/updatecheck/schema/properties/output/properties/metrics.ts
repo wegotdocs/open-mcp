@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "FCP": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `FCP` to the tool, first call the tool `expandSchema` with \"/properties/output/properties/metrics/properties/FCP\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
   "LCP": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `LCP` to the tool, first call the tool `expandSchema` with \"/properties/output/properties/metrics/properties/LCP\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
   "CLS": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CLS` to the tool, first call the tool `expandSchema` with \"/properties/output/properties/metrics/properties/CLS\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),

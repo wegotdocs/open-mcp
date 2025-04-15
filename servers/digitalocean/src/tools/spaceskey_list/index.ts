@@ -1,33 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `spaceskey_list`
-export const toolDescription = `List Spaces Access Keys`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/spaces/keys`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "per_page",
-    "page",
-    "sort",
-    "sort_direction",
-    "name",
-    "bucket",
-    "permission"
+const tool: OpenMCPServerTool = {
+  "toolName": "spaceskey_list",
+  "toolDescription": "List Spaces Access Keys",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/spaces/keys",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "per_page": "per_page",
+      "page": "page",
+      "sort": "sort",
+      "sort_direction": "sort_direction",
+      "name": "name",
+      "bucket": "bucket",
+      "permission": "permission"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

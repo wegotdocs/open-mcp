@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "view": z.enum(["account","project"]),
   "installationType": z.enum(["marketplace","external"]).optional(),
   "integrationIdOrSlug": z.string().describe("ID of the integration").optional(),

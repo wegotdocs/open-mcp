@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `partnerattachments_update_remote_routes`
-export const toolDescription = `Set remote routes for a partner attachment`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/partner_network_connect/attachments/{pa_id}/remote_routes`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "pa_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "partnerattachments_update_remote_routes",
+  "toolDescription": "Set remote routes for a partner attachment",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/partner_network_connect/attachments/{pa_id}/remote_routes",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "remote_routes"
-  ]
+  "paramsMap": {
+    "path": {
+      "pa_id": "pa_id"
+    },
+    "body": {
+      "remote_routes": "remote_routes"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

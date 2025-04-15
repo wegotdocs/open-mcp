@@ -1,42 +1,40 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `findusersandgroups`
-export const toolDescription = `Find users and groups`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/groupuserpicker`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "query",
-    "maxResults",
-    "showAvatar",
-    "fieldId",
-    "projectId",
-    "issueTypeId",
-    "avatarSize",
-    "caseInsensitive",
-    "excludeConnectAddons"
+const tool: OpenMCPServerTool = {
+  "toolName": "findusersandgroups",
+  "toolDescription": "Find users and groups",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/groupuserpicker",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "query": "query",
+      "maxResults": "maxResults",
+      "showAvatar": "showAvatar",
+      "fieldId": "fieldId",
+      "projectId": "projectId",
+      "issueTypeId": "issueTypeId",
+      "avatarSize": "avatarSize",
+      "caseInsensitive": "caseInsensitive",
+      "excludeConnectAddons": "excludeConnectAddons"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

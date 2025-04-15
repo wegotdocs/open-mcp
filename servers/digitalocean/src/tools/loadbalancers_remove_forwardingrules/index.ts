@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `loadbalancers_remove_forwardingrules`
-export const toolDescription = `Remove Forwarding Rules from a Load Balancer`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/load_balancers/{lb_id}/forwarding_rules`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "lb_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "loadbalancers_remove_forwardingrules",
+  "toolDescription": "Remove Forwarding Rules from a Load Balancer",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/load_balancers/{lb_id}/forwarding_rules",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "forwarding_rules"
-  ]
+  "paramsMap": {
+    "path": {
+      "lb_id": "lb_id"
+    },
+    "body": {
+      "forwarding_rules": "forwarding_rules"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

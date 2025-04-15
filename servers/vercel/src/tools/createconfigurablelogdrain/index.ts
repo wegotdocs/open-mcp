@@ -1,38 +1,38 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createconfigurablelogdrain`
-export const toolDescription = `Creates a Configurable Log Drain`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/log-drains`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "createconfigurablelogdrain",
+  "toolDescription": "Creates a Configurable Log Drain",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/log-drains",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "deliveryFormat",
-    "url",
-    "headers",
-    "projectIds",
-    "sources",
-    "environments",
-    "secret",
-    "samplingRate",
-    "name"
-  ]
+  "paramsMap": {
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "body": {
+      "deliveryFormat": "deliveryFormat",
+      "url": "url",
+      "headers": "headers",
+      "projectIds": "projectIds",
+      "sources": "sources",
+      "environments": "environments",
+      "secret": "secret",
+      "samplingRate": "samplingRate",
+      "name": "name"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

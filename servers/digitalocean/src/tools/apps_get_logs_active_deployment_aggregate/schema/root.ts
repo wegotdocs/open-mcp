@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "app_id": z.string().describe("The app ID"),
   "follow": z.boolean().describe("Whether the logs should follow live updates.").optional(),
   "type": z.enum(["UNSPECIFIED","BUILD","DEPLOY","RUN","RUN_RESTARTED"]).describe("The type of logs to retrieve\n- BUILD: Build-time logs\n- DEPLOY: Deploy-time logs\n- RUN: Live run-time logs\n- RUN_RESTARTED: Logs of crashed/restarted instances during runtime"),

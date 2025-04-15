@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "time_of_generation_min": z.string().datetime({ offset: true }).optional(),
   "time_of_generation_max": z.string().datetime({ offset: true }).optional(),
   "total_units_min": z.number().int().optional(),

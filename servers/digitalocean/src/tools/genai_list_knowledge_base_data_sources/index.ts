@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `genai_list_knowledge_base_data_sources`
-export const toolDescription = `List Data Sources for a Knowledge Base`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "page",
-    "per_page"
+const tool: OpenMCPServerTool = {
+  "toolName": "genai_list_knowledge_base_data_sources",
+  "toolDescription": "List Data Sources for a Knowledge Base",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "knowledge_base_uuid"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "knowledge_base_uuid": "knowledge_base_uuid"
+    },
+    "query": {
+      "page": "page",
+      "per_page": "per_page"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,37 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `removelevel`
-export const toolDescription = `Remove issue security level`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/issuesecurityschemes/{schemeId}/level/{levelId}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "removelevel",
+  "toolDescription": "Remove issue security level",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/issuesecurityschemes/{schemeId}/level/{levelId}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "schemeId": "schemeId",
+      "levelId": "levelId"
+    },
+    "query": {
+      "replaceWith": "replaceWith"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "replaceWith"
-  ],
-  "header": [],
-  "path": [
-    "schemeId",
-    "levelId"
-  ],
-  "cookie": [],
-  "body": []
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "projectIdOrKey": z.string().describe("The project ID or project key (case sensitive)."),
   "id": z.number().int().describe("The ID of the project role. Use [Get all project roles](#api-rest-api-3-role-get) to get a list of project role IDs."),
   "user": z.string().describe("The user account ID of the user to remove from the project role.").optional(),

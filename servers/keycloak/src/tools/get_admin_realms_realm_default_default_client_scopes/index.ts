@@ -1,16 +1,15 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_admin_realms_realm_default_default_client_scopes`
-export const toolDescription = `Get realm default client scopes.  Only name and ids are returned.`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/default-default-client-scopes`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_admin_realms_realm_default_default_client_scopes",
+  "toolDescription": "Get realm default client scopes. Only name and ids are returned.",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/default-default-client-scopes",
+  "method": "get",
+  "security": [],
+  "paramsMap": {},
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

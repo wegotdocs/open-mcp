@@ -1,35 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `submit_invoice`
-export const toolDescription = `Submit Invoice`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/installations/{integrationConfigurationId}/billing/invoices`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "integrationConfigurationId"
+const tool: OpenMCPServerTool = {
+  "toolName": "submit_invoice",
+  "toolDescription": "Submit Invoice",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/installations/{integrationConfigurationId}/billing/invoices",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "externalId",
-    "invoiceDate",
-    "memo",
-    "period",
-    "items",
-    "discounts",
-    "test"
-  ]
+  "paramsMap": {
+    "path": {
+      "integrationConfigurationId": "integrationConfigurationId"
+    },
+    "body": {
+      "externalId": "externalId",
+      "invoiceDate": "invoiceDate",
+      "memo": "memo",
+      "period": "period",
+      "items": "items",
+      "discounts": "discounts",
+      "test": "test"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

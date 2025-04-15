@@ -1,31 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_admin_realms_realm_users`
-export const toolDescription = `Get users Returns a stream of users, filtered according to query parameters.`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/users`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [
-    "briefRepresentation",
-    "email",
-    "emailVerified",
-    "enabled",
-    "exact",
-    "first",
-    "firstName",
-    "idpAlias",
-    "idpUserId",
-    "lastName",
-    "max",
-    "q",
-    "search",
-    "username"
-  ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_admin_realms_realm_users",
+  "toolDescription": "Get users Returns a stream of users, filtered according to query parameters.",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/users",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "query": {
+      "briefRepresentation": "briefRepresentation",
+      "email": "email",
+      "emailVerified": "emailVerified",
+      "enabled": "enabled",
+      "exact": "exact",
+      "first": "first",
+      "firstName": "firstName",
+      "idpAlias": "idpAlias",
+      "idpUserId": "idpUserId",
+      "lastName": "lastName",
+      "max": "max",
+      "q": "q",
+      "search": "search",
+      "username": "username"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

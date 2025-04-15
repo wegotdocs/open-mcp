@@ -1,36 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `import_resource`
-export const toolDescription = `Import Resource`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/installations/{integrationConfigurationId}/resources/{resourceId}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "integrationConfigurationId",
-    "resourceId"
+const tool: OpenMCPServerTool = {
+  "toolName": "import_resource",
+  "toolDescription": "Import Resource",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/installations/{integrationConfigurationId}/resources/{resourceId}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "productId",
-    "name",
-    "status",
-    "metadata",
-    "billingPlan",
-    "notification",
-    "secrets"
-  ]
+  "paramsMap": {
+    "path": {
+      "integrationConfigurationId": "integrationConfigurationId",
+      "resourceId": "resourceId"
+    },
+    "body": {
+      "productId": "productId",
+      "name": "name",
+      "status": "status",
+      "metadata": "metadata",
+      "billingPlan": "billingPlan",
+      "notification": "notification",
+      "secrets": "secrets"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

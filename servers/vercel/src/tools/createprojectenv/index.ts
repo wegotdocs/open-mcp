@@ -1,31 +1,31 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createprojectenv`
-export const toolDescription = `Create one or more environment variables`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v10/projects/{idOrName}/env`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "upsert",
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "createprojectenv",
+  "toolDescription": "Create one or more environment variables",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v10/projects/{idOrName}/env",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "idOrName"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "idOrName": "idOrName"
+    },
+    "query": {
+      "upsert": "upsert",
+      "teamId": "teamId",
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

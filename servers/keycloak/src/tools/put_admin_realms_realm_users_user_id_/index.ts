@@ -1,42 +1,43 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `put_admin_realms_realm_users_user_id_`
-export const toolDescription = `Update the user`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/users/{user-id}`
-export const method = `put`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "id",
-    "username",
-    "firstName",
-    "lastName",
-    "email",
-    "emailVerified",
-    "attributes",
-    "userProfileMetadata",
-    "self",
-    "origin",
-    "createdTimestamp",
-    "enabled",
-    "totp",
-    "federationLink",
-    "serviceAccountClientId",
-    "credentials",
-    "disableableCredentialTypes",
-    "requiredActions",
-    "federatedIdentities",
-    "realmRoles",
-    "clientRoles",
-    "clientConsents",
-    "notBefore",
-    "groups",
-    "access"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "put_admin_realms_realm_users_user_id_",
+  "toolDescription": "Update the user",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/users/{user-id}",
+  "method": "put",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "id": "id",
+      "username": "username",
+      "firstName": "firstName",
+      "lastName": "lastName",
+      "email": "email",
+      "emailVerified": "emailVerified",
+      "attributes": "attributes",
+      "userProfileMetadata": "userProfileMetadata",
+      "self": "self",
+      "origin": "origin",
+      "createdTimestamp": "createdTimestamp",
+      "enabled": "enabled",
+      "totp": "totp",
+      "federationLink": "federationLink",
+      "serviceAccountClientId": "serviceAccountClientId",
+      "credentials": "credentials",
+      "disableableCredentialTypes": "disableableCredentialTypes",
+      "requiredActions": "requiredActions",
+      "federatedIdentities": "federatedIdentities",
+      "realmRoles": "realmRoles",
+      "clientRoles": "clientRoles",
+      "clientConsents": "clientConsents",
+      "notBefore": "notBefore",
+      "groups": "groups",
+      "access": "access"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

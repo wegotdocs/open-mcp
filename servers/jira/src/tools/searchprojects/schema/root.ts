@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "startAt": z.number().int().describe("The index of the first item to return in a page of results (page offset).").optional(),
   "maxResults": z.number().int().describe("The maximum number of items to return per page.").optional(),
   "orderBy": z.enum(["category","-category","+category","key","-key","+key","name","-name","+name","owner","-owner","+owner","issueCount","-issueCount","+issueCount","lastIssueUpdatedDate","-lastIssueUpdatedDate","+lastIssueUpdatedDate","archivedDate","+archivedDate","-archivedDate","deletedDate","+deletedDate","-deletedDate"]).describe("[Order](#ordering) the results by a field.\n\n *  `category` Sorts by project category. A complete list of category IDs is found using [Get all project categories](#api-rest-api-3-projectCategory-get).\n *  `issueCount` Sorts by the total number of issues in each project.\n *  `key` Sorts by project key.\n *  `lastIssueUpdatedTime` Sorts by the last issue update time.\n *  `name` Sorts by project name.\n *  `owner` Sorts by project lead.\n *  `archivedDate` EXPERIMENTAL. Sorts by project archived date.\n *  `deletedDate` EXPERIMENTAL. Sorts by project deleted date.").optional(),

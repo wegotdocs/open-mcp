@@ -1,33 +1,34 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `updateprojectprotectionbypass`
-export const toolDescription = `Update Protection Bypass for Automation`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/projects/{idOrName}/protection-bypass`
-export const method = `patch`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "updateprojectprotectionbypass",
+  "toolDescription": "Update Protection Bypass for Automation",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/projects/{idOrName}/protection-bypass",
+  "method": "patch",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "idOrName"
-  ],
-  "cookie": [],
-  "body": [
-    "revoke",
-    "generate"
-  ]
+  "paramsMap": {
+    "path": {
+      "idOrName": "idOrName"
+    },
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "body": {
+      "revoke": "revoke",
+      "generate": "generate"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

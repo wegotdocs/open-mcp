@@ -1,20 +1,22 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `migrationresource_updateentitypropertiesvalue_put`
-export const toolDescription = `Bulk update entity properties`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/atlassian-connect/1/migration/properties/{entityType}`
-export const method = `put`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [
-    "Atlassian-Transfer-Id"
-  ],
-  "path": [
-    "entityType"
-  ],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "migrationresource_updateentitypropertiesvalue_put",
+  "toolDescription": "Bulk update entity properties",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/atlassian-connect/1/migration/properties/{entityType}",
+  "method": "put",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "entityType": "entityType"
+    },
+    "header": {
+      "Atlassian-Transfer-Id": "Atlassian-Transfer-Id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

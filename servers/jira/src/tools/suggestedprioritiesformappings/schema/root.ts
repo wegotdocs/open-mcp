@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "maxResults": z.number().int().describe("The maximum number of results that could be on the page.").optional(),
   "priorities": z.string().optional(),
   "projects": z.string().optional(),

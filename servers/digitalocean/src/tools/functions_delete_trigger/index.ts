@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `functions_delete_trigger`
-export const toolDescription = `Delete Trigger`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/functions/namespaces/{namespace_id}/triggers/{trigger_name}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "namespace_id",
-    "trigger_name"
+const tool: OpenMCPServerTool = {
+  "toolName": "functions_delete_trigger",
+  "toolDescription": "Delete Trigger",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/functions/namespaces/{namespace_id}/triggers/{trigger_name}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "namespace_id": "namespace_id",
+      "trigger_name": "trigger_name"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

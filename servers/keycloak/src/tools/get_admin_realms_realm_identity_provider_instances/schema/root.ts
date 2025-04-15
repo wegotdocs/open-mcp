@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "briefRepresentation": z.boolean().describe("Boolean which defines whether brief representations are returned (default: false)").optional(),
   "first": z.number().int().describe("Pagination offset").optional(),
   "max": z.number().int().describe("Maximum results size (defaults to 100)").optional(),

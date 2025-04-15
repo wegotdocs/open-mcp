@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "name": z.string().describe("The name of the domain itself. This should follow the standard domain format of domain.TLD. For instance, `example.com` is a valid domain name.").optional(),
   "ip_address": z.string().describe("This optional attribute may contain an IP address. When provided, an A record will be automatically created pointing to the apex domain.").optional(),
   "ttl": z.number().int().nullable().describe("This value is the time to live for the records on this domain, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.").readonly().optional(),

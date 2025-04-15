@@ -1,38 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getsubscriptionssearch`
-export const toolDescription = `Search subscriptions`
-export const baseUrl = `https://api.stripe.com`
-export const path = `/v1/subscriptions/search`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "expand",
-    "limit",
-    "page",
-    "query"
+const tool: OpenMCPServerTool = {
+  "toolName": "getsubscriptionssearch",
+  "toolDescription": "Search subscriptions",
+  "baseUrl": "https://api.stripe.com",
+  "path": "/v1/subscriptions/search",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "expand": "expand",
+      "limit": "limit",
+      "page": "page",
+      "query": "query"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

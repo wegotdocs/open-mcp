@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "api_key_uuid": z.string().describe("API key ID"),
   "api_key": z.string().describe("Anthropic API key").optional(),
   "b_api_key_uuid": z.string().describe("API key ID").optional(),

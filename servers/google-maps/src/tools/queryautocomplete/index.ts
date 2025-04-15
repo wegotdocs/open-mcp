@@ -1,33 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `queryautocomplete`
-export const toolDescription = `The Query Autocomplete service can be used to provide a query prediction for text-based geographic searches, by returning suggested queries as you type.
-
-The Query Autocomplete service allows you to add on-the-fly geographic query predictio`
-export const baseUrl = `https://maps.googleapis.com`
-export const path = `/maps/api/place/queryautocomplete/json`
-export const method = `get`
-export const security = [
-  {
-    "key": "key",
-    "value": "<mcp-env-var>KEY</mcp-env-var>",
-    "in": "query",
-    "envVarName": "KEY",
-    "schemeType": "apiKey",
-    "schemeName": "key"
-  }
-]
-export const keys = {
-  "query": [
-    "input",
-    "offset",
-    "location",
-    "radius",
-    "language"
+const tool: OpenMCPServerTool = {
+  "toolName": "queryautocomplete",
+  "toolDescription": "The Query Autocomplete service can be used to provide a query prediction for text-based geographic searches, by returning suggested queries as you type.\n\nThe Query Autocomplete service allows you to add on-the-fly geographic query predictio",
+  "baseUrl": "https://maps.googleapis.com",
+  "path": "/maps/api/place/queryautocomplete/json",
+  "method": "get",
+  "security": [
+    {
+      "key": "key",
+      "value": "<mcp-env-var>KEY</mcp-env-var>",
+      "in": "query",
+      "envVarName": "KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "input": "input",
+      "offset": "offset",
+      "location": "location",
+      "radius": "radius",
+      "language": "language"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

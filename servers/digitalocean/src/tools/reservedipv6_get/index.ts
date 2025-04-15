@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `reservedipv6_get`
-export const toolDescription = `[Public Preview] Retrieve an Existing Reserved IPv6`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/reserved_ipv6/{reserved_ipv6}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "reserved_ipv6"
+const tool: OpenMCPServerTool = {
+  "toolName": "reservedipv6_get",
+  "toolDescription": "[Public Preview] Retrieve an Existing Reserved IPv6",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/reserved_ipv6/{reserved_ipv6}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "reserved_ipv6": "reserved_ipv6"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

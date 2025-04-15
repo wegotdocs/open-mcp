@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "email": z.string(),
   "workspaces": z.array(z.object({ "id": z.string().describe("Workspace Slug"), "role": z.enum(["admin","member","manager"]) })),
   "role": z.enum(["admin","member"]),

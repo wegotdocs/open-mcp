@@ -1629,20 +1629,6 @@ Expand the input schema for a tool before calling the tool
 }
 ```
 
-### queryexperimentationitems
-
-**Environment variables**
-
-- `API_KEY`
-
-**Input schema**
-
-```ts
-{
-  "resourceId": z.string().optional()
-}
-```
-
 ### post_v1_installations_integrationconfigurationid_resources_resou
 
 **Environment variables**

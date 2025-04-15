@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "alias": z.string().describe("Alias of required action"),
   "b_alias": z.string().optional(),
   "name": z.string().optional(),

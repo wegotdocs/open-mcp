@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "recordId": z.string().describe("The id of the DNS record"),
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),

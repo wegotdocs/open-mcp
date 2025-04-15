@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("Unique identifier for a `Source` that was uploaded to Totoy."),
   "text_content": z.string().max(1000000).describe("Plain-text string to replace the original `text_content` of the `Source`.").optional(),
   "title": z.string().max(512).describe("Title of the text `Source`.").optional(),

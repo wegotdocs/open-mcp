@@ -1,28 +1,28 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `put_admin_realms_realm_authentication_required_actions_alias_`
-export const toolDescription = `Update required action`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/authentication/required-actions/{alias}`
-export const method = `put`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "alias"
-  ],
-  "cookie": [],
-  "body": [
-    "b_alias",
-    "name",
-    "providerId",
-    "enabled",
-    "defaultAction",
-    "priority",
-    "config"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "put_admin_realms_realm_authentication_required_actions_alias_",
+  "toolDescription": "Update required action",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/authentication/required-actions/{alias}",
+  "method": "put",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "alias": "alias"
+    },
+    "body": {
+      "alias": "b_alias",
+      "name": "name",
+      "providerId": "providerId",
+      "enabled": "enabled",
+      "defaultAction": "defaultAction",
+      "priority": "priority",
+      "config": "config"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_alias": "alias"
-}
+
+export default tool

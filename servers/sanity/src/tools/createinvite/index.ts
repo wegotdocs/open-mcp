@@ -1,31 +1,31 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createinvite`
-export const toolDescription = `Create invite`
-export const baseUrl = `https://api.sanity.io`
-export const path = `/vX/access/{resourceType}/{resourceId}/invites`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "resourceType",
-    "resourceId"
+const tool: OpenMCPServerTool = {
+  "toolName": "createinvite",
+  "toolDescription": "Create invite",
+  "baseUrl": "https://api.sanity.io",
+  "path": "/vX/access/{resourceType}/{resourceId}/invites",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "email",
-    "role"
-  ]
+  "paramsMap": {
+    "path": {
+      "resourceType": "resourceType",
+      "resourceId": "resourceId"
+    },
+    "body": {
+      "email": "email",
+      "role": "role"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,32 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `databases_update_maintenancewindow`
-export const toolDescription = `Configure a Database Cluster's Maintenance Window`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/databases/{database_cluster_uuid}/maintenance`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "database_cluster_uuid"
+const tool: OpenMCPServerTool = {
+  "toolName": "databases_update_maintenancewindow",
+  "toolDescription": "Configure a Database Cluster's Maintenance Window",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/databases/{database_cluster_uuid}/maintenance",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "day",
-    "hour",
-    "pending",
-    "description"
-  ]
+  "paramsMap": {
+    "path": {
+      "database_cluster_uuid": "database_cluster_uuid"
+    },
+    "body": {
+      "day": "day",
+      "hour": "hour",
+      "pending": "pending",
+      "description": "description"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

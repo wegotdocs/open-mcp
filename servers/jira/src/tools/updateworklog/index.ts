@@ -1,57 +1,55 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `updateworklog`
-export const toolDescription = `Update worklog`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/issue/{issueIdOrKey}/worklog/{id}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "updateworklog",
+  "toolDescription": "Update worklog",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/issue/{issueIdOrKey}/worklog/{id}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "issueIdOrKey": "issueIdOrKey",
+      "id": "id"
+    },
+    "query": {
+      "notifyUsers": "notifyUsers",
+      "adjustEstimate": "adjustEstimate",
+      "newEstimate": "newEstimate",
+      "expand": "expand",
+      "overrideEditableFlag": "overrideEditableFlag"
+    },
+    "body": {
+      "author": "author",
+      "comment": "comment",
+      "created": "created",
+      "id": "b_id",
+      "issueId": "issueId",
+      "properties": "properties",
+      "self": "self",
+      "started": "started",
+      "timeSpent": "timeSpent",
+      "timeSpentSeconds": "timeSpentSeconds",
+      "updateAuthor": "updateAuthor",
+      "updated": "updated",
+      "visibility": "visibility"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "notifyUsers",
-    "adjustEstimate",
-    "newEstimate",
-    "expand",
-    "overrideEditableFlag"
-  ],
-  "header": [],
-  "path": [
-    "issueIdOrKey",
-    "id"
-  ],
-  "cookie": [],
-  "body": [
-    "author",
-    "comment",
-    "created",
-    "b_id",
-    "issueId",
-    "properties",
-    "self",
-    "started",
-    "timeSpent",
-    "timeSpentSeconds",
-    "updateAuthor",
-    "updated",
-    "visibility"
-  ]
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_id": "id"
-}
+
+export default tool

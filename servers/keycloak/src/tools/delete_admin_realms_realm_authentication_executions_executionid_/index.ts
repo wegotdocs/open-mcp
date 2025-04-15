@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `delete_admin_realms_realm_authentication_executions_executionid_`
-export const toolDescription = `Delete execution`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/authentication/executions/{executionId}`
-export const method = `delete`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "executionId"
-  ],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "delete_admin_realms_realm_authentication_executions_executionid_",
+  "toolDescription": "Delete execution",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/authentication/executions/{executionId}",
+  "method": "delete",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "executionId": "executionId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

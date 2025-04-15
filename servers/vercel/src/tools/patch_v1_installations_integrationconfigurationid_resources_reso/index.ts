@@ -1,38 +1,38 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `patch_v1_installations_integrationconfigurationid_resources_reso`
-export const toolDescription = `Patch an existing experimentation item`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/installations/{integrationConfigurationId}/resources/{resourceId}/experimentation/items/{itemId}`
-export const method = `patch`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "integrationConfigurationId",
-    "resourceId",
-    "itemId"
+const tool: OpenMCPServerTool = {
+  "toolName": "patch_v1_installations_integrationconfigurationid_resources_reso",
+  "toolDescription": "Patch an existing experimentation item",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/installations/{integrationConfigurationId}/resources/{resourceId}/experimentation/items/{itemId}",
+  "method": "patch",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "slug",
-    "origin",
-    "name",
-    "category",
-    "description",
-    "isArchived",
-    "createdAt",
-    "updatedAt"
-  ]
+  "paramsMap": {
+    "path": {
+      "integrationConfigurationId": "integrationConfigurationId",
+      "resourceId": "resourceId",
+      "itemId": "itemId"
+    },
+    "body": {
+      "slug": "slug",
+      "origin": "origin",
+      "name": "name",
+      "category": "category",
+      "description": "description",
+      "isArchived": "isArchived",
+      "createdAt": "createdAt",
+      "updatedAt": "updatedAt"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

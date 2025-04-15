@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.string(),
   "extendAdminPermissions": z.boolean().describe("Whether admin level permissions are used. It should only be true if the user has *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg)").optional(),
   "description": z.string().describe("The description of the dashboard.").optional(),

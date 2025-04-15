@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "thread_id": z.string().describe("The ID of the thread the run and run steps belong to."),
   "run_id": z.string().describe("The ID of the run the run steps belong to."),
   "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),

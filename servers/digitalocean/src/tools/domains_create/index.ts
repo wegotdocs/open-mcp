@@ -1,30 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `domains_create`
-export const toolDescription = `Create a New Domain`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/domains`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "name",
-    "ip_address",
-    "ttl",
-    "zone_file"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "domains_create",
+  "toolDescription": "Create a New Domain",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/domains",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "name": "name",
+      "ip_address": "ip_address",
+      "ttl": "ttl",
+      "zone_file": "zone_file"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

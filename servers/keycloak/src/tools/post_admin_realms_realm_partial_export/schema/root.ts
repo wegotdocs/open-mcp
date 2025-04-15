@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "exportClients": z.boolean().optional(),
   "exportGroupsAndRoles": z.boolean().optional()
 }

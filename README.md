@@ -7,7 +7,7 @@ OpenMCP is both:
 1. a standard for converting web APIs into MCP servers
 2. an open source registry of servers which follow the standard
 
-Each OpenMCP server gives MCP clients the ability to make requests to a particular web API. Together the servers in the registry represent a broad range of services, empowering the underlying client LLMs to fetch data and perform actions on behalf of their users across many domains.
+Each OpenMCP server gives MCP clients the ability to make requests to a particular web API in a token-efficient way. Together the servers in the registry represent a broad range of services, empowering the underlying client LLMs to fetch data and perform actions on behalf of their users across many domains.
 
 ## Contents
 
@@ -37,6 +37,8 @@ https://www.open-mcp.org/servers/creating
 npx @open-mcp/{server-id} add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
 ```
 
+Now restart Claude desktop to load the tools.
+
 #### Cursor
 
 Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
@@ -44,6 +46,8 @@ Run this from the root of your project directory or, to add to all cursor projec
 ```bash
 npx @open-mcp/{server-id} add-to-client .cursor/mcp.json
 ```
+
+Now go to `Cursor > Settings > Cursor Settings` then click `MCP` to ensure the server is enabled.
 
 #### Other clients
 

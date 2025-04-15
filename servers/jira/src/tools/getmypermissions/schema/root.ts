@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "projectKey": z.string().describe("The key of project. Ignored if `projectId` is provided.").optional(),
   "projectId": z.string().describe("The ID of project.").optional(),
   "issueKey": z.string().describe("The key of the issue. Ignored if `issueId` is provided.").optional(),

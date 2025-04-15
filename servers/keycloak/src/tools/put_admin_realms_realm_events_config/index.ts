@@ -1,23 +1,24 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `put_admin_realms_realm_events_config`
-export const toolDescription = `Update the events provider Change the events provider and/or its configuration`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/events/config`
-export const method = `put`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "eventsEnabled",
-    "eventsExpiration",
-    "eventsListeners",
-    "enabledEventTypes",
-    "adminEventsEnabled",
-    "adminEventsDetailsEnabled"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "put_admin_realms_realm_events_config",
+  "toolDescription": "Update the events provider Change the events provider and/or its configuration",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/events/config",
+  "method": "put",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "eventsEnabled": "eventsEnabled",
+      "eventsExpiration": "eventsExpiration",
+      "eventsListeners": "eventsListeners",
+      "enabledEventTypes": "enabledEventTypes",
+      "adminEventsEnabled": "adminEventsEnabled",
+      "adminEventsDetailsEnabled": "adminEventsDetailsEnabled"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

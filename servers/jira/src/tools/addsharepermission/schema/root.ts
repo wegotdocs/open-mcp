@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.number().int().describe("The ID of the filter."),
   "accountId": z.string().describe("The user account ID that the filter is shared with. For a request, specify the `accountId` property for the user.").optional(),
   "groupId": z.string().describe("The ID of the group, which uniquely identifies the group across all Atlassian products.For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*. Cannot be provided with `groupname`.").optional(),

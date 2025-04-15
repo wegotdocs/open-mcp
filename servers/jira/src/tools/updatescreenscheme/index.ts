@@ -1,38 +1,37 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `updatescreenscheme`
-export const toolDescription = `Update screen scheme`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/screenscheme/{screenSchemeId}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "screenSchemeId"
+const tool: OpenMCPServerTool = {
+  "toolName": "updatescreenscheme",
+  "toolDescription": "Update screen scheme",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/screenscheme/{screenSchemeId}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "description",
-    "name",
-    "screens"
-  ]
+  "paramsMap": {
+    "path": {
+      "screenSchemeId": "screenSchemeId"
+    },
+    "body": {
+      "description": "description",
+      "name": "name",
+      "screens": "screens"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

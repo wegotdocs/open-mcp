@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "event_type": z.enum(["PING","FILE_UPDATE","FILE_VERSION_UPDATE","FILE_DELETE","LIBRARY_PUBLISH","FILE_COMMENT"]).describe("An enum representing the possible events that a webhook can subscribe to"),
   "team_id": z.string().describe("Team id to receive updates about"),
   "endpoint": z.string().describe("The HTTP endpoint that will receive a POST request when the event triggers. Max length 2048 characters."),

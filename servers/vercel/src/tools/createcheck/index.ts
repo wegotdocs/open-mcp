@@ -1,37 +1,38 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createcheck`
-export const toolDescription = `Creates a new Check`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/deployments/{deploymentId}/checks`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "createcheck",
+  "toolDescription": "Creates a new Check",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/deployments/{deploymentId}/checks",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "deploymentId"
-  ],
-  "cookie": [],
-  "body": [
-    "name",
-    "path",
-    "blocking",
-    "detailsUrl",
-    "externalId",
-    "rerequestable"
-  ]
+  "paramsMap": {
+    "path": {
+      "deploymentId": "deploymentId"
+    },
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "body": {
+      "name": "name",
+      "path": "path",
+      "blocking": "blocking",
+      "detailsUrl": "detailsUrl",
+      "externalId": "externalId",
+      "rerequestable": "rerequestable"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

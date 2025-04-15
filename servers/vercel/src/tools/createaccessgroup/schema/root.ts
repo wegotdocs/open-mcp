@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
   "name": z.string().regex(new RegExp("^[A-z0-9_ -]+$")).max(50).describe("The name of the access group"),

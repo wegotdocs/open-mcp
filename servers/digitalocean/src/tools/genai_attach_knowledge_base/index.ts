@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `genai_attach_knowledge_base`
-export const toolDescription = `Attach Knowledge Base to an Agent`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/gen-ai/agents/{agent_uuid}/knowledge_bases/{knowledge_base_uuid}`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "agent_uuid",
-    "knowledge_base_uuid"
+const tool: OpenMCPServerTool = {
+  "toolName": "genai_attach_knowledge_base",
+  "toolDescription": "Attach Knowledge Base to an Agent",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/gen-ai/agents/{agent_uuid}/knowledge_bases/{knowledge_base_uuid}",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "agent_uuid": "agent_uuid",
+      "knowledge_base_uuid": "knowledge_base_uuid"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

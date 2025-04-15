@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `healthcheck`
-export const toolDescription = `Healthcheck`
-export const baseUrl = `https://api.epa.gov/lew`
-export const path = `/v1/health`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [
-    "X-Api-Key"
-  ],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "healthcheck",
+  "toolDescription": "Healthcheck",
+  "baseUrl": "https://api.epa.gov/lew",
+  "path": "/v1/health",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "header": {
+      "X-Api-Key": "X-Api-Key"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

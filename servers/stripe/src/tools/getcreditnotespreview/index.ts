@@ -1,48 +1,45 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getcreditnotespreview`
-export const toolDescription = `Preview a credit note`
-export const baseUrl = `https://api.stripe.com`
-export const path = `/v1/credit_notes/preview`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "amount",
-    "credit_amount",
-    "effective_at",
-    "email_type",
-    "expand",
-    "invoice",
-    "lines",
-    "memo",
-    "metadata",
-    "out_of_band_amount",
-    "reason",
-    "refund_amount",
-    "refunds",
-    "shipping_cost"
+const tool: OpenMCPServerTool = {
+  "toolName": "getcreditnotespreview",
+  "toolDescription": "Preview a credit note",
+  "baseUrl": "https://api.stripe.com",
+  "path": "/v1/credit_notes/preview",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "amount": "amount",
+      "credit_amount": "credit_amount",
+      "effective_at": "effective_at",
+      "email_type": "email_type",
+      "expand": "expand",
+      "invoice": "invoice",
+      "lines": "lines",
+      "memo": "memo",
+      "metadata": "metadata",
+      "out_of_band_amount": "out_of_band_amount",
+      "reason": "reason",
+      "refund_amount": "refund_amount",
+      "refunds": "refunds",
+      "shipping_cost": "shipping_cost"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

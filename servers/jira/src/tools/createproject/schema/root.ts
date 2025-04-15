@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "assigneeType": z.enum(["PROJECT_LEAD","UNASSIGNED"]).describe("The default assignee when creating issues for this project.").optional(),
   "avatarId": z.number().int().describe("An integer value for the project's avatar.").optional(),
   "categoryId": z.number().int().describe("The ID of the project's category. A complete list of category IDs is found using the [Get all project categories](#api-rest-api-3-projectCategory-get) operation.").optional(),

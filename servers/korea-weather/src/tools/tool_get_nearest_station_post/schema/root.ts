@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "latitude": z.number(),
   "longitude": z.number()
 }

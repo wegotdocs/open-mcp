@@ -1,43 +1,40 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `gettreasurytransactions`
-export const toolDescription = `List all Transactions`
-export const baseUrl = `https://api.stripe.com`
-export const path = `/v1/treasury/transactions`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "created",
-    "ending_before",
-    "expand",
-    "financial_account",
-    "limit",
-    "order_by",
-    "starting_after",
-    "status",
-    "status_transitions"
+const tool: OpenMCPServerTool = {
+  "toolName": "gettreasurytransactions",
+  "toolDescription": "List all Transactions",
+  "baseUrl": "https://api.stripe.com",
+  "path": "/v1/treasury/transactions",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "created": "created",
+      "ending_before": "ending_before",
+      "expand": "expand",
+      "financial_account": "financial_account",
+      "limit": "limit",
+      "order_by": "order_by",
+      "starting_after": "starting_after",
+      "status": "status",
+      "status_transitions": "status_transitions"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

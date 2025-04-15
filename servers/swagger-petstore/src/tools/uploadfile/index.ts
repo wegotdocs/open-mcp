@@ -1,28 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `uploadfile`
-export const toolDescription = `Uploads an image.`
-export const baseUrl = `https://petstore3.swagger.io/api/v3`
-export const path = `/pet/{petId}/uploadImage`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "additionalMetadata"
+const tool: OpenMCPServerTool = {
+  "toolName": "uploadfile",
+  "toolDescription": "Uploads an image.",
+  "baseUrl": "https://petstore3.swagger.io/api/v3",
+  "path": "/pet/{petId}/uploadImage",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [
-    "petId"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "petId": "petId"
+    },
+    "query": {
+      "additionalMetadata": "additionalMetadata"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

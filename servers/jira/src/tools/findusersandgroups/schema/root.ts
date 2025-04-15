@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "query": z.string().describe("The search string."),
   "maxResults": z.number().int().describe("The maximum number of items to return in each list.").optional(),
   "showAvatar": z.boolean().describe("Whether the user avatar should be returned. If an invalid value is provided, the default value is used.").optional(),

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "name": z.string().describe("The name(s) to be applied to all Droplets in the autoscale pool.").optional(),
   "region": z.enum(["nyc1","nyc2","nyc3","ams2","ams3","sfo1","sfo2","sfo3","sgp1","lon1","fra1","tor1","blr1","syd1"]).describe("The datacenter in which all of the Droplets will be created."),
   "size": z.string().describe("The Droplet size to be used for all Droplets in the autoscale pool."),

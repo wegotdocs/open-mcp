@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `invoices_get_byuuid`
-export const toolDescription = `Retrieve an Invoice by UUID`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/customers/my/invoices/{invoice_uuid}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "per_page",
-    "page"
+const tool: OpenMCPServerTool = {
+  "toolName": "invoices_get_byuuid",
+  "toolDescription": "Retrieve an Invoice by UUID",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/customers/my/invoices/{invoice_uuid}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "invoice_uuid"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "invoice_uuid": "invoice_uuid"
+    },
+    "query": {
+      "per_page": "per_page",
+      "page": "page"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

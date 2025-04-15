@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.string(),
   "category": z.string().describe("The category of the related work"),
   "issueId": z.number().int().describe("The ID of the issue associated with the related work (if there is one). Cannot be updated via the Rest API.").readonly().optional(),

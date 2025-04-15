@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "gt": z.number().int().optional(),
   "gte": z.number().int().optional(),
   "lt": z.number().int().optional(),

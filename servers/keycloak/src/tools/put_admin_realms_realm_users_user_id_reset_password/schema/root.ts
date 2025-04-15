@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.string().optional(),
   "type": z.string().optional(),
   "userLabel": z.string().optional(),
@@ -9,5 +9,6 @@ export const inputParams = {
   "credentialData": z.string().optional(),
   "priority": z.number().int().optional(),
   "value": z.string().optional(),
-  "temporary": z.boolean().optional()
+  "temporary": z.boolean().optional(),
+  "federationLink": z.string().optional()
 }

@@ -1,5 +1,5 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "check_id": z.string().uuid().describe("A unique identifier for a check.")
 }

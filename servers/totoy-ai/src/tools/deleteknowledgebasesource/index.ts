@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `deleteknowledgebasesource`
-export const toolDescription = `Removes a Knowledge Base Source from a Knowledge Base.`
-export const baseUrl = `https://api.totoy.ai/v1`
-export const path = `/knowledge-bases/{knowledge_base_id}/sources/{source_id}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "knowledge_base_id",
-    "source_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "deleteknowledgebasesource",
+  "toolDescription": "Removes a Knowledge Base Source from a Knowledge Base.",
+  "baseUrl": "https://api.totoy.ai/v1",
+  "path": "/knowledge-bases/{knowledge_base_id}/sources/{source_id}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "knowledge_base_id": "knowledge_base_id",
+      "source_id": "source_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

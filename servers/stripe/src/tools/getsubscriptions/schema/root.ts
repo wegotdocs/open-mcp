@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "automatic_tax": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `automatic_tax` to the tool, first call the tool `expandSchema` with \"/properties/automatic_tax\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Filter subscriptions by their automatic tax settings.</property-description>").optional(),
   "collection_method": z.enum(["charge_automatically","send_invoice"]).describe("The collection method of the subscriptions to retrieve. Either `charge_automatically` or `send_invoice`.").optional(),
   "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscriptions that were created during the given date interval.").optional(),

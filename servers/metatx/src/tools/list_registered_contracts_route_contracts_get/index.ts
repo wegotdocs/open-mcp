@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `list_registered_contracts_route_contracts_get`
-export const toolDescription = `List Registered Contracts Route`
-export const baseUrl = `https://engineapi.moonstream.to/metatx`
-export const path = `/contracts`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "blockchain",
-    "address",
-    "limit",
-    "offset"
+const tool: OpenMCPServerTool = {
+  "toolName": "list_registered_contracts_route_contracts_get",
+  "toolDescription": "List Registered Contracts Route",
+  "baseUrl": "https://engineapi.moonstream.to/metatx",
+  "path": "/contracts",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "blockchain": "blockchain",
+      "address": "address",
+      "limit": "limit",
+      "offset": "offset"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

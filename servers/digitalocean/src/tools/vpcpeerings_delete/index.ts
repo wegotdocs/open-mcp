@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `vpcpeerings_delete`
-export const toolDescription = `Delete a VPC peering`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/vpc_peerings/{vpc_peering_id}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "vpc_peering_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "vpcpeerings_delete",
+  "toolDescription": "Delete a VPC peering",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/vpc_peerings/{vpc_peering_id}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "vpc_peering_id": "vpc_peering_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "edgeConfigId": z.string(),
   "token": z.string(),
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),

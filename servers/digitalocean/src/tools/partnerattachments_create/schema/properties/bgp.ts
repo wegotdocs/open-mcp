@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "local_router_ip": z.string().describe("IP of the DO router"),
   "peer_router_ip": z.string().describe("IP of the Naas Provider router"),
   "peer_router_asn": z.number().int().describe("ASN of the peer router"),

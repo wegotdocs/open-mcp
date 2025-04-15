@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "planId": z.number().int().describe("The ID of the plan."),
   "capacity": z.number().describe("The capacity for the plan-only team.").optional(),
   "issueSourceId": z.number().int().describe("The ID of the issue source for the plan-only team.").optional(),

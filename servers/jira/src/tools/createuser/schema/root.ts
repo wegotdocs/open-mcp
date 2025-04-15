@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "applicationKeys": z.array(z.string()).describe("Deprecated, do not use.").optional(),
   "displayName": z.string().describe("This property is no longer available. If the user has an Atlassian account, their display name is not changed. If the user does not have an Atlassian account, they are sent an email asking them set up an account.").optional(),
   "emailAddress": z.string().describe("The email address for the user."),

@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `genai_list_anthropic_api_keys`
-export const toolDescription = `List Anthropic API Keys`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/gen-ai/anthropic/keys`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "page",
-    "per_page"
+const tool: OpenMCPServerTool = {
+  "toolName": "genai_list_anthropic_api_keys",
+  "toolDescription": "List Anthropic API Keys",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/gen-ai/anthropic/keys",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "page": "page",
+      "per_page": "per_page"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,16 +1,15 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `delete_admin_realms_realm_clients_client_uuid_scope_mappings_cli`
-export const toolDescription = `Remove client-level roles from the client's scope.`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/clients/{client-uuid}/scope-mappings/clients/{client}`
-export const method = `delete`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "delete_admin_realms_realm_clients_client_uuid_scope_mappings_cli",
+  "toolDescription": "Remove client-level roles from the client's scope.",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/clients/{client-uuid}/scope-mappings/clients/{client}",
+  "method": "delete",
+  "security": [],
+  "paramsMap": {},
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

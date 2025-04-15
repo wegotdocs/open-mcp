@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.number().int().describe("The ID of the workflow scheme."),
   "workflowName": z.string().describe("The name of the workflow."),
   "defaultMapping": z.boolean().describe("Whether the workflow is the default workflow for the workflow scheme.").optional(),

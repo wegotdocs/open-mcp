@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "username": z.string().describe("name that need to be deleted"),
   "id": z.number().int().optional(),
   "b_username": z.string().optional(),

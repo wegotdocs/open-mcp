@@ -1,32 +1,33 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `post_admin_realms_realm_identity_provider_instances`
-export const toolDescription = `Create a new identity provider`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/identity-provider/instances`
-export const method = `post`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "alias",
-    "displayName",
-    "internalId",
-    "providerId",
-    "enabled",
-    "trustEmail",
-    "storeToken",
-    "addReadTokenRoleOnCreate",
-    "authenticateByDefault",
-    "linkOnly",
-    "hideOnLogin",
-    "firstBrokerLoginFlowAlias",
-    "postBrokerLoginFlowAlias",
-    "organizationId",
-    "config"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "post_admin_realms_realm_identity_provider_instances",
+  "toolDescription": "Create a new identity provider",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/identity-provider/instances",
+  "method": "post",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "alias": "alias",
+      "displayName": "displayName",
+      "internalId": "internalId",
+      "providerId": "providerId",
+      "enabled": "enabled",
+      "trustEmail": "trustEmail",
+      "storeToken": "storeToken",
+      "addReadTokenRoleOnCreate": "addReadTokenRoleOnCreate",
+      "authenticateByDefault": "authenticateByDefault",
+      "linkOnly": "linkOnly",
+      "hideOnLogin": "hideOnLogin",
+      "firstBrokerLoginFlowAlias": "firstBrokerLoginFlowAlias",
+      "postBrokerLoginFlowAlias": "postBrokerLoginFlowAlias",
+      "organizationId": "organizationId",
+      "config": "config"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

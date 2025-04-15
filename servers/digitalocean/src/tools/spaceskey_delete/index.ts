@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `spaceskey_delete`
-export const toolDescription = `Delete a Spaces Access Key`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/spaces/keys/{access_key}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "access_key"
+const tool: OpenMCPServerTool = {
+  "toolName": "spaceskey_delete",
+  "toolDescription": "Delete a Spaces Access Key",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/spaces/keys/{access_key}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "access_key": "access_key"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "parent_agent_uuid": z.string().describe("A unique identifier for the parent agent."),
   "child_agent_uuid": z.string().describe("Routed agent id"),
   "b_child_agent_uuid": z.string().describe("Routed agent id").optional(),

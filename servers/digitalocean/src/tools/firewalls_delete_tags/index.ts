@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `firewalls_delete_tags`
-export const toolDescription = `Remove Tags from a Firewall`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/firewalls/{firewall_id}/tags`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "firewall_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "firewalls_delete_tags",
+  "toolDescription": "Remove Tags from a Firewall",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/firewalls/{firewall_id}/tags",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "tags"
-  ]
+  "paramsMap": {
+    "path": {
+      "firewall_id": "firewall_id"
+    },
+    "body": {
+      "tags": "tags"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

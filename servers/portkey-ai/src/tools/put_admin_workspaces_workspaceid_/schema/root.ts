@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "workspaceId": z.string(),
   "name": z.string().optional(),
   "description": z.string().optional(),

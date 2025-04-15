@@ -1,38 +1,38 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `post_api_keys_type_sub_type_`
-export const toolDescription = `Create Api Keys`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/api-keys/{type}/{sub-type}`
-export const method = `post`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "type",
-    "sub-type"
+const tool: OpenMCPServerTool = {
+  "toolName": "post_api_keys_type_sub_type_",
+  "toolDescription": "Create Api Keys",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/api-keys/{type}/{sub-type}",
+  "method": "post",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "name",
-    "description",
-    "workspace_id",
-    "user_id",
-    "rate_limits",
-    "usage_limits",
-    "scopes",
-    "defaults",
-    "alert_emails"
-  ]
+  "paramsMap": {
+    "path": {
+      "type": "type",
+      "sub-type": "sub-type"
+    },
+    "body": {
+      "name": "name",
+      "description": "description",
+      "workspace_id": "workspace_id",
+      "user_id": "user_id",
+      "rate_limits": "rate_limits",
+      "usage_limits": "usage_limits",
+      "scopes": "scopes",
+      "defaults": "defaults",
+      "alert_emails": "alert_emails"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

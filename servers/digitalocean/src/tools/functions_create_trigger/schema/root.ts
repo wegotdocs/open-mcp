@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "namespace_id": z.string().describe("The ID of the namespace to be managed."),
   "name": z.string().describe("The trigger's unique name within the namespace."),
   "function": z.string().describe("Name of function(action) that exists in the given namespace."),

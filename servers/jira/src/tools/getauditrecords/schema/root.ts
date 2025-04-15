@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "offset": z.number().int().describe("The number of records to skip before returning the first result.").optional(),
   "limit": z.number().int().describe("The maximum number of results to return.").optional(),
   "filter": z.string().describe("The strings to match with audit field content, space separated.").optional(),

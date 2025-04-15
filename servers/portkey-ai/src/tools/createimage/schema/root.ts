@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "prompt": z.string().describe("A text description of the desired image(s). The maximum length is 1000 characters for `dall-e-2` and 4000 characters for `dall-e-3`."),
   "model": z.union([z.string(), z.enum(["dall-e-2","dall-e-3"])]).nullable().describe("The model to use for image generation.").optional(),
   "n": z.number().int().gte(1).lte(10).nullable().describe("The number of images to generate. Must be between 1 and 10. For `dall-e-3`, only `n=1` is supported.").optional(),

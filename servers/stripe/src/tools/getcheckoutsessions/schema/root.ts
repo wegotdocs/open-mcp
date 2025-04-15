@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return Checkout Sessions that were created during the given date interval.").optional(),
   "customer": z.string().max(5000).describe("Only return the Checkout Sessions for the Customer specified.").optional(),
   "customer_details": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customer_details` to the tool, first call the tool `expandSchema` with \"/properties/customer_details\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Only return the Checkout Sessions for the Customer details specified.</property-description>").optional(),

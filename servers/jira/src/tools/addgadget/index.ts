@@ -1,41 +1,40 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `addgadget`
-export const toolDescription = `Add gadget to dashboard`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/dashboard/{dashboardId}/gadget`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "dashboardId"
+const tool: OpenMCPServerTool = {
+  "toolName": "addgadget",
+  "toolDescription": "Add gadget to dashboard",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/dashboard/{dashboardId}/gadget",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "color",
-    "ignoreUriAndModuleKeyValidation",
-    "moduleKey",
-    "position",
-    "title",
-    "uri"
-  ]
+  "paramsMap": {
+    "path": {
+      "dashboardId": "dashboardId"
+    },
+    "body": {
+      "color": "color",
+      "ignoreUriAndModuleKeyValidation": "ignoreUriAndModuleKeyValidation",
+      "moduleKey": "moduleKey",
+      "position": "position",
+      "title": "title",
+      "uri": "uri"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

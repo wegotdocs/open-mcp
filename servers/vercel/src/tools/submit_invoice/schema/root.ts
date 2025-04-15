@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "integrationConfigurationId": z.string(),
   "externalId": z.string().optional(),
   "invoiceDate": z.string().datetime({ offset: true }).describe("Invoice date. Must be within the period's start and end."),

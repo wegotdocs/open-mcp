@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `monitoring_get_alertpolicy`
-export const toolDescription = `Retrieve an Existing Alert Policy`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/monitoring/alerts/{alert_uuid}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "alert_uuid"
+const tool: OpenMCPServerTool = {
+  "toolName": "monitoring_get_alertpolicy",
+  "toolDescription": "Retrieve an Existing Alert Policy",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/monitoring/alerts/{alert_uuid}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "alert_uuid": "alert_uuid"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

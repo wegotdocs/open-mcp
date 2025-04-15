@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `kubernetes_get_clusterlintresults`
-export const toolDescription = `Fetch Clusterlint Diagnostics for a Kubernetes Cluster`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/kubernetes/clusters/{cluster_id}/clusterlint`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "run_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "kubernetes_get_clusterlintresults",
+  "toolDescription": "Fetch Clusterlint Diagnostics for a Kubernetes Cluster",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/kubernetes/clusters/{cluster_id}/clusterlint",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "cluster_id"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "cluster_id": "cluster_id"
+    },
+    "query": {
+      "run_id": "run_id"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

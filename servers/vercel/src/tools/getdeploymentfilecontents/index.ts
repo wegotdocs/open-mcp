@@ -1,32 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getdeploymentfilecontents`
-export const toolDescription = `Get Deployment File Contents`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v7/deployments/{id}/files/{fileId}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "path",
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "getdeploymentfilecontents",
+  "toolDescription": "Get Deployment File Contents",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v7/deployments/{id}/files/{fileId}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "id",
-    "fileId"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "id": "id",
+      "fileId": "fileId"
+    },
+    "query": {
+      "path": "path",
+      "teamId": "teamId",
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

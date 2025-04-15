@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `tags_assign_resources`
-export const toolDescription = `Tag a Resource`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/tags/{tag_id}/resources`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "tag_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "tags_assign_resources",
+  "toolDescription": "Tag a Resource",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/tags/{tag_id}/resources",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "resources"
-  ]
+  "paramsMap": {
+    "path": {
+      "tag_id": "tag_id"
+    },
+    "body": {
+      "resources": "resources"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

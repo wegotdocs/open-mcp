@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "defaultPriorityId": z.number().int().describe("The ID of the default priority for the priority scheme."),
   "description": z.string().max(4000).describe("The description of the priority scheme.").optional(),
   "mappings": z.string().optional(),

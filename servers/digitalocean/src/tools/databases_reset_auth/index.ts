@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `databases_reset_auth`
-export const toolDescription = `Reset a Database User's Password or Authentication Method`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/databases/{database_cluster_uuid}/users/{username}/reset_auth`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "database_cluster_uuid",
-    "username"
+const tool: OpenMCPServerTool = {
+  "toolName": "databases_reset_auth",
+  "toolDescription": "Reset a Database User's Password or Authentication Method",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/databases/{database_cluster_uuid}/users/{username}/reset_auth",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "mysql_settings"
-  ]
+  "paramsMap": {
+    "path": {
+      "database_cluster_uuid": "database_cluster_uuid",
+      "username": "username"
+    },
+    "body": {
+      "mysql_settings": "mysql_settings"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

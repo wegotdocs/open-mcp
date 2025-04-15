@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `registry_run_garbagecollection`
-export const toolDescription = `Start Garbage Collection`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/registry/{registry_name}/garbage-collection`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "registry_name"
+const tool: OpenMCPServerTool = {
+  "toolName": "registry_run_garbagecollection",
+  "toolDescription": "Start Garbage Collection",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/registry/{registry_name}/garbage-collection",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "registry_name": "registry_name"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

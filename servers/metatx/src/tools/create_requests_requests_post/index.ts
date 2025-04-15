@@ -1,30 +1,30 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `create_requests_requests_post`
-export const toolDescription = `Create Requests`
-export const baseUrl = `https://engineapi.moonstream.to/metatx`
-export const path = `/requests`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "contract_id",
-    "contract_address",
-    "specifications",
-    "ttl_days",
-    "live_at"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "create_requests_requests_post",
+  "toolDescription": "Create Requests",
+  "baseUrl": "https://engineapi.moonstream.to/metatx",
+  "path": "/requests",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "contract_id": "contract_id",
+      "contract_address": "contract_address",
+      "specifications": "specifications",
+      "ttl_days": "ttl_days",
+      "live_at": "live_at"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,37 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `genai_attach_agent_function`
-export const toolDescription = `Add Function Route to an Agent`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/gen-ai/agents/{agent_uuid}/functions`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "agent_uuid"
+const tool: OpenMCPServerTool = {
+  "toolName": "genai_attach_agent_function",
+  "toolDescription": "Add Function Route to an Agent",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/gen-ai/agents/{agent_uuid}/functions",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "b_agent_uuid",
-    "description",
-    "faas_name",
-    "faas_namespace",
-    "function_name",
-    "input_schema",
-    "output_schema"
-  ]
+  "paramsMap": {
+    "path": {
+      "agent_uuid": "agent_uuid"
+    },
+    "body": {
+      "agent_uuid": "b_agent_uuid",
+      "description": "description",
+      "faas_name": "faas_name",
+      "faas_namespace": "faas_namespace",
+      "function_name": "function_name",
+      "input_schema": "input_schema",
+      "output_schema": "output_schema"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {
-  "b_agent_uuid": "agent_uuid"
-}
+
+export default tool

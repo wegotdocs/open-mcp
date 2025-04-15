@@ -1,31 +1,32 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `create_playlist`
-export const toolDescription = `Create Playlist`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/users/{user_id}/playlists`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "user_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "create_playlist",
+  "toolDescription": "Create Playlist",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/users/{user_id}/playlists",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "name",
-    "public",
-    "collaborative",
-    "description"
-  ]
+  "paramsMap": {
+    "path": {
+      "user_id": "user_id"
+    },
+    "body": {
+      "name": "name",
+      "public": "public",
+      "collaborative": "collaborative",
+      "description": "description"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "app": z.string().describe("Name of the deployment.").optional(),
   "from": z.number().describe("Gets the deployment created after this Date timestamp. (default: current time)").optional(),
   "limit": z.number().describe("Maximum number of deployments to list from a request.").optional(),

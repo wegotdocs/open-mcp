@@ -1,34 +1,33 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `listuserevents`
-export const toolDescription = `List User Events`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v3/events`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "limit",
-    "since",
-    "until",
-    "types",
-    "userId",
-    "withPayload",
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "listuserevents",
+  "toolDescription": "List User Events",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v3/events",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "limit": "limit",
+      "since": "since",
+      "until": "until",
+      "types": "types",
+      "userId": "userId",
+      "withPayload": "withPayload",
+      "teamId": "teamId",
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

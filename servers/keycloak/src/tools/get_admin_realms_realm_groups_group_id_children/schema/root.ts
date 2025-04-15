@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "briefRepresentation": z.boolean().describe("Boolean which defines whether brief groups representations are returned or not (default: false)").optional(),
   "exact": z.boolean().describe("Boolean which defines whether the params \"search\" must match exactly or not").optional(),
   "first": z.number().int().describe("The position of the first result to be returned (pagination offset).").optional(),

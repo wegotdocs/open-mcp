@@ -1,36 +1,34 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `finduserkeysbyquery`
-export const toolDescription = `Find user keys by query`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/user/search/query/key`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "query",
-    "startAt",
-    "maxResult"
+const tool: OpenMCPServerTool = {
+  "toolName": "finduserkeysbyquery",
+  "toolDescription": "Find user keys by query",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/user/search/query/key",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "query": "query",
+      "startAt": "startAt",
+      "maxResult": "maxResult"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

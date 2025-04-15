@@ -1,28 +1,27 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `volumes_delete_byname`
-export const toolDescription = `Delete a Block Storage Volume by Name`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/volumes`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "name",
-    "region"
+const tool: OpenMCPServerTool = {
+  "toolName": "volumes_delete_byname",
+  "toolDescription": "Delete a Block Storage Volume by Name",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/volumes",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "name": "name",
+      "region": "region"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

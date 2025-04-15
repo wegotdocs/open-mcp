@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "database_cluster_uuid": z.string().uuid().describe("A unique identifier for a database cluster."),
   "name": z.string().describe("A unique name for the connection pool. Must be between 3 and 60 characters."),
   "mode": z.string().describe("The PGBouncer transaction mode for the connection pool. The allowed values are session, transaction, and statement."),

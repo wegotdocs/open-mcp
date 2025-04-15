@@ -1,31 +1,31 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `cdn_update_endpoints`
-export const toolDescription = `Update a CDN Endpoint`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/cdn/endpoints/{cdn_id}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "cdn_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "cdn_update_endpoints",
+  "toolDescription": "Update a CDN Endpoint",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/cdn/endpoints/{cdn_id}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "ttl",
-    "certificate_id",
-    "custom_domain"
-  ]
+  "paramsMap": {
+    "path": {
+      "cdn_id": "cdn_id"
+    },
+    "body": {
+      "ttl": "ttl",
+      "certificate_id": "certificate_id",
+      "custom_domain": "custom_domain"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

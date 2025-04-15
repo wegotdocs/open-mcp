@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "homeMobileCountryCode": z.number().int().describe("The cell tower's Mobile Country Code (MCC).").optional(),
   "homeMobileNetworkCode": z.number().int().describe("The cell tower's Mobile Network Code. This is the MNC for GSM and WCDMA; CDMA uses the System ID (SID).").optional(),
   "radioType": z.string().describe("The mobile radio type. Supported values are lte, gsm, cdma, and wcdma. While this field is optional, it should be included if a value is available, for more accurate results.").optional(),

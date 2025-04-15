@@ -1,33 +1,33 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `databases_update_connectionpool`
-export const toolDescription = `Update Connection Pools (PostgreSQL)`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/databases/{database_cluster_uuid}/pools/{pool_name}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "database_cluster_uuid",
-    "pool_name"
+const tool: OpenMCPServerTool = {
+  "toolName": "databases_update_connectionpool",
+  "toolDescription": "Update Connection Pools (PostgreSQL)",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/databases/{database_cluster_uuid}/pools/{pool_name}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "mode",
-    "size",
-    "db",
-    "user"
-  ]
+  "paramsMap": {
+    "path": {
+      "database_cluster_uuid": "database_cluster_uuid",
+      "pool_name": "pool_name"
+    },
+    "body": {
+      "mode": "mode",
+      "size": "size",
+      "db": "db",
+      "user": "user"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

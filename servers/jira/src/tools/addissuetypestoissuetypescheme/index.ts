@@ -1,36 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `addissuetypestoissuetypescheme`
-export const toolDescription = `Add issue types to issue type scheme`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/issuetypescheme/{issueTypeSchemeId}/issuetype`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "issueTypeSchemeId"
+const tool: OpenMCPServerTool = {
+  "toolName": "addissuetypestoissuetypescheme",
+  "toolDescription": "Add issue types to issue type scheme",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/issuetypescheme/{issueTypeSchemeId}/issuetype",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "issueTypeIds"
-  ]
+  "paramsMap": {
+    "path": {
+      "issueTypeSchemeId": "issueTypeSchemeId"
+    },
+    "body": {
+      "issueTypeIds": "issueTypeIds"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

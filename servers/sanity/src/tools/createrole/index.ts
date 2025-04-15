@@ -1,35 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createrole`
-export const toolDescription = `Create a role`
-export const baseUrl = `https://api.sanity.io`
-export const path = `/vX/access/{resourceType}/{resourceId}/roles`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "resourceType",
-    "resourceId"
+const tool: OpenMCPServerTool = {
+  "toolName": "createrole",
+  "toolDescription": "Create a role",
+  "baseUrl": "https://api.sanity.io",
+  "path": "/vX/access/{resourceType}/{resourceId}/roles",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "title",
-    "name",
-    "description",
-    "appliesToUsers",
-    "appliesToRobots",
-    "permissions"
-  ]
+  "paramsMap": {
+    "path": {
+      "resourceType": "resourceType",
+      "resourceId": "resourceId"
+    },
+    "body": {
+      "title": "title",
+      "name": "name",
+      "description": "description",
+      "appliesToUsers": "appliesToUsers",
+      "appliesToRobots": "appliesToRobots",
+      "permissions": "permissions"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

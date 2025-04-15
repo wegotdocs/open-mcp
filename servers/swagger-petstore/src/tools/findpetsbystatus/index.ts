@@ -1,26 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `findpetsbystatus`
-export const toolDescription = `Finds Pets by status.`
-export const baseUrl = `https://petstore3.swagger.io/api/v3`
-export const path = `/pet/findByStatus`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "status"
+const tool: OpenMCPServerTool = {
+  "toolName": "findpetsbystatus",
+  "toolDescription": "Finds Pets by status.",
+  "baseUrl": "https://petstore3.swagger.io/api/v3",
+  "path": "/pet/findByStatus",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "status": "status"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

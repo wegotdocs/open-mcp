@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "origin": z.enum(["import","teams","github","gitlab","bitbucket","feedback","organization-teams"]).describe("The origin of the request."),
   "commitId": z.string().describe("The commit sha if the origin is a git provider.").optional(),
   "repoId": z.string().describe("The ID of the repository for the given Git provider.").optional(),

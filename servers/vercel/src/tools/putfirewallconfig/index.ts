@@ -1,35 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `putfirewallconfig`
-export const toolDescription = `Put Firewall Configuration`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/security/firewall/config`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "projectId",
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "putfirewallconfig",
+  "toolDescription": "Put Firewall Configuration",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/security/firewall/config",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "firewallEnabled",
-    "managedRules",
-    "crs",
-    "rules",
-    "ips"
-  ]
+  "paramsMap": {
+    "query": {
+      "projectId": "projectId",
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "body": {
+      "firewallEnabled": "firewallEnabled",
+      "managedRules": "managedRules",
+      "crs": "crs",
+      "rules": "rules",
+      "ips": "ips"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

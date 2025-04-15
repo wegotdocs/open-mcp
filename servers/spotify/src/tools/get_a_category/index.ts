@@ -1,28 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_a_category`
-export const toolDescription = `Get Single Browse Category`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/browse/categories/{category_id}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "locale"
+const tool: OpenMCPServerTool = {
+  "toolName": "get_a_category",
+  "toolDescription": "Get Single Browse Category",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/browse/categories/{category_id}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [
-    "category_id"
-  ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "category_id": "category_id"
+    },
+    "query": {
+      "locale": "locale"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

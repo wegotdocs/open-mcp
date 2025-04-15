@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `listmodeltraits`
-export const toolDescription = `/api/v1/models/traits`
-export const baseUrl = `https://api.venice.ai/api/v1`
-export const path = `/models/traits`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "type"
+const tool: OpenMCPServerTool = {
+  "toolName": "listmodeltraits",
+  "toolDescription": "/api/v1/models/traits",
+  "baseUrl": "https://api.venice.ai/api/v1",
+  "path": "/models/traits",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "type": "type"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

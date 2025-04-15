@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `delete_virtual_keys_slug_`
-export const toolDescription = `Delete a Virtual Key`
-export const baseUrl = `https://api.portkey.ai/v1`
-export const path = `/virtual-keys/{slug}`
-export const method = `delete`
-export const security = [
-  {
-    "key": "x-portkey-api-key",
-    "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_PORTKEY_API_KEY",
-    "schemeType": "apiKey",
-    "schemeName": "x-portkey-api-key"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "delete_virtual_keys_slug_",
+  "toolDescription": "Delete a Virtual Key",
+  "baseUrl": "https://api.portkey.ai/v1",
+  "path": "/virtual-keys/{slug}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "x-portkey-api-key",
+      "value": "<mcp-env-var>X_PORTKEY_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_PORTKEY_API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "path": {
+      "slug": "slug"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

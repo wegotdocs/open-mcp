@@ -1,28 +1,28 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_featured_playlists`
-export const toolDescription = `Get Featured Playlists`
-export const baseUrl = `https://api.spotify.com/v1`
-export const path = `/browse/featured-playlists`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "locale",
-    "limit",
-    "offset"
+const tool: OpenMCPServerTool = {
+  "toolName": "get_featured_playlists",
+  "toolDescription": "Get Featured Playlists",
+  "baseUrl": "https://api.spotify.com/v1",
+  "path": "/browse/featured-playlists",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "locale": "locale",
+      "limit": "limit",
+      "offset": "offset"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

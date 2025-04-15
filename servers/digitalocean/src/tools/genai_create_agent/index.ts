@@ -1,36 +1,35 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `genai_create_agent`
-export const toolDescription = `Create an Agent`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/gen-ai/agents`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "anthropic_key_uuid",
-    "description",
-    "instruction",
-    "knowledge_base_uuid",
-    "model_uuid",
-    "name",
-    "open_ai_key_uuid",
-    "project_id",
-    "region",
-    "tags"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "genai_create_agent",
+  "toolDescription": "Create an Agent",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/gen-ai/agents",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "anthropic_key_uuid": "anthropic_key_uuid",
+      "description": "description",
+      "instruction": "instruction",
+      "knowledge_base_uuid": "knowledge_base_uuid",
+      "model_uuid": "model_uuid",
+      "name": "name",
+      "open_ai_key_uuid": "open_ai_key_uuid",
+      "project_id": "project_id",
+      "region": "region",
+      "tags": "tags"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

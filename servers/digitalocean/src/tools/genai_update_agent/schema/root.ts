@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "uuid": z.string().describe("Unique agent id"),
   "anthropic_key_uuid": z.string().describe("Optional anthropic key uuid for use with anthropic models").optional(),
   "description": z.string().describe("Agent description").optional(),

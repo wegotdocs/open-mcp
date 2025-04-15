@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "cluster_id": z.string().uuid().describe("A unique ID that can be used to reference a Kubernetes cluster."),
   "name": z.string().describe("A human-readable name for a Kubernetes cluster."),
   "tags": z.array(z.string()).describe("An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged `k8s` and `k8s:$K8S_CLUSTER_ID`.").optional(),

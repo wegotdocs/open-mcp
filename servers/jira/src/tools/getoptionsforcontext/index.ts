@@ -1,40 +1,39 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getoptionsforcontext`
-export const toolDescription = `Get custom field options (context)`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/field/{fieldId}/context/{contextId}/option`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "getoptionsforcontext",
+  "toolDescription": "Get custom field options (context)",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/field/{fieldId}/context/{contextId}/option",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "fieldId": "fieldId",
+      "contextId": "contextId"
+    },
+    "query": {
+      "optionId": "optionId",
+      "onlyOptions": "onlyOptions",
+      "startAt": "startAt",
+      "maxResults": "maxResults"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "optionId",
-    "onlyOptions",
-    "startAt",
-    "maxResults"
-  ],
-  "header": [],
-  "path": [
-    "fieldId",
-    "contextId"
-  ],
-  "cookie": [],
-  "body": []
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

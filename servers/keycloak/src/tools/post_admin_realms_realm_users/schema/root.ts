@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.string().optional(),
   "username": z.string().optional(),
   "firstName": z.string().optional(),
@@ -16,7 +16,7 @@ export const inputParams = {
   "totp": z.boolean().optional(),
   "federationLink": z.string().optional(),
   "serviceAccountClientId": z.string().optional(),
-  "credentials": z.array(z.object({ "id": z.string().optional(), "type": z.string().optional(), "userLabel": z.string().optional(), "createdDate": z.number().int().optional(), "secretData": z.string().optional(), "credentialData": z.string().optional(), "priority": z.number().int().optional(), "value": z.string().optional(), "temporary": z.boolean().optional() })).optional(),
+  "credentials": z.array(z.object({ "id": z.string().optional(), "type": z.string().optional(), "userLabel": z.string().optional(), "createdDate": z.number().int().optional(), "secretData": z.string().optional(), "credentialData": z.string().optional(), "priority": z.number().int().optional(), "value": z.string().optional(), "temporary": z.boolean().optional(), "federationLink": z.string().optional() })).optional(),
   "disableableCredentialTypes": z.array(z.string()).optional(),
   "requiredActions": z.array(z.string()).optional(),
   "federatedIdentities": z.array(z.object({ "identityProvider": z.string().optional(), "userId": z.string().optional(), "userName": z.string().optional() })).optional(),

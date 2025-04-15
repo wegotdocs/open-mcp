@@ -1,29 +1,28 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `autoscalepools_create`
-export const toolDescription = `Create a New Autoscale Pool`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/droplets/autoscale`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "name",
-    "config",
-    "droplet_template"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "autoscalepools_create",
+  "toolDescription": "Create a New Autoscale Pool",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/droplets/autoscale",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "name": "name",
+      "config": "config",
+      "droplet_template": "droplet_template"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

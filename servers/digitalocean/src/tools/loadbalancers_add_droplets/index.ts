@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `loadbalancers_add_droplets`
-export const toolDescription = `Add Droplets to a Load Balancer`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/load_balancers/{lb_id}/droplets`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "lb_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "loadbalancers_add_droplets",
+  "toolDescription": "Add Droplets to a Load Balancer",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/load_balancers/{lb_id}/droplets",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "droplet_ids"
-  ]
+  "paramsMap": {
+    "path": {
+      "lb_id": "lb_id"
+    },
+    "body": {
+      "droplet_ids": "droplet_ids"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

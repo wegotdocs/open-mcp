@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "clientId": z.string().describe("filter by clientId").optional(),
   "first": z.number().int().describe("the first result").optional(),
   "max": z.number().int().describe("the max results to return").optional(),

@@ -1,40 +1,39 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getfilenodes`
-export const toolDescription = `Get file JSON for specific nodes`
-export const baseUrl = `https://api.figma.com`
-export const path = `/v1/files/{file_key}/nodes`
-export const method = `get`
-export const security = [
-  {
-    "key": "X-Figma-Token",
-    "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_FIGMA_TOKEN",
-    "schemeType": "apiKey",
-    "schemeName": "X-Figma-Token"
+const tool: OpenMCPServerTool = {
+  "toolName": "getfilenodes",
+  "toolDescription": "Get file JSON for specific nodes",
+  "baseUrl": "https://api.figma.com",
+  "path": "/v1/files/{file_key}/nodes",
+  "method": "get",
+  "security": [
+    {
+      "key": "X-Figma-Token",
+      "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_FIGMA_TOKEN"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "file_key": "file_key"
+    },
+    "query": {
+      "ids": "ids",
+      "version": "version",
+      "depth": "depth",
+      "geometry": "geometry",
+      "plugin_data": "plugin_data"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "ids",
-    "version",
-    "depth",
-    "geometry",
-    "plugin_data"
-  ],
-  "header": [],
-  "path": [
-    "file_key"
-  ],
-  "cookie": [],
-  "body": []
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

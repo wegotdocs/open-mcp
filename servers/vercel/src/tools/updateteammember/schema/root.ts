@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "uid": z.string().describe("The ID of the member."),
   "confirmed": z.literal(true).describe("Accept a user who requested access to the team.").optional(),
   "role": z.string().describe("The role in the team of the member.").optional(),

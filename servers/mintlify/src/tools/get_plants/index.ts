@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_plants`
-export const toolDescription = `Returns all plants from the system that the user has access to`
-export const baseUrl = `http://sandbox.mintlify.com`
-export const path = `/plants`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "limit"
+const tool: OpenMCPServerTool = {
+  "toolName": "get_plants",
+  "toolDescription": "Returns all plants from the system that the user has access to",
+  "baseUrl": "http://sandbox.mintlify.com",
+  "path": "/plants",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "limit": "limit"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

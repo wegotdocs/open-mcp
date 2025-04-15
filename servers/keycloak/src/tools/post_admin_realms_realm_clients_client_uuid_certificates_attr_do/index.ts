@@ -1,23 +1,24 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `post_admin_realms_realm_clients_client_uuid_certificates_attr_do`
-export const toolDescription = `Get a keystore file for the client, containing private key and public certificate`
-export const baseUrl = `https://api.example.com`
-export const path = `/admin/realms/{realm}/clients/{client-uuid}/certificates/{attr}/download`
-export const method = `post`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "realmCertificate",
-    "storePassword",
-    "keyPassword",
-    "keyAlias",
-    "realmAlias",
-    "format"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "post_admin_realms_realm_clients_client_uuid_certificates_attr_do",
+  "toolDescription": "Get a keystore file for the client, containing private key and public certificate",
+  "baseUrl": "https://api.example.com",
+  "path": "/admin/realms/{realm}/clients/{client-uuid}/certificates/{attr}/download",
+  "method": "post",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "realmCertificate": "realmCertificate",
+      "storePassword": "storePassword",
+      "keyPassword": "keyPassword",
+      "keyAlias": "keyAlias",
+      "realmAlias": "realmAlias",
+      "format": "format"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

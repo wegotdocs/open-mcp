@@ -1,39 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getbillingcreditgrants`
-export const toolDescription = `List credit grants`
-export const baseUrl = `https://api.stripe.com`
-export const path = `/v1/billing/credit_grants`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "customer",
-    "ending_before",
-    "expand",
-    "limit",
-    "starting_after"
+const tool: OpenMCPServerTool = {
+  "toolName": "getbillingcreditgrants",
+  "toolDescription": "List credit grants",
+  "baseUrl": "https://api.stripe.com",
+  "path": "/v1/billing/credit_grants",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "customer": "customer",
+      "ending_before": "ending_before",
+      "expand": "expand",
+      "limit": "limit",
+      "starting_after": "starting_after"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

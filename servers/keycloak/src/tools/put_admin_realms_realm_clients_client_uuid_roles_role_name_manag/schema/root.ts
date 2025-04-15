@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "role-name": z.string(),
   "enabled": z.boolean().optional(),
   "resource": z.string().optional(),

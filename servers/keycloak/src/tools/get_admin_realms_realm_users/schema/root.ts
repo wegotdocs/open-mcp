@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "briefRepresentation": z.boolean().describe("Boolean which defines whether brief representations are returned (default: false)").optional(),
   "email": z.string().describe("A String contained in email, or the complete email, if param \"exact\" is true").optional(),
   "emailVerified": z.boolean().describe("whether the email has been verified").optional(),

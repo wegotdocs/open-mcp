@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "search": z.string().optional(),
   "top": z.boolean().optional()
 }

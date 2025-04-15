@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "issueIdOrKey": z.string().describe("ID or key of the issue that the notification is sent for."),
   "htmlBody": z.string().describe("The HTML body of the email notification for the issue.").optional(),
   "restrict": z.string().optional(),

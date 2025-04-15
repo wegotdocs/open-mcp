@@ -1,38 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getsourcessourcesourcetransactionssourcetransaction`
-export const toolDescription = `Retrieve a source transaction`
-export const baseUrl = `https://api.stripe.com`
-export const path = `/v1/sources/{source}/source_transactions/{source_transaction}`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "getsourcessourcesourcetransactionssourcetransaction",
+  "toolDescription": "Retrieve a source transaction",
+  "baseUrl": "https://api.stripe.com",
+  "path": "/v1/sources/{source}/source_transactions/{source_transaction}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "source": "source",
+      "source_transaction": "source_transaction"
+    },
+    "query": {
+      "expand": "expand"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "expand"
-  ],
-  "header": [],
-  "path": [
-    "source",
-    "source_transaction"
-  ],
-  "cookie": [],
-  "body": []
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

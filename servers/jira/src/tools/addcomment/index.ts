@@ -1,49 +1,49 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `addcomment`
-export const toolDescription = `Add comment`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/issue/{issueIdOrKey}/comment`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
+const tool: OpenMCPServerTool = {
+  "toolName": "addcomment",
+  "toolDescription": "Add comment",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/issue/{issueIdOrKey}/comment",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "issueIdOrKey": "issueIdOrKey"
+    },
+    "query": {
+      "expand": "expand"
+    },
+    "body": {
+      "author": "author",
+      "body": "body",
+      "created": "created",
+      "id": "id",
+      "jsdAuthorCanSeeRequest": "jsdAuthorCanSeeRequest",
+      "jsdPublic": "jsdPublic",
+      "properties": "properties",
+      "renderedBody": "renderedBody",
+      "self": "self",
+      "updateAuthor": "updateAuthor",
+      "updated": "updated",
+      "visibility": "visibility"
+    }
   },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "expand"
-  ],
-  "header": [],
-  "path": [
-    "issueIdOrKey"
-  ],
-  "cookie": [],
-  "body": [
-    "author",
-    "body",
-    "created",
-    "id",
-    "jsdAuthorCanSeeRequest",
-    "jsdPublic",
-    "properties",
-    "renderedBody",
-    "self",
-    "updateAuthor",
-    "updated",
-    "visibility"
-  ]
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

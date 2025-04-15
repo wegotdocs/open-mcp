@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "device_type": z.enum(["bbpos_chipper2x","bbpos_wisepad3","bbpos_wisepos_e","mobile_phone_reader","simulated_wisepos_e","stripe_m2","stripe_s700","verifone_P400"]).describe("Filters readers by device type").optional(),
   "ending_before": z.string().max(5000).describe("A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.").optional(),
   "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),

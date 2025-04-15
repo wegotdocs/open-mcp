@@ -1,37 +1,36 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `nearbysearch`
-export const toolDescription = `A Nearby Search lets you search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.`
-export const baseUrl = `https://maps.googleapis.com`
-export const path = `/maps/api/place/nearbysearch/json`
-export const method = `get`
-export const security = [
-  {
-    "key": "key",
-    "value": "<mcp-env-var>KEY</mcp-env-var>",
-    "in": "query",
-    "envVarName": "KEY",
-    "schemeType": "apiKey",
-    "schemeName": "key"
-  }
-]
-export const keys = {
-  "query": [
-    "keyword",
-    "location",
-    "maxprice",
-    "minprice",
-    "name",
-    "opennow",
-    "pagetoken",
-    "rankby",
-    "radius",
-    "type",
-    "language"
+const tool: OpenMCPServerTool = {
+  "toolName": "nearbysearch",
+  "toolDescription": "A Nearby Search lets you search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.",
+  "baseUrl": "https://maps.googleapis.com",
+  "path": "/maps/api/place/nearbysearch/json",
+  "method": "get",
+  "security": [
+    {
+      "key": "key",
+      "value": "<mcp-env-var>KEY</mcp-env-var>",
+      "in": "query",
+      "envVarName": "KEY"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "keyword": "keyword",
+      "location": "location",
+      "maxprice": "maxprice",
+      "minprice": "minprice",
+      "name": "name",
+      "opennow": "opennow",
+      "pagetoken": "pagetoken",
+      "rankby": "rankby",
+      "radius": "radius",
+      "type": "type",
+      "language": "language"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

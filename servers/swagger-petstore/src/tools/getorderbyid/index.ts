@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getorderbyid`
-export const toolDescription = `Find purchase order by ID.`
-export const baseUrl = `https://petstore3.swagger.io/api/v3`
-export const path = `/store/order/{orderId}`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "orderId"
-  ],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "getorderbyid",
+  "toolDescription": "Find purchase order by ID.",
+  "baseUrl": "https://petstore3.swagger.io/api/v3",
+  "path": "/store/order/{orderId}",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "orderId": "orderId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

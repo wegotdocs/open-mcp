@@ -1,39 +1,38 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `movescreentabfield`
-export const toolDescription = `Move screen tab field`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/screens/{screenId}/tabs/{tabId}/fields/{id}/move`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "screenId",
-    "tabId",
-    "id"
+const tool: OpenMCPServerTool = {
+  "toolName": "movescreentabfield",
+  "toolDescription": "Move screen tab field",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/screens/{screenId}/tabs/{tabId}/fields/{id}/move",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "after",
-    "position"
-  ]
+  "paramsMap": {
+    "path": {
+      "screenId": "screenId",
+      "tabId": "tabId",
+      "id": "id"
+    },
+    "body": {
+      "after": "after",
+      "position": "position"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

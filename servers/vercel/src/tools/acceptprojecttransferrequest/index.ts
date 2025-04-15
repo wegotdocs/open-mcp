@@ -1,33 +1,34 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `acceptprojecttransferrequest`
-export const toolDescription = `Accept project transfer request`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/projects/transfer-request/{code}`
-export const method = `put`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [
-    "teamId",
-    "slug"
+const tool: OpenMCPServerTool = {
+  "toolName": "acceptprojecttransferrequest",
+  "toolDescription": "Accept project transfer request",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/projects/transfer-request/{code}",
+  "method": "put",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "header": [],
-  "path": [
-    "code"
-  ],
-  "cookie": [],
-  "body": [
-    "newProjectName",
-    "paidFeatures"
-  ]
+  "paramsMap": {
+    "path": {
+      "code": "code"
+    },
+    "query": {
+      "teamId": "teamId",
+      "slug": "slug"
+    },
+    "body": {
+      "newProjectName": "newProjectName",
+      "paidFeatures": "paidFeatures"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

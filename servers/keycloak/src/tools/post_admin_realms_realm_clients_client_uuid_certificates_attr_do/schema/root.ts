@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "realmCertificate": z.boolean().optional(),
   "storePassword": z.string().optional(),
   "keyPassword": z.string().optional(),

@@ -1,29 +1,28 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `createextraction`
-export const toolDescription = `Extracts structured data from a Document`
-export const baseUrl = `https://api.totoy.ai/v1`
-export const path = `/extraction`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "model",
-    "document",
-    "expand_abbreviations"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "createextraction",
+  "toolDescription": "Extracts structured data from a Document",
+  "baseUrl": "https://api.totoy.ai/v1",
+  "path": "/extraction",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "model": "model",
+      "document": "document",
+      "expand_abbreviations": "expand_abbreviations"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

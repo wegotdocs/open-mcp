@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.string().describe("The ID of the issue type."),
   "avatarId": z.number().int().describe("The ID of an issue type avatar.").optional(),
   "description": z.string().describe("The description of the issue type.").optional(),

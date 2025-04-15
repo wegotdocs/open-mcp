@@ -1,29 +1,29 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `kubernetes_upgrade_cluster`
-export const toolDescription = `Upgrade a Kubernetes Cluster`
-export const baseUrl = `https://api.digitalocean.com`
-export const path = `/v2/kubernetes/clusters/{cluster_id}/upgrade`
-export const method = `post`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "cluster_id"
+const tool: OpenMCPServerTool = {
+  "toolName": "kubernetes_upgrade_cluster",
+  "toolDescription": "Upgrade a Kubernetes Cluster",
+  "baseUrl": "https://api.digitalocean.com",
+  "path": "/v2/kubernetes/clusters/{cluster_id}/upgrade",
+  "method": "post",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "version"
-  ]
+  "paramsMap": {
+    "path": {
+      "cluster_id": "cluster_id"
+    },
+    "body": {
+      "version": "version"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "functionKey": z.array(z.string()).describe("The function key in format:\n\n *  Forge: `ari:cloud:ecosystem::extension/[App ID]/[Environment ID]/static/[Function key from manifest]`\n *  Connect: `[App key]__[Module key]`").optional(),
   "startAt": z.number().int().describe("The index of the first item to return in a page of results (page offset).").optional(),
   "maxResults": z.number().int().describe("The maximum number of items to return per page.").optional(),

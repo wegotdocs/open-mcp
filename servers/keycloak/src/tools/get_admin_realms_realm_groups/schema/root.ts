@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "briefRepresentation": z.boolean().optional(),
   "exact": z.boolean().optional(),
   "first": z.number().int().optional(),

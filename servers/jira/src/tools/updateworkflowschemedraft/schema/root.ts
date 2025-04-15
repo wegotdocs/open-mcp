@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "id": z.number().int().describe("The ID of the active workflow scheme that the draft was created from."),
   "defaultWorkflow": z.string().describe("The name of the default workflow for the workflow scheme. The default workflow has *All Unassigned Issue Types* assigned to it in Jira. If `defaultWorkflow` is not specified when creating a workflow scheme, it is set to *Jira Workflow (jira)*.").optional(),
   "description": z.string().describe("The description of the workflow scheme.").optional(),

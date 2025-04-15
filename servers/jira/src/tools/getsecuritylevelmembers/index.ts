@@ -1,39 +1,37 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `getsecuritylevelmembers`
-export const toolDescription = `Get issue security level members`
-export const baseUrl = `https://your-domain.atlassian.net`
-export const path = `/rest/api/3/issuesecurityschemes/level/member`
-export const method = `get`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
-    "in": "header",
-    "envVarName": "USERNAME_PASSWORD_BASE64",
-    "schemeType": "http",
-    "schemeScheme": "basic"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [
-    "startAt",
-    "maxResults",
-    "id",
-    "schemeId",
-    "levelId",
-    "expand"
+const tool: OpenMCPServerTool = {
+  "toolName": "getsecuritylevelmembers",
+  "toolDescription": "Get issue security level members",
+  "baseUrl": "https://your-domain.atlassian.net",
+  "path": "/rest/api/3/issuesecurityschemes/level/member",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+  "paramsMap": {
+    "query": {
+      "startAt": "startAt",
+      "maxResults": "maxResults",
+      "id": "id",
+      "schemeId": "schemeId",
+      "levelId": "levelId",
+      "expand": "expand"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "resourceType": z.enum(["organization","project"]).describe("Resources are entities that can be managed and accessed through the\nAccess API.\n"),
   "resourceId": z.string().describe("The resource ID to scope the access request to. Must be a valid ID for the resource type."),
   "type": z.enum(["sanity.document.filter","sanity.document.filter.mode","sanity.organization","sanity.organization.legal","sanity.organization.members","sanity.organization.projects","sanity.organization.roles","sanity.organization.sso","sanity.organization.tokens","sanity.project","sanity.project.cors","sanity.project.datasets","sanity.project.graphql","sanity.project.members","sanity.project.roles","sanity.project.tags","sanity.project.tokens","sanity.project.usage","sanity.project.webhooks"]).describe("The resource for the permission."),

@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `tool_get_current_weather_post`
-export const toolDescription = `Get Current Weather`
-export const baseUrl = `https://kcdassistant.duckdns.org/fastapi/korea-weather`
-export const path = `/get_current_weather`
-export const method = `post`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "location"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "tool_get_current_weather_post",
+  "toolDescription": "Get Current Weather",
+  "baseUrl": "https://kcdassistant.duckdns.org/fastapi/korea-weather",
+  "path": "/get_current_weather",
+  "method": "post",
+  "security": [],
+  "paramsMap": {
+    "body": {
+      "location": "location"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

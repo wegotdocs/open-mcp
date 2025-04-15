@@ -1,27 +1,26 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `requestdelete`
-export const toolDescription = `Delete User Account`
-export const baseUrl = `https://api.vercel.com`
-export const path = `/v1/user`
-export const method = `delete`
-export const security = [
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
-    "in": "header",
-    "envVarName": "API_KEY",
-    "schemeType": "http",
-    "schemeScheme": "bearer"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": [
-    "reasons"
-  ]
+const tool: OpenMCPServerTool = {
+  "toolName": "requestdelete",
+  "toolDescription": "Delete User Account",
+  "baseUrl": "https://api.vercel.com",
+  "path": "/v1/user",
+  "method": "delete",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "body": {
+      "reasons": "reasons"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

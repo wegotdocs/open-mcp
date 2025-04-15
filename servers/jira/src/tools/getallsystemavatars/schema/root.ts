@@ -1,5 +1,5 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "type": z.enum(["issuetype","project","user","priority"]).describe("The avatar type.")
 }

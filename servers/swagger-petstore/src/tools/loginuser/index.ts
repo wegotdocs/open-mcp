@@ -1,19 +1,20 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `loginuser`
-export const toolDescription = `Logs user into the system.`
-export const baseUrl = `https://petstore3.swagger.io/api/v3`
-export const path = `/user/login`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [
-    "username",
-    "password"
-  ],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "loginuser",
+  "toolDescription": "Logs user into the system.",
+  "baseUrl": "https://petstore3.swagger.io/api/v3",
+  "path": "/user/login",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "query": {
+      "username": "username",
+      "password": "password"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

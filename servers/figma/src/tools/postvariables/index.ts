@@ -1,39 +1,38 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `postvariables`
-export const toolDescription = `Create/modify/delete variables`
-export const baseUrl = `https://api.figma.com`
-export const path = `/v1/files/{file_key}/variables`
-export const method = `post`
-export const security = [
-  {
-    "key": "X-Figma-Token",
-    "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "X_FIGMA_TOKEN",
-    "schemeType": "apiKey",
-    "schemeName": "X-Figma-Token"
-  },
-  {
-    "key": "Authorization",
-    "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
-    "in": "header",
-    "envVarName": "OAUTH2_TOKEN",
-    "schemeType": "oauth2"
-  }
-]
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "file_key"
+const tool: OpenMCPServerTool = {
+  "toolName": "postvariables",
+  "toolDescription": "Create/modify/delete variables",
+  "baseUrl": "https://api.figma.com",
+  "path": "/v1/files/{file_key}/variables",
+  "method": "post",
+  "security": [
+    {
+      "key": "X-Figma-Token",
+      "value": "<mcp-env-var>X_FIGMA_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_FIGMA_TOKEN"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
   ],
-  "cookie": [],
-  "body": [
-    "variableCollections",
-    "variableModes",
-    "variables",
-    "variableModeValues"
-  ]
+  "paramsMap": {
+    "path": {
+      "file_key": "file_key"
+    },
+    "body": {
+      "variableCollections": "variableCollections",
+      "variableModes": "variableModes",
+      "variables": "variables",
+      "variableModeValues": "variableModeValues"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

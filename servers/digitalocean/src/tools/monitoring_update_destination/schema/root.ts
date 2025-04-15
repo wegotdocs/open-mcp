@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "destination_uuid": z.string().describe("A unique identifier for a destination."),
   "name": z.string().describe("destination name").optional(),
   "type": z.enum(["opensearch_dbaas","opensearch_ext"]).describe("The destination type. `opensearch_dbaas` for a DigitalOcean managed OpenSearch\ncluster or `opensearch_ext` for an externally managed one.\n"),

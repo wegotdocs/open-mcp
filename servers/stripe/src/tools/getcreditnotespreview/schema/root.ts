@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const inputParams = {
+export const inputParamsSchema = {
   "amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the total amount of the credit note.").optional(),
   "credit_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount to credit the customer's balance, which will be automatically applied to their next invoice.").optional(),
   "effective_at": z.number().int().describe("The date when this credit note is in effect. Same as `created` unless overwritten. When defined, this value replaces the system-generated 'Date of issue' printed on the credit note PDF.").optional(),
