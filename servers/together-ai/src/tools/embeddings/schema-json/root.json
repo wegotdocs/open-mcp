@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "model": {
+      "type": "string",
+      "description": "The name of the embedding model to use.<br> <br> [See all of Together AI's embedding models](https://docs.together.ai/docs/serverless-models#embedding-models)\n",
+      "example": "togethercomputer/m2-bert-80M-8k-retrieval",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "WhereIsAI/UAE-Large-V1",
+            "BAAI/bge-large-en-v1.5",
+            "BAAI/bge-base-en-v1.5",
+            "togethercomputer/m2-bert-80M-8k-retrieval"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "input": {
+      "example": "Our solar system orbits the Milky Way galaxy at about 515,000 mph",
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "A string providing the text for the model to embed.",
+          "example": "Our solar system orbits the Milky Way galaxy at about 515,000 mph"
+        }
+      ]
+    }
+  },
+  "required": [
+    "model",
+    "input"
+  ]
+}

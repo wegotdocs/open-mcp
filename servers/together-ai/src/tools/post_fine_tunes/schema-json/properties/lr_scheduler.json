@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "default": "none",
+  "description": "The learning rate scheduler to use. It specifies how the learning rate is adjusted during training.",
+  "properties": {
+    "lr_scheduler_type": {
+      "type": "string",
+      "enum": [
+        "linear",
+        "cosine"
+      ]
+    },
+    "lr_scheduler_args": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "min_lr_ratio": {
+              "type": "number",
+              "format": "float",
+              "default": 0,
+              "description": "The ratio of the final learning rate to the peak learning rate"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "lr_scheduler_type"
+  ]
+}

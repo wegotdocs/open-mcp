@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "evaluation_id": {
+      "type": "string",
+      "title": "Evaluation Id"
+    },
+    "status": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "EVALUATION_INITIALIZED",
+            "EVALUATION_STARTED",
+            "EVALUATION_FINISHED",
+            "EVALUATION_FINISHED_WITH_ERRORS",
+            "EVALUATION_FAILED",
+            "EVALUATION_AGGREGATION_FAILED"
+          ],
+          "title": "EvaluationStatusEnum"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "evaluation_id"
+  ]
+}

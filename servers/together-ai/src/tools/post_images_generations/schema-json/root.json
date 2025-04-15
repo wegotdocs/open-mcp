@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "description": "A description of the desired images. Maximum length varies by model.",
+      "example": "cat floating in space, cinematic"
+    },
+    "model": {
+      "type": "string",
+      "description": "The model to use for image generation.<br> <br> [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)\n",
+      "example": "black-forest-labs/FLUX.1-schnell",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "black-forest-labs/FLUX.1-schnell-Free",
+            "black-forest-labs/FLUX.1-schnell",
+            "black-forest-labs/FLUX.1.1-pro"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "steps": {
+      "type": "integer",
+      "default": 20,
+      "description": "Number of generation steps."
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL of an image to use for image models that support it."
+    },
+    "seed": {
+      "type": "integer",
+      "description": "Seed used for generation. Can be used to reproduce image generations."
+    },
+    "n": {
+      "type": "integer",
+      "default": 1,
+      "description": "Number of image results to generate."
+    },
+    "height": {
+      "type": "integer",
+      "default": 1024,
+      "description": "Height of the image to generate in number of pixels."
+    },
+    "width": {
+      "type": "integer",
+      "default": 1024,
+      "description": "Width of the image to generate in number of pixels."
+    },
+    "negative_prompt": {
+      "type": "string",
+      "description": "The prompt or prompts not to guide the image generation."
+    },
+    "response_format": {
+      "type": "string",
+      "description": "Format of the image response. Can be either a base64 string or a URL.",
+      "enum": [
+        "base64",
+        "url"
+      ]
+    },
+    "guidance": {
+      "type": "number",
+      "description": "Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.",
+      "default": 3.5
+    },
+    "output_format": {
+      "type": "string",
+      "description": "The format of the image response. Can be either be `jpeg` or `png`. Defaults to `jpeg`.",
+      "default": "jpeg",
+      "enum": [
+        "jpeg",
+        "png"
+      ]
+    },
+    "image_loras": {
+      "description": "An array of objects that define LoRAs (Low-Rank Adaptations) to influence the generated image.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "scale"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The URL of the LoRA to apply (e.g. https://huggingface.co/strangerzonehf/Flux-Midjourney-Mix2-LoRA)."
+          },
+          "scale": {
+            "type": "number",
+            "description": "The strength of the LoRA's influence. Most LoRA's recommend a value of 1."
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "prompt",
+    "model"
+  ]
+}

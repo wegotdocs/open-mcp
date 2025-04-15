@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "Code snippet to execute. ",
+      "example": "print('Hello, world!')",
+      "type": "string"
+    },
+    "language": {
+      "default": "python",
+      "description": "Programming language for the code to execute. Currently only supports Python, but more will be added.",
+      "enum": [
+        "python"
+      ]
+    },
+    "session_id": {
+      "description": "Identifier of the current session. Used to make follow-up calls. Requests will return an error if the session does not belong to the caller or has expired.",
+      "example": "ses_abcDEF123",
+      "nullable": false,
+      "type": "string"
+    }
+  },
+  "required": []
+}

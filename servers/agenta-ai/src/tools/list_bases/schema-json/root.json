@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "string",
+      "title": "App Id"
+    },
+    "base_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Base Name"
+    }
+  },
+  "required": [
+    "app_id"
+  ]
+}

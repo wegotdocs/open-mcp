@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "model_name": {
+      "type": "string",
+      "description": "The name to give to your uploaded model",
+      "example": "Qwen2.5-72B-Instruct"
+    },
+    "model_source": {
+      "type": "string",
+      "description": "The source location of the model (Hugging Face repo or S3 path)",
+      "example": "unsloth/Qwen2.5-72B-Instruct"
+    },
+    "hf_token": {
+      "type": "string",
+      "description": "Hugging Face token (if uploading from Hugging Face)",
+      "example": "hf_examplehuggingfacetoken"
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of your model",
+      "example": "Finetuned Qwen2.5-72B-Instruct by Unsloth"
+    }
+  },
+  "required": [
+    "model_name",
+    "model_source"
+  ]
+}

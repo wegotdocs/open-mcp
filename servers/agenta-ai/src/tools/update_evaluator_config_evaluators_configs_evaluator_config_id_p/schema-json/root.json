@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "evaluator_config_id": {
+      "type": "string",
+      "title": "Evaluator Config Id"
+    },
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Name"
+    },
+    "evaluator_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Evaluator Key"
+    },
+    "settings_values": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Settings Values"
+    }
+  },
+  "required": [
+    "evaluator_config_id",
+    "settings_values"
+  ]
+}

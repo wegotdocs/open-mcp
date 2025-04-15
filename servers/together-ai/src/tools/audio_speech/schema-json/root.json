@@ -1,0 +1,99 @@
+{
+  "type": "object",
+  "properties": {
+    "model": {
+      "description": "The name of the model to query.<br> <br> [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#audio-models)\n",
+      "example": "cartesia/sonic",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "cartesia/sonic"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "input": {
+      "type": "string",
+      "description": "Input text to generate the audio for"
+    },
+    "voice": {
+      "description": "The voice to use for generating the audio. [View all supported voices here](https://docs.together.ai/docs/text-to-speech#voices-available).",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "laidback woman",
+            "polite man",
+            "storyteller lady",
+            "friendly sidekick"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "response_format": {
+      "type": "string",
+      "description": "The format of audio output",
+      "default": "wav",
+      "enum": [
+        "mp3",
+        "wav",
+        "raw"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "description": "Language of input text",
+      "default": "en",
+      "enum": [
+        "en",
+        "de",
+        "fr",
+        "es",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "nl",
+        "pl",
+        "pt",
+        "ru",
+        "sv",
+        "tr",
+        "zh"
+      ]
+    },
+    "response_encoding": {
+      "type": "string",
+      "description": "Audio encoding of response",
+      "default": "pcm_f32le",
+      "enum": [
+        "pcm_f32le",
+        "pcm_s16le",
+        "pcm_mulaw",
+        "pcm_alaw"
+      ]
+    },
+    "sample_rate": {
+      "type": "number",
+      "default": 44100,
+      "description": "Sampling rate to use for the output audio"
+    },
+    "stream": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, output is streamed for several characters at a time instead of waiting for the full response. The stream terminates with `data: [DONE]`. If false, return the encoded audio as octet stream"
+    }
+  },
+  "required": [
+    "model",
+    "input",
+    "voice"
+  ]
+}

@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "secret_id": z.string(),
+  "header": z.union([z.object({ "name": z.union([z.string(), z.null()]).optional(), "description": z.union([z.string(), z.null()]).optional() }), z.null()]).optional(),
+  "secret": z.union([z.object({ "kind": z.enum(["provider_key","custom_provider"]), "data": z.union([z.object({ "kind": z.enum(["openai","cohere","anyscale","deepinfra","alephalpha","groq","mistralai","anthropic","perplexityai","togetherai","openrouter","gemini"]), "provider": z.object({ "key": z.string() }) }), z.object({ "kind": z.enum(["custom","azure","bedrock","sagemaker","vertex","openai","cohere","anyscale","deepinfra","alephalpha","groq","mistralai","anthropic","perplexityai","togetherai","openrouter","gemini"]), "provider": z.object({ "url": z.union([z.string(), z.null()]).optional(), "version": z.union([z.string(), z.null()]).optional(), "key": z.union([z.string(), z.null()]).optional(), "extras": z.union([z.record(z.any()), z.null()]).optional() }), "models": z.array(z.object({ "slug": z.string(), "extras": z.union([z.record(z.any()), z.null()]).optional() })), "provider_slug": z.union([z.string(), z.null()]).optional(), "model_keys": z.union([z.array(z.string()), z.null()]).optional() })]) }), z.null()]).optional()
+}

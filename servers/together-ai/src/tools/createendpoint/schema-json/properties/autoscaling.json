@@ -1,0 +1,26 @@
+{
+  "description": "Configuration for automatic scaling of the endpoint",
+  "type": "object",
+  "required": [
+    "min_replicas",
+    "max_replicas"
+  ],
+  "properties": {
+    "min_replicas": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The minimum number of replicas to maintain, even when there is no load",
+      "examples": [
+        2
+      ]
+    },
+    "max_replicas": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The maximum number of replicas to scale up to under load",
+      "examples": [
+        5
+      ]
+    }
+  }
+}

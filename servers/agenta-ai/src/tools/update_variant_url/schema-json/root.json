@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "title": "Url"
+    },
+    "variant_id": {
+      "type": "string",
+      "title": "Variant Id"
+    },
+    "commit_message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Commit Message"
+    }
+  },
+  "required": [
+    "url",
+    "variant_id"
+  ]
+}

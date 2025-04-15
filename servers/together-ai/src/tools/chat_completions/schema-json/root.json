@@ -1,0 +1,206 @@
+{
+  "type": "object",
+  "properties": {
+    "messages": {
+      "type": "array",
+      "description": "A list of messages comprising the conversation so far.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "description": "The role of the messages author. Choice between: system, user, or assistant.",
+            "enum": [
+              "system",
+              "user",
+              "assistant",
+              "tool"
+            ]
+          },
+          "content": {
+            "description": "The content of the message, which can either be a simple string or a structured format.",
+            "type": "string",
+            "anyOf": [
+              {
+                "type": "string",
+                "description": "A plain text message."
+              }
+            ]
+          }
+        },
+        "required": [
+          "role",
+          "content"
+        ]
+      }
+    },
+    "model": {
+      "description": "The name of the model to query.<br> <br> [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)\n",
+      "example": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "Qwen/Qwen2.5-72B-Instruct-Turbo",
+            "Qwen/Qwen2.5-7B-Instruct-Turbo",
+            "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+            "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+            "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "max_tokens": {
+      "type": "integer",
+      "description": "The maximum number of tokens to generate."
+    },
+    "stop": {
+      "type": "array",
+      "description": "A list of string sequences that will truncate (stop) inference text output. For example, \"</s>\" will stop generation as soon as the model generates the given token.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "temperature": {
+      "type": "number",
+      "description": "A decimal number from 0-1 that determines the degree of randomness in the response. A temperature less than 1 favors more correctness and is appropriate for question answering or summarization. A value closer to 1 introduces more randomness in the output.",
+      "format": "float"
+    },
+    "top_p": {
+      "type": "number",
+      "description": "A percentage (also called the nucleus parameter) that's used to dynamically adjust the number of choices for each predicted token based on the cumulative probabilities. It specifies a probability threshold below which all less likely tokens are filtered out. This technique helps maintain diversity and generate more fluent and natural-sounding text.",
+      "format": "float"
+    },
+    "top_k": {
+      "type": "integer",
+      "description": "An integer that's used to limit the number of choices for the next predicted word or token. It specifies the maximum number of tokens to consider at each step, based on their probability of occurrence. This technique helps to speed up the generation process and can improve the quality of the generated text by focusing on the most likely options.",
+      "format": "int32"
+    },
+    "context_length_exceeded_behavior": {
+      "type": "string",
+      "enum": [
+        "truncate",
+        "error"
+      ],
+      "default": "error",
+      "description": "Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model."
+    },
+    "repetition_penalty": {
+      "type": "number",
+      "description": "A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition."
+    },
+    "stream": {
+      "type": "boolean",
+      "description": "If true, stream tokens as Server-Sent Events as the model generates them instead of waiting for the full model response. The stream terminates with `data: [DONE]`. If false, return a single JSON object containing the results."
+    },
+    "logprobs": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Integer (0 or 1) that controls whether log probabilities of generated tokens are returned. Log probabilities help assess model confidence in token predictions."
+    },
+    "echo": {
+      "type": "boolean",
+      "description": "If true, the response will contain the prompt. Can be used with `logprobs` to return prompt logprobs."
+    },
+    "n": {
+      "type": "integer",
+      "description": "The number of completions to generate for each prompt.",
+      "minimum": 1,
+      "maximum": 128
+    },
+    "min_p": {
+      "type": "number",
+      "description": "A number between 0 and 1 that can be used as an alternative to top_p and top-k.",
+      "format": "float"
+    },
+    "presence_penalty": {
+      "type": "number",
+      "description": "A number between -2.0 and 2.0 where a positive value increases the likelihood of a model talking about new topics.",
+      "format": "float"
+    },
+    "frequency_penalty": {
+      "type": "number",
+      "description": "A number between -2.0 and 2.0 where a positive value decreases the likelihood of repeating tokens that have already been mentioned.",
+      "format": "float"
+    },
+    "logit_bias": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `logit_bias` to the tool, first call the tool `expandSchema` with \"/properties/logit_bias\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Adjusts the likelihood of specific tokens appearing in the generated output.</property-description>",
+      "additionalProperties": true
+    },
+    "seed": {
+      "type": "integer",
+      "description": "Seed value for reproducibility.",
+      "example": 42
+    },
+    "function_call": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "none",
+            "auto"
+          ]
+        }
+      ]
+    },
+    "response_format": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `response_format` to the tool, first call the tool `expandSchema` with \"/properties/response_format\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object specifying the format that the model must output.</property-description>",
+      "additionalProperties": true
+    },
+    "tools": {
+      "type": "array",
+      "description": "A list of tools the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "tool_type"
+          },
+          "function": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "example": "A description of the function."
+              },
+              "name": {
+                "type": "string",
+                "example": "function_name"
+              },
+              "parameters": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "A map of parameter names to their values."
+              }
+            }
+          }
+        }
+      }
+    },
+    "tool_choice": {
+      "description": "Controls which (if any) function is called by the model. By default uses `auto`, which lets the model pick between generating a message or calling a function.",
+      "anyOf": [
+        {
+          "type": "string",
+          "example": "tool_name"
+        }
+      ]
+    },
+    "safety_model": {
+      "type": "string",
+      "description": "The name of the moderation model used to validate tokens. Choose from the available moderation models found [here](https://docs.together.ai/docs/inference-models#moderation-models).",
+      "example": "safety_model_name"
+    }
+  },
+  "required": [
+    "messages",
+    "model"
+  ]
+}

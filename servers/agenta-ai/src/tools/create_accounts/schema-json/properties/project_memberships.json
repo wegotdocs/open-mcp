@@ -1,0 +1,91 @@
+{
+  "additionalProperties": {
+    "properties": {
+      "role": {
+        "type": "string",
+        "enum": [
+          "owner",
+          "viewer",
+          "editor",
+          "evaluator",
+          "workspace_admin",
+          "deployment_manager"
+        ],
+        "title": "Role"
+      },
+      "is_demo": {
+        "type": "boolean",
+        "title": "Is Demo"
+      },
+      "user_ref": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
+          },
+          "slug": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slug"
+          }
+        },
+        "type": "object",
+        "title": "Reference"
+      },
+      "project_ref": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
+          },
+          "slug": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slug"
+          }
+        },
+        "type": "object",
+        "title": "Reference"
+      }
+    },
+    "type": "object",
+    "required": [
+      "role",
+      "is_demo",
+      "user_ref",
+      "project_ref"
+    ],
+    "title": "ProjectMembershipRequest"
+  },
+  "type": "object",
+  "title": "Project Memberships",
+  "properties": {}
+}

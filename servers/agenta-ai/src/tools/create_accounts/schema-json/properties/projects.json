@@ -1,0 +1,88 @@
+{
+  "additionalProperties": {
+    "properties": {
+      "name": {
+        "type": "string",
+        "title": "Name"
+      },
+      "description": {
+        "type": "string",
+        "title": "Description"
+      },
+      "is_default": {
+        "type": "boolean",
+        "title": "Is Default"
+      },
+      "workspace_ref": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
+          },
+          "slug": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slug"
+          }
+        },
+        "type": "object",
+        "title": "Reference"
+      },
+      "organization_ref": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
+          },
+          "slug": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slug"
+          }
+        },
+        "type": "object",
+        "title": "Reference"
+      }
+    },
+    "type": "object",
+    "required": [
+      "name",
+      "description",
+      "is_default",
+      "workspace_ref",
+      "organization_ref"
+    ],
+    "title": "ProjectRequest"
+  },
+  "type": "object",
+  "title": "Projects",
+  "properties": {}
+}

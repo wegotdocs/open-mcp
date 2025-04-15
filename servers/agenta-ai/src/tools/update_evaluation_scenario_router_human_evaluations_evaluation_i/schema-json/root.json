@@ -1,0 +1,142 @@
+{
+  "type": "object",
+  "properties": {
+    "evaluation_id": {
+      "type": "string",
+      "title": "Evaluation Id"
+    },
+    "evaluation_scenario_id": {
+      "type": "string",
+      "title": "Evaluation Scenario Id"
+    },
+    "evaluation_type": {
+      "type": "string",
+      "enum": [
+        "human_a_b_testing",
+        "single_model_test"
+      ],
+      "title": "EvaluationType"
+    },
+    "vote": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Vote"
+    },
+    "score": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Score"
+    },
+    "correct_answer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Correct Answer"
+    },
+    "outputs": {
+      "anyOf": [
+        {
+          "items": {
+            "properties": {
+              "variant_id": {
+                "type": "string",
+                "title": "Variant Id"
+              },
+              "variant_output": {
+                "type": "string",
+                "title": "Variant Output"
+              }
+            },
+            "type": "object",
+            "required": [
+              "variant_id",
+              "variant_output"
+            ],
+            "title": "HumanEvaluationScenarioOutput"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Outputs"
+    },
+    "inputs": {
+      "anyOf": [
+        {
+          "items": {
+            "properties": {
+              "input_name": {
+                "type": "string",
+                "title": "Input Name"
+              },
+              "input_value": {
+                "type": "string",
+                "title": "Input Value"
+              }
+            },
+            "type": "object",
+            "required": [
+              "input_name",
+              "input_value"
+            ],
+            "title": "HumanEvaluationScenarioInput"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Inputs"
+    },
+    "is_pinned": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Is Pinned"
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Note"
+    }
+  },
+  "required": [
+    "evaluation_id",
+    "evaluation_scenario_id",
+    "evaluation_type"
+  ]
+}
