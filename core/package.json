@@ -1,7 +1,7 @@
 {
   "name": "@open-mcp/core",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.7",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -14,6 +14,7 @@
     "clean": "rm -rf dist",
     "prebuild": "npm run clean",
     "build": "tsc && chmod 755 dist/index.js",
+    "prepublishOnly": "npm run build",
     "test": "echo \"No test specified\""
   },
   "peerDependencies": {
@@ -21,6 +22,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@types/node": "^22.14.1",
     "typescript": "^5.8.3"
   }
 }

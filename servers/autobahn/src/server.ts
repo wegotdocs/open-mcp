@@ -22,9 +22,8 @@ export async function runServer() {
         "path",
         "method",
         "toolName",
-        "inputParams",
-        "keys",
-        "flatMap",
+        "inputParamsSchema",
+        "paramsMap",
       ]
       for (const key of requiredKeys) {
         if (!tool[key]) {

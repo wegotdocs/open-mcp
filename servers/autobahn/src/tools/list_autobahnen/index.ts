@@ -1,16 +1,15 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `list_autobahnen`
-export const toolDescription = `Liste verfügbarer Autobahnen`
-export const baseUrl = `https://verkehr.autobahn.de/o/autobahn`
-export const path = `/`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "list_autobahnen",
+  "toolDescription": "Liste verfügbarer Autobahnen",
+  "baseUrl": "https://verkehr.autobahn.de/o/autobahn",
+  "path": "/",
+  "method": "get",
+  "security": [],
+  "paramsMap": {},
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_closure`
-export const toolDescription = `Details zu einer Sperrung`
-export const baseUrl = `https://verkehr.autobahn.de/o/autobahn`
-export const path = `/details/closure/{closureId}`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "closureId"
-  ],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_closure",
+  "toolDescription": "Details zu einer Sperrung",
+  "baseUrl": "https://verkehr.autobahn.de/o/autobahn",
+  "path": "/details/closure/{closureId}",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "closureId": "closureId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

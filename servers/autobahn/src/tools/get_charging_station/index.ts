@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_charging_station`
-export const toolDescription = `Details zu einer Ladestation`
-export const baseUrl = `https://verkehr.autobahn.de/o/autobahn`
-export const path = `/details/electric_charging_station/{stationId}`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "stationId"
-  ],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_charging_station",
+  "toolDescription": "Details zu einer Ladestation",
+  "baseUrl": "https://verkehr.autobahn.de/o/autobahn",
+  "path": "/details/electric_charging_station/{stationId}",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "stationId": "stationId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

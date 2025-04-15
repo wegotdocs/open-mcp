@@ -2,9 +2,13 @@ import { z } from "zod"
 
 export type ParamType = "path" | "query" | "body" | "header" | "cookie"
 
-type ParamKeys = {
-  [key in ParamType]: string[]
-}
+type InputParamsSchema = Record<string, z.ZodType>
+
+// ParamMap keys are HTTP params which get sent
+// ParamMap values are top-level params in `inputParamsSchema`
+type ParamMap = Record<string, keyof InputParamsSchema>
+
+type ParamsMap = Partial<Record<ParamType, ParamMap>>
 
 export interface OpenMCPServerTool {
   toolName: string
@@ -12,11 +16,8 @@ export interface OpenMCPServerTool {
   baseUrl: string
   path: string
   method: string
-  inputParams: {
-    [key: string]: z.ZodType
-  }
-  keys: ParamKeys
-  flatMap: Record<string, string>
+  inputParamsSchema: InputParamsSchema
+  paramsMap: ParamsMap
   security: Array<{
     key: string
     value: string

@@ -30,21 +30,24 @@ type RequestObj = Record<ParamType, Record<string, unknown>>
 
 export function unflatten({
   flat,
-  keys,
-  flatMap,
+  paramsMap,
 }: {
   flat: FlatObj
-  keys: OpenMCPServerTool["keys"]
-  flatMap: OpenMCPServerTool["flatMap"]
+  paramsMap: OpenMCPServerTool["paramsMap"]
 }): RequestObj {
-  return Object.entries(keys).reduce((acc, [paramType, paramTypeKeys]) => {
-    acc[paramType as ParamType] = paramTypeKeys.reduce((paramObj, flatKey) => {
-      const originalKey = flatMap[flatKey] || flatKey
-      if (flatKey in flat) {
-        paramObj[originalKey] = flat[flatKey]
-      }
-      return paramObj
-    }, {} as Record<string, unknown>)
+  return Object.entries(paramsMap).reduce((acc, [paramType, paramMap]) => {
+    // paramMap keys are HTTP params which get sent e.g. inside `query`
+    // paramMap values are top-level keys in `flat`
+    acc[paramType as ParamType] = Object.keys(paramMap).reduce(
+      (paramObj, key) => {
+        const flatKey = paramMap[key]
+        if (flatKey in flat) {
+          paramObj[key] = flat[flatKey]
+        }
+        return paramObj
+      },
+      {} as Record<string, unknown>
+    )
     return acc
   }, {} as RequestObj)
 }

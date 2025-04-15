@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `list_warnings`
-export const toolDescription = `Liste aktueller Verkehrsmeldungen`
-export const baseUrl = `https://verkehr.autobahn.de/o/autobahn`
-export const path = `/{roadId}/services/warning`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "roadId"
-  ],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "list_warnings",
+  "toolDescription": "Liste aktueller Verkehrsmeldungen",
+  "baseUrl": "https://verkehr.autobahn.de/o/autobahn",
+  "path": "/{roadId}/services/warning",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "roadId": "roadId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

@@ -1,18 +1,19 @@
-export { inputParams } from "./schema/root.js"
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
 
-export const toolName = `get_webcam`
-export const toolDescription = `Details einer Webcam`
-export const baseUrl = `https://verkehr.autobahn.de/o/autobahn`
-export const path = `/details/webcam/{webcamId}`
-export const method = `get`
-export const security = []
-export const keys = {
-  "query": [],
-  "header": [],
-  "path": [
-    "webcamId"
-  ],
-  "cookie": [],
-  "body": []
+const tool: OpenMCPServerTool = {
+  "toolName": "get_webcam",
+  "toolDescription": "Details einer Webcam",
+  "baseUrl": "https://verkehr.autobahn.de/o/autobahn",
+  "path": "/details/webcam/{webcamId}",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "webcamId": "webcamId"
+    }
+  },
+  inputParamsSchema
 }
-export const flatMap = {}
+
+export default tool

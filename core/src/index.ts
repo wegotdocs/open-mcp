@@ -7,9 +7,9 @@ import {
   unflatten,
   stringify,
 } from "./lib.js"
-import type { OpenMCPServerTool } from "./types.js"
+import type { OpenMCPServerTool, ParamType } from "./types.js"
 
-export type { OpenMCPServerTool }
+export type { OpenMCPServerTool, ParamType }
 
 async function registerToolFromOperation(
   server: McpServer,
@@ -21,10 +21,9 @@ async function registerToolFromOperation(
     method,
     toolName,
     toolDescription,
-    inputParams,
+    inputParamsSchema,
+    paramsMap,
     security,
-    keys,
-    flatMap,
   } = operation
 
   const customBaseUrl = cleanUrl(process.env.OPEN_MCP_BASE_URL || baseUrl)
@@ -42,8 +41,8 @@ async function registerToolFromOperation(
     throw new Error("path must start with slash")
   }
 
-  server.tool(toolName, toolDescription, inputParams, async (flat) => {
-    const params = unflatten({ flat, keys, flatMap })
+  server.tool(toolName, toolDescription, inputParamsSchema, async (flat) => {
+    const params = unflatten({ flat, paramsMap })
 
     const securityHeadersObj: Record<string, string> = {}
     const securityQueryObj: Record<string, string> = {}
