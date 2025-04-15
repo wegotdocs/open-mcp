@@ -15,7 +15,7 @@
     "prebuild": "npm run clean && npm run copy-json-schema",
     "build": "tsc && chmod 755 dist/index.js",
     "test": "echo \"No test specified\"",
-    "prepublishOnly": "npm run build && npm run test"
+    "prepublishOnly": "npm run install && npm run build && npm run test"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,7 @@
   "description": "",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
-    "@open-mcp/core": "workspace:*",
+    "@open-mcp/core": "latest",
     "zod": "^3.24.2"
   },
   "devDependencies": {
@@ -31,9 +31,6 @@
     "typescript": "^5.8.3"
   },
   "publishConfig": {
-    "access": "public",
-    "dependencies": {
-      "@open-mcp/core": "latest"
-    }
+    "access": "public"
   }
 }
