@@ -1,0 +1,26 @@
+{
+  "name": "@open-mcp/core",
+  "type": "module",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc && chmod 755 dist/index.js",
+    "test": "echo \"No test specified\""
+  },
+  "peerDependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
