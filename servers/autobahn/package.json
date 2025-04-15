@@ -15,7 +15,7 @@
     "prebuild": "npm run clean && npm run copy-json-schema",
     "build": "tsc && chmod 755 dist/index.js",
     "test": "echo \"No test specified\"",
-    "prepublishOnly": "npm run install && npm run build && npm run test"
+    "prepublishOnly": "npm install && npm run build && npm run test"
   },
   "keywords": [],
   "author": "",
