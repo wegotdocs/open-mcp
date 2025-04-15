@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "parent": {
+      "description": "Required. The parent resource of the WorkflowInvocation type. Must be in the format `projects/*/locations/*/repositories/*`.",
+      "type": "string"
+    },
+    "filter": {
+      "description": "Optional. Filter for the returned list.",
+      "type": "string"
+    },
+    "orderBy": {
+      "description": "Optional. This field only supports ordering by `name`. If unspecified, the server will choose the ordering. If specified, the default order is ascending for the `name` field.",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Optional. Maximum number of workflow invocations to return. The server may return fewer items than requested. If unspecified, the server will pick an appropriate default.",
+      "type": "integer"
+    },
+    "pageToken": {
+      "description": "Optional. Page token received from a previous `ListWorkflowInvocations` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListWorkflowInvocations` must match the call that provided the page token.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parent"
+  ]
+}

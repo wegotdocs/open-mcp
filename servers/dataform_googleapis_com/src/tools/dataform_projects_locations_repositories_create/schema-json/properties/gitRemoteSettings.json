@@ -1,0 +1,29 @@
+{
+  "description": "Optional. If set, configures this repository to be linked to a Git remote.",
+  "properties": {
+    "authenticationTokenSecretVersion": {
+      "description": "Required. The name of the Secret Manager secret version to use as an authentication token for Git operations. Must be in the format `projects/*/secrets/*/versions/*`.",
+      "type": "string"
+    },
+    "defaultBranch": {
+      "description": "Required. The Git remote's default branch name.",
+      "type": "string"
+    },
+    "tokenStatus": {
+      "description": "Output only. Indicates the status of the Git access token.",
+      "enum": [
+        "TOKEN_STATUS_UNSPECIFIED",
+        "NOT_FOUND",
+        "INVALID",
+        "VALID"
+      ],
+      "readOnly": true,
+      "type": "string"
+    },
+    "url": {
+      "description": "Required. The Git remote's URL.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

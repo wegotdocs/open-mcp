@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "workspace": {
+      "description": "Required. The workspace's name.",
+      "type": "string"
+    },
+    "contents": {
+      "description": "Required. The file's contents.",
+      "format": "byte",
+      "type": "string"
+    },
+    "path": {
+      "description": "Required. The file.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "workspace"
+  ]
+}

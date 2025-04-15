@@ -1,0 +1,83 @@
+{
+  "type": "object",
+  "properties": {
+    "parent": {
+      "description": "Required. The repository in which to create the workflow config. Must be in the format `projects/*/locations/*/repositories/*`.",
+      "type": "string"
+    },
+    "workflowConfigId": {
+      "description": "Required. The ID to use for the workflow config, which will become the final component of the workflow config's resource name.",
+      "type": "string"
+    },
+    "cronSchedule": {
+      "description": "Optional. Optional schedule (in cron format) for automatic execution of this workflow config.",
+      "type": "string"
+    },
+    "invocationConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `invocationConfig` to the tool, first call the tool `expandSchema` with \"/properties/invocationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Optional. If left unset, a default InvocationConfig will be used.</property-description>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "Output only. The workflow config's name.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "recentScheduledExecutionRecords": {
+      "description": "Output only. Records of the 10 most recent scheduled execution attempts, ordered in in descending order of `execution_time`. Updated whenever automatic creation of a workflow invocation is triggered by cron_schedule.",
+      "items": {
+        "description": "A record of an attempt to create a workflow invocation for this workflow config.",
+        "properties": {
+          "errorStatus": {
+            "description": "The error status encountered upon this attempt to create the workflow invocation, if the attempt was unsuccessful.",
+            "properties": {
+              "code": {
+                "description": "The status code, which should be an enum value of google.rpc.Code.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "details": {
+                "description": "A list of messages that carry the error details. There is a common set of message types for APIs to use.",
+                "items": {
+                  "additionalProperties": {
+                    "description": "Properties of the object. Contains field @type with type URL."
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "message": {
+                "description": "A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "executionTime": {
+            "description": "The timestamp of this execution attempt.",
+            "format": "google-datetime",
+            "type": "string"
+          },
+          "workflowInvocation": {
+            "description": "The name of the created workflow invocation, if one was successfully created. Must be in the format `projects/*/locations/*/repositories/*/workflowInvocations/*`.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "releaseConfig": {
+      "description": "Required. The name of the release config whose release_compilation_result should be executed. Must be in the format `projects/*/locations/*/repositories/*/releaseConfigs/*`.",
+      "type": "string"
+    },
+    "timeZone": {
+      "description": "Optional. Specifies the time zone to be used when interpreting cron_schedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parent"
+  ]
+}

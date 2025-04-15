@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Required. The workspace's name.",
+      "type": "string"
+    },
+    "author": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `author` to the tool, first call the tool `expandSchema` with \"/properties/author\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Required. The commit's author.</property-description>",
+      "additionalProperties": true
+    },
+    "commitMessage": {
+      "description": "Optional. The commit's message.",
+      "type": "string"
+    },
+    "paths": {
+      "description": "Optional. Full file paths to commit including filename, rooted at workspace root. If left empty, all files will be committed.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "workspace": {
+      "description": "Required. The workspace's name.",
+      "type": "string"
+    },
+    "newPath": {
+      "description": "Required. The file's new path including filename, relative to the workspace root.",
+      "type": "string"
+    },
+    "path": {
+      "description": "Required. The file's full path including filename, relative to the workspace root.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "workspace"
+  ]
+}
