@@ -15,7 +15,7 @@
     "prebuild": "npm run clean && npm run copy-json-schema",
     "build": "tsc && chmod 755 dist/index.js",
     "test": "echo \"No test specified\"",
-    "prepublishOnly": "npm install && npm run build && npm run test"
+    "prepublishOnly": "npm run build && npm run test"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +31,7 @@
     "typescript": "^5.8.3"
   },
   "publishConfig": {
+    "access": "public",
     "dependencies": {
       "@open-mcp/core": "latest"
     }
