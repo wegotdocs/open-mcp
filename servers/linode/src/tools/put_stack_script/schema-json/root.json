@@ -1,0 +1,198 @@
+{
+  "type": "object",
+  "properties": {
+    "created": {
+      "description": "__Read-only__ The date this StackScript was created.",
+      "example": "{{created}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 6
+    },
+    "deployments_active": {
+      "description": "__Read-only__ Count of currently active, deployed Linodes created from this StackScript.",
+      "example": "{{deployments_active}}",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "deployments_total": {
+      "description": "__Filterable__, __Read-only__ The total number of times this StackScript has been deployed.",
+      "example": "{{deployments_total}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    },
+    "description": {
+      "description": "__Filterable__ A description for the StackScript.",
+      "example": "{{description}}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    },
+    "id": {
+      "description": "__Read-only__ The unique ID of this StackScript.",
+      "example": "{{id}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-linode-cli-display": 1
+    },
+    "images": {
+      "description": "An array of Image IDs. These are the Images that can be deployed with this StackScript.\n\n`any/all` indicates that all available Images, including private Images, are accepted.",
+      "example": [
+        "linode/debian9",
+        "linode/debian8"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-linode-cli-display": 4
+    },
+    "is_public": {
+      "description": "__Filterable__ This determines whether other users can use your StackScript. __Once a StackScript is made public, it cannot be made private.__",
+      "example": "{{is_public}}",
+      "type": "boolean",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 5,
+      "x-linode-filterable": true
+    },
+    "label": {
+      "description": "__Filterable__ The StackScript's label is for display purposes only.",
+      "example": "{{label}}",
+      "maxLength": 128,
+      "minLength": 3,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 3,
+      "x-linode-filterable": true
+    },
+    "mine": {
+      "description": "__Filterable__, __Read-only__ Returns `true` if this StackScript is owned by the account of the user making the request, and the user making the request is unrestricted or has access to this StackScript.",
+      "example": "{{mine}}",
+      "readOnly": true,
+      "type": "boolean",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    },
+    "rev_note": {
+      "description": "__Filterable__ This field allows you to add notes for the set of revisions made to this StackScript.",
+      "example": "{{rev_note}}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    },
+    "script": {
+      "description": "The script to execute when provisioning a new Linode with this StackScript.",
+      "example": "{{script}}",
+      "type": "string",
+      "x-linode-cli-format": "file"
+    },
+    "updated": {
+      "description": "__Read-only__ The date this StackScript was last updated.",
+      "example": "{{updated}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 7
+    },
+    "user_defined_fields": {
+      "description": "__Read-only__ This is a list of fields defined with a special syntax inside this StackScript that allow for supplying customized parameters during deployment. See [Declare User-Defined Fields (UDFs)](https://www.linode.com/docs/products/tools/stackscripts/guides/write-a-custom-script/#declare-user-defined-fields-udfs) for more information.",
+      "example": {
+        "example": "hunter2",
+        "label": "Enter the DB password",
+        "name": "DB_PASSWORD"
+      },
+      "items": {
+        "additionalProperties": false,
+        "description": "A custom field defined by the User with a special syntax within a StackScript. Derived from the contents of the script.",
+        "properties": {
+          "default": {
+            "description": "__Read-only__ The default value.  If not specified, this value will be used.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "example": {
+            "description": "__Read-only__ An example value for the field.",
+            "example": "hunter2",
+            "readOnly": true,
+            "type": "string"
+          },
+          "label": {
+            "description": "__Read-only__ A human-readable label for the field that will serve as the input prompt for entering the value during deployment.",
+            "example": "Enter the password",
+            "readOnly": true,
+            "type": "string"
+          },
+          "manyOf": {
+            "description": "__Read-only__ A list of acceptable values for the field in any quantity, combination or order.",
+            "example": "avalue,anothervalue,thirdvalue",
+            "readOnly": true,
+            "type": "string"
+          },
+          "name": {
+            "description": "__Read-only__ The name of the field.",
+            "example": "DB_PASSWORD",
+            "readOnly": true,
+            "type": "string"
+          },
+          "oneOf": {
+            "description": "__Read-only__ A list of acceptable single values for the field.",
+            "example": "avalue,anothervalue,thirdvalue",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "name",
+          "example"
+        ],
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/user-defined-field.yaml"
+        }
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "user_gravatar_id": {
+      "description": "__Read-only__ The Gravatar ID for the User who created the StackScript.",
+      "example": "{{user_gravatar_id}}",
+      "readOnly": true,
+      "type": "string"
+    },
+    "username": {
+      "description": "__Read-only__ The User who created the StackScript.",
+      "example": "{{username}}",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 2
+    }
+  },
+  "required": []
+}

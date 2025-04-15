@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "kubeconfig": {
+      "default": false,
+      "description": "Whether to delete and regenerate the Kubeconfig file for this Cluster.",
+      "example": "{{kubeconfig}}",
+      "type": "boolean"
+    },
+    "servicetoken": {
+      "default": false,
+      "description": "Whether to delete and regenerate the service access token for this Cluster.",
+      "example": "{{servicetoken}}",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

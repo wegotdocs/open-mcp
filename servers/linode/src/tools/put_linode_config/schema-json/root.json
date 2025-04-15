@@ -1,0 +1,255 @@
+{
+  "type": "object",
+  "properties": {
+    "comments": {
+      "description": "Optional field for arbitrary user comments on this configuration.",
+      "example": "{{comments}}",
+      "nullable": true,
+      "type": "string"
+    },
+    "devices": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `devices` to the tool, first call the tool `expandSchema` with \"/properties/devices\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A dictionary of device disks to use as a device map in a Linode's configuration profile.\n\n- An empty device disk dictionary or a dictionary with empty values for device slots is allowed.\n- If no devices are specified, booting from this configuration will hold until a device exists that allows the boot process to start.</property-description>",
+      "additionalProperties": true
+    },
+    "helpers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `helpers` to the tool, first call the tool `expandSchema` with \"/properties/helpers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Helpers enabled when booting to this Linode configuration.</property-description>",
+      "additionalProperties": true
+    },
+    "id": {
+      "description": "__Read-only__ The ID of this Config.",
+      "example": "{{id}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-linode-cli-display": 1
+    },
+    "interfaces": {
+      "description": "An array of Network interfaces to add to this Linode's Configuration Profile. At least one and up to three Interface objects can exist in this array. The position in the array determines which of the Linode's network interfaces is configured:\n\n- First [0]:  eth0\n- Second [1]: eth1\n- Third [2]:  eth2\n\nWhen updating a Linode's interfaces, _each Interface must be redefined_. An empty `interfaces` array results in a default `public` type Interface configuration only.\n\nIf no public Interface is configured, public IP addresses are still assigned to the Linode but will not be usable without manual configuration.\n\n> 📘\n>\n> Changes to Linode Interface configurations can be enabled by rebooting the Linode.\n\n`vpc` details\n\nSee the [VPC documentation](https://www.linode.com/docs/products/networking/vpc/#technical-specifications) guide for its specifications and limitations.\n\n`vlan` details\n\n- Only Next Generation Network (NGN) data centers support VLANs. Run the [List regions](https://techdocs.akamai.com/linode-api/reference/get-regions) operation to view the capabilities of data center regions. If a VLAN is attached to your Linode and you attempt to migrate or clone it to a non-NGN data center, the migration or cloning will not initiate. If a Linode cannot be migrated or cloned because of an incompatibility, you will be prompted to select a different data center or contact support.\n- See the [VLANs Overview](https://www.linode.com/docs/products/networking/vlans/#technical-specifications) guide to view additional specifications and limitations.",
+      "example": [
+        {
+          "id": 101,
+          "ipam_address": null,
+          "ipv4": null,
+          "label": null,
+          "primary": false,
+          "purpose": "public",
+          "subnet_id": null,
+          "vpc_id": null
+        },
+        {
+          "id": 102,
+          "ipam_address": "10.0.0.1/24",
+          "ipv4": {
+            "nat_1_1": null,
+            "vpc": "10.0.0.2"
+          },
+          "label": "vlan-1",
+          "primary": false,
+          "purpose": "vlan",
+          "subnet_id": null,
+          "vpc_id": null
+        },
+        {
+          "id": 103,
+          "ipam_address": null,
+          "ipv4": {
+            "nat_1_1": "203.0.113.2",
+            "vpc": "10.0.1.2"
+          },
+          "label": null,
+          "primary": true,
+          "purpose": "vpc",
+          "subnet_id": 101,
+          "vpc_id": 111
+        }
+      ],
+      "items": {
+        "additionalProperties": false,
+        "description": "The network interface to apply to this Linode's configuration profile.",
+        "properties": {
+          "active": {
+            "description": "__Read-only__ Returns `true` if the interface is in use, meaning that the Linode has been booted using the configuration profile to which the interface belongs.",
+            "example": true,
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "id": {
+            "description": "__Read-only__ The unique ID representing this interface.",
+            "example": 101,
+            "readOnly": true,
+            "type": "integer",
+            "x-linode-cli-display": 1
+          },
+          "ip_ranges": {
+            "description": "IPv4 CIDR VPC subnet ranges that are routed to this interface.\n\nWhen included in a request:\n\n- A range can't include any addresses that are assigned to an active Linode or another VPC subnet.\n\n- When updating, you need to include any existing ranges to maintain them. If a range is left out, it will be removed.\n\n- Submit this as an empty array removes all existing values.\n\n- Omit this object to leave existing values as is.\n\n<<LB>>\n\n> 📘\n>\n> This is only supported for interfaces with a `purpose` of `vpc`.",
+            "example": [
+              "10.0.0.64/26",
+              "fd04:495a:691c:971c::1:0/112"
+            ],
+            "items": {
+              "format": "ip",
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          },
+          "ipam_address": {
+            "description": "This interface's private IP address in classless inter-domain routing (CIDR) notation.\n\nFor interfaces with a `purpose` of `public`:\n\n- If you include this in a request, set it to an empty string (`\"\"`) or `null`.\n\n- Returned as `null` in a response.\n\nFor interfaces with a `purpose` of `vlan`:\n\n- To avoid conflicting addresses, make sure this value is unique for each `vlan` interface.\n\n- This should be unique among devices attached to the VLAN to avoid conflict.\n\n- If Network Helper is enabled, the Linode's interface will be automatically configured to use this address after the Linode is rebooted. If Network Helper is disabled, enable the address using [manual static IP configuration](https://www.linode.com/docs/guides/manual-network-configuration/).\n\nFor interfaces with a `purpose` of `vpc`:\n\n- If you include this in a request, set it to an empty string (`\"\"`) or `null`.\n\n- Returned as `null` in a response.",
+            "example": "10.0.0.1/24",
+            "format": "ip/netmask",
+            "nullable": true,
+            "type": "string",
+            "x-linode-cli-display": 4
+          },
+          "ipv4": {
+            "additionalProperties": false,
+            "description": "IPv4 addresses configured for this interface. This only applies to interfaces with a `purpose` of `vpc`. Returned as `null` if no `vpc` interface is assigned.",
+            "properties": {
+              "nat_1_1": {
+                "anyOf": [
+                  {
+                    "format": "ip",
+                    "minLength": 1,
+                    "title": "An available public IPv4 address",
+                    "type": "string"
+                  },
+                  {
+                    "enum": [
+                      "any"
+                    ],
+                    "title": "The assigned public IPv4 address",
+                    "type": "string"
+                  }
+                ],
+                "description": "The 1:1 NAT IPv4 address, used to associate a public IPv4 address with the interface's VPC subnet IPv4 address.\n\n- Only supported for interfaces with a `purpose` of `vpc`.\n\n- Returned as `null` if no 1:1 NAT is set for a `vpc` type interface.\n\n- Returned as an empty string (`\"\"`) for non-`vpc` type interfaces.\n\nWhen included in a request:\n\n- You can set this to a specific, public IPv4 address that's available on the Linode. You can also use the `any` keyword to enable the Linode's assigned public IPv4 address.\n\n- A specified address can't be shared with another Linode.\n\n- Omit this object or include it and set it to `null` or an empty string (`\"\"`) to block creation of a 1:1 NAT.\n\n<<LB>>\n\n> 📘\n>\n> You can't set this to a specific IPv4 address when creating a new Linode. During the creation process, the network automatically establishes a public IPv4 address for the Linode. Since this address doesn't exist yet, you can't include a custom IPv4 address to change it. After your Linode is created, you can [update your configuration profile interface](https://www.linode.com/docs/api/linode-instances/#configuration-profile-interface-update) to change the `nat_1_1` address.",
+                "example": "203.0.113.2",
+                "nullable": true,
+                "type": "string"
+              },
+              "vpc": {
+                "description": "The VPC subnet IPv4 address for this interface.\n\n- This only applies to interfaces with a `purpose` of `vpc`.\n\n- Returned as an empty string (`\"\"`) for non-`vpc` type interfaces.\n\nWhen included in a request:\n\n- The `vpc` can't be assigned to an existing Linode as an address or in a range.\n\n- The target address can't be the first two or last two addresses in the subnet IPv4 range.\n\n- If omitted, a valid address within the Subnet IPv4 range is automatically assigned.",
+                "example": "10.0.0.2",
+                "format": "ip",
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "label": {
+            "description": "__Filterable__ The name of this interface.\n\nFor interfaces with a `purpose` of `vlan`:\n\n- Required.\n\n- This needs to be unique among a Linode's interfaces. A Linode can't be attached to the same VLAN multiple times.\n\n- This can only contain ASCII letters, numbers, and dashes (`-`). You can't use two consecutive dashes (`--`).\n\n- If the VLAN label is new, a VLAN is created. Up to 10 VLANs can be created in each data center `region`. To view your active VLANs, run the [List VLANs](https://techdocs.akamai.com/linode-api/reference/get-vlans) operation.\n\nFor interfaces with a `purpose` of `public`:\n\n- If you include this in a request, set it to an empty string (`\"\"`) or `null`.\n\n- Returned as `null` in a response.\n\nFor interfaces with a `purpose` of `vpc`:\n\n- If you include this in a request, set it to an empty string (`\"\"`) or `null`.\n\n- Returned as `null` in a response.",
+            "example": "example-interface",
+            "maxLength": 64,
+            "minLength": 1,
+            "nullable": true,
+            "pattern": "[a-zA-Z0-9-]+",
+            "type": "string",
+            "x-akamai": {
+              "labels": [
+                "Filterable"
+              ]
+            },
+            "x-linode-cli-display": 2,
+            "x-linode-filterable": true
+          },
+          "primary": {
+            "description": "The default route to the Linode. Each Linode can have one interface set as its `primary`. If you haven't specifically set a `primary`, the first non-`vlan` type interface is automatically treated as the primary.\n\n> 📘\n>\n> This needs to be set to `false` for any interface that uses `vlan` as its `purpose`.",
+            "example": true,
+            "type": "boolean"
+          },
+          "purpose": {
+            "description": "The type of interface. This can be `public`, `vlan`, or `vpc`.\n\nFor interfaces with a `purpose` of `public`:\n\n- You can only define one `public` interface per Linode.\n\n- The Linode's default public IPv4 address is assigned to the `public` interface.\n\n- A Linode needs a `public` interface in the first or `eth0` position to be reachable via the public internet, after it boots. If no `public` interface is configured, you can only access the Linode through [LISH](https://www.linode.com/docs/products/compute/compute-instances/guides/lish/), or through another Linode that's connected to the same VLAN or VPC.\n\nFor interfaces with a `purpose` of `vlan`:\n\n- Configuring this `purpose` of interface attaches a Linode to the VLAN with the specified `label`.\n\n- If an `ipam_address` is configured, the Linode uses this address.\n\nFor interfaces with a `purpose` of `vpc`:\n\n- Configuring this `purpose` of interface attaches a Linode to an existing VPC subnet with the specified `subnet_id`.\n\n- When the interface is activated, the Linode is configured to use an IP address from the range in the assigned VPC subnet. See `ipv4.vpc` for more information.",
+            "enum": [
+              "public",
+              "vlan",
+              "vpc"
+            ],
+            "example": "vlan",
+            "type": "string",
+            "x-linode-cli-display": 3
+          },
+          "subnet_id": {
+            "description": "The `id` of the VPC subnet for this interface. Use this value in a request to assign a Linode to a VPC subnet.\n\n- Required for `vpc` type interfaces.\n\n- Returned as `null` for non-`vpc` type interfaces.\n\n- Once you've assigned a VPC subnet to an interface, you can't update it.\n\n- You need to reboot a Linode using the interface's configuration profile to assign the Linode to a VPC subnet.",
+            "example": 101,
+            "nullable": true,
+            "type": "integer"
+          },
+          "vpc_id": {
+            "description": "__Read-only__ The `id` of the VPC configured for this interface. Returned as `null` for non-`vpc` type interfaces.",
+            "example": 111,
+            "nullable": true,
+            "readOnly": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "purpose"
+        ],
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/linode-config-interface.yaml"
+        }
+      },
+      "maxItems": 3,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true,
+      "x-akamai": {
+        "file-path": "schemas/linode-config-interfaces.yaml"
+      }
+    },
+    "kernel": {
+      "default": "linode/latest-64bit",
+      "description": "The ID of the kernel used to boot a Linode. Run the [List kernels](https://techdocs.akamai.com/linode-api/reference/get-kernels) operation to see all available kernels. Here are some commonly used kernels:\n\n- `linode/latest-64bit`. This is the default, our latest kernel at the time of an instance boot or reboot.\n\n- `linode/grub2`. The upstream distribution-supplied kernel that's installed on the primary disk, or a custom kernel if installed.\n\n- `linode/direct-disk`. The master boot record (MBR) of the primary disk or root device. Use this in place of a Linux kernel.",
+      "example": "{{kernel}}",
+      "type": "string",
+      "x-linode-cli-display": 3
+    },
+    "label": {
+      "description": "__Filterable__ The name of the configuration for display in Akamai Cloud Manager.",
+      "example": "{{label}}",
+      "maxLength": 48,
+      "minLength": 1,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "memory_limit": {
+      "description": "Defaults to the total RAM of the Linode.",
+      "example": "{{memory_limit}}",
+      "type": "integer"
+    },
+    "root_device": {
+      "description": "The root device to boot.\n\n> 📘\n\n- If you leave this empty or set an invalid value, the root device defaults to `/dev/sda`.\n\n- If you specify a device at the root device location and it's not mounted, the Linode won't boot until a device is mounted.",
+      "example": "{{root_device}}",
+      "pattern": "a-z, A-Z, 0-9, /, _, -",
+      "type": "string"
+    },
+    "run_level": {
+      "description": "Defines the state of your Linode after booting. Defaults to `default`.",
+      "enum": [
+        "default",
+        "single",
+        "binbash"
+      ],
+      "example": "{{run_level}}",
+      "type": "string"
+    },
+    "virt_mode": {
+      "description": "Controls the virtualization mode. Defaults to `paravirt`.\n\n- `paravirt` is suitable for most cases. Linodes running in `paravirt` mode share some qualities with the host, ultimately making it run faster since there is less transition between it and the host.\n\n- `fullvirt` affords more customization, but is slower because 100% of the VM is virtualized.",
+      "enum": [
+        "paravirt",
+        "fullvirt"
+      ],
+      "example": "{{virt_mode}}",
+      "type": "string"
+    }
+  },
+  "required": []
+}

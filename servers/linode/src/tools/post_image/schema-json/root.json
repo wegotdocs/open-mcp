@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "cloud_init": {
+      "description": "Whether this image supports [cloud-init](https://www.linode.com/docs/guides/write-files-with-cloud-init/).",
+      "example": "{{cloud_init}}",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "A detailed description of this image.",
+      "example": "{{description}}",
+      "type": "string"
+    },
+    "disk_id": {
+      "description": "The ID of the target Linode disk for this image.",
+      "example": "{{disk_id}}",
+      "type": "integer"
+    },
+    "label": {
+      "description": "The short title for this image. If not provided, the disk's current label is used.",
+      "example": "{{label}}",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Tags used for organizational purposes. A tag can be from 3 to 100 characters long, and an image can have a maximum of 500 total tags.",
+      "example": [
+        "repair-image",
+        "fix-1"
+      ],
+      "items": {
+        "maxLength": 100,
+        "minLength": 3,
+        "type": "string"
+      },
+      "maxItems": 500,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "disk_id"
+  ]
+}

@@ -1,0 +1,361 @@
+{
+  "type": "object",
+  "properties": {
+    "database": {
+      "description": "The grants this User has for each Database that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "domain": {
+      "description": "The grants this User has for each Domain that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "firewall": {
+      "description": "The grants this User has for each Firewall that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "global": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `global` to the tool, first call the tool `expandSchema` with \"/properties/global\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A structure containing the Account-level grants a User has.</property-description>",
+      "additionalProperties": true
+    },
+    "image": {
+      "description": "The grants this User has for each Image that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "linode": {
+      "description": "The grants this User has for each Linode that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "longview": {
+      "description": "The grants this User has for each Longview Client that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "nodebalancer": {
+      "description": "The grants this User has for each NodeBalancer that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "stackscript": {
+      "description": "The grants this User has for each StackScript that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "volume": {
+      "description": "The grants this User has for each Block Storage Volume that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    },
+    "vpc": {
+      "description": "The grants this User has for each VPC that is owned by this Account.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Represents the level of access a restricted User has to a specific resource on the Account.",
+        "properties": {
+          "id": {
+            "description": "The ID of the entity this grant applies to.",
+            "example": 123,
+            "type": "integer"
+          },
+          "label": {
+            "description": "__Read-only__ The current label of the entity this grant applies to, for display purposes.",
+            "example": "example-entity",
+            "readOnly": true,
+            "type": "string"
+          },
+          "permissions": {
+            "description": "The level of access this User has to this entity.  If `null`, this User has no access.",
+            "enum": [
+              "read_only",
+              "read_write"
+            ],
+            "example": "read_only",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/grant.yaml"
+        }
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

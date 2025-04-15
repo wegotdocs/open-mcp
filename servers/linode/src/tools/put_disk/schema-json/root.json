@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "label": {
+      "description": "__Filterable__ The name of the disk. This is for display purposes only.",
+      "example": "{{label}}",
+      "maxLength": 48,
+      "minLength": 1,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    }
+  },
+  "required": []
+}

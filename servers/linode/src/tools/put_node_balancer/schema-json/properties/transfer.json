@@ -1,0 +1,29 @@
+{
+  "additionalProperties": false,
+  "description": "__Read-only__ Information about the amount of transfer this NodeBalancer has had so far this month.",
+  "properties": {
+    "in": {
+      "description": "__Read-only__ The total outbound transfer, in MB, used for this NodeBalancer this month.",
+      "example": 28.91200828552246,
+      "nullable": true,
+      "readOnly": true,
+      "type": "number"
+    },
+    "out": {
+      "description": "__Read-only__ The total inbound transfer, in MB, used for this NodeBalancer this month.",
+      "example": 3.5487728118896484,
+      "nullable": true,
+      "readOnly": true,
+      "type": "number"
+    },
+    "total": {
+      "description": "__Read-only__ The total transfer, in MB, used by this NodeBalancer this month.",
+      "example": 32.46078109741211,
+      "nullable": true,
+      "readOnly": true,
+      "type": "number"
+    }
+  },
+  "readOnly": true,
+  "type": "object"
+}

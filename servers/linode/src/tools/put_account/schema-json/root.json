@@ -1,0 +1,215 @@
+{
+  "type": "object",
+  "properties": {
+    "active_promotions": {
+      "items": {
+        "additionalProperties": false,
+        "description": "__Read-only__ Promotions generally offer a set amount of credit that can be used toward your Linode services, and the promotion expires after a specified date. As well, a monthly cap on the promotional offer is set.\n\nSimply put, a promotion offers a certain amount of credit  month, until either the expiration date is passed, or until the total promotional credit is used, whichever comes first.",
+        "properties": {
+          "credit_monthly_cap": {
+            "description": "The amount available to spend per month.",
+            "example": "10.00",
+            "type": "string",
+            "x-linode-cli-display": 5
+          },
+          "credit_remaining": {
+            "description": "The total amount of credit left for this promotion.",
+            "example": "50.00",
+            "type": "string",
+            "x-linode-cli-display": 3
+          },
+          "description": {
+            "description": "A detailed description of this promotion.",
+            "example": "Receive up to $10 off your services every month for 6 months! Unused credits will expire once this promotion period ends.",
+            "type": "string"
+          },
+          "expire_dt": {
+            "description": "When this promotion's credits expire.",
+            "example": "2018-01-31T23:59:59",
+            "type": "string",
+            "x-linode-cli-display": 2
+          },
+          "image_url": {
+            "description": "The location of an image for this promotion.",
+            "example": "https://linode.com/10_a_month_promotion.svg",
+            "type": "string"
+          },
+          "service_type": {
+            "description": "The service to which this promotion applies.",
+            "enum": [
+              "all",
+              "backup",
+              "blockstorage",
+              "db_mysql",
+              "ip_v4",
+              "linode",
+              "linode_disk",
+              "linode_memory",
+              "longview",
+              "managed",
+              "nodebalancer",
+              "objectstorage",
+              "placement_group",
+              "transfer_tx"
+            ],
+            "example": "all",
+            "type": "string",
+            "x-linode-cli-display": 1
+          },
+          "summary": {
+            "description": "Short details of this promotion.",
+            "example": "$10 off your Linode a month!",
+            "type": "string",
+            "x-linode-cli-display": 10
+          },
+          "this_month_credit_remaining": {
+            "description": "The amount of credit left for this month for this promotion.",
+            "example": "10.00",
+            "type": "string",
+            "x-linode-cli-display": 4
+          }
+        },
+        "readOnly": true,
+        "type": "object",
+        "x-akamai": {
+          "file-path": "schemas/promotion.yaml"
+        }
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "active_since": {
+      "description": "__Read-only__ The date and time the account was activated.",
+      "example": "{{active_since}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "address_1": {
+      "description": "The first line of this account's billing address.",
+      "example": "{{address_1}}",
+      "maxLength": 64,
+      "type": "string"
+    },
+    "address_2": {
+      "description": "The second line of this account's billing address.",
+      "example": "{{address_2}}",
+      "maxLength": 64,
+      "type": "string"
+    },
+    "balance": {
+      "description": "__Read-only__ This account's balance, in US dollars.",
+      "example": "{{balance}}",
+      "readOnly": true,
+      "type": "number",
+      "x-linode-cli-display": 4
+    },
+    "balance_uninvoiced": {
+      "description": "__Read-only__ This account's current estimated invoice in US dollars. This is not your final invoice balance. Transfer charges are not included in the estimate.",
+      "example": "{{balance_uninvoiced}}",
+      "readOnly": true,
+      "type": "number",
+      "x-linode-cli-display": 4
+    },
+    "billing_source": {
+      "description": "__Read-only__ The source of service charges for this account. Accounts that are associated with Akamai-specific customers return a value of `akamai`. All other accounts return a value of `linode`.",
+      "enum": [
+        "akamai",
+        "linode"
+      ],
+      "example": "{{billing_source}}",
+      "readOnly": true,
+      "type": "string"
+    },
+    "capabilities": {
+      "description": "__Read-only__ The Akamai Cloud Computing services your account supports.",
+      "example": [
+        "Linodes",
+        "NodeBalancers",
+        "Block Storage",
+        "Object Storage",
+        "Placement Groups",
+        "Block Storage Encryption"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "city": {
+      "description": "The city for this account's `address`.",
+      "example": "{{city}}",
+      "maxLength": 24,
+      "type": "string"
+    },
+    "company": {
+      "description": "The company name assigned to this account. This value can't include the characters, `<` `>` `(` `)` `\"` `=`.",
+      "example": "{{company}}",
+      "maxLength": 128,
+      "type": "string"
+    },
+    "country": {
+      "description": "The two-letter ISO 3166 country code for this account's `address`.",
+      "example": "{{country}}",
+      "type": "string"
+    },
+    "credit_card": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `credit_card` to the tool, first call the tool `expandSchema` with \"/properties/credit_card\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>__Read-only__ The credit card information assigned to this account.</property-description>",
+      "additionalProperties": true
+    },
+    "email": {
+      "description": "The email address of the person assigned to this account.",
+      "example": "{{email}}",
+      "maxLength": 128,
+      "type": "string",
+      "x-linode-cli-display": 3
+    },
+    "euuid": {
+      "description": "__Read-only__ An external unique identifier for this account.",
+      "example": "{{euuid}}",
+      "format": "uuid",
+      "readOnly": true,
+      "type": "string"
+    },
+    "first_name": {
+      "description": "The first name of the person assigned to this account. This value can't include the characters, `<` `>` `(` `)` `\"` `=`.",
+      "example": "{{first_name}}",
+      "maxLength": 50,
+      "type": "string",
+      "x-linode-cli-display": 1
+    },
+    "last_name": {
+      "description": "The last name of the person assigned to this account. This value can't include the characters, `<` `>` `(` `)` `\"` `=`.",
+      "example": "{{last_name}}",
+      "maxLength": 50,
+      "type": "string",
+      "x-linode-cli-display": 2
+    },
+    "phone": {
+      "description": "The phone number assigned to this account.",
+      "example": "{{phone}}",
+      "maxLength": 32,
+      "type": "string"
+    },
+    "state": {
+      "description": "The state or province for the `address` set for your account, if applicable.\n\n- If the `address` is in the United States (US) or Canada (CA), this is the two-letter ISO 3166 code for the state or province.\n\n- If it's a US military `address`, this is the abbreviation for that territory. This includes `AA` for Armed Forces Americas (excluding Canada), `AE` for Armed Forces Africa, Europe, Middle East, and Canada, or `AP` for Armed Forces Pacific.\n\n- If outside the US or CA, this is the province associated with the account's `address`.",
+      "example": "{{state}}",
+      "maxLength": 24,
+      "type": "string"
+    },
+    "tax_id": {
+      "description": "The tax identification number (TIN) assigned to this account, used for tax calculations. A TIN is set by the national authorities in your `country`, based on your `address_1`, and it may be named differently between countries. Set to an empty string (`\"\"`) if a TIN doesn't apply or for countries that don't collect tax.\n\n> 📘\n>\n> This value is externally validated. If the validation is successful, a `tax_id_valid` [event](https://techdocs.akamai.com/linode-api/reference/get-events) is triggered. If unsuccessful, a `tax_id_invalid` event is triggered and an error response is issued for an operation that included it.",
+      "example": "{{tax_id}}",
+      "maxLength": 25,
+      "type": "string"
+    },
+    "zip": {
+      "description": "The zip code for this account's `address`.\n\n- It can only contain ASCII letters, numbers, and dashes (`-`).\n\n- It can't contain more than nine letter or number characters.",
+      "example": "{{zip}}",
+      "type": "string"
+    }
+  },
+  "required": []
+}

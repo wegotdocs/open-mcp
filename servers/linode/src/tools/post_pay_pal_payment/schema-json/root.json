@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "cancel_url": {
+      "description": "The URL to have PayPal redirect to when Payment is canceled.",
+      "example": "{{cancel_url}}",
+      "type": "string"
+    },
+    "redirect_url": {
+      "description": "The URL to have PayPal redirect to when Payment is approved.",
+      "example": "{{redirect_url}}",
+      "type": "string"
+    },
+    "usd": {
+      "description": "The payment amount in USD. Minimum accepted value of $5 USD. Maximum accepted value of $500 USD or credit card payment limit; whichever value is highest. PayPal's maximum transaction limit is $10,000 USD.",
+      "example": "{{usd}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cancel_url",
+    "redirect_url",
+    "usd"
+  ]
+}

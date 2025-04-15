@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "allow_list": {
+      "description": "Controls access to the Managed Database.\n\n- Individually included IP addresses or CIDR ranges can access the Managed Database while all other sources are blocked.\n\n- A standalone value of `0.0.0.0/0` allows all IP addresses access to the Managed Database.\n\n- An empty array (`[]`) blocks all public and private connections to the Managed Database.",
+      "example": [
+        "203.0.113.1/32",
+        "192.0.1.0/24"
+      ],
+      "items": {
+        "format": "ipv4/prefix_length",
+        "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cluster_size": {
+      "default": 1,
+      "description": "The number of Linode instance nodes deployed to the Managed Database.\n\n - Choose `3` nodes to create a high availability cluster that consists of one primary node and two replica nodes.\n\n- A `2` node cluster is only available with a dedicated plan. It consists of one primary node and one replica node.",
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "example": "{{cluster_size}}",
+      "type": "integer",
+      "x-linode-cli-display": 5
+    },
+    "engine": {
+      "description": "The Managed Database engine in engine/version format.",
+      "example": "{{engine}}",
+      "type": "string"
+    },
+    "fork": {
+      "type": "string"
+    },
+    "label": {
+      "description": "__Filterable__ A unique, user-defined string referring to the Managed Database. This string needs to be unique per Managed Database engine type.",
+      "example": "{{label}}",
+      "maxLength": 32,
+      "minLength": 3,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "region": {
+      "description": "__Filterable__ The [Region](https://techdocs.akamai.com/linode-api/reference/get-regions) ID for the Managed Database.",
+      "example": "{{region}}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 3,
+      "x-linode-filterable": true
+    },
+    "ssl_connection": {
+      "default": true,
+      "description": "Currently required to be `true`. Whether to require SSL credentials to establish a connection to the Managed Database.\n\nRun the [Get managed MySQL database credentials](https://techdocs.akamai.com/linode-api/reference/get-databases-mysql-instance-credentials) operation for access information.",
+      "example": "{{ssl_connection}}",
+      "type": "boolean"
+    },
+    "type": {
+      "description": "__Filterable__ The Linode Instance type used by the Managed Database for its nodes.",
+      "example": "{{type}}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 4,
+      "x-linode-filterable": true
+    }
+  },
+  "required": [
+    "engine",
+    "label",
+    "region",
+    "type"
+  ]
+}

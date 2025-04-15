@@ -1,0 +1,343 @@
+{
+  "type": "object",
+  "properties": {
+    "client_conn_throttle": {
+      "description": "Throttle TCP connections per second for TCP, HTTP, and HTTPS configurations.  Set to `0` (zero) to disable throttling.",
+      "example": "{{client_conn_throttle}}",
+      "maximum": 20,
+      "minimum": 0,
+      "type": "integer",
+      "x-linode-cli-display": 9
+    },
+    "configs": {
+      "description": "The port configs to create for this NodeBalancer. Each config needs a unique port and at least one node.",
+      "items": {
+        "type": "object",
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "description": "A NodeBalancer configuration defines the protocol and settings for a specific port on the NodeBalancer. These fields apply to TCP configurations.",
+            "properties": {
+              "algorithm": {
+                "default": "roundrobin",
+                "description": "The algorithm this TCP NodeBalancer uses to route traffic to backends.",
+                "enum": [
+                  "roundrobin",
+                  "leastconn",
+                  "source"
+                ],
+                "example": "leastconn",
+                "type": "string",
+                "x-linode-cli-display": 4
+              },
+              "check": {
+                "default": "none",
+                "description": "The type of check to perform against backends to ensure they are serving requests. The `check` is used to determine if backends are up or down.\n\n- If `none`, no check is performed.\n- `connection` requires only a connection to the backend to succeed.\n- `http` and `http_body` rely on the backend serving HTTP, and that the response returned matches what is expected.",
+                "enum": [
+                  "none",
+                  "connection",
+                  "http",
+                  "http_body"
+                ],
+                "example": "http_body",
+                "type": "string"
+              },
+              "check_attempts": {
+                "default": 3,
+                "description": "How many times to attempt a check before considering a backend to be down.",
+                "example": 3,
+                "maximum": 30,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "check_body": {
+                "description": "This value must be present in the response body of the check in order for it to pass. If this value is not present in the response body of a check request, the backend is considered to be down.",
+                "example": "it works",
+                "type": "string"
+              },
+              "check_interval": {
+                "default": 5,
+                "description": "How often, in seconds, to check that backends are up and serving requests.\n\nMust be greater than `check_timeout`.",
+                "example": 90,
+                "maximum": 3600,
+                "minimum": 2,
+                "type": "integer"
+              },
+              "check_passive": {
+                "default": true,
+                "description": "If `true`, any response from this backend with a `5xx` status code will be enough for it to be considered unhealthy and taken out of rotation.",
+                "example": true,
+                "type": "boolean",
+                "x-linode-cli-display": 6
+              },
+              "check_path": {
+                "description": "The URL path to check on each backend. If the backend does not respond to this request it is considered to be down.",
+                "example": "/test",
+                "pattern": "^[a-zA-Z0-9\\/\\-%?&=.]*$",
+                "type": "string"
+              },
+              "check_timeout": {
+                "default": 30,
+                "description": "How long, in seconds, to wait for a check attempt before considering it failed.\n\nMust be less than `check_interval`.",
+                "example": 10,
+                "maximum": 30,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "cipher_suite": {
+                "description": "__Read-only__ Not applicable for TCP configs.",
+                "example": "none",
+                "readOnly": true,
+                "type": "string",
+                "x-linode-cli-color": {
+                  "default_": "white",
+                  "legacy": "red"
+                },
+                "x-linode-cli-display": 7
+              },
+              "id": {
+                "description": "__Read-only__ This config's unique ID.",
+                "example": 6000,
+                "readOnly": true,
+                "type": "integer",
+                "x-linode-cli-display": 1
+              },
+              "nodebalancer_id": {
+                "description": "__Read-only__ The ID for the NodeBalancer this config belongs to.",
+                "example": 12345,
+                "readOnly": true,
+                "type": "integer"
+              },
+              "nodes": {
+                "description": "The NodeBalancer nodes that serve this configuration.",
+                "items": {
+                  "additionalProperties": false,
+                  "description": "A NodeBalancer node represents a single backend serving requests for a single port of a NodeBalancer.  Nodes are specific to NodeBalancer configs, and serve traffic over their private IP.  If the same Linode is serving traffic for more than one port on the same NodeBalancer, one NodeBalancer node is required for each config (port) it should serve requests on.  For example, if you have four backends, and each should respond to both HTTP and HTTPS requests, you will need two NodeBalancer configs (port 80 and port 443) and four backends each, one for each of the Linodes serving requests for that port.",
+                  "properties": {
+                    "address": {
+                      "description": "The private IP Address where this backend can be reached. This _must_ be a private IP address.",
+                      "example": "192.168.210.120:80",
+                      "format": "ip",
+                      "type": "string",
+                      "x-linode-cli-display": 3
+                    },
+                    "config_id": {
+                      "description": "__Read-only__ The NodeBalancer Config ID that this Node belongs to.",
+                      "example": 4567,
+                      "readOnly": true,
+                      "type": "integer"
+                    },
+                    "id": {
+                      "description": "__Read-only__ This node's unique ID.",
+                      "example": 54321,
+                      "readOnly": true,
+                      "type": "integer",
+                      "x-linode-cli-display": 1
+                    },
+                    "label": {
+                      "description": "The label for this node.  This is for display purposes only.",
+                      "example": "node54321",
+                      "maxLength": 32,
+                      "minLength": 3,
+                      "pattern": "[a-zA-Z0-9-_.]{3,32}",
+                      "type": "string",
+                      "x-linode-cli-display": 2
+                    },
+                    "mode": {
+                      "description": "The mode this NodeBalancer should use when sending traffic to this backend.\n\n- If set to `accept` this backend is accepting traffic.\n- If set to `reject` this backend will not receive traffic.\n- If set to `drain` this backend will not receive _new_ traffic, but connections already pinned to it will continue to be routed to it.\n- If set to `backup`, this backend will only receive traffic if all `accept` nodes are down.",
+                      "enum": [
+                        "accept",
+                        "reject",
+                        "drain",
+                        "backup"
+                      ],
+                      "example": "accept",
+                      "type": "string",
+                      "x-linode-cli-display": 6
+                    },
+                    "nodebalancer_id": {
+                      "description": "__Read-only__ The NodeBalancer ID that this Node belongs to.",
+                      "example": 12345,
+                      "readOnly": true,
+                      "type": "integer"
+                    },
+                    "status": {
+                      "description": "__Read-only__ The current status of this node, based on the configured checks of its NodeBalancer Config.",
+                      "enum": [
+                        "unknown",
+                        "UP",
+                        "DOWN"
+                      ],
+                      "example": "UP",
+                      "readOnly": true,
+                      "type": "string",
+                      "x-linode-cli-color": {
+                        "DOWN": "red",
+                        "UP": "green",
+                        "default_": "white",
+                        "unknown": "yellow"
+                      },
+                      "x-linode-cli-display": 4
+                    },
+                    "weight": {
+                      "description": "Used when picking a backend to serve a request and is not pinned to a single backend yet.  Nodes with a higher weight will receive more traffic.",
+                      "example": 50,
+                      "maximum": 255,
+                      "minimum": 1,
+                      "type": "integer",
+                      "x-linode-cli-display": 5
+                    }
+                  },
+                  "title": "TCP, HTTP, or HTTPS config",
+                  "x-akamai": {
+                    "file-path": "schemas/node-balancer-node-tcp-http-https.yaml"
+                  }
+                },
+                "type": "array"
+              },
+              "nodes_status": {
+                "additionalProperties": false,
+                "description": "__Read-only__ Describes the health of the backends for this port. This data updates periodically as checks are performed against backends.",
+                "properties": {
+                  "down": {
+                    "description": "__Read-only__ The number of backends considered to be `DOWN` and unhealthy.  These are not in rotation, and not serving requests.",
+                    "example": 0,
+                    "readOnly": true,
+                    "type": "integer"
+                  },
+                  "up": {
+                    "description": "__Read-only__ The number of backends considered to be `UP` and healthy, and that are serving requests.",
+                    "example": 4,
+                    "readOnly": true,
+                    "type": "integer"
+                  }
+                },
+                "readOnly": true,
+                "type": "object",
+                "x-linode-cli-display": 10
+              },
+              "port": {
+                "default": 80,
+                "description": "This is the port the NodeBalancer listens on for this configuration. Port numbers must be unique across TCP, HTTP, and HTTPS configurations on a single NodeBalancer. However, ports assigned to TCP, HTTP, or HTTPS configurations can also be reused for UDP configurations. For example, Port 80 can simultaneously serve a TCP and a UDP configuration on the same NodeBalancer, but it can't be shared by both a TCP and an HTTP configuration. Although certain ports are traditionally associated with specific protocols, this isn't strictly enforced, and you may configure your NodeBalancer however you find useful.",
+                "example": 22,
+                "maximum": 65535,
+                "minimum": 1,
+                "type": "integer",
+                "x-linode-cli-display": 2
+              },
+              "protocol": {
+                "default": "http",
+                "description": "The protocol the port is configured to serve, `tcp` in this case.\n\nReview our guide on [Available protocols](https://techdocs.akamai.com/cloud-computing/docs/available-protocols) for information on protocol features.",
+                "enum": [
+                  "tcp"
+                ],
+                "example": "tcp",
+                "type": "string",
+                "x-linode-cli-display": 3
+              },
+              "proxy_protocol": {
+                "default": "none",
+                "description": "Proxy protocol is a TCP extension that sends initial TCP connection information such as source or destination IPs and ports to backend devices. Proxy protocol preserves initial TCP information that would be lost otherwise. Backend devices must be configured to work with `proxy_protocol` if enabled.\n\n- If omitted, or set to `none`, the NodeBalancer doesn't send any auxiliary data over TCP connections. This is the default.\n- If set to `v1`, the human-readable header format (Version 1) is used. Requires `tcp` protocol.\n- If set to `v2`, the binary header format (Version 2) is used. Requires `tcp` protocol.",
+                "enum": [
+                  "none",
+                  "v1",
+                  "v2"
+                ],
+                "example": "none",
+                "type": "string"
+              },
+              "ssl_cert": {
+                "description": "__Read-only__ Not applicable for TCP configs.",
+                "example": null,
+                "nullable": true,
+                "readOnly": true,
+                "type": "string"
+              },
+              "ssl_commonname": {
+                "description": "__Read-only__ Not applicable for TCP configs.",
+                "example": "",
+                "readOnly": true,
+                "type": "string",
+                "x-linode-cli-display": 8
+              },
+              "ssl_fingerprint": {
+                "description": "__Read-only__ Not applicable for TCP configs.",
+                "example": "",
+                "readOnly": true,
+                "type": "string",
+                "x-linode-cli-display": 9
+              },
+              "ssl_key": {
+                "description": "__Read-only__ Not applicable for HTTP configs.",
+                "example": null,
+                "nullable": true,
+                "readOnly": true,
+                "type": "string"
+              },
+              "stickiness": {
+                "default": "none",
+                "description": "__Read-only__ Controls how session stickiness is handled on this port.\n\n- If set to `none`, connections will always be assigned a backend based on the algorithm configured.\n- If set to `table`, sessions from the same remote address will be routed to the same backend.",
+                "enum": [
+                  "none",
+                  "table"
+                ],
+                "example": "none",
+                "readOnly": true,
+                "type": "string",
+                "x-linode-cli-display": 5
+              }
+            },
+            "required": [
+              "nodes"
+            ],
+            "title": "TCP",
+            "type": "object",
+            "x-akamai": {
+              "file-path": "schemas/node-balancer-config-tcp.yaml"
+            }
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "firewall_id": {
+      "description": "The ID of the Firewall to assign to the NodeBalancer.\n\n- A NodeBalancer can have only one Firewall assigned to it.\n- Firewalls control inbound network traffic to NodeBalancers.",
+      "example": "{{firewall_id}}",
+      "type": "integer"
+    },
+    "label": {
+      "description": "__Filterable__ This NodeBalancer's label. These must be unique on your Account.",
+      "example": "{{label}}",
+      "maxLength": 32,
+      "minLength": 3,
+      "pattern": "[a-zA-Z0-9-_]{3,32}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "region": {
+      "description": "The ID of the Region to create this NodeBalancer in.",
+      "example": "{{region}}",
+      "type": "string"
+    },
+    "tags": {
+      "description": "An array of Tags applied to this object. Tags are for organizational purposes only.",
+      "example": [
+        "test",
+        "web-dev-team"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "region"
+  ]
+}

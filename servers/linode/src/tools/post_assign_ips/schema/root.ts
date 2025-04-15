@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "assignments": z.array(z.object({ "address": z.string().describe("The IPv4 address or IPv6 range for this assignment.\n\n- Must be an IPv4 address or an IPv6 range you can access in the Region specified.\n- IPv6 ranges must include a prefix length of `/56` or `/64`, for example: `2001:db8:3c4d:15::/64`.\n- Assignment of an IPv6 range to a Linode updates the route target of the range to the assigned Linode's SLAAC address.\n- May be a public or private address."), "linode_id": z.number().int().describe("The ID of the Linode to assign this address to. The IP's previous Linode will lose this address, and must end up with at least one public address and no more than one private address once all assignments have been made.") }).strict()).describe("The list of assignments to make. You must have read_write access to all IPs being assigned and all Linodes being assigned to in order for the assignments to succeed."),
+  "region": z.string().describe("The ID of the Region in which these assignments are to take place. All IPs and Linodes must exist in this Region.")
+}

@@ -1,0 +1,26 @@
+{
+  "additionalProperties": false,
+  "description": "When enabled, the number of nodes automatically scales within the defined minimum and maximum values. When making a request, `max` and `min` require each other.",
+  "properties": {
+    "enabled": {
+      "description": "Whether automatic scaling is enabled for this node pool. Defaults to `false`.",
+      "example": true,
+      "type": "boolean"
+    },
+    "max": {
+      "description": "The maximum number of nodes to automatically scale to. Defaults to the value provided by the `count` field.",
+      "example": 12,
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "min": {
+      "description": "The minimum number of nodes to automatically scale to. Defaults to the node pool's `count`.",
+      "example": 3,
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

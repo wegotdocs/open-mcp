@@ -1,0 +1,46 @@
+{
+  "additionalProperties": false,
+  "description": "An object representing the credit card information you have on file with Linode to make Payments against your Account.",
+  "properties": {
+    "card_number": {
+      "description": "Your credit card number. No spaces or hyphens (`-`) allowed.",
+      "example": 4111111111111111,
+      "format": "digits",
+      "maxLength": 24,
+      "minLength": 14,
+      "type": "string"
+    },
+    "cvv": {
+      "description": "CVV (Card Verification Value) of the credit card, typically found on the back of the card.",
+      "example": "123",
+      "format": "digits",
+      "maxLength": 4,
+      "minLength": 3,
+      "type": "string"
+    },
+    "expiry_month": {
+      "description": "A value from 1-12 representing the expiration month of your credit card.\n\n  - 1 = January\n  - 2 = February\n  - 3 = March\n  - Etc.",
+      "example": 12,
+      "maximum": 12,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expiry_year": {
+      "description": "A four-digit integer representing the expiration year of your credit card.\n\nThe combination of `expiry_month` and `expiry_year` must result in a month/year combination of the current month or in the future. An expiration date set in the past is invalid.",
+      "example": 2020,
+      "maxLength": 4,
+      "minLength": 4,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "card_number",
+    "expiry_month",
+    "expiry_year",
+    "cvv"
+  ],
+  "type": "object",
+  "x-akamai": {
+    "file-path": "schemas/credit-card.yaml"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "public": {
+      "description": "Whether to create a public or private IPv4 address.",
+      "example": "{{public}}",
+      "type": "boolean"
+    },
+    "type": {
+      "description": "The type of address you are allocating. Only IPv4 addresses may be allocated through this operation.",
+      "enum": [
+        "ipv4"
+      ],
+      "example": "{{type}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "public",
+    "type"
+  ]
+}

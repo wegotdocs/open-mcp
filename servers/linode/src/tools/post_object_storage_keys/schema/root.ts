@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "bucket_access": z.array(z.object({ "bucket_name": z.string().describe("The `label` set for a bucket that this key grants access to.").optional(), "permissions": z.enum(["read_write","read_only"]).describe("The level of access the key grants to the specified `bucket_name`. Keys with `read_write` access can manage content in the `bucket_name`, while `read_only` can be used to view content. See [Create an Object Storage key]((ref:post-object-storage-keys) for more details.").optional(), "region": z.string().describe("The region where the `bucket_name` you want the key to access is located.\n\n> 📘\n>\n> If you repeat the same `region` across objects, the response includes a single `s3_endpoint` for this region. Use it to access all `bucket_name` entries.").optional() }).strict()).describe("Set up the key to limit access to specific buckets, each with a specific permission level. You can create a limited Object Storage key with access to no buckets. Include an empty `bucket_access` array in the request.").optional(),
+  "label": z.string().describe("The label for the Object Storage key, for display purposes only.").optional(),
+  "regions": z.array(z.string()).describe("You can use a key to create new buckets in regions set in this array. But it can't be used to manage content in those buckets. See [Create an Object Storage key](https://techdocs.akamai.com/linode-api/reference/post-object-storage-keys) for more details.").optional()
+}
