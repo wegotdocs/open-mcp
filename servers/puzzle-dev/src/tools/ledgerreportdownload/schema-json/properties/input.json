@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "required": [
+    "companyId",
+    "type",
+    "viewBy"
+  ],
+  "properties": {
+    "companyId": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `companyId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/companyId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "TrialBalance",
+        "FsTrialBalance"
+      ]
+    },
+    "viewBy": {
+      "type": "string",
+      "enum": [
+        "Total",
+        "Year",
+        "Quarter",
+        "Month"
+      ]
+    },
+    "startPeriod": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `startPeriod` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/startPeriod\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "endPeriod": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `endPeriod` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/endPeriod\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "dateMacro": {
+      "type": "string",
+      "enum": [
+        "CurrentMonth",
+        "LastFullMonth",
+        "LastThreeMonths",
+        "LastThreeFullMonths",
+        "CurrentYear",
+        "LastYear",
+        "QuarterToDate",
+        "YearToDate"
+      ]
+    },
+    "highWatermarkToken": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "Compact",
+        "Summary",
+        "Detailed"
+      ]
+    },
+    "basis": {
+      "type": "string",
+      "enum": [
+        "cash",
+        "accrual"
+      ]
+    }
+  }
+}

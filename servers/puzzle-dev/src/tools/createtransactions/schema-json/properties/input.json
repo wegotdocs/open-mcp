@@ -1,0 +1,113 @@
+{
+  "type": "object",
+  "required": [
+    "companyId",
+    "accountId",
+    "transactions"
+  ],
+  "properties": {
+    "companyId": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `companyId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/companyId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "accountId": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `accountId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/accountId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "nativeId",
+          "timestamp",
+          "amount",
+          "description"
+        ],
+        "properties": {
+          "nativeId": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "object"
+          },
+          "amount": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "bank_fees",
+              "bill_pay_clearing",
+              "business_development_and_conferences",
+              "computers_and_hardware",
+              "consultants",
+              "dues_and_subscriptions",
+              "entertainment",
+              "furniture",
+              "hosting",
+              "insurance",
+              "interest_and_dividend_income",
+              "interest_expense",
+              "legal",
+              "other_meals",
+              "payroll",
+              "payroll_fees",
+              "rent",
+              "shipping",
+              "software",
+              "supplies",
+              "tax_and_accounting",
+              "training_and_development",
+              "travel_airfare",
+              "travel_ground_transportation",
+              "travel_lodging",
+              "utilities"
+            ]
+          },
+          "memo": {
+            "type": "string"
+          },
+          "merchantName": {
+            "type": "string"
+          },
+          "counterpartyName": {
+            "type": "string"
+          },
+          "balance": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "object"
+              },
+              "currency": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

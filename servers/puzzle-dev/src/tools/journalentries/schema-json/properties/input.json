@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": [
+    "companyId"
+  ],
+  "properties": {
+    "companyId": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `companyId` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/companyId\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "basis": {
+      "type": "string",
+      "enum": [
+        "cash",
+        "accrual"
+      ]
+    },
+    "createdAfter": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `createdAfter` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/createdAfter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "limit": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "cursor": {
+      "type": "string"
+    }
+  }
+}

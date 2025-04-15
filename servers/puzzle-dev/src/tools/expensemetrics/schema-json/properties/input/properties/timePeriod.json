@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "required": [
+    "startDate"
+  ],
+  "properties": {
+    "endDateExclusive": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `endDateExclusive` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/timePeriod/properties/endDateExclusive\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "startDate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `startDate` to the tool, first call the tool `expandSchema` with \"/properties/input/properties/timePeriod/properties/startDate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "interval": {
+      "type": "string",
+      "enum": [
+        "Month"
+      ]
+    }
+  }
+}
