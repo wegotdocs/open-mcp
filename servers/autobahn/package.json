@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "copy-json-schema": "mkdir -p dist/tools && find src/tools -type d -name 'schema-json' -exec sh -c 'mkdir -p dist/tools/$(dirname {} | sed \"s/src\\/tools\\///\") && cp -r {} dist/tools/$(dirname {} | sed \"s/src\\/tools\\///\")/' \\;",
-    "prebuild": "npm run clean && npm install @open-mcp/core@latest && npm run copy-json-schema",
+    "prebuild": "npm run clean && npm run copy-json-schema",
     "build": "tsc && chmod 755 dist/index.js",
     "test": "echo \"No test specified\""
   },
@@ -28,5 +28,10 @@
   "devDependencies": {
     "@types/node": "^22.14.1",
     "typescript": "^5.8.3"
+  },
+  "publishConfig": {
+    "dependencies": {
+      "@open-mcp/core": "latest"
+    }
   }
 }
