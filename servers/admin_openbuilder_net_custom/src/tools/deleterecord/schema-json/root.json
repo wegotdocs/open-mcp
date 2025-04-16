@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "integer",
+      "description": "ID del progetto contenente le configurazioni del database",
+      "examples": [
+        2392
+      ]
+    },
+    "entity": {
+      "type": "string",
+      "description": "Nome dell'entità su cui operare",
+      "examples": [
+        "passwords"
+      ]
+    },
+    "id": {
+      "type": "integer",
+      "description": "ID del record da eliminare",
+      "examples": [
+        1
+      ]
+    }
+  },
+  "required": [
+    "project_id",
+    "entity",
+    "id"
+  ]
+}
