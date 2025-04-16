@@ -63,7 +63,7 @@ npx @open-mcp/config add {server-id} \
 
 #### Alternatives
 
-If you don't want to use the helper command `add-to-client` you can use `npm` to install the package manually, then add a `node` command to your client config with an absolute path to `dist/index.js`. See the individual server READMEs for more details.
+If you don't want to use the CLI you can use `npm` to install the package manually, then add a `node` command to your client config with an absolute path to `dist/index.js`. See the individual server READMEs for more details.
 
 ## Converting web API -> OpenMCP
 
