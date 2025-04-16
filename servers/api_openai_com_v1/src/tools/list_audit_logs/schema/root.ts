@@ -1,0 +1,13 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "effective_at": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `effective_at` to the tool, first call the tool `expandSchema` with \"/properties/effective_at\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Return only events whose `effective_at` (Unix seconds) is in this range.</property-description>").optional(),
+  "project_ids[]": z.array(z.string()).describe("Return only events for these projects.").optional(),
+  "event_types[]": z.array(z.enum(["api_key.created","api_key.updated","api_key.deleted","invite.sent","invite.accepted","invite.deleted","login.succeeded","login.failed","logout.succeeded","logout.failed","organization.updated","project.created","project.updated","project.archived","service_account.created","service_account.updated","service_account.deleted","rate_limit.updated","rate_limit.deleted","user.added","user.updated","user.deleted"]).describe("The event type.")).describe("Return only events with a `type` in one of these values. For example, `project.created`. For all options, see the documentation for the [audit log object](/docs/api-reference/audit-logs/object).").optional(),
+  "actor_ids[]": z.array(z.string()).describe("Return only events performed by these actors. Can be a user ID, a service account ID, or an api key tracking ID.").optional(),
+  "actor_emails[]": z.array(z.string()).describe("Return only events performed by users with these emails.").optional(),
+  "resource_ids[]": z.array(z.string()).describe("Return only events performed on these targets. For example, a project ID updated.").optional(),
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.\n").optional(),
+  "after": z.string().describe("A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n").optional(),
+  "before": z.string().describe("A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n").optional()
+}
