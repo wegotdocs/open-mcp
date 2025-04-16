@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "description": "Configuration for the supervised fine-tuning method.",
+  "properties": {
+    "hyperparameters": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `hyperparameters` to the tool, first call the tool `expandSchema` with \"/properties/method/properties/supervised/properties/hyperparameters\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The hyperparameters used for the fine-tuning job.</property-description>",
+      "additionalProperties": true
+    }
+  }
+}

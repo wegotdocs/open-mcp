@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "description": "The ID of the project.",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "The ID of the user.",
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "owner",
+        "member"
+      ],
+      "description": "`owner` or `member`"
+    }
+  },
+  "required": [
+    "project_id",
+    "user_id",
+    "role"
+  ]
+}

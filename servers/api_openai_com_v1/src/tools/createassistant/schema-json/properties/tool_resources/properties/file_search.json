@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "vector_store_ids": {
+      "type": "array",
+      "description": "The [vector store](/docs/api-reference/vector-stores/object) attached to this assistant. There can be a maximum of 1 vector store attached to the assistant.\n",
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "vector_stores": {
+      "type": "array",
+      "description": "A helper to create a [vector store](/docs/api-reference/vector-stores/object) with file_ids and attach it to this assistant. There can be a maximum of 1 vector store attached to the assistant.\n",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "file_ids": {
+            "type": "array",
+            "description": "A list of [file](/docs/api-reference/files) IDs to add to the vector store. There can be a maximum of 10000 files in a vector store.\n",
+            "maxItems": 10000,
+            "items": {
+              "type": "string"
+            }
+          },
+          "chunking_strategy": {
+            "type": "object",
+            "description": "The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy.",
+            "x-oaiExpandable": true,
+            "anyOf": [
+              {
+                "type": "object",
+                "title": "Auto Chunking Strategy",
+                "description": "The default strategy. This strategy currently uses a `max_chunk_size_tokens` of `800` and `chunk_overlap_tokens` of `400`.",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Always `auto`.",
+                    "enum": [
+                      "auto"
+                    ],
+                    "x-stainless-const": true
+                  }
+                },
+                "required": [
+                  "type"
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Set of 16 key-value pairs that can be attached to an object. This can be\nuseful for storing additional information about the object in a structured\nformat, and querying for objects via API or the dashboard. \n\nKeys are strings with a maximum length of 64 characters. Values are strings\nwith a maximum length of 512 characters.\n",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "x-oaiTypeLabel": "map",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

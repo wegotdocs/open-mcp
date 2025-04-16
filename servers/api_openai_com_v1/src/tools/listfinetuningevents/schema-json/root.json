@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "fine_tuning_job_id": {
+      "description": "The ID of the fine-tuning job to get events for.\n",
+      "type": "string",
+      "example": "ft-AF1WoRqd3aJAHsqc9NY7iL8F"
+    },
+    "after": {
+      "description": "Identifier for the last event from the previous pagination request.",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Number of events to retrieve.",
+      "type": "integer",
+      "default": 20
+    }
+  },
+  "required": [
+    "fine_tuning_job_id"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "description": "The ID of the user.",
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "owner",
+        "reader"
+      ],
+      "description": "`owner` or `reader`"
+    }
+  },
+  "required": [
+    "user_id",
+    "role"
+  ]
+}

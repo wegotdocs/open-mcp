@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "vector_store_id": {
+      "description": "The ID of the vector store to search.",
+      "type": "string",
+      "example": "vs_abc123"
+    },
+    "query": {
+      "description": "A query string for a search",
+      "anyOf": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "rewrite_query": {
+      "description": "Whether to rewrite the natural language query for vector search.",
+      "type": "boolean",
+      "default": false
+    },
+    "max_num_results": {
+      "description": "The maximum number of results to return. This number should be between 1 and 50 inclusive.",
+      "type": "integer",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 50
+    },
+    "filters": {
+      "description": "A filter to apply based on file attributes.",
+      "x-oaiExpandable": true,
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "title": "Comparison Filter",
+          "description": "A filter used to compare a specified attribute key to a given value using a defined comparison operation.\n",
+          "properties": {
+            "type": {
+              "type": "string",
+              "default": "eq",
+              "enum": [
+                "eq",
+                "ne",
+                "gt",
+                "gte",
+                "lt",
+                "lte"
+              ],
+              "description": "Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`.\n- `eq`: equals\n- `ne`: not equal\n- `gt`: greater than\n- `gte`: greater than or equal\n- `lt`: less than\n- `lte`: less than or equal\n"
+            },
+            "key": {
+              "type": "string",
+              "description": "The key to compare against the value."
+            },
+            "value": {
+              "description": "The value to compare against the attribute key; supports string, number, or boolean types.",
+              "anyOf": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "key",
+            "value"
+          ],
+          "x-oaiMeta": {
+            "name": "ComparisonFilter"
+          }
+        }
+      ]
+    },
+    "ranking_options": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ranking_options` to the tool, first call the tool `expandSchema` with \"/properties/ranking_options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Ranking options for search.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "vector_store_id",
+    "query"
+  ]
+}

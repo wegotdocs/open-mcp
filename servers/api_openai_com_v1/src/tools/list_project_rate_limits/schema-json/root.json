@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "description": "The ID of the project.",
+      "type": "string"
+    },
+    "limit": {
+      "description": "A limit on the number of objects to be returned. The default is 100.\n",
+      "type": "integer",
+      "default": 100
+    },
+    "after": {
+      "description": "A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.\n",
+      "type": "string"
+    },
+    "before": {
+      "description": "A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, beginning with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.\n",
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_id"
+  ]
+}

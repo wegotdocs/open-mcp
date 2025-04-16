@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "filename": {
+      "description": "The name of the file to upload.\n",
+      "type": "string"
+    },
+    "purpose": {
+      "description": "The intended purpose of the uploaded file.\n\nSee the [documentation on File purposes](/docs/api-reference/files/create#files-create-purpose).\n",
+      "type": "string",
+      "enum": [
+        "assistants",
+        "batch",
+        "fine-tune",
+        "vision"
+      ]
+    },
+    "bytes": {
+      "description": "The number of bytes in the file you are uploading.\n",
+      "type": "integer"
+    },
+    "mime_type": {
+      "description": "The MIME type of the file.\n\nThis must fall within the supported MIME types for your file purpose. See the supported MIME types for assistants and vision.\n",
+      "type": "string"
+    }
+  },
+  "required": [
+    "filename",
+    "purpose",
+    "bytes",
+    "mime_type"
+  ]
+}

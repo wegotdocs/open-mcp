@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "after": {
+      "description": "Return keys with IDs that come after this ID in the pagination order.",
+      "type": "string",
+      "nullable": true
+    },
+    "order": {
+      "description": "Order results by creation time, ascending or descending.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "asc"
+    },
+    "limit": {
+      "description": "Maximum number of keys to return.",
+      "type": "integer",
+      "default": 20
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "vector_store_id": {
+      "description": "The ID of the vector store for which to create a File Batch.\n",
+      "type": "string",
+      "example": "vs_abc123"
+    },
+    "file_ids": {
+      "description": "A list of [File](/docs/api-reference/files) IDs that the vector store should use. Useful for tools like `file_search` that can access files.",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 500,
+      "items": {
+        "type": "string"
+      }
+    },
+    "chunking_strategy": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `chunking_strategy` to the tool, first call the tool `expandSchema` with \"/properties/chunking_strategy\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The chunking strategy used to chunk the file(s). If not set, will use the `auto` strategy.</property-description>",
+      "additionalProperties": true
+    },
+    "attributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `attributes` to the tool, first call the tool `expandSchema` with \"/properties/attributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Set of 16 key-value pairs that can be attached to an object. This can be \nuseful for storing additional information about the object in a structured \nformat, and querying for objects via API or the dashboard. Keys are strings \nwith a maximum length of 64 characters. Values are strings with a maximum \nlength of 512 characters, booleans, or numbers.\n</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "vector_store_id",
+    "file_ids"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "default": null,
+  "description": "Configuration for input audio noise reduction. This can be set to `null` to turn off.\nNoise reduction filters audio added to the input audio buffer before it is sent to VAD and the model.\nFiltering the audio can improve VAD and turn detection accuracy (reducing false positives) and model performance by improving perception of the input audio.\n",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "near_field",
+        "far_field"
+      ],
+      "description": "Type of noise reduction. `near_field` is for close-talking microphones such as headphones, `far_field` is for far-field microphones such as laptop or conference room microphones.\n"
+    }
+  }
+}

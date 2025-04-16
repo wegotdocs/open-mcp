@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "completion_id": {
+      "description": "The ID of the chat completion to retrieve messages from.",
+      "type": "string"
+    },
+    "after": {
+      "description": "Identifier for the last message from the previous pagination request.",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Number of messages to retrieve.",
+      "type": "integer",
+      "default": 20
+    },
+    "order": {
+      "description": "Sort order for messages by timestamp. Use `asc` for ascending order or `desc` for descending order. Defaults to `asc`.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "asc"
+    }
+  },
+  "required": [
+    "completion_id"
+  ]
+}

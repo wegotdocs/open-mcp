@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "thread_id": {
+      "description": "The ID of the thread to which this run belongs.",
+      "type": "string"
+    },
+    "run_id": {
+      "description": "The ID of the run to cancel.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "thread_id",
+    "run_id"
+  ]
+}
