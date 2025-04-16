@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "nullable": true
+    },
+    "type": {
+      "enum": [
+        "info",
+        "warning",
+        "error"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

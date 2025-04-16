@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "votes": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "value": {
+      "type": "number",
+      "format": "double"
+    },
+    "type": {
+      "enum": [
+        "user",
+        "critic"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

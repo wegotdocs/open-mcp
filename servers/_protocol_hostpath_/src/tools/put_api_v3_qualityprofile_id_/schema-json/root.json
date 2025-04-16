@@ -1,0 +1,614 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "upgradeAllowed": {
+      "type": "boolean"
+    },
+    "cutoff": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "quality": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "source": {
+                "enum": [
+                  "unknown",
+                  "cam",
+                  "telesync",
+                  "telecine",
+                  "workprint",
+                  "dvd",
+                  "tv",
+                  "webdl",
+                  "webrip",
+                  "bluray"
+                ],
+                "type": "string"
+              },
+              "resolution": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "modifier": {
+                "enum": [
+                  "none",
+                  "regional",
+                  "screener",
+                  "rawhd",
+                  "brdisk",
+                  "remux"
+                ],
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "quality": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "name": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "source": {
+                      "enum": [
+                        "unknown",
+                        "cam",
+                        "telesync",
+                        "telecine",
+                        "workprint",
+                        "dvd",
+                        "tv",
+                        "webdl",
+                        "webrip",
+                        "bluray"
+                      ],
+                      "type": "string"
+                    },
+                    "resolution": {
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "modifier": {
+                      "enum": [
+                        "none",
+                        "regional",
+                        "screener",
+                        "rawhd",
+                        "brdisk",
+                        "remux"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "name": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "quality": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "name": {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "source": {
+                            "enum": [
+                              "unknown",
+                              "cam",
+                              "telesync",
+                              "telecine",
+                              "workprint",
+                              "dvd",
+                              "tv",
+                              "webdl",
+                              "webrip",
+                              "bluray"
+                            ],
+                            "type": "string"
+                          },
+                          "resolution": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "modifier": {
+                            "enum": [
+                              "none",
+                              "regional",
+                              "screener",
+                              "rawhd",
+                              "brdisk",
+                              "remux"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "name": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "quality": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer",
+                                  "format": "int32"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "source": {
+                                  "enum": [
+                                    "unknown",
+                                    "cam",
+                                    "telesync",
+                                    "telecine",
+                                    "workprint",
+                                    "dvd",
+                                    "tv",
+                                    "webdl",
+                                    "webrip",
+                                    "bluray"
+                                  ],
+                                  "type": "string"
+                                },
+                                "resolution": {
+                                  "type": "integer",
+                                  "format": "int32"
+                                },
+                                "modifier": {
+                                  "enum": [
+                                    "none",
+                                    "regional",
+                                    "screener",
+                                    "rawhd",
+                                    "brdisk",
+                                    "remux"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "quality": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "nullable": true
+                                      },
+                                      "source": {
+                                        "enum": [
+                                          "unknown",
+                                          "cam",
+                                          "telesync",
+                                          "telecine",
+                                          "workprint",
+                                          "dvd",
+                                          "tv",
+                                          "webdl",
+                                          "webrip",
+                                          "bluray"
+                                        ],
+                                        "type": "string"
+                                      },
+                                      "resolution": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                      },
+                                      "modifier": {
+                                        "enum": [
+                                          "none",
+                                          "regional",
+                                          "screener",
+                                          "rawhd",
+                                          "brdisk",
+                                          "remux"
+                                        ],
+                                        "type": "string"
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  },
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "quality": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer",
+                                              "format": "int32"
+                                            },
+                                            "name": {
+                                              "type": "string",
+                                              "nullable": true
+                                            },
+                                            "source": {
+                                              "enum": [
+                                                "unknown",
+                                                "cam",
+                                                "telesync",
+                                                "telecine",
+                                                "workprint",
+                                                "dvd",
+                                                "tv",
+                                                "webdl",
+                                                "webrip",
+                                                "bluray"
+                                              ],
+                                              "type": "string"
+                                            },
+                                            "resolution": {
+                                              "type": "integer",
+                                              "format": "int32"
+                                            },
+                                            "modifier": {
+                                              "enum": [
+                                                "none",
+                                                "regional",
+                                                "screener",
+                                                "rawhd",
+                                                "brdisk",
+                                                "remux"
+                                              ],
+                                              "type": "string"
+                                            }
+                                          },
+                                          "additionalProperties": false
+                                        },
+                                        "items": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "quality": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "id": {
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                  },
+                                                  "name": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                  },
+                                                  "source": {
+                                                    "enum": [
+                                                      "unknown",
+                                                      "cam",
+                                                      "telesync",
+                                                      "telecine",
+                                                      "workprint",
+                                                      "dvd",
+                                                      "tv",
+                                                      "webdl",
+                                                      "webrip",
+                                                      "bluray"
+                                                    ],
+                                                    "type": "string"
+                                                  },
+                                                  "resolution": {
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                  },
+                                                  "modifier": {
+                                                    "enum": [
+                                                      "none",
+                                                      "regional",
+                                                      "screener",
+                                                      "rawhd",
+                                                      "brdisk",
+                                                      "remux"
+                                                    ],
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "additionalProperties": false
+                                              },
+                                              "items": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "id": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "name": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "quality": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "integer",
+                                                          "format": "int32"
+                                                        },
+                                                        "name": {
+                                                          "type": "string",
+                                                          "nullable": true
+                                                        },
+                                                        "source": {
+                                                          "enum": [
+                                                            "unknown",
+                                                            "cam",
+                                                            "telesync",
+                                                            "telecine",
+                                                            "workprint",
+                                                            "dvd",
+                                                            "tv",
+                                                            "webdl",
+                                                            "webrip",
+                                                            "bluray"
+                                                          ],
+                                                          "type": "string"
+                                                        },
+                                                        "resolution": {
+                                                          "type": "integer",
+                                                          "format": "int32"
+                                                        },
+                                                        "modifier": {
+                                                          "enum": [
+                                                            "none",
+                                                            "regional",
+                                                            "screener",
+                                                            "rawhd",
+                                                            "brdisk",
+                                                            "remux"
+                                                          ],
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "additionalProperties": false
+                                                    },
+                                                    "items": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "string"
+                                                          },
+                                                          "name": {
+                                                            "type": "string"
+                                                          },
+                                                          "quality": {
+                                                            "type": "string"
+                                                          },
+                                                          "items": {
+                                                            "type": "string"
+                                                          },
+                                                          "allowed": {
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "additionalProperties": false
+                                                      },
+                                                      "nullable": true
+                                                    },
+                                                    "allowed": {
+                                                      "type": "boolean"
+                                                    }
+                                                  },
+                                                  "additionalProperties": false
+                                                },
+                                                "nullable": true
+                                              },
+                                              "allowed": {
+                                                "type": "boolean"
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          },
+                                          "nullable": true
+                                        },
+                                        "allowed": {
+                                          "type": "boolean"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    },
+                                    "nullable": true
+                                  },
+                                  "allowed": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "nullable": true
+                            },
+                            "allowed": {
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "nullable": true
+                      },
+                      "allowed": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "nullable": true
+                },
+                "allowed": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "allowed": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "minFormatScore": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "cutoffFormatScore": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "minUpgradeFormatScore": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "formatItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "format": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "language": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `language` to the tool, first call the tool `expandSchema` with \"/properties/language\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

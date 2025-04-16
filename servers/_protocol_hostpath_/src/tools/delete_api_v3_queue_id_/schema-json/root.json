@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "removeFromClient": {
+      "type": "boolean",
+      "default": true
+    },
+    "blocklist": {
+      "type": "boolean",
+      "default": false
+    },
+    "skipRedownload": {
+      "type": "boolean",
+      "default": false
+    },
+    "changeCategory": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

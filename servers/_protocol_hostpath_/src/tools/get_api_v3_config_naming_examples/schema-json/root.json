@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "renameMovies": {
+      "type": "boolean"
+    },
+    "replaceIllegalCharacters": {
+      "type": "boolean"
+    },
+    "colonReplacementFormat": {
+      "enum": [
+        "delete",
+        "dash",
+        "spaceDash",
+        "spaceDashSpace",
+        "smart"
+      ],
+      "type": "string"
+    },
+    "standardMovieFormat": {
+      "type": "string"
+    },
+    "movieFolderFormat": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "resourceName": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

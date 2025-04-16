@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "type": {
+      "type": "string",
+      "nullable": true
+    },
+    "label": {
+      "type": "string",
+      "nullable": true
+    },
+    "filters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": {}
+      },
+      "nullable": true
+    }
+  },
+  "required": []
+}

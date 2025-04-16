@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "movieFileIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "quality": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `quality` to the tool, first call the tool `expandSchema` with \"/properties/quality\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "edition": {
+      "type": "string",
+      "nullable": true
+    },
+    "releaseGroup": {
+      "type": "string",
+      "nullable": true
+    },
+    "sceneName": {
+      "type": "string",
+      "nullable": true
+    },
+    "indexerFlags": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    },
+    "pageSize": {
+      "type": "integer",
+      "format": "int32",
+      "default": 10
+    },
+    "sortKey": {
+      "type": "string"
+    },
+    "sortDirection": {
+      "enum": [
+        "default",
+        "ascending",
+        "descending"
+      ],
+      "type": "string"
+    },
+    "movieIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "protocols": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "unknown",
+          "usenet",
+          "torrent"
+        ],
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

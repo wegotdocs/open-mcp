@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "certificationCountry": {
+      "enum": [
+        "au",
+        "br",
+        "ca",
+        "fr",
+        "de",
+        "gb",
+        "in",
+        "ie",
+        "it",
+        "nz",
+        "ro",
+        "es",
+        "us"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

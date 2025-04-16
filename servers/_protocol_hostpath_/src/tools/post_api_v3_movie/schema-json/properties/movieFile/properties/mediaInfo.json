@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "audioBitrate": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "audioChannels": {
+      "type": "number",
+      "format": "double"
+    },
+    "audioCodec": {
+      "type": "string",
+      "nullable": true
+    },
+    "audioLanguages": {
+      "type": "string",
+      "nullable": true
+    },
+    "audioStreamCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "videoBitDepth": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "videoBitrate": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "videoCodec": {
+      "type": "string",
+      "nullable": true
+    },
+    "videoFps": {
+      "type": "number",
+      "format": "double"
+    },
+    "videoDynamicRange": {
+      "type": "string",
+      "nullable": true
+    },
+    "videoDynamicRangeType": {
+      "type": "string",
+      "nullable": true
+    },
+    "resolution": {
+      "type": "string",
+      "nullable": true
+    },
+    "runTime": {
+      "type": "string",
+      "nullable": true
+    },
+    "scanType": {
+      "type": "string",
+      "nullable": true
+    },
+    "subtitles": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

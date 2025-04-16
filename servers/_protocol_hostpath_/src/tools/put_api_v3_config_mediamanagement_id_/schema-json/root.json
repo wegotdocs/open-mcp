@@ -1,0 +1,100 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "autoUnmonitorPreviouslyDownloadedMovies": {
+      "type": "boolean"
+    },
+    "recycleBin": {
+      "type": "string",
+      "nullable": true
+    },
+    "recycleBinCleanupDays": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "downloadPropersAndRepacks": {
+      "enum": [
+        "preferAndUpgrade",
+        "doNotUpgrade",
+        "doNotPrefer"
+      ],
+      "type": "string"
+    },
+    "createEmptyMovieFolders": {
+      "type": "boolean"
+    },
+    "deleteEmptyFolders": {
+      "type": "boolean"
+    },
+    "fileDate": {
+      "enum": [
+        "none",
+        "cinemas",
+        "release"
+      ],
+      "type": "string"
+    },
+    "rescanAfterRefresh": {
+      "enum": [
+        "always",
+        "afterManual",
+        "never"
+      ],
+      "type": "string"
+    },
+    "autoRenameFolders": {
+      "type": "boolean"
+    },
+    "pathsDefaultStatic": {
+      "type": "boolean"
+    },
+    "setPermissionsLinux": {
+      "type": "boolean"
+    },
+    "chmodFolder": {
+      "type": "string",
+      "nullable": true
+    },
+    "chownGroup": {
+      "type": "string",
+      "nullable": true
+    },
+    "skipFreeSpaceCheckWhenImporting": {
+      "type": "boolean"
+    },
+    "minimumFreeSpaceWhenImporting": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "copyUsingHardlinks": {
+      "type": "boolean"
+    },
+    "useScriptImport": {
+      "type": "boolean"
+    },
+    "scriptImportPath": {
+      "type": "string",
+      "nullable": true
+    },
+    "importExtraFiles": {
+      "type": "boolean"
+    },
+    "extraFileExtensions": {
+      "type": "string",
+      "nullable": true
+    },
+    "enableMediaInfo": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

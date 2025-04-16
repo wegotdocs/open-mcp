@@ -1,0 +1,308 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "title": {
+      "type": "string",
+      "nullable": true
+    },
+    "sortTitle": {
+      "type": "string",
+      "nullable": true
+    },
+    "tmdbId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "coverType": {
+            "enum": [
+              "unknown",
+              "poster",
+              "banner",
+              "fanart",
+              "screenshot",
+              "headshot",
+              "clearlogo"
+            ],
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "remoteUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "overview": {
+      "type": "string",
+      "nullable": true
+    },
+    "monitored": {
+      "type": "boolean"
+    },
+    "rootFolderPath": {
+      "type": "string",
+      "nullable": true
+    },
+    "qualityProfileId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "searchOnAdd": {
+      "type": "boolean"
+    },
+    "minimumAvailability": {
+      "enum": [
+        "tba",
+        "announced",
+        "inCinemas",
+        "released",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "movies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tmdbId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "imdbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "cleanTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "enum": [
+              "tba",
+              "announced",
+              "inCinemas",
+              "released",
+              "deleted"
+            ],
+            "type": "string"
+          },
+          "overview": {
+            "type": "string",
+            "nullable": true
+          },
+          "runtime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "coverType": {
+                  "enum": [
+                    "unknown",
+                    "poster",
+                    "banner",
+                    "fanart",
+                    "screenshot",
+                    "headshot",
+                    "clearlogo"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "remoteUrl": {
+                  "type": "string",
+                  "nullable": true
+                }
+              },
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ratings": {
+            "type": "object",
+            "properties": {
+              "imdb": {
+                "type": "object",
+                "properties": {
+                  "votes": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "value": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "type": {
+                    "enum": [
+                      "user",
+                      "critic"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "tmdb": {
+                "type": "object",
+                "properties": {
+                  "votes": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "value": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "type": {
+                    "enum": [
+                      "user",
+                      "critic"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "metacritic": {
+                "type": "object",
+                "properties": {
+                  "votes": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "value": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "type": {
+                    "enum": [
+                      "user",
+                      "critic"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "rottenTomatoes": {
+                "type": "object",
+                "properties": {
+                  "votes": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "value": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "type": {
+                    "enum": [
+                      "user",
+                      "critic"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "trakt": {
+                "type": "object",
+                "properties": {
+                  "votes": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "value": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "type": {
+                    "enum": [
+                      "user",
+                      "critic"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "folder": {
+            "type": "string",
+            "nullable": true
+          },
+          "isExisting": {
+            "type": "boolean"
+          },
+          "isExcluded": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "missingMovies": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "tags": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

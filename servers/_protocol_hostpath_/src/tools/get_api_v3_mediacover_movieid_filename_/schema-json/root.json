@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "movieId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "filename": {
+      "pattern": "(.+)\\.(jpg|png|gif)",
+      "type": "string"
+    }
+  },
+  "required": [
+    "movieId",
+    "filename"
+  ]
+}

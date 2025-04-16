@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "commandName": {
+      "type": "string",
+      "nullable": true
+    },
+    "message": {
+      "type": "string",
+      "nullable": true
+    },
+    "body": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `body` to the tool, first call the tool `expandSchema` with \"/properties/body\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "priority": {
+      "enum": [
+        "normal",
+        "high",
+        "low"
+      ],
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "queued",
+        "started",
+        "completed",
+        "failed",
+        "aborted",
+        "cancelled",
+        "orphaned"
+      ],
+      "type": "string"
+    },
+    "result": {
+      "enum": [
+        "unknown",
+        "successful",
+        "unsuccessful"
+      ],
+      "type": "string"
+    },
+    "queued": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "started": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "ended": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "duration": {
+      "type": "string",
+      "format": "date-span",
+      "nullable": true
+    },
+    "exception": {
+      "type": "string",
+      "nullable": true
+    },
+    "trigger": {
+      "enum": [
+        "unspecified",
+        "manual",
+        "scheduled"
+      ],
+      "type": "string"
+    },
+    "clientUserAgent": {
+      "type": "string",
+      "nullable": true
+    },
+    "stateChangeTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "sendUpdatesToClient": {
+      "type": "boolean"
+    },
+    "updateScheduledTask": {
+      "type": "boolean"
+    },
+    "lastExecutionTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    }
+  },
+  "required": []
+}

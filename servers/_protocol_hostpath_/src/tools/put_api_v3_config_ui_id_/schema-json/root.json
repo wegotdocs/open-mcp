@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "firstDayOfWeek": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "calendarWeekColumnHeader": {
+      "type": "string",
+      "nullable": true
+    },
+    "movieRuntimeFormat": {
+      "enum": [
+        "hoursMinutes",
+        "minutes"
+      ],
+      "type": "string"
+    },
+    "shortDateFormat": {
+      "type": "string",
+      "nullable": true
+    },
+    "longDateFormat": {
+      "type": "string",
+      "nullable": true
+    },
+    "timeFormat": {
+      "type": "string",
+      "nullable": true
+    },
+    "showRelativeDates": {
+      "type": "boolean"
+    },
+    "enableColorImpairedMode": {
+      "type": "boolean"
+    },
+    "movieInfoLanguage": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "uiLanguage": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "theme": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

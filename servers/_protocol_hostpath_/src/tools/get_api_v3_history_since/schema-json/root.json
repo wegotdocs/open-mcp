@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "eventType": {
+      "enum": [
+        "unknown",
+        "grabbed",
+        "downloadFolderImported",
+        "downloadFailed",
+        "movieFileDeleted",
+        "movieFolderImported",
+        "movieFileRenamed",
+        "downloadIgnored"
+      ],
+      "type": "string"
+    },
+    "includeMovie": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": []
+}

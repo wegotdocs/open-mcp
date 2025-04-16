@@ -1,0 +1,178 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "bindAddress": {
+      "type": "string",
+      "nullable": true
+    },
+    "port": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "sslPort": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "enableSsl": {
+      "type": "boolean"
+    },
+    "launchBrowser": {
+      "type": "boolean"
+    },
+    "authenticationMethod": {
+      "enum": [
+        "none",
+        "basic",
+        "forms",
+        "external"
+      ],
+      "type": "string"
+    },
+    "authenticationRequired": {
+      "enum": [
+        "enabled",
+        "disabledForLocalAddresses"
+      ],
+      "type": "string"
+    },
+    "analyticsEnabled": {
+      "type": "boolean"
+    },
+    "username": {
+      "type": "string",
+      "nullable": true
+    },
+    "password": {
+      "type": "string",
+      "nullable": true
+    },
+    "passwordConfirmation": {
+      "type": "string",
+      "nullable": true
+    },
+    "logLevel": {
+      "type": "string",
+      "nullable": true
+    },
+    "logSizeLimit": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "consoleLogLevel": {
+      "type": "string",
+      "nullable": true
+    },
+    "branch": {
+      "type": "string",
+      "nullable": true
+    },
+    "apiKey": {
+      "type": "string",
+      "nullable": true
+    },
+    "sslCertPath": {
+      "type": "string",
+      "nullable": true
+    },
+    "sslCertPassword": {
+      "type": "string",
+      "nullable": true
+    },
+    "urlBase": {
+      "type": "string",
+      "nullable": true
+    },
+    "instanceName": {
+      "type": "string",
+      "nullable": true
+    },
+    "applicationUrl": {
+      "type": "string",
+      "nullable": true
+    },
+    "updateAutomatically": {
+      "type": "boolean"
+    },
+    "updateMechanism": {
+      "enum": [
+        "builtIn",
+        "script",
+        "external",
+        "apt",
+        "docker"
+      ],
+      "type": "string"
+    },
+    "updateScriptPath": {
+      "type": "string",
+      "nullable": true
+    },
+    "proxyEnabled": {
+      "type": "boolean"
+    },
+    "proxyType": {
+      "enum": [
+        "http",
+        "socks4",
+        "socks5"
+      ],
+      "type": "string"
+    },
+    "proxyHostname": {
+      "type": "string",
+      "nullable": true
+    },
+    "proxyPort": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "proxyUsername": {
+      "type": "string",
+      "nullable": true
+    },
+    "proxyPassword": {
+      "type": "string",
+      "nullable": true
+    },
+    "proxyBypassFilter": {
+      "type": "string",
+      "nullable": true
+    },
+    "proxyBypassLocalAddresses": {
+      "type": "boolean"
+    },
+    "certificateValidation": {
+      "enum": [
+        "enabled",
+        "disabledForLocalAddresses",
+        "disabled"
+      ],
+      "type": "string"
+    },
+    "backupFolder": {
+      "type": "string",
+      "nullable": true
+    },
+    "backupInterval": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "backupRetention": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "trustCgnatIpAddresses": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

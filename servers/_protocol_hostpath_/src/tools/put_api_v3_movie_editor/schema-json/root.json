@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "movieIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "monitored": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "qualityProfileId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "minimumAvailability": {
+      "enum": [
+        "tba",
+        "announced",
+        "inCinemas",
+        "released",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "rootFolderPath": {
+      "type": "string",
+      "nullable": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "applyTags": {
+      "enum": [
+        "add",
+        "remove",
+        "replace"
+      ],
+      "type": "string"
+    },
+    "moveFiles": {
+      "type": "boolean"
+    },
+    "deleteFiles": {
+      "type": "boolean"
+    },
+    "addImportExclusion": {
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

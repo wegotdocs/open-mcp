@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "minimumAge": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "maximumSize": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "retention": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "rssSyncInterval": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "preferIndexerFlags": {
+      "type": "boolean"
+    },
+    "availabilityDelay": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "allowHardcodedSubs": {
+      "type": "boolean"
+    },
+    "whitelistedHardcodedSubs": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
