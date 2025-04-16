@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "required": {
+      "nullable": true
+    },
+    "ignored": {
+      "nullable": true
+    },
+    "indexerId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "tags": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

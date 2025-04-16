@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "ids": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "includeCustomFormatWhenRenaming": {
+      "type": "boolean",
+      "nullable": true
+    }
+  },
+  "required": []
+}

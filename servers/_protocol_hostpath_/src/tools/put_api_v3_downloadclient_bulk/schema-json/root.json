@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "applyTags": {
+      "enum": [
+        "add",
+        "remove",
+        "replace"
+      ],
+      "type": "string"
+    },
+    "enable": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "priority": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "removeCompletedDownloads": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "removeFailedDownloads": {
+      "type": "boolean",
+      "nullable": true
+    }
+  },
+  "required": []
+}

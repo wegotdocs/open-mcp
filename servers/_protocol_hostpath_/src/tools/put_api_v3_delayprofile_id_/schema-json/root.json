@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "enableUsenet": {
+      "type": "boolean"
+    },
+    "enableTorrent": {
+      "type": "boolean"
+    },
+    "preferredProtocol": {
+      "enum": [
+        "unknown",
+        "usenet",
+        "torrent"
+      ],
+      "type": "string"
+    },
+    "usenetDelay": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "torrentDelay": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "bypassIfHighestQuality": {
+      "type": "boolean"
+    },
+    "bypassIfAboveCustomFormatScore": {
+      "type": "boolean"
+    },
+    "minimumCustomFormatScore": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "order": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "tags": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

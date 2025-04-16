@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "movieId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "eventType": {
+      "enum": [
+        "unknown",
+        "grabbed",
+        "downloadFolderImported",
+        "downloadFailed",
+        "movieFileDeleted",
+        "movieFolderImported",
+        "movieFileRenamed",
+        "downloadIgnored"
+      ],
+      "type": "string"
+    },
+    "includeMovie": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": []
+}

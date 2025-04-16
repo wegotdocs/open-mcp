@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "path": {
+      "type": "string",
+      "nullable": true
+    },
+    "accessible": {
+      "type": "boolean"
+    },
+    "freeSpace": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "unmappedFolders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "relativePath": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    }
+  },
+  "required": []
+}

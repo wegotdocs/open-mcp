@@ -1,0 +1,2301 @@
+{
+  "type": "object",
+  "properties": {
+    "forceSave": {
+      "type": "boolean",
+      "default": false
+    },
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit": {
+            "type": "string",
+            "nullable": true
+          },
+          "helpText": {
+            "type": "string",
+            "nullable": true
+          },
+          "helpTextWarning": {
+            "type": "string",
+            "nullable": true
+          },
+          "helpLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "advanced": {
+            "type": "boolean"
+          },
+          "selectOptions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "order": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "hint": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "dividerAfter": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "selectOptionsProviderAction": {
+            "type": "string",
+            "nullable": true
+          },
+          "section": {
+            "type": "string",
+            "nullable": true
+          },
+          "hidden": {
+            "type": "string",
+            "nullable": true
+          },
+          "privacy": {
+            "enum": [
+              "normal",
+              "password",
+              "apiKey",
+              "userName"
+            ],
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFloat": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "implementationName": {
+      "type": "string",
+      "nullable": true
+    },
+    "implementation": {
+      "type": "string",
+      "nullable": true
+    },
+    "configContract": {
+      "type": "string",
+      "nullable": true
+    },
+    "infoLink": {
+      "type": "string",
+      "nullable": true
+    },
+    "message": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `message` to the tool, first call the tool `expandSchema` with \"/properties/message\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "tags": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "presets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "order": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "label": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "helpText": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "helpTextWarning": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "helpLink": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "value": {
+                  "nullable": true
+                },
+                "type": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "advanced": {
+                  "type": "boolean"
+                },
+                "selectOptions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "name": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "order": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "hint": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "dividerAfter": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "nullable": true
+                },
+                "selectOptionsProviderAction": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "section": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "hidden": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "privacy": {
+                  "enum": [
+                    "normal",
+                    "password",
+                    "apiKey",
+                    "userName"
+                  ],
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "isFloat": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "implementationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "implementation": {
+            "type": "string",
+            "nullable": true
+          },
+          "configContract": {
+            "type": "string",
+            "nullable": true
+          },
+          "infoLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "nullable": true
+              },
+              "type": {
+                "enum": [
+                  "info",
+                  "warning",
+                  "error"
+                ],
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "tags": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "presets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "name": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "label": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "unit": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "helpText": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "helpTextWarning": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "helpLink": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "value": {
+                        "nullable": true
+                      },
+                      "type": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "advanced": {
+                        "type": "boolean"
+                      },
+                      "selectOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "name": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "order": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "hint": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "dividerAfter": {
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "nullable": true
+                      },
+                      "selectOptionsProviderAction": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "section": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "hidden": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "privacy": {
+                        "enum": [
+                          "normal",
+                          "password",
+                          "apiKey",
+                          "userName"
+                        ],
+                        "type": "string"
+                      },
+                      "placeholder": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "isFloat": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "nullable": true
+                },
+                "implementationName": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "implementation": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "configContract": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "infoLink": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "message": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "type": {
+                      "enum": [
+                        "info",
+                        "warning",
+                        "error"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "tags": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "nullable": true
+                },
+                "presets": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "name": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "fields": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "order": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "name": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "label": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "unit": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "helpText": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "helpTextWarning": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "helpLink": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "value": {
+                              "nullable": true
+                            },
+                            "type": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "advanced": {
+                              "type": "boolean"
+                            },
+                            "selectOptions": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "order": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "hint": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "dividerAfter": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "nullable": true
+                            },
+                            "selectOptionsProviderAction": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "section": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "hidden": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "privacy": {
+                              "enum": [
+                                "normal",
+                                "password",
+                                "apiKey",
+                                "userName"
+                              ],
+                              "type": "string"
+                            },
+                            "placeholder": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "isFloat": {
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "nullable": true
+                      },
+                      "implementationName": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "implementation": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "configContract": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "infoLink": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "message": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "type": {
+                            "enum": [
+                              "info",
+                              "warning",
+                              "error"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "tags": {
+                        "uniqueItems": true,
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "nullable": true
+                      },
+                      "presets": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "name": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "fields": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "order": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "label": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "helpText": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "helpTextWarning": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "helpLink": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "value": {
+                                    "nullable": true
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "advanced": {
+                                    "type": "boolean"
+                                  },
+                                  "selectOptions": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "order": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "hint": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "dividerAfter": {
+                                          "type": "boolean"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    },
+                                    "nullable": true
+                                  },
+                                  "selectOptionsProviderAction": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "section": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "hidden": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "privacy": {
+                                    "enum": [
+                                      "normal",
+                                      "password",
+                                      "apiKey",
+                                      "userName"
+                                    ],
+                                    "type": "string"
+                                  },
+                                  "placeholder": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "isFloat": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "nullable": true
+                            },
+                            "implementationName": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "implementation": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "configContract": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "infoLink": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "message": {
+                              "type": "object",
+                              "properties": {
+                                "message": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "type": {
+                                  "enum": [
+                                    "info",
+                                    "warning",
+                                    "error"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            "tags": {
+                              "uniqueItems": true,
+                              "type": "array",
+                              "items": {
+                                "type": "integer",
+                                "format": "int32"
+                              },
+                              "nullable": true
+                            },
+                            "presets": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "fields": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "order": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "label": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "unit": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "helpText": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "helpTextWarning": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "helpLink": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "value": {
+                                          "nullable": true
+                                        },
+                                        "type": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "advanced": {
+                                          "type": "boolean"
+                                        },
+                                        "selectOptions": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "value": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "order": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "hint": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "dividerAfter": {
+                                                "type": "boolean"
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          },
+                                          "nullable": true
+                                        },
+                                        "selectOptionsProviderAction": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "section": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "hidden": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "privacy": {
+                                          "enum": [
+                                            "normal",
+                                            "password",
+                                            "apiKey",
+                                            "userName"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "placeholder": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "isFloat": {
+                                          "type": "boolean"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    },
+                                    "nullable": true
+                                  },
+                                  "implementationName": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "implementation": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "configContract": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "infoLink": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "message": {
+                                    "type": "object",
+                                    "properties": {
+                                      "message": {
+                                        "type": "string",
+                                        "nullable": true
+                                      },
+                                      "type": {
+                                        "enum": [
+                                          "info",
+                                          "warning",
+                                          "error"
+                                        ],
+                                        "type": "string"
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  },
+                                  "tags": {
+                                    "uniqueItems": true,
+                                    "type": "array",
+                                    "items": {
+                                      "type": "integer",
+                                      "format": "int32"
+                                    },
+                                    "nullable": true
+                                  },
+                                  "presets": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "fields": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "order": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "label": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "unit": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "helpText": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "helpTextWarning": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "helpLink": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "value": {
+                                                "nullable": true
+                                              },
+                                              "type": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "advanced": {
+                                                "type": "boolean"
+                                              },
+                                              "selectOptions": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "value": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "name": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "order": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "hint": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "dividerAfter": {
+                                                      "type": "boolean"
+                                                    }
+                                                  },
+                                                  "additionalProperties": false
+                                                },
+                                                "nullable": true
+                                              },
+                                              "selectOptionsProviderAction": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "section": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "hidden": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "privacy": {
+                                                "enum": [
+                                                  "normal",
+                                                  "password",
+                                                  "apiKey",
+                                                  "userName"
+                                                ],
+                                                "type": "string"
+                                              },
+                                              "placeholder": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "isFloat": {
+                                                "type": "boolean"
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          },
+                                          "nullable": true
+                                        },
+                                        "implementationName": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "implementation": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "configContract": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "infoLink": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "message": {
+                                          "type": "object",
+                                          "properties": {
+                                            "message": {
+                                              "type": "string",
+                                              "nullable": true
+                                            },
+                                            "type": {
+                                              "enum": [
+                                                "info",
+                                                "warning",
+                                                "error"
+                                              ],
+                                              "type": "string"
+                                            }
+                                          },
+                                          "additionalProperties": false
+                                        },
+                                        "tags": {
+                                          "uniqueItems": true,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                          },
+                                          "nullable": true
+                                        },
+                                        "presets": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "fields": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "order": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "name": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "label": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "unit": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "helpText": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "helpTextWarning": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "helpLink": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "value": {
+                                                      "nullable": true
+                                                    },
+                                                    "type": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "advanced": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "selectOptions": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "string"
+                                                          },
+                                                          "name": {
+                                                            "type": "string"
+                                                          },
+                                                          "order": {
+                                                            "type": "string"
+                                                          },
+                                                          "hint": {
+                                                            "type": "string"
+                                                          },
+                                                          "dividerAfter": {
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "additionalProperties": false
+                                                      },
+                                                      "nullable": true
+                                                    },
+                                                    "selectOptionsProviderAction": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "section": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "hidden": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "privacy": {
+                                                      "enum": [
+                                                        "normal",
+                                                        "password",
+                                                        "apiKey",
+                                                        "userName"
+                                                      ],
+                                                      "type": "string"
+                                                    },
+                                                    "placeholder": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "isFloat": {
+                                                      "type": "boolean"
+                                                    }
+                                                  },
+                                                  "additionalProperties": false
+                                                },
+                                                "nullable": true
+                                              },
+                                              "implementationName": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "implementation": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "configContract": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "infoLink": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "message": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "message": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                  },
+                                                  "type": {
+                                                    "enum": [
+                                                      "info",
+                                                      "warning",
+                                                      "error"
+                                                    ],
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "additionalProperties": false
+                                              },
+                                              "tags": {
+                                                "uniqueItems": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "integer",
+                                                  "format": "int32"
+                                                },
+                                                "nullable": true
+                                              },
+                                              "presets": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "id": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "name": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "fields": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "order": {
+                                                            "type": "string"
+                                                          },
+                                                          "name": {
+                                                            "type": "string"
+                                                          },
+                                                          "label": {
+                                                            "type": "string"
+                                                          },
+                                                          "unit": {
+                                                            "type": "string"
+                                                          },
+                                                          "helpText": {
+                                                            "type": "string"
+                                                          },
+                                                          "helpTextWarning": {
+                                                            "type": "string"
+                                                          },
+                                                          "helpLink": {
+                                                            "type": "string"
+                                                          },
+                                                          "value": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": {
+                                                            "type": "string"
+                                                          },
+                                                          "advanced": {
+                                                            "type": "string"
+                                                          },
+                                                          "selectOptions": {
+                                                            "type": "string"
+                                                          },
+                                                          "selectOptionsProviderAction": {
+                                                            "type": "string"
+                                                          },
+                                                          "section": {
+                                                            "type": "string"
+                                                          },
+                                                          "hidden": {
+                                                            "type": "string"
+                                                          },
+                                                          "privacy": {
+                                                            "type": "string"
+                                                          },
+                                                          "placeholder": {
+                                                            "type": "string"
+                                                          },
+                                                          "isFloat": {
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "additionalProperties": false
+                                                      },
+                                                      "nullable": true
+                                                    },
+                                                    "implementationName": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "implementation": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "configContract": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "infoLink": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "message": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "message": {
+                                                          "type": "string",
+                                                          "nullable": true
+                                                        },
+                                                        "type": {
+                                                          "enum": [
+                                                            "info",
+                                                            "warning",
+                                                            "error"
+                                                          ],
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "additionalProperties": false
+                                                    },
+                                                    "tags": {
+                                                      "uniqueItems": true,
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "integer",
+                                                        "format": "int32"
+                                                      },
+                                                      "nullable": true
+                                                    },
+                                                    "presets": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "string"
+                                                          },
+                                                          "name": {
+                                                            "type": "string"
+                                                          },
+                                                          "fields": {
+                                                            "type": "string"
+                                                          },
+                                                          "implementationName": {
+                                                            "type": "string"
+                                                          },
+                                                          "implementation": {
+                                                            "type": "string"
+                                                          },
+                                                          "configContract": {
+                                                            "type": "string"
+                                                          },
+                                                          "infoLink": {
+                                                            "type": "string"
+                                                          },
+                                                          "message": {
+                                                            "type": "string"
+                                                          },
+                                                          "tags": {
+                                                            "type": "string"
+                                                          },
+                                                          "presets": {
+                                                            "type": "string"
+                                                          },
+                                                          "link": {
+                                                            "type": "string"
+                                                          },
+                                                          "onGrab": {
+                                                            "type": "string"
+                                                          },
+                                                          "onDownload": {
+                                                            "type": "string"
+                                                          },
+                                                          "onUpgrade": {
+                                                            "type": "string"
+                                                          },
+                                                          "onRename": {
+                                                            "type": "string"
+                                                          },
+                                                          "onMovieAdded": {
+                                                            "type": "string"
+                                                          },
+                                                          "onMovieDelete": {
+                                                            "type": "string"
+                                                          },
+                                                          "onMovieFileDelete": {
+                                                            "type": "string"
+                                                          },
+                                                          "onMovieFileDeleteForUpgrade": {
+                                                            "type": "string"
+                                                          },
+                                                          "onHealthIssue": {
+                                                            "type": "string"
+                                                          },
+                                                          "includeHealthWarnings": {
+                                                            "type": "string"
+                                                          },
+                                                          "onHealthRestored": {
+                                                            "type": "string"
+                                                          },
+                                                          "onApplicationUpdate": {
+                                                            "type": "string"
+                                                          },
+                                                          "onManualInteractionRequired": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnGrab": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnDownload": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnUpgrade": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnRename": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnMovieAdded": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnMovieDelete": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnMovieFileDelete": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnMovieFileDeleteForUpgrade": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnHealthIssue": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnHealthRestored": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnApplicationUpdate": {
+                                                            "type": "string"
+                                                          },
+                                                          "supportsOnManualInteractionRequired": {
+                                                            "type": "string"
+                                                          },
+                                                          "testCommand": {
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "additionalProperties": false
+                                                      },
+                                                      "nullable": true
+                                                    },
+                                                    "link": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "onGrab": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onDownload": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onUpgrade": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onRename": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onMovieAdded": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onMovieDelete": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onMovieFileDelete": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onMovieFileDeleteForUpgrade": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onHealthIssue": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "includeHealthWarnings": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onHealthRestored": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onApplicationUpdate": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "onManualInteractionRequired": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnGrab": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnDownload": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnUpgrade": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnRename": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnMovieAdded": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnMovieDelete": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnMovieFileDelete": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnMovieFileDeleteForUpgrade": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnHealthIssue": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnHealthRestored": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnApplicationUpdate": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "supportsOnManualInteractionRequired": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "testCommand": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    }
+                                                  },
+                                                  "additionalProperties": false
+                                                },
+                                                "nullable": true
+                                              },
+                                              "link": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "onGrab": {
+                                                "type": "boolean"
+                                              },
+                                              "onDownload": {
+                                                "type": "boolean"
+                                              },
+                                              "onUpgrade": {
+                                                "type": "boolean"
+                                              },
+                                              "onRename": {
+                                                "type": "boolean"
+                                              },
+                                              "onMovieAdded": {
+                                                "type": "boolean"
+                                              },
+                                              "onMovieDelete": {
+                                                "type": "boolean"
+                                              },
+                                              "onMovieFileDelete": {
+                                                "type": "boolean"
+                                              },
+                                              "onMovieFileDeleteForUpgrade": {
+                                                "type": "boolean"
+                                              },
+                                              "onHealthIssue": {
+                                                "type": "boolean"
+                                              },
+                                              "includeHealthWarnings": {
+                                                "type": "boolean"
+                                              },
+                                              "onHealthRestored": {
+                                                "type": "boolean"
+                                              },
+                                              "onApplicationUpdate": {
+                                                "type": "boolean"
+                                              },
+                                              "onManualInteractionRequired": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnGrab": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnDownload": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnUpgrade": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnRename": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnMovieAdded": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnMovieDelete": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnMovieFileDelete": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnMovieFileDeleteForUpgrade": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnHealthIssue": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnHealthRestored": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnApplicationUpdate": {
+                                                "type": "boolean"
+                                              },
+                                              "supportsOnManualInteractionRequired": {
+                                                "type": "boolean"
+                                              },
+                                              "testCommand": {
+                                                "type": "string",
+                                                "nullable": true
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          },
+                                          "nullable": true
+                                        },
+                                        "link": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "onGrab": {
+                                          "type": "boolean"
+                                        },
+                                        "onDownload": {
+                                          "type": "boolean"
+                                        },
+                                        "onUpgrade": {
+                                          "type": "boolean"
+                                        },
+                                        "onRename": {
+                                          "type": "boolean"
+                                        },
+                                        "onMovieAdded": {
+                                          "type": "boolean"
+                                        },
+                                        "onMovieDelete": {
+                                          "type": "boolean"
+                                        },
+                                        "onMovieFileDelete": {
+                                          "type": "boolean"
+                                        },
+                                        "onMovieFileDeleteForUpgrade": {
+                                          "type": "boolean"
+                                        },
+                                        "onHealthIssue": {
+                                          "type": "boolean"
+                                        },
+                                        "includeHealthWarnings": {
+                                          "type": "boolean"
+                                        },
+                                        "onHealthRestored": {
+                                          "type": "boolean"
+                                        },
+                                        "onApplicationUpdate": {
+                                          "type": "boolean"
+                                        },
+                                        "onManualInteractionRequired": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnGrab": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnDownload": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnUpgrade": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnRename": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnMovieAdded": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnMovieDelete": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnMovieFileDelete": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnMovieFileDeleteForUpgrade": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnHealthIssue": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnHealthRestored": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnApplicationUpdate": {
+                                          "type": "boolean"
+                                        },
+                                        "supportsOnManualInteractionRequired": {
+                                          "type": "boolean"
+                                        },
+                                        "testCommand": {
+                                          "type": "string",
+                                          "nullable": true
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    },
+                                    "nullable": true
+                                  },
+                                  "link": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "onGrab": {
+                                    "type": "boolean"
+                                  },
+                                  "onDownload": {
+                                    "type": "boolean"
+                                  },
+                                  "onUpgrade": {
+                                    "type": "boolean"
+                                  },
+                                  "onRename": {
+                                    "type": "boolean"
+                                  },
+                                  "onMovieAdded": {
+                                    "type": "boolean"
+                                  },
+                                  "onMovieDelete": {
+                                    "type": "boolean"
+                                  },
+                                  "onMovieFileDelete": {
+                                    "type": "boolean"
+                                  },
+                                  "onMovieFileDeleteForUpgrade": {
+                                    "type": "boolean"
+                                  },
+                                  "onHealthIssue": {
+                                    "type": "boolean"
+                                  },
+                                  "includeHealthWarnings": {
+                                    "type": "boolean"
+                                  },
+                                  "onHealthRestored": {
+                                    "type": "boolean"
+                                  },
+                                  "onApplicationUpdate": {
+                                    "type": "boolean"
+                                  },
+                                  "onManualInteractionRequired": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnGrab": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnDownload": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnUpgrade": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnRename": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnMovieAdded": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnMovieDelete": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnMovieFileDelete": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnMovieFileDeleteForUpgrade": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnHealthIssue": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnHealthRestored": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnApplicationUpdate": {
+                                    "type": "boolean"
+                                  },
+                                  "supportsOnManualInteractionRequired": {
+                                    "type": "boolean"
+                                  },
+                                  "testCommand": {
+                                    "type": "string",
+                                    "nullable": true
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "nullable": true
+                            },
+                            "link": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "onGrab": {
+                              "type": "boolean"
+                            },
+                            "onDownload": {
+                              "type": "boolean"
+                            },
+                            "onUpgrade": {
+                              "type": "boolean"
+                            },
+                            "onRename": {
+                              "type": "boolean"
+                            },
+                            "onMovieAdded": {
+                              "type": "boolean"
+                            },
+                            "onMovieDelete": {
+                              "type": "boolean"
+                            },
+                            "onMovieFileDelete": {
+                              "type": "boolean"
+                            },
+                            "onMovieFileDeleteForUpgrade": {
+                              "type": "boolean"
+                            },
+                            "onHealthIssue": {
+                              "type": "boolean"
+                            },
+                            "includeHealthWarnings": {
+                              "type": "boolean"
+                            },
+                            "onHealthRestored": {
+                              "type": "boolean"
+                            },
+                            "onApplicationUpdate": {
+                              "type": "boolean"
+                            },
+                            "onManualInteractionRequired": {
+                              "type": "boolean"
+                            },
+                            "supportsOnGrab": {
+                              "type": "boolean"
+                            },
+                            "supportsOnDownload": {
+                              "type": "boolean"
+                            },
+                            "supportsOnUpgrade": {
+                              "type": "boolean"
+                            },
+                            "supportsOnRename": {
+                              "type": "boolean"
+                            },
+                            "supportsOnMovieAdded": {
+                              "type": "boolean"
+                            },
+                            "supportsOnMovieDelete": {
+                              "type": "boolean"
+                            },
+                            "supportsOnMovieFileDelete": {
+                              "type": "boolean"
+                            },
+                            "supportsOnMovieFileDeleteForUpgrade": {
+                              "type": "boolean"
+                            },
+                            "supportsOnHealthIssue": {
+                              "type": "boolean"
+                            },
+                            "supportsOnHealthRestored": {
+                              "type": "boolean"
+                            },
+                            "supportsOnApplicationUpdate": {
+                              "type": "boolean"
+                            },
+                            "supportsOnManualInteractionRequired": {
+                              "type": "boolean"
+                            },
+                            "testCommand": {
+                              "type": "string",
+                              "nullable": true
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "nullable": true
+                      },
+                      "link": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "onGrab": {
+                        "type": "boolean"
+                      },
+                      "onDownload": {
+                        "type": "boolean"
+                      },
+                      "onUpgrade": {
+                        "type": "boolean"
+                      },
+                      "onRename": {
+                        "type": "boolean"
+                      },
+                      "onMovieAdded": {
+                        "type": "boolean"
+                      },
+                      "onMovieDelete": {
+                        "type": "boolean"
+                      },
+                      "onMovieFileDelete": {
+                        "type": "boolean"
+                      },
+                      "onMovieFileDeleteForUpgrade": {
+                        "type": "boolean"
+                      },
+                      "onHealthIssue": {
+                        "type": "boolean"
+                      },
+                      "includeHealthWarnings": {
+                        "type": "boolean"
+                      },
+                      "onHealthRestored": {
+                        "type": "boolean"
+                      },
+                      "onApplicationUpdate": {
+                        "type": "boolean"
+                      },
+                      "onManualInteractionRequired": {
+                        "type": "boolean"
+                      },
+                      "supportsOnGrab": {
+                        "type": "boolean"
+                      },
+                      "supportsOnDownload": {
+                        "type": "boolean"
+                      },
+                      "supportsOnUpgrade": {
+                        "type": "boolean"
+                      },
+                      "supportsOnRename": {
+                        "type": "boolean"
+                      },
+                      "supportsOnMovieAdded": {
+                        "type": "boolean"
+                      },
+                      "supportsOnMovieDelete": {
+                        "type": "boolean"
+                      },
+                      "supportsOnMovieFileDelete": {
+                        "type": "boolean"
+                      },
+                      "supportsOnMovieFileDeleteForUpgrade": {
+                        "type": "boolean"
+                      },
+                      "supportsOnHealthIssue": {
+                        "type": "boolean"
+                      },
+                      "supportsOnHealthRestored": {
+                        "type": "boolean"
+                      },
+                      "supportsOnApplicationUpdate": {
+                        "type": "boolean"
+                      },
+                      "supportsOnManualInteractionRequired": {
+                        "type": "boolean"
+                      },
+                      "testCommand": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "nullable": true
+                },
+                "link": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "onGrab": {
+                  "type": "boolean"
+                },
+                "onDownload": {
+                  "type": "boolean"
+                },
+                "onUpgrade": {
+                  "type": "boolean"
+                },
+                "onRename": {
+                  "type": "boolean"
+                },
+                "onMovieAdded": {
+                  "type": "boolean"
+                },
+                "onMovieDelete": {
+                  "type": "boolean"
+                },
+                "onMovieFileDelete": {
+                  "type": "boolean"
+                },
+                "onMovieFileDeleteForUpgrade": {
+                  "type": "boolean"
+                },
+                "onHealthIssue": {
+                  "type": "boolean"
+                },
+                "includeHealthWarnings": {
+                  "type": "boolean"
+                },
+                "onHealthRestored": {
+                  "type": "boolean"
+                },
+                "onApplicationUpdate": {
+                  "type": "boolean"
+                },
+                "onManualInteractionRequired": {
+                  "type": "boolean"
+                },
+                "supportsOnGrab": {
+                  "type": "boolean"
+                },
+                "supportsOnDownload": {
+                  "type": "boolean"
+                },
+                "supportsOnUpgrade": {
+                  "type": "boolean"
+                },
+                "supportsOnRename": {
+                  "type": "boolean"
+                },
+                "supportsOnMovieAdded": {
+                  "type": "boolean"
+                },
+                "supportsOnMovieDelete": {
+                  "type": "boolean"
+                },
+                "supportsOnMovieFileDelete": {
+                  "type": "boolean"
+                },
+                "supportsOnMovieFileDeleteForUpgrade": {
+                  "type": "boolean"
+                },
+                "supportsOnHealthIssue": {
+                  "type": "boolean"
+                },
+                "supportsOnHealthRestored": {
+                  "type": "boolean"
+                },
+                "supportsOnApplicationUpdate": {
+                  "type": "boolean"
+                },
+                "supportsOnManualInteractionRequired": {
+                  "type": "boolean"
+                },
+                "testCommand": {
+                  "type": "string",
+                  "nullable": true
+                }
+              },
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          },
+          "onGrab": {
+            "type": "boolean"
+          },
+          "onDownload": {
+            "type": "boolean"
+          },
+          "onUpgrade": {
+            "type": "boolean"
+          },
+          "onRename": {
+            "type": "boolean"
+          },
+          "onMovieAdded": {
+            "type": "boolean"
+          },
+          "onMovieDelete": {
+            "type": "boolean"
+          },
+          "onMovieFileDelete": {
+            "type": "boolean"
+          },
+          "onMovieFileDeleteForUpgrade": {
+            "type": "boolean"
+          },
+          "onHealthIssue": {
+            "type": "boolean"
+          },
+          "includeHealthWarnings": {
+            "type": "boolean"
+          },
+          "onHealthRestored": {
+            "type": "boolean"
+          },
+          "onApplicationUpdate": {
+            "type": "boolean"
+          },
+          "onManualInteractionRequired": {
+            "type": "boolean"
+          },
+          "supportsOnGrab": {
+            "type": "boolean"
+          },
+          "supportsOnDownload": {
+            "type": "boolean"
+          },
+          "supportsOnUpgrade": {
+            "type": "boolean"
+          },
+          "supportsOnRename": {
+            "type": "boolean"
+          },
+          "supportsOnMovieAdded": {
+            "type": "boolean"
+          },
+          "supportsOnMovieDelete": {
+            "type": "boolean"
+          },
+          "supportsOnMovieFileDelete": {
+            "type": "boolean"
+          },
+          "supportsOnMovieFileDeleteForUpgrade": {
+            "type": "boolean"
+          },
+          "supportsOnHealthIssue": {
+            "type": "boolean"
+          },
+          "supportsOnHealthRestored": {
+            "type": "boolean"
+          },
+          "supportsOnApplicationUpdate": {
+            "type": "boolean"
+          },
+          "supportsOnManualInteractionRequired": {
+            "type": "boolean"
+          },
+          "testCommand": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "link": {
+      "type": "string",
+      "nullable": true
+    },
+    "onGrab": {
+      "type": "boolean"
+    },
+    "onDownload": {
+      "type": "boolean"
+    },
+    "onUpgrade": {
+      "type": "boolean"
+    },
+    "onRename": {
+      "type": "boolean"
+    },
+    "onMovieAdded": {
+      "type": "boolean"
+    },
+    "onMovieDelete": {
+      "type": "boolean"
+    },
+    "onMovieFileDelete": {
+      "type": "boolean"
+    },
+    "onMovieFileDeleteForUpgrade": {
+      "type": "boolean"
+    },
+    "onHealthIssue": {
+      "type": "boolean"
+    },
+    "includeHealthWarnings": {
+      "type": "boolean"
+    },
+    "onHealthRestored": {
+      "type": "boolean"
+    },
+    "onApplicationUpdate": {
+      "type": "boolean"
+    },
+    "onManualInteractionRequired": {
+      "type": "boolean"
+    },
+    "supportsOnGrab": {
+      "type": "boolean"
+    },
+    "supportsOnDownload": {
+      "type": "boolean"
+    },
+    "supportsOnUpgrade": {
+      "type": "boolean"
+    },
+    "supportsOnRename": {
+      "type": "boolean"
+    },
+    "supportsOnMovieAdded": {
+      "type": "boolean"
+    },
+    "supportsOnMovieDelete": {
+      "type": "boolean"
+    },
+    "supportsOnMovieFileDelete": {
+      "type": "boolean"
+    },
+    "supportsOnMovieFileDeleteForUpgrade": {
+      "type": "boolean"
+    },
+    "supportsOnHealthIssue": {
+      "type": "boolean"
+    },
+    "supportsOnHealthRestored": {
+      "type": "boolean"
+    },
+    "supportsOnApplicationUpdate": {
+      "type": "boolean"
+    },
+    "supportsOnManualInteractionRequired": {
+      "type": "boolean"
+    },
+    "testCommand": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": []
+}
