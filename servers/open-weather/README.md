@@ -89,6 +89,8 @@ Expand the input schema for a tool before calling the tool
 
 **Environment variables**
 
+
+
 **Input schema**
 
 ```ts
