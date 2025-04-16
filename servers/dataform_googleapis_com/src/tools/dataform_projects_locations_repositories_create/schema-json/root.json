@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "parent": {
+      "description": "Required. The location in which to create the repository. Must be in the format `projects/*/locations/*`.",
+      "type": "string"
+    },
+    "repositoryId": {
+      "description": "Required. The ID to use for the repository, which will become the final component of the repository's resource name.",
+      "type": "string"
+    },
+    "gitRemoteSettings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `gitRemoteSettings` to the tool, first call the tool `expandSchema` with \"/properties/gitRemoteSettings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Optional. If set, configures this repository to be linked to a Git remote.</property-description>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "Output only. The repository's name.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "npmrcEnvironmentVariablesSecretVersion": {
+      "description": "Optional. The name of the Secret Manager secret version to be used to interpolate variables into the .npmrc file for package installation operations. Must be in the format `projects/*/secrets/*/versions/*`. The file itself must be in a JSON format.",
+      "type": "string"
+    },
+    "workspaceCompilationOverrides": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `workspaceCompilationOverrides` to the tool, first call the tool `expandSchema` with \"/properties/workspaceCompilationOverrides\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Optional. If set, fields of `workspace_compilation_overrides` override the default compilation settings that are specified in dataform.json when creating workspace-scoped compilation results. See documentation for `WorkspaceCompilationOverrides` for more information.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "parent"
+  ]
+}

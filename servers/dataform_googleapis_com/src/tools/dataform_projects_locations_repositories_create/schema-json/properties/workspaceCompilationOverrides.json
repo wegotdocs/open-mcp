@@ -1,0 +1,18 @@
+{
+  "description": "Optional. If set, fields of `workspace_compilation_overrides` override the default compilation settings that are specified in dataform.json when creating workspace-scoped compilation results. See documentation for `WorkspaceCompilationOverrides` for more information.",
+  "properties": {
+    "defaultDatabase": {
+      "description": "Optional. The default database (Google Cloud project ID).",
+      "type": "string"
+    },
+    "schemaSuffix": {
+      "description": "Optional. The suffix that should be appended to all schema (BigQuery dataset ID) names.",
+      "type": "string"
+    },
+    "tablePrefix": {
+      "description": "Optional. The prefix that should be prepended to all table names.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

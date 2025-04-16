@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Required. The workspace resource's name.",
+      "type": "string"
+    },
+    "force": {
+      "description": "If set to true, any child resources of this repository will also be deleted. (Otherwise, the request will only succeed if the repository has no child resources.)",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

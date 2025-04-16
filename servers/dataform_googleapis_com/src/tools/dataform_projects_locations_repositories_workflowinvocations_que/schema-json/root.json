@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Required. The workflow invocation's name.",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Optional. Maximum number of workflow invocations to return. The server may return fewer items than requested. If unspecified, the server will pick an appropriate default.",
+      "type": "integer"
+    },
+    "pageToken": {
+      "description": "Optional. Page token received from a previous `QueryWorkflowInvocationActions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `QueryWorkflowInvocationActions` must match the call that provided the page token.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

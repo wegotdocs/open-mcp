@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "workspace": {
+      "description": "Required. The workspace's name.",
+      "type": "string"
+    },
+    "newPath": {
+      "description": "Required. The new path for the directory including directory name, rooted at workspace root.",
+      "type": "string"
+    },
+    "path": {
+      "description": "Required. The directory's full path including directory name, relative to the workspace root.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "workspace"
+  ]
+}
