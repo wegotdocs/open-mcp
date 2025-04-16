@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "start_on": {
+      "description": "ISO 8601 date string",
+      "type": "string",
+      "format": "date"
+    },
+    "end_on": {
+      "description": "ISO 8601 date string",
+      "type": "string",
+      "format": "date"
+    },
+    "workspace": {
+      "description": "Globally unique identifier for the workspace.",
+      "type": "string"
+    },
+    "opt_fields": {
+      "description": "This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "display_name",
+          "end_on",
+          "offset",
+          "parent",
+          "parent.display_name",
+          "parent.end_on",
+          "parent.period",
+          "parent.start_on",
+          "path",
+          "period",
+          "start_on",
+          "uri"
+        ]
+      }
+    }
+  },
+  "required": [
+    "workspace"
+  ]
+}

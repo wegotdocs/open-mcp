@@ -1,0 +1,25 @@
+{
+  "description": "A generic Asana Resource, containing a globally unique identifier.",
+  "type": "object",
+  "properties": {
+    "gid": {
+      "description": "Globally unique identifier of the resource, as a string.",
+      "type": "string",
+      "readOnly": true,
+      "example": "12345",
+      "x-insert-after": false
+    },
+    "resource_type": {
+      "description": "The base type of this resource.",
+      "type": "string",
+      "readOnly": true,
+      "example": "task",
+      "x-insert-after": "gid"
+    },
+    "current_number_value": {
+      "description": "*Conditional*. This number is the current value of a goal metric of type number.",
+      "type": "number",
+      "example": 8.12
+    }
+  }
+}

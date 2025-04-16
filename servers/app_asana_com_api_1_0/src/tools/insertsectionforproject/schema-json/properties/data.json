@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "section": {
+      "description": "The section to reorder.",
+      "type": "string",
+      "example": "321654"
+    },
+    "before_section": {
+      "description": "Insert the given section immediately before the section specified by this parameter.",
+      "type": "string",
+      "example": "86420"
+    },
+    "after_section": {
+      "description": "Insert the given section immediately after the section specified by this parameter.",
+      "type": "string",
+      "example": "987654"
+    }
+  },
+  "required": [
+    "section"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": [
+    "supporting_resource"
+  ],
+  "properties": {
+    "supporting_resource": {
+      "description": "The gid of the supporting resource to add to the parent goal. Must be the gid of a goal, project, task, or portfolio.",
+      "type": "string",
+      "example": "12345"
+    },
+    "insert_before": {
+      "description": "An id of a subgoal of this parent goal. The new subgoal will be added before the one specified here. `insert_before` and `insert_after` parameters cannot both be specified. Currently only supported when adding a subgoal.",
+      "type": "string",
+      "example": "1331"
+    },
+    "insert_after": {
+      "description": "An id of a subgoal of this parent goal. The new subgoal will be added after the one specified here. `insert_before` and `insert_after` parameters cannot both be specified. Currently only supported when adding a subgoal.",
+      "type": "string",
+      "example": "1331"
+    },
+    "contribution_weight": {
+      "description": "The weight that the supporting resource's progress will contribute to the supported goal's progress. This can be 0, 1, or any value in between.",
+      "type": "number",
+      "example": 1
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "name",
+    "public"
+  ],
+  "properties": {
+    "name": {
+      "description": "The name of the new project template.",
+      "type": "string",
+      "example": "New Project Template"
+    },
+    "team": {
+      "description": "Sets the team of the new project template. If the project exists in an organization, specify team and not workspace.",
+      "type": "string",
+      "example": "12345"
+    },
+    "workspace": {
+      "description": "Sets the workspace of the new project template. Only specify workspace if the project exists in a workspace.",
+      "type": "string",
+      "example": "12345"
+    },
+    "public": {
+      "description": "Sets the project template to public to its team.",
+      "type": "boolean",
+      "example": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "description": "A *workspace* is the highest-level organizational unit in Asana. All projects and tasks have an associated workspace.",
+  "type": "object",
+  "properties": {
+    "gid": {
+      "description": "Globally unique identifier of the resource, as a string.",
+      "type": "string",
+      "readOnly": true,
+      "example": "12345",
+      "x-insert-after": false
+    },
+    "resource_type": {
+      "description": "The base type of this resource.",
+      "type": "string",
+      "readOnly": true,
+      "example": "workspace",
+      "x-insert-after": "gid"
+    },
+    "name": {
+      "description": "The name of the workspace.",
+      "type": "string",
+      "example": "My Company Workspace"
+    }
+  }
+}

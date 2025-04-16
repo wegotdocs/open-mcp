@@ -1,0 +1,19 @@
+{
+  "description": "A set of dependent tasks.",
+  "type": "object",
+  "properties": {
+    "dependents": {
+      "description": "An array of task gids that are dependents of the given task.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "example": {
+    "dependents": [
+      "133713",
+      "184253"
+    ]
+  }
+}

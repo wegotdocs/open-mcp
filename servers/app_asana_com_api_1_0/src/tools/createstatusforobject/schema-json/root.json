@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "opt_fields": {
+      "description": "This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "author",
+          "author.name",
+          "created_at",
+          "created_by",
+          "created_by.name",
+          "hearted",
+          "hearts",
+          "hearts.user",
+          "hearts.user.name",
+          "html_text",
+          "liked",
+          "likes",
+          "likes.user",
+          "likes.user.name",
+          "modified_at",
+          "num_hearts",
+          "num_likes",
+          "parent",
+          "parent.name",
+          "resource_subtype",
+          "status_type",
+          "text",
+          "title"
+        ]
+      }
+    },
+    "data": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "opt_fields": {
+      "description": "This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "body",
+          "headers",
+          "status_code"
+        ]
+      }
+    },
+    "data": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `data` to the tool, first call the tool `expandSchema` with \"/properties/data\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A request object for use in a batch request.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

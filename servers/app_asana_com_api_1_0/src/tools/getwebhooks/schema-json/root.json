@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "Results per page.\nThe number of objects to return per page. The value must be between 1 and 100.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "offset": {
+      "description": "Offset token.\nAn offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results.\n*Note: You can only pass in an offset that was returned to you via a previously paginated request.*",
+      "type": "string"
+    },
+    "workspace": {
+      "description": "The workspace to query for webhooks in.",
+      "type": "string"
+    },
+    "resource": {
+      "description": "Only return webhooks for the given resource.",
+      "type": "string"
+    },
+    "opt_fields": {
+      "description": "This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "active",
+          "created_at",
+          "delivery_retry_count",
+          "failure_deletion_timestamp",
+          "filters",
+          "filters.action",
+          "filters.fields",
+          "filters.resource_subtype",
+          "last_failure_at",
+          "last_failure_content",
+          "last_success_at",
+          "next_attempt_after",
+          "offset",
+          "path",
+          "resource",
+          "resource.name",
+          "target",
+          "uri"
+        ]
+      }
+    }
+  },
+  "required": [
+    "workspace"
+  ]
+}

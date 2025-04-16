@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "project": {
+      "description": "The project to add the task to.",
+      "type": "string",
+      "example": "13579"
+    },
+    "insert_after": {
+      "description": "A task in the project to insert the task after, or `null` to insert at the beginning of the list.",
+      "type": "string",
+      "nullable": true,
+      "example": "124816"
+    },
+    "insert_before": {
+      "description": "A task in the project to insert the task before, or `null` to insert at the end of the list.",
+      "type": "string",
+      "nullable": true,
+      "example": "432134"
+    },
+    "section": {
+      "description": "A section in the project to insert the task into. The task will be inserted at the bottom of the section.",
+      "type": "string",
+      "nullable": true,
+      "example": "987654"
+    }
+  },
+  "required": [
+    "project"
+  ]
+}

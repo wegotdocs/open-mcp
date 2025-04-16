@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "description": "*Optional*. The project which the time is attributable to.",
+  "properties": {
+    "gid": {
+      "description": "Globally unique identifier of the resource, as a string.",
+      "type": "string",
+      "readOnly": true,
+      "example": "12345",
+      "x-insert-after": false
+    },
+    "resource_type": {
+      "description": "The base type of this resource.",
+      "type": "string",
+      "readOnly": true,
+      "example": "project",
+      "x-insert-after": "gid"
+    },
+    "name": {
+      "description": "Name of the project. This is generally a short sentence fragment that fits on a line in the UI for maximum readability. However, it can be longer.",
+      "type": "string",
+      "example": "Stuff to buy"
+    }
+  }
+}

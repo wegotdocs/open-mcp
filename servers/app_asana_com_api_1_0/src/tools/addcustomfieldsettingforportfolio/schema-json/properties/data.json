@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": [
+    "custom_field"
+  ],
+  "properties": {
+    "custom_field": {
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "The custom field to associate with this container.",
+          "example": "14916"
+        }
+      ]
+    },
+    "is_important": {
+      "description": "Whether this field should be considered important to this container (for instance, to display in the list view of items in the container).",
+      "type": "boolean",
+      "example": true
+    },
+    "insert_before": {
+      "description": "A gid of a Custom Field Setting on this container, before which the new Custom Field Setting will be added.  `insert_before` and `insert_after` parameters cannot both be specified.",
+      "type": "string",
+      "example": "1331"
+    },
+    "insert_after": {
+      "description": "A gid of a Custom Field Setting on this container, after which the new Custom Field Setting will be added.  `insert_before` and `insert_after` parameters cannot both be specified.",
+      "type": "string",
+      "example": "1331"
+    }
+  }
+}
