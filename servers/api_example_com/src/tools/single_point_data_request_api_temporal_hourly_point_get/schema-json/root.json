@@ -1,0 +1,100 @@
+{
+  "type": "object",
+  "properties": {
+    "start": {
+      "description": "This is the start time for the data request formatted as YYYYMMDD.",
+      "type": "integer",
+      "title": "Start Time"
+    },
+    "end": {
+      "description": "This is the end time for the data request formatted as YYYYMMDD.",
+      "type": "integer",
+      "title": "End Time"
+    },
+    "latitude": {
+      "description": "This is the point latitude value.",
+      "type": "number",
+      "title": "Latitude Value"
+    },
+    "longitude": {
+      "description": "This is the point longitude value.",
+      "type": "number",
+      "title": "Longitude Value"
+    },
+    "community": {
+      "description": "The user community to return units for.",
+      "title": "User Community",
+      "type": "string",
+      "enum": [
+        "ag",
+        "sb",
+        "re"
+      ]
+    },
+    "parameters": {
+      "description": "A comma delimited list of the parameter abbreviations.",
+      "type": "string",
+      "title": "Parameter Abbreviations"
+    },
+    "format": {
+      "description": "The response objects output format.",
+      "title": "Format Abbreviation",
+      "type": "string",
+      "enum": [
+        "csv",
+        "json",
+        "ascii",
+        "netcdf",
+        "epw",
+        "epw_csv",
+        "xarray",
+        "sam",
+        "srw"
+      ]
+    },
+    "user": {
+      "description": "A user name for identification purposes.",
+      "type": "string",
+      "title": "User Name"
+    },
+    "header": {
+      "description": "To show or hide the header files of CSV and ASCII formats.",
+      "type": "boolean",
+      "title": "File Header",
+      "default": true
+    },
+    "time-standard": {
+      "description": "The time standard to return timestamps for.",
+      "title": "Time Standard",
+      "default": "lst",
+      "type": "string",
+      "enum": [
+        "lst",
+        "utc"
+      ]
+    },
+    "site-elevation": {
+      "description": "The custom site elevation in meters to produce the corrected atmospheric pressure adjusted for elevation.",
+      "type": "number",
+      "title": "Site Elevation"
+    },
+    "wind-elevation": {
+      "description": "The custom wind elevation in meters to produce the wind speed adjusted for elevation.",
+      "type": "number",
+      "title": "Wind Elevation"
+    },
+    "wind-surface": {
+      "description": "The definable surface type to adjusted the wind speed.",
+      "type": "string",
+      "title": "Wind Surface Type"
+    }
+  },
+  "required": [
+    "start",
+    "end",
+    "latitude",
+    "longitude",
+    "community",
+    "parameters"
+  ]
+}
