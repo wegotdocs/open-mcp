@@ -1,4 +1,4 @@
-# @open-mcp/api_openweathermap_org
+# @open-mcp/open-weather
 
 ## Installing
 
@@ -7,7 +7,7 @@ Use the OpenMCP config CLI to add the server to your MCP client:
 ### Claude desktop
 
 ```bash
-npx @open-mcp/config add api_openweathermap_org \
+npx @open-mcp/config add open-weather \
   ~/Library/Application\ Support/Claude/claude_desktop_config.json
 ```
 
@@ -16,14 +16,14 @@ npx @open-mcp/config add api_openweathermap_org \
 Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
 
 ```bash
-npx @open-mcp/config add api_openweathermap_org \
+npx @open-mcp/config add open-weather \
   .cursor/mcp.json
 ```
 
 ### Other
 
 ```bash
-npx @open-mcp/config add api_openweathermap_org \
+npx @open-mcp/config add open-weather \
   /path/to/client/config.json
 ```
 
@@ -34,9 +34,9 @@ If you don't want to use the helper above, add the following to your MCP client 
 ```json
 {
   "mcpServers": {
-    "api_openweathermap_org": {
+    "open-weather": {
       "command": "npx",
-      "args": ["-y", "@open-mcp/api_openweathermap_org"],
+      "args": ["-y", "@open-mcp/open-weather"],
       "env": {}
     }
   }
@@ -56,13 +56,13 @@ No environment variables required
 Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
 
 ```bash
-npx -y @modelcontextprotocol/inspector npx -y @open-mcp/api_openweathermap_org
+npx -y @modelcontextprotocol/inspector npx -y @open-mcp/open-weather
 ```
 
 - Open http://localhost:5173
 - Transport type: `STDIO`
 - Command: `npx`
-- Arguments: `-y @open-mcp/api_openweathermap_org`
+- Arguments: `-y @open-mcp/open-weather`
 - Click `Environment Variables` to add
 - Click `Connect`
 
@@ -88,8 +88,6 @@ Expand the input schema for a tool before calling the tool
 ### getweatherdata
 
 **Environment variables**
-
-
 
 **Input schema**
 
