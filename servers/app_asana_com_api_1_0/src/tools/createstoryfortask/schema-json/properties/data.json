@@ -1,0 +1,67 @@
+{
+  "description": "A story represents an activity associated with an object in the Asana system.",
+  "type": "object",
+  "properties": {
+    "gid": {
+      "description": "Globally unique identifier of the resource, as a string.",
+      "type": "string",
+      "readOnly": true,
+      "example": "12345",
+      "x-insert-after": false
+    },
+    "resource_type": {
+      "description": "The base type of this resource.",
+      "type": "string",
+      "readOnly": true,
+      "example": "story",
+      "x-insert-after": "gid"
+    },
+    "created_at": {
+      "description": "The time at which this resource was created.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true,
+      "example": "2012-02-22T02:06:58.147Z"
+    },
+    "resource_subtype": {
+      "description": "The subtype of this resource. Different subtypes retain many of the same fields and behavior, but may render differently in Asana or represent resources with different semantic meaning.",
+      "type": "string",
+      "readOnly": true,
+      "example": "comment_added"
+    },
+    "text": {
+      "description": "The plain text of the comment to add. Cannot be used with html_text.",
+      "type": "string",
+      "example": "This is a comment."
+    },
+    "html_text": {
+      "description": "[Opt In](/docs/inputoutput-options). HTML formatted text for a comment. This will not include the name of the creator.",
+      "type": "string",
+      "example": "<body>This is a comment.</body>"
+    },
+    "is_pinned": {
+      "description": "*Conditional*. Whether the story should be pinned on the resource.",
+      "type": "boolean",
+      "example": false
+    },
+    "sticker_name": {
+      "description": "The name of the sticker in this story. `null` if there is no sticker.",
+      "type": "string",
+      "enum": [
+        "green_checkmark",
+        "people_dancing",
+        "dancing_unicorn",
+        "heart",
+        "party_popper",
+        "people_waving_flags",
+        "splashing_narwhal",
+        "trophy",
+        "yeti_riding_unicorn",
+        "celebrating_people",
+        "determined_climbers",
+        "phoenix_spreading_love"
+      ],
+      "example": "dancing_unicorn"
+    }
+  }
+}
