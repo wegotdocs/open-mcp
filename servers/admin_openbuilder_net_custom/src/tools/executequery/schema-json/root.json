@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "integer",
+      "description": "ID del progetto nel database",
+      "examples": [
+        2392
+      ]
+    },
+    "query": {
+      "type": "string",
+      "description": "Query SQL da eseguire",
+      "examples": [
+        "SELECT * FROM users LIMIT 10",
+        "DESCRIBE users"
+      ]
+    },
+    "params": {
+      "type": "array",
+      "items": {
+        "type": [
+          "string",
+          "number",
+          "boolean"
+        ]
+      },
+      "description": "Parametri per query preparate (opzionale)",
+      "examples": [
+        [
+          "value1",
+          "value2"
+        ]
+      ]
+    }
+  },
+  "required": [
+    "project_id",
+    "query"
+  ]
+}
