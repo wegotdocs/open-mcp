@@ -34,7 +34,9 @@ https://www.open-mcp.org/servers/creating
 #### Claude desktop
 
 ```bash
-npx @open-mcp/{server-id} add-to-client ~/Library/Application\ Support/Claude/claude_desktop_config.json
+npx @open-mcp/config add {server-id} \
+  ~/Library/Application\ Support/Claude/claude_desktop_config.json \
+  --ENV_VAR=abc123
 ```
 
 Now restart Claude desktop to load the tools.
@@ -44,7 +46,9 @@ Now restart Claude desktop to load the tools.
 Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
 
 ```bash
-npx @open-mcp/{server-id} add-to-client .cursor/mcp.json
+npx @open-mcp/config add {server-id} \
+  .cursor/mcp.json \
+  --ENV_VAR=abc123
 ```
 
 Now go to `Cursor > Settings > Cursor Settings` then click `MCP` to ensure the server is enabled.
@@ -52,7 +56,9 @@ Now go to `Cursor > Settings > Cursor Settings` then click `MCP` to ensure the s
 #### Other clients
 
 ```bash
-npx @open-mcp/{server-id} add-to-client /path/to/client/config.json
+npx @open-mcp/config add {server-id} \
+  /path/to/config.json \
+  --ENV_VAR=abc123
 ```
 
 #### Alternatives
