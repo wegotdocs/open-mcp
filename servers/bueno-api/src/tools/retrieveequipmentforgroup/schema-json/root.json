@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "equipGroupId": {
+      "description": "Unique identifier of the Group",
+      "type": "string",
+      "format": "uuid",
+      "example": "38d77506-9c7a-447e-9153-b9ce23b7ceb6"
+    },
+    "includeDeleted": {
+      "description": "Include deleted Equipment in the response",
+      "type": "boolean",
+      "default": false,
+      "example": false
+    }
+  },
+  "required": [
+    "equipGroupId"
+  ]
+}

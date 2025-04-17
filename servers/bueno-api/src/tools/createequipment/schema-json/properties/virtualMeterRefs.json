@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "default": null,
+  "description": "Contains the submeter references used to build a virtual meter",
+  "properties": {
+    "add": {
+      "type": "array",
+      "default": null,
+      "description": "Submeters that will be added to the virtual meter",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "example": "[\"5c198552-51dd-4214-994f-dd089ba0e1dc\"]"
+      }
+    },
+    "subtract": {
+      "type": "array",
+      "default": null,
+      "description": "Submeters that will be subtracted from the virtual meter",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "example": "[\"459d7068-19b7-4b93-b26b-02ad3fadd859\"]"
+      }
+    },
+    "multiply": {
+      "type": "array",
+      "default": null,
+      "description": "Submeters that the virtual meter will be multiplied by",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "example": "[\"74b13c91-6ddb-4779-be0d-5b3b3286e5e4\"]"
+      }
+    },
+    "divide": {
+      "type": "array",
+      "default": null,
+      "description": "Submeters that the virtual meter will be divided by",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "example": "[\"57c2e4bf-edec-495a-adb9-63f84d23d01e\"]"
+      }
+    }
+  }
+}

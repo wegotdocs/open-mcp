@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the Point",
+      "example": "SUCTION_PRES"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of the Point",
+      "example": "number",
+      "enum": [
+        "boolean",
+        "number",
+        "multistate - string",
+        "multistate - numeric"
+      ]
+    },
+    "unit": {
+      "default": null,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier of the Unit",
+          "format": "int16",
+          "example": 212
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Unit, e.g. _kilopascals_",
+          "example": "kilopascal"
+        },
+        "symbol": {
+          "type": "string",
+          "description": "Symbol of the Unit, e.g. _kPa_",
+          "example": "kPa"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of the Unit e.g. _pressure_",
+          "example": "pressure"
+        },
+        "scale": {
+          "type": "number",
+          "description": "Scale of the Unit, used when converting between Units, e.g. _1000_",
+          "example": 1000
+        },
+        "offset": {
+          "type": "number",
+          "description": "Offset of unit, used when converting between Units, e.g. _0_",
+          "example": 0
+        },
+        "dimension": {
+          "type": "string",
+          "default": null,
+          "description": "Dimension of unit, e.g. _kg1*m-1*sec-2_",
+          "example": "kg1*m-1*sec-2"
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "default": [],
+      "description": "Strings applied to the Point to add context and used for analytics",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "sensor",
+        "pressure",
+        "refrigerant",
+        "suction"
+      ]
+    },
+    "props": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `props` to the tool, first call the tool `expandSchema` with \"/properties/props\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional key-value typed properties associated with the Point</property-description>",
+      "additionalProperties": true
+    },
+    "refs": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `refs` to the tool, first call the tool `expandSchema` with \"/properties/refs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Upstream references for the Point</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "refs"
+  ]
+}

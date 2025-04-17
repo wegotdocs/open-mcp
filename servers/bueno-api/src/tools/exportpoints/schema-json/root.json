@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "siteIds": {
+      "description": "List of unique identifiers of the Sites to export Points for",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "example": "8a7869df-6cad-4642-a015-9fbb36d3b337"
+      }
+    },
+    "includeDataStreamMappings": {
+      "description": "Boolean parameter to determine whether the Point Data Stream Mappings will be included in the CSV export",
+      "type": "boolean",
+      "example": true,
+      "default": false
+    }
+  },
+  "required": [
+    "siteIds"
+  ]
+}

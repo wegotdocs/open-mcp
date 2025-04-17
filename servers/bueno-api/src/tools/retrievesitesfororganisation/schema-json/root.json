@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "organisationId": {
+      "description": "Unique identifier of an Organisation",
+      "type": "string",
+      "format": "uuid",
+      "example": "9f1748db-ea2b-4e9a-b035-e5757d7e97c7"
+    },
+    "includeDeleted": {
+      "description": "Include deleted Sites in the response",
+      "type": "boolean",
+      "default": false,
+      "example": false
+    }
+  },
+  "required": [
+    "organisationId"
+  ]
+}
