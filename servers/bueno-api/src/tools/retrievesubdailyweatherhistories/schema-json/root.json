@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "siteId": {
+      "description": "Unique identifier of the Site",
+      "type": "string",
+      "format": "uuid",
+      "example": "5c198552-51dd-4214-994f-dd089ba0e1dc"
+    },
+    "metricId": {
+      "description": "Unique identifier of the Weather Metric",
+      "type": "number",
+      "format": "int",
+      "example": 1
+    },
+    "from": {
+      "description": "Start timestamp of the duration for which the Weather Histories are requested",
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-10-08T04:23:00.000Z"
+    },
+    "to": {
+      "description": "End timestamp of the duration for which the Weather Histories are requested",
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-10-12T04:23:00.000Z"
+    },
+    "type": {
+      "description": "The interval to which the Histories are aggregated to e.g. an interval of _HOURLY_ will rollup all timestamps into a single timestamp per hour on the hour",
+      "type": "string",
+      "enum": [
+        "FIVE_MINUTE",
+        "QUARTER_HOURLY",
+        "HALF_HOURLY",
+        "HOURLY"
+      ],
+      "example": "FIVE_MINUTE"
+    }
+  },
+  "required": [
+    "siteId",
+    "metricId",
+    "from",
+    "to",
+    "type"
+  ]
+}

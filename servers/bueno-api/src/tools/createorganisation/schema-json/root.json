@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unique, immutable, human readable key to identify the Organisation",
+      "example": "ACME"
+    },
+    "name": {
+      "type": "string",
+      "description": "Full name of the Organisation",
+      "example": "Acme Corporation"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Timezone of the Organisation",
+      "example": "Australia/Melbourne"
+    }
+  },
+  "required": [
+    "key",
+    "name",
+    "timezone"
+  ]
+}

@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "name": z.string().describe("Name of the Equipment"),
+  "tags": z.array(z.string()).describe("Strings applied to the Equipment to add context and used for analytics").optional(),
+  "refs": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `refs` to the tool, first call the tool `expandSchema` with \"/properties/refs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Upstream references for the Equipment</property-description>"),
+  "props": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `props` to the tool, first call the tool `expandSchema` with \"/properties/props\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional key-value typed properties associated with the Equipment</property-description>").optional(),
+  "virtualMeterRefs": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `virtualMeterRefs` to the tool, first call the tool `expandSchema` with \"/properties/virtualMeterRefs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Contains the submeter references used to build a virtual meter</property-description>").optional()
+}

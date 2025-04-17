@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the Group",
+      "example": "CHW PLANT"
+    },
+    "siteId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier of the Site the Group belongs to",
+      "example": "38d77506-9c7a-447e-9153-b9ce23b7ceb6"
+    }
+  },
+  "required": [
+    "name",
+    "siteId"
+  ]
+}

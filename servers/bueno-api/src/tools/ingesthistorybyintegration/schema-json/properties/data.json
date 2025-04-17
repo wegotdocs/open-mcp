@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "description": "A map of ISO 8601 formatted local timestamp keys to a list of ingestion History objects. The zone should not be included in the timestamp as it will be taken from the timezone specified in the request or the Integration's default",
+  "properties": {
+    "<insert-timestamp>": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Single history record for ingestion",
+        "properties": {
+          "streamId": {
+            "type": "string",
+            "description": "The stream ID of the Data Stream this History is being written to",
+            "example": "MyConnection/Device301/Chiller-1/SAT"
+          },
+          "val": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "description": "Value to be written",
+            "examples": [
+              1,
+              "On"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "2020-01-01T12:00:00": [
+      {
+        "streamId": "stream-id-1",
+        "val": 1
+      },
+      {
+        "streamId": "stream-id-2",
+        "val": "On"
+      }
+    ],
+    "2021-01-01T12:00:00": [
+      {
+        "streamId": "stream-id-1",
+        "val": 2.5
+      },
+      {
+        "streamId": "stream-id-2",
+        "val": "Off"
+      }
+    ]
+  }
+}

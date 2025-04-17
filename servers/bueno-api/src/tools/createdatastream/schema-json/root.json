@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "integrationId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier of the Integration",
+      "example": "5c198552-51dd-4214-994f-dd089ba0e1dc"
+    },
+    "streamId": {
+      "type": "string",
+      "description": "Identifier of the Data Stream (unique within the Organisation)",
+      "example": "MyConnection/Device301/Chiller-1/SAT"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "description": "Whether the Data Stream is enabled or disabled (no longer ingesting data)",
+      "example": "ENABLED"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "NUMBER",
+        "STRING"
+      ],
+      "description": "The data type of the history",
+      "example": "NUMBER"
+    },
+    "metadata": {
+      "type": "json",
+      "description": "Json field to store any useful information, for example the unit",
+      "example": {
+        "unit": "%"
+      }
+    }
+  },
+  "required": [
+    "integrationId",
+    "streamId",
+    "status",
+    "type",
+    "metadata"
+  ]
+}

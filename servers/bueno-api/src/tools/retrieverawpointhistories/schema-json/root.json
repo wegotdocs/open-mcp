@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "pointId": {
+      "description": "Unique identifier of the Point",
+      "type": "string",
+      "format": "uuid",
+      "example": "5c198552-51dd-4214-994f-dd089ba0e1dc"
+    },
+    "from": {
+      "description": "Start timestamp of the duration for which the Point Histories are requested",
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-10-08T04:23:00.000Z"
+    },
+    "to": {
+      "description": "End timestamp of the duration for which the Point Histories are requested",
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-10-12T04:23:00.000Z"
+    },
+    "lastObservation": {
+      "description": "Include the last observation carried forward (_INCLUDE_LOCF_) or only return the histories within the requested time range (_EXCLUDE_)",
+      "type": "string",
+      "default": "EXCLUDE",
+      "enum": [
+        "INCLUDE_LOCF",
+        "EXCLUDE"
+      ],
+      "example": "INCLUDE_LOCF"
+    },
+    "convertTo": {
+      "description": "Convert Point Histories to either their original (_RAW_) or standardised (_STANDARD_) unit",
+      "type": "string",
+      "enum": [
+        "RAW",
+        "STANDARD"
+      ],
+      "example": "RAW"
+    }
+  },
+  "required": [
+    "pointId",
+    "from",
+    "to"
+  ]
+}

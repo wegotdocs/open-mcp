@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "integrationId": {
+      "description": "Unique identifier of the Integration",
+      "type": "string",
+      "format": "uuid",
+      "example": "5c198552-51dd-4214-994f-dd089ba0e1dc"
+    },
+    "sortBy": {
+      "description": "Property to sort the results by",
+      "type": "string",
+      "enum": [
+        "STREAM_ID",
+        "STATUS",
+        "TYPE",
+        "POINT_MAPPINGS_COUNT",
+        "CREATED_AT",
+        "UPDATED_AT"
+      ],
+      "example": "STREAM_ID"
+    },
+    "sortDir": {
+      "description": "Direction to sort the results by",
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "example": "ASC"
+    },
+    "streamId": {
+      "description": "Used to filter the Data Streams on the streamId field, (any case insensitive substring match will be returned)",
+      "type": "string",
+      "example": "/Chiller-1"
+    },
+    "limit": {
+      "description": "Maximum number data streams to retrieve, when left unset, all Data Streams will be returned",
+      "type": "number",
+      "example": 500
+    },
+    "offset": {
+      "description": "Offset to begin returning Data Streams from, to be used along with limit to paginate results",
+      "type": "number",
+      "example": 100
+    },
+    "includePointMappings": {
+      "description": "When set to true, Point Mappings associated to each Data Stream will also be included in the response",
+      "type": "boolean",
+      "example": true
+    }
+  },
+  "required": [
+    "integrationId"
+  ]
+}

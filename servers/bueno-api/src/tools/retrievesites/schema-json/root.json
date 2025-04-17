@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "organisationId": {
+      "description": "Unique identifier of an Organisation",
+      "type": "string",
+      "format": "uuid",
+      "example": "9f1748db-ea2b-4e9a-b035-e5757d7e97c7"
+    },
+    "expr": {
+      "description": "Expression to search Sites with",
+      "type": "string",
+      "default": "",
+      "example": "name == \"123 Market St\""
+    },
+    "limit": {
+      "description": "Result set size limit",
+      "type": "number",
+      "default": 5000,
+      "example": 50
+    }
+  },
+  "required": [
+    "organisationId"
+  ]
+}

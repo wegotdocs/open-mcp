@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "pointId": {
+      "description": "Unique identifier of the Point",
+      "type": "string",
+      "format": "uuid",
+      "example": "5c198552-51dd-4214-994f-dd089ba0e1dc"
+    },
+    "from": {
+      "description": "Start date of the duration for which Point histories are requested",
+      "type": "string",
+      "format": "date",
+      "default": null,
+      "example": "2022-10-08"
+    },
+    "to": {
+      "description": "End date of the duration for which Point histories are requested",
+      "type": "string",
+      "format": "date",
+      "default": null,
+      "example": "2022-10-12"
+    },
+    "type": {
+      "description": "Interval",
+      "type": "string",
+      "enum": [
+        "DAILY",
+        "MONTHLY",
+        "QUARTERLY",
+        "YEARLY"
+      ],
+      "example": "MONTHLY"
+    }
+  },
+  "required": [
+    "pointId",
+    "from",
+    "to",
+    "type"
+  ]
+}

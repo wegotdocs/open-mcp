@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "nodeType": {
+      "description": "The node (entity) type the returned Props can be applied to",
+      "type": "string",
+      "example": "POINT",
+      "enum": [
+        "SITE",
+        "EQUIP",
+        "POINT"
+      ]
+    },
+    "propType": {
+      "description": "The type of the Prop returned",
+      "type": "string",
+      "example": "STRING",
+      "enum": [
+        "HOUR",
+        "DATE",
+        "NUMBER",
+        "JSON",
+        "STRING",
+        "LIST",
+        "TIMESTAMP",
+        "FUNCTION"
+      ]
+    },
+    "unitTypeId": {
+      "description": "The unique identifier of the Unit Type the returned Props must have",
+      "type": "string",
+      "format": "uuid",
+      "example": "8190096a-1275-4fc6-b70e-69154647ce93"
+    },
+    "classId": {
+      "description": "The unique identifier of the Point or Equip Class the returned Props must be associated with. Set to `\"NONE\"` to retrieve Props that are not associated with any class.",
+      "type": "string",
+      "format": "uuid|any",
+      "example": "e71ee5bf-6481-4031-931d-aabf67a4292a"
+    }
+  },
+  "required": []
+}

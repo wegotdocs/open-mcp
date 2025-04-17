@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "pointId": {
+      "description": "Unique identifier of the Point",
+      "type": "string",
+      "format": "uuid",
+      "example": "110e9ea8-d8e9-4270-a084-92c064d528da"
+    },
+    "name": {
+      "default": null,
+      "type": "string",
+      "description": "Name of the new duplicated Point. If not provided, the name will be the same as the original Point with a <code>(copy)</code> suffix appended.",
+      "example": "SUCTION_PRES"
+    },
+    "duplicateDataStreamMappings": {
+      "default": true,
+      "type": "boolean",
+      "description": "Boolean flag indicating if the original Point's Data Stream Mappings should be duplicated.",
+      "example": false
+    },
+    "equipId": {
+      "default": null,
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier of the Equipment the duplicated Point will belong to. If not provided, the duplicated Point will belong to the same Equipment as the original Point.",
+      "example": "0e366a9c-3b7c-4e4f-8da1-ad0fdfd40c3d"
+    }
+  },
+  "required": [
+    "pointId"
+  ]
+}
