@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "type": "string",
+      "description": "The ID of the order."
+    },
+    "amount": {
+      "type": "string",
+      "description": "Amount to be refunded."
+    },
+    "note": {
+      "type": "string",
+      "description": "Seller's note to buyer about the refund."
+    }
+  },
+  "required": [
+    "orderId",
+    "amount"
+  ]
+}
