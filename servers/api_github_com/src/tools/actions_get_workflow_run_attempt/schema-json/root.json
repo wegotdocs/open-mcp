@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "run_id": {
+      "description": "The unique identifier of the workflow run.",
+      "type": "integer"
+    },
+    "attempt_number": {
+      "description": "The attempt number of the workflow run.",
+      "type": "integer"
+    },
+    "exclude_pull_requests": {
+      "description": "If `true` pull requests are omitted from the response (empty array).",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "run_id",
+    "attempt_number"
+  ]
+}

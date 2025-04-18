@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    },
+    "sort": {
+      "description": "The property by which to sort the results.",
+      "type": "string",
+      "enum": [
+        "created_at"
+      ],
+      "default": "created_at"
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "owner": {
+      "description": "A list of owner usernames to use to filter the results.",
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "string"
+      },
+      "example": "owner[]=octocat1,owner[]=octocat2"
+    },
+    "repository": {
+      "description": "The name of the repository to use to filter the results.",
+      "type": "string",
+      "example": "Hello-World"
+    },
+    "permission": {
+      "description": "The permission to use to filter the results.",
+      "type": "string",
+      "example": "issues_read"
+    },
+    "last_used_before": {
+      "description": "Only show fine-grained personal access tokens used before the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_used_after": {
+      "description": "Only show fine-grained personal access tokens used after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "token_id": {
+      "description": "The ID of the token",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string"
+      },
+      "example": "token_id[]=1,token_id[]=2"
+    }
+  },
+  "required": [
+    "org"
+  ]
+}

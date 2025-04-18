@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "version": {
+      "description": "The version of the repository snapshot submission.",
+      "type": "integer"
+    },
+    "job": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `job` to the tool, first call the tool `expandSchema` with \"/properties/job\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "sha": {
+      "description": "The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.",
+      "type": "string",
+      "example": "ddc951f4b1293222421f2c8df679786153acf689",
+      "minLength": 40,
+      "maxLength": 40
+    },
+    "ref": {
+      "description": "The repository branch that triggered this snapshot.",
+      "type": "string",
+      "pattern": "^refs/",
+      "example": "refs/heads/main"
+    },
+    "detector": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `detector` to the tool, first call the tool `expandSchema` with \"/properties/detector\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A description of the detector used.</property-description>",
+      "additionalProperties": true
+    },
+    "metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `metadata` to the tool, first call the tool `expandSchema` with \"/properties/metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User-defined metadata to store domain-specific information limited to 8 keys with scalar values.</property-description>",
+      "additionalProperties": true
+    },
+    "manifests": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `manifests` to the tool, first call the tool `expandSchema` with \"/properties/manifests\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.</property-description>",
+      "additionalProperties": true
+    },
+    "scanned": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time at which the snapshot was scanned.",
+      "example": "2020-06-13T14:52:50-05:00"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "version",
+    "job",
+    "sha",
+    "ref",
+    "detector",
+    "scanned"
+  ]
+}

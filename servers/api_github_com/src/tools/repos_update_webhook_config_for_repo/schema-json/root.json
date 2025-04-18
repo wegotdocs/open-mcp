@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "hook_id": {
+      "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+      "type": "integer"
+    },
+    "url": {
+      "type": "string",
+      "description": "The URL to which the payloads will be delivered.",
+      "example": "https://example.com/webhook",
+      "format": "uri"
+    },
+    "content_type": {
+      "type": "string",
+      "description": "The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.",
+      "example": "\"json\""
+    },
+    "secret": {
+      "type": "string",
+      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers).",
+      "example": "\"********\""
+    },
+    "insecure_ssl": {
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "Determines whether the SSL certificate of the host for `url` will be verified when delivering payloads. Supported values include `0` (verification is performed) and `1` (verification is not performed). The default is `0`. **We strongly recommend not setting this to `1` as you are subject to man-in-the-middle and other attacks.**",
+          "example": "\"0\""
+        }
+      ]
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "hook_id"
+  ]
+}

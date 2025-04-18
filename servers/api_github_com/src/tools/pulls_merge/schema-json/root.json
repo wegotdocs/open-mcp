@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "pull_number": {
+      "description": "The number that identifies the pull request.",
+      "type": "integer"
+    },
+    "commit_title": {
+      "type": "string",
+      "description": "Title for the automatic commit message."
+    },
+    "commit_message": {
+      "type": "string",
+      "description": "Extra detail to append to automatic commit message."
+    },
+    "sha": {
+      "type": "string",
+      "description": "SHA that pull request head must match to allow merge."
+    },
+    "merge_method": {
+      "type": "string",
+      "description": "The merge method to use.",
+      "enum": [
+        "merge",
+        "squash",
+        "rebase"
+      ]
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "pull_number"
+  ]
+}

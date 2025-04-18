@@ -1,0 +1,25 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "repos_list_contributors",
+  "toolDescription": "List repository contributors",
+  "baseUrl": "https://api.github.com",
+  "path": "/repos/{owner}/{repo}/contributors",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "owner": "owner",
+      "repo": "repo"
+    },
+    "query": {
+      "anon": "anon",
+      "per_page": "per_page",
+      "page": "page"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

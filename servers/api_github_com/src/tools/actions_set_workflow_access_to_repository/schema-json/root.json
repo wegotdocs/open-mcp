@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "access_level": {
+      "type": "string",
+      "description": "Defines the level of access that workflows outside of the repository have to actions and reusable workflows within the\nrepository.\n\n`none` means the access is only possible from workflows in this repository. `user` level access allows sharing across user owned private repositories only. `organization` level access allows sharing across the organization.",
+      "enum": [
+        "none",
+        "user",
+        "organization"
+      ]
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "access_level"
+  ]
+}

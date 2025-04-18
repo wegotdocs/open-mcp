@@ -1,0 +1,16 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "owner": z.string().describe("The account owner of the repository. The name is not case sensitive."),
+  "repo": z.string().describe("The name of the repository without the `.git` extension. The name is not case sensitive."),
+  "pull_number": z.number().int().describe("The number that identifies the pull request."),
+  "body": z.string().describe("The text of the review comment."),
+  "commit_id": z.string().describe("The SHA of the commit needing a comment. Not using the latest commit SHA may render your comment outdated if a subsequent commit modifies the line you specify as the `position`."),
+  "path": z.string().describe("The relative path to the file that necessitates a comment."),
+  "side": z.enum(["LEFT","RIGHT"]).describe("In a split diff view, the side of the diff that the pull request's changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see \"[Diff view options](https://docs.github.com/articles/about-comparing-branches-in-pull-requests#diff-view-options)\" in the GitHub Help documentation.").optional(),
+  "line": z.number().int().describe("**Required unless using `subject_type:file`**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.").optional(),
+  "start_line": z.number().int().describe("**Required when using multi-line comments unless using `in_reply_to`**. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see \"[Commenting on a pull request](https://docs.github.com/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)\" in the GitHub Help documentation.").optional(),
+  "start_side": z.enum(["LEFT","RIGHT","side"]).describe("**Required when using multi-line comments unless using `in_reply_to`**. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see \"[Commenting on a pull request](https://docs.github.com/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)\" in the GitHub Help documentation. See `side` in this table for additional context.").optional(),
+  "in_reply_to": z.number().int().describe("The ID of the review comment to reply to. To find the ID of a review comment with [\"List review comments on a pull request\"](#list-review-comments-on-a-pull-request). When specified, all parameters other than `body` in the request body are ignored.").optional(),
+  "subject_type": z.enum(["line","file"]).describe("The level at which the comment is targeted.").optional()
+}

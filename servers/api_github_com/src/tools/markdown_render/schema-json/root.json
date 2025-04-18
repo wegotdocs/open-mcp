@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "text": {
+      "description": "The Markdown text to render in HTML.",
+      "type": "string"
+    },
+    "mode": {
+      "description": "The rendering mode.",
+      "enum": [
+        "markdown",
+        "gfm"
+      ],
+      "default": "markdown",
+      "example": "markdown",
+      "type": "string"
+    },
+    "context": {
+      "description": "The repository context to use when creating references in `gfm` mode.  For example, setting `context` to `octo-org/octo-repo` will change the text `#42` into an HTML link to issue 42 in the `octo-org/octo-repo` repository.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "text"
+  ]
+}

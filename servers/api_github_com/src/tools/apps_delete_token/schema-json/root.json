@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "description": "The client ID of the GitHub app.",
+      "type": "string"
+    },
+    "access_token": {
+      "type": "string",
+      "description": "The OAuth access token used to authenticate to the GitHub API."
+    }
+  },
+  "required": [
+    "client_id",
+    "access_token"
+  ]
+}

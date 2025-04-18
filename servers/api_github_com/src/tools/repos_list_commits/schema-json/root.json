@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "sha": {
+      "description": "SHA or branch to start listing commits from. Default: the repository’s default branch (usually `main`).",
+      "type": "string"
+    },
+    "path": {
+      "description": "Only commits containing this file path will be returned.",
+      "type": "string"
+    },
+    "author": {
+      "description": "GitHub username or email address to use to filter by commit author.",
+      "type": "string"
+    },
+    "committer": {
+      "description": "GitHub username or email address to use to filter by commit committer.",
+      "type": "string"
+    },
+    "since": {
+      "description": "Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Due to limitations of Git, timestamps must be between 1970-01-01 and 2099-12-31 (inclusive) or unexpected results may be returned.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "until": {
+      "description": "Only commits before this date will be returned. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Due to limitations of Git, timestamps must be between 1970-01-01 and 2099-12-31 (inclusive) or unexpected results may be returned.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

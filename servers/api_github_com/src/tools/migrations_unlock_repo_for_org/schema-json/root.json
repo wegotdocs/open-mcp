@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "migration_id": {
+      "description": "The unique identifier of the migration.",
+      "type": "integer"
+    },
+    "repo_name": {
+      "description": "repo_name parameter",
+      "type": "string"
+    }
+  },
+  "required": [
+    "org",
+    "migration_id",
+    "repo_name"
+  ]
+}

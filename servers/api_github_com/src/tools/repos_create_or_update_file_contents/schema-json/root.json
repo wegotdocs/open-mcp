@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "path": {
+      "description": "path parameter",
+      "type": "string"
+    },
+    "message": {
+      "type": "string",
+      "description": "The commit message."
+    },
+    "content": {
+      "type": "string",
+      "description": "The new file content, using Base64 encoding."
+    },
+    "sha": {
+      "type": "string",
+      "description": "**Required if you are updating a file**. The blob SHA of the file being replaced."
+    },
+    "branch": {
+      "type": "string",
+      "description": "The branch name. Default: the repository’s default branch."
+    },
+    "committer": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `committer` to the tool, first call the tool `expandSchema` with \"/properties/committer\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The person that committed the file. Default: the authenticated user.</property-description>",
+      "additionalProperties": true
+    },
+    "author": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `author` to the tool, first call the tool `expandSchema` with \"/properties/author\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "path",
+    "message",
+    "content"
+  ]
+}

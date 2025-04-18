@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "alert_number": {
+      "description": "The security alert number.",
+      "type": "integer",
+      "readOnly": true
+    },
+    "state": {
+      "description": "Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.",
+      "type": "string",
+      "enum": [
+        "open",
+        "resolved"
+      ]
+    },
+    "resolution": {
+      "type": "string",
+      "description": "**Required when the `state` is `resolved`.** The reason for resolving the alert.",
+      "nullable": true,
+      "enum": [
+        "false_positive",
+        "wont_fix",
+        "revoked",
+        "used_in_tests"
+      ]
+    },
+    "resolution_comment": {
+      "description": "An optional comment when closing an alert. Cannot be updated or deleted. Must be `null` when changing `state` to `open`.",
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "alert_number",
+    "state"
+  ]
+}

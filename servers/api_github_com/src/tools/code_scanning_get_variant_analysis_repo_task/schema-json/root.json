@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the controller repository.",
+      "type": "string"
+    },
+    "codeql_variant_analysis_id": {
+      "description": "The ID of the variant analysis.",
+      "type": "integer"
+    },
+    "repo_owner": {
+      "description": "The account owner of the variant analysis repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo_name": {
+      "description": "The name of the variant analysis repository.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "codeql_variant_analysis_id",
+    "repo_owner",
+    "repo_name"
+  ]
+}

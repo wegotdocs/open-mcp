@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "installation_id": {
+      "description": "The unique identifier of the installation.",
+      "type": "integer"
+    },
+    "repositories": {
+      "description": "List of repository names that the token should have access to",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "rails"
+      }
+    },
+    "repository_ids": {
+      "description": "List of repository IDs that the token should have access to",
+      "example": [
+        1
+      ],
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `permissions` to the tool, first call the tool `expandSchema` with \"/properties/permissions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The permissions granted to the user access token.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "installation_id"
+  ]
+}

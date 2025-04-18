@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "issue_number": {
+      "description": "The number that identifies the issue.",
+      "type": "integer"
+    },
+    "sub_issue_id": {
+      "type": "integer",
+      "description": "The id of the sub-issue to reprioritize"
+    },
+    "after_id": {
+      "type": "integer",
+      "description": "The id of the sub-issue to be prioritized after (either positional argument after OR before should be specified)."
+    },
+    "before_id": {
+      "type": "integer",
+      "description": "The id of the sub-issue to be prioritized before (either positional argument after OR before should be specified)."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "issue_number",
+    "sub_issue_id"
+  ]
+}

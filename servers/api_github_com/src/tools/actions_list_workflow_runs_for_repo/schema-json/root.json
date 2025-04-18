@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "actor": {
+      "description": "Returns someone's workflow runs. Use the login for the user who created the `push` associated with the check suite or workflow run.",
+      "type": "string"
+    },
+    "branch": {
+      "description": "Returns workflow runs associated with a branch. Use the name of the branch of the `push`.",
+      "type": "string"
+    },
+    "event": {
+      "description": "Returns workflow run triggered by the event you specify. For example, `push`, `pull_request` or `issue`. For more information, see \"[Events that trigger workflows](https://docs.github.com/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows).\"",
+      "type": "string"
+    },
+    "status": {
+      "description": "Returns workflow runs with the check run `status` or `conclusion` that you specify. For example, a conclusion can be `success` or a status can be `in_progress`. Only GitHub Actions can set a status of `waiting`, `pending`, or `requested`.",
+      "type": "string",
+      "enum": [
+        "completed",
+        "action_required",
+        "cancelled",
+        "failure",
+        "neutral",
+        "skipped",
+        "stale",
+        "success",
+        "timed_out",
+        "in_progress",
+        "queued",
+        "requested",
+        "waiting",
+        "pending"
+      ]
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    },
+    "created": {
+      "description": "Returns workflow runs created within the given date-time range. For more information on the syntax, see \"[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates).\"",
+      "type": "string",
+      "format": "date-time"
+    },
+    "exclude_pull_requests": {
+      "description": "If `true` pull requests are omitted from the response (empty array).",
+      "type": "boolean",
+      "default": false
+    },
+    "check_suite_id": {
+      "description": "Returns workflow runs with the `check_suite_id` that you specify.",
+      "type": "integer"
+    },
+    "head_sha": {
+      "description": "Only returns workflow runs that are associated with the specified `head_sha`.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "environment_name": {
+      "description": "The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`.",
+      "type": "string"
+    },
+    "branch_policy_id": {
+      "description": "The unique identifier of the branch policy.",
+      "type": "integer"
+    },
+    "name": {
+      "description": "The name pattern that branches must match in order to deploy to the environment.\n\nWildcard characters will not match `/`. For example, to match branches that begin with `release/` and contain an additional single slash, use `release/*/*`.\nFor more information about pattern matching syntax, see the [Ruby File.fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).",
+      "type": "string",
+      "example": "release/*"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "environment_name",
+    "branch_policy_id",
+    "name"
+  ]
+}

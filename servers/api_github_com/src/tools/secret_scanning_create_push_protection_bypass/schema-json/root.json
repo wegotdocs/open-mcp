@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "reason": {
+      "description": "The reason for bypassing push protection.",
+      "type": "string",
+      "enum": [
+        "false_positive",
+        "used_in_tests",
+        "will_fix_later"
+      ]
+    },
+    "placeholder_id": {
+      "description": "The ID of the push protection bypass placeholder. This value is returned on any push protected routes.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "reason",
+    "placeholder_id"
+  ]
+}

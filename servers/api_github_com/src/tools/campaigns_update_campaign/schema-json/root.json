@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "campaign_number": {
+      "description": "The campaign number.",
+      "type": "integer"
+    },
+    "name": {
+      "description": "The name of the campaign",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "description": {
+      "description": "A description for the campaign",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "managers": {
+      "description": "The logins of the users to set as the campaign managers. At this time, only a single manager can be supplied.",
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "string"
+      }
+    },
+    "team_managers": {
+      "description": "The slugs of the teams to set as the campaign managers.",
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "description": "The slug of each team",
+        "type": "string"
+      }
+    },
+    "ends_at": {
+      "description": "The end date and time of the campaign, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "contact_link": {
+      "description": "The contact link of the campaign. Must be a URI.",
+      "type": "string",
+      "format": "uri",
+      "nullable": true
+    },
+    "state": {
+      "title": "Campaign state",
+      "description": "Indicates whether a campaign is open or closed",
+      "type": "string",
+      "enum": [
+        "open",
+        "closed"
+      ]
+    }
+  },
+  "required": [
+    "org",
+    "campaign_number"
+  ]
+}

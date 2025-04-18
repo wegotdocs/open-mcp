@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "all": {
+      "description": "If `true`, show notifications marked as read.",
+      "type": "boolean",
+      "default": false
+    },
+    "participating": {
+      "description": "If `true`, only shows notifications in which the user is directly participating or mentioned.",
+      "type": "boolean",
+      "default": false
+    },
+    "since": {
+      "description": "Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "before": {
+      "description": "Only show notifications updated before the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    },
+    "per_page": {
+      "description": "The number of results per page (max 50). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 50
+    }
+  },
+  "required": []
+}

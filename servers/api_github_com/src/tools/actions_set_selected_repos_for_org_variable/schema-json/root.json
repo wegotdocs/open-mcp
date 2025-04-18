@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the variable.",
+      "type": "string"
+    },
+    "selected_repository_ids": {
+      "type": "array",
+      "description": "The IDs of the repositories that can access the organization variable.",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "org",
+    "name",
+    "selected_repository_ids"
+  ]
+}

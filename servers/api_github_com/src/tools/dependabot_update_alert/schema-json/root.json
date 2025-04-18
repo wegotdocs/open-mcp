@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "alert_number": {
+      "description": "The security alert number.",
+      "type": "integer",
+      "readOnly": true
+    },
+    "state": {
+      "type": "string",
+      "description": "The state of the Dependabot alert.\nA `dismissed_reason` must be provided when setting the state to `dismissed`.",
+      "enum": [
+        "dismissed",
+        "open"
+      ]
+    },
+    "dismissed_reason": {
+      "type": "string",
+      "description": "**Required when `state` is `dismissed`.** A reason for dismissing the alert.",
+      "enum": [
+        "fix_started",
+        "inaccurate",
+        "no_bandwidth",
+        "not_used",
+        "tolerable_risk"
+      ]
+    },
+    "dismissed_comment": {
+      "type": "string",
+      "description": "An optional comment associated with dismissing the alert.",
+      "maxLength": 280
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "alert_number",
+    "state"
+  ]
+}

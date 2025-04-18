@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "selected_repository_ids": {
+      "type": "array",
+      "description": "An array of repository IDs to detach from configurations.",
+      "items": {
+        "type": "integer",
+        "description": "Unique identifier of the repository."
+      }
+    }
+  },
+  "required": [
+    "org"
+  ]
+}

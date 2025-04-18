@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "description": "The unique identifier of the project.",
+      "type": "integer"
+    },
+    "affiliation": {
+      "description": "Filters the collaborators by their affiliation. `outside` means outside collaborators of a project that are not a member of the project's organization. `direct` means collaborators with permissions to a project, regardless of organization membership status. `all` means all collaborators the authenticated user can see.",
+      "type": "string",
+      "enum": [
+        "outside",
+        "direct",
+        "all"
+      ],
+      "default": "all"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "project_id"
+  ]
+}

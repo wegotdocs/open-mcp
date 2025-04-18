@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The new name of the user.",
+      "type": "string",
+      "example": "Omar Jahandar"
+    },
+    "email": {
+      "description": "The publicly visible email address of the user.",
+      "type": "string",
+      "example": "omar@example.com"
+    },
+    "blog": {
+      "description": "The new blog URL of the user.",
+      "type": "string",
+      "example": "blog.example.com"
+    },
+    "twitter_username": {
+      "description": "The new Twitter username of the user.",
+      "type": "string",
+      "example": "therealomarj",
+      "nullable": true
+    },
+    "company": {
+      "description": "The new company of the user.",
+      "type": "string",
+      "example": "Acme corporation"
+    },
+    "location": {
+      "description": "The new location of the user.",
+      "type": "string",
+      "example": "Berlin, Germany"
+    },
+    "hireable": {
+      "description": "The new hiring availability of the user.",
+      "type": "boolean"
+    },
+    "bio": {
+      "description": "The new short biography of the user.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "team_slug": {
+      "description": "The slug of the team name.",
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "description": "The discussion post's title."
+    },
+    "body": {
+      "type": "string",
+      "description": "The discussion post's body text."
+    },
+    "private": {
+      "type": "boolean",
+      "description": "Private posts are only visible to team members, organization owners, and team maintainers. Public posts are visible to all members of the organization. Set to `true` to create a private post.",
+      "default": false
+    }
+  },
+  "required": [
+    "org",
+    "team_slug",
+    "title",
+    "body"
+  ]
+}

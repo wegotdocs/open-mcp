@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "environment_name": {
+      "description": "The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`.",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the variable."
+    },
+    "value": {
+      "type": "string",
+      "description": "The value of the variable."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "environment_name",
+    "name",
+    "value"
+  ]
+}

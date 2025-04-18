@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "description": "Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run.",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the check run."
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 65535,
+      "description": "The summary of the check run. This parameter supports Markdown. **Maximum length**: 65535 characters."
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 65535,
+      "description": "The details of the check run. This parameter supports Markdown. **Maximum length**: 65535 characters."
+    },
+    "annotations": {
+      "type": "array",
+      "description": "Adds information from your analysis to specific lines of code. Annotations are visible on GitHub in the **Checks** and **Files changed** tab of the pull request. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](https://docs.github.com/rest/checks/runs#update-a-check-run) endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. GitHub Actions are limited to 10 warning annotations and 10 error annotations per step. For details about how you can view annotations on GitHub, see \"[About status checks](https://docs.github.com/articles/about-status-checks#checks)\".",
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The path of the file to add an annotation to. For example, `assets/css/main.css`."
+          },
+          "start_line": {
+            "type": "integer",
+            "description": "The start line of the annotation. Line numbers start at 1."
+          },
+          "end_line": {
+            "type": "integer",
+            "description": "The end line of the annotation."
+          },
+          "start_column": {
+            "type": "integer",
+            "description": "The start column of the annotation. Annotations only support `start_column` and `end_column` on the same line. Omit this parameter if `start_line` and `end_line` have different values. Column numbers start at 1."
+          },
+          "end_column": {
+            "type": "integer",
+            "description": "The end column of the annotation. Annotations only support `start_column` and `end_column` on the same line. Omit this parameter if `start_line` and `end_line` have different values."
+          },
+          "annotation_level": {
+            "type": "string",
+            "description": "The level of the annotation.",
+            "enum": [
+              "notice",
+              "warning",
+              "failure"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "description": "A short description of the feedback for these lines of code. The maximum size is 64 KB."
+          },
+          "title": {
+            "type": "string",
+            "description": "The title that represents the annotation. The maximum size is 255 characters."
+          },
+          "raw_details": {
+            "type": "string",
+            "description": "Details about this annotation. The maximum size is 64 KB."
+          }
+        },
+        "required": [
+          "path",
+          "start_line",
+          "end_line",
+          "annotation_level",
+          "message"
+        ]
+      }
+    },
+    "images": {
+      "type": "array",
+      "description": "Adds images to the output displayed in the GitHub pull request UI.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alt": {
+            "type": "string",
+            "description": "The alternative text for the image."
+          },
+          "image_url": {
+            "type": "string",
+            "description": "The full URL of the image."
+          },
+          "caption": {
+            "type": "string",
+            "description": "A short image description."
+          }
+        },
+        "required": [
+          "alt",
+          "image_url"
+        ]
+      }
+    }
+  },
+  "required": [
+    "title",
+    "summary"
+  ]
+}

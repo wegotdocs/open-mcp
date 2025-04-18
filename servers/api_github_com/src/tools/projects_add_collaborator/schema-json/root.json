@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "description": "The unique identifier of the project.",
+      "type": "integer"
+    },
+    "username": {
+      "description": "The handle for the GitHub user account.",
+      "type": "string"
+    },
+    "permission": {
+      "description": "The permission to grant the collaborator.",
+      "enum": [
+        "read",
+        "write",
+        "admin"
+      ],
+      "default": "write",
+      "example": "write",
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_id",
+    "username"
+  ]
+}

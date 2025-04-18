@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the campaign",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "description": {
+      "description": "A description for the campaign",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "managers": {
+      "description": "The logins of the users to set as the campaign managers. At this time, only a single manager can be supplied.",
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "description": "The login of each manager",
+        "type": "string"
+      }
+    },
+    "team_managers": {
+      "description": "The slugs of the teams to set as the campaign managers.",
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "description": "The slug of each team",
+        "type": "string"
+      }
+    },
+    "ends_at": {
+      "description": "The end date and time of the campaign. The date must be in the future.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "contact_link": {
+      "description": "The contact link of the campaign. Must be a URI.",
+      "type": "string",
+      "format": "uri",
+      "nullable": true
+    },
+    "code_scanning_alerts": {
+      "description": "The code scanning alerts to include in this campaign",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "repository_id": {
+            "type": "integer",
+            "description": "The repository id"
+          },
+          "alert_numbers": {
+            "type": "array",
+            "description": "The alert numbers",
+            "minItems": 1,
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        "required": [
+          "repository_id",
+          "alert_numbers"
+        ]
+      }
+    },
+    "generate_issues": {
+      "description": "If true, will automatically generate issues for the campaign. The default is false.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "org",
+    "name",
+    "description",
+    "ends_at",
+    "code_scanning_alerts"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "tool_name": {
+      "description": "The name of the tool used to generate the code scanning analysis.",
+      "type": "string"
+    },
+    "tool_guid": {
+      "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data.",
+      "nullable": true,
+      "type": "string"
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "pr": {
+      "description": "The number of the pull request for the results you want to list.",
+      "type": "integer"
+    },
+    "ref": {
+      "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`.",
+      "type": "string"
+    },
+    "sarif_id": {
+      "description": "An identifier for the upload.",
+      "type": "string",
+      "example": "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53"
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "sort": {
+      "description": "The property by which to sort the results.",
+      "type": "string",
+      "enum": [
+        "created"
+      ],
+      "default": "created"
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

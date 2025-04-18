@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "team_id": {
+      "description": "The unique identifier of the team.",
+      "type": "integer"
+    },
+    "title": {
+      "type": "string",
+      "description": "The discussion post's title."
+    },
+    "body": {
+      "type": "string",
+      "description": "The discussion post's body text."
+    },
+    "private": {
+      "type": "boolean",
+      "description": "Private posts are only visible to team members, organization owners, and team maintainers. Public posts are visible to all members of the organization. Set to `true` to create a private post.",
+      "default": false
+    }
+  },
+  "required": [
+    "team_id",
+    "title",
+    "body"
+  ]
+}

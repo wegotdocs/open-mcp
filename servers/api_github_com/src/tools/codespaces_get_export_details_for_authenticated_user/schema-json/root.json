@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "codespace_name": {
+      "description": "The name of the codespace.",
+      "type": "string"
+    },
+    "export_id": {
+      "description": "The ID of the export operation, or `latest`. Currently only `latest` is currently supported.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "codespace_name",
+    "export_id"
+  ]
+}

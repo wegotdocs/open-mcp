@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "affiliation": {
+      "description": "Filter collaborators returned by their affiliation. `outside` means all outside collaborators of an organization-owned repository. `direct` means all collaborators with permissions to an organization-owned repository, regardless of organization membership status. `all` means all collaborators the authenticated user can see.",
+      "type": "string",
+      "enum": [
+        "outside",
+        "direct",
+        "all"
+      ],
+      "default": "all"
+    },
+    "permission": {
+      "description": "Filter collaborators by the permissions they have on the repository. If not specified, all collaborators will be returned.",
+      "type": "string",
+      "enum": [
+        "pull",
+        "triage",
+        "push",
+        "maintain",
+        "admin"
+      ]
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

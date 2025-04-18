@@ -1,0 +1,19 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "users_delete_public_ssh_key_for_authenticated_user",
+  "toolDescription": "Delete a public SSH key for the authenticated user",
+  "baseUrl": "https://api.github.com",
+  "path": "/user/keys/{key_id}",
+  "method": "delete",
+  "security": [],
+  "paramsMap": {
+    "path": {
+      "key_id": "key_id"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

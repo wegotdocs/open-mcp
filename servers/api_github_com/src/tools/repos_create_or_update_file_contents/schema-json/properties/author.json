@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "description": "The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted."
+    },
+    "email": {
+      "type": "string",
+      "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted."
+    },
+    "date": {
+      "type": "string",
+      "example": "\"2013-01-15T17:13:22+05:00\""
+    }
+  },
+  "required": [
+    "name",
+    "email"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repositories": {
+      "type": "array",
+      "description": "A list of arrays indicating which repositories should be migrated.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lock_repositories": {
+      "type": "boolean",
+      "example": true,
+      "description": "Indicates whether repositories should be locked (to prevent manipulation) while migrating data.",
+      "default": false
+    },
+    "exclude_metadata": {
+      "type": "boolean",
+      "description": "Indicates whether metadata should be excluded and only git source should be included for the migration.",
+      "default": false
+    },
+    "exclude_git_data": {
+      "type": "boolean",
+      "description": "Indicates whether the repository git data should be excluded from the migration.",
+      "default": false
+    },
+    "exclude_attachments": {
+      "type": "boolean",
+      "example": true,
+      "description": "Indicates whether attachments should be excluded from the migration (to reduce migration archive file size).",
+      "default": false
+    },
+    "exclude_releases": {
+      "type": "boolean",
+      "example": true,
+      "description": "Indicates whether releases should be excluded from the migration (to reduce migration archive file size).",
+      "default": false
+    },
+    "exclude_owner_projects": {
+      "type": "boolean",
+      "example": true,
+      "description": "Indicates whether projects owned by the organization or users should be excluded. from the migration.",
+      "default": false
+    },
+    "org_metadata_only": {
+      "type": "boolean",
+      "example": true,
+      "description": "Indicates whether this should only include organization metadata (repositories array should be empty and will ignore other flags).",
+      "default": false
+    },
+    "exclude": {
+      "type": "array",
+      "description": "Exclude related items from being returned in the response in order to improve performance of the request.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "repositories"
+        ]
+      }
+    }
+  },
+  "required": [
+    "org",
+    "repositories"
+  ]
+}

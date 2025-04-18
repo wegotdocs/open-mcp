@@ -1,0 +1,85 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "milestone": {
+      "description": "If an `integer` is passed, it should refer to a milestone by its `number` field. If the string `*` is passed, issues with any milestone are accepted. If the string `none` is passed, issues without milestones are returned.",
+      "type": "string"
+    },
+    "state": {
+      "description": "Indicates the state of the issues to return.",
+      "type": "string",
+      "enum": [
+        "open",
+        "closed",
+        "all"
+      ],
+      "default": "open"
+    },
+    "assignee": {
+      "description": "Can be the name of a user. Pass in `none` for issues with no assigned user, and `*` for issues assigned to any user.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Can be the name of an issue type. If the string `*` is passed, issues with any type are accepted. If the string `none` is passed, issues without type are returned.",
+      "type": "string"
+    },
+    "creator": {
+      "description": "The user that created the issue.",
+      "type": "string"
+    },
+    "mentioned": {
+      "description": "A user that's mentioned in the issue.",
+      "type": "string"
+    },
+    "labels": {
+      "description": "A list of comma separated label names. Example: `bug,ui,@high`",
+      "type": "string"
+    },
+    "sort": {
+      "description": "What to sort results by.",
+      "type": "string",
+      "enum": [
+        "created",
+        "updated",
+        "comments"
+      ],
+      "default": "created"
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "since": {
+      "description": "Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "run_id": {
+      "description": "The unique identifier of the workflow run.",
+      "type": "integer"
+    },
+    "environment_ids": {
+      "type": "array",
+      "description": "The list of environment ids to approve or reject",
+      "example": [
+        161171787,
+        161171795
+      ],
+      "items": {
+        "type": "integer",
+        "example": 161171787
+      }
+    },
+    "state": {
+      "type": "string",
+      "description": "Whether to approve or reject deployment to the specified environments.",
+      "enum": [
+        "approved",
+        "rejected"
+      ],
+      "example": "approved"
+    },
+    "comment": {
+      "type": "string",
+      "description": "A comment to accompany the deployment review",
+      "example": "Ship it!"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "run_id",
+    "environment_ids",
+    "state",
+    "comment"
+  ]
+}

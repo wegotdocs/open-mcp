@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "sort": {
+      "description": "The property to sort the results by.",
+      "type": "string",
+      "enum": [
+        "created",
+        "updated",
+        "published"
+      ],
+      "default": "created"
+    },
+    "before": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "after": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "per_page": {
+      "description": "The number of advisories to return per page. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 30
+    },
+    "state": {
+      "description": "Filter by the state of the repository advisories. Only advisories of this state will be returned.",
+      "type": "string",
+      "enum": [
+        "triage",
+        "draft",
+        "published",
+        "closed"
+      ]
+    }
+  },
+  "required": [
+    "org"
+  ]
+}

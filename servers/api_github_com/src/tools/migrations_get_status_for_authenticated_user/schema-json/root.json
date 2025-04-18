@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "migration_id": {
+      "description": "The unique identifier of the migration.",
+      "type": "integer"
+    },
+    "exclude": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "migration_id"
+  ]
+}

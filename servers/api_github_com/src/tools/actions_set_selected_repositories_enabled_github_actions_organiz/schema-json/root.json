@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "selected_repository_ids": {
+      "description": "List of repository IDs to enable for GitHub Actions.",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "description": "Unique identifier of the repository."
+      }
+    }
+  },
+  "required": [
+    "org",
+    "selected_repository_ids"
+  ]
+}

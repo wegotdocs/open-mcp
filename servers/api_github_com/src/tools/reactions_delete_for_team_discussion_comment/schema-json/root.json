@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "team_slug": {
+      "description": "The slug of the team name.",
+      "type": "string"
+    },
+    "discussion_number": {
+      "description": "The number that identifies the discussion.",
+      "type": "integer"
+    },
+    "comment_number": {
+      "description": "The number that identifies the comment.",
+      "type": "integer"
+    },
+    "reaction_id": {
+      "description": "The unique identifier of the reaction.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "org",
+    "team_slug",
+    "discussion_number",
+    "comment_number",
+    "reaction_id"
+  ]
+}

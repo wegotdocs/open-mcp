@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "mediaType": {
+      "type": "string"
+    },
+    "verificationMaterial": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `verificationMaterial` to the tool, first call the tool `expandSchema` with \"/properties/bundle/properties/verificationMaterial\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "dsseEnvelope": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `dsseEnvelope` to the tool, first call the tool `expandSchema` with \"/properties/bundle/properties/dsseEnvelope\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "description": "The attestation's Sigstore Bundle.\nRefer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information."
+}

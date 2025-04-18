@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "issue_number": {
+      "description": "The number that identifies the issue.",
+      "type": "integer"
+    },
+    "lock_reason": {
+      "type": "string",
+      "description": "The reason for locking the issue or pull request conversation. Lock will fail if you don't use one of these reasons:  \n * `off-topic`  \n * `too heated`  \n * `resolved`  \n * `spam`",
+      "enum": [
+        "off-topic",
+        "too heated",
+        "resolved",
+        "spam"
+      ]
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "issue_number"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "The ID of the user to query for stats",
+      "type": "string"
+    },
+    "min_timestamp": {
+      "description": "The minimum timestamp to query for stats. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string"
+    },
+    "max_timestamp": {
+      "description": "The maximum timestamp to query for stats. Defaults to the time 30 days ago. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "org",
+    "user_id",
+    "min_timestamp"
+  ]
+}

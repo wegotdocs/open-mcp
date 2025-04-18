@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "description": "The client ID of the GitHub app.",
+      "type": "string"
+    },
+    "access_token": {
+      "type": "string",
+      "description": "The access token used to authenticate to the GitHub API.",
+      "example": "e72e16c7e42f292c6912e7710c838347ae178b4a"
+    },
+    "target": {
+      "description": "The name of the user or organization to scope the user access token to. **Required** unless `target_id` is specified.",
+      "type": "string",
+      "example": "octocat"
+    },
+    "target_id": {
+      "description": "The ID of the user or organization to scope the user access token to. **Required** unless `target` is specified.",
+      "example": 1,
+      "type": "integer"
+    },
+    "repositories": {
+      "description": "The list of repository names to scope the user access token to. `repositories` may not be specified if `repository_ids` is specified.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "rails"
+      }
+    },
+    "repository_ids": {
+      "description": "The list of repository IDs to scope the user access token to. `repository_ids` may not be specified if `repositories` is specified.",
+      "example": [
+        1
+      ],
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `permissions` to the tool, first call the tool `expandSchema` with \"/properties/permissions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The permissions granted to the user access token.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "client_id",
+    "access_token"
+  ]
+}

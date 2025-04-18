@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the issue type.",
+      "type": "string"
+    },
+    "is_enabled": {
+      "description": "Whether or not the issue type is enabled at the organization level.",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "Description of the issue type.",
+      "type": "string",
+      "nullable": true
+    },
+    "color": {
+      "description": "Color for the issue type.",
+      "type": "string",
+      "enum": [
+        "gray",
+        "blue",
+        "green",
+        "yellow",
+        "orange",
+        "red",
+        "pink",
+        "purple"
+      ],
+      "nullable": true
+    }
+  },
+  "required": [
+    "org",
+    "name",
+    "is_enabled"
+  ]
+}

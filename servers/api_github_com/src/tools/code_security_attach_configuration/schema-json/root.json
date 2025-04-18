@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "configuration_id": {
+      "description": "The unique identifier of the code security configuration.",
+      "type": "integer"
+    },
+    "scope": {
+      "type": "string",
+      "description": "The type of repositories to attach the configuration to. `selected` means the configuration will be attached to only the repositories specified by `selected_repository_ids`",
+      "enum": [
+        "all",
+        "all_without_configurations",
+        "public",
+        "private_or_internal",
+        "selected"
+      ]
+    },
+    "selected_repository_ids": {
+      "type": "array",
+      "description": "An array of repository IDs to attach the configuration to. You can only provide a list of repository ids when the `scope` is set to `selected`.",
+      "items": {
+        "type": "integer",
+        "description": "Unique identifier of the repository."
+      }
+    }
+  },
+  "required": [
+    "org",
+    "configuration_id",
+    "scope"
+  ]
+}

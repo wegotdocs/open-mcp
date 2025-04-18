@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "description": "A custom webhook event name. Must be 100 characters or fewer.",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "client_payload": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `client_payload` to the tool, first call the tool `expandSchema` with \"/properties/client_payload\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>JSON payload with extra information about the webhook event that your action or workflow may use. The maximum number of top-level properties is 10. The total size of the JSON payload must be less than 64KB.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "event_type"
+  ]
+}

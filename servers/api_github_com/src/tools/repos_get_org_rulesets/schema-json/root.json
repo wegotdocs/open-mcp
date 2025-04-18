@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    },
+    "targets": {
+      "description": "A comma-separated list of rule targets to filter by.\nIf provided, only rulesets that apply to the specified targets will be returned.\nFor example, `branch,tag,push`.\n",
+      "type": "string",
+      "example": "branch,tag,push"
+    }
+  },
+  "required": [
+    "org"
+  ]
+}

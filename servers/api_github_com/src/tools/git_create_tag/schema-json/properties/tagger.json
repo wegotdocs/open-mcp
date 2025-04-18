@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "description": "An object with information about the individual creating the tag.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the author of the tag"
+    },
+    "email": {
+      "type": "string",
+      "description": "The email of the author of the tag"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this object was tagged. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`."
+    }
+  },
+  "required": [
+    "name",
+    "email"
+  ]
+}

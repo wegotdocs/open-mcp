@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "runner_id": {
+      "description": "Unique identifier of the self-hosted runner.",
+      "type": "integer"
+    },
+    "labels": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 100,
+      "description": "The names of the custom labels to set for the runner. You can pass an empty array to remove all custom labels.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "runner_id",
+    "labels"
+  ]
+}

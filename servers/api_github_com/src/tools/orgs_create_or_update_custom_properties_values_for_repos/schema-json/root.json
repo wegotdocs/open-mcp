@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repository_names": {
+      "type": "array",
+      "description": "The names of repositories that the custom property values will be applied to.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "maxItems": 30
+    },
+    "properties": {
+      "type": "array",
+      "description": "List of custom property names and associated values to apply to the repositories.",
+      "items": {
+        "title": "Custom Property Value",
+        "description": "Custom property name and associated value",
+        "type": "object",
+        "properties": {
+          "property_name": {
+            "type": "string",
+            "description": "The name of the property"
+          },
+          "value": {
+            "description": "The value assigned to the property",
+            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "required": [
+          "property_name",
+          "value"
+        ]
+      }
+    }
+  },
+  "required": [
+    "org",
+    "repository_names",
+    "properties"
+  ]
+}

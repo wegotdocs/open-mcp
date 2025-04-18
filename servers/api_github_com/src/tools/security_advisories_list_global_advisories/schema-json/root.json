@@ -1,0 +1,142 @@
+{
+  "type": "object",
+  "properties": {
+    "ghsa_id": {
+      "description": "If specified, only advisories with this GHSA (GitHub Security Advisory) identifier will be returned.",
+      "type": "string"
+    },
+    "type": {
+      "description": "If specified, only advisories of this type will be returned. By default, a request with no other parameters defined will only return reviewed advisories that are not malware.",
+      "type": "string",
+      "enum": [
+        "reviewed",
+        "malware",
+        "unreviewed"
+      ],
+      "default": "reviewed"
+    },
+    "cve_id": {
+      "description": "If specified, only advisories with this CVE (Common Vulnerabilities and Exposures) identifier will be returned.",
+      "type": "string"
+    },
+    "ecosystem": {
+      "description": "The package's language or package management ecosystem.",
+      "type": "string",
+      "enum": [
+        "rubygems",
+        "npm",
+        "pip",
+        "maven",
+        "nuget",
+        "composer",
+        "go",
+        "rust",
+        "erlang",
+        "actions",
+        "pub",
+        "other",
+        "swift"
+      ]
+    },
+    "severity": {
+      "description": "If specified, only advisories with these severities will be returned.",
+      "type": "string",
+      "enum": [
+        "unknown",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "cwes": {
+      "description": "If specified, only advisories with these Common Weakness Enumerations (CWEs) will be returned.\n\nExample: `cwes=79,284,22` or `cwes[]=79&cwes[]=284&cwes[]=22`",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "is_withdrawn": {
+      "description": "Whether to only return advisories that have been withdrawn.",
+      "type": "boolean"
+    },
+    "affects": {
+      "description": "If specified, only return advisories that affect any of `package` or `package@version`. A maximum of 1000 packages can be specified.\nIf the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.\n\nExample: `affects=package1,package2@1.0.0,package3@^2.0.0` or `affects[]=package1&affects[]=package2@1.0.0`",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "published": {
+      "description": "If specified, only return advisories that were published on a date or date range.\n\nFor more information on the syntax of the date range, see \"[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates).\"",
+      "type": "string"
+    },
+    "updated": {
+      "description": "If specified, only return advisories that were updated on a date or date range.\n\nFor more information on the syntax of the date range, see \"[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates).\"",
+      "type": "string"
+    },
+    "modified": {
+      "description": "If specified, only show advisories that were updated or published on a date or date range.\n\nFor more information on the syntax of the date range, see \"[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates).\"",
+      "type": "string"
+    },
+    "epss_percentage": {
+      "description": "If specified, only return advisories that have an EPSS percentage score that matches the provided value.\nThe EPSS percentage represents the likelihood of a CVE being exploited.",
+      "type": "string"
+    },
+    "epss_percentile": {
+      "description": "If specified, only return advisories that have an EPSS percentile score that matches the provided value.\nThe EPSS percentile represents the relative rank of the CVE's likelihood of being exploited compared to other CVEs.",
+      "type": "string"
+    },
+    "before": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "after": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 30
+    },
+    "sort": {
+      "description": "The property to sort the results by.",
+      "type": "string",
+      "enum": [
+        "updated",
+        "published",
+        "epss_percentage",
+        "epss_percentile"
+      ],
+      "default": "published"
+    }
+  },
+  "required": []
+}

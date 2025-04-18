@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "team_id": {
+      "description": "The unique identifier of the team.",
+      "type": "integer"
+    },
+    "discussion_number": {
+      "description": "The number that identifies the discussion.",
+      "type": "integer"
+    },
+    "title": {
+      "type": "string",
+      "description": "The discussion post's title."
+    },
+    "body": {
+      "type": "string",
+      "description": "The discussion post's body text."
+    }
+  },
+  "required": [
+    "team_id",
+    "discussion_number"
+  ]
+}

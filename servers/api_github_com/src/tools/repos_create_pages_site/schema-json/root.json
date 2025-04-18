@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "build_type": {
+      "type": "string",
+      "description": "The process in which the Page will be built. Possible values are `\"legacy\"` and `\"workflow\"`.",
+      "enum": [
+        "legacy",
+        "workflow"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `source` to the tool, first call the tool `expandSchema` with \"/properties/source\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The source branch and directory used to publish your Pages site.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "state": {
+      "description": "Either `open`, `closed`, or `all` to filter by state.",
+      "type": "string",
+      "enum": [
+        "open",
+        "closed",
+        "all"
+      ],
+      "default": "open"
+    },
+    "head": {
+      "description": "Filter pulls by head user or head organization and branch name in the format of `user:ref-name` or `organization:ref-name`. For example: `github:new-script-format` or `octocat:test-branch`.",
+      "type": "string"
+    },
+    "base": {
+      "description": "Filter pulls by base branch name. Example: `gh-pages`.",
+      "type": "string"
+    },
+    "sort": {
+      "description": "What to sort results by. `popularity` will sort by the number of comments. `long-running` will sort by date created and will limit the results to pull requests that have been open for more than a month and have had activity within the past month.",
+      "type": "string",
+      "enum": [
+        "created",
+        "updated",
+        "popularity",
+        "long-running"
+      ],
+      "default": "created"
+    },
+    "direction": {
+      "description": "The direction of the sort. Default: `desc` when sort is `created` or sort is not specified, otherwise `asc`.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

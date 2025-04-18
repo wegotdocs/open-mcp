@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "basehead": {
+      "description": "The base and head Git revisions to compare. The Git revisions will be resolved to commit SHAs. Named revisions will be resolved to their corresponding HEAD commits, and an appropriate merge base will be determined. This parameter expects the format `{base}...{head}`.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The full path, relative to the repository root, of the dependency manifest file.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "basehead"
+  ]
+}

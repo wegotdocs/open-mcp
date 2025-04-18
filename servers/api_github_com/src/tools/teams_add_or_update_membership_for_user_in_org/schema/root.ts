@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "org": z.string().describe("The organization name. The name is not case sensitive."),
+  "team_slug": z.string().describe("The slug of the team name."),
+  "username": z.string().describe("The handle for the GitHub user account."),
+  "role": z.enum(["member","maintainer"]).describe("The role that this user should have in the team.").optional()
+}

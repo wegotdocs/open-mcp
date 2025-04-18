@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "description": "Information about the author of the commit. By default, the `author` will be the authenticated user and the current date. See the `author` and `committer` object below for details.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the author (or committer) of the commit"
+    },
+    "email": {
+      "type": "string",
+      "description": "The email of the author (or committer) of the commit"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Indicates when this commit was authored (or committed). This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`."
+    }
+  },
+  "required": [
+    "name",
+    "email"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "selected_teams": {
+      "type": "array",
+      "description": "The names of teams from which to revoke access to GitHub Copilot.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "org",
+    "selected_teams"
+  ]
+}

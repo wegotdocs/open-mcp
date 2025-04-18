@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "ruleset_id": {
+      "description": "The ID of the ruleset.",
+      "type": "integer"
+    },
+    "version_id": {
+      "description": "The ID of the version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "org",
+    "ruleset_id",
+    "version_id"
+  ]
+}
