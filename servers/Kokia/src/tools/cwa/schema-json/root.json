@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "cwsuId": {
+      "description": "Three-letter identifier for a Center Weather Service Unit (CWSU).",
+      "enum": [
+        "ZAB",
+        "ZAN",
+        "ZAU",
+        "ZBW",
+        "ZDC",
+        "ZDV",
+        "ZFA",
+        "ZFW",
+        "ZHU",
+        "ZID",
+        "ZJX",
+        "ZKC",
+        "ZLA",
+        "ZLC",
+        "ZMA",
+        "ZME",
+        "ZMP",
+        "ZNY",
+        "ZOA",
+        "ZOB",
+        "ZSE",
+        "ZTL"
+      ],
+      "type": "string"
+    },
+    "date": {
+      "description": "Date (in YYYY-MM-DD format).",
+      "type": "string",
+      "format": "date"
+    },
+    "sequence": {
+      "description": "Sequence number",
+      "minimum": 100,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "cwsuId",
+    "date",
+    "sequence"
+  ]
+}
