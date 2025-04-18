@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "state": {
+      "description": "The desired state of code scanning default setup.",
+      "type": "string",
+      "enum": [
+        "configured",
+        "not-configured"
+      ]
+    },
+    "runner_type": {
+      "description": "Runner type to be used.",
+      "type": "string",
+      "enum": [
+        "standard",
+        "labeled"
+      ]
+    },
+    "runner_label": {
+      "nullable": true,
+      "description": "Runner label to be used if the runner type is labeled.",
+      "type": "string",
+      "example": "code-scanning"
+    },
+    "query_suite": {
+      "description": "CodeQL query suite to be used.",
+      "type": "string",
+      "enum": [
+        "default",
+        "extended"
+      ]
+    },
+    "languages": {
+      "description": "CodeQL languages to be analyzed.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "actions",
+          "c-cpp",
+          "csharp",
+          "go",
+          "java-kotlin",
+          "javascript-typescript",
+          "python",
+          "ruby",
+          "swift"
+        ]
+      }
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

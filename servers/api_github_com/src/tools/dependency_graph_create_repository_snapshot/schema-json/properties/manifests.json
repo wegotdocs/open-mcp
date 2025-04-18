@@ -1,0 +1,112 @@
+{
+  "type": "object",
+  "description": "A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The name of the manifest.",
+        "example": "package-lock.json"
+      },
+      "file": {
+        "type": "object",
+        "properties": {
+          "source_location": {
+            "type": "string",
+            "description": "The path of the manifest file relative to the root of the Git repository.",
+            "example": "/src/build/package-lock.json"
+          }
+        },
+        "additionalProperties": false
+      },
+      "metadata": {
+        "title": "metadata",
+        "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values.",
+        "type": "object",
+        "maxProperties": 8,
+        "additionalProperties": {
+          "nullable": true,
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "resolved": {
+        "type": "object",
+        "description": "A collection of resolved package dependencies.",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "package_url": {
+              "type": "string",
+              "description": "Package-url (PURL) of dependency. See https://github.com/package-url/purl-spec for more details.",
+              "example": "pkg:/npm/%40actions/http-client@1.0.11",
+              "pattern": "^pkg"
+            },
+            "metadata": {
+              "title": "metadata",
+              "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values.",
+              "type": "object",
+              "maxProperties": 8,
+              "additionalProperties": {
+                "nullable": true,
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              }
+            },
+            "relationship": {
+              "type": "string",
+              "description": "A notation of whether a dependency is requested directly by this manifest or is a dependency of another dependency.",
+              "example": "direct",
+              "enum": [
+                "direct",
+                "indirect"
+              ]
+            },
+            "scope": {
+              "type": "string",
+              "description": "A notation of whether the dependency is required for the primary build artifact (runtime) or is only used for development. Future versions of this specification may allow for more granular scopes.",
+              "example": "runtime",
+              "enum": [
+                "runtime",
+                "development"
+              ]
+            },
+            "dependencies": {
+              "type": "array",
+              "description": "Array of package-url (PURLs) of direct child dependencies.",
+              "example": "@actions/http-client",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "name"
+    ],
+    "additionalProperties": false
+  },
+  "properties": {}
+}

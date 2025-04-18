@@ -1,0 +1,14 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "owner": z.string().describe("The account owner of the repository. The name is not case sensitive."),
+  "repo": z.string().describe("The name of the repository without the `.git` extension. The name is not case sensitive."),
+  "version": z.number().int().describe("The version of the repository snapshot submission."),
+  "job": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `job` to the tool, first call the tool `expandSchema` with \"/properties/job\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "sha": z.string().min(40).max(40).describe("The commit SHA associated with this dependency snapshot. Maximum length: 40 characters."),
+  "ref": z.string().regex(new RegExp("^refs/")).describe("The repository branch that triggered this snapshot."),
+  "detector": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `detector` to the tool, first call the tool `expandSchema` with \"/properties/detector\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A description of the detector used.</property-description>"),
+  "metadata": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `metadata` to the tool, first call the tool `expandSchema` with \"/properties/metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User-defined metadata to store domain-specific information limited to 8 keys with scalar values.</property-description>").optional(),
+  "manifests": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `manifests` to the tool, first call the tool `expandSchema` with \"/properties/manifests\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.</property-description>").optional(),
+  "scanned": z.string().datetime({ offset: true }).describe("The time at which the snapshot was scanned.")
+}

@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "ref": {
+      "description": "Git ref (typically a branch name) for this codespace",
+      "type": "string"
+    },
+    "location": {
+      "description": "The requested location for a new codespace. Best efforts are made to respect this upon creation. Assigned by IP if not provided.",
+      "type": "string"
+    },
+    "geo": {
+      "description": "The geographic area for this codespace. If not specified, the value is assigned by IP. This property replaces `location`, which is closing down.",
+      "type": "string",
+      "enum": [
+        "EuropeWest",
+        "SoutheastAsia",
+        "UsEast",
+        "UsWest"
+      ]
+    },
+    "client_ip": {
+      "description": "IP for location auto-detection when proxying a request",
+      "type": "string"
+    },
+    "machine": {
+      "description": "Machine type to use for this codespace",
+      "type": "string"
+    },
+    "devcontainer_path": {
+      "description": "Path to devcontainer.json config to use for this codespace",
+      "type": "string"
+    },
+    "multi_repo_permissions_opt_out": {
+      "description": "Whether to authorize requested permissions from devcontainer.json",
+      "type": "boolean"
+    },
+    "working_directory": {
+      "description": "Working directory for this codespace",
+      "type": "string"
+    },
+    "idle_timeout_minutes": {
+      "description": "Time in minutes before codespace stops from inactivity",
+      "type": "integer"
+    },
+    "display_name": {
+      "description": "Display name for this codespace",
+      "type": "string"
+    },
+    "retention_period_minutes": {
+      "description": "Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

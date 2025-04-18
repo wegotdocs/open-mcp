@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "lock_repositories": {
+      "description": "Lock the repositories being migrated at the start of the migration",
+      "example": true,
+      "readOnly": false,
+      "type": "boolean"
+    },
+    "exclude_metadata": {
+      "description": "Indicates whether metadata should be excluded and only git source should be included for the migration.",
+      "example": true,
+      "readOnly": false,
+      "type": "boolean"
+    },
+    "exclude_git_data": {
+      "description": "Indicates whether the repository git data should be excluded from the migration.",
+      "example": true,
+      "readOnly": false,
+      "type": "boolean"
+    },
+    "exclude_attachments": {
+      "description": "Do not include attachments in the migration",
+      "example": true,
+      "readOnly": false,
+      "type": "boolean"
+    },
+    "exclude_releases": {
+      "description": "Do not include releases in the migration",
+      "example": true,
+      "readOnly": false,
+      "type": "boolean"
+    },
+    "exclude_owner_projects": {
+      "description": "Indicates whether projects owned by the organization or users should be excluded.",
+      "example": true,
+      "readOnly": false,
+      "type": "boolean"
+    },
+    "org_metadata_only": {
+      "type": "boolean",
+      "example": true,
+      "description": "Indicates whether this should only include organization metadata (repositories array should be empty and will ignore other flags).",
+      "default": false
+    },
+    "exclude": {
+      "description": "Exclude attributes from the API response to improve performance",
+      "example": [
+        "repositories"
+      ],
+      "readOnly": false,
+      "type": "array",
+      "items": {
+        "description": "Allowed values that can be passed to the exclude param.",
+        "enum": [
+          "repositories"
+        ],
+        "example": "repositories",
+        "type": "string"
+      }
+    },
+    "repositories": {
+      "type": "array",
+      "items": {
+        "description": "Repository path, owner and name",
+        "example": "acme/widgets",
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "repositories"
+  ]
+}

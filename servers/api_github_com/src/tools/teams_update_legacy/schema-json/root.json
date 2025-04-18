@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "team_id": {
+      "description": "The unique identifier of the team.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the team."
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the team."
+    },
+    "privacy": {
+      "type": "string",
+      "description": "The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. The options are:  \n**For a non-nested team:**  \n * `secret` - only visible to organization owners and members of this team.  \n * `closed` - visible to all members of this organization.  \n**For a parent or child team:**  \n * `closed` - visible to all members of this organization.",
+      "enum": [
+        "secret",
+        "closed"
+      ]
+    },
+    "notification_setting": {
+      "type": "string",
+      "description": "The notification setting the team has chosen. Editing teams without specifying this parameter leaves `notification_setting` intact. The options are: \n * `notifications_enabled` - team members receive notifications when the team is @mentioned.  \n * `notifications_disabled` - no one receives notifications.",
+      "enum": [
+        "notifications_enabled",
+        "notifications_disabled"
+      ]
+    },
+    "permission": {
+      "type": "string",
+      "description": "**Closing down notice**. The permission that new repositories will be added to the team with when none is specified.",
+      "enum": [
+        "pull",
+        "push",
+        "admin"
+      ],
+      "default": "pull"
+    },
+    "parent_team_id": {
+      "type": "integer",
+      "description": "The ID of a team to set as the parent team.",
+      "nullable": true
+    }
+  },
+  "required": [
+    "team_id",
+    "name"
+  ]
+}

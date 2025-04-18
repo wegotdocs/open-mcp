@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "pages_deployment_id": {
+      "description": "The ID of the Pages deployment. You can also give the commit SHA of the deployment.",
+      "oneOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "pages_deployment_id"
+  ]
+}

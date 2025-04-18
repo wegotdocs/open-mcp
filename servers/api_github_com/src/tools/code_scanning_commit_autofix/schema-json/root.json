@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "alert_number": {
+      "description": "The security alert number.",
+      "type": "integer",
+      "readOnly": true
+    },
+    "target_ref": {
+      "description": "The Git reference of target branch for the commit. Branch needs to already exist.  For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.",
+      "type": "string"
+    },
+    "message": {
+      "description": "Commit message to be used.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "alert_number"
+  ]
+}

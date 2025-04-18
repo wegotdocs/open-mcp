@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "description": "The state that the membership should be in. Only `\"active\"` will be accepted.",
+      "enum": [
+        "active"
+      ]
+    }
+  },
+  "required": [
+    "org",
+    "state"
+  ]
+}

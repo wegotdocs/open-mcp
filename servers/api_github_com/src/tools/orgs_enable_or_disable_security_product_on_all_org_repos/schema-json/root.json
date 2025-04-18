@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "security_product": {
+      "description": "The security feature to enable or disable.",
+      "type": "string",
+      "enum": [
+        "dependency_graph",
+        "dependabot_alerts",
+        "dependabot_security_updates",
+        "advanced_security",
+        "code_scanning_default_setup",
+        "secret_scanning",
+        "secret_scanning_push_protection"
+      ]
+    },
+    "enablement": {
+      "description": "The action to take.\n\n`enable_all` means to enable the specified security feature for all repositories in the organization.\n`disable_all` means to disable the specified security feature for all repositories in the organization.",
+      "type": "string",
+      "enum": [
+        "enable_all",
+        "disable_all"
+      ]
+    },
+    "query_suite": {
+      "description": "CodeQL query suite to be used. If you specify the `query_suite` parameter, the default setup will be configured with this query suite only on all repositories that didn't have default setup already configured. It will not change the query suite on repositories that already have default setup configured.\nIf you don't specify any `query_suite` in your request, the preferred query suite of the organization will be applied.",
+      "type": "string",
+      "enum": [
+        "default",
+        "extended"
+      ]
+    }
+  },
+  "required": [
+    "org",
+    "security_product",
+    "enablement"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "issue_number": {
+      "description": "The number that identifies the issue.",
+      "type": "integer"
+    },
+    "title": {
+      "description": "The title of the issue.",
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "body": {
+      "type": "string",
+      "description": "The contents of the issue.",
+      "nullable": true
+    },
+    "assignee": {
+      "type": "string",
+      "nullable": true,
+      "description": "Username to assign to this issue. **This field is closing down.**"
+    },
+    "state": {
+      "type": "string",
+      "description": "The open or closed state of the issue.",
+      "enum": [
+        "open",
+        "closed"
+      ]
+    },
+    "state_reason": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "not_planned",
+        "reopened"
+      ],
+      "nullable": true,
+      "description": "The reason for the state change. Ignored unless `state` is changed.",
+      "example": "not_planned"
+    },
+    "milestone": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "labels": {
+      "type": "array",
+      "description": "Labels to associate with this issue. Pass one or more labels to _replace_ the set of labels on this issue. Send an empty array (`[]`) to clear all labels from the issue. Only users with push access can set labels for issues. Without push access to the repository, label changes are silently dropped.",
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "assignees": {
+      "type": "array",
+      "description": "Usernames to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this issue. Send an empty array (`[]`) to clear all assignees from the issue. Only users with push access can set assignees for new issues. Without push access to the repository, assignee changes are silently dropped.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "type": {
+      "type": "string",
+      "description": "The name of the issue type to associate with this issue or use `null` to remove the current issue type. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.",
+      "nullable": true,
+      "example": "Epic"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "issue_number"
+  ]
+}

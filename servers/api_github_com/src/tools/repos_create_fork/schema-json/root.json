@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "organization": {
+      "type": "string",
+      "description": "Optional parameter to specify the organization name if forking into an organization."
+    },
+    "name": {
+      "type": "string",
+      "description": "When forking from an existing repository, a new name for the fork."
+    },
+    "default_branch_only": {
+      "type": "boolean",
+      "description": "When forking from an existing repository, fork with only the default branch."
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

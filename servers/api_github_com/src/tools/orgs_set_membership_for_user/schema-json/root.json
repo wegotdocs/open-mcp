@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "username": {
+      "description": "The handle for the GitHub user account.",
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "description": "The role to give the user in the organization. Can be one of:  \n * `admin` - The user will become an owner of the organization.  \n * `member` - The user will become a non-owner member of the organization.",
+      "enum": [
+        "admin",
+        "member"
+      ],
+      "default": "member"
+    }
+  },
+  "required": [
+    "org",
+    "username"
+  ]
+}

@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "owner": z.string().describe("The account owner of the repository. The name is not case sensitive."),
+  "repo": z.string().describe("The name of the repository without the `.git` extension. The name is not case sensitive."),
+  "pull_number": z.number().int().describe("The number that identifies the pull request."),
+  "commit_id": z.string().describe("The SHA of the commit that needs a review. Not using the latest commit SHA may render your review comment outdated if a subsequent commit modifies the line you specify as the `position`. Defaults to the most recent commit in the pull request when you do not specify a value.").optional(),
+  "body": z.string().describe("**Required** when using `REQUEST_CHANGES` or `COMMENT` for the `event` parameter. The body text of the pull request review.").optional(),
+  "event": z.enum(["APPROVE","REQUEST_CHANGES","COMMENT"]).describe("The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/rest/pulls/reviews#submit-a-review-for-a-pull-request) when you are ready.").optional(),
+  "comments": z.array(z.object({ "path": z.string().describe("The relative path to the file that necessitates a review comment."), "position": z.number().int().describe("The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. The `position` value equals the number of lines down from the first \"@@\" hunk header in the file you want to add a comment. The line just below the \"@@\" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.").optional(), "body": z.string().describe("Text of the review comment."), "line": z.number().int().optional(), "side": z.string().optional(), "start_line": z.number().int().optional(), "start_side": z.string().optional() })).describe("Use the following table to specify the location, destination, and contents of the draft review comment.").optional()
+}

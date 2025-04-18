@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "enterprise": {
+      "description": "The slug version of the enterprise name. You can also substitute this value with the enterprise id.",
+      "type": "string"
+    },
+    "configuration_id": {
+      "description": "The unique identifier of the code security configuration.",
+      "type": "integer"
+    },
+    "scope": {
+      "type": "string",
+      "description": "The type of repositories to attach the configuration to.",
+      "enum": [
+        "all",
+        "all_without_configurations"
+      ]
+    }
+  },
+  "required": [
+    "enterprise",
+    "configuration_id",
+    "scope"
+  ]
+}

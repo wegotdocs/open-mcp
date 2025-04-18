@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "team_slug": {
+      "description": "The slug of the team name.",
+      "type": "string"
+    },
+    "discussion_number": {
+      "description": "The number that identifies the discussion.",
+      "type": "integer"
+    },
+    "comment_number": {
+      "description": "The number that identifies the comment.",
+      "type": "integer"
+    },
+    "content": {
+      "type": "string",
+      "description": "The [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions) to add to the team discussion comment.",
+      "enum": [
+        "+1",
+        "-1",
+        "laugh",
+        "confused",
+        "heart",
+        "hooray",
+        "rocket",
+        "eyes"
+      ]
+    }
+  },
+  "required": [
+    "org",
+    "team_slug",
+    "discussion_number",
+    "comment_number",
+    "content"
+  ]
+}

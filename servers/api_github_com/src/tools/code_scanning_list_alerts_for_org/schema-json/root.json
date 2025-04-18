@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "tool_name": {
+      "description": "The name of the tool used to generate the code scanning analysis.",
+      "type": "string"
+    },
+    "tool_guid": {
+      "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data.",
+      "nullable": true,
+      "type": "string"
+    },
+    "before": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "after": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "state": {
+      "description": "State of a code scanning alert.",
+      "type": "string",
+      "enum": [
+        "open",
+        "closed",
+        "dismissed",
+        "fixed"
+      ]
+    },
+    "sort": {
+      "description": "The property by which to sort the results.",
+      "type": "string",
+      "enum": [
+        "created",
+        "updated"
+      ],
+      "default": "created"
+    },
+    "severity": {
+      "description": "Severity of a code scanning alert.",
+      "type": "string",
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low",
+        "warning",
+        "note",
+        "error"
+      ]
+    }
+  },
+  "required": [
+    "org"
+  ]
+}

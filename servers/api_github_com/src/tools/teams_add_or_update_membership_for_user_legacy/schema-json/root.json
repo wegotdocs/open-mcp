@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "team_id": {
+      "description": "The unique identifier of the team.",
+      "type": "integer"
+    },
+    "username": {
+      "description": "The handle for the GitHub user account.",
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "description": "The role that this user should have in the team.",
+      "enum": [
+        "member",
+        "maintainer"
+      ],
+      "default": "member"
+    }
+  },
+  "required": [
+    "team_id",
+    "username"
+  ]
+}

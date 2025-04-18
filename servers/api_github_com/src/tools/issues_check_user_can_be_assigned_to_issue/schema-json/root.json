@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "issue_number": {
+      "description": "The number that identifies the issue.",
+      "type": "integer"
+    },
+    "assignee": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "issue_number",
+    "assignee"
+  ]
+}

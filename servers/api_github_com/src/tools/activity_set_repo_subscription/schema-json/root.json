@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "subscribed": {
+      "type": "boolean",
+      "description": "Determines if notifications should be received from this repository."
+    },
+    "ignored": {
+      "type": "boolean",
+      "description": "Determines if all notifications should be blocked from this repository."
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

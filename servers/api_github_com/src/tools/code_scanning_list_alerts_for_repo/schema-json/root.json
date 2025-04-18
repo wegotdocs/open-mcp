@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "tool_name": {
+      "description": "The name of the tool used to generate the code scanning analysis.",
+      "type": "string"
+    },
+    "tool_guid": {
+      "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data.",
+      "nullable": true,
+      "type": "string"
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "ref": {
+      "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`.",
+      "type": "string"
+    },
+    "pr": {
+      "description": "The number of the pull request for the results you want to list.",
+      "type": "integer"
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "before": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "after": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "sort": {
+      "description": "The property by which to sort the results.",
+      "type": "string",
+      "enum": [
+        "created",
+        "updated"
+      ],
+      "default": "created"
+    },
+    "state": {
+      "description": "State of a code scanning alert.",
+      "type": "string",
+      "enum": [
+        "open",
+        "closed",
+        "dismissed",
+        "fixed"
+      ]
+    },
+    "severity": {
+      "description": "Severity of a code scanning alert.",
+      "type": "string",
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low",
+        "warning",
+        "note",
+        "error"
+      ]
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

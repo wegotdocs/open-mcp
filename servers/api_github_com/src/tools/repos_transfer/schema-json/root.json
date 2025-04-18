@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "new_owner": {
+      "type": "string",
+      "description": "The username or organization name the repository will be transferred to."
+    },
+    "new_name": {
+      "type": "string",
+      "description": "The new name to be given to the repository."
+    },
+    "team_ids": {
+      "type": "array",
+      "description": "ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "new_owner"
+  ]
+}

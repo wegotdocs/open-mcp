@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "location": {
+      "description": "The location to check for available machines. Assigned by IP if not provided.",
+      "type": "string",
+      "example": "WestUs2"
+    },
+    "client_ip": {
+      "description": "IP for location auto-detection when proxying a request",
+      "type": "string"
+    },
+    "ref": {
+      "description": "The branch or commit to check for prebuild availability and devcontainer restrictions.",
+      "type": "string",
+      "example": "main"
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "github_owned_allowed": {
+      "type": "boolean",
+      "description": "Whether GitHub-owned actions are allowed. For example, this includes the actions in the `actions` organization."
+    },
+    "verified_allowed": {
+      "type": "boolean",
+      "description": "Whether actions from GitHub Marketplace verified creators are allowed. Set to `true` to allow all actions by GitHub Marketplace verified creators."
+    },
+    "patterns_allowed": {
+      "type": "array",
+      "description": "Specifies a list of string-matching patterns to allow specific action(s) and reusable workflow(s). Wildcards, tags, and SHAs are allowed. For example, `monalisa/octocat@*`, `monalisa/octocat@v2`, `monalisa/*`.\n\n> [!NOTE]\n> The `patterns_allowed` setting only applies to public repositories.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

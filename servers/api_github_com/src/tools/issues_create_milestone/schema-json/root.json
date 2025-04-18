@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the milestone."
+    },
+    "state": {
+      "type": "string",
+      "description": "The state of the milestone. Either `open` or `closed`.",
+      "enum": [
+        "open",
+        "closed"
+      ],
+      "default": "open"
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the milestone."
+    },
+    "due_on": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The milestone due date. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "title"
+  ]
+}

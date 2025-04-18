@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "configuration_id": {
+      "description": "The unique identifier of the code security configuration.",
+      "type": "integer"
+    },
+    "default_for_new_repos": {
+      "type": "string",
+      "description": "Specify which types of repository this security configuration should be applied to by default.",
+      "enum": [
+        "all",
+        "none",
+        "private_and_internal",
+        "public"
+      ]
+    }
+  },
+  "required": [
+    "org",
+    "configuration_id"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "milestone_number": {
+      "description": "The number that identifies the milestone.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "milestone_number"
+  ]
+}

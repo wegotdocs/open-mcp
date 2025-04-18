@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "cname": {
+      "type": "string",
+      "description": "Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see \"[Using a custom domain with GitHub Pages](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site).\"",
+      "nullable": true
+    },
+    "https_enforced": {
+      "type": "boolean",
+      "description": "Specify whether HTTPS should be enforced for the repository."
+    },
+    "build_type": {
+      "type": "string",
+      "description": "The process by which the GitHub Pages site will be built. `workflow` means that the site is built by a custom GitHub Actions workflow. `legacy` means that the site is built by GitHub when changes are pushed to a specific branch.",
+      "enum": [
+        "legacy",
+        "workflow"
+      ]
+    },
+    "source": {
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "Update the source for the repository. Must include the branch name, and may optionally specify the subdirectory `/docs`. Possible values are `\"gh-pages\"`, `\"master\"`, and `\"master /docs\"`.",
+          "enum": [
+            "gh-pages",
+            "master",
+            "master /docs"
+          ]
+        },
+        {
+          "type": "object",
+          "description": "Update the source for the repository. Must include the branch name and path.",
+          "properties": {
+            "branch": {
+              "type": "string",
+              "description": "The repository branch used to publish your site's source files."
+            },
+            "path": {
+              "type": "string",
+              "description": "The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`.",
+              "enum": [
+                "/",
+                "/docs"
+              ]
+            }
+          },
+          "required": [
+            "branch",
+            "path"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "description": "Feature options for code scanning default setup",
+  "nullable": true,
+  "properties": {
+    "runner_type": {
+      "type": "string",
+      "enum": [
+        "standard",
+        "labeled",
+        "not_set"
+      ],
+      "description": "Whether to use labeled runners or standard GitHub runners."
+    },
+    "runner_label": {
+      "nullable": true,
+      "type": "string",
+      "description": "The label of the runner to use for code scanning default setup when runner_type is 'labeled'."
+    }
+  }
+}

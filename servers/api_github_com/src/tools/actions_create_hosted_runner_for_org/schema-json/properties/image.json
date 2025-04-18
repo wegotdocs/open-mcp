@@ -1,0 +1,19 @@
+{
+  "description": "The image of runner. To list all available images, use `GET /actions/hosted-runners/images/github-owned` or `GET /actions/hosted-runners/images/partner`.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier of the runner image.",
+      "type": "string"
+    },
+    "source": {
+      "description": "The source of the runner image.",
+      "type": "string",
+      "enum": [
+        "github",
+        "partner",
+        "custom"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "runner_group_id": {
+      "description": "Unique identifier of the self-hosted runner group.",
+      "type": "integer"
+    },
+    "runner_id": {
+      "description": "Unique identifier of the self-hosted runner.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "org",
+    "runner_group_id",
+    "runner_id"
+  ]
+}

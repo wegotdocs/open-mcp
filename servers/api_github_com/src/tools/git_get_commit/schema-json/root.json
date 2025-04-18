@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "commit_sha": {
+      "description": "The SHA of the commit.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "commit_sha"
+  ]
+}
