@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "subject": {
+      "type": "string",
+      "description": "メールの件名"
+    },
+    "price": {
+      "type": "integer",
+      "minimum": 110,
+      "description": "価格（110円以上）"
+    },
+    "html_body": {
+      "type": "string",
+      "example": "<h1>Hello, World</h1><p></p><p>Hello, World</p>",
+      "description": "HTMLフォーマットのメール本文"
+    },
+    "text_body": {
+      "type": "string",
+      "example": "Hello, World\\n\\nHello, World",
+      "description": "テキストフォーマットのメール本文"
+    },
+    "delivery_date": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-04-25T09:00:00.00+08:00",
+      "description": "配信予定日時（現在より未来の日時、e.g. 2025-04-25T09:00:00.00+08:00 形式でタイムゾーン情報を含める）"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "有効/無効フラグ"
+    }
+  },
+  "required": [
+    "subject",
+    "price",
+    "html_body",
+    "text_body",
+    "delivery_date"
+  ]
+}
