@@ -1,4 +1,4 @@
-# @open-mcp/stonehenge_stepstone_tools_api_catalog
+# @open-mcp/backstage-catalog
 
 ## Installing
 
@@ -7,7 +7,7 @@ Use the OpenMCP config CLI to add the server to your MCP client:
 ### Claude desktop
 
 ```bash
-npx @open-mcp/config add stonehenge_stepstone_tools_api_catalog \
+npx @open-mcp/config add backstage-catalog \
   ~/Library/Application\ Support/Claude/claude_desktop_config.json \
   --API_KEY=...
 ```
@@ -17,7 +17,7 @@ npx @open-mcp/config add stonehenge_stepstone_tools_api_catalog \
 Run this from the root of your project directory or, to add to all cursor projects, run it from your home directory `~`.
 
 ```bash
-npx @open-mcp/config add stonehenge_stepstone_tools_api_catalog \
+npx @open-mcp/config add backstage-catalog \
   .cursor/mcp.json \
   --API_KEY=...
 ```
@@ -25,7 +25,7 @@ npx @open-mcp/config add stonehenge_stepstone_tools_api_catalog \
 ### Other
 
 ```bash
-npx @open-mcp/config add stonehenge_stepstone_tools_api_catalog \
+npx @open-mcp/config add backstage-catalog \
   /path/to/client/config.json \
   --API_KEY=...
 ```
@@ -37,10 +37,10 @@ If you don't want to use the helper above, add the following to your MCP client 
 ```json
 {
   "mcpServers": {
-    "stonehenge_stepstone_tools_api_catalog": {
+    "backstage-catalog": {
       "command": "npx",
-      "args": ["-y", "@open-mcp/stonehenge_stepstone_tools_api_catalog"],
-      "env": {"API_KEY":"..."}
+      "args": ["-y", "@open-mcp/backstage-catalog"],
+      "env": { "API_KEY": "..." }
     }
   }
 }
@@ -59,13 +59,13 @@ Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base UR
 Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
 
 ```bash
-npx -y @modelcontextprotocol/inspector npx -y @open-mcp/stonehenge_stepstone_tools_api_catalog
+npx -y @modelcontextprotocol/inspector npx -y @open-mcp/backstage-catalog
 ```
 
 - Open http://localhost:5173
 - Transport type: `STDIO`
 - Command: `npx`
-- Arguments: `-y @open-mcp/stonehenge_stepstone_tools_api_catalog`
+- Arguments: `-y @open-mcp/backstage-catalog`
 - Click `Environment Variables` to add
 - Click `Connect`
 
@@ -259,7 +259,8 @@ Expand the input schema for a tool before calling the tool
 **Input schema**
 
 ```ts
-{}
+{
+}
 ```
 
 ### getlocation
