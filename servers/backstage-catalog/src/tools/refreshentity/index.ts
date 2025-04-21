@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "refreshentity",
   "toolDescription": "Refresh the entity related to entityRef.",
-  "baseUrl": "https://stonehenge.stepstone.tools/api/catalog",
+  "baseUrl": "https://api.example.com",
   "path": "/refresh",
   "method": "post",
   "security": [

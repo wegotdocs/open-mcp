@@ -40,7 +40,7 @@ If you don't want to use the helper above, add the following to your MCP client 
     "backstage-catalog": {
       "command": "npx",
       "args": ["-y", "@open-mcp/backstage-catalog"],
-      "env": { "API_KEY": "..." }
+      "env": {"API_KEY":"..."}
     }
   }
 }
@@ -259,8 +259,7 @@ Expand the input schema for a tool before calling the tool
 **Input schema**
 
 ```ts
-{
-}
+{}
 ```
 
 ### getlocation

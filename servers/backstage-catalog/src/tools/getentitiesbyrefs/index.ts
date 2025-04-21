@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "getentitiesbyrefs",
   "toolDescription": "Get a batch set of entities given an array of entityRefs.",
-  "baseUrl": "https://stonehenge.stepstone.tools/api/catalog",
+  "baseUrl": "https://api.example.com",
   "path": "/entities/by-refs",
   "method": "post",
   "security": [

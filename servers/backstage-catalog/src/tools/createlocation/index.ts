@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "createlocation",
   "toolDescription": "Create a location for a given target.",
-  "baseUrl": "https://stonehenge.stepstone.tools/api/catalog",
+  "baseUrl": "https://api.example.com",
   "path": "/locations",
   "method": "post",
   "security": [

@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "getentityfacets",
   "toolDescription": "Get all entity facets that match the given filters.",
-  "baseUrl": "https://stonehenge.stepstone.tools/api/catalog",
+  "baseUrl": "https://api.example.com",
   "path": "/entity-facets",
   "method": "get",
   "security": [

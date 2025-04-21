@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "getentityancestrybyname",
   "toolDescription": "Get an entity's ancestry by entity ref.",
-  "baseUrl": "https://stonehenge.stepstone.tools/api/catalog",
+  "baseUrl": "https://api.example.com",
   "path": "/entities/by-name/{kind}/{namespace}/{name}/ancestry",
   "method": "get",
   "security": [

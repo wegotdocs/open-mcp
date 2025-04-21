@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "deleteentitybyuid",
   "toolDescription": "Delete a single entity by UID.",
-  "baseUrl": "https://stonehenge.stepstone.tools/api/catalog",
+  "baseUrl": "https://api.example.com",
   "path": "/entities/by-uid/{uid}",
   "method": "delete",
   "security": [

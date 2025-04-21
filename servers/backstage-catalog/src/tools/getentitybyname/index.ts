@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "getentitybyname",
   "toolDescription": "Get an entity by an entity ref.",
-  "baseUrl": "https://stonehenge.stepstone.tools/api/catalog",
+  "baseUrl": "https://api.example.com",
   "path": "/entities/by-name/{kind}/{namespace}/{name}",
   "method": "get",
   "security": [
