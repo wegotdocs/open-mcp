@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "ticker": {
+      "type": "string",
+      "title": "Ticker"
+    },
+    "date": {
+      "type": "string",
+      "title": "Date"
+    },
+    "start_bar": {
+      "description": "开始的时间段编号，1表示开盘后15分钟",
+      "type": "integer",
+      "default": 1,
+      "title": "Start Bar"
+    },
+    "end_bar": {
+      "description": "结束的时间段编号，2表示开盘后30分钟",
+      "type": "integer",
+      "default": 2,
+      "title": "End Bar"
+    }
+  },
+  "required": [
+    "ticker",
+    "date"
+  ]
+}

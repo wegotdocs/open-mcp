@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "ticker": {
+      "description": "股票代码",
+      "type": "string",
+      "default": "QQQ",
+      "title": "Ticker"
+    },
+    "date": {
+      "description": "预测日期，格式: YYYY-MM-DD，默认为最近的交易日",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Date"
+    }
+  },
+  "required": []
+}
