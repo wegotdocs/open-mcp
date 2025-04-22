@@ -119,7 +119,18 @@ async function registerToolFromOperation(
       headers,
       body,
     })
-    const text = await response.text()
+
+    let text = ""
+    try {
+      text = await response.text()
+      if (!response.ok) {
+        text = `Request to '${url.toString()}' failed, double check your parameters. Response:\n${text}`
+      } else {
+        text = `Request to '${url.toString()}' succeeded. Response:\n${text}`
+      }
+    } catch {
+      text = `Request to '${url.toString()}' failed, double check your parameters.`
+    }
 
     return {
       content: [
