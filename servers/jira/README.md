@@ -2,15 +2,22 @@
 
 ## Installing
 
-Use the OpenMCP config CLI to add the server to your MCP client:
+First set the environment variables as shell variables:
+
+```bash
+OAUTH2_TOKEN='...'
+USERNAME_PASSWORD_BASE64='...'
+```
+
+Then use the OpenMCP config CLI to add the server to your MCP client:
 
 ### Claude desktop
 
 ```bash
 npx @open-mcp/config add jira \
   ~/Library/Application\ Support/Claude/claude_desktop_config.json \
-  --OAUTH2_TOKEN=... \
-  --USERNAME_PASSWORD_BASE64=...
+  --OAUTH2_TOKEN=$OAUTH2_TOKEN \
+  --USERNAME_PASSWORD_BASE64=$USERNAME_PASSWORD_BASE64
 ```
 
 ### Cursor
@@ -20,8 +27,8 @@ Run this from the root of your project directory or, to add to all cursor projec
 ```bash
 npx @open-mcp/config add jira \
   .cursor/mcp.json \
-  --OAUTH2_TOKEN=... \
-  --USERNAME_PASSWORD_BASE64=...
+  --OAUTH2_TOKEN=$OAUTH2_TOKEN \
+  --USERNAME_PASSWORD_BASE64=$USERNAME_PASSWORD_BASE64
 ```
 
 ### Other
@@ -29,8 +36,8 @@ npx @open-mcp/config add jira \
 ```bash
 npx @open-mcp/config add jira \
   /path/to/client/config.json \
-  --OAUTH2_TOKEN=... \
-  --USERNAME_PASSWORD_BASE64=...
+  --OAUTH2_TOKEN=$OAUTH2_TOKEN \
+  --USERNAME_PASSWORD_BASE64=$USERNAME_PASSWORD_BASE64
 ```
 
 ### Manually

@@ -2,14 +2,20 @@
 
 ## Installing
 
-Use the OpenMCP config CLI to add the server to your MCP client:
+First set the environment variables as shell variables:
+
+```bash
+USER_AGENT='...'
+```
+
+Then use the OpenMCP config CLI to add the server to your MCP client:
 
 ### Claude desktop
 
 ```bash
 npx @open-mcp/config add us-national-weather-service \
   ~/Library/Application\ Support/Claude/claude_desktop_config.json \
-  --USER_AGENT=...
+  --USER_AGENT=$USER_AGENT
 ```
 
 ### Cursor
@@ -19,7 +25,7 @@ Run this from the root of your project directory or, to add to all cursor projec
 ```bash
 npx @open-mcp/config add us-national-weather-service \
   .cursor/mcp.json \
-  --USER_AGENT=...
+  --USER_AGENT=$USER_AGENT
 ```
 
 ### Other
@@ -27,7 +33,7 @@ npx @open-mcp/config add us-national-weather-service \
 ```bash
 npx @open-mcp/config add us-national-weather-service \
   /path/to/client/config.json \
-  --USER_AGENT=...
+  --USER_AGENT=$USER_AGENT
 ```
 
 ### Manually

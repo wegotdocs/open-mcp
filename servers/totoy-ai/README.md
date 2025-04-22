@@ -2,14 +2,20 @@
 
 ## Installing
 
-Use the OpenMCP config CLI to add the server to your MCP client:
+First set the environment variables as shell variables:
+
+```bash
+API_KEY='...'
+```
+
+Then use the OpenMCP config CLI to add the server to your MCP client:
 
 ### Claude desktop
 
 ```bash
 npx @open-mcp/config add totoy-ai \
   ~/Library/Application\ Support/Claude/claude_desktop_config.json \
-  --API_KEY=...
+  --API_KEY=$API_KEY
 ```
 
 ### Cursor
@@ -19,7 +25,7 @@ Run this from the root of your project directory or, to add to all cursor projec
 ```bash
 npx @open-mcp/config add totoy-ai \
   .cursor/mcp.json \
-  --API_KEY=...
+  --API_KEY=$API_KEY
 ```
 
 ### Other
@@ -27,7 +33,7 @@ npx @open-mcp/config add totoy-ai \
 ```bash
 npx @open-mcp/config add totoy-ai \
   /path/to/client/config.json \
-  --API_KEY=...
+  --API_KEY=$API_KEY
 ```
 
 ### Manually

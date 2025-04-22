@@ -2,19 +2,30 @@
 
 ## Installing
 
-Use the OpenMCP config CLI to add the server to your MCP client:
+First set the environment variables as shell variables:
+
+```bash
+API_KEY='...'
+X_PORTKEY_API_KEY='...'
+X_PORTKEY_CONFIG='...'
+X_PORTKEY_CUSTOM_HOST='...'
+X_PORTKEY_PROVIDER='...'
+X_PORTKEY_VIRTUAL_KEY='...'
+```
+
+Then use the OpenMCP config CLI to add the server to your MCP client:
 
 ### Claude desktop
 
 ```bash
 npx @open-mcp/config add portkey-ai \
   ~/Library/Application\ Support/Claude/claude_desktop_config.json \
-  --API_KEY=... \
-  --X_PORTKEY_API_KEY=... \
-  --X_PORTKEY_CONFIG=... \
-  --X_PORTKEY_CUSTOM_HOST=... \
-  --X_PORTKEY_PROVIDER=... \
-  --X_PORTKEY_VIRTUAL_KEY=...
+  --API_KEY=$API_KEY \
+  --X_PORTKEY_API_KEY=$X_PORTKEY_API_KEY \
+  --X_PORTKEY_CONFIG=$X_PORTKEY_CONFIG \
+  --X_PORTKEY_CUSTOM_HOST=$X_PORTKEY_CUSTOM_HOST \
+  --X_PORTKEY_PROVIDER=$X_PORTKEY_PROVIDER \
+  --X_PORTKEY_VIRTUAL_KEY=$X_PORTKEY_VIRTUAL_KEY
 ```
 
 ### Cursor
@@ -24,12 +35,12 @@ Run this from the root of your project directory or, to add to all cursor projec
 ```bash
 npx @open-mcp/config add portkey-ai \
   .cursor/mcp.json \
-  --API_KEY=... \
-  --X_PORTKEY_API_KEY=... \
-  --X_PORTKEY_CONFIG=... \
-  --X_PORTKEY_CUSTOM_HOST=... \
-  --X_PORTKEY_PROVIDER=... \
-  --X_PORTKEY_VIRTUAL_KEY=...
+  --API_KEY=$API_KEY \
+  --X_PORTKEY_API_KEY=$X_PORTKEY_API_KEY \
+  --X_PORTKEY_CONFIG=$X_PORTKEY_CONFIG \
+  --X_PORTKEY_CUSTOM_HOST=$X_PORTKEY_CUSTOM_HOST \
+  --X_PORTKEY_PROVIDER=$X_PORTKEY_PROVIDER \
+  --X_PORTKEY_VIRTUAL_KEY=$X_PORTKEY_VIRTUAL_KEY
 ```
 
 ### Other
@@ -37,12 +48,12 @@ npx @open-mcp/config add portkey-ai \
 ```bash
 npx @open-mcp/config add portkey-ai \
   /path/to/client/config.json \
-  --API_KEY=... \
-  --X_PORTKEY_API_KEY=... \
-  --X_PORTKEY_CONFIG=... \
-  --X_PORTKEY_CUSTOM_HOST=... \
-  --X_PORTKEY_PROVIDER=... \
-  --X_PORTKEY_VIRTUAL_KEY=...
+  --API_KEY=$API_KEY \
+  --X_PORTKEY_API_KEY=$X_PORTKEY_API_KEY \
+  --X_PORTKEY_CONFIG=$X_PORTKEY_CONFIG \
+  --X_PORTKEY_CUSTOM_HOST=$X_PORTKEY_CUSTOM_HOST \
+  --X_PORTKEY_PROVIDER=$X_PORTKEY_PROVIDER \
+  --X_PORTKEY_VIRTUAL_KEY=$X_PORTKEY_VIRTUAL_KEY
 ```
 
 ### Manually
