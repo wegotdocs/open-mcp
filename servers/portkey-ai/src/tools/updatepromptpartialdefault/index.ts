@@ -5,7 +5,7 @@ const tool: OpenMCPServerTool = {
   "toolName": "updatepromptpartialdefault",
   "toolDescription": "Set a version as the default for a prompt partial",
   "baseUrl": "https://api.portkey.ai/v1",
-  "path": "/prompts/partials/{promptPartialId}/makedefault",
+  "path": "/prompts/partials/{promptPartialId}/makeDefault",
   "method": "put",
   "security": [
     {

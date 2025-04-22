@@ -2,11 +2,11 @@ import { inputParamsSchema } from "./schema/root.js"
 import type { OpenMCPServerTool } from "@open-mcp/core"
 
 const tool: OpenMCPServerTool = {
-  "toolName": "updatepromptdefault",
-  "toolDescription": "Set a version as the default for a prompt",
+  "toolName": "createresponse",
+  "toolDescription": "Creates a model response",
   "baseUrl": "https://api.portkey.ai/v1",
-  "path": "/prompts/{promptId}/makeDefault",
-  "method": "put",
+  "path": "/responses",
+  "method": "post",
   "security": [
     {
       "key": "x-portkey-api-key",
@@ -15,14 +15,7 @@ const tool: OpenMCPServerTool = {
       "envVarName": "X_PORTKEY_API_KEY"
     }
   ],
-  "paramsMap": {
-    "path": {
-      "promptId": "promptId"
-    },
-    "body": {
-      "version": "version"
-    }
-  },
+  "paramsMap": {},
   inputParamsSchema
 }
 

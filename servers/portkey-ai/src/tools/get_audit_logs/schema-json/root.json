@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "start_time": {
+      "description": "Start time for filtering logs (ISO8601 format)",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "End time for filtering logs (ISO8601 format)",
+      "type": "string"
+    },
+    "organisation_id": {
+      "description": "Organisation ID for filtering logs",
+      "type": "string"
+    },
+    "method": {
+      "description": "HTTP method for filtering logs",
+      "type": "string",
+      "enum": [
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    },
+    "uri": {
+      "description": "URI path for filtering logs",
+      "type": "string"
+    },
+    "request_id": {
+      "description": "Request ID for filtering logs",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "User ID for filtering logs",
+      "type": "string"
+    },
+    "user_type": {
+      "description": "Type of user for filtering logs",
+      "type": "string",
+      "enum": [
+        "user",
+        "api_key"
+      ]
+    },
+    "workspace_id": {
+      "description": "Workspace ID for filtering logs",
+      "type": "string"
+    },
+    "response_status_code": {
+      "description": "HTTP response status code for filtering logs",
+      "type": "integer"
+    },
+    "resource_type": {
+      "description": "Resource type for filtering logs",
+      "type": "string"
+    },
+    "action": {
+      "description": "Action type for filtering logs",
+      "type": "string"
+    },
+    "client_ip": {
+      "description": "Client IP address for filtering logs",
+      "type": "string"
+    },
+    "country": {
+      "description": "Country for filtering logs",
+      "type": "string"
+    },
+    "current_page": {
+      "description": "Current page number for pagination",
+      "type": "integer",
+      "minimum": 0
+    },
+    "page_size": {
+      "description": "Number of items per page",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    }
+  },
+  "required": [
+    "start_time",
+    "end_time",
+    "organisation_id"
+  ]
+}

@@ -140,7 +140,7 @@ Expand the input schema for a tool before calling the tool
   "thinking": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nView the thinking/reasoning tokens as part of your response. Thinking models produce a long internal chain of thought before generating a response. Supported only for specific Claude models on Anthropic, Google Vertex AI, and AWS Bedrock.  Requires setting \`strict_openai_compliance = false\` in your API call.\n").optional(),
   "temperature": z.number().gte(0).lte(2).nullable().describe("What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\n\nWe generally recommend altering this or \`top_p\` but not both.\n").optional(),
   "top_p": z.number().gte(0).lte(1).nullable().describe("An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or \`temperature\` but not both.\n").optional(),
-  "tools": z.array(z.object({ "type": z.literal("function").describe("The type of the tool. Currently, only \`function\` is supported."), "function": z.object({ "description": z.string().describe("A description of what the function does, used by the model to choose when and how to call the function.").optional(), "name": z.string().describe("The name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64."), "parameters": z.record(z.any()).describe("The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting \`parameters\` defines a function with an empty parameter list.").optional() }) })).describe("A list of tools the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. A max of 128 functions are supported.\n").optional(),
+  "tools": z.array(z.object({ "type": z.literal("function").describe("The type of the tool. Currently, only \`function\` is supported."), "function": z.object({ "description": z.string().describe("A description of what the function does, used by the model to choose when and how to call the function.").optional(), "name": z.string().describe("The name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64."), "parameters": z.record(z.any()).describe("The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting \`parameters\` defines a function with an empty parameter list.").optional(), "strict": z.boolean().nullable().describe("Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the \`parameters\` field. Only a subset of JSON Schema is supported when \`strict\` is \`true\`. Learn more about Structured Outputs in the [function calling guide](docs/guides/function-calling).") }) })).describe("A list of tools the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. A max of 128 functions are supported.\n").optional(),
   "tool_choice": z.enum(["none","auto","required"]).describe("\`none\` means the model will not call any tool and instead generates a message. \`auto\` means the model can pick between generating a message or calling one or more tools. \`required\` means the model must call one or more tools.\n").describe("Controls which (if any) tool is called by the model.\n\`none\` means the model will not call any tool and instead generates a message.\n\`auto\` means the model can pick between generating a message or calling one or more tools.\n\`required\` means the model must call one or more tools.\nSpecifying a particular tool via \`{\"type\": \"function\", \"function\": {\"name\": \"my_function\"}}\` forces the model to call that tool.\n\n\`none\` is the default when no tools are present. \`auto\` is the default if tools are present.\n").optional(),
   "parallel_tool_calls": z.boolean().describe("Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling/parallel-function-calling) during tool use.").optional(),
   "user": z.string().describe("A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids).\n").optional(),
@@ -370,8 +370,8 @@ Expand the input schema for a tool before calling the tool
   "collection_id": z.string().describe("UUID or slug of the collection"),
   "string": z.string().describe("Prompt template in string format"),
   "parameters": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nParameters for the prompt"),
-  "functions": z.array(z.any()).describe("Functions for the prompt").optional(),
-  "tools": z.array(z.any()).describe("Tools for the prompt").optional(),
+  "functions": z.array(z.record(z.any())).describe("Functions for the prompt").optional(),
+  "tools": z.array(z.record(z.any())).describe("Tools for the prompt").optional(),
   "tool_choice": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nTool Choice for the prompt").optional(),
   "model": z.string().describe("The model to use for the prompt").optional(),
   "virtual_key": z.string().describe("The virtual key to use for the prompt").optional(),
@@ -1188,6 +1188,65 @@ Expand the input schema for a tool before calling the tool
 }
 ```
 
+### createresponse
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{}
+```
+
+### getresponse
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "response_id": z.string().describe("The ID of the response to retrieve."),
+  "include": z.array(z.enum(["file_search_call.results","message.input_image.image_url","computer_call_output.output.image_url"]).describe("Specify additional output data to include in the model response. Currently\nsupported values are:\n- \`file_search_call.results\`: Include the search results of\n  the file search tool call.\n- \`message.input_image.image_url\`: Include image urls from the input message.\n- \`computer_call_output.output.image_url\`: Include image urls from the computer call output.\n")).describe("Specify additional output data to include in the response. Currently\nsupported values are:\n- \`file_search_call.results\`: Include the search results of\n  the file search tool call.\n- \`message.input_image.image_url\`: Include image urls from the input message.\n- \`computer_call_output.output.image_url\`: Include image urls from the computer call output.\n").optional()
+}
+```
+
+### deleteresponse
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "response_id": z.string().describe("The ID of the response to delete.")
+}
+```
+
+### listinputitems
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "response_id": z.string().describe("The ID of the response to retrieve input items for."),
+  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between\n1 and 100, and the default is 20.\n").optional(),
+  "order": z.enum(["asc","desc"]).describe("The order to return the input items in. Default is \`asc\`.\n- \`asc\`: Return the input items in ascending order.\n- \`desc\`: Return the input items in descending order.\n").optional(),
+  "after": z.string().describe("An item ID to list items after, used in pagination.\n").optional(),
+  "before": z.string().describe("An item ID to list items before, used in pagination.\n").optional()
+}
+```
+
 ### createthread
 
 **Environment variables**
@@ -1976,6 +2035,20 @@ Expand the input schema for a tool before calling the tool
 }
 ```
 
+### deleteconfig
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "slug": z.string()
+}
+```
+
 ### getconfig
 
 **Environment variables**
@@ -2530,6 +2603,35 @@ Expand the input schema for a tool before calling the tool
 ```ts
 {
   "exportId": z.string()
+}
+```
+
+### get_audit_logs
+
+**Environment variables**
+
+- `X_PORTKEY_API_KEY`
+
+**Input schema**
+
+```ts
+{
+  "start_time": z.string().describe("Start time for filtering logs (ISO8601 format)"),
+  "end_time": z.string().describe("End time for filtering logs (ISO8601 format)"),
+  "organisation_id": z.string().describe("Organisation ID for filtering logs"),
+  "method": z.enum(["POST","PUT","DELETE"]).describe("HTTP method for filtering logs").optional(),
+  "uri": z.string().describe("URI path for filtering logs").optional(),
+  "request_id": z.string().describe("Request ID for filtering logs").optional(),
+  "user_id": z.string().describe("User ID for filtering logs").optional(),
+  "user_type": z.enum(["user","api_key"]).describe("Type of user for filtering logs").optional(),
+  "workspace_id": z.string().describe("Workspace ID for filtering logs").optional(),
+  "response_status_code": z.number().int().describe("HTTP response status code for filtering logs").optional(),
+  "resource_type": z.string().describe("Resource type for filtering logs").optional(),
+  "action": z.string().describe("Action type for filtering logs").optional(),
+  "client_ip": z.string().describe("Client IP address for filtering logs").optional(),
+  "country": z.string().describe("Country for filtering logs").optional(),
+  "current_page": z.number().int().gte(0).describe("Current page number for pagination").optional(),
+  "page_size": z.number().int().gte(0).lte(100).describe("Number of items per page").optional()
 }
 ```
 

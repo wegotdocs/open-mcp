@@ -19,11 +19,17 @@
     },
     "functions": {
       "type": "array",
-      "description": "Functions for the prompt"
+      "description": "Functions for the prompt",
+      "items": {
+        "type": "object"
+      }
     },
     "tools": {
       "type": "array",
-      "description": "Tools for the prompt"
+      "description": "Tools for the prompt",
+      "items": {
+        "type": "object"
+      }
     },
     "tool_choice": {
       "type": "object",
