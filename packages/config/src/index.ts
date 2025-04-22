@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const args = process.argv
 
 const command = args[2]
@@ -18,6 +19,9 @@ if (command === "add") {
 
   // Parse remaining arguments as key-value pairs
   const envVars: Record<string, string> = {}
+  const forwardArgs: {
+    tools?: string
+  } = {}
   for (let i = 5; i < args.length; i++) {
     const arg = args[i]
     if (arg.startsWith("--")) {
@@ -26,7 +30,11 @@ if (command === "add") {
         console.error(`Invalid argument: ${arg}`)
         process.exit(1)
       }
-      envVars[keyValue[0]] = keyValue[1]
+      if (keyValue[0] === "tools") {
+        forwardArgs.tools = arg
+      } else {
+        envVars[keyValue[0]] = keyValue[1]
+      }
     } else {
       console.error(`Invalid argument: ${arg}`)
       process.exit(1)
@@ -34,7 +42,14 @@ if (command === "add") {
   }
 
   import("./add.js")
-    .then((module) => module.addToClient(serverId, configPath, envVars))
+    .then((module) =>
+      module.addToClient({
+        serverId,
+        pathname: configPath,
+        env: envVars,
+        forwardArgs,
+      })
+    )
     .then(() => {
       process.exit(0)
     })
@@ -56,7 +71,12 @@ if (command === "add") {
   }
 
   import("./remove.js")
-    .then((module) => module.removeFromClient(serverId, configPath))
+    .then((module) =>
+      module.removeFromClient({
+        serverId,
+        pathname: configPath,
+      })
+    )
     .then(() => {
       process.exit(0)
     })

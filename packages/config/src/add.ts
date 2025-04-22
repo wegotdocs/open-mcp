@@ -25,11 +25,19 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-export async function addToClient(
-  serverId: string,
-  pathname: string,
-  env: Record<string, string> = {}
-) {
+export async function addToClient({
+  serverId,
+  pathname,
+  env = {},
+  forwardArgs = {},
+}: {
+  serverId: string
+  pathname: string
+  env: Record<string, string>
+  forwardArgs: {
+    tools?: string
+  }
+}) {
   const configPath = path.resolve(pathname)
 
   // Read existing config file or create empty object if not exists
@@ -75,9 +83,14 @@ export async function addToClient(
     }
   }
 
+  const args = ["-y", `@open-mcp/${serverId}`]
+  if (forwardArgs.tools) {
+    args.push(forwardArgs.tools)
+  }
+
   config.mcpServers[serverId] = {
     command: "npx",
-    args: ["-y", `@open-mcp/${serverId}`],
+    args,
     env,
   }
 

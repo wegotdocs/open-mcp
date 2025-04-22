@@ -7,7 +7,13 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-export async function removeFromClient(serverId: string, pathname: string) {
+export async function removeFromClient({
+  serverId,
+  pathname,
+}: {
+  serverId: string
+  pathname: string
+}) {
   const configPath = path.resolve(pathname)
 
   // Read existing config file or create empty object if not exists
