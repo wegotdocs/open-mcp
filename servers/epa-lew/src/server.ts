@@ -13,12 +13,14 @@ const server = new McpServer({
   version: SERVER_VERSION,
 })
 
-export async function runServer() {
+export async function runServer({ toolNames }: { toolNames?: string[] }) {
   try {
     const tools: OpenMCPServerTool[] = []
     for (const file of OPERATION_FILES_RELATIVE) {
       const tool = (await import(file)).default as OpenMCPServerTool
-      tools.push(tool)
+      if (!toolNames || toolNames.includes(tool.toolName)) {
+        tools.push(tool)
+      }
     }
     await registerTools(server, tools)
     const transport = new StdioServerTransport()
