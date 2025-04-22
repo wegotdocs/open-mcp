@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "serviceId": {
+      "description": "ID of the service that owns the ClickPipe.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "clickPipeId": {
+      "description": "ID of the requested ClickPipe.",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "organizationId",
+    "serviceId",
+    "clickPipeId"
+  ]
+}

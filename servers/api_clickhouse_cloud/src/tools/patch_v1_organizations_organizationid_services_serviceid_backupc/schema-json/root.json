@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "serviceId": {
+      "description": "ID of the service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "backupPeriodInHours": {
+      "description": "The interval in hours between each backup.",
+      "type": "number"
+    },
+    "backupRetentionPeriodInHours": {
+      "description": "The minimum duration in hours for which the backups are available.",
+      "type": "number"
+    },
+    "backupStartTime": {
+      "description": "The time in HH:MM format for the backups to be performed (evaluated in UTC timezone). When defined the backup period resets to every 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "organizationId",
+    "serviceId"
+  ]
+}

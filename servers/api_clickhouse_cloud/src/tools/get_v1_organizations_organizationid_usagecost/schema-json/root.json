@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the requested organization.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "from_date": {
+      "description": "Start date for the report, e.g. 2024-12-19.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "to_date": {
+      "description": "End date (inclusive) for the report, e.g. 2024-12-20. This date cannot be more than 30 days after from_date (for a maximum queried period of 31 days).",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "organizationId",
+    "from_date",
+    "to_date"
+  ]
+}

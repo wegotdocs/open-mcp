@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the requested organization.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "activityId": {
+      "description": "ID of the requested activity.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "organizationId",
+    "activityId"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the key.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "keyId": {
+      "description": "ID of the key to delete.",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "organizationId",
+    "keyId"
+  ]
+}

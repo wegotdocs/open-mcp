@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "serviceId": {
+      "description": "ID of the service that owns the ClickPipe.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "clickPipeId": {
+      "description": "ID of the ClickPipe to update state..",
+      "type": "string",
+      "format": "uuid"
+    },
+    "command": {
+      "description": "Command to change the state: 'start', 'stop', 'resync'.",
+      "type": "string",
+      "enum": [
+        "start",
+        "stop",
+        "resync"
+      ]
+    }
+  },
+  "required": [
+    "organizationId",
+    "serviceId",
+    "clickPipeId"
+  ]
+}

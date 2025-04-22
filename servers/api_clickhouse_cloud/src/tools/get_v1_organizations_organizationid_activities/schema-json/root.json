@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the requested organization.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "from_date": {
+      "description": "A starting date for a search",
+      "type": "string",
+      "format": "date-time"
+    },
+    "to_date": {
+      "description": "An ending date for a search",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "organizationId"
+  ]
+}

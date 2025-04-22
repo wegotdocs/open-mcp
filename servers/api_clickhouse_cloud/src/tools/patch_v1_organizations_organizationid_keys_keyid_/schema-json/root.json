@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the key.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "keyId": {
+      "description": "ID of the key to update.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "description": "Name of the key",
+      "type": "string"
+    },
+    "roles": {
+      "type": "array",
+      "description": "List of roles assigned to the key. Contains at least 1 element.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "admin",
+          "developer",
+          "query_endpoints"
+        ]
+      }
+    },
+    "expireAt": {
+      "description": "Timestamp the key expires. If not present or is empty the key never expires. ISO-8601.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "state": {
+      "description": "State of the key: 'enabled', 'disabled'.",
+      "type": "string",
+      "enum": [
+        "enabled",
+        "disabled"
+      ]
+    },
+    "ipAccessList": {
+      "type": "array",
+      "description": "List of IP addresses allowed to access the API using this key",
+      "items": {
+        "properties": {
+          "source": {
+            "description": "IP or CIDR",
+            "type": "string"
+          },
+          "description": {
+            "description": "Optional description of IPv4 address or IPv4 CIDR to allow access from",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "organizationId",
+    "keyId"
+  ]
+}

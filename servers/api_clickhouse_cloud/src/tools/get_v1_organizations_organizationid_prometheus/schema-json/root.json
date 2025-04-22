@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the requested organization.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "filtered_metrics": {
+      "description": "Return a filtered list of Prometheus metrics.",
+      "type": "string",
+      "format": "boolean"
+    }
+  },
+  "required": [
+    "organizationId"
+  ]
+}

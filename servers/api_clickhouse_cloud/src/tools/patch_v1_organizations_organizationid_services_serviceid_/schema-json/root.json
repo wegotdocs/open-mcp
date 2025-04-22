@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "serviceId": {
+      "description": "ID of the service to update.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "description": "Name of the service. Alphanumerical string with whitespaces up to 50 characters.",
+      "type": "string"
+    },
+    "ipAccessList": {
+      "properties": {
+        "add": {
+          "type": "array",
+          "description": "Elements to add. Executed after \"remove\" part is processed.",
+          "items": {
+            "properties": {
+              "source": {
+                "description": "IP or CIDR",
+                "type": "string"
+              },
+              "description": {
+                "description": "Optional description of IPv4 address or IPv4 CIDR to allow access from",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "remove": {
+          "type": "array",
+          "description": "Elements to remove. Executed before \"add\" part is processed.",
+          "items": {
+            "properties": {
+              "source": {
+                "description": "IP or CIDR",
+                "type": "string"
+              },
+              "description": {
+                "description": "Optional description of IPv4 address or IPv4 CIDR to allow access from",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "privateEndpointIds": {
+      "properties": {
+        "add": {
+          "type": "array",
+          "description": "Elements to add. Executed after \"remove\" part is processed.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "remove": {
+          "type": "array",
+          "description": "Elements to remove. Executed before \"add\" part is processed.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "releaseChannel": {
+      "description": "Select fast if you want to get new ClickHouse releases as soon as they are available. You'll get new features faster, but with a higher risk of bugs. This feature is only available for production services.",
+      "type": "string",
+      "enum": [
+        "default",
+        "fast"
+      ]
+    },
+    "endpoints": {
+      "type": "array",
+      "description": "List of service endpoints to change",
+      "items": {
+        "properties": {
+          "protocol": {
+            "description": "Endpoint protocol",
+            "type": "string",
+            "enum": [
+              "mysql"
+            ],
+            "example": "mysql"
+          },
+          "enabled": {
+            "description": "Enable or disable the endpoint",
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "transparentDataEncryptionKeyId": {
+      "description": "The id of the key to rotate",
+      "type": "string"
+    }
+  },
+  "required": [
+    "organizationId",
+    "serviceId"
+  ]
+}
