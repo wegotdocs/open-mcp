@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Directory name",
+      "description": "Name of the directory to create."
+    },
+    "parent_id": {
+      "type": "string",
+      "title": "Parent directory ID",
+      "description": "ID of the parent directory. Starts with `dir_`."
+    },
+    "path": {
+      "type": "string",
+      "title": "Directory path",
+      "description": "Path to create the directory in, relative to the root directory. If the path does not exist, it will be created. Includes name, e.g. `path/to/directory`."
+    }
+  },
+  "required": []
+}

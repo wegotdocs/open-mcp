@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "log_id": z.string().describe("Unique identifier of the Flow Log."),
+  "messages": z.array(z.object({ "content": z.union([z.string(), z.array(z.union([z.object({ "type": z.literal("text"), "text": z.string().describe("The message's text content.") }), z.object({ "type": z.literal("image_url"), "image_url": z.string() })]))]).nullable().describe("The content of the message.").optional(), "name": z.string().nullable().describe("Optional name of the message author.").optional(), "tool_call_id": z.string().nullable().describe("Tool call that this message is responding to.").optional(), "role": z.string(), "tool_calls": z.array(z.object({ "id": z.string(), "type": z.literal("function").describe("The type of tool to call."), "function": z.object({ "name": z.string(), "arguments": z.string().optional() }).describe("A function tool to be called by the model where user owns runtime.") }).describe("A tool call to be made.")).nullable().describe("A list of tool calls requested by the assistant.").optional() })).describe("List of chat messages that were used as an input to the Flow.").optional(),
+  "output_message": z.string().optional(),
+  "inputs": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inputs` to the tool, first call the tool `expandSchema` with \"/properties/inputs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The inputs passed to the Flow Log.</property-description>").optional(),
+  "output": z.string().describe("The output of the Flow Log. Provide None to unset existing `output` value. Provide either this, `output_message` or `error`.").optional(),
+  "error": z.string().describe("The error message of the Flow Log. Provide None to unset existing `error` value. Provide either this, `output_message` or `output`.").optional(),
+  "log_status": z.string().optional()
+}

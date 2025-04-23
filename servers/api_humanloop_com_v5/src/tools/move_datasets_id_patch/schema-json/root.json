@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Dataset.",
+      "type": "string",
+      "title": "Dataset ID"
+    },
+    "path": {
+      "type": "string",
+      "title": "Dataset path",
+      "description": "Path of the Dataset including the Dataset name, which is used as a unique identifier."
+    },
+    "name": {
+      "type": "string",
+      "title": "Dataset name",
+      "description": "Name of the Dataset, which is used as a unique identifier."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

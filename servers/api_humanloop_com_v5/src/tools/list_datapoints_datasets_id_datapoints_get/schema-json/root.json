@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Dataset.",
+      "type": "string",
+      "title": "Dataset ID"
+    },
+    "version_id": {
+      "description": "A specific Version ID of the Dataset to retrieve.",
+      "type": "string",
+      "title": "Version Id"
+    },
+    "environment": {
+      "description": "Name of the Environment to retrieve a deployed Version from.",
+      "type": "string",
+      "title": "Environment"
+    },
+    "page": {
+      "description": "Page number for pagination.",
+      "type": "integer",
+      "minimum": 1,
+      "title": "Page",
+      "default": 1
+    },
+    "size": {
+      "description": "Page size for pagination. Number of Datapoints to fetch.",
+      "type": "integer",
+      "minimum": 0,
+      "title": "Size",
+      "default": 50
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

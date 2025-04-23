@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "file": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "description": "Name of the Evaluation to help identify it. Must be unique within the associated File."
+    },
+    "evaluators": {
+      "items": {
+        "anyOf": [
+          {
+            "properties": {
+              "version_id": {
+                "type": "string",
+                "title": "Version ID",
+                "description": "Unique identifier for the Version."
+              },
+              "orchestrated": {
+                "type": "boolean",
+                "title": "Humanloop Orchestrated",
+                "description": "Whether the Evaluator is orchestrated by Humanloop. Default is `True`. If `False`, a log for the Evaluator should be submitted by the user via the API.",
+                "default": true
+              }
+            },
+            "type": "object",
+            "required": [
+              "version_id"
+            ],
+            "title": "EvaluatorVersionId",
+            "description": "Base model for specifying an Evaluator for an Evaluation."
+          },
+          {
+            "properties": {
+              "environment": {
+                "type": "string",
+                "title": "Environment name",
+                "description": "If provided, the Version deployed to this Environment is used. If not provided, the Version deployed to the default Environment is used."
+              },
+              "id": {
+                "type": "string",
+                "title": "File ID",
+                "description": "Unique identifier for the File."
+              },
+              "orchestrated": {
+                "type": "boolean",
+                "title": "Humanloop Orchestrated",
+                "description": "Whether the Evaluator is orchestrated by Humanloop. Default is `True`. If `False`, a log for the Evaluator should be submitted by the user via the API.",
+                "default": true
+              }
+            },
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "title": "EvaluatorFileId",
+            "description": "Base model for specifying an Evaluator for an Evaluation."
+          },
+          {
+            "properties": {
+              "environment": {
+                "type": "string",
+                "title": "Environment name",
+                "description": "If provided, the Version deployed to this Environment is used. If not provided, the Version deployed to the default Environment is used."
+              },
+              "path": {
+                "type": "string",
+                "title": "File path",
+                "description": "Path identifying a File. Provide this to specify a File."
+              },
+              "orchestrated": {
+                "type": "boolean",
+                "title": "Humanloop Orchestrated",
+                "description": "Whether the Evaluator is orchestrated by Humanloop. Default is `True`. If `False`, a log for the Evaluator should be submitted by the user via the API.",
+                "default": true
+              }
+            },
+            "type": "object",
+            "required": [
+              "path"
+            ],
+            "title": "EvaluatorFilePath",
+            "description": "Base model for specifying an Evaluator for an Evaluation."
+          }
+        ]
+      },
+      "type": "array",
+      "title": "Evaluators",
+      "description": "The Evaluators used to evaluate."
+    }
+  },
+  "required": [
+    "evaluators"
+  ]
+}

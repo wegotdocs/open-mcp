@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the Dataset",
+      "type": "string",
+      "title": "Dataset ID"
+    },
+    "version_id": {
+      "description": "ID of the specific Dataset version to base the created Version on.",
+      "type": "string",
+      "title": "Version ID"
+    },
+    "environment": {
+      "description": "Name of the Environment identifying a deployed Version to base the created Version on.",
+      "type": "string",
+      "title": "Environment"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

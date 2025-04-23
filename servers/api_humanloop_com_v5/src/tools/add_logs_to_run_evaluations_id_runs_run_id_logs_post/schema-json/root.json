@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Evaluation.",
+      "type": "string",
+      "title": "Evaluation ID"
+    },
+    "run_id": {
+      "description": "Unique identifier for Run.",
+      "type": "string",
+      "title": "Run ID"
+    },
+    "log_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Log IDs",
+      "description": "The IDs of the Logs to add to the Run."
+    }
+  },
+  "required": [
+    "id",
+    "run_id",
+    "log_ids"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Directory. Starts with `dir_`.",
+      "type": "string",
+      "title": "Directory ID"
+    },
+    "name": {
+      "type": "string",
+      "title": "Directory name",
+      "description": "Name to set for the directory."
+    },
+    "parent_id": {
+      "type": "string",
+      "title": "Parent directory ID",
+      "description": "ID of the parent directory. Specify this to move directories. Starts with `dir_`."
+    },
+    "path": {
+      "type": "string",
+      "title": "Directory path",
+      "description": "Path to move the directory to, relative to the root directory. Specify this to move directories. Includes name, e.g. `path/to/directory`."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

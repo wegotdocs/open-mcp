@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Flow.",
+      "type": "string",
+      "title": "Flow ID"
+    },
+    "environment_id": {
+      "description": "Unique identifier for the Environment to remove the deployment from.",
+      "type": "string",
+      "title": "Environment ID"
+    }
+  },
+  "required": [
+    "id",
+    "environment_id"
+  ]
+}

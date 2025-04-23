@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "description": "Page offset for pagination.",
+      "type": "integer",
+      "minimum": 1,
+      "title": "Page index",
+      "default": 1
+    },
+    "size": {
+      "description": "Page size for pagination. Number of Evaluators to fetch.",
+      "type": "integer",
+      "title": "Page size",
+      "default": 10
+    },
+    "name": {
+      "description": "Case-insensitive filter for Evaluator name.",
+      "type": "string",
+      "title": "Evaluator name filter"
+    },
+    "user_filter": {
+      "description": "Case-insensitive filter for users in the Evaluator. This filter matches against both email address and name of users.",
+      "type": "string",
+      "title": "User filter"
+    },
+    "sort_by": {
+      "description": "Field to sort Evaluators by",
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "created_at",
+            "updated_at",
+            "name"
+          ],
+          "title": "ProjectSortBy",
+          "description": "An enumeration."
+        }
+      ],
+      "title": "Sort by",
+      "default": "created_at"
+    },
+    "order": {
+      "description": "Direction to sort by.",
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "title": "SortOrder",
+          "description": "An enumeration."
+        }
+      ],
+      "title": "Sort order",
+      "default": "desc"
+    }
+  },
+  "required": []
+}

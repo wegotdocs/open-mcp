@@ -1,0 +1,170 @@
+{
+  "type": "object",
+  "properties": {
+    "log_id": {
+      "description": "Unique identifier of the Flow Log.",
+      "type": "string",
+      "title": "Flow Log ID"
+    },
+    "messages": {
+      "items": {
+        "properties": {
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "text"
+                          ],
+                          "title": "Type"
+                        },
+                        "text": {
+                          "type": "string",
+                          "title": "Text",
+                          "description": "The message's text content."
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "text"
+                      ],
+                      "title": "TextChatContent"
+                    },
+                    {
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "image_url"
+                          ],
+                          "title": "Type"
+                        },
+                        "image_url": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "image_url"
+                      ],
+                      "title": "ImageChatContent"
+                    }
+                  ]
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Content",
+            "description": "The content of the message.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Optional name of the message author.",
+            "nullable": true
+          },
+          "tool_call_id": {
+            "type": "string",
+            "title": "Tool call id",
+            "description": "Tool call that this message is responding to.",
+            "nullable": true
+          },
+          "role": {
+            "type": "string"
+          },
+          "tool_calls": {
+            "items": {
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "title": "Id"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "function"
+                  ],
+                  "title": "ToolType",
+                  "description": "The type of tool to call."
+                },
+                "function": {
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Name"
+                    },
+                    "arguments": {
+                      "type": "string",
+                      "title": "Arguments"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "title": "FunctionTool",
+                  "description": "A function tool to be called by the model where user owns runtime."
+                }
+              },
+              "type": "object",
+              "required": [
+                "id",
+                "type",
+                "function"
+              ],
+              "title": "ToolCall",
+              "description": "A tool call to be made."
+            },
+            "type": "array",
+            "title": "Tool calls",
+            "description": "A list of tool calls requested by the assistant.",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "role"
+        ],
+        "title": "ChatMessage"
+      },
+      "type": "array",
+      "title": "Messages",
+      "description": "List of chat messages that were used as an input to the Flow."
+    },
+    "output_message": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inputs` to the tool, first call the tool `expandSchema` with \"/properties/inputs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The inputs passed to the Flow Log.</property-description>",
+      "additionalProperties": true
+    },
+    "output": {
+      "type": "string",
+      "title": "Output",
+      "description": "The output of the Flow Log. Provide None to unset existing `output` value. Provide either this, `output_message` or `error`."
+    },
+    "error": {
+      "type": "string",
+      "title": "Error",
+      "description": "The error message of the Flow Log. Provide None to unset existing `error` value. Provide either this, `output_message` or `output`."
+    },
+    "log_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "log_id"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "description": "Page offset for pagination.",
+      "type": "integer",
+      "minimum": 1,
+      "title": "Page index",
+      "default": 1
+    },
+    "size": {
+      "description": "Page size for pagination. Number of files to fetch.",
+      "type": "integer",
+      "minimum": 0,
+      "title": "Page size",
+      "default": 10
+    },
+    "name": {
+      "description": "Case-insensitive filter for file name.",
+      "type": "string",
+      "title": "File name filter"
+    },
+    "template": {
+      "description": "Filter to include only template files.",
+      "type": "boolean",
+      "title": "Template filter",
+      "default": false
+    },
+    "type": {
+      "description": "List of file types to filter for.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "prompt",
+          "tool",
+          "dataset",
+          "evaluator",
+          "flow"
+        ],
+        "title": "FileType",
+        "description": "Enum for File types."
+      },
+      "type": "array",
+      "title": "File types filter"
+    },
+    "environment": {
+      "description": "Case-sensitive filter for files with a deployment in the specified environment. Requires the environment name.",
+      "type": "string",
+      "title": "Environment filter"
+    },
+    "sort_by": {
+      "description": "Field to sort files by",
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "created_at",
+            "updated_at",
+            "name"
+          ],
+          "title": "ProjectSortBy",
+          "description": "An enumeration."
+        }
+      ],
+      "title": "Sort by",
+      "default": "created_at"
+    },
+    "order": {
+      "description": "Direction to sort by.",
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "title": "SortOrder",
+          "description": "An enumeration."
+        }
+      ],
+      "title": "Sort order",
+      "default": "desc"
+    }
+  },
+  "required": []
+}

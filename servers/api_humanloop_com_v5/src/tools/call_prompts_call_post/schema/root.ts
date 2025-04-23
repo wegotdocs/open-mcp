@@ -1,0 +1,29 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "version_id": z.string().describe("A specific Version ID of the Prompt to log to.").optional(),
+  "environment": z.string().describe("Name of the Environment identifying a deployed version to log to.").optional(),
+  "path": z.string().describe("Path of the Prompt, including the name. This locates the Prompt in the Humanloop filesystem and is used as as a unique identifier. For example: `folder/name` or just `name`.").optional(),
+  "id": z.string().describe("ID for an existing Prompt.").optional(),
+  "messages": z.array(z.object({ "content": z.union([z.string(), z.array(z.union([z.object({ "type": z.literal("text"), "text": z.string().describe("The message's text content.") }), z.object({ "type": z.literal("image_url"), "image_url": z.string() })]))]).nullable().describe("The content of the message.").optional(), "name": z.string().nullable().describe("Optional name of the message author.").optional(), "tool_call_id": z.string().nullable().describe("Tool call that this message is responding to.").optional(), "role": z.string(), "tool_calls": z.array(z.object({ "id": z.string(), "type": z.literal("function").describe("The type of tool to call."), "function": z.object({ "name": z.string(), "arguments": z.string().optional() }).describe("A function tool to be called by the model where user owns runtime.") }).describe("A tool call to be made.")).nullable().describe("A list of tool calls requested by the assistant.").optional() })).describe("The messages passed to the to provider chat endpoint.").optional(),
+  "tool_choice": z.union([z.literal("none"), z.literal("auto"), z.literal("required"), z.object({ "type": z.literal("function").describe("The type of tool to call."), "function": z.object({ "name": z.string() }).describe("A function tool to be called by the model where user owns runtime.") }).describe("Tool choice to force the model to use a tool.")]).describe("Controls how the model uses tools. The following options are supported: \n- `'none'` means the model will not call any tool and instead generates a message; this is the default when no tools are provided as part of the Prompt. \n- `'auto'` means the model can decide to call one or more of the provided tools; this is the default when tools are provided as part of the Prompt. \n- `'required'` means the model must call one or more of the provided tools. \n- `{'type': 'function', 'function': {name': <TOOL_NAME>}}` forces the model to use the named function.").optional(),
+  "prompt": z.string().optional(),
+  "inputs": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inputs` to the tool, first call the tool `expandSchema` with \"/properties/inputs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The inputs passed to the prompt template.</property-description>").optional(),
+  "source": z.string().describe("Identifies where the model was called from.").optional(),
+  "metadata": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `metadata` to the tool, first call the tool `expandSchema` with \"/properties/metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Any additional metadata to record.</property-description>").optional(),
+  "start_time": z.string().datetime({ offset: true }).describe("When the logged event started.").optional(),
+  "end_time": z.string().datetime({ offset: true }).describe("When the logged event ended.").optional(),
+  "log_status": z.string().optional(),
+  "source_datapoint_id": z.string().describe("Unique identifier for the Datapoint that this Log is derived from. This can be used by Humanloop to associate Logs to Evaluations. If provided, Humanloop will automatically associate this Log to Evaluations that require a Log for this Datapoint-Version pair.").optional(),
+  "trace_parent_id": z.string().describe("The ID of the parent Log to nest this Log under in a Trace.").optional(),
+  "user": z.string().describe("End-user ID related to the Log.").optional(),
+  "b_environment": z.string().describe("The name of the Environment the Log is associated to.").optional(),
+  "save": z.boolean().describe("Whether the request/response payloads will be stored on Humanloop.").optional(),
+  "log_id": z.string().describe("This will identify a Log. If you don't provide a Log ID, Humanloop will generate one for you.").optional(),
+  "provider_api_keys": z.string().optional(),
+  "num_samples": z.number().int().describe("The number of generations.").optional(),
+  "stream": z.boolean().describe("If true, tokens will be sent as data-only server-sent events. If num_samples > 1, samples are streamed back independently.").optional(),
+  "return_inputs": z.boolean().describe("Whether to return the inputs in the response. If false, the response will contain an empty dictionary under inputs. This is useful for reducing the size of the response. Defaults to true.").optional(),
+  "logprobs": z.number().int().describe("Include the log probabilities of the top n tokens in the provider_response").optional(),
+  "suffix": z.string().describe("The suffix that comes after a completion of inserted text. Useful for completions that act like inserts.").optional()
+}

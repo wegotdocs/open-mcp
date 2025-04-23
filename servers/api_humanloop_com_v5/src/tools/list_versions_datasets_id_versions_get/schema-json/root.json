@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Dataset.",
+      "type": "string",
+      "title": "Dataset ID"
+    },
+    "include_datapoints": {
+      "description": "If set to 'latest_saved', include datapoints for the latest saved version. Alternatively, 'latest_committed' (deprecated) includes datapoints for the latest committed version only.",
+      "type": "string",
+      "enum": [
+        "latest_committed",
+        "latest_saved"
+      ],
+      "title": "Include Datapoints"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

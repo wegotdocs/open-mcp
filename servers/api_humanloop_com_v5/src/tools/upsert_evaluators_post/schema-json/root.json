@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "title": "Evaluator path",
+      "description": "Path of the Evaluator, including the name. This locates the Evaluator in the Humanloop filesystem and is used as as a unique identifier. For example: `folder/name` or just `name`."
+    },
+    "id": {
+      "type": "string",
+      "title": "Evaluator ID",
+      "description": "ID for an existing Evaluator."
+    },
+    "version_name": {
+      "type": "string",
+      "title": "Version name",
+      "description": "Unique name for the Evaluator version. Version names must be unique for a given Evaluator."
+    },
+    "version_description": {
+      "type": "string",
+      "title": "Version description",
+      "description": "Description of the version, e.g., the changes made in this version."
+    },
+    "spec": {
+      "title": "Spec",
+      "discriminator": {
+        "propertyName": "evaluator_type",
+        "mapping": {
+          "llm": "#/components/schemas/LLMEvaluatorRequest",
+          "python": "#/components/schemas/CodeEvaluatorRequest",
+          "human": "#/components/schemas/HumanEvaluatorRequest",
+          "external": "#/components/schemas/ExternalEvaluatorRequest"
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "arguments_type": {
+              "type": "string"
+            },
+            "return_type": {
+              "type": "string"
+            },
+            "attributes": {
+              "type": "object",
+              "title": "Attributes",
+              "description": "Additional fields to describe the Evaluator. Helpful to separate Evaluator versions from each other with details on how they were created or used."
+            },
+            "options": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "The name of the option."
+                  },
+                  "valence": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "title": "EvaluatorJudgmentOptionResponse"
+              },
+              "type": "array",
+              "title": "Options",
+              "description": "The options that can be applied as judgments. Only for Evaluators with `return_type` of 'boolean', 'select' or 'multi_select'."
+            },
+            "number_limits": {
+              "type": "string"
+            },
+            "number_valence": {
+              "type": "string"
+            },
+            "evaluator_type": {
+              "type": "string",
+              "enum": [
+                "llm"
+              ],
+              "title": "Evaluator type",
+              "description": "The type of the evaluator.",
+              "default": "llm"
+            },
+            "prompt": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "arguments_type",
+            "return_type"
+          ],
+          "title": "LLMEvaluatorRequest"
+        }
+      ]
+    }
+  },
+  "required": [
+    "spec"
+  ]
+}

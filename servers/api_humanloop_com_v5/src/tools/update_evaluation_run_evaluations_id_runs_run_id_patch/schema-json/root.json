@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Evaluation.",
+      "type": "string",
+      "title": "Evaluation ID"
+    },
+    "run_id": {
+      "description": "Unique identifier for Run.",
+      "type": "string",
+      "title": "Run ID"
+    },
+    "control": {
+      "type": "boolean",
+      "enum": [
+        true
+      ],
+      "title": "Control",
+      "description": "If `True`, this Run will be used as the control in the Evaluation. Stats for other Runs will be compared to this Run. This will replace any existing control Run."
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "run_id"
+  ]
+}
