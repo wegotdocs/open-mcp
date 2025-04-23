@@ -27,7 +27,14 @@ https://www.open-mcp.org/servers/creating
 
 ### Local hosting
 
-<div style="position: relative; padding-bottom: 64.86486486486486%; height: 0;"><iframe src="https://www.loom.com/embed/aa26fed41f084ff1bd115436f9d799dd?sid=57a5ee90-875f-4c09-8d44-5b477555c883" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div>
+  <a href="https://www.loom.com/share/aa26fed41f084ff1bd115436f9d799dd">
+    <p>Local hosting demo - watch video</p>
+  </a>
+  <a href="https://www.loom.com/share/aa26fed41f084ff1bd115436f9d799dd">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/aa26fed41f084ff1bd115436f9d799dd-9815ccb91b155b9d-full-play.gif">
+  </a>
+</div>
 
 #### Requirements:
 
