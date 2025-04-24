@@ -1,0 +1,22 @@
+{
+  "description": "Return only events whose `effective_at` (Unix seconds) is in this range.",
+  "type": "object",
+  "properties": {
+    "gt": {
+      "type": "integer",
+      "description": "Return only events whose `effective_at` (Unix seconds) is greater than this value."
+    },
+    "gte": {
+      "type": "integer",
+      "description": "Return only events whose `effective_at` (Unix seconds) is greater than or equal to this value."
+    },
+    "lt": {
+      "type": "integer",
+      "description": "Return only events whose `effective_at` (Unix seconds) is less than this value."
+    },
+    "lte": {
+      "type": "integer",
+      "description": "Return only events whose `effective_at` (Unix seconds) is less than or equal to this value."
+    }
+  }
+}
