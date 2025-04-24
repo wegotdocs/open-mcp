@@ -1,0 +1,34 @@
+{
+  "description": "HRIS Time Entries filters",
+  "properties": {
+    "updated_after": {
+      "description": "Use a string with a date to only select results updated after that given date",
+      "example": "2020-01-01T00:00:00.000Z",
+      "type": "string",
+      "nullable": true,
+      "additionalProperties": false
+    },
+    "employee_id": {
+      "description": "Filter to select time entries by employee_id",
+      "type": "string",
+      "nullable": true,
+      "additionalProperties": false
+    },
+    "start_time": {
+      "description": "Filter to select time entries after a given time",
+      "example": "2020-01-01T00:00:00.000Z",
+      "type": "string",
+      "nullable": true,
+      "additionalProperties": false
+    },
+    "end_time": {
+      "description": "Filter to select time entries before a given time",
+      "example": "2020-01-01T00:00:00.000Z",
+      "type": "string",
+      "nullable": true,
+      "additionalProperties": false
+    }
+  },
+  "nullable": true,
+  "type": "object"
+}

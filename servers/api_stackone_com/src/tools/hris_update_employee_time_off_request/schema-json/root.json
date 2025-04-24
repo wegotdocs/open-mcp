@@ -1,0 +1,83 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "subResourceId": {
+      "type": "string"
+    },
+    "employee_id": {
+      "type": "string",
+      "description": "The employee ID",
+      "example": "1687-3",
+      "nullable": true
+    },
+    "approver_id": {
+      "type": "string",
+      "description": "The approver ID",
+      "example": "1687-4",
+      "nullable": true
+    },
+    "status": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "description": "The start date of the time off request",
+      "example": "2021-01-01T01:01:01.000Z",
+      "format": "date-time",
+      "nullable": true
+    },
+    "end_date": {
+      "type": "string",
+      "description": "The end date of the time off request",
+      "example": "2021-01-01T01:01:01.000Z",
+      "format": "date-time",
+      "nullable": true
+    },
+    "start_half_day": {
+      "description": "True if the start of the time off request begins half way through the day",
+      "example": true,
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "end_half_day": {
+      "description": "True if the end of the time off request ends half way through the day",
+      "example": true,
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "time_off_policy_id": {
+      "type": "string",
+      "description": "The time off policy id associated with this time off request",
+      "example": "cx280928933",
+      "nullable": true
+    },
+    "reason": {
+      "type": "string"
+    },
+    "passthrough": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `passthrough` to the tool, first call the tool `expandSchema` with \"/properties/passthrough\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Value to pass through to the provider</property-description>",
+      "additionalProperties": true
+    },
+    "x-account-id": {
+      "description": "The account identifier",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "subResourceId",
+    "x-account-id"
+  ]
+}

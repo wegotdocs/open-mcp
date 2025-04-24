@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "The filename of the file to upload",
+      "example": "weather-forecast",
+      "nullable": true
+    },
+    "file_format": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string",
+      "description": "The base64 encoded content of the file to upload",
+      "example": "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
+      "nullable": true
+    },
+    "category_id": {
+      "type": "string",
+      "description": "The categoryId of the documents",
+      "example": "6530",
+      "nullable": true
+    },
+    "path": {
+      "type": "string",
+      "description": "The path for the file to be uploaded to",
+      "example": "/path/to/file",
+      "nullable": true
+    },
+    "category": {
+      "type": "string"
+    },
+    "confidential": {
+      "type": "string"
+    },
+    "x-account-id": {
+      "description": "The account identifier",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "x-account-id"
+  ]
+}

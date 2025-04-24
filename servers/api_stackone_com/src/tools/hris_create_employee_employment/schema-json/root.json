@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "string",
+      "description": "Unique identifier",
+      "example": "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      "nullable": true
+    },
+    "unified_custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `unified_custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/unified_custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom Unified Fields configured in your StackOne project</property-description>",
+      "additionalProperties": true
+    },
+    "job_title": {
+      "type": "string",
+      "description": "The job title of the employee",
+      "example": "Software Engineer",
+      "nullable": true
+    },
+    "pay_rate": {
+      "type": "string",
+      "description": "The pay rate for the employee",
+      "example": "40.00",
+      "nullable": true
+    },
+    "pay_period": {
+      "type": "string"
+    },
+    "pay_frequency": {
+      "type": "string"
+    },
+    "pay_currency": {
+      "type": "string",
+      "description": "The currency used for pay",
+      "example": "USD",
+      "nullable": true
+    },
+    "employment_type": {
+      "type": "string"
+    },
+    "employment_contract_type": {
+      "type": "string"
+    },
+    "work_time": {
+      "type": "string"
+    },
+    "passthrough": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `passthrough` to the tool, first call the tool `expandSchema` with \"/properties/passthrough\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Value to pass through to the provider</property-description>",
+      "additionalProperties": true
+    },
+    "x-account-id": {
+      "description": "The account identifier",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "x-account-id"
+  ]
+}

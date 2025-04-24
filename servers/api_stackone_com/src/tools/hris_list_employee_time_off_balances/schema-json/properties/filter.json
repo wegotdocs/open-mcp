@@ -1,0 +1,24 @@
+{
+  "description": "HRIS Time Off Balance filters",
+  "properties": {
+    "updated_after": {
+      "description": "Use a string with a date to only select results updated after that given date",
+      "example": "2020-01-01T00:00:00.000Z",
+      "type": "string",
+      "nullable": true,
+      "additionalProperties": false
+    },
+    "policy_ids": {
+      "description": "List of policy ids to filter time off balances by.",
+      "type": "array",
+      "nullable": true,
+      "items": {
+        "type": "string"
+      },
+      "additionalProperties": false,
+      "required": false
+    }
+  },
+  "nullable": true,
+  "type": "object"
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "subResourceId": {
+      "type": "string"
+    },
+    "format": {
+      "description": "The format to download the file in",
+      "nullable": true,
+      "example": "base64",
+      "type": "string"
+    },
+    "export_format": {
+      "description": "The export format of the file",
+      "nullable": true,
+      "example": "text/plain",
+      "type": "string"
+    },
+    "x-account-id": {
+      "description": "The account identifier",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "subResourceId",
+    "x-account-id"
+  ]
+}
