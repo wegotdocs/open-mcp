@@ -1,0 +1,36 @@
+{
+  "name": "@open-mcp/Openai",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "Openai": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "copy-json-schema": "mkdir -p dist/tools && find src/tools -type d -name 'schema-json' -exec sh -c 'mkdir -p dist/tools/$(dirname {} | sed \"s/src\\/tools\\///\") && cp -r {} dist/tools/$(dirname {} | sed \"s/src\\/tools\\///\")/' \\;",
+    "prebuild": "npm run clean && npm run copy-json-schema",
+    "build": "tsc && chmod 755 dist/index.js",
+    "test": "echo \"No test specified\"",
+    "prepublishOnly": "npm install && npm run build && npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "@open-mcp/core": "latest",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

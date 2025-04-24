@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "type": z.enum(["supervised","dpo"]).describe("The type of method. Is either `supervised` or `dpo`.").optional(),
+  "supervised": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `supervised` to the tool, first call the tool `expandSchema` with \"/properties/method/properties/supervised\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration for the supervised fine-tuning method.</property-description>").optional(),
+  "dpo": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `dpo` to the tool, first call the tool `expandSchema` with \"/properties/method/properties/dpo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration for the DPO fine-tuning method.</property-description>").optional()
+}

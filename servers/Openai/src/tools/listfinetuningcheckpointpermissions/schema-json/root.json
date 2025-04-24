@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "permission_id": {
+      "description": "The ID of the fine-tuned model checkpoint to get permissions for.\n",
+      "type": "string",
+      "example": "ft-AF1WoRqd3aJAHsqc9NY7iL8F"
+    },
+    "project_id": {
+      "description": "The ID of the project to get permissions for.",
+      "type": "string"
+    },
+    "after": {
+      "description": "Identifier for the last permission ID from the previous pagination request.",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Number of permissions to retrieve.",
+      "type": "integer",
+      "default": 10
+    },
+    "order": {
+      "description": "The order in which to retrieve permissions.",
+      "type": "string",
+      "enum": [
+        "ascending",
+        "descending"
+      ],
+      "default": "descending"
+    }
+  },
+  "required": [
+    "permission_id"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "vector_store_id": {
+      "description": "The ID of the vector store.",
+      "type": "string",
+      "example": "vs_abc123"
+    },
+    "file_id": {
+      "description": "The ID of the file within the vector store.",
+      "type": "string",
+      "example": "file-abc123"
+    }
+  },
+  "required": [
+    "vector_store_id",
+    "file_id"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "vector_store_id": {
+      "description": "The ID of the vector store that the file batch belongs to.",
+      "type": "string",
+      "example": "vs_abc123"
+    },
+    "batch_id": {
+      "description": "The ID of the file batch being retrieved.",
+      "type": "string",
+      "example": "vsfb_abc123"
+    }
+  },
+  "required": [
+    "vector_store_id",
+    "batch_id"
+  ]
+}

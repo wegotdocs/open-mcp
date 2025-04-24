@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "response_id": {
+      "description": "The ID of the response to retrieve.",
+      "type": "string",
+      "example": "resp_677efb5139a88190b512bc3fef8e535d"
+    },
+    "include": {
+      "description": "Specify additional output data to include in the response. Currently\nsupported values are:\n- `file_search_call.results`: Include the search results of\n  the file search tool call.\n- `message.input_image.image_url`: Include image urls from the input message.\n- `computer_call_output.output.image_url`: Include image urls from the computer call output.\n",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Specify additional output data to include in the model response. Currently\nsupported values are:\n- `file_search_call.results`: Include the search results of\n  the file search tool call.\n- `message.input_image.image_url`: Include image urls from the input message.\n- `computer_call_output.output.image_url`: Include image urls from the computer call output.\n",
+        "enum": [
+          "file_search_call.results",
+          "message.input_image.image_url",
+          "computer_call_output.output.image_url"
+        ]
+      }
+    }
+  },
+  "required": [
+    "response_id"
+  ]
+}
