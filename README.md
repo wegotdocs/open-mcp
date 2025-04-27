@@ -17,7 +17,7 @@ Each OpenMCP server gives MCP clients the ability to make requests to a particul
 
 ## Creating a server
 
-https://www.open-mcp.org/servers/creating
+https://www.open-mcp.org/servers/creating-a-server
 
 ## Adding OpenMCP servers to MCP clients
 
