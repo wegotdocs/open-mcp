@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "num_protocols": {
+      "description": "The number of top protocols to return. Default to 10.",
+      "type": "integer"
+    },
+    "time_period": {
+      "description": "The time period in which the revenue was earned. Can be 'day', 'week', or 'month'. Defaults to 'month'.",
+      "type": "string",
+      "enum": [
+        "day",
+        "week",
+        "month"
+      ]
+    },
+    "chain": {
+      "description": "Name of the blockchain or L2 to filter protocol revenue by.",
+      "type": "string"
+    },
+    "category": {
+      "description": "Category to filter protocols by.",
+      "type": "string",
+      "enum": [
+        "liquid staking",
+        "dexes",
+        "lending",
+        "bridge",
+        "CDP",
+        "yield",
+        "services",
+        "derivatives",
+        "yield aggregator",
+        "cross chain",
+        "launchpad",
+        "indexes",
+        "synthetics",
+        "RWA",
+        "liquidity manager",
+        "nft lending",
+        "insurance",
+        "algo-stables",
+        "privacy",
+        "payments",
+        "leveraged farming",
+        "nft marketplace",
+        "options",
+        "options vault",
+        "staking pool",
+        "prediction market",
+        "farm",
+        "uncollateralized lending",
+        "reserve currency",
+        "RWA lending",
+        "gaming",
+        "oracle"
+      ],
+      "example": "liquid staking"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "num_protocols": {
+      "description": "The number of top gainers you want to see. Default to 10.",
+      "type": "integer",
+      "example": 10
+    },
+    "min_tvl": {
+      "description": "The minimum TVL that a protocol should have to be included. Defaults to 100000.",
+      "type": "number",
+      "format": "float",
+      "example": 1000000
+    },
+    "time_period": {
+      "description": "The time period in which the change occured. Can be 'hour', 'day', or 'week'. Defaults to 'week'.",
+      "type": "string",
+      "enum": [
+        "hour",
+        "day",
+        "week"
+      ],
+      "example": "day"
+    },
+    "category": {
+      "description": "Category to filter protocols by.",
+      "type": "string",
+      "enum": [
+        "liquid staking",
+        "dexes",
+        "lending",
+        "bridge",
+        "CDP",
+        "yield",
+        "services",
+        "derivatives",
+        "yield aggregator",
+        "cross chain",
+        "launchpad",
+        "indexes",
+        "synthetics",
+        "RWA",
+        "liquidity manager",
+        "nft lending",
+        "insurance",
+        "algo-stables",
+        "privacy",
+        "payments",
+        "leveraged farming",
+        "nft marketplace",
+        "options",
+        "options vault",
+        "staking pool",
+        "prediction market",
+        "farm",
+        "uncollateralized lending",
+        "reserve currency",
+        "RWA lending",
+        "gaming",
+        "oracle"
+      ],
+      "example": "liquid staking"
+    },
+    "chain": {
+      "description": "Name of the chain or L2 to filter protocols by.",
+      "type": "string",
+      "example": "ethereum"
+    }
+  },
+  "required": [
+    "num_protocols"
+  ]
+}

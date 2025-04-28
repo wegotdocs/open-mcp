@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "time_period": {
+      "description": "Time period for net bridge flow calculation. Can be day, week or month.",
+      "type": "string",
+      "enum": [
+        "day",
+        "week",
+        "month"
+      ],
+      "default": "month"
+    }
+  },
+  "required": []
+}

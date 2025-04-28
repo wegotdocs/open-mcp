@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "num_chains": {
+      "description": "The number of top gainers you want to see. Defaults to 5.",
+      "type": "integer",
+      "example": 5
+    },
+    "min_tvl": {
+      "description": "The minimum TVL that a chain should have to be included. Defaults to 10000.",
+      "type": "number",
+      "format": "float",
+      "example": 1000000
+    },
+    "time_period": {
+      "description": "The time period in which the change occurred. Can be 'day', 'week', or 'month'. Defaults to 'week'.",
+      "type": "string",
+      "enum": [
+        "day",
+        "week",
+        "month"
+      ],
+      "example": "week"
+    }
+  },
+  "required": []
+}
