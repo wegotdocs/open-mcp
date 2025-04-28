@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "description": "公司 ID。",
+      "type": "integer",
+      "title": "Org Id"
+    },
+    "start_date": {
+      "description": "任務建立時間開始日期。",
+      "type": "string",
+      "format": "date",
+      "title": "Start Date"
+    },
+    "end_date": {
+      "description": "任務建立時間結束日期。",
+      "type": "string",
+      "format": "date",
+      "title": "End Date"
+    },
+    "time_offset": {
+      "description": "瀏覽器時區。",
+      "type": "number",
+      "title": "Time Offset"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    }
+  },
+  "required": [
+    "org_id",
+    "start_date",
+    "end_date",
+    "time_offset"
+  ]
+}

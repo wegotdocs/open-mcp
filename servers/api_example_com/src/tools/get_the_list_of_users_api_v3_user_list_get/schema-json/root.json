@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Org Id"
+    },
+    "brief": {
+      "description": "Brief data only? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Brief"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    }
+  },
+  "required": []
+}

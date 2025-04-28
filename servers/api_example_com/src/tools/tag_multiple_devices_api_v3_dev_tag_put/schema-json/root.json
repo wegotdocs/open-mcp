@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "flush": {
+      "description": "Flush out old tags? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Flush"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "dev_id_list": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Dev Id List"
+    },
+    "tag_id_list": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Tag Id List"
+    }
+  },
+  "required": [
+    "dev_id_list",
+    "tag_id_list"
+  ]
+}

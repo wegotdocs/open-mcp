@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "properties": {
+    "evt_id": {
+      "type": "integer",
+      "title": "Evt Id"
+    },
+    "rename_only": {
+      "description": "Rename only? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rename Only"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Display Name"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "condition_list": {
+      "anyOf": [
+        {
+          "items": {
+            "properties": {
+              "sensor": {
+                "type": "string",
+                "title": "Sensor"
+              },
+              "output": {
+                "type": "string",
+                "title": "Output"
+              },
+              "output_type_id": {
+                "type": "integer",
+                "maximum": 3,
+                "minimum": 1,
+                "title": "Output Type Id",
+                "description": "1: Text, 2: Number, 3: Array"
+              },
+              "op": {
+                "type": "string",
+                "title": "Op",
+                "description": ">, <, >=, <=, ==, !=, has, not has"
+              },
+              "value": {
+                "type": "string",
+                "title": "Value"
+              }
+            },
+            "type": "object",
+            "required": [
+              "sensor",
+              "output",
+              "output_type_id",
+              "op",
+              "value"
+            ],
+            "title": "Evtcond_In"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Condition List"
+    }
+  },
+  "required": [
+    "evt_id",
+    "name"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "tag_id": {
+      "description": "標籤 ID。",
+      "type": "integer",
+      "title": "Tag Id"
+    },
+    "flush": {
+      "description": "是否清除舊關聯。不指定/0: 不清除 (添加), 任意值/1: 清除 (設定)。",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Flush"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    }
+  },
+  "required": [
+    "tag_id"
+  ]
+}

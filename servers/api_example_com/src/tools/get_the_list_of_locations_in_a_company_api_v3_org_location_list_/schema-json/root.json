@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "root_org_id": {
+      "description": "Only the super administrator can specify the root_org_id; otherwise, the org_id will default to the user's org_id.",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Root Org Id"
+    },
+    "brief": {
+      "description": "Brief data only? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Brief"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    }
+  },
+  "required": []
+}

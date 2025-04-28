@@ -1,0 +1,621 @@
+{
+  "type": "object",
+  "properties": {
+    "dev_id": {
+      "type": "integer",
+      "title": "Dev Id"
+    },
+    "rename_only": {
+      "description": "Rename only? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rename Only"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Display Name"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "wol_mac": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Wol Mac"
+    },
+    "api_ip": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Api Ip"
+    },
+    "output_list": {
+      "anyOf": [
+        {
+          "items": {
+            "properties": {
+              "output_name": {
+                "type": "string",
+                "title": "Output Name"
+              },
+              "output_type_id": {
+                "type": "integer",
+                "title": "Output Type Id",
+                "description": "1: Text, 2: Number, 3: Array"
+              },
+              "description": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Description"
+              }
+            },
+            "type": "object",
+            "required": [
+              "output_name",
+              "output_type_id"
+            ],
+            "title": "DevOutput_In"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Output List"
+    },
+    "conf": {
+      "anyOf": [
+        {
+          "properties": {
+            "volume": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Volume",
+              "description": "0-100 (%)"
+            },
+            "web_browser_readonly": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Web Browser Readonly"
+            },
+            "allow_touchscreen": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Allow Touchscreen"
+            },
+            "topmost": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Topmost"
+            },
+            "hide_taskbar": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Hide Taskbar"
+            },
+            "hide_cursor": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Hide Cursor"
+            },
+            "monitor_on_schedule": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "all": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "All",
+                      "description": "Ex: 08:00"
+                    },
+                    "sun": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Sun",
+                      "description": "Ex: 08:00"
+                    },
+                    "mon": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Mon",
+                      "description": "Ex: 08:00"
+                    },
+                    "tue": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Tue",
+                      "description": "Ex: 08:00"
+                    },
+                    "wed": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Wed",
+                      "description": "Ex: 08:00"
+                    },
+                    "thu": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Thu",
+                      "description": "Ex: 08:00"
+                    },
+                    "fri": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Fri",
+                      "description": "Ex: 08:00"
+                    },
+                    "sat": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Sat",
+                      "description": "Ex: 08:00"
+                    }
+                  },
+                  "type": "object",
+                  "title": "DevSchedule_InOut"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "monitor_off_schedule": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "all": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "All",
+                      "description": "Ex: 08:00"
+                    },
+                    "sun": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Sun",
+                      "description": "Ex: 08:00"
+                    },
+                    "mon": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Mon",
+                      "description": "Ex: 08:00"
+                    },
+                    "tue": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Tue",
+                      "description": "Ex: 08:00"
+                    },
+                    "wed": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Wed",
+                      "description": "Ex: 08:00"
+                    },
+                    "thu": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Thu",
+                      "description": "Ex: 08:00"
+                    },
+                    "fri": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Fri",
+                      "description": "Ex: 08:00"
+                    },
+                    "sat": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Sat",
+                      "description": "Ex: 08:00"
+                    }
+                  },
+                  "type": "object",
+                  "title": "DevSchedule_InOut"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reboot_schedule": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "all": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "All",
+                      "description": "Ex: 08:00"
+                    },
+                    "sun": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Sun",
+                      "description": "Ex: 08:00"
+                    },
+                    "mon": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Mon",
+                      "description": "Ex: 08:00"
+                    },
+                    "tue": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Tue",
+                      "description": "Ex: 08:00"
+                    },
+                    "wed": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Wed",
+                      "description": "Ex: 08:00"
+                    },
+                    "thu": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Thu",
+                      "description": "Ex: 08:00"
+                    },
+                    "fri": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Fri",
+                      "description": "Ex: 08:00"
+                    },
+                    "sat": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Sat",
+                      "description": "Ex: 08:00"
+                    }
+                  },
+                  "type": "object",
+                  "title": "DevSchedule_InOut"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "facematch": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "host": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Host"
+                    },
+                    "port": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Port"
+                    },
+                    "secure": {
+                      "anyOf": [
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Secure"
+                    },
+                    "username": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Username"
+                    },
+                    "password": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Password"
+                    },
+                    "ws_port": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Ws Port"
+                    }
+                  },
+                  "type": "object",
+                  "title": "DevFaceMatchConf_InOut"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "video_player": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Video Player"
+            }
+          },
+          "type": "object",
+          "title": "DevConf_In"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "srps": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Srps"
+    }
+  },
+  "required": [
+    "dev_id"
+  ]
+}

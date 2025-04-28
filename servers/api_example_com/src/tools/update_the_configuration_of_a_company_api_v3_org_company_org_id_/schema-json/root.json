@@ -1,0 +1,161 @@
+{
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "integer",
+      "title": "Org Id"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "smtp": {
+      "anyOf": [
+        {
+          "properties": {
+            "host": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Host"
+            },
+            "port": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Port"
+            },
+            "secure": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Secure"
+            },
+            "username": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Username"
+            },
+            "password": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Password"
+            }
+          },
+          "type": "object",
+          "title": "OrgConfSmtp_InOut"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dev_offline_noti_grace_period_mins": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Dev Offline Noti Grace Period Mins"
+    },
+    "task_overdue_mins": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Overdue Mins"
+    },
+    "task_review_required": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Review Required"
+    },
+    "task_end_noti_enabled": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task End Noti Enabled"
+    },
+    "task_overdue_cancel_enabled": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Overdue Cancel Enabled"
+    },
+    "task_review_noti_enabled": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Review Noti Enabled"
+    },
+    "task_overdue_noti_enabled": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Overdue Noti Enabled"
+    }
+  },
+  "required": [
+    "org_id"
+  ]
+}

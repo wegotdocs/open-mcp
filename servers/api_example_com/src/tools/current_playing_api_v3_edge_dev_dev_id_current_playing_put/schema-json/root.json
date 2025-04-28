@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "dev_id": {
+      "type": "integer",
+      "title": "Dev Id"
+    },
+    "display_name": {
+      "type": "string",
+      "title": "Display Name"
+    },
+    "skd_status_id": {
+      "description": "Scheduler Status. 20: Activated, 40: Deactivated.",
+      "type": "integer",
+      "title": "Skd Status Id"
+    },
+    "skd_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Skd Id"
+    },
+    "prog3_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Prog3 Id"
+    },
+    "prog2_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Prog2 Id"
+    },
+    "prog1_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Prog1 Id"
+    },
+    "access-code": {
+      "type": "string",
+      "title": "Access-Code"
+    }
+  },
+  "required": [
+    "dev_id",
+    "display_name",
+    "skd_status_id",
+    "access-code"
+  ]
+}

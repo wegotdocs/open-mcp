@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "integer",
+      "title": "Org Id"
+    },
+    "rename_only": {
+      "description": "Rename only? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rename Only"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Display Name"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "time_offset": {
+      "type": "number",
+      "title": "Time Offset",
+      "description": "Ex: China Standard Time: +8, Eastern Standard Time: -5"
+    }
+  },
+  "required": [
+    "org_id",
+    "name",
+    "time_offset"
+  ]
+}

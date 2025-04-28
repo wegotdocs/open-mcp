@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Start Date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "title": "End Date"
+    },
+    "time_offset": {
+      "description": "Browser time offset relative to UTC time. ex: China Standard Time: 8, Eastern Standard Time: -5",
+      "type": "number",
+      "title": "Time Offset"
+    },
+    "log_types": {
+      "description": "Log types",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "Log Types"
+    },
+    "t_types": {
+      "description": "Target types",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "T Types"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    }
+  },
+  "required": []
+}

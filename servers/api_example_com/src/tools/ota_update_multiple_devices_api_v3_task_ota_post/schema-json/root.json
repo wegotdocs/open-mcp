@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "task_in": {
+      "anyOf": [
+        {
+          "properties": {
+            "start_time": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Start Time",
+              "description": "Task start time (edge local time). Null: Immediately start"
+            }
+          },
+          "type": "object",
+          "title": "OtaTask_In"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "任務。不指定: 立即開始。"
+    },
+    "ota_id_list": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Ota Id List",
+      "description": "OTA ID 清單。"
+    },
+    "dev_id_list": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Dev Id List",
+      "description": "設備 ID 清單。"
+    }
+  },
+  "required": [
+    "ota_id_list",
+    "dev_id_list"
+  ]
+}
