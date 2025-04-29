@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "description": "设置了用户名之后无法使用 UID。",
+      "type": "string"
+    },
+    "subject_type": {
+      "description": "条目类型\n- `1` 为 书籍\n- `2` 为 动画\n- `3` 为 音乐\n- `4` 为 游戏\n- `6` 为 三次元\n\n没有 `5`",
+      "title": "SubjectType",
+      "example": 2,
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "type": "integer",
+      "x-ms-enum": {
+        "name": "SubjectType",
+        "modelAsString": false,
+        "values": [
+          "Book",
+          "Anime",
+          "Music",
+          "Game",
+          "Real"
+        ]
+      },
+      "x-enum-varnames": [
+        "Book",
+        "Anime",
+        "Music",
+        "Game",
+        "Real"
+      ]
+    },
+    "type": {
+      "description": "收藏类型，默认为全部\n\n具体含义见 [CollectionType](#model-CollectionType)",
+      "allOf": [
+        {
+          "title": "CollectionType",
+          "example": 3,
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "type": "integer",
+          "description": "- `1`: 想看\n- `2`: 看过\n- `3`: 在看\n- `4`: 搁置\n- `5`: 抛弃",
+          "x-ms-enum": {
+            "name": "CollectionType",
+            "modelAsString": false,
+            "values": [
+              "Wish",
+              "Done",
+              "Doing",
+              "OnHold",
+              "Dropped"
+            ]
+          },
+          "x-enum-varnames": [
+            "Wish",
+            "Done",
+            "Doing",
+            "OnHold",
+            "Dropped"
+          ]
+        }
+      ]
+    },
+    "limit": {
+      "description": "分页参数",
+      "title": "Limit",
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "default": 30
+    },
+    "offset": {
+      "description": "分页参数",
+      "title": "Offset",
+      "minimum": 0,
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "required": [
+    "username"
+  ]
+}

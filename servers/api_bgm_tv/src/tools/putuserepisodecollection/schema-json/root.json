@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "episode_id": {
+      "description": "剧集 ID",
+      "title": "Episode ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "type": {
+      "title": "EpisodeCollectionType",
+      "example": 2,
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer",
+      "description": "- `0`: 未收藏\n- `1`: 想看\n- `2`: 看过\n- `3`: 抛弃",
+      "x-ms-enum": {
+        "name": "EpisodeCollectionType",
+        "modelAsString": false,
+        "values": [
+          "Wish",
+          "Done",
+          "Dropped"
+        ]
+      },
+      "x-enum-varNames": [
+        "Wish",
+        "Done",
+        "Dropped"
+      ]
+    }
+  },
+  "required": [
+    "episode_id",
+    "type"
+  ]
+}

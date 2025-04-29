@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "description": "设置了用户名之后无法使用 UID。",
+      "type": "string"
+    },
+    "type": {
+      "description": "枚举值 {small|large|medium}",
+      "title": "Avatar Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "username",
+    "type"
+  ]
+}

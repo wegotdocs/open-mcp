@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "index_id": {
+      "description": "目录 ID",
+      "title": "Index ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "type": {
+      "description": "条目类型\n- `1` 为 书籍\n- `2` 为 动画\n- `3` 为 音乐\n- `4` 为 游戏\n- `6` 为 三次元\n\n没有 `5`",
+      "title": "SubjectType",
+      "example": 2,
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "type": "integer",
+      "x-ms-enum": {
+        "name": "SubjectType",
+        "modelAsString": false,
+        "values": [
+          "Book",
+          "Anime",
+          "Music",
+          "Game",
+          "Real"
+        ]
+      },
+      "x-enum-varnames": [
+        "Book",
+        "Anime",
+        "Music",
+        "Game",
+        "Real"
+      ]
+    },
+    "limit": {
+      "description": "分页参数",
+      "title": "Limit",
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "default": 30
+    },
+    "offset": {
+      "description": "分页参数",
+      "title": "Offset",
+      "minimum": 0,
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "required": [
+    "index_id"
+  ]
+}

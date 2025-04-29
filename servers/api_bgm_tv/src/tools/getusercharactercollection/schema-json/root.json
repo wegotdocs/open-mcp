@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "description": "设置了用户名之后无法使用 UID。",
+      "type": "string"
+    },
+    "character_id": {
+      "description": "角色 ID",
+      "title": "Character ID",
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "username",
+    "character_id"
+  ]
+}

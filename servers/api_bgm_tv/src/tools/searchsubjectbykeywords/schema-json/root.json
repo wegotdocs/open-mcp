@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "keywords": {
+      "description": "关键词 <br> 需要 URL Encode",
+      "type": "string"
+    },
+    "type": {
+      "description": "条目类型 <br> 1 = book <br> 2 = anime <br> 3 = music <br> 4 = game <br> 6 = real",
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "example": 2
+    },
+    "responseGroup": {
+      "description": "返回数据大小",
+      "type": "string",
+      "enum": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "default": "small"
+    },
+    "start": {
+      "description": "开始条数",
+      "type": "integer"
+    },
+    "max_results": {
+      "description": "每页条数 <br> 最多 25",
+      "type": "integer",
+      "maximum": 25
+    }
+  },
+  "required": [
+    "keywords"
+  ]
+}

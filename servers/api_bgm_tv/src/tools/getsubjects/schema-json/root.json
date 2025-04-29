@@ -1,0 +1,210 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "条目类型\n- `1` 为 书籍\n- `2` 为 动画\n- `3` 为 音乐\n- `4` 为 游戏\n- `6` 为 三次元\n\n没有 `5`",
+      "title": "SubjectType",
+      "example": 2,
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "type": "integer",
+      "x-ms-enum": {
+        "name": "SubjectType",
+        "modelAsString": false,
+        "values": [
+          "Book",
+          "Anime",
+          "Music",
+          "Game",
+          "Real"
+        ]
+      },
+      "x-enum-varnames": [
+        "Book",
+        "Anime",
+        "Music",
+        "Game",
+        "Real"
+      ]
+    },
+    "cat": {
+      "description": "条目分类，参照 `SubjectCategory` enum",
+      "anyOf": [
+        {
+          "title": "SubjectBookCategory",
+          "example": 1001,
+          "enum": [
+            0,
+            1001,
+            1002,
+            1003
+          ],
+          "type": "integer",
+          "description": "书籍类型\n- `0` 为 其他\n- `1001` 为 漫画\n- `1002` 为 小说\n- `1003` 为 画集",
+          "x-ms-enum": {
+            "name": "SubjectBookCategory",
+            "modelAsString": false,
+            "values": [
+              "Other",
+              "Comic",
+              "Novel",
+              "Illustration"
+            ]
+          },
+          "x-enum-varnames": [
+            "Other",
+            "Comic",
+            "Novel",
+            "Illustration"
+          ]
+        },
+        {
+          "title": "SubjectAnimeCategory",
+          "example": 1,
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "type": "integer",
+          "description": "动画类型\n- `0` 为 其他\n- `1` 为 TV\n- `2` 为 OVA\n- `3` 为 Movie\n- `5` 为 WEB",
+          "x-ms-enum": {
+            "name": "SubjectAnimeCategory",
+            "modelAsString": false,
+            "values": [
+              "Other",
+              "TV",
+              "OVA",
+              "Movie",
+              "WEB"
+            ]
+          },
+          "x-enum-varnames": [
+            "Other",
+            "TV",
+            "OVA",
+            "Movie",
+            "WEB"
+          ]
+        },
+        {
+          "title": "SubjectGameCategory",
+          "example": 4001,
+          "enum": [
+            0,
+            4001,
+            4003,
+            4002,
+            4005
+          ],
+          "type": "integer",
+          "description": "游戏类型\n- `0` 为 其他\n- `4001` 为 游戏\n- `4002` 为 软件\n- `4003` 为 扩展包\n- `4005` 为 桌游",
+          "x-ms-enum": {
+            "name": "SubjectGameCategory",
+            "modelAsString": false,
+            "values": [
+              "Other",
+              "Games",
+              "Software",
+              "DLC",
+              "Tabletop"
+            ]
+          },
+          "x-enum-varnames": [
+            "Other",
+            "Games",
+            "Software",
+            "DLC",
+            "Tabletop"
+          ]
+        },
+        {
+          "title": "SubjectRealCategory",
+          "example": 6,
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            6001,
+            6002,
+            6003,
+            6004
+          ],
+          "type": "integer",
+          "description": "电影类型\n- `0` 为 其他\n- `1` 为 日剧\n- `2` 为 欧美剧\n- `3` 为 华语剧\n- `6001` 为 电视剧\n- `6002` 为 电影\n- `6003` 为 演出\n- `6004` 为 综艺",
+          "x-ms-enum": {
+            "name": "SubjectRealCategory",
+            "modelAsString": false,
+            "values": [
+              "Other",
+              "JP",
+              "EN",
+              "CN",
+              "TV",
+              "Movie",
+              "Live",
+              "Show"
+            ]
+          },
+          "x-enum-varnames": [
+            "Other",
+            "JP",
+            "EN",
+            "CN",
+            "TV",
+            "Movie",
+            "Live",
+            "Show"
+          ]
+        }
+      ]
+    },
+    "series": {
+      "description": "是否系列，仅对书籍类型的条目有效",
+      "type": "boolean"
+    },
+    "platform": {
+      "description": "平台，仅对游戏类型的条目有效",
+      "type": "string"
+    },
+    "sort": {
+      "description": "排序，枚举值 {date|rank}",
+      "title": "Sort Order",
+      "type": "string"
+    },
+    "year": {
+      "description": "年份",
+      "type": "integer"
+    },
+    "month": {
+      "description": "月份",
+      "type": "integer"
+    },
+    "limit": {
+      "description": "分页参数",
+      "title": "Limit",
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "default": 30
+    },
+    "offset": {
+      "description": "分页参数",
+      "title": "Offset",
+      "minimum": 0,
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "required": [
+    "type"
+  ]
+}
