@@ -1,0 +1,183 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "compliances": {
+      "description": "The list of compliance provided by the domain.",
+      "example": [
+        "SOC2",
+        "GDPR",
+        "HIPAA"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "dataResidency": {
+      "description": "The user data storage location.",
+      "example": [
+        "US",
+        "EU",
+        "China"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dataSharing": {
+      "description": "Does the provider share user data with 3rd party or services.",
+      "type": "boolean"
+    },
+    "dataSharingConsent": {
+      "description": "Does the provider share user data with consent with 3rd party or services.",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "A brief description about the AI domain and what services it provides.",
+      "example": "A description text",
+      "type": "string"
+    },
+    "domain": {
+      "description": "The domain of the AI provider.",
+      "example": "openai.com",
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "isAIDomain": {
+      "description": "Flag to say if the domain is a AI domain or not.",
+      "type": "boolean"
+    },
+    "models": {
+      "description": "List of AI models used by the domain.",
+      "example": [
+        "gpt-4o",
+        "gpt-4"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "propagate": {
+      "default": true,
+      "description": "Propagates the object to all child namespaces. This is always true.",
+      "type": "boolean"
+    },
+    "providerName": {
+      "description": "The name of the main provider.",
+      "example": "chatgpt",
+      "type": "string"
+    },
+    "providerRetentionPolicies": {
+      "description": "The data retention policies by the domain for each type of users.",
+      "items": {
+        "description": "Represents data retention policy for a given subscription type.",
+        "properties": {
+          "description": {
+            "description": "Description of the data retention policy for the subscription type.",
+            "type": "string"
+          },
+          "duration": {
+            "description": "The duration of time the data retention policy applies to the subscription type.",
+            "type": "string"
+          },
+          "subscriptionType": {
+            "default": "Free",
+            "description": "The type of subscription for which the data retention policy needs to be\ndefined.",
+            "enum": [
+              "Enterprise",
+              "Paid",
+              "Free"
+            ],
+            "example": "Free"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "providerTrainingPolicies": {
+      "description": "Does the provider use user data for training its model.",
+      "example": [
+        {
+          "description": "provider uses user data for training the models on Free plan ",
+          "subscriptiontype": "Free",
+          "useData": true
+        }
+      ],
+      "items": {
+        "description": "Represents provider data usage policy for a given subscription type.",
+        "properties": {
+          "description": {
+            "description": "Description of the data usage policy for a subscription type.",
+            "type": "string"
+          },
+          "subscriptionType": {
+            "default": "Free",
+            "description": "The type of subscription for which the data retention policy needs to be\ndefined.",
+            "enum": [
+              "Enterprise",
+              "Paid",
+              "Free"
+            ],
+            "example": "Free"
+          },
+          "useData": {
+            "description": "User Data usage to train or improve the models based on the subscription type.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "riskExplanation": {
+      "description": "A Markdown formatted string explaining the risk score.",
+      "example": "A markdown string",
+      "type": "string"
+    },
+    "riskScore": {
+      "description": "The risk score for the domain.",
+      "example": 0.5,
+      "type": "number"
+    },
+    "thirdPartyModelUsage": {
+      "description": "Does provider use third party model.",
+      "type": "boolean"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "riskScore"
+  ]
+}
