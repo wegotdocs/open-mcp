@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "query": {
+      "description": "The query in Prometheus query format.",
+      "example": [
+        "sample_metric{environment=\"production\"}"
+      ],
+      "type": "string"
+    },
+    "result": {
+      "description": "The result of the request.",
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "resultType": {
+      "description": "The type of the result.",
+      "type": "string"
+    },
+    "time": {
+      "description": "The time for the query in any format supported by\nhttps://github.com/araddon/dateparse.",
+      "example": 1700083708672317000,
+      "type": "string"
+    },
+    "timeRelative": {
+      "description": "The relative time of the time window as time.Duration.",
+      "example": "10h",
+      "type": "string"
+    }
+  },
+  "required": [
+    "query"
+  ]
+}
