@@ -1,0 +1,159 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "accessDeniedMessage": {
+      "description": "The message that is sent if the access is denied.",
+      "example": "You must use the company workspace",
+      "type": "string"
+    },
+    "action": {
+      "default": "Allow",
+      "description": "Define if the provider is allowed or denied for the match expression.",
+      "enum": [
+        "Allow",
+        "Deny"
+      ]
+    },
+    "alertDefinition": {
+      "description": "The definition to use for alerting when action is deny.",
+      "type": "string"
+    },
+    "contentPolicies": {
+      "description": "The list of content policies to apply when the user has access to the provider.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the access policy.",
+      "type": "string"
+    },
+    "disabled": {
+      "description": "If true, the policy is disabled.",
+      "type": "boolean"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "match": {
+      "description": "The match criteria used to take a decision on the access.",
+      "example": "[\n  {\n    \"key\": \"Team\"\n    \"operator\": \"Any\"\n    \"values\": [\"engineers\"]\n  }\n]",
+      "items": {
+        "description": "Represents a Predicate.",
+        "properties": {
+          "key": {
+            "description": "The key of the predicate.",
+            "enum": [
+              "Categories",
+              "Confidentiality",
+              "CustomDataTypes",
+              "DstApp",
+              "DstComponent",
+              "DstIPRange",
+              "Exploits",
+              "IsIngress",
+              "Keywords",
+              "Languages",
+              "Malcontents",
+              "Modality",
+              "Model",
+              "PIIs",
+              "Plugin",
+              "Provider",
+              "Relevance",
+              "RiskScore",
+              "Secrets",
+              "Size",
+              "SrcApp",
+              "SrcComponent",
+              "SrcIPRange",
+              "Status",
+              "Team",
+              "Tools",
+              "Topics",
+              "Workspace"
+            ],
+            "example": "Provider"
+          },
+          "operator": {
+            "description": "The operator of the predicate.",
+            "enum": [
+              "All",
+              "Any",
+              "Empty",
+              "Equals",
+              "EqualsOrGreaterThan",
+              "EqualsOrLesserThan",
+              "NotAny",
+              "NotEmpty",
+              "NotEquals"
+            ],
+            "example": "Equals"
+          },
+          "values": {
+            "description": "The values of the predicate.",
+            "example": "xxx-xxx-xxx-xxx",
+            "items": {
+              "type": "any"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "key",
+          "operator"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "minimalLogging": {
+      "description": "If true, the system will not log the messages that are not considered as\nviolations.",
+      "type": "boolean"
+    },
+    "name": {
+      "description": "The name of the access policy.",
+      "example": "my access policy",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "offbandAnalysis": {
+      "description": "If true, the system will run analysis in parallel of the user request. When this\nis active, no further policing will be done, and no content policy will run.\nThis can be used to observe the transmitted data and have analysis report,\nwithout adding latency to the end user request, at the price of not being able\nto do any form of content moderation.",
+      "type": "boolean"
+    },
+    "permissive": {
+      "description": "If set, just log the decision, but don't enforce it.",
+      "type": "boolean"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
