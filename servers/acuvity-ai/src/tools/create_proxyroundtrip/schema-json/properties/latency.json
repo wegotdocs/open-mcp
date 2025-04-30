@@ -1,0 +1,26 @@
+{
+  "description": "Holds information about latencies introduced by Apex.",
+  "properties": {
+    "accessPolicy": {
+      "description": "How much time it took to run the access policy in nanoseconds.",
+      "type": "integer"
+    },
+    "analysis": {
+      "description": "How much time it took to run content analysis in nanoseconds.",
+      "type": "integer"
+    },
+    "assignPolicy": {
+      "description": "How much time it took to run the assign policy in nanoseconds.",
+      "type": "integer"
+    },
+    "contentPolicy": {
+      "description": "How much time it took to run content policy in nanoseconds.",
+      "type": "integer"
+    },
+    "extraction": {
+      "description": "How much time it took to run input or output extraction in nanoseconds.",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

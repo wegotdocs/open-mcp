@@ -1,0 +1,20 @@
+{
+  "description": "Used to transform errors before sending them back to the client.",
+  "properties": {
+    "contentType": {
+      "default": "application/json",
+      "description": "The Content-Type to use when returning a formatted error.",
+      "type": "string"
+    },
+    "statusCode": {
+      "description": "HTTP status code to return, instead of the classical one.",
+      "type": "integer"
+    },
+    "template": {
+      "description": "Go template to process and transform the error. The delimiters\nare << and >> to prevent collision with acuctl templating.\nThe template will be passed the following informations:\n\n- `.Messages`: a list of string containing the messages to return.\n- `.Code`: The original status code.\n- `.TransformedCode`: The transformed status code.\n- `.Action`: The policy decision action (ask or deny).\n\nAll the sprig text function are available.",
+      "example": "{\"error\": \"<< .Messages | join \", \" >>\" }",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

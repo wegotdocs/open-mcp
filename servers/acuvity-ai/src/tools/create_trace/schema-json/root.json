@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "end": {
+      "description": "The end of the time window in any format supported by\nhttps://github.com/araddon/dateparse.",
+      "example": "May 8, 2009 5:57:51 PM",
+      "type": "string"
+    },
+    "endRelative": {
+      "description": "The relative end of the time window as time.Duration.",
+      "example": "10h",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "result": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `result` to the tool, first call the tool `expandSchema` with \"/properties/result\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The result of the request.</property-description>",
+      "additionalProperties": true
+    },
+    "start": {
+      "description": "The start of the time window in any format supported by\nhttps://github.com/araddon/dateparse.",
+      "example": 1700083708672317000,
+      "type": "string"
+    },
+    "startRelative": {
+      "description": "The relative start of the time window as time.Duration.",
+      "example": "10h",
+      "type": "string"
+    },
+    "traceID": {
+      "description": "The trace ID to query.",
+      "example": [
+        "1234567890abcdef"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "traceID"
+  ]
+}

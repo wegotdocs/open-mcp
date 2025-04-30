@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the custom data type.",
+      "type": "string"
+    },
+    "friendlyName": {
+      "description": "Friendly name of the object.",
+      "example": "Simple name",
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "matches": {
+      "description": "A list of RE2 regular expressions used for data detection. Each expression can\ninclude zero or one capturing group. If no capturing group is present, detection\npositions will be determined based on the entire captured portion of the data.\nIf a single capturing group is included, the detection positions will correspond\nto the part defined by that group. However, if more than one capturing group is\nfound, the system will return a validation error. Additionally, extra\nvalidations are performed to ensure that the regular expressions are not overly\ncomplex, preventing any negative impact on detection engine performance.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "The internal reference name of the object. It is a sanitized version of Friendly\nName if empty.",
+      "example": "my-simple-policy",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "propagate": {
+      "default": true,
+      "description": "Propagates the object to all child namespaces. This is always true.",
+      "type": "boolean"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "friendlyName"
+  ]
+}
