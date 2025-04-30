@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "dataTypes": {
+      "description": "A list of all the data types which are associated to this data set.",
+      "example": [
+        "ssn",
+        "person",
+        "location"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "description": {
+      "description": "Description of the custom data set.",
+      "type": "string"
+    },
+    "friendlyName": {
+      "description": "Friendly name of the object.",
+      "example": "Simple name",
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The internal reference name of the object. It is a sanitized version of Friendly\nName if empty.",
+      "example": "my-simple-policy",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "propagate": {
+      "default": true,
+      "description": "Propagates the object to all child namespaces. This is always true.",
+      "type": "boolean"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "friendlyName"
+  ]
+}

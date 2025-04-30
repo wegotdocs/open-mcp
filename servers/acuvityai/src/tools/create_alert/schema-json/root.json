@@ -1,0 +1,186 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "alertDefinition": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `alertDefinition` to the tool, first call the tool `expandSchema` with \"/properties/alertDefinition\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Represents a definition of an alert.</property-description>",
+      "additionalProperties": true
+    },
+    "alertDefinitionName": {
+      "description": "The name identifier of the alert definition that triggered the alert.",
+      "example": "warning-notification",
+      "type": "string"
+    },
+    "alertEvents": {
+      "description": "The events related to the alert.",
+      "items": {
+        "description": "Represents an alert event raised by a policy.",
+        "properties": {
+          "alertDefinition": {
+            "description": "The name of the alert definition that triggered the alert event.",
+            "example": "warning-notification",
+            "type": "string"
+          },
+          "alertDefinitionNamespace": {
+            "description": "The namespace of the alert definition.",
+            "type": "string"
+          },
+          "principal": {
+            "description": "Describe the principal.",
+            "properties": {
+              "IP": {
+                "description": "The source IP address of the request.",
+                "example": "192.0.2.42",
+                "type": "string"
+              },
+              "app": {
+                "description": "Describes the principal information of an application.",
+                "properties": {
+                  "component": {
+                    "description": "The component of the application request.",
+                    "example": "frontend",
+                    "type": "string"
+                  },
+                  "labels": {
+                    "description": "The list of labels attached to an application request.",
+                    "example": [
+                      "country=us",
+                      "another-label"
+                    ],
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "description": "The name of the application.",
+                    "example": "MyApp",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "authType": {
+                "description": "The type of authentication.",
+                "enum": [
+                  "Certificate",
+                  "UserToken",
+                  "AppToken",
+                  "Hostname",
+                  "Token",
+                  "ComponentToken",
+                  "External"
+                ]
+              },
+              "claims": {
+                "description": "List of claims extracted from the user query.",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "team": {
+                "description": "The team that was used to authorize the request.",
+                "example": "admins",
+                "type": "string"
+              },
+              "tokenName": {
+                "description": "The name of the token, if any.",
+                "example": "my-user-token",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of principal.",
+                "enum": [
+                  "User",
+                  "App",
+                  "External"
+                ],
+                "example": [
+                  "User"
+                ]
+              },
+              "user": {
+                "description": "Describes the principal information of a user.",
+                "properties": {
+                  "name": {
+                    "description": "Identification bit that will be used to identify the origin of the request.",
+                    "example": "user@company.com",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          },
+          "provider": {
+            "description": "The provider used that the alert came from.",
+            "type": "string"
+          },
+          "timestamp": {
+            "description": "When the alert event was raised.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "alertDefinition",
+          "principal"
+        ],
+        "type": "object"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "counter": {
+      "default": 1,
+      "description": "The number of times the alert was raised.",
+      "type": "integer"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "end": {
+      "description": "When the alert was last raised.",
+      "example": "2024-06-21T00:36:15.021Z",
+      "format": "date-time",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "start": {
+      "description": "When the alert was first raised.",
+      "example": "2024-06-21T00:06:14.047Z",
+      "format": "date-time",
+      "type": "string"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "alertDefinitionName",
+    "counter",
+    "end",
+    "start"
+  ]
+}

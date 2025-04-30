@@ -1,0 +1,169 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the content policy.",
+      "type": "string"
+    },
+    "friendlyName": {
+      "description": "Friendly name of the object.",
+      "example": "Simple name",
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "moderations": {
+      "description": "The list of moderations to take when the user has access to the provider.",
+      "example": "You must use the company workspace",
+      "items": {
+        "description": "Represents a moderation to take in the content policy.",
+        "properties": {
+          "action": {
+            "description": "The actual action to take when triggered.",
+            "enum": [
+              "Warn",
+              "Block",
+              "None"
+            ],
+            "example": "Warn"
+          },
+          "alertDefinition": {
+            "description": "The definition to use for alerting.",
+            "type": "string"
+          },
+          "link": {
+            "description": "Sets an optional link to reference a document with more explanation on the\nmoderation.",
+            "example": "https://acme.com/policy/aiusage",
+            "type": "string"
+          },
+          "message": {
+            "description": "The message if the moderation action is warn or block.",
+            "example": "This is not safe for work place (NSFW)",
+            "type": "string"
+          },
+          "predicates": {
+            "description": "The predicate expression for the moderation to be triggered.",
+            "items": {
+              "description": "Represents a Predicate.",
+              "properties": {
+                "key": {
+                  "description": "The key of the predicate.",
+                  "enum": [
+                    "Categories",
+                    "Confidentiality",
+                    "CustomDataTypes",
+                    "DstApp",
+                    "DstComponent",
+                    "DstIPRange",
+                    "Exploits",
+                    "IsIngress",
+                    "Keywords",
+                    "Languages",
+                    "Malcontents",
+                    "Modality",
+                    "Model",
+                    "PIIs",
+                    "Plugin",
+                    "Provider",
+                    "Relevance",
+                    "RiskScore",
+                    "Secrets",
+                    "Size",
+                    "SrcApp",
+                    "SrcComponent",
+                    "SrcIPRange",
+                    "Status",
+                    "Team",
+                    "Tools",
+                    "Topics",
+                    "Workspace"
+                  ],
+                  "example": "Provider"
+                },
+                "operator": {
+                  "description": "The operator of the predicate.",
+                  "enum": [
+                    "All",
+                    "Any",
+                    "Empty",
+                    "Equals",
+                    "EqualsOrGreaterThan",
+                    "EqualsOrLesserThan",
+                    "NotAny",
+                    "NotEmpty",
+                    "NotEquals"
+                  ],
+                  "example": "Equals"
+                },
+                "values": {
+                  "description": "The values of the predicate.",
+                  "example": "xxx-xxx-xxx-xxx",
+                  "items": {
+                    "type": "any"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "key",
+                "operator"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "redact": {
+            "description": "If true, redacts the keywords, PIIs, and/or secrets defined in the predicates.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "The internal reference name of the object. It is a sanitized version of Friendly\nName if empty.",
+      "example": "my-simple-policy",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "propagate": {
+      "default": true,
+      "description": "Propagates the object to all child namespaces. This is always true.",
+      "type": "boolean"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "friendlyName"
+  ]
+}

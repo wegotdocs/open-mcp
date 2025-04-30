@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the page data view.",
+      "example": "all-chatgpt-conversations",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "pageID": {
+      "description": "The name of the page.",
+      "example": "conversations",
+      "type": "string"
+    },
+    "predicates": {
+      "description": "The match criteria used to make a query.",
+      "example": "[\n  {\n    \"key\": \"provider\"\n    \"operator\": \"Equals\"\n    \"values\": [\"chatgpt\"]\n  }\n]",
+      "items": {
+        "description": "Represents a page data view predicate.",
+        "properties": {
+          "key": {
+            "description": "The key of the page data view predicate.",
+            "example": "name",
+            "type": "string"
+          },
+          "operator": {
+            "description": "The operator of the page data view predicate.",
+            "enum": [
+              "All",
+              "Any",
+              "Empty",
+              "Equals",
+              "EqualsOrGreaterThan",
+              "EqualsOrLesserThan",
+              "NotAny",
+              "NotEmpty",
+              "NotEquals"
+            ],
+            "example": "Equals"
+          },
+          "values": {
+            "description": "The values of the predicate.",
+            "example": [
+              "chatgpt"
+            ],
+            "items": {
+              "type": "any"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "key",
+          "operator"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "pageID"
+  ]
+}

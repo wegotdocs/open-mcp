@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "end": {
+      "description": "The end of the time window in any format supported by\nhttps://github.com/araddon/dateparse.",
+      "example": "May 8, 2009 5:57:51 PM",
+      "type": "string"
+    },
+    "endRelative": {
+      "description": "The relative end of the time window as time.Duration.",
+      "example": "10h",
+      "type": "string"
+    },
+    "limit": {
+      "default": 20,
+      "description": "Limit the number of search result.",
+      "type": "integer"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "query": {
+      "description": "The query in TraceQL format.",
+      "example": [
+        "{resource.service.name = \"my-service\"}"
+      ],
+      "type": "string"
+    },
+    "result": {
+      "description": "The result of the request.",
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "spansPerSpanSet": {
+      "default": 3,
+      "description": "The max number of spans to return per span set. If set to -1, it means no span\nat all. 0 will use the default value (3).",
+      "type": "integer"
+    },
+    "start": {
+      "description": "The start of the time window in any format supported by\nhttps://github.com/araddon/dateparse.",
+      "example": 1700083708672317000,
+      "type": "string"
+    },
+    "startRelative": {
+      "description": "The relative start of the time window as time.Duration.",
+      "example": "10h",
+      "type": "string"
+    }
+  },
+  "required": [
+    "query"
+  ]
+}

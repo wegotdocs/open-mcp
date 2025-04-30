@@ -1,0 +1,27 @@
+{
+  "description": "Describes the principal information of an application.",
+  "properties": {
+    "component": {
+      "description": "The component of the application request.",
+      "example": "frontend",
+      "type": "string"
+    },
+    "labels": {
+      "description": "The list of labels attached to an application request.",
+      "example": [
+        "country=us",
+        "another-label"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "The name of the application.",
+      "example": "MyApp",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

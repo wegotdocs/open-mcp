@@ -1,0 +1,19 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "get_all_orgstorages",
+  "toolDescription": "List all available orgstorages.",
+  "baseUrl": "https://api.acuvity.ai",
+  "path": "/orgstorages",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "query": {
+      "q": "q"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

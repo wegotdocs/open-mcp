@@ -1,0 +1,20 @@
+{
+  "description": "Additional configuration for sending an email.",
+  "properties": {
+    "recipients": {
+      "description": "The list of email recipients the notification will be sent to.",
+      "example": [
+        "info@acuvity.ai",
+        "me@email.com"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "recipients"
+  ],
+  "type": "object"
+}

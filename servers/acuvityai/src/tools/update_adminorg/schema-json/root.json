@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "forceReimportTemplate": {
+      "description": "This property if true will force reimport the template data. Setting it false is\na noop.",
+      "type": "boolean"
+    },
+    "githubSigninEnabled": {
+      "description": "Enables the global Sign In With Github for the organization.",
+      "type": "boolean"
+    },
+    "gitlabSigninEnabled": {
+      "description": "Enables the global Sign In With Gitlab for the organization.",
+      "type": "boolean"
+    },
+    "googleSigninEnabled": {
+      "description": "Enables the global Sign In With Google for the organization.",
+      "type": "boolean"
+    },
+    "huggingfaceSigninEnabled": {
+      "description": "Enables the global Sign In With Huggingface for the organization.",
+      "type": "boolean"
+    },
+    "mode": {
+      "default": "Normal",
+      "description": "The mode of the organization.",
+      "enum": [
+        "Trial",
+        "TrialEmployees",
+        "TrialApps",
+        "Pilot",
+        "Normal",
+        "NormalEmployees",
+        "NormalApps",
+        "Blocked",
+        "Dead"
+      ]
+    },
+    "name": {
+      "description": "The name of the organization.",
+      "example": "acme.com",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "reimportTemplate": {
+      "description": "This is an internal property used to decide if the org template needs to be\nreimported.",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "subject": {
+      "description": "A tag expression that identifies the authorized user(s). If set it will\nconfigure the complete subject of the admin api authorization, ignoring anything\npassed in claims.",
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "type": {
+      "default": "Full",
+      "description": "The type of organization. Either Full or Single. Full represents an organization\nthat will need to onboard additional users, while Single represents a single\nuser account.",
+      "enum": [
+        "Full",
+        "Single"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

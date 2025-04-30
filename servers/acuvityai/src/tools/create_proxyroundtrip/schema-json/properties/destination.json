@@ -1,0 +1,40 @@
+{
+  "description": "Represents the destination that this request was made to.",
+  "properties": {
+    "app": {
+      "description": "The name of the application that the domain belongs to.",
+      "example": "MyApp",
+      "type": "string"
+    },
+    "component": {
+      "description": "The component of the application that the domain belongs to.",
+      "example": "frontend",
+      "type": "string"
+    },
+    "host": {
+      "description": "The host name of the request.",
+      "example": "api.openai.com",
+      "type": "string"
+    },
+    "ip": {
+      "description": "The destination IP address of the request.",
+      "example": "192.0.2.42",
+      "type": "string"
+    },
+    "labels": {
+      "description": "The list of labels attached to the application request destination.",
+      "example": [
+        "country=us",
+        "another-label"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "host"
+  ],
+  "type": "object"
+}

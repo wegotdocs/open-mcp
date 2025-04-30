@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "email": {
+      "description": "The email requesting the signup. This email can be considered valid and\nverified, as for the signup request to succeed, it must have been verified by\nsigning up with one of the oauth2 source we support.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "type": {
+      "description": "The type of signup requested.",
+      "enum": [
+        "Employees",
+        "Apps"
+      ],
+      "example": "Employees"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "verifiedBy": {
+      "description": "The source of verification.",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}
