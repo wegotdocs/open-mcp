@@ -1,0 +1,45 @@
+{
+  "description": "Holds all references to a trace.",
+  "properties": {
+    "parentSpanID": {
+      "description": "The parent span ID that is being referenced.",
+      "example": "00f067aa0ba902b7",
+      "type": "string"
+    },
+    "spanEnd": {
+      "description": "When the span ended.",
+      "example": "2025-03-22T14:35:00.123456789Z",
+      "format": "date-time",
+      "type": "string"
+    },
+    "spanID": {
+      "description": "The span ID that is being referenced.",
+      "example": "6ba80aaa3b2f43d8",
+      "type": "string"
+    },
+    "spanName": {
+      "description": "The name of the span that is being collected.",
+      "example": "acuvity_prompt_input_analysis",
+      "type": "string"
+    },
+    "spanStart": {
+      "description": "When the span started.",
+      "example": "2025-03-22T14:35:00.123456789Z",
+      "format": "date-time",
+      "type": "string"
+    },
+    "traceID": {
+      "description": "The Trace ID that is being referenced.",
+      "example": "4bf92f3577b34da6a3ce929d0e0e4736",
+      "type": "string"
+    }
+  },
+  "required": [
+    "spanEnd",
+    "spanID",
+    "spanName",
+    "spanStart",
+    "traceID"
+  ],
+  "type": "object"
+}

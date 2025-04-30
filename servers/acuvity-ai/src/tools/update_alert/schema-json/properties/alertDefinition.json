@@ -1,0 +1,93 @@
+{
+  "description": "Represents a definition of an alert.",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "cooldown": {
+      "default": "5m",
+      "description": "If set, how long until a subsequent alert notification can be raised.",
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "The description of the alert definition.",
+      "type": "string"
+    },
+    "friendlyName": {
+      "description": "Friendly name of the object.",
+      "example": "Simple name",
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "message": {
+      "description": "The message sent when notifying.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The internal reference name of the object. It is a sanitized version of Friendly\nName if empty.",
+      "example": "my-simple-policy",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "propagate": {
+      "default": true,
+      "description": "Propagates the object to all child namespaces. This is always true.",
+      "type": "boolean"
+    },
+    "severity": {
+      "default": "Warning",
+      "description": "The severity of the alert event.",
+      "enum": [
+        "Critical",
+        "Warning",
+        "Info"
+      ]
+    },
+    "sinks": {
+      "description": "The sinks used to notify.",
+      "example": [
+        "Email Notification",
+        "Slack Notification"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "trigger": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `trigger` to the tool, first call the tool `expandSchema` with \"/properties/alertDefinition/properties/trigger\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Represents the criteria to trigger an alert notification.</property-description>",
+      "additionalProperties": true
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "friendlyName",
+    "severity"
+  ],
+  "type": "object"
+}
