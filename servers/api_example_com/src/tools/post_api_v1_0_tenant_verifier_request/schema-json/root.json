@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "tenant": {
+      "description": "The ID of the tenant.",
+      "type": "string",
+      "title": "String"
+    },
+    "callback": {
+      "anyOf": [
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "expires": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "format": "int32",
+      "title": "Int"
+    },
+    "pdId": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "title": "String"
+    },
+    "pdRaw": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": {
+        "type": "object",
+        "title": "*"
+      },
+      "title": "JsonObject"
+    },
+    "syncResponse": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "title": "Boolean"
+    },
+    "toComplete": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "title": "Boolean"
+    }
+  },
+  "required": [
+    "tenant"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "tenant": {
+      "description": "The ID of the tenant.",
+      "type": "string",
+      "title": "String"
+    },
+    "request_uid": {
+      "description": "The ID of the Verify request.",
+      "type": "string",
+      "title": "String"
+    },
+    "availableActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "title": "String"
+          },
+          "data": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": {
+              "type": "object",
+              "title": "*"
+            },
+            "title": "JsonObject"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "title": "AvailableAction"
+      },
+      "title": "List<AvailableAction>"
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "title": "String"
+          },
+          "lang": {
+            "type": "string",
+            "title": "String"
+          },
+          "mimeType": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "title": "String"
+          },
+          "title": {
+            "type": "string",
+            "title": "String"
+          }
+        },
+        "required": [
+          "body",
+          "lang",
+          "title"
+        ],
+        "title": "Message"
+      },
+      "title": "List<Message>"
+    },
+    "reason": {
+      "type": "string",
+      "title": "String"
+    },
+    "status": {
+      "type": "string",
+      "title": "String"
+    }
+  },
+  "required": [
+    "tenant",
+    "request_uid",
+    "availableActions",
+    "messages",
+    "reason",
+    "status"
+  ]
+}

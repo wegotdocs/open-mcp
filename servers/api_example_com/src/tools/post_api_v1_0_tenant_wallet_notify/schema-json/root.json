@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "tenant": {
+      "description": "The ID of the tenant.",
+      "type": "string",
+      "title": "String"
+    },
+    "actions": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "title": "String"
+          },
+          "data": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": {
+              "type": "object",
+              "title": "*"
+            },
+            "title": "JsonObject"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "title": "AvailableAction"
+      },
+      "title": "List<AvailableAction>"
+    },
+    "channel": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "title": "String"
+    },
+    "did": {
+      "type": "string",
+      "title": "String"
+    },
+    "message": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "title": "String"
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "title": "String"
+    }
+  },
+  "required": [
+    "tenant",
+    "did"
+  ]
+}

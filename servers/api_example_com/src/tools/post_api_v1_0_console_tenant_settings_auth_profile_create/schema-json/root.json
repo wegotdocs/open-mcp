@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "tenant": {
+      "description": "tenant",
+      "type": "string",
+      "title": "String"
+    },
+    "credentials": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "password": {
+              "type": "string",
+              "title": "String"
+            },
+            "username": {
+              "type": "string",
+              "title": "String"
+            }
+          },
+          "required": [
+            "password",
+            "username"
+          ],
+          "title": "BasicAuthCredentials"
+        },
+        {
+          "type": "object",
+          "properties": {},
+          "title": "NoAuthCredentials"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "clientId": {
+              "type": "string",
+              "title": "String"
+            },
+            "clientSecret": {
+              "type": "string",
+              "title": "String"
+            },
+            "scope": {
+              "type": "string",
+              "title": "String"
+            },
+            "tokenEndpoint": {
+              "type": "string",
+              "title": "String"
+            }
+          },
+          "required": [
+            "clientId",
+            "clientSecret",
+            "scope",
+            "tokenEndpoint"
+          ],
+          "title": "OAuth2Credentials"
+        }
+      ],
+      "title": "AuthCredentials"
+    },
+    "info": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "title": "String"
+    },
+    "name": {
+      "type": "string",
+      "title": "String"
+    }
+  },
+  "required": [
+    "tenant",
+    "credentials",
+    "name"
+  ]
+}

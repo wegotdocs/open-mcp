@@ -1,0 +1,138 @@
+{
+  "type": "object",
+  "properties": {
+    "did": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `did` to the tool, first call the tool `expandSchema` with \"/properties/did\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "display": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "customParameters": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "title": "*"
+                  },
+                  "title": "JsonArray"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "title": "*"
+                  },
+                  "title": "JsonObject"
+                },
+                {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "content": {
+                          "type": "string",
+                          "title": "String"
+                        },
+                        "isString": {
+                          "type": "boolean",
+                          "title": "Boolean"
+                        }
+                      },
+                      "required": [
+                        "content",
+                        "isString"
+                      ],
+                      "title": "JsonLiteral"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "content": {
+                          "type": "string",
+                          "title": "String"
+                        },
+                        "isString": {
+                          "type": "boolean",
+                          "title": "Boolean"
+                        }
+                      },
+                      "required": [
+                        "content",
+                        "isString"
+                      ],
+                      "title": "JsonNull"
+                    }
+                  ],
+                  "title": "JsonPrimitive"
+                }
+              ],
+              "title": "JsonElement"
+            },
+            "title": "Map<String,JsonElement>"
+          },
+          "backgroundColor": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "title": "String"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "title": "String"
+          },
+          "locale": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "title": "String"
+          },
+          "logo": {
+            "anyOf": [
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "String"
+          },
+          "textColor": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "title": "String"
+          }
+        },
+        "required": [
+          "customParameters",
+          "name"
+        ],
+        "title": "DisplayProperties"
+      },
+      "title": "List<DisplayProperties>"
+    },
+    "tenant": {
+      "type": "string",
+      "title": "String"
+    }
+  },
+  "required": [
+    "did",
+    "display",
+    "tenant"
+  ]
+}

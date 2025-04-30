@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "authProfileId": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "format": "int32",
+      "title": "Int"
+    },
+    "authProfileName": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "title": "String"
+    },
+    "type": {
+      "type": "string",
+      "title": "String"
+    },
+    "url": {
+      "type": "string",
+      "title": "String"
+    }
+  },
+  "required": [
+    "type",
+    "url"
+  ],
+  "title": "Callback"
+}
