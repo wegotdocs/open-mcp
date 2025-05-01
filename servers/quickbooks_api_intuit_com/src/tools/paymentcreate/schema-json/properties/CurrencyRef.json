@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "description": "Reference to the currency in which all amounts on the associated transaction are expressed. This must be defined if multicurrency is enabled for the company. Multicurrency is enabled for the company if Preferences.MultiCurrencyEnabled is set to true. Read more about multicurrency support here. Required if multicurrency is enabled for the company.",
+  "properties": {
+    "value": {
+      "type": "string",
+      "description": "A three letter string representing the ISO 4217 code for the currency. For example, USD, AUD, EUR, and so on."
+    },
+    "name": {
+      "type": "string",
+      "description": "The full name of the currency."
+    }
+  }
+}

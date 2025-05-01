@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "Active": {
+      "type": "boolean",
+      "example": false
+    },
+    "Id": {
+      "type": "string",
+      "example": "8"
+    },
+    "MetaData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `MetaData` to the tool, first call the tool `expandSchema` with \"/properties/MetaData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "Name": {
+      "type": "string",
+      "example": "Business Check-Updated"
+    },
+    "SyncToken": {
+      "type": "string",
+      "example": "0"
+    },
+    "Type": {
+      "type": "string",
+      "example": "NON_CREDIT_CARD"
+    },
+    "domain": {
+      "type": "string",
+      "example": "QBO"
+    },
+    "sparse": {
+      "type": "boolean",
+      "example": false
+    }
+  },
+  "required": []
+}

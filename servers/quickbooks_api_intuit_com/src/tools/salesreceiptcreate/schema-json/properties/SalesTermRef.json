@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "description": "Reference to the sales term associated with the transaction. Query the Term name list resource to determine the appropriate Term object for this reference. Use Term.Id and Term.Name from that object for SalesTermRef.value and SalesTermRef.name, respectively.",
+  "properties": {
+    "value": {
+      "type": "string",
+      "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+    },
+    "name": {
+      "type": "string",
+      "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+    }
+  }
+}

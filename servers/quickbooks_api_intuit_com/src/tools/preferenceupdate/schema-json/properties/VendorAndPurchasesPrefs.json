@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "BillableExpenseTracking": {
+      "type": "boolean",
+      "example": true
+    },
+    "POCustomField": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "CustomField": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "BooleanValue": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "Name": {
+                  "type": "string",
+                  "example": "PurchasePrefs.UsePurchaseCustom3"
+                },
+                "Type": {
+                  "type": "string",
+                  "example": "BooleanType"
+                }
+              }
+            },
+            "example": [
+              {
+                "BooleanValue": false,
+                "Name": "PurchasePrefs.UsePurchaseCustom3",
+                "Type": "BooleanType"
+              },
+              {
+                "BooleanValue": true,
+                "Name": "PurchasePrefs.UsePurchaseCustom2",
+                "Type": "BooleanType"
+              },
+              {
+                "BooleanValue": true,
+                "Name": "PurchasePrefs.UsePurchaseCustom1",
+                "Type": "BooleanType"
+              }
+            ]
+          }
+        }
+      },
+      "example": [
+        {
+          "CustomField": [
+            {
+              "BooleanValue": false,
+              "Name": "PurchasePrefs.UsePurchaseCustom3",
+              "Type": "BooleanType"
+            },
+            {
+              "BooleanValue": true,
+              "Name": "PurchasePrefs.UsePurchaseCustom2",
+              "Type": "BooleanType"
+            },
+            {
+              "BooleanValue": true,
+              "Name": "PurchasePrefs.UsePurchaseCustom1",
+              "Type": "BooleanType"
+            }
+          ]
+        },
+        {
+          "CustomField": [
+            {
+              "Name": "PurchasePrefs.PurchaseCustomName2",
+              "StringValue": "Sales Rep",
+              "Type": "StringType"
+            },
+            {
+              "Name": "PurchasePrefs.PurchaseCustomName1",
+              "StringValue": "Crew #",
+              "Type": "StringType"
+            }
+          ]
+        }
+      ]
+    },
+    "TrackingByCustomer": {
+      "type": "boolean",
+      "example": true
+    }
+  }
+}

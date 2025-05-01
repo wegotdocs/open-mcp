@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "AccountSubType": {
+      "type": "string",
+      "example": "AccountsReceivable"
+    },
+    "AccountType": {
+      "type": "string",
+      "example": "Accounts Receivable"
+    },
+    "Active": {
+      "type": "boolean",
+      "example": true
+    },
+    "Classification": {
+      "type": "string",
+      "example": "Asset"
+    },
+    "CurrencyRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CurrencyRef` to the tool, first call the tool `expandSchema` with \"/properties/CurrencyRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "CurrentBalance": {
+      "type": "number",
+      "example": 0
+    },
+    "CurrentBalanceWithSubAccounts": {
+      "type": "number",
+      "example": 0
+    },
+    "FullyQualifiedName": {
+      "type": "string",
+      "example": "AR3-Updated"
+    },
+    "Id": {
+      "type": "string",
+      "example": "94"
+    },
+    "Name": {
+      "type": "string",
+      "example": "AR3-Updated111"
+    },
+    "SubAccount": {
+      "type": "boolean",
+      "example": false
+    },
+    "SyncToken": {
+      "type": "string",
+      "example": "3"
+    },
+    "domain": {
+      "type": "string",
+      "example": "QBO"
+    },
+    "sparse": {
+      "type": "boolean",
+      "example": false
+    }
+  },
+  "required": []
+}

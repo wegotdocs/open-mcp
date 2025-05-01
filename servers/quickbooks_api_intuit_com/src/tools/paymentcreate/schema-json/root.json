@@ -1,0 +1,243 @@
+{
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string",
+      "example": "delete"
+    },
+    "Id": {
+      "type": "string",
+      "description": "Unique identifier for this object. Sort order is ASC by default."
+    },
+    "TotalAmt": {
+      "type": "number",
+      "description": "Indicates the total amount of the transaction. This includes the total of all the charges, allowances, and taxes."
+    },
+    "CustomerRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CustomerRef` to the tool, first call the tool `expandSchema` with \"/properties/CustomerRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference to a customer or job. Query the Customer name list resource to determine the appropriate Customer object for this reference. Use Customer.Id and Customer.DisplayName from that object for CustomerRef.value and CustomerRef.name, respectively.</property-description>",
+      "additionalProperties": true
+    },
+    "SyncToken": {
+      "type": "string",
+      "description": "Version number of the object. It is used to lock an object for use by one app at a time. As soon as an application modifies an object, its SyncToken is incremented. Attempts to modify an object specifying an older SyncToken fails. Only the latest version of the object is maintained by QuickBooks Online."
+    },
+    "CurrencyRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CurrencyRef` to the tool, first call the tool `expandSchema` with \"/properties/CurrencyRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference to the currency in which all amounts on the associated transaction are expressed. This must be defined if multicurrency is enabled for the company. Multicurrency is enabled for the company if Preferences.MultiCurrencyEnabled is set to true. Read more about multicurrency support here. Required if multicurrency is enabled for the company.</property-description>",
+      "additionalProperties": true
+    },
+    "PrivateNote": {
+      "type": "string",
+      "description": "User entered, organization-private note about the transaction."
+    },
+    "PaymentMethodRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PaymentMethodRef` to the tool, first call the tool `expandSchema` with \"/properties/PaymentMethodRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference to a PaymentMethod associated with this transaction. Query the PaymentMethod name list resource to determine the appropriate PaymentMethod object for this reference. Use PaymentMethod.Id and PaymentMethod.Name from that object for PaymentMethodRef.value and PaymentMethodRef.name, respectively.</property-description>",
+      "additionalProperties": true
+    },
+    "UnappliedAmt": {
+      "type": "number",
+      "description": "Indicates the amount that has not been applied to pay amounts owed for sales transactions."
+    },
+    "DepositToAccountRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DepositToAccountRef` to the tool, first call the tool `expandSchema` with \"/properties/DepositToAccountRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Identifies the account to be used for this payment. Query the Account name list resource to determine the appropriate Account object for this reference, where Account.AccountType is Other Current Asset or Bank. Use Account.Id and Account.Name from that object for DepositToAccountRef.value and DepostiToAccountRef.name, respectively. If you do not specify this account, payment is applied to the Undeposited Funds account.</property-description>",
+      "additionalProperties": true
+    },
+    "ExchangeRate": {
+      "type": "number",
+      "description": "The number of home currency units it takes to equal one unit of currency specified by CurrencyRef. Applicable if multicurrency is enabled for the company"
+    },
+    "Line": {
+      "type": "array",
+      "description": "Zero or more transactions accounting for this payment. Values for Line.LinkedTxn.TxnTypecan be one of the following- - Expense--Payment is reimbursement for expense paid by cash made on behalf of the customer - Check--Payment is reimbursement for expense paid by check made on behalf of the customer - CreditCardCredit--Payment is reimbursement for a credit card credit made on behalf of the customer - JournalEntry--Payment is linked to the representative journal entry - CreditMemo--Payment is linked to the credit memo the customer has with the business - Invoice--The invoice to which payment is applied - Use Line.LinkedTxn.TxnId as the ID in a separate read request for the specific resource to retrieve details of the linked object.",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string",
+                "description": "The Id of the line item. Its use in requests is as folllows - - If Id is greater than zero and exists for the company, the request is considered an update operation for a line item. - If no Id is provided, the Idprovided is less than or equal to zero, or the Idprovided is greater than zero and does not exist for the company then the request is considered a create operation for a line item. - Available in all objects that use lines and support the update operation."
+              },
+              "Amount": {
+                "type": "number",
+                "description": "The amount of the line item."
+              },
+              "DetailType": {
+                "type": "string",
+                "description": "Set to ItemBasedExpenseLineDetail for this type of line.",
+                "enum": [
+                  ""
+                ]
+              },
+              "ItemBasedExpenseLineDetail": {
+                "type": "object",
+                "description": "Item Based Expense Line Detail",
+                "properties": {
+                  "TaxInclusiveAmt": {
+                    "type": "number",
+                    "description": "The total amount of the line item including tax. Constraints- Available when endpoint is evoked with the minorversion=1query parameter."
+                  },
+                  "ItemRef": {
+                    "type": "object",
+                    "description": "Reference to the Item. Query the Item name list resource to determine the appropriate Item object for this reference. - Use Item.Id and Item.Name from that object for ItemRef.value and ItemRef.name, respectively. - When a line lacks an ItemRef it is treated as documentation and the Line.Amount attribute is ignored. - For France locales- The account associated with the referenced Item object is looked up in the account category list. - If this account has same location as specified in the transaction by the TransactionLocationType attribute and the same VAT as in the line item TaxCodeRef attribute, then the item account is used. - If there is a mismatch, then the account from the account category list that matches the transaction location and VAT is used. - If this account is not present in the account category list, then a new account is created with the new location, new VAT code, and all other attributes as in the default account.",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                      }
+                    }
+                  },
+                  "CustomerRef": {
+                    "type": "object",
+                    "description": "Reference to a customer or job. Query the Customer name list resource to determine the appropriate Customer object for this reference. Use Customer.Id and Customer.DisplayName from that object for CustomerRef.value and CustomerRef.name, respectively.",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                      }
+                    }
+                  },
+                  "PriceLevelRef": {
+                    "type": "object",
+                    "description": "Reference to the PriceLevel of the service or item for the line. Support for this element will be available in the coming months.",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                      }
+                    }
+                  },
+                  "ClassRef": {
+                    "type": "object",
+                    "description": "Reference to the Class associated with the expense. Available if Preferences.AccountingInfoPrefs.ClassTrackingPerLine is set to true. Query the Class name list resource to determine the appropriate Class object for this reference. Use Class.Id and Class.Name from that object for ClassRef.value and ClassRef.name, respectively.",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                      }
+                    }
+                  },
+                  "TaxCodeRef": {
+                    "type": "object",
+                    "description": "Reference to the TaxCodefor this item. Query the TaxCode name list resource to determine the appropriate TaxCode object for this reference. Use TaxCode.Id and TaxCode.Name from that object for TaxCodeRef.value and TaxCodeRef.name, respectively.",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                      }
+                    }
+                  },
+                  "MarkupInfo": {
+                    "type": "object",
+                    "description": "Reference to the TaxCodefor this item. Query the TaxCode name list resource to determine the appropriate TaxCode object for this reference. Use TaxCode.Id and TaxCode.Name from that object for TaxCodeRef.value and TaxCodeRef.name, respectively."
+                  },
+                  "BillableStatus": {
+                    "type": "string",
+                    "description": "The billable status of the expense. Valid values- Billable, NotBillable, HasBeenBilled"
+                  },
+                  "Qty": {
+                    "type": "number",
+                    "description": "Number of items for the line."
+                  },
+                  "UnitPrice": {
+                    "type": "number",
+                    "description": "Unit price of the subject item as referenced by ItemRef. Corresponds to the Rate column on the QuickBooks Online UI to specify either unit price, a discount, or a tax rate for item. If used for unit price, the monetary value of the service or product, as expressed in the home currency. If used for a discount or tax rate, express the percentage as a fraction. For example, specify 0.4 for 40% tax."
+                  }
+                }
+              },
+              "LinkedTxn": {
+                "type": "array",
+                "description": "Zero or more PurchaseOrder transactions linked to this Bill object. The LinkedTxn.TxnType should always be set to PurchaseOrder. Use LinkedTxn.TxnId as the ID of the PurchaseOrder. When updating an existing Bill to link to a PurchaseOrder a new Line must be created. This behavior matches the QuickBooks UI as it does not allow the linking of an existing line, but rather a new line must be added to link the PurchaseOrder. Over the API this is achieved by simply updating the Bill Line.Id to something new. This will ensure old bill line is deleted and the new line is linked to the PurchaseOrder.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "TxnId": {
+                      "type": "string",
+                      "description": "Transaction Id of the related transaction."
+                    },
+                    "TxnType": {
+                      "type": "string",
+                      "description": "Transaction type of the linked object."
+                    },
+                    "TxnLineId": {
+                      "type": "string",
+                      "description": "Required for Deposit and Bill entities. -The line number of a specific line of the linked transaction. - If supplied, the TxnId and TxnType attributes of the linked transaction must also be populated."
+                    }
+                  }
+                }
+              },
+              "Description": {
+                "type": "string",
+                "description": "Free form text description of the line item that appears in the printed record."
+              },
+              "LineNum": {
+                "type": "number",
+                "description": "Specifies the position of the line in the collection of transaction lines. Positive Integer."
+              }
+            }
+          }
+        ]
+      }
+    },
+    "TxnSource": {
+      "type": "string",
+      "description": "Used internally to specify originating source of a credit card transaction."
+    },
+    "ARAccountRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ARAccountRef` to the tool, first call the tool `expandSchema` with \"/properties/ARAccountRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies the accounts receivable account associated with this payment. Query the Account name list resource to determine the appropriate Account object for this reference. Use Account.Id and Account.Name from that object for ARAccountRef.value and ARAccountRef.name, respectively. The specified account must have Account.AccountType set to Accounts Receivable.</property-description>",
+      "additionalProperties": true
+    },
+    "TxnDate": {
+      "type": "string",
+      "description": "The date entered by the user when this transaction occurred. For posting transactions, this is the posting date that affects the financial statements. If the date is not supplied, the current date on the server is used. Sort order is ASC by default."
+    },
+    "CreditCardPayment": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CreditCardPayment` to the tool, first call the tool `expandSchema` with \"/properties/CreditCardPayment\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Information about a payment received by credit card. Inject with data only if the payment was transacted through Intuit Payments API.</property-description>",
+      "additionalProperties": true
+    },
+    "TransactionLocationType": {
+      "type": "string",
+      "description": "The account location. Valid values include- WithinFrance FranceOverseas OutsideFranceWithEU OutsideEU For France locales, only."
+    },
+    "MetaData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `MetaData` to the tool, first call the tool `expandSchema` with \"/properties/MetaData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Descriptive information about the entity. The MetaData values are set by Data Services and are read only for all applications.</property-description>",
+      "additionalProperties": true
+    },
+    "PaymentRefNum": {
+      "type": "string",
+      "description": "The reference number for the payment received. For example, Â Check number for a check, envelope number for a cash donation. Required for France locales."
+    },
+    "TaxExemptionRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `TaxExemptionRef` to the tool, first call the tool `expandSchema` with \"/properties/TaxExemptionRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference to the TaxExepmtion ID associated with this object. Available for companies that have automated sales tax enabled. TaxExemptionRef.Name- The Tax Exemption Id for the customer to which this object is associated. This Id is typically issued by the state. TaxExemptionRef.value- The system-generated Id of the exemption type.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

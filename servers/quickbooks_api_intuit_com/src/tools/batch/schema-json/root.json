@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "properties": {
+    "BatchItemRequest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Invoice": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string",
+                "example": "129"
+              },
+              "SyncToken": {
+                "type": "string",
+                "example": "0"
+              }
+            }
+          },
+          "Query": {
+            "type": "string",
+            "example": "select * from SalesReceipt"
+          },
+          "SalesReceipt": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string",
+                "example": "11"
+              },
+              "PrivateNote": {
+                "type": "string",
+                "example": "A private note."
+              },
+              "SyncToken": {
+                "type": "string",
+                "example": "0"
+              },
+              "domain": {
+                "type": "string",
+                "example": "QBO"
+              },
+              "sparse": {
+                "type": "boolean",
+                "example": true
+              }
+            }
+          },
+          "Vendor": {
+            "type": "object",
+            "properties": {
+              "DisplayName": {
+                "type": "string",
+                "example": "Smith Family Store"
+              }
+            }
+          },
+          "bId": {
+            "type": "string",
+            "example": "bid1"
+          },
+          "operation": {
+            "type": "string",
+            "example": "create"
+          }
+        }
+      },
+      "example": [
+        {
+          "Vendor": {
+            "DisplayName": "Smith Family Store"
+          },
+          "bId": "bid1",
+          "operation": "create"
+        },
+        {
+          "Invoice": {
+            "Id": "129",
+            "SyncToken": "0"
+          },
+          "bId": "bid2",
+          "operation": "delete"
+        },
+        {
+          "SalesReceipt": {
+            "Id": "11",
+            "PrivateNote": "A private note.",
+            "SyncToken": "0",
+            "domain": "QBO",
+            "sparse": true
+          },
+          "bId": "bid3",
+          "operation": "update"
+        },
+        {
+          "Query": "select * from SalesReceipt",
+          "bId": "bid4"
+        }
+      ]
+    }
+  },
+  "required": []
+}

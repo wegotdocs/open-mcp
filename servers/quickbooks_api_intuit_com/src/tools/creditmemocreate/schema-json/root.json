@@ -1,0 +1,956 @@
+{
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string",
+      "example": "delete"
+    },
+    "Id": {
+      "type": "string",
+      "description": "Unique identifier for this object. Sort order is ASC by default."
+    },
+    "TxnDate": {
+      "type": "string",
+      "description": "Transaction Date"
+    },
+    "SyncToken": {
+      "type": "string",
+      "description": "Version number of the object. It is used to lock the object for use by one app at a time."
+    },
+    "domain": {
+      "type": "string",
+      "description": "Domain of the class."
+    },
+    "PrintStatus": {
+      "type": "string",
+      "description": "Print status of the credit memo."
+    },
+    "TotalAmt": {
+      "type": "number",
+      "description": "Total amount of the credit memo."
+    },
+    "ClassRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ClassRef` to the tool, first call the tool `expandSchema` with \"/properties/ClassRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    },
+    "SalesTermRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `SalesTermRef` to the tool, first call the tool `expandSchema` with \"/properties/SalesTermRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    },
+    "CustomerRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CustomerRef` to the tool, first call the tool `expandSchema` with \"/properties/CustomerRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    },
+    "DocNumber": {
+      "type": "string",
+      "description": "Document number of the credit memo."
+    },
+    "PrivateNote": {
+      "type": "string",
+      "description": "Private note of the credit memo."
+    },
+    "CustomerMemo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CustomerMemo` to the tool, first call the tool `expandSchema` with \"/properties/CustomerMemo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Customer memo of the credit memo.</property-description>",
+      "additionalProperties": true
+    },
+    "PaymentMethodRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PaymentMethodRef` to the tool, first call the tool `expandSchema` with \"/properties/PaymentMethodRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    },
+    "ShipAddr": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ShipAddr` to the tool, first call the tool `expandSchema` with \"/properties/ShipAddr\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Physical address</property-description>",
+      "additionalProperties": true
+    },
+    "DepartmentRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DepartmentRef` to the tool, first call the tool `expandSchema` with \"/properties/DepartmentRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    },
+    "EmailStatus": {
+      "type": "string",
+      "description": "Email status of the credit memo."
+    },
+    "BillAddr": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `BillAddr` to the tool, first call the tool `expandSchema` with \"/properties/BillAddr\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Physical address</property-description>",
+      "additionalProperties": true
+    },
+    "HomeBalance": {
+      "type": "number",
+      "description": "Home balance of the credit memo."
+    },
+    "RemainingCredit": {
+      "type": "number",
+      "description": "Remaining credit of the credit memo."
+    },
+    "RecurDataRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `RecurDataRef` to the tool, first call the tool `expandSchema` with \"/properties/RecurDataRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    },
+    "TaxExemptionRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `TaxExemptionRef` to the tool, first call the tool `expandSchema` with \"/properties/TaxExemptionRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    },
+    "Balance": {
+      "type": "number",
+      "description": "Balance of the credit memo."
+    },
+    "HomeTotalAmt": {
+      "type": "number",
+      "description": "Home total amount of the credit memo."
+    },
+    "Line": {
+      "type": "array",
+      "description": "Individual line items of a transaction. Valid Line types include SalesItemLine, GroupLine, DescriptionOnlyLine (also used for inline Subtotal lines), DiscountLine and SubTotalLine (used for the overall transaction)",
+      "items": {
+        "type": "object",
+        "description": "Reference type",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Unique identifier for this object. Sort order is ASC by default."
+          },
+          "Amount": {
+            "type": "number",
+            "description": "The total amount of the line item. This is the quantity multiplied by the unit price."
+          },
+          "Description": {
+            "type": "string",
+            "description": "A description of the line item."
+          },
+          "DetailType": {
+            "type": "string",
+            "description": "The type of detail for the line item. Valid values include SalesItemLineDetail.",
+            "enum": [
+              "SalesItemLineDetail",
+              "GroupLineDetail",
+              "DescriptionOnly",
+              "DiscountLineDetail",
+              "SubTotalLineDetail"
+            ]
+          },
+          "GroupLineDetail": {
+            "type": "object",
+            "properties": {
+              "Quantity": {
+                "type": "number",
+                "description": "The quantity of the item."
+              },
+              "Line": {
+                "type": "array",
+                "description": "Individual line items of a transaction. Valid Line types include SalesItemLine, GroupLine, DescriptionOnlyLine (also used for inline Subtotal lines), DiscountLine and SubTotalLine (used for the overall transaction)",
+                "items": {
+                  "type": "object",
+                  "description": "Reference type",
+                  "properties": {
+                    "Id": {
+                      "type": "string",
+                      "description": "Unique identifier for this object. Sort order is ASC by default."
+                    },
+                    "Amount": {
+                      "type": "number",
+                      "description": "The total amount of the line item. This is the quantity multiplied by the unit price."
+                    },
+                    "Description": {
+                      "type": "string",
+                      "description": "A description of the line item."
+                    },
+                    "DetailType": {
+                      "type": "string",
+                      "description": "The type of detail for the line item. Valid values include SalesItemLineDetail.",
+                      "enum": [
+                        "SalesItemLineDetail",
+                        "GroupLineDetail",
+                        "DescriptionOnly",
+                        "DiscountLineDetail",
+                        "SubTotalLineDetail"
+                      ]
+                    },
+                    "GroupLineDetail": {
+                      "type": "object",
+                      "properties": {
+                        "Quantity": {
+                          "type": "number",
+                          "description": "The quantity of the item."
+                        },
+                        "Line": {
+                          "type": "array",
+                          "description": "Individual line items of a transaction. Valid Line types include SalesItemLine, GroupLine, DescriptionOnlyLine (also used for inline Subtotal lines), DiscountLine and SubTotalLine (used for the overall transaction)",
+                          "items": {
+                            "type": "object",
+                            "description": "Reference type",
+                            "properties": {
+                              "Id": {
+                                "type": "string",
+                                "description": "Unique identifier for this object. Sort order is ASC by default."
+                              },
+                              "Amount": {
+                                "type": "number",
+                                "description": "The total amount of the line item. This is the quantity multiplied by the unit price."
+                              },
+                              "Description": {
+                                "type": "string",
+                                "description": "A description of the line item."
+                              },
+                              "DetailType": {
+                                "type": "string",
+                                "description": "The type of detail for the line item. Valid values include SalesItemLineDetail.",
+                                "enum": [
+                                  "SalesItemLineDetail",
+                                  "GroupLineDetail",
+                                  "DescriptionOnly",
+                                  "DiscountLineDetail",
+                                  "SubTotalLineDetail"
+                                ]
+                              },
+                              "GroupLineDetail": {
+                                "type": "object",
+                                "properties": {
+                                  "Quantity": {
+                                    "type": "number",
+                                    "description": "The quantity of the item."
+                                  },
+                                  "Line": {
+                                    "type": "array",
+                                    "description": "Individual line items of a transaction. Valid Line types include SalesItemLine, GroupLine, DescriptionOnlyLine (also used for inline Subtotal lines), DiscountLine and SubTotalLine (used for the overall transaction)",
+                                    "items": {
+                                      "type": "object",
+                                      "description": "Reference type",
+                                      "properties": {
+                                        "Id": {
+                                          "type": "string",
+                                          "description": "Unique identifier for this object. Sort order is ASC by default."
+                                        },
+                                        "Amount": {
+                                          "type": "number",
+                                          "description": "The total amount of the line item. This is the quantity multiplied by the unit price."
+                                        },
+                                        "Description": {
+                                          "type": "string",
+                                          "description": "A description of the line item."
+                                        },
+                                        "DetailType": {
+                                          "type": "string",
+                                          "description": "The type of detail for the line item. Valid values include SalesItemLineDetail.",
+                                          "enum": [
+                                            "SalesItemLineDetail",
+                                            "GroupLineDetail",
+                                            "DescriptionOnly",
+                                            "DiscountLineDetail",
+                                            "SubTotalLineDetail"
+                                          ]
+                                        },
+                                        "GroupLineDetail": {
+                                          "type": "object",
+                                          "properties": {
+                                            "Quantity": {
+                                              "type": "number",
+                                              "description": "The quantity of the item."
+                                            },
+                                            "Line": {
+                                              "type": "array",
+                                              "description": "Individual line items of a transaction. Valid Line types include SalesItemLine, GroupLine, DescriptionOnlyLine (also used for inline Subtotal lines), DiscountLine and SubTotalLine (used for the overall transaction)",
+                                              "items": {
+                                                "type": "object",
+                                                "description": "Reference type",
+                                                "properties": {
+                                                  "Id": {
+                                                    "type": "string",
+                                                    "description": "Unique identifier for this object. Sort order is ASC by default."
+                                                  },
+                                                  "Amount": {
+                                                    "type": "number",
+                                                    "description": "The total amount of the line item. This is the quantity multiplied by the unit price."
+                                                  },
+                                                  "Description": {
+                                                    "type": "string",
+                                                    "description": "A description of the line item."
+                                                  },
+                                                  "DetailType": {
+                                                    "type": "string",
+                                                    "description": "The type of detail for the line item. Valid values include SalesItemLineDetail.",
+                                                    "enum": [
+                                                      "SalesItemLineDetail",
+                                                      "GroupLineDetail",
+                                                      "DescriptionOnly",
+                                                      "DiscountLineDetail",
+                                                      "SubTotalLineDetail"
+                                                    ]
+                                                  },
+                                                  "GroupLineDetail": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "Quantity": {
+                                                        "type": "number",
+                                                        "description": "The quantity of the item."
+                                                      },
+                                                      "Line": {
+                                                        "type": "array",
+                                                        "description": "Individual line items of a transaction. Valid Line types include SalesItemLine, GroupLine, DescriptionOnlyLine (also used for inline Subtotal lines), DiscountLine and SubTotalLine (used for the overall transaction)",
+                                                        "items": {
+                                                          "type": "object",
+                                                          "description": "Reference type",
+                                                          "properties": {
+                                                            "Id": {
+                                                              "type": "string",
+                                                              "description": "Unique identifier for this object. Sort order is ASC by default."
+                                                            },
+                                                            "Amount": {
+                                                              "type": "number",
+                                                              "description": "The total amount of the line item. This is the quantity multiplied by the unit price."
+                                                            },
+                                                            "Description": {
+                                                              "type": "string",
+                                                              "description": "A description of the line item."
+                                                            },
+                                                            "DetailType": {
+                                                              "type": "string",
+                                                              "description": "The type of detail for the line item. Valid values include SalesItemLineDetail.",
+                                                              "enum": [
+                                                                "SalesItemLineDetail",
+                                                                "GroupLineDetail",
+                                                                "DescriptionOnly",
+                                                                "DiscountLineDetail",
+                                                                "SubTotalLineDetail"
+                                                              ]
+                                                            },
+                                                            "GroupLineDetail": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "Quantity": {
+                                                                  "type": "string"
+                                                                },
+                                                                "Line": {
+                                                                  "type": "string"
+                                                                },
+                                                                "GroupItemRef": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "SalesItemLineDetail": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "Qty": {
+                                                                  "type": "string"
+                                                                },
+                                                                "UnitPrice": {
+                                                                  "type": "string"
+                                                                },
+                                                                "ItemRef": {
+                                                                  "type": "string"
+                                                                },
+                                                                "ClassRef": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "DiscountLineDetail": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "ClassRef": {
+                                                                  "type": "string"
+                                                                },
+                                                                "TaxCodeRef": {
+                                                                  "type": "string"
+                                                                },
+                                                                "DiscountAccountRef": {
+                                                                  "type": "string"
+                                                                },
+                                                                "PercentBased": {
+                                                                  "type": "string"
+                                                                },
+                                                                "DiscountPercent": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "GroupItemRef": {
+                                                        "type": "object",
+                                                        "description": "Reference type",
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "string",
+                                                            "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                          },
+                                                          "name": {
+                                                            "type": "string",
+                                                            "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "SalesItemLineDetail": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "Qty": {
+                                                        "type": "number",
+                                                        "description": "The quantity of the item."
+                                                      },
+                                                      "UnitPrice": {
+                                                        "type": "number",
+                                                        "description": "The price of a single unit of the item."
+                                                      },
+                                                      "ItemRef": {
+                                                        "type": "object",
+                                                        "description": "Reference type",
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "string",
+                                                            "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                          },
+                                                          "name": {
+                                                            "type": "string",
+                                                            "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                          }
+                                                        }
+                                                      },
+                                                      "ClassRef": {
+                                                        "type": "object",
+                                                        "description": "Reference type",
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "string",
+                                                            "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                          },
+                                                          "name": {
+                                                            "type": "string",
+                                                            "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "DiscountLineDetail": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "ClassRef": {
+                                                        "type": "object",
+                                                        "description": "Reference type",
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "string",
+                                                            "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                          },
+                                                          "name": {
+                                                            "type": "string",
+                                                            "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                          }
+                                                        }
+                                                      },
+                                                      "TaxCodeRef": {
+                                                        "type": "object",
+                                                        "description": "Reference type",
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "string",
+                                                            "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                          },
+                                                          "name": {
+                                                            "type": "string",
+                                                            "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                          }
+                                                        }
+                                                      },
+                                                      "DiscountAccountRef": {
+                                                        "type": "object",
+                                                        "description": "Reference type",
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "string",
+                                                            "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                          },
+                                                          "name": {
+                                                            "type": "string",
+                                                            "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                          }
+                                                        }
+                                                      },
+                                                      "PercentBased": {
+                                                        "type": "boolean",
+                                                        "description": "If true, the discount is a percentage of the total amount. If false, the discount is a fixed amount."
+                                                      },
+                                                      "DiscountPercent": {
+                                                        "type": "number",
+                                                        "description": "The percentage of the discount. This field is required if PercentBased is true."
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "GroupItemRef": {
+                                              "type": "object",
+                                              "description": "Reference type",
+                                              "properties": {
+                                                "value": {
+                                                  "type": "string",
+                                                  "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                },
+                                                "name": {
+                                                  "type": "string",
+                                                  "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "SalesItemLineDetail": {
+                                          "type": "object",
+                                          "properties": {
+                                            "Qty": {
+                                              "type": "number",
+                                              "description": "The quantity of the item."
+                                            },
+                                            "UnitPrice": {
+                                              "type": "number",
+                                              "description": "The price of a single unit of the item."
+                                            },
+                                            "ItemRef": {
+                                              "type": "object",
+                                              "description": "Reference type",
+                                              "properties": {
+                                                "value": {
+                                                  "type": "string",
+                                                  "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                },
+                                                "name": {
+                                                  "type": "string",
+                                                  "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                }
+                                              }
+                                            },
+                                            "ClassRef": {
+                                              "type": "object",
+                                              "description": "Reference type",
+                                              "properties": {
+                                                "value": {
+                                                  "type": "string",
+                                                  "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                },
+                                                "name": {
+                                                  "type": "string",
+                                                  "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "DiscountLineDetail": {
+                                          "type": "object",
+                                          "properties": {
+                                            "ClassRef": {
+                                              "type": "object",
+                                              "description": "Reference type",
+                                              "properties": {
+                                                "value": {
+                                                  "type": "string",
+                                                  "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                },
+                                                "name": {
+                                                  "type": "string",
+                                                  "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                }
+                                              }
+                                            },
+                                            "TaxCodeRef": {
+                                              "type": "object",
+                                              "description": "Reference type",
+                                              "properties": {
+                                                "value": {
+                                                  "type": "string",
+                                                  "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                },
+                                                "name": {
+                                                  "type": "string",
+                                                  "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                }
+                                              }
+                                            },
+                                            "DiscountAccountRef": {
+                                              "type": "object",
+                                              "description": "Reference type",
+                                              "properties": {
+                                                "value": {
+                                                  "type": "string",
+                                                  "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                                },
+                                                "name": {
+                                                  "type": "string",
+                                                  "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                                }
+                                              }
+                                            },
+                                            "PercentBased": {
+                                              "type": "boolean",
+                                              "description": "If true, the discount is a percentage of the total amount. If false, the discount is a fixed amount."
+                                            },
+                                            "DiscountPercent": {
+                                              "type": "number",
+                                              "description": "The percentage of the discount. This field is required if PercentBased is true."
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "GroupItemRef": {
+                                    "type": "object",
+                                    "description": "Reference type",
+                                    "properties": {
+                                      "value": {
+                                        "type": "string",
+                                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "SalesItemLineDetail": {
+                                "type": "object",
+                                "properties": {
+                                  "Qty": {
+                                    "type": "number",
+                                    "description": "The quantity of the item."
+                                  },
+                                  "UnitPrice": {
+                                    "type": "number",
+                                    "description": "The price of a single unit of the item."
+                                  },
+                                  "ItemRef": {
+                                    "type": "object",
+                                    "description": "Reference type",
+                                    "properties": {
+                                      "value": {
+                                        "type": "string",
+                                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                      }
+                                    }
+                                  },
+                                  "ClassRef": {
+                                    "type": "object",
+                                    "description": "Reference type",
+                                    "properties": {
+                                      "value": {
+                                        "type": "string",
+                                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "DiscountLineDetail": {
+                                "type": "object",
+                                "properties": {
+                                  "ClassRef": {
+                                    "type": "object",
+                                    "description": "Reference type",
+                                    "properties": {
+                                      "value": {
+                                        "type": "string",
+                                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                      }
+                                    }
+                                  },
+                                  "TaxCodeRef": {
+                                    "type": "object",
+                                    "description": "Reference type",
+                                    "properties": {
+                                      "value": {
+                                        "type": "string",
+                                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                      }
+                                    }
+                                  },
+                                  "DiscountAccountRef": {
+                                    "type": "object",
+                                    "description": "Reference type",
+                                    "properties": {
+                                      "value": {
+                                        "type": "string",
+                                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                                      }
+                                    }
+                                  },
+                                  "PercentBased": {
+                                    "type": "boolean",
+                                    "description": "If true, the discount is a percentage of the total amount. If false, the discount is a fixed amount."
+                                  },
+                                  "DiscountPercent": {
+                                    "type": "number",
+                                    "description": "The percentage of the discount. This field is required if PercentBased is true."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "GroupItemRef": {
+                          "type": "object",
+                          "description": "Reference type",
+                          "properties": {
+                            "value": {
+                              "type": "string",
+                              "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "SalesItemLineDetail": {
+                      "type": "object",
+                      "properties": {
+                        "Qty": {
+                          "type": "number",
+                          "description": "The quantity of the item."
+                        },
+                        "UnitPrice": {
+                          "type": "number",
+                          "description": "The price of a single unit of the item."
+                        },
+                        "ItemRef": {
+                          "type": "object",
+                          "description": "Reference type",
+                          "properties": {
+                            "value": {
+                              "type": "string",
+                              "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                            }
+                          }
+                        },
+                        "ClassRef": {
+                          "type": "object",
+                          "description": "Reference type",
+                          "properties": {
+                            "value": {
+                              "type": "string",
+                              "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "DiscountLineDetail": {
+                      "type": "object",
+                      "properties": {
+                        "ClassRef": {
+                          "type": "object",
+                          "description": "Reference type",
+                          "properties": {
+                            "value": {
+                              "type": "string",
+                              "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                            }
+                          }
+                        },
+                        "TaxCodeRef": {
+                          "type": "object",
+                          "description": "Reference type",
+                          "properties": {
+                            "value": {
+                              "type": "string",
+                              "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                            }
+                          }
+                        },
+                        "DiscountAccountRef": {
+                          "type": "object",
+                          "description": "Reference type",
+                          "properties": {
+                            "value": {
+                              "type": "string",
+                              "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                            }
+                          }
+                        },
+                        "PercentBased": {
+                          "type": "boolean",
+                          "description": "If true, the discount is a percentage of the total amount. If false, the discount is a fixed amount."
+                        },
+                        "DiscountPercent": {
+                          "type": "number",
+                          "description": "The percentage of the discount. This field is required if PercentBased is true."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "GroupItemRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              }
+            }
+          },
+          "SalesItemLineDetail": {
+            "type": "object",
+            "properties": {
+              "Qty": {
+                "type": "number",
+                "description": "The quantity of the item."
+              },
+              "UnitPrice": {
+                "type": "number",
+                "description": "The price of a single unit of the item."
+              },
+              "ItemRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "ClassRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              }
+            }
+          },
+          "DiscountLineDetail": {
+            "type": "object",
+            "properties": {
+              "ClassRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "TaxCodeRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "DiscountAccountRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "PercentBased": {
+                "type": "boolean",
+                "description": "If true, the discount is a percentage of the total amount. If false, the discount is a fixed amount."
+              },
+              "DiscountPercent": {
+                "type": "number",
+                "description": "The percentage of the discount. This field is required if PercentBased is true."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": []
+}

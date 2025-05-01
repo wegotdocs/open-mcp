@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string",
+      "example": "delete"
+    },
+    "CheckPayment": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CheckPayment` to the tool, first call the tool `expandSchema` with \"/properties/CheckPayment\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "Line": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Amount": {
+            "type": "number",
+            "example": 100
+          },
+          "LinkedTxn": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "TxnId": {
+                  "type": "string",
+                  "example": "153"
+                },
+                "TxnType": {
+                  "type": "string",
+                  "example": "Bill"
+                }
+              }
+            },
+            "example": [
+              {
+                "TxnId": "153",
+                "TxnType": "Bill"
+              }
+            ]
+          }
+        }
+      },
+      "example": [
+        {
+          "Amount": 100,
+          "LinkedTxn": [
+            {
+              "TxnId": "153",
+              "TxnType": "Bill"
+            }
+          ]
+        }
+      ]
+    },
+    "PayType": {
+      "type": "string",
+      "example": "Check"
+    },
+    "PrivateNote": {
+      "type": "string",
+      "example": "Updated Note"
+    },
+    "TotalAmt": {
+      "type": "number",
+      "example": 100
+    },
+    "VendorRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `VendorRef` to the tool, first call the tool `expandSchema` with \"/properties/VendorRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

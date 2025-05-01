@@ -1,0 +1,54 @@
+{
+  "description": "Default billing address. If a physical address is updated from within the transaction object, the QuickBooks Online API flows individual address components differently into the Line elements of the transaction response then when the transaction was first created- Line1 and Line2 elements are populated with the customer name and company name. Original Line1 through Line 5 contents, City, SubDivisionCode, and PostalCode flow into Line3 through Line5as a free format strings.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "Unique identifier of the QuickBooks object for the address, used for modifying the address."
+    },
+    "PostalCode": {
+      "type": "string",
+      "description": "Postal code. For example, zip code for USA and Canada"
+    },
+    "City": {
+      "type": "string",
+      "description": "City name."
+    },
+    "Country": {
+      "type": "string",
+      "description": "Country name. For international addresses - countries should be passed as 3 ISO alpha-3 characters or the full name of the country."
+    },
+    "Line5": {
+      "type": "string",
+      "description": "Fifth line of the address."
+    },
+    "Line4": {
+      "type": "string",
+      "description": "Fourth line of the address."
+    },
+    "Line3": {
+      "type": "string",
+      "description": "Third line of the address."
+    },
+    "Line2": {
+      "type": "string",
+      "description": "Second line of the address."
+    },
+    "Line1": {
+      "type": "string",
+      "description": "First line of the address."
+    },
+    "Lat": {
+      "type": "string",
+      "description": "Latitude coordinate of Geocode (Geospacial Entity Object Code). INVALIDis returned for invalid addresses."
+    },
+    "Long": {
+      "type": "string",
+      "description": "Longitude coordinate of Geocode (Geospacial Entity Object Code). INVALIDis returned for invalid addresses."
+    },
+    "CountrySubDivisionCode": {
+      "type": "string",
+      "description": "Region within a country. For example, state name for USA, province name for Canada."
+    }
+  }
+}
