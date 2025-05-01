@@ -1,0 +1,175 @@
+{
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string",
+      "example": "delete"
+    },
+    "Id": {
+      "type": "string",
+      "description": "Unique identifier for this object. Sort order is ASC by default."
+    },
+    "SyncToken": {
+      "type": "string",
+      "description": "Version number of the object. It is used to lock the object for use by one app at a time."
+    },
+    "createDate": {
+      "type": "string",
+      "description": "Date and time when the journal entry was created."
+    },
+    "Line": {
+      "type": "array",
+      "description": "List of line items in the journal entry.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Unique identifier for this object. Sort order is ASC by default."
+          },
+          "Description": {
+            "type": "string",
+            "description": "Description of the line item."
+          },
+          "Amount": {
+            "type": "number",
+            "description": "Total amount of the line item."
+          },
+          "DetailType": {
+            "type": "string",
+            "description": "Detail type of the line item."
+          },
+          "LineNum": {
+            "type": "number",
+            "description": "Line number of the line item."
+          },
+          "JournalEntryLineDetail": {
+            "type": "object",
+            "properties": {
+              "PostingType": {
+                "type": "string",
+                "description": "Posting type"
+              },
+              "AccountRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "Entity": {
+                "type": "object",
+                "description": "Entity type",
+                "properties": {
+                  "Type": {
+                    "type": "string",
+                    "description": "Type of the entity.",
+                    "enum": [
+                      "Vendor",
+                      "Employee",
+                      "Customer"
+                    ]
+                  },
+                  "EntityRef": {
+                    "type": "object",
+                    "description": "Reference type",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                      }
+                    }
+                  }
+                }
+              },
+              "ClassRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "DepartmentRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "TaxCodeRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "TaxAmount": {
+                "type": "number",
+                "description": "Tax amount of the line item."
+              }
+            }
+          }
+        }
+      }
+    },
+    "DocNumber": {
+      "type": "string",
+      "description": "Document number of the journal entry."
+    },
+    "PrivateNote": {
+      "type": "string",
+      "description": "Private note of the journal entry."
+    },
+    "TxnDate": {
+      "type": "string",
+      "description": "Transaction date of the journal entry."
+    },
+    "TaxRateRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `TaxRateRef` to the tool, first call the tool `expandSchema` with \"/properties/TaxRateRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    },
+    "TotalAmt": {
+      "type": "number",
+      "description": "Total amount of the journal entry."
+    },
+    "MetaData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `MetaData` to the tool, first call the tool `expandSchema` with \"/properties/MetaData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Descriptive information about the object. The MetaData values are set by Data Services and are read only for all applications.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

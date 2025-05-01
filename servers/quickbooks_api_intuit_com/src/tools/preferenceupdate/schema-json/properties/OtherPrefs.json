@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "NameValue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "example": "SalesFormsPrefs.DefaultCustomerMessage"
+          },
+          "Value": {
+            "type": "string",
+            "example": "Thank you for your business and have a great day!"
+          }
+        }
+      },
+      "example": [
+        {
+          "Name": "SalesFormsPrefs.DefaultCustomerMessage",
+          "Value": "Thank you for your business and have a great day!"
+        },
+        {
+          "Name": "SalesFormsPrefs.DefaultItem",
+          "Value": "1"
+        },
+        {
+          "Name": "DTXCopyMemo",
+          "Value": "false"
+        },
+        {
+          "Name": "UncategorizedAssetAccountId",
+          "Value": "32"
+        },
+        {
+          "Name": "UncategorizedIncomeAccountId",
+          "Value": "30"
+        },
+        {
+          "Name": "UncategorizedExpenseAccountId",
+          "Value": "31"
+        },
+        {
+          "Name": "MasAccountId",
+          "Value": "35"
+        },
+        {
+          "Name": "SFCEnabled",
+          "Value": "true"
+        }
+      ]
+    }
+  }
+}

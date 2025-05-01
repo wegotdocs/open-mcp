@@ -1,0 +1,133 @@
+{
+  "type": "object",
+  "properties": {
+    "AllowDeposit": {
+      "type": "boolean",
+      "example": true
+    },
+    "AllowDiscount": {
+      "type": "boolean",
+      "example": true
+    },
+    "AllowEstimates": {
+      "type": "boolean",
+      "example": true
+    },
+    "AllowServiceDate": {
+      "type": "boolean",
+      "example": false
+    },
+    "AllowShipping": {
+      "type": "boolean",
+      "example": false
+    },
+    "CustomField": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "CustomField": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "BooleanValue": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "Name": {
+                  "type": "string",
+                  "example": "SalesFormsPrefs.UseSalesCustom3"
+                },
+                "Type": {
+                  "type": "string",
+                  "example": "BooleanType"
+                }
+              }
+            },
+            "example": [
+              {
+                "BooleanValue": false,
+                "Name": "SalesFormsPrefs.UseSalesCustom3",
+                "Type": "BooleanType"
+              },
+              {
+                "BooleanValue": false,
+                "Name": "SalesFormsPrefs.UseSalesCustom2",
+                "Type": "BooleanType"
+              },
+              {
+                "BooleanValue": true,
+                "Name": "SalesFormsPrefs.UseSalesCustom1",
+                "Type": "BooleanType"
+              }
+            ]
+          }
+        }
+      },
+      "example": [
+        {
+          "CustomField": [
+            {
+              "BooleanValue": false,
+              "Name": "SalesFormsPrefs.UseSalesCustom3",
+              "Type": "BooleanType"
+            },
+            {
+              "BooleanValue": false,
+              "Name": "SalesFormsPrefs.UseSalesCustom2",
+              "Type": "BooleanType"
+            },
+            {
+              "BooleanValue": true,
+              "Name": "SalesFormsPrefs.UseSalesCustom1",
+              "Type": "BooleanType"
+            }
+          ]
+        },
+        {
+          "CustomField": [
+            {
+              "Name": "SalesFormsPrefs.SalesCustomName1",
+              "StringValue": "Crew #",
+              "Type": "StringType"
+            }
+          ]
+        }
+      ]
+    },
+    "CustomTxnNumbers": {
+      "type": "boolean",
+      "example": false
+    },
+    "DefaultCustomerMessage": {
+      "type": "string",
+      "example": "Thank you for your business and have a great day!"
+    },
+    "DefaultDiscountAccount": {
+      "type": "string",
+      "example": "86"
+    },
+    "DefaultTerms": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DefaultTerms` to the tool, first call the tool `expandSchema` with \"/properties/SalesFormsPrefs/properties/DefaultTerms\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "ETransactionAttachPDF": {
+      "type": "boolean",
+      "example": false
+    },
+    "ETransactionEnabledStatus": {
+      "type": "string",
+      "example": "NotApplicable"
+    },
+    "ETransactionPaymentEnabled": {
+      "type": "boolean",
+      "example": false
+    },
+    "IPNSupportEnabled": {
+      "type": "boolean",
+      "example": false
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "Active": {
+      "type": "boolean",
+      "example": false
+    },
+    "BillableTime": {
+      "type": "boolean",
+      "example": false
+    },
+    "DisplayName": {
+      "type": "string",
+      "example": "John Meuller - Updated"
+    },
+    "FamilyName": {
+      "type": "string",
+      "example": "Meuller"
+    },
+    "GivenName": {
+      "type": "string",
+      "example": "John"
+    },
+    "Id": {
+      "type": "string",
+      "example": "68"
+    },
+    "MetaData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `MetaData` to the tool, first call the tool `expandSchema` with \"/properties/MetaData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "PrimaryAddr": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PrimaryAddr` to the tool, first call the tool `expandSchema` with \"/properties/PrimaryAddr\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "PrimaryPhone": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PrimaryPhone` to the tool, first call the tool `expandSchema` with \"/properties/PrimaryPhone\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "PrintOnCheckName": {
+      "type": "string",
+      "example": "John Meuller"
+    },
+    "SSN": {
+      "type": "string",
+      "example": "XXX-XX-XXXX"
+    },
+    "SyncToken": {
+      "type": "string",
+      "example": "2"
+    },
+    "domain": {
+      "type": "string",
+      "example": "QBO"
+    },
+    "sparse": {
+      "type": "boolean",
+      "example": false
+    }
+  },
+  "required": []
+}

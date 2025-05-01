@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "description": "Account to which money is deposited. Query the Account name list resource to determine the appropriate Account object for this reference, where Account.AccountType is Other Current Asset or Bank. Use Account.Id and Account.Name from that object for DepositToAccountRef.value and DepositToAccountRef.name, respectively. Before you can use this field ensure that the company allows deposits in their invoices first. This can be found by querying the Preferences endpoint. SalesFormsPrefs.AllowDeposit must be equal to true. If you do not specify this account the payment is applied to the Undeposited Funds account.",
+  "properties": {
+    "value": {
+      "type": "string",
+      "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+    },
+    "name": {
+      "type": "string",
+      "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+    }
+  }
+}
