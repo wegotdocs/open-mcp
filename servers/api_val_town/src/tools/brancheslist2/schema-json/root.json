@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "val_id": {
+      "description": "Id of a val",
+      "format": "uuid",
+      "type": "string"
+    },
+    "offset": {
+      "description": "Number of items to skip in order to deliver paginated results",
+      "minimum": 0,
+      "default": 0,
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Maximum items to return in each paginated response",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "val_id",
+    "offset",
+    "limit"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "minLength": 1,
+      "maxLength": 48,
+      "pattern": "^[a-zA-Z][a-zA-Z0-9\\-_]*$",
+      "type": "string"
+    },
+    "description": {
+      "maxLength": 64,
+      "type": "string"
+    },
+    "privacy": {
+      "type": "string",
+      "enum": [
+        "public",
+        "unlisted",
+        "private"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "privacy"
+  ]
+}

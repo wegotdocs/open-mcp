@@ -1,0 +1,14 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "subject": z.string().describe("The subject line of the email").optional(),
+  "from": z.union([z.string(), z.object({ "name": z.string().optional(), "email": z.string() }).describe("An email address and name")]).optional(),
+  "headers": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `headers` to the tool, first call the tool `expandSchema` with \"/properties/headers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A set of headers to include the email that you send</property-description>").optional(),
+  "to": z.union([z.union([z.string(), z.object({ "name": z.string().optional(), "email": z.string() }).describe("An email address and name")]), z.array(z.union([z.string(), z.object({ "name": z.string().optional(), "email": z.string() }).describe("An email address and name")]))]).describe("A single email or list of emails for one of the address fields").optional(),
+  "cc": z.union([z.union([z.string(), z.object({ "name": z.string().optional(), "email": z.string() }).describe("An email address and name")]), z.array(z.union([z.string(), z.object({ "name": z.string().optional(), "email": z.string() }).describe("An email address and name")]))]).describe("A single email or list of emails for one of the address fields").optional(),
+  "bcc": z.union([z.union([z.string(), z.object({ "name": z.string().optional(), "email": z.string() }).describe("An email address and name")]), z.array(z.union([z.string(), z.object({ "name": z.string().optional(), "email": z.string() }).describe("An email address and name")]))]).describe("A single email or list of emails for one of the address fields").optional(),
+  "text": z.string().describe("Text content of the email, for email clients that may not support HTML").optional(),
+  "html": z.string().describe("HTML content of the email. Can be specified alongside text").optional(),
+  "attachments": z.array(z.object({ "content": z.string(), "filename": z.string(), "type": z.string().optional(), "disposition": z.string().optional(), "contentId": z.string().optional() })).describe("A list of attachments to add to the email").optional(),
+  "replyToList": z.union([z.object({ "name": z.string().optional(), "email": z.string() }).describe("An email address and name"), z.array(z.object({ "name": z.string().optional(), "email": z.string() }).describe("An email address and name"))]).describe("A reply-to list of email addresses").optional()
+}

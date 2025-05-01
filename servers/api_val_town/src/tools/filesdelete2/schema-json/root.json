@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "val_id": {
+      "description": "Id of a val",
+      "format": "uuid",
+      "type": "string"
+    },
+    "branch_id": {
+      "description": "The specified branch of the resource. Defaults to main if not provided.",
+      "format": "uuid",
+      "type": "string"
+    },
+    "path": {
+      "description": "Path to a file or directory (e.g. 'dir/subdir/file.ts'). Pass in an empty string to represent the root directory.",
+      "type": "string"
+    },
+    "recursive": {
+      "description": "Whether to recursively act on all files in the project",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "val_id",
+    "path",
+    "recursive"
+  ]
+}

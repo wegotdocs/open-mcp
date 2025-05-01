@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "Number of items to skip in order to deliver paginated results",
+      "minimum": 0,
+      "default": 0,
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Maximum items to return in each paginated response",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20,
+      "type": "integer"
+    },
+    "query": {
+      "description": "Search query",
+      "minLength": 1,
+      "maxLength": 256,
+      "type": "string"
+    }
+  },
+  "required": [
+    "offset",
+    "limit",
+    "query"
+  ]
+}

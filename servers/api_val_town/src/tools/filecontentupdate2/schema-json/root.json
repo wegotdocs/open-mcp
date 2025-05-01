@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "val_id": {
+      "description": "Id of a val",
+      "format": "uuid",
+      "type": "string"
+    },
+    "branch_id": {
+      "description": "The specified branch of the resource. Defaults to main if not provided.",
+      "format": "uuid",
+      "type": "string"
+    },
+    "path": {
+      "description": "Path to a file or directory (e.g. 'dir/subdir/file.ts'). Pass in an empty string to represent the root directory.",
+      "type": "string"
+    },
+    "content": {
+      "minLength": 0,
+      "maxLength": 80000,
+      "description": "File and val content. An empty string will create an empty file. When creating a directory, the content should be null or undefined.",
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "file",
+        "interval",
+        "http",
+        "email",
+        "script"
+      ]
+    },
+    "parent_path": {
+      "anyOf": [
+        {
+          "description": "Path to the directory you'd like to move this file to (e.g. 'folder1/folder2')",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "name": {
+      "minLength": 1,
+      "maxLength": 48,
+      "pattern": "^[a-zA-Z0-9\\-_.]+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "val_id",
+    "path"
+  ]
+}
