@@ -92,12 +92,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### getaccount
 
@@ -108,11 +104,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `expand` (array)
 
 ### postaccountlinks
 
@@ -123,9 +115,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### postaccountsessions
 
@@ -136,9 +126,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getaccounts
 
@@ -149,15 +137,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return connected accounts that were created during the given date interval.").optional(),
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postaccounts
 
@@ -168,9 +152,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteaccountsaccount
 
@@ -181,11 +163,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### getaccountsaccount
 
@@ -196,12 +174,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `account` (string)
+- `expand` (array)
 
 ### postaccountsaccount
 
@@ -212,11 +186,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### postaccountsaccountbankaccounts
 
@@ -227,11 +197,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### deleteaccountsaccountbankaccountsid
 
@@ -242,12 +208,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "id": z.string().describe("Unique identifier for the external account to be deleted.")
-}
-```
+- `account` (string)
+- `id` (string)
 
 ### getaccountsaccountbankaccountsid
 
@@ -258,13 +220,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "id": z.string().describe("Unique identifier for the external account to be retrieved."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `account` (string)
+- `id` (string)
+- `expand` (array)
 
 ### postaccountsaccountbankaccountsid
 
@@ -275,12 +233,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "id": z.string()
-}
-```
+- `account` (string)
+- `id` (string)
 
 ### getaccountsaccountcapabilities
 
@@ -291,12 +245,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `account` (string)
+- `expand` (array)
 
 ### getaccountsaccountcapabilitiescapability
 
@@ -307,13 +257,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "capability": z.string(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `account` (string)
+- `capability` (string)
+- `expand` (array)
 
 ### postaccountsaccountcapabilitiescapability
 
@@ -324,12 +270,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "capability": z.string()
-}
-```
+- `account` (string)
+- `capability` (string)
 
 ### getaccountsaccountexternalaccounts
 
@@ -340,16 +282,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "object": z.enum(["bank_account","card"]).describe("Filter external accounts according to a particular object type.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `account` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `object` (string)
+- `starting_after` (string)
 
 ### postaccountsaccountexternalaccounts
 
@@ -360,11 +298,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### deleteaccountsaccountexternalaccountsid
 
@@ -375,12 +309,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "id": z.string().describe("Unique identifier for the external account to be deleted.")
-}
-```
+- `account` (string)
+- `id` (string)
 
 ### getaccountsaccountexternalaccountsid
 
@@ -391,13 +321,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "id": z.string().describe("Unique identifier for the external account to be retrieved."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `account` (string)
+- `id` (string)
+- `expand` (array)
 
 ### postaccountsaccountexternalaccountsid
 
@@ -408,12 +334,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "id": z.string()
-}
-```
+- `account` (string)
+- `id` (string)
 
 ### postaccountsaccountloginlinks
 
@@ -424,11 +346,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### getaccountsaccountpeople
 
@@ -439,16 +357,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "relationship": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nFilters on the list of people returned based on the person's relationship to the account's company.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `account` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `relationship` (object)
+- `starting_after` (string)
 
 ### postaccountsaccountpeople
 
@@ -459,11 +373,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### deleteaccountsaccountpeopleperson
 
@@ -474,12 +384,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "person": z.string().max(5000)
-}
-```
+- `account` (string)
+- `person` (string)
 
 ### getaccountsaccountpeopleperson
 
@@ -490,13 +396,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "person": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `account` (string)
+- `person` (string)
+- `expand` (array)
 
 ### postaccountsaccountpeopleperson
 
@@ -507,12 +409,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "person": z.string().max(5000)
-}
-```
+- `account` (string)
+- `person` (string)
 
 ### getaccountsaccountpersons
 
@@ -523,16 +421,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "relationship": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nFilters on the list of people returned based on the person's relationship to the account's company.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `account` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `relationship` (object)
+- `starting_after` (string)
 
 ### postaccountsaccountpersons
 
@@ -543,11 +437,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### deleteaccountsaccountpersonsperson
 
@@ -558,12 +448,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "person": z.string().max(5000)
-}
-```
+- `account` (string)
+- `person` (string)
 
 ### getaccountsaccountpersonsperson
 
@@ -574,13 +460,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "person": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `account` (string)
+- `person` (string)
+- `expand` (array)
 
 ### postaccountsaccountpersonsperson
 
@@ -591,12 +473,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "person": z.string().max(5000)
-}
-```
+- `account` (string)
+- `person` (string)
 
 ### postaccountsaccountreject
 
@@ -607,11 +485,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### getapplepaydomains
 
@@ -622,15 +496,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "domain_name": z.string().max(5000).optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `domain_name` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postapplepaydomains
 
@@ -641,9 +511,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteapplepaydomainsdomain
 
@@ -654,11 +522,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "domain": z.string().max(5000)
-}
-```
+- `domain` (string)
 
 ### getapplepaydomainsdomain
 
@@ -669,12 +533,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "domain": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `domain` (string)
+- `expand` (array)
 
 ### getapplicationfees
 
@@ -685,16 +545,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000).describe("Only return application fees for the charge specified by this charge ID.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return applications fees that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `charge` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getapplicationfeesfeerefundsid
 
@@ -705,13 +561,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "fee": z.string().max(5000),
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `fee` (string)
+- `id` (string)
+- `expand` (array)
 
 ### postapplicationfeesfeerefundsid
 
@@ -722,12 +574,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "fee": z.string().max(5000),
-  "id": z.string().max(5000)
-}
-```
+- `fee` (string)
+- `id` (string)
 
 ### getapplicationfeesid
 
@@ -738,12 +586,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### postapplicationfeesidrefund
 
@@ -754,11 +598,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### getapplicationfeesidrefunds
 
@@ -769,15 +609,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `id` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postapplicationfeesidrefunds
 
@@ -788,11 +624,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### getappssecrets
 
@@ -803,15 +635,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "scope": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSpecifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user."),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `scope` (object)
+- `starting_after` (string)
 
 ### postappssecrets
 
@@ -822,9 +650,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### postappssecretsdelete
 
@@ -835,9 +661,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getappssecretsfind
 
@@ -848,13 +672,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "name": z.string().max(5000).describe("A name for the secret that's unique within the scope."),
-  "scope": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSpecifies the scoping of the secret. Requests originating from UI extensions can only access account-scoped secrets or secrets scoped to their own user.")
-}
-```
+- `expand` (array)
+- `name` (string)
+- `scope` (object)
 
 ### getbalance
 
@@ -865,11 +685,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `expand` (array)
 
 ### getbalancehistory
 
@@ -880,19 +696,15 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return transactions that were created during the given date interval.").optional(),
-  "currency": z.string().describe("Only return transactions in a certain currency. Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payout": z.string().max(5000).describe("For automatic Stripe payouts only, only returns transactions that were paid out on the specified payout ID.").optional(),
-  "source": z.string().max(5000).describe("Only returns the original transaction.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "type": z.string().max(5000).describe("Only returns transactions of the given type. One of: \`adjustment\`, \`advance\`, \`advance_funding\`, \`anticipation_repayment\`, \`application_fee\`, \`application_fee_refund\`, \`charge\`, \`climate_order_purchase\`, \`climate_order_refund\`, \`connect_collection_transfer\`, \`contribution\`, \`issuing_authorization_hold\`, \`issuing_authorization_release\`, \`issuing_dispute\`, \`issuing_transaction\`, \`obligation_outbound\`, \`obligation_reversal_inbound\`, \`payment\`, \`payment_failure_refund\`, \`payment_network_reserve_hold\`, \`payment_network_reserve_release\`, \`payment_refund\`, \`payment_reversal\`, \`payment_unreconciled\`, \`payout\`, \`payout_cancel\`, \`payout_failure\`, \`payout_minimum_balance_hold\`, \`payout_minimum_balance_release\`, \`refund\`, \`refund_failure\`, \`reserve_transaction\`, \`reserved_funds\`, \`stripe_fee\`, \`stripe_fx_fee\`, \`stripe_balance_payment_debit\`, \`stripe_balance_payment_debit_reversal\`, \`tax_fee\`, \`topup\`, \`topup_reversal\`, \`transfer\`, \`transfer_cancel\`, \`transfer_failure\`, or \`transfer_refund\`.").optional()
-}
-```
+- `created` (other)
+- `currency` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `payout` (string)
+- `source` (string)
+- `starting_after` (string)
+- `type` (string)
 
 ### getbalancehistoryid
 
@@ -903,12 +715,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### getbalancetransactions
 
@@ -919,19 +727,15 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return transactions that were created during the given date interval.").optional(),
-  "currency": z.string().describe("Only return transactions in a certain currency. Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payout": z.string().max(5000).describe("For automatic Stripe payouts only, only returns transactions that were paid out on the specified payout ID.").optional(),
-  "source": z.string().max(5000).describe("Only returns the original transaction.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "type": z.string().max(5000).describe("Only returns transactions of the given type. One of: \`adjustment\`, \`advance\`, \`advance_funding\`, \`anticipation_repayment\`, \`application_fee\`, \`application_fee_refund\`, \`charge\`, \`climate_order_purchase\`, \`climate_order_refund\`, \`connect_collection_transfer\`, \`contribution\`, \`issuing_authorization_hold\`, \`issuing_authorization_release\`, \`issuing_dispute\`, \`issuing_transaction\`, \`obligation_outbound\`, \`obligation_reversal_inbound\`, \`payment\`, \`payment_failure_refund\`, \`payment_network_reserve_hold\`, \`payment_network_reserve_release\`, \`payment_refund\`, \`payment_reversal\`, \`payment_unreconciled\`, \`payout\`, \`payout_cancel\`, \`payout_failure\`, \`payout_minimum_balance_hold\`, \`payout_minimum_balance_release\`, \`refund\`, \`refund_failure\`, \`reserve_transaction\`, \`reserved_funds\`, \`stripe_fee\`, \`stripe_fx_fee\`, \`stripe_balance_payment_debit\`, \`stripe_balance_payment_debit_reversal\`, \`tax_fee\`, \`topup\`, \`topup_reversal\`, \`transfer\`, \`transfer_cancel\`, \`transfer_failure\`, or \`transfer_refund\`.").optional()
-}
-```
+- `created` (other)
+- `currency` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `payout` (string)
+- `source` (string)
+- `starting_after` (string)
+- `type` (string)
 
 ### getbalancetransactionsid
 
@@ -942,12 +746,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### getbillingalerts
 
@@ -958,16 +758,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "alert_type": z.literal("usage_threshold").describe("Filter results to only include this type of alert.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "meter": z.string().max(5000).describe("Filter results to only include alerts with the given meter.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `alert_type` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `meter` (string)
+- `starting_after` (string)
 
 ### postbillingalerts
 
@@ -978,9 +774,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getbillingalertsid
 
@@ -991,12 +785,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### postbillingalertsidactivate
 
@@ -1007,11 +797,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### postbillingalertsidarchive
 
@@ -1022,11 +808,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### postbillingalertsiddeactivate
 
@@ -1037,11 +819,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### getbillingcreditbalancesummary
 
@@ -1052,13 +830,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000).describe("The customer for which to fetch credit balance summary."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "filter": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe filter criteria for the credit balance summary.")
-}
-```
+- `customer` (string)
+- `expand` (array)
+- `filter` (object)
 
 ### getbillingcreditbalancetransactions
 
@@ -1069,16 +843,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "credit_grant": z.string().max(5000).describe("The credit grant for which to fetch credit balance transactions.").optional(),
-  "customer": z.string().max(5000).describe("The customer for which to fetch credit balance transactions."),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `credit_grant` (string)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getbillingcreditbalancetransactionsid
 
@@ -1089,12 +859,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### getbillingcreditgrants
 
@@ -1105,15 +871,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000).describe("Only return credit grants for this customer.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postbillingcreditgrants
 
@@ -1124,9 +886,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getbillingcreditgrantsid
 
@@ -1137,12 +897,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### postbillingcreditgrantsid
 
@@ -1153,11 +909,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object.")
-}
-```
+- `id` (string)
 
 ### postbillingcreditgrantsidexpire
 
@@ -1168,11 +920,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object.")
-}
-```
+- `id` (string)
 
 ### postbillingcreditgrantsidvoid
 
@@ -1183,11 +931,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object.")
-}
-```
+- `id` (string)
 
 ### postbillingmetereventadjustments
 
@@ -1198,9 +942,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### postbillingmeterevents
 
@@ -1211,9 +953,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getbillingmeters
 
@@ -1224,15 +964,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["active","inactive"]).describe("Filter results to only include meters with the given status.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### postbillingmeters
 
@@ -1243,9 +979,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getbillingmetersid
 
@@ -1256,12 +990,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### postbillingmetersid
 
@@ -1272,11 +1002,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object.")
-}
-```
+- `id` (string)
 
 ### postbillingmetersiddeactivate
 
@@ -1287,11 +1013,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object.")
-}
-```
+- `id` (string)
 
 ### getbillingmetersideventsummaries
 
@@ -1302,19 +1024,15 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object."),
-  "customer": z.string().max(5000).describe("The customer for which to fetch event summaries."),
-  "end_time": z.number().int().describe("The timestamp from when to stop aggregating meter events (exclusive). Must be aligned with minute boundaries."),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "start_time": z.number().int().describe("The timestamp from when to start aggregating meter events (inclusive). Must be aligned with minute boundaries."),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "value_grouping_window": z.enum(["day","hour"]).describe("Specifies what granularity to use when generating event summaries. If not specified, a single event summary would be returned for the specified time range. For hourly granularity, start and end times must align with hour boundaries (e.g., 00:00, 01:00, ..., 23:00). For daily granularity, start and end times must align with UTC day boundaries (00:00 UTC).").optional()
-}
-```
+- `id` (string)
+- `customer` (string)
+- `end_time` (integer)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `start_time` (integer)
+- `starting_after` (string)
+- `value_grouping_window` (string)
 
 ### postbillingmetersidreactivate
 
@@ -1325,11 +1043,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("Unique identifier for the object.")
-}
-```
+- `id` (string)
 
 ### getbillingportalconfigurations
 
@@ -1340,16 +1054,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "active": z.boolean().describe("Only return configurations that are active or inactive (e.g., pass \`true\` to only list active configurations).").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "is_default": z.boolean().describe("Only return the default or non-default configurations (e.g., pass \`true\` to only list the default configuration).").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `active` (boolean)
+- `ending_before` (string)
+- `expand` (array)
+- `is_default` (boolean)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postbillingportalconfigurations
 
@@ -1360,9 +1070,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getbillingportalconfigurationsconfiguration
 
@@ -1373,12 +1081,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "configuration": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `configuration` (string)
+- `expand` (array)
 
 ### postbillingportalconfigurationsconfiguration
 
@@ -1389,11 +1093,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "configuration": z.string().max(5000)
-}
-```
+- `configuration` (string)
 
 ### postbillingportalsessions
 
@@ -1404,9 +1104,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getcharges
 
@@ -1417,18 +1115,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return charges that were created during the given date interval.").optional(),
-  "customer": z.string().max(5000).describe("Only return charges for the customer specified by this customer ID.").optional(),
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payment_intent": z.string().max(5000).describe("Only return charges that were created by the PaymentIntent specified by this PaymentIntent ID.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "transfer_group": z.string().max(5000).describe("Only return charges for this transfer group, limited to 100.").optional()
-}
-```
+- `created` (other)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `payment_intent` (string)
+- `starting_after` (string)
+- `transfer_group` (string)
 
 ### postcharges
 
@@ -1439,9 +1133,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getchargessearch
 
@@ -1452,14 +1144,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "page": z.string().max(5000).describe("A cursor for pagination across multiple pages of results. Don't include this parameter on the first call. Use the next_page value returned in a previous response to request subsequent results.").optional(),
-  "query": z.string().max(5000).describe("The search query string. See [search query language](https://stripe.com/docs/search#search-query-language) and the list of supported [query fields for charges](https://stripe.com/docs/search#query-fields-for-charges).")
-}
-```
+- `expand` (array)
+- `limit` (integer)
+- `page` (string)
+- `query` (string)
 
 ### getchargescharge
 
@@ -1470,12 +1158,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `charge` (string)
+- `expand` (array)
 
 ### postchargescharge
 
@@ -1486,11 +1170,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000)
-}
-```
+- `charge` (string)
 
 ### postchargeschargecapture
 
@@ -1501,11 +1181,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000)
-}
-```
+- `charge` (string)
 
 ### getchargeschargedispute
 
@@ -1516,12 +1192,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `charge` (string)
+- `expand` (array)
 
 ### postchargeschargedispute
 
@@ -1532,11 +1204,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000)
-}
-```
+- `charge` (string)
 
 ### postchargeschargedisputeclose
 
@@ -1547,11 +1215,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000)
-}
-```
+- `charge` (string)
 
 ### postchargeschargerefund
 
@@ -1562,11 +1226,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000).describe("The identifier of the charge to refund.")
-}
-```
+- `charge` (string)
 
 ### getchargeschargerefunds
 
@@ -1577,15 +1237,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string(),
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `charge` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postchargeschargerefunds
 
@@ -1596,11 +1252,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000).describe("The identifier of the charge to refund.")
-}
-```
+- `charge` (string)
 
 ### getchargeschargerefundsrefund
 
@@ -1611,13 +1263,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string(),
-  "refund": z.string(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `charge` (string)
+- `refund` (string)
+- `expand` (array)
 
 ### postchargeschargerefundsrefund
 
@@ -1628,12 +1276,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string(),
-  "refund": z.string()
-}
-```
+- `charge` (string)
+- `refund` (string)
 
 ### getcheckoutsessions
 
@@ -1644,21 +1288,17 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return Checkout Sessions that were created during the given date interval.").optional(),
-  "customer": z.string().max(5000).describe("Only return the Checkout Sessions for the Customer specified.").optional(),
-  "customer_details": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOnly return the Checkout Sessions for the Customer details specified.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payment_intent": z.string().max(5000).describe("Only return the Checkout Session for the PaymentIntent specified.").optional(),
-  "payment_link": z.string().max(5000).describe("Only return the Checkout Sessions for the Payment Link specified.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["complete","expired","open"]).describe("Only return the Checkout Sessions matching the given status.").optional(),
-  "subscription": z.string().max(5000).describe("Only return the Checkout Session for the subscription specified.").optional()
-}
-```
+- `created` (other)
+- `customer` (string)
+- `customer_details` (object)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `payment_intent` (string)
+- `payment_link` (string)
+- `starting_after` (string)
+- `status` (string)
+- `subscription` (string)
 
 ### postcheckoutsessions
 
@@ -1669,9 +1309,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getcheckoutsessionssession
 
@@ -1682,12 +1320,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(66),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `session` (string)
+- `expand` (array)
 
 ### postcheckoutsessionssession
 
@@ -1698,11 +1332,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(5000)
-}
-```
+- `session` (string)
 
 ### postcheckoutsessionssessionexpire
 
@@ -1713,11 +1343,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(5000)
-}
-```
+- `session` (string)
 
 ### getcheckoutsessionssessionlineitems
 
@@ -1728,15 +1354,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `session` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getclimateorders
 
@@ -1747,14 +1369,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postclimateorders
 
@@ -1765,9 +1383,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getclimateordersorder
 
@@ -1778,12 +1394,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "order": z.string().max(5000).describe("Unique identifier of the order."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `order` (string)
+- `expand` (array)
 
 ### postclimateordersorder
 
@@ -1794,11 +1406,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "order": z.string().max(5000).describe("Unique identifier of the order.")
-}
-```
+- `order` (string)
 
 ### postclimateordersordercancel
 
@@ -1809,11 +1417,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "order": z.string().max(5000).describe("Unique identifier of the order.")
-}
-```
+- `order` (string)
 
 ### getclimateproducts
 
@@ -1824,14 +1428,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getclimateproductsproduct
 
@@ -1842,12 +1442,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "product": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `product` (string)
+- `expand` (array)
 
 ### getclimatesuppliers
 
@@ -1858,14 +1454,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getclimatesupplierssupplier
 
@@ -1876,12 +1468,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "supplier": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `supplier` (string)
+- `expand` (array)
 
 ### getconfirmationtokensconfirmationtoken
 
@@ -1892,12 +1480,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "confirmation_token": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `confirmation_token` (string)
+- `expand` (array)
 
 ### getcountryspecs
 
@@ -1908,14 +1492,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getcountryspecscountry
 
@@ -1926,12 +1506,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "country": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `country` (string)
+- `expand` (array)
 
 ### getcoupons
 
@@ -1942,15 +1518,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object \`created\` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postcoupons
 
@@ -1961,9 +1533,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deletecouponscoupon
 
@@ -1974,11 +1544,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "coupon": z.string().max(5000)
-}
-```
+- `coupon` (string)
 
 ### getcouponscoupon
 
@@ -1989,12 +1555,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "coupon": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `coupon` (string)
+- `expand` (array)
 
 ### postcouponscoupon
 
@@ -2005,11 +1567,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "coupon": z.string().max(5000)
-}
-```
+- `coupon` (string)
 
 ### getcreditnotes
 
@@ -2020,17 +1578,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return credit notes that were created during the given date interval.").optional(),
-  "customer": z.string().max(5000).describe("Only return credit notes for the customer specified by this customer ID.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "invoice": z.string().max(5000).describe("Only return credit notes for the invoice specified by this invoice ID.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `invoice` (string)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postcreditnotes
 
@@ -2041,9 +1595,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getcreditnotespreview
 
@@ -2054,24 +1606,20 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the total amount of the credit note.").optional(),
-  "credit_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount to credit the customer's balance, which will be automatically applied to their next invoice.").optional(),
-  "effective_at": z.number().int().describe("The date when this credit note is in effect. Same as \`created\` unless overwritten. When defined, this value replaces the system-generated 'Date of issue' printed on the credit note PDF.").optional(),
-  "email_type": z.enum(["credit_note","none"]).describe("Type of email to send to the customer, one of \`credit_note\` or \`none\` and the default is \`credit_note\`.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "invoice": z.string().max(5000).describe("ID of the invoice."),
-  "lines": z.array(z.object({ "amount": z.number().int().optional(), "description": z.string().max(5000).optional(), "invoice_line_item": z.string().max(5000).optional(), "quantity": z.number().int().optional(), "tax_amounts": z.union([z.array(z.object({ "amount": z.number().int(), "tax_rate": z.string().max(5000), "taxable_amount": z.number().int() })), z.literal("")]).optional(), "tax_rates": z.union([z.array(z.string().max(5000)), z.literal("")]).optional(), "type": z.enum(["custom_line_item","invoice_line_item"]), "unit_amount": z.number().int().optional(), "unit_amount_decimal": z.string().optional() })).describe("Line items that make up the credit note.").optional(),
-  "memo": z.string().max(5000).describe("The credit note's memo appears on the credit note PDF.").optional(),
-  "metadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSet of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to \`metadata\`.").optional(),
-  "out_of_band_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount that is credited outside of Stripe.").optional(),
-  "reason": z.enum(["duplicate","fraudulent","order_change","product_unsatisfactory"]).describe("Reason for issuing this credit note, one of \`duplicate\`, \`fraudulent\`, \`order_change\`, or \`product_unsatisfactory\`").optional(),
-  "refund_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount to refund. If set, a refund will be created for the charge associated with the invoice.").optional(),
-  "refunds": z.array(z.object({ "amount_refunded": z.number().int().optional(), "refund": z.string().optional() })).describe("Refunds to link to this credit note.").optional(),
-  "shipping_cost": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nWhen shipping_cost contains the shipping_rate from the invoice, the shipping_cost is included in the credit note.").optional()
-}
-```
+- `amount` (integer)
+- `credit_amount` (integer)
+- `effective_at` (integer)
+- `email_type` (string)
+- `expand` (array)
+- `invoice` (string)
+- `lines` (array)
+- `memo` (string)
+- `metadata` (object)
+- `out_of_band_amount` (integer)
+- `reason` (string)
+- `refund_amount` (integer)
+- `refunds` (array)
+- `shipping_cost` (object)
 
 ### getcreditnotespreviewlines
 
@@ -2082,27 +1630,23 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the total amount of the credit note.").optional(),
-  "credit_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount to credit the customer's balance, which will be automatically applied to their next invoice.").optional(),
-  "effective_at": z.number().int().describe("The date when this credit note is in effect. Same as \`created\` unless overwritten. When defined, this value replaces the system-generated 'Date of issue' printed on the credit note PDF.").optional(),
-  "email_type": z.enum(["credit_note","none"]).describe("Type of email to send to the customer, one of \`credit_note\` or \`none\` and the default is \`credit_note\`.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "invoice": z.string().max(5000).describe("ID of the invoice."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "lines": z.array(z.object({ "amount": z.number().int().optional(), "description": z.string().max(5000).optional(), "invoice_line_item": z.string().max(5000).optional(), "quantity": z.number().int().optional(), "tax_amounts": z.union([z.array(z.object({ "amount": z.number().int(), "tax_rate": z.string().max(5000), "taxable_amount": z.number().int() })), z.literal("")]).optional(), "tax_rates": z.union([z.array(z.string().max(5000)), z.literal("")]).optional(), "type": z.enum(["custom_line_item","invoice_line_item"]), "unit_amount": z.number().int().optional(), "unit_amount_decimal": z.string().optional() })).describe("Line items that make up the credit note.").optional(),
-  "memo": z.string().max(5000).describe("The credit note's memo appears on the credit note PDF.").optional(),
-  "metadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSet of [key-value pairs](https://stripe.com/docs/api/metadata) that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to \`metadata\`.").optional(),
-  "out_of_band_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount that is credited outside of Stripe.").optional(),
-  "reason": z.enum(["duplicate","fraudulent","order_change","product_unsatisfactory"]).describe("Reason for issuing this credit note, one of \`duplicate\`, \`fraudulent\`, \`order_change\`, or \`product_unsatisfactory\`").optional(),
-  "refund_amount": z.number().int().describe("The integer amount in cents (or local equivalent) representing the amount to refund. If set, a refund will be created for the charge associated with the invoice.").optional(),
-  "refunds": z.array(z.object({ "amount_refunded": z.number().int().optional(), "refund": z.string().optional() })).describe("Refunds to link to this credit note.").optional(),
-  "shipping_cost": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nWhen shipping_cost contains the shipping_rate from the invoice, the shipping_cost is included in the credit note.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `amount` (integer)
+- `credit_amount` (integer)
+- `effective_at` (integer)
+- `email_type` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `invoice` (string)
+- `limit` (integer)
+- `lines` (array)
+- `memo` (string)
+- `metadata` (object)
+- `out_of_band_amount` (integer)
+- `reason` (string)
+- `refund_amount` (integer)
+- `refunds` (array)
+- `shipping_cost` (object)
+- `starting_after` (string)
 
 ### getcreditnotescreditnotelines
 
@@ -2113,15 +1657,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "credit_note": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `credit_note` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getcreditnotesid
 
@@ -2132,12 +1672,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### postcreditnotesid
 
@@ -2148,11 +1684,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### postcreditnotesidvoid
 
@@ -2163,11 +1695,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### postcustomersessions
 
@@ -2178,9 +1706,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getcustomers
 
@@ -2191,17 +1717,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return customers that were created during the given date interval.").optional(),
-  "email": z.string().max(512).describe("A case-sensitive filter on the list based on the customer's \`email\` field. The value must be a string.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "test_clock": z.string().max(5000).describe("Provides a list of customers that are associated with the specified test clock. The response will not include customers with test clocks if this parameter is not set.").optional()
-}
-```
+- `created` (other)
+- `email` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `test_clock` (string)
 
 ### postcustomers
 
@@ -2212,9 +1734,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getcustomerssearch
 
@@ -2225,14 +1745,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "page": z.string().max(5000).describe("A cursor for pagination across multiple pages of results. Don't include this parameter on the first call. Use the next_page value returned in a previous response to request subsequent results.").optional(),
-  "query": z.string().max(5000).describe("The search query string. See [search query language](https://stripe.com/docs/search#search-query-language) and the list of supported [query fields for customers](https://stripe.com/docs/search#query-fields-for-customers).")
-}
-```
+- `expand` (array)
+- `limit` (integer)
+- `page` (string)
+- `query` (string)
 
 ### deletecustomerscustomer
 
@@ -2243,11 +1759,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### getcustomerscustomer
 
@@ -2258,12 +1770,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `expand` (array)
 
 ### postcustomerscustomer
 
@@ -2274,11 +1782,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### getcustomerscustomerbalancetransactions
 
@@ -2289,15 +1793,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postcustomerscustomerbalancetransactions
 
@@ -2308,11 +1808,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### getcustomerscustomerbalancetransactionstransaction
 
@@ -2323,13 +1819,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "transaction": z.string(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `transaction` (string)
+- `expand` (array)
 
 ### postcustomerscustomerbalancetransactionstransaction
 
@@ -2340,12 +1832,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "transaction": z.string().max(5000)
-}
-```
+- `customer` (string)
+- `transaction` (string)
 
 ### getcustomerscustomerbankaccounts
 
@@ -2356,15 +1844,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postcustomerscustomerbankaccounts
 
@@ -2375,11 +1859,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### deletecustomerscustomerbankaccountsid
 
@@ -2390,12 +1870,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string()
-}
-```
+- `customer` (string)
+- `id` (string)
 
 ### getcustomerscustomerbankaccountsid
 
@@ -2406,13 +1882,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `id` (string)
+- `expand` (array)
 
 ### postcustomerscustomerbankaccountsid
 
@@ -2423,12 +1895,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string().max(5000)
-}
-```
+- `customer` (string)
+- `id` (string)
 
 ### postcustomerscustomerbankaccountsidverify
 
@@ -2439,12 +1907,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string().max(5000)
-}
-```
+- `customer` (string)
+- `id` (string)
 
 ### getcustomerscustomercards
 
@@ -2455,15 +1919,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postcustomerscustomercards
 
@@ -2474,11 +1934,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### deletecustomerscustomercardsid
 
@@ -2489,12 +1945,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string()
-}
-```
+- `customer` (string)
+- `id` (string)
 
 ### getcustomerscustomercardsid
 
@@ -2505,13 +1957,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `id` (string)
+- `expand` (array)
 
 ### postcustomerscustomercardsid
 
@@ -2522,12 +1970,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string().max(5000)
-}
-```
+- `customer` (string)
+- `id` (string)
 
 ### getcustomerscustomercashbalance
 
@@ -2538,12 +1982,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `expand` (array)
 
 ### postcustomerscustomercashbalance
 
@@ -2554,11 +1994,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### getcustomerscustomercashbalancetransactions
 
@@ -2569,15 +2005,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getcustomerscustomercashbalancetransactionstransaction
 
@@ -2588,13 +2020,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "transaction": z.string(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `transaction` (string)
+- `expand` (array)
 
 ### deletecustomerscustomerdiscount
 
@@ -2605,11 +2033,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### getcustomerscustomerdiscount
 
@@ -2620,12 +2044,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `expand` (array)
 
 ### postcustomerscustomerfundinginstructions
 
@@ -2636,11 +2056,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### getcustomerscustomerpaymentmethods
 
@@ -2651,17 +2067,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "allow_redisplay": z.enum(["always","limited","unspecified"]).describe("This field indicates whether this payment method can be shown again to its customer in a checkout flow. Stripe products such as Checkout and Elements use this field to determine whether a payment method can be shown as a saved payment method in a checkout flow.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "type": z.enum(["acss_debit","affirm","afterpay_clearpay","alipay","alma","amazon_pay","au_becs_debit","bacs_debit","bancontact","billie","blik","boleto","card","cashapp","customer_balance","eps","fpx","giropay","grabpay","ideal","kakao_pay","klarna","konbini","kr_card","link","mobilepay","multibanco","naver_pay","nz_bank_account","oxxo","p24","pay_by_bank","payco","paynow","paypal","pix","promptpay","revolut_pay","samsung_pay","satispay","sepa_debit","sofort","swish","twint","us_bank_account","wechat_pay","zip"]).describe("An optional filter on the list, based on the object \`type\` field. Without the filter, the list includes all current and future payment method types. If your integration expects only one type of payment method in the response, make sure to provide a type value in the request.").optional()
-}
-```
+- `customer` (string)
+- `allow_redisplay` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `type` (string)
 
 ### getcustomerscustomerpaymentmethodspaymentmethod
 
@@ -2672,13 +2084,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "payment_method": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `payment_method` (string)
+- `expand` (array)
 
 ### getcustomerscustomersources
 
@@ -2689,16 +2097,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "object": z.string().max(5000).describe("Filter sources according to a particular object type.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `object` (string)
+- `starting_after` (string)
 
 ### postcustomerscustomersources
 
@@ -2709,11 +2113,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### deletecustomerscustomersourcesid
 
@@ -2724,12 +2124,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string()
-}
-```
+- `customer` (string)
+- `id` (string)
 
 ### getcustomerscustomersourcesid
 
@@ -2740,13 +2136,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string().max(500),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `id` (string)
+- `expand` (array)
 
 ### postcustomerscustomersourcesid
 
@@ -2757,12 +2149,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string().max(5000)
-}
-```
+- `customer` (string)
+- `id` (string)
 
 ### postcustomerscustomersourcesidverify
 
@@ -2773,12 +2161,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string().max(5000)
-}
-```
+- `customer` (string)
+- `id` (string)
 
 ### getcustomerscustomersubscriptions
 
@@ -2789,15 +2173,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postcustomerscustomersubscriptions
 
@@ -2808,11 +2188,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### deletecustomerscustomersubscriptionssubscriptionexposedid
 
@@ -2823,12 +2199,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "subscription_exposed_id": z.string().max(5000)
-}
-```
+- `customer` (string)
+- `subscription_exposed_id` (string)
 
 ### getcustomerscustomersubscriptionssubscriptionexposedid
 
@@ -2839,13 +2211,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "subscription_exposed_id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `subscription_exposed_id` (string)
+- `expand` (array)
 
 ### postcustomerscustomersubscriptionssubscriptionexposedid
 
@@ -2856,12 +2224,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "subscription_exposed_id": z.string().max(5000)
-}
-```
+- `customer` (string)
+- `subscription_exposed_id` (string)
 
 ### deletecustomerscustomersubscriptionssubscriptionexposediddiscoun
 
@@ -2872,12 +2236,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "subscription_exposed_id": z.string().max(5000)
-}
-```
+- `customer` (string)
+- `subscription_exposed_id` (string)
 
 ### getcustomerscustomersubscriptionssubscriptionexposediddiscount
 
@@ -2888,13 +2248,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "subscription_exposed_id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `subscription_exposed_id` (string)
+- `expand` (array)
 
 ### getcustomerscustomertaxids
 
@@ -2905,15 +2261,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postcustomerscustomertaxids
 
@@ -2924,11 +2276,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### deletecustomerscustomertaxidsid
 
@@ -2939,12 +2287,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string()
-}
-```
+- `customer` (string)
+- `id` (string)
 
 ### getcustomerscustomertaxidsid
 
@@ -2955,13 +2299,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000),
-  "id": z.string(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `customer` (string)
+- `id` (string)
+- `expand` (array)
 
 ### getdisputes
 
@@ -2972,17 +2312,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().max(5000).describe("Only return disputes associated to the charge specified by this charge ID.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return disputes that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payment_intent": z.string().max(5000).describe("Only return disputes associated to the PaymentIntent specified by this PaymentIntent ID.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `charge` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `payment_intent` (string)
+- `starting_after` (string)
 
 ### getdisputesdispute
 
@@ -2993,12 +2329,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "dispute": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `dispute` (string)
+- `expand` (array)
 
 ### postdisputesdispute
 
@@ -3009,11 +2341,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "dispute": z.string().max(5000)
-}
-```
+- `dispute` (string)
 
 ### postdisputesdisputeclose
 
@@ -3024,11 +2352,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "dispute": z.string().max(5000)
-}
-```
+- `dispute` (string)
 
 ### getentitlementsactiveentitlements
 
@@ -3039,15 +2363,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000).describe("The ID of the customer."),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getentitlementsactiveentitlementsid
 
@@ -3058,12 +2378,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("The ID of the entitlement."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### getentitlementsfeatures
 
@@ -3074,16 +2390,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "archived": z.boolean().describe("If set, filter results to only include features with the given archive status.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "lookup_key": z.string().max(5000).describe("If set, filter results to only include features with the given lookup_key.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `archived` (boolean)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `lookup_key` (string)
+- `starting_after` (string)
 
 ### postentitlementsfeatures
 
@@ -3094,9 +2406,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getentitlementsfeaturesid
 
@@ -3107,12 +2417,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("The ID of the feature."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### postentitlementsfeaturesid
 
@@ -3123,11 +2429,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### postephemeralkeys
 
@@ -3138,9 +2440,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteephemeralkeyskey
 
@@ -3151,11 +2451,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "key": z.string().max(5000)
-}
-```
+- `key` (string)
 
 ### getevents
 
@@ -3166,18 +2462,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return events that were created during the given date interval.").optional(),
-  "delivery_success": z.boolean().describe("Filter events by whether all webhooks were successfully delivered. If false, events which are still pending or have failed all delivery attempts to a webhook endpoint will be returned.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "type": z.string().max(5000).describe("A string containing a specific event name, or group of events using * as a wildcard. The list will be filtered to include only events with a matching event property.").optional(),
-  "types": z.array(z.string().max(5000)).describe("An array of up to 20 strings containing specific event names. The list will be filtered to include only events with a matching event property. You may pass either \`type\` or \`types\`, but not both.").optional()
-}
-```
+- `created` (other)
+- `delivery_success` (boolean)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `type` (string)
+- `types` (array)
 
 ### geteventsid
 
@@ -3188,12 +2480,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### getexchangerates
 
@@ -3204,14 +2492,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is the currency that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with the exchange rate for currency X your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and total number of supported payout currencies, and the default is the max.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is the currency that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with the exchange rate for currency X, your subsequent call can include \`starting_after=X\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getexchangeratesrateid
 
@@ -3222,12 +2506,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "rate_id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `rate_id` (string)
+- `expand` (array)
 
 ### postexternalaccountsid
 
@@ -3238,11 +2518,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string()
-}
-```
+- `id` (string)
 
 ### getfilelinks
 
@@ -3253,17 +2529,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return links that were created during the given date interval.").optional(),
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "expired": z.boolean().describe("Filter links by their expiration status. By default, Stripe returns all links.").optional(),
-  "file": z.string().max(5000).describe("Only return links for the given file.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `expired` (boolean)
+- `file` (string)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postfilelinks
 
@@ -3274,9 +2546,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getfilelinkslink
 
@@ -3287,12 +2557,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "link": z.string(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `link` (string)
+- `expand` (array)
 
 ### postfilelinkslink
 
@@ -3303,11 +2569,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "link": z.string()
-}
-```
+- `link` (string)
 
 ### getfiles
 
@@ -3318,16 +2580,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return files that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "purpose": z.enum(["account_requirement","additional_verification","business_icon","business_logo","customer_signature","dispute_evidence","document_provider_identity_document","finance_report_run","financial_account_statement","identity_document","identity_document_downloadable","issuing_regulatory_reporting","pci_document","selfie","sigma_scheduled_query","tax_document_user_upload","terminal_reader_splashscreen"]).describe("Filter queries by the file purpose. If you don't provide a purpose, the queries return unfiltered files.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `purpose` (string)
+- `starting_after` (string)
 
 ### postfiles
 
@@ -3338,9 +2596,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getfilesfile
 
@@ -3351,12 +2607,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "file": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `file` (string)
+- `expand` (array)
 
 ### getfinancialconnectionsaccounts
 
@@ -3367,16 +2619,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account_holder": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nIf present, only return accounts that belong to the specified account holder. \`account_holder[customer]\` and \`account_holder[account]\` are mutually exclusive.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "session": z.string().max(5000).describe("If present, only return accounts that were collected as part of the given session.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `account_holder` (object)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `session` (string)
+- `starting_after` (string)
 
 ### getfinancialconnectionsaccountsaccount
 
@@ -3387,12 +2635,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `account` (string)
+- `expand` (array)
 
 ### postfinancialconnectionsaccountsaccountdisconnect
 
@@ -3403,11 +2647,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### getfinancialconnectionsaccountsaccountowners
 
@@ -3418,16 +2658,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "ownership": z.string().max(5000).describe("The ID of the ownership object to fetch owners from."),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `account` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `ownership` (string)
+- `starting_after` (string)
 
 ### postfinancialconnectionsaccountsaccountrefresh
 
@@ -3438,11 +2674,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### postfinancialconnectionsaccountsaccountsubscribe
 
@@ -3453,11 +2685,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### postfinancialconnectionsaccountsaccountunsubscribe
 
@@ -3468,11 +2696,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### postfinancialconnectionssessions
 
@@ -3483,9 +2707,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getfinancialconnectionssessionssession
 
@@ -3496,12 +2718,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `session` (string)
+- `expand` (array)
 
 ### getfinancialconnectionstransactions
 
@@ -3512,17 +2730,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000).describe("The ID of the Financial Connections Account whose transactions will be retrieved."),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "transacted_at": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list based on the object \`transacted_at\` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with the following options:").optional(),
-  "transaction_refresh": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nA filter on the list based on the object \`transaction_refresh\` field. The value can be a dictionary with the following options:").optional()
-}
-```
+- `account` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `transacted_at` (other)
+- `transaction_refresh` (object)
 
 ### getfinancialconnectionstransactionstransaction
 
@@ -3533,12 +2747,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "transaction": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `transaction` (string)
+- `expand` (array)
 
 ### getforwardingrequests
 
@@ -3549,15 +2759,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nSimilar to other List endpoints, filters results based on created timestamp. You can pass gt, gte, lt, and lte timestamp values.").optional(),
-  "ending_before": z.string().max(5000).describe("A pagination cursor to fetch the previous page of the list. The value must be a ForwardingRequest ID.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A pagination cursor to fetch the next page of the list. The value must be a ForwardingRequest ID.").optional()
-}
-```
+- `created` (object)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postforwardingrequests
 
@@ -3568,9 +2774,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getforwardingrequestsid
 
@@ -3581,12 +2785,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### getidentityverificationreports
 
@@ -3597,18 +2797,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "client_reference_id": z.string().max(5000).describe("A string to reference this user. This can be a customer ID, a session ID, or similar, and can be used to reconcile this verification with your internal systems.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return VerificationReports that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "type": z.enum(["document","id_number"]).describe("Only return VerificationReports of this type").optional(),
-  "verification_session": z.string().max(5000).describe("Only return VerificationReports created by this VerificationSession ID. It is allowed to provide a VerificationIntent ID.").optional()
-}
-```
+- `client_reference_id` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `type` (string)
+- `verification_session` (string)
 
 ### getidentityverificationreportsreport
 
@@ -3619,12 +2815,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "report": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `report` (string)
+- `expand` (array)
 
 ### getidentityverificationsessions
 
@@ -3635,18 +2827,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "client_reference_id": z.string().max(5000).describe("A string to reference this user. This can be a customer ID, a session ID, or similar, and can be used to reconcile this verification with your internal systems.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return VerificationSessions that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "related_customer": z.string().max(5000).optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["canceled","processing","requires_input","verified"]).describe("Only return VerificationSessions with this status. [Learn more about the lifecycle of sessions](https://stripe.com/docs/identity/how-sessions-work).").optional()
-}
-```
+- `client_reference_id` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `related_customer` (string)
+- `starting_after` (string)
+- `status` (string)
 
 ### postidentityverificationsessions
 
@@ -3657,9 +2845,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getidentityverificationsessionssession
 
@@ -3670,12 +2856,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `session` (string)
+- `expand` (array)
 
 ### postidentityverificationsessionssession
 
@@ -3686,11 +2868,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(5000)
-}
-```
+- `session` (string)
 
 ### postidentityverificationsessionssessioncancel
 
@@ -3701,11 +2879,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(5000)
-}
-```
+- `session` (string)
 
 ### postidentityverificationsessionssessionredact
 
@@ -3716,11 +2890,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(5000)
-}
-```
+- `session` (string)
 
 ### getinvoicepayments
 
@@ -3731,17 +2901,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "invoice": z.string().max(5000).describe("The identifier of the invoice whose payments to return.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payment": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe payment details of the invoice payments to return.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["canceled","open","paid"]).describe("The status of the invoice payments to return.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `invoice` (string)
+- `limit` (integer)
+- `payment` (object)
+- `starting_after` (string)
+- `status` (string)
 
 ### getinvoicepaymentsinvoicepayment
 
@@ -3752,12 +2918,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice_payment": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `invoice_payment` (string)
+- `expand` (array)
 
 ### getinvoicerenderingtemplates
 
@@ -3768,15 +2930,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["active","archived"]).optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### getinvoicerenderingtemplatestemplate
 
@@ -3787,13 +2945,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "template": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "version": z.number().int().optional()
-}
-```
+- `template` (string)
+- `expand` (array)
+- `version` (integer)
 
 ### postinvoicerenderingtemplatestemplatearchive
 
@@ -3804,11 +2958,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "template": z.string().max(5000)
-}
-```
+- `template` (string)
 
 ### postinvoicerenderingtemplatestemplateunarchive
 
@@ -3819,11 +2969,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "template": z.string().max(5000)
-}
-```
+- `template` (string)
 
 ### getinvoiceitems
 
@@ -3834,18 +2980,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return invoice items that were created during the given date interval.").optional(),
-  "customer": z.string().max(5000).describe("The identifier of the customer whose invoice items to return. If none is provided, all invoice items will be returned.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "invoice": z.string().max(5000).describe("Only return invoice items belonging to this invoice. If none is provided, all invoice items will be returned. If specifying an invoice, no customer identifier is needed.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "pending": z.boolean().describe("Set to \`true\` to only show pending invoice items, which are not yet attached to any invoices. Set to \`false\` to only show invoice items already attached to invoices. If unspecified, no filter is applied.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `invoice` (string)
+- `limit` (integer)
+- `pending` (boolean)
+- `starting_after` (string)
 
 ### postinvoiceitems
 
@@ -3856,9 +2998,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteinvoiceitemsinvoiceitem
 
@@ -3869,11 +3009,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoiceitem": z.string().max(5000)
-}
-```
+- `invoiceitem` (string)
 
 ### getinvoiceitemsinvoiceitem
 
@@ -3884,12 +3020,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoiceitem": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `invoiceitem` (string)
+- `expand` (array)
 
 ### postinvoiceitemsinvoiceitem
 
@@ -3900,11 +3032,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoiceitem": z.string().max(5000)
-}
-```
+- `invoiceitem` (string)
 
 ### getinvoices
 
@@ -3915,20 +3043,16 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "collection_method": z.enum(["charge_automatically","send_invoice"]).describe("The collection method of the invoice to retrieve. Either \`charge_automatically\` or \`send_invoice\`.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return invoices that were created during the given date interval.").optional(),
-  "customer": z.string().max(5000).describe("Only return invoices for the customer specified by this customer ID.").optional(),
-  "due_date": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["draft","open","paid","uncollectible","void"]).describe("The status of the invoice, one of \`draft\`, \`open\`, \`paid\`, \`uncollectible\`, or \`void\`. [Learn more](https://stripe.com/docs/billing/invoices/workflow#workflow-overview)").optional(),
-  "subscription": z.string().max(5000).describe("Only return invoices for the subscription specified by this subscription ID.").optional()
-}
-```
+- `collection_method` (string)
+- `created` (other)
+- `customer` (string)
+- `due_date` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
+- `subscription` (string)
 
 ### postinvoices
 
@@ -3939,9 +3063,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### postinvoicescreatepreview
 
@@ -3952,9 +3074,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getinvoicessearch
 
@@ -3965,14 +3085,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "page": z.string().max(5000).describe("A cursor for pagination across multiple pages of results. Don't include this parameter on the first call. Use the next_page value returned in a previous response to request subsequent results.").optional(),
-  "query": z.string().max(5000).describe("The search query string. See [search query language](https://stripe.com/docs/search#search-query-language) and the list of supported [query fields for invoices](https://stripe.com/docs/search#query-fields-for-invoices).")
-}
-```
+- `expand` (array)
+- `limit` (integer)
+- `page` (string)
+- `query` (string)
 
 ### deleteinvoicesinvoice
 
@@ -3983,11 +3099,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### getinvoicesinvoice
 
@@ -3998,12 +3110,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `invoice` (string)
+- `expand` (array)
 
 ### postinvoicesinvoice
 
@@ -4014,11 +3122,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### postinvoicesinvoiceaddlines
 
@@ -4029,11 +3133,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### postinvoicesinvoicefinalize
 
@@ -4044,11 +3144,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### getinvoicesinvoicelines
 
@@ -4059,15 +3155,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `invoice` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postinvoicesinvoicelineslineitemid
 
@@ -4078,12 +3170,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000).describe("Invoice ID of line item"),
-  "line_item_id": z.string().max(5000).describe("Invoice line item ID")
-}
-```
+- `invoice` (string)
+- `line_item_id` (string)
 
 ### postinvoicesinvoicemarkuncollectible
 
@@ -4094,11 +3182,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### postinvoicesinvoicepay
 
@@ -4109,11 +3193,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### postinvoicesinvoiceremovelines
 
@@ -4124,11 +3204,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### postinvoicesinvoicesend
 
@@ -4139,11 +3215,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### postinvoicesinvoiceupdatelines
 
@@ -4154,11 +3226,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### postinvoicesinvoicevoid
 
@@ -4169,11 +3237,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "invoice": z.string().max(5000)
-}
-```
+- `invoice` (string)
 
 ### getissuingauthorizations
 
@@ -4184,18 +3248,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000).describe("Only return authorizations that belong to the given card.").optional(),
-  "cardholder": z.string().max(5000).describe("Only return authorizations that belong to the given cardholder.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return authorizations that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["closed","expired","pending","reversed"]).describe("Only return authorizations with the given status. One of \`pending\`, \`closed\`, or \`reversed\`.").optional()
-}
-```
+- `card` (string)
+- `cardholder` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### getissuingauthorizationsauthorization
 
@@ -4206,12 +3266,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `authorization` (string)
+- `expand` (array)
 
 ### postissuingauthorizationsauthorization
 
@@ -4222,11 +3278,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000)
-}
-```
+- `authorization` (string)
 
 ### postissuingauthorizationsauthorizationapprove
 
@@ -4237,11 +3289,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000)
-}
-```
+- `authorization` (string)
 
 ### postissuingauthorizationsauthorizationdecline
 
@@ -4252,11 +3300,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000)
-}
-```
+- `authorization` (string)
 
 ### getissuingcardholders
 
@@ -4267,19 +3311,15 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return cardholders that were created during the given date interval.").optional(),
-  "email": z.string().describe("Only return cardholders that have the given email address.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "phone_number": z.string().describe("Only return cardholders that have the given phone number.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["active","blocked","inactive"]).describe("Only return cardholders that have the given status. One of \`active\`, \`inactive\`, or \`blocked\`.").optional(),
-  "type": z.enum(["company","individual"]).describe("Only return cardholders that have the given type. One of \`individual\` or \`company\`.").optional()
-}
-```
+- `created` (other)
+- `email` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `phone_number` (string)
+- `starting_after` (string)
+- `status` (string)
+- `type` (string)
 
 ### postissuingcardholders
 
@@ -4290,9 +3330,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getissuingcardholderscardholder
 
@@ -4303,12 +3341,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "cardholder": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `cardholder` (string)
+- `expand` (array)
 
 ### postissuingcardholderscardholder
 
@@ -4319,11 +3353,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "cardholder": z.string().max(5000)
-}
-```
+- `cardholder` (string)
 
 ### getissuingcards
 
@@ -4334,22 +3364,18 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "cardholder": z.string().max(5000).describe("Only return cards belonging to the Cardholder with the provided ID.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return cards that were issued during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "exp_month": z.number().int().describe("Only return cards that have the given expiration month.").optional(),
-  "exp_year": z.number().int().describe("Only return cards that have the given expiration year.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "last4": z.string().max(5000).describe("Only return cards that have the given last four digits.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "personalization_design": z.string().max(5000).optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["active","canceled","inactive"]).describe("Only return cards that have the given status. One of \`active\`, \`inactive\`, or \`canceled\`.").optional(),
-  "type": z.enum(["physical","virtual"]).describe("Only return cards that have the given type. One of \`virtual\` or \`physical\`.").optional()
-}
-```
+- `cardholder` (string)
+- `created` (other)
+- `ending_before` (string)
+- `exp_month` (integer)
+- `exp_year` (integer)
+- `expand` (array)
+- `last4` (string)
+- `limit` (integer)
+- `personalization_design` (string)
+- `starting_after` (string)
+- `status` (string)
+- `type` (string)
 
 ### postissuingcards
 
@@ -4360,9 +3386,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getissuingcardscard
 
@@ -4373,12 +3397,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `card` (string)
+- `expand` (array)
 
 ### postissuingcardscard
 
@@ -4389,11 +3409,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000)
-}
-```
+- `card` (string)
 
 ### getissuingdisputes
 
@@ -4404,17 +3420,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return Issuing disputes that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["expired","lost","submitted","unsubmitted","won"]).describe("Select Issuing disputes with the given status.").optional(),
-  "transaction": z.string().max(5000).describe("Select the Issuing dispute for the given transaction.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
+- `transaction` (string)
 
 ### postissuingdisputes
 
@@ -4425,9 +3437,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getissuingdisputesdispute
 
@@ -4438,12 +3448,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "dispute": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `dispute` (string)
+- `expand` (array)
 
 ### postissuingdisputesdispute
 
@@ -4454,11 +3460,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "dispute": z.string().max(5000)
-}
-```
+- `dispute` (string)
 
 ### postissuingdisputesdisputesubmit
 
@@ -4469,11 +3471,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "dispute": z.string().max(5000)
-}
-```
+- `dispute` (string)
 
 ### getissuingpersonalizationdesigns
 
@@ -4484,17 +3482,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "lookup_keys": z.array(z.string().max(200)).describe("Only return personalization designs with the given lookup keys.").optional(),
-  "preferences": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOnly return personalization designs with the given preferences.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["active","inactive","rejected","review"]).describe("Only return personalization designs with the given status.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `lookup_keys` (array)
+- `preferences` (object)
+- `starting_after` (string)
+- `status` (string)
 
 ### postissuingpersonalizationdesigns
 
@@ -4505,9 +3499,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getissuingpersonalizationdesignspersonalizationdesign
 
@@ -4518,12 +3510,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "personalization_design": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `personalization_design` (string)
+- `expand` (array)
 
 ### postissuingpersonalizationdesignspersonalizationdesign
 
@@ -4534,11 +3522,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "personalization_design": z.string().max(5000)
-}
-```
+- `personalization_design` (string)
 
 ### getissuingphysicalbundles
 
@@ -4549,16 +3533,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["active","inactive","review"]).describe("Only return physical bundles with the given status.").optional(),
-  "type": z.enum(["custom","standard"]).describe("Only return physical bundles with the given type.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
+- `type` (string)
 
 ### getissuingphysicalbundlesphysicalbundle
 
@@ -4569,12 +3549,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "physical_bundle": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `physical_bundle` (string)
+- `expand` (array)
 
 ### getissuingsettlementssettlement
 
@@ -4585,12 +3561,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "settlement": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `settlement` (string)
+- `expand` (array)
 
 ### postissuingsettlementssettlement
 
@@ -4601,11 +3573,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "settlement": z.string().max(5000)
-}
-```
+- `settlement` (string)
 
 ### getissuingtokens
 
@@ -4616,17 +3584,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000).describe("The Issuing card identifier to list tokens for."),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return Issuing tokens that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["active","deleted","requested","suspended"]).describe("Select Issuing tokens with the given status.").optional()
-}
-```
+- `card` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### getissuingtokenstoken
 
@@ -4637,12 +3601,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "token": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `token` (string)
+- `expand` (array)
 
 ### postissuingtokenstoken
 
@@ -4653,11 +3613,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "token": z.string().max(5000)
-}
-```
+- `token` (string)
 
 ### getissuingtransactions
 
@@ -4668,18 +3624,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000).describe("Only return transactions that belong to the given card.").optional(),
-  "cardholder": z.string().max(5000).describe("Only return transactions that belong to the given cardholder.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return transactions that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "type": z.enum(["capture","refund"]).describe("Only return transactions that have the given type. One of \`capture\` or \`refund\`.").optional()
-}
-```
+- `card` (string)
+- `cardholder` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `type` (string)
 
 ### getissuingtransactionstransaction
 
@@ -4690,12 +3642,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "transaction": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `transaction` (string)
+- `expand` (array)
 
 ### postissuingtransactionstransaction
 
@@ -4706,11 +3654,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "transaction": z.string().max(5000)
-}
-```
+- `transaction` (string)
 
 ### postlinkaccountsessions
 
@@ -4721,9 +3665,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getlinkaccountsessionssession
 
@@ -4734,12 +3676,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "session": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `session` (string)
+- `expand` (array)
 
 ### getlinkedaccounts
 
@@ -4750,16 +3688,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account_holder": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nIf present, only return accounts that belong to the specified account holder. \`account_holder[customer]\` and \`account_holder[account]\` are mutually exclusive.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "session": z.string().max(5000).describe("If present, only return accounts that were collected as part of the given session.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `account_holder` (object)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `session` (string)
+- `starting_after` (string)
 
 ### getlinkedaccountsaccount
 
@@ -4770,12 +3704,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `account` (string)
+- `expand` (array)
 
 ### postlinkedaccountsaccountdisconnect
 
@@ -4786,11 +3716,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### getlinkedaccountsaccountowners
 
@@ -4801,16 +3727,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "ownership": z.string().max(5000).describe("The ID of the ownership object to fetch owners from."),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `account` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `ownership` (string)
+- `starting_after` (string)
 
 ### postlinkedaccountsaccountrefresh
 
@@ -4821,11 +3743,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "account": z.string().max(5000)
-}
-```
+- `account` (string)
 
 ### getmandatesmandate
 
@@ -4836,12 +3754,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "mandate": z.string(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `mandate` (string)
+- `expand` (array)
 
 ### getpaymentintents
 
@@ -4852,16 +3766,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object \`created\` field. The value can be a string with an integer Unix timestamp or a dictionary with a number of different query options.").optional(),
-  "customer": z.string().max(5000).describe("Only return PaymentIntents for the customer that this customer ID specifies.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postpaymentintents
 
@@ -4872,9 +3782,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getpaymentintentssearch
 
@@ -4885,14 +3793,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "page": z.string().max(5000).describe("A cursor for pagination across multiple pages of results. Don't include this parameter on the first call. Use the next_page value returned in a previous response to request subsequent results.").optional(),
-  "query": z.string().max(5000).describe("The search query string. See [search query language](https://stripe.com/docs/search#search-query-language) and the list of supported [query fields for payment intents](https://stripe.com/docs/search#query-fields-for-payment-intents).")
-}
-```
+- `expand` (array)
+- `limit` (integer)
+- `page` (string)
+- `query` (string)
 
 ### getpaymentintentsintent
 
@@ -4903,13 +3807,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000),
-  "client_secret": z.string().max(5000).describe("The client secret of the PaymentIntent. We require it if you use a publishable key to retrieve the source.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `intent` (string)
+- `client_secret` (string)
+- `expand` (array)
 
 ### postpaymentintentsintent
 
@@ -4920,11 +3820,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### postpaymentintentsintentapplycustomerbalance
 
@@ -4935,11 +3831,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### postpaymentintentsintentcancel
 
@@ -4950,11 +3842,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### postpaymentintentsintentcapture
 
@@ -4965,11 +3853,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### postpaymentintentsintentconfirm
 
@@ -4980,11 +3864,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### postpaymentintentsintentincrementauthorization
 
@@ -4995,11 +3875,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### postpaymentintentsintentverifymicrodeposits
 
@@ -5010,11 +3886,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### getpaymentlinks
 
@@ -5025,15 +3897,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "active": z.boolean().describe("Only return payment links that are active or inactive (e.g., pass \`false\` to list all inactive payment links).").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `active` (boolean)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postpaymentlinks
 
@@ -5044,9 +3912,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getpaymentlinkspaymentlink
 
@@ -5057,12 +3923,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_link": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `payment_link` (string)
+- `expand` (array)
 
 ### postpaymentlinkspaymentlink
 
@@ -5073,11 +3935,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_link": z.string().max(5000)
-}
-```
+- `payment_link` (string)
 
 ### getpaymentlinkspaymentlinklineitems
 
@@ -5088,15 +3946,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_link": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `payment_link` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getpaymentmethodconfigurations
 
@@ -5107,15 +3961,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "application": z.union([z.string().max(100), z.literal("")]).describe("The Connect application to filter by.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `application` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postpaymentmethodconfigurations
 
@@ -5126,9 +3976,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getpaymentmethodconfigurationsconfiguration
 
@@ -5139,12 +3987,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "configuration": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `configuration` (string)
+- `expand` (array)
 
 ### postpaymentmethodconfigurationsconfiguration
 
@@ -5155,11 +3999,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "configuration": z.string().max(5000)
-}
-```
+- `configuration` (string)
 
 ### getpaymentmethoddomains
 
@@ -5170,16 +4010,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "domain_name": z.string().max(5000).describe("The domain name that this payment method domain object represents.").optional(),
-  "enabled": z.boolean().describe("Whether this payment method domain is enabled. If the domain is not enabled, payment methods will not appear in Elements or Embedded Checkout").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `domain_name` (string)
+- `enabled` (boolean)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postpaymentmethoddomains
 
@@ -5190,9 +4026,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getpaymentmethoddomainspaymentmethoddomain
 
@@ -5203,12 +4037,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_method_domain": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `payment_method_domain` (string)
+- `expand` (array)
 
 ### postpaymentmethoddomainspaymentmethoddomain
 
@@ -5219,11 +4049,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_method_domain": z.string().max(5000)
-}
-```
+- `payment_method_domain` (string)
 
 ### postpaymentmethoddomainspaymentmethoddomainvalidate
 
@@ -5234,11 +4060,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_method_domain": z.string().max(5000)
-}
-```
+- `payment_method_domain` (string)
 
 ### getpaymentmethods
 
@@ -5249,16 +4071,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000).describe("The ID of the customer whose PaymentMethods will be retrieved.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "type": z.enum(["acss_debit","affirm","afterpay_clearpay","alipay","alma","amazon_pay","au_becs_debit","bacs_debit","bancontact","billie","blik","boleto","card","cashapp","customer_balance","eps","fpx","giropay","grabpay","ideal","kakao_pay","klarna","konbini","kr_card","link","mobilepay","multibanco","naver_pay","nz_bank_account","oxxo","p24","pay_by_bank","payco","paynow","paypal","pix","promptpay","revolut_pay","samsung_pay","satispay","sepa_debit","sofort","swish","twint","us_bank_account","wechat_pay","zip"]).describe("An optional filter on the list, based on the object \`type\` field. Without the filter, the list includes all current and future payment method types. If your integration expects only one type of payment method in the response, make sure to provide a type value in the request.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `type` (string)
 
 ### postpaymentmethods
 
@@ -5269,9 +4087,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getpaymentmethodspaymentmethod
 
@@ -5282,12 +4098,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_method": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `payment_method` (string)
+- `expand` (array)
 
 ### postpaymentmethodspaymentmethod
 
@@ -5298,11 +4110,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_method": z.string().max(5000)
-}
-```
+- `payment_method` (string)
 
 ### postpaymentmethodspaymentmethodattach
 
@@ -5313,11 +4121,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_method": z.string().max(5000)
-}
-```
+- `payment_method` (string)
 
 ### postpaymentmethodspaymentmethoddetach
 
@@ -5328,11 +4132,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payment_method": z.string().max(5000)
-}
-```
+- `payment_method` (string)
 
 ### getpayouts
 
@@ -5343,18 +4143,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "arrival_date": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return payouts that are expected to arrive during the given date interval.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return payouts that were created during the given date interval.").optional(),
-  "destination": z.string().describe("The ID of an external account - only return payouts sent to this external account.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.string().max(5000).describe("Only return payouts that have the given status: \`pending\`, \`paid\`, \`failed\`, or \`canceled\`.").optional()
-}
-```
+- `arrival_date` (other)
+- `created` (other)
+- `destination` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### postpayouts
 
@@ -5365,9 +4161,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getpayoutspayout
 
@@ -5378,12 +4172,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payout": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `payout` (string)
+- `expand` (array)
 
 ### postpayoutspayout
 
@@ -5394,11 +4184,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payout": z.string().max(5000)
-}
-```
+- `payout` (string)
 
 ### postpayoutspayoutcancel
 
@@ -5409,11 +4195,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payout": z.string().max(5000)
-}
-```
+- `payout` (string)
 
 ### postpayoutspayoutreverse
 
@@ -5424,11 +4206,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "payout": z.string().max(5000)
-}
-```
+- `payout` (string)
 
 ### getplans
 
@@ -5439,17 +4217,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "active": z.boolean().describe("Only return plans that are active or inactive (e.g., pass \`false\` to list all inactive plans).").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object \`created\` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "product": z.string().max(5000).describe("Only return plans for the given product.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `active` (boolean)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `product` (string)
+- `starting_after` (string)
 
 ### postplans
 
@@ -5460,9 +4234,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteplansplan
 
@@ -5473,11 +4245,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "plan": z.string().max(5000)
-}
-```
+- `plan` (string)
 
 ### getplansplan
 
@@ -5488,12 +4256,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "plan": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `plan` (string)
+- `expand` (array)
 
 ### postplansplan
 
@@ -5504,11 +4268,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "plan": z.string().max(5000)
-}
-```
+- `plan` (string)
 
 ### getprices
 
@@ -5519,21 +4279,17 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "active": z.boolean().describe("Only return prices that are active or inactive (e.g., pass \`false\` to list all inactive prices).").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object \`created\` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.").optional(),
-  "currency": z.string().describe("Only return prices for the given currency.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "lookup_keys": z.array(z.string().max(5000)).describe("Only return the price with these lookup_keys, if any exist. You can specify up to 10 lookup_keys.").optional(),
-  "product": z.string().max(5000).describe("Only return prices for the given product.").optional(),
-  "recurring": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOnly return prices with these recurring fields.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "type": z.enum(["one_time","recurring"]).describe("Only return prices of type \`recurring\` or \`one_time\`.").optional()
-}
-```
+- `active` (boolean)
+- `created` (other)
+- `currency` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `lookup_keys` (array)
+- `product` (string)
+- `recurring` (object)
+- `starting_after` (string)
+- `type` (string)
 
 ### postprices
 
@@ -5544,9 +4300,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getpricessearch
 
@@ -5557,14 +4311,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "page": z.string().max(5000).describe("A cursor for pagination across multiple pages of results. Don't include this parameter on the first call. Use the next_page value returned in a previous response to request subsequent results.").optional(),
-  "query": z.string().max(5000).describe("The search query string. See [search query language](https://stripe.com/docs/search#search-query-language) and the list of supported [query fields for prices](https://stripe.com/docs/search#query-fields-for-prices).")
-}
-```
+- `expand` (array)
+- `limit` (integer)
+- `page` (string)
+- `query` (string)
 
 ### getpricesprice
 
@@ -5575,12 +4325,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "price": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `price` (string)
+- `expand` (array)
 
 ### postpricesprice
 
@@ -5591,11 +4337,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "price": z.string().max(5000)
-}
-```
+- `price` (string)
 
 ### getproducts
 
@@ -5606,19 +4348,15 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "active": z.boolean().describe("Only return products that are active or inactive (e.g., pass \`false\` to list all inactive products).").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return products that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "ids": z.array(z.string().max(5000)).describe("Only return products with the given IDs. Cannot be used with [starting_after](https://stripe.com/docs/api#list_products-starting_after) or [ending_before](https://stripe.com/docs/api#list_products-ending_before).").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "shippable": z.boolean().describe("Only return products that can be shipped (i.e., physical, not digital products).").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "url": z.string().max(5000).describe("Only return products with the given url.").optional()
-}
-```
+- `active` (boolean)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `ids` (array)
+- `limit` (integer)
+- `shippable` (boolean)
+- `starting_after` (string)
+- `url` (string)
 
 ### postproducts
 
@@ -5629,9 +4367,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getproductssearch
 
@@ -5642,14 +4378,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "page": z.string().max(5000).describe("A cursor for pagination across multiple pages of results. Don't include this parameter on the first call. Use the next_page value returned in a previous response to request subsequent results.").optional(),
-  "query": z.string().max(5000).describe("The search query string. See [search query language](https://stripe.com/docs/search#search-query-language) and the list of supported [query fields for products](https://stripe.com/docs/search#query-fields-for-products).")
-}
-```
+- `expand` (array)
+- `limit` (integer)
+- `page` (string)
+- `query` (string)
 
 ### deleteproductsid
 
@@ -5660,11 +4392,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### getproductsid
 
@@ -5675,12 +4403,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### postproductsid
 
@@ -5691,11 +4415,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### getproductsproductfeatures
 
@@ -5706,15 +4426,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "product": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `product` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postproductsproductfeatures
 
@@ -5725,11 +4441,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "product": z.string().max(5000)
-}
-```
+- `product` (string)
 
 ### deleteproductsproductfeaturesid
 
@@ -5740,12 +4452,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "product": z.string().max(5000)
-}
-```
+- `id` (string)
+- `product` (string)
 
 ### getproductsproductfeaturesid
 
@@ -5756,13 +4464,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000).describe("The ID of the product_feature."),
-  "product": z.string().max(5000).describe("The ID of the product."),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `product` (string)
+- `expand` (array)
 
 ### getpromotioncodes
 
@@ -5773,19 +4477,15 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "active": z.boolean().describe("Filter promotion codes by whether they are active.").optional(),
-  "code": z.string().max(5000).describe("Only return promotion codes that have this case-insensitive code.").optional(),
-  "coupon": z.string().max(5000).describe("Only return promotion codes for this coupon.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object \`created\` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.").optional(),
-  "customer": z.string().max(5000).describe("Only return promotion codes that are restricted to this customer.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `active` (boolean)
+- `code` (string)
+- `coupon` (string)
+- `created` (other)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postpromotioncodes
 
@@ -5796,9 +4496,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getpromotioncodespromotioncode
 
@@ -5809,12 +4507,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "promotion_code": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `promotion_code` (string)
+- `expand` (array)
 
 ### postpromotioncodespromotioncode
 
@@ -5825,11 +4519,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "promotion_code": z.string().max(5000)
-}
-```
+- `promotion_code` (string)
 
 ### getquotes
 
@@ -5840,17 +4530,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000).describe("The ID of the customer whose quotes will be retrieved.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["accepted","canceled","draft","open"]).describe("The status of the quote.").optional(),
-  "test_clock": z.string().max(5000).describe("Provides a list of quotes that are associated with the specified test clock. The response will not include quotes with test clocks if this and the customer parameter is not set.").optional()
-}
-```
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
+- `test_clock` (string)
 
 ### postquotes
 
@@ -5861,9 +4547,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getquotesquote
 
@@ -5874,12 +4558,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "quote": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `quote` (string)
+- `expand` (array)
 
 ### postquotesquote
 
@@ -5890,11 +4570,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "quote": z.string().max(5000)
-}
-```
+- `quote` (string)
 
 ### postquotesquoteaccept
 
@@ -5905,11 +4581,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "quote": z.string().max(5000)
-}
-```
+- `quote` (string)
 
 ### postquotesquotecancel
 
@@ -5920,11 +4592,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "quote": z.string().max(5000)
-}
-```
+- `quote` (string)
 
 ### getquotesquotecomputedupfrontlineitems
 
@@ -5935,15 +4603,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "quote": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `quote` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postquotesquotefinalize
 
@@ -5954,11 +4618,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "quote": z.string().max(5000)
-}
-```
+- `quote` (string)
 
 ### getquotesquotelineitems
 
@@ -5969,15 +4629,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "quote": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `quote` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getquotesquotepdf
 
@@ -5988,12 +4644,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "quote": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `quote` (string)
+- `expand` (array)
 
 ### getradarearlyfraudwarnings
 
@@ -6004,17 +4656,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().describe("Only return early fraud warnings for the charge specified by this charge ID.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return early fraud warnings that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payment_intent": z.string().max(5000).describe("Only return early fraud warnings for charges that were created by the PaymentIntent specified by this PaymentIntent ID.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `charge` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `payment_intent` (string)
+- `starting_after` (string)
 
 ### getradarearlyfraudwarningsearlyfraudwarning
 
@@ -6025,12 +4673,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "early_fraud_warning": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `early_fraud_warning` (string)
+- `expand` (array)
 
 ### getradarvaluelistitems
 
@@ -6041,17 +4685,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return items that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "value": z.string().max(800).describe("Return items belonging to the parent list whose value matches the specified value (using an \"is like\" match).").optional(),
-  "value_list": z.string().max(5000).describe("Identifier for the parent value list this item belongs to.")
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `value` (string)
+- `value_list` (string)
 
 ### postradarvaluelistitems
 
@@ -6062,9 +4702,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteradarvaluelistitemsitem
 
@@ -6075,11 +4713,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "item": z.string().max(5000)
-}
-```
+- `item` (string)
 
 ### getradarvaluelistitemsitem
 
@@ -6090,12 +4724,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "item": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `item` (string)
+- `expand` (array)
 
 ### getradarvaluelists
 
@@ -6106,17 +4736,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "alias": z.string().max(100).describe("The alias used to reference the value list when writing rules.").optional(),
-  "contains": z.string().max(800).describe("A value contained within a value list - returns all value lists containing this value.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return value lists that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `alias` (string)
+- `contains` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postradarvaluelists
 
@@ -6127,9 +4753,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteradarvaluelistsvaluelist
 
@@ -6140,11 +4764,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "value_list": z.string().max(5000)
-}
-```
+- `value_list` (string)
 
 ### getradarvaluelistsvaluelist
 
@@ -6155,12 +4775,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "value_list": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `value_list` (string)
+- `expand` (array)
 
 ### postradarvaluelistsvaluelist
 
@@ -6171,11 +4787,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "value_list": z.string().max(5000)
-}
-```
+- `value_list` (string)
 
 ### getrefunds
 
@@ -6186,17 +4798,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "charge": z.string().describe("Only return refunds for the charge specified by this charge ID.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return refunds that were created during the given date interval.").optional(),
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payment_intent": z.string().max(5000).describe("Only return refunds for the PaymentIntent specified by this ID.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `charge` (string)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `payment_intent` (string)
+- `starting_after` (string)
 
 ### postrefunds
 
@@ -6207,9 +4815,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getrefundsrefund
 
@@ -6220,12 +4826,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "refund": z.string(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `refund` (string)
+- `expand` (array)
 
 ### postrefundsrefund
 
@@ -6236,11 +4838,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "refund": z.string()
-}
-```
+- `refund` (string)
 
 ### postrefundsrefundcancel
 
@@ -6251,11 +4849,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "refund": z.string()
-}
-```
+- `refund` (string)
 
 ### getreportingreportruns
 
@@ -6266,15 +4860,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return Report Runs that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postreportingreportruns
 
@@ -6285,9 +4875,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getreportingreportrunsreportrun
 
@@ -6298,12 +4886,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "report_run": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `report_run` (string)
+- `expand` (array)
 
 ### getreportingreporttypes
 
@@ -6314,11 +4898,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `expand` (array)
 
 ### getreportingreporttypesreporttype
 
@@ -6329,12 +4909,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "report_type": z.string(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `report_type` (string)
+- `expand` (array)
 
 ### getreviews
 
@@ -6345,15 +4921,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return reviews that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getreviewsreview
 
@@ -6364,12 +4936,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "review": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `review` (string)
+- `expand` (array)
 
 ### postreviewsreviewapprove
 
@@ -6380,11 +4948,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "review": z.string().max(5000)
-}
-```
+- `review` (string)
 
 ### getsetupattempts
 
@@ -6395,16 +4959,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object \`created\` field. The value\ncan be a string with an integer Unix timestamp or a\ndictionary with a number of different query options.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "setup_intent": z.string().max(5000).describe("Only return SetupAttempts created by the SetupIntent specified by\nthis ID."),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `setup_intent` (string)
+- `starting_after` (string)
 
 ### getsetupintents
 
@@ -6415,18 +4975,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "attach_to_self": z.boolean().describe("If present, the SetupIntent's payment method will be attached to the in-context Stripe Account.\n\nIt can only be used for this Stripe Account’s own money movement flows like InboundTransfer and OutboundTransfers. It cannot be set to true when setting up a PaymentMethod for a Customer, and defaults to false when attaching a PaymentMethod to a Customer.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object \`created\` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.").optional(),
-  "customer": z.string().max(5000).describe("Only return SetupIntents for the customer specified by this customer ID.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "payment_method": z.string().max(5000).describe("Only return SetupIntents that associate with the specified payment method.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `attach_to_self` (boolean)
+- `created` (other)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `payment_method` (string)
+- `starting_after` (string)
 
 ### postsetupintents
 
@@ -6437,9 +4993,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getsetupintentsintent
 
@@ -6450,13 +5004,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000),
-  "client_secret": z.string().max(5000).describe("The client secret of the SetupIntent. We require this string if you use a publishable key to retrieve the SetupIntent.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `intent` (string)
+- `client_secret` (string)
+- `expand` (array)
 
 ### postsetupintentsintent
 
@@ -6467,11 +5017,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### postsetupintentsintentcancel
 
@@ -6482,11 +5028,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### postsetupintentsintentconfirm
 
@@ -6497,11 +5039,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### postsetupintentsintentverifymicrodeposits
 
@@ -6512,11 +5050,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "intent": z.string().max(5000)
-}
-```
+- `intent` (string)
 
 ### getshippingrates
 
@@ -6527,17 +5061,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "active": z.boolean().describe("Only return shipping rates that are active or inactive.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object \`created\` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.").optional(),
-  "currency": z.string().describe("Only return shipping rates for the given currency.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `active` (boolean)
+- `created` (other)
+- `currency` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postshippingrates
 
@@ -6548,9 +5078,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getshippingratesshippingratetoken
 
@@ -6561,12 +5089,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "shipping_rate_token": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `shipping_rate_token` (string)
+- `expand` (array)
 
 ### postshippingratesshippingratetoken
 
@@ -6577,11 +5101,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "shipping_rate_token": z.string().max(5000)
-}
-```
+- `shipping_rate_token` (string)
 
 ### postsigmasavedqueriesid
 
@@ -6592,11 +5112,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### getsigmascheduledqueryruns
 
@@ -6607,14 +5123,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getsigmascheduledqueryrunsscheduledqueryrun
 
@@ -6625,12 +5137,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "scheduled_query_run": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `scheduled_query_run` (string)
+- `expand` (array)
 
 ### postsources
 
@@ -6641,9 +5149,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getsourcessource
 
@@ -6654,13 +5160,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "source": z.string().max(5000),
-  "client_secret": z.string().max(5000).describe("The client secret of the source. Required if a publishable key is used to retrieve the source.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `source` (string)
+- `client_secret` (string)
+- `expand` (array)
 
 ### postsourcessource
 
@@ -6671,11 +5173,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "source": z.string().max(5000)
-}
-```
+- `source` (string)
 
 ### getsourcessourcemandatenotificationsmandatenotification
 
@@ -6686,13 +5184,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "mandate_notification": z.string().max(5000),
-  "source": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `mandate_notification` (string)
+- `source` (string)
+- `expand` (array)
 
 ### getsourcessourcesourcetransactions
 
@@ -6703,15 +5197,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "source": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `source` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### getsourcessourcesourcetransactionssourcetransaction
 
@@ -6722,13 +5212,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "source": z.string().max(5000),
-  "source_transaction": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `source` (string)
+- `source_transaction` (string)
+- `expand` (array)
 
 ### postsourcessourceverify
 
@@ -6739,11 +5225,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "source": z.string().max(5000)
-}
-```
+- `source` (string)
 
 ### getsubscriptionitems
 
@@ -6754,15 +5236,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "subscription": z.string().max(5000).describe("The ID of the subscription whose items will be retrieved.")
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `subscription` (string)
 
 ### postsubscriptionitems
 
@@ -6773,9 +5251,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deletesubscriptionitemsitem
 
@@ -6786,11 +5262,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "item": z.string().max(5000)
-}
-```
+- `item` (string)
 
 ### getsubscriptionitemsitem
 
@@ -6801,12 +5273,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "item": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `item` (string)
+- `expand` (array)
 
 ### postsubscriptionitemsitem
 
@@ -6817,11 +5285,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "item": z.string().max(5000)
-}
-```
+- `item` (string)
 
 ### getsubscriptionschedules
 
@@ -6832,20 +5296,16 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "canceled_at": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscription schedules that were created canceled the given date interval.").optional(),
-  "completed_at": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscription schedules that completed during the given date interval.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscription schedules that were created during the given date interval.").optional(),
-  "customer": z.string().max(5000).describe("Only return subscription schedules for the given customer.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "released_at": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscription schedules that were released during the given date interval.").optional(),
-  "scheduled": z.boolean().describe("Only return subscription schedules that have not started yet.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `canceled_at` (other)
+- `completed_at` (other)
+- `created` (other)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `released_at` (other)
+- `scheduled` (boolean)
+- `starting_after` (string)
 
 ### postsubscriptionschedules
 
@@ -6856,9 +5316,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getsubscriptionschedulesschedule
 
@@ -6869,12 +5327,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "schedule": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `schedule` (string)
+- `expand` (array)
 
 ### postsubscriptionschedulesschedule
 
@@ -6885,11 +5339,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "schedule": z.string().max(5000)
-}
-```
+- `schedule` (string)
 
 ### postsubscriptionschedulesschedulecancel
 
@@ -6900,11 +5350,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "schedule": z.string().max(5000)
-}
-```
+- `schedule` (string)
 
 ### postsubscriptionschedulesschedulerelease
 
@@ -6915,11 +5361,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "schedule": z.string().max(5000)
-}
-```
+- `schedule` (string)
 
 ### getsubscriptions
 
@@ -6930,23 +5372,19 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "automatic_tax": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nFilter subscriptions by their automatic tax settings.").optional(),
-  "collection_method": z.enum(["charge_automatically","send_invoice"]).describe("The collection method of the subscriptions to retrieve. Either \`charge_automatically\` or \`send_invoice\`.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscriptions that were created during the given date interval.").optional(),
-  "current_period_end": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscriptions whose current_period_end falls within the given date interval.").optional(),
-  "current_period_start": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return subscriptions whose current_period_start falls within the given date interval.").optional(),
-  "customer": z.string().max(5000).describe("The ID of the customer whose subscriptions will be retrieved.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "price": z.string().max(5000).describe("Filter for subscriptions that contain this recurring price ID.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["active","all","canceled","ended","incomplete","incomplete_expired","past_due","paused","trialing","unpaid"]).describe("The status of the subscriptions to retrieve. Passing in a value of \`canceled\` will return all canceled subscriptions, including those belonging to deleted customers. Pass \`ended\` to find subscriptions that are canceled and subscriptions that are expired due to [incomplete payment](https://stripe.com/docs/billing/subscriptions/overview#subscription-statuses). Passing in a value of \`all\` will return subscriptions of all statuses. If no value is supplied, all subscriptions that have not been canceled are returned.").optional(),
-  "test_clock": z.string().max(5000).describe("Filter for subscriptions that are associated with the specified test clock. The response will not include subscriptions with test clocks if this and the customer parameter is not set.").optional()
-}
-```
+- `automatic_tax` (object)
+- `collection_method` (string)
+- `created` (other)
+- `current_period_end` (other)
+- `current_period_start` (other)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `price` (string)
+- `starting_after` (string)
+- `status` (string)
+- `test_clock` (string)
 
 ### postsubscriptions
 
@@ -6957,9 +5395,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getsubscriptionssearch
 
@@ -6970,14 +5406,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "page": z.string().max(5000).describe("A cursor for pagination across multiple pages of results. Don't include this parameter on the first call. Use the next_page value returned in a previous response to request subsequent results.").optional(),
-  "query": z.string().max(5000).describe("The search query string. See [search query language](https://stripe.com/docs/search#search-query-language) and the list of supported [query fields for subscriptions](https://stripe.com/docs/search#query-fields-for-subscriptions).")
-}
-```
+- `expand` (array)
+- `limit` (integer)
+- `page` (string)
+- `query` (string)
 
 ### deletesubscriptionssubscriptionexposedid
 
@@ -6988,11 +5420,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "subscription_exposed_id": z.string().max(5000)
-}
-```
+- `subscription_exposed_id` (string)
 
 ### getsubscriptionssubscriptionexposedid
 
@@ -7003,12 +5431,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "subscription_exposed_id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `subscription_exposed_id` (string)
+- `expand` (array)
 
 ### postsubscriptionssubscriptionexposedid
 
@@ -7019,11 +5443,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "subscription_exposed_id": z.string().max(5000)
-}
-```
+- `subscription_exposed_id` (string)
 
 ### deletesubscriptionssubscriptionexposediddiscount
 
@@ -7034,11 +5454,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "subscription_exposed_id": z.string().max(5000)
-}
-```
+- `subscription_exposed_id` (string)
 
 ### postsubscriptionssubscriptionresume
 
@@ -7049,11 +5465,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "subscription": z.string().max(5000)
-}
-```
+- `subscription` (string)
 
 ### posttaxcalculations
 
@@ -7064,9 +5476,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettaxcalculationscalculation
 
@@ -7077,12 +5487,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "calculation": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `calculation` (string)
+- `expand` (array)
 
 ### gettaxcalculationscalculationlineitems
 
@@ -7093,15 +5499,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "calculation": z.string().max(5000),
-  "ending_before": z.string().max(500).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(500).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `calculation` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### gettaxregistrations
 
@@ -7112,15 +5514,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["active","all","expired","scheduled"]).describe("The status of the Tax Registration.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### posttaxregistrations
 
@@ -7131,9 +5529,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettaxregistrationsid
 
@@ -7144,12 +5540,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### posttaxregistrationsid
 
@@ -7160,11 +5552,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### gettaxsettings
 
@@ -7175,11 +5563,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `expand` (array)
 
 ### posttaxsettings
 
@@ -7190,9 +5574,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### posttaxtransactionscreatefromcalculation
 
@@ -7203,9 +5585,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### posttaxtransactionscreatereversal
 
@@ -7216,9 +5596,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettaxtransactionstransaction
 
@@ -7229,12 +5607,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "transaction": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `transaction` (string)
+- `expand` (array)
 
 ### gettaxtransactionstransactionlineitems
 
@@ -7245,15 +5619,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "transaction": z.string().max(5000),
-  "ending_before": z.string().max(500).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(500).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `transaction` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### gettaxcodes
 
@@ -7264,14 +5634,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### gettaxcodesid
 
@@ -7282,12 +5648,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### gettaxids
 
@@ -7298,15 +5660,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "owner": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nThe account or customer the tax ID belongs to. Defaults to \`owner[type]=self\`.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `owner` (object)
+- `starting_after` (string)
 
 ### posttaxids
 
@@ -7317,9 +5675,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deletetaxidsid
 
@@ -7330,11 +5686,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### gettaxidsid
 
@@ -7345,12 +5697,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### gettaxrates
 
@@ -7361,17 +5709,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "active": z.boolean().describe("Optional flag to filter by tax rates that are either active or inactive (archived).").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Optional range for filtering created date.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "inclusive": z.boolean().describe("Optional flag to filter by tax rates that are inclusive (or those that are not inclusive).").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `active` (boolean)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `inclusive` (boolean)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### posttaxrates
 
@@ -7382,9 +5726,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettaxratestaxrate
 
@@ -7395,12 +5737,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "tax_rate": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `tax_rate` (string)
+- `expand` (array)
 
 ### posttaxratestaxrate
 
@@ -7411,11 +5749,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "tax_rate": z.string().max(5000)
-}
-```
+- `tax_rate` (string)
 
 ### getterminalconfigurations
 
@@ -7426,15 +5760,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "is_account_default": z.boolean().describe("if present, only return the account default or non-default configurations.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `is_account_default` (boolean)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postterminalconfigurations
 
@@ -7445,9 +5775,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteterminalconfigurationsconfiguration
 
@@ -7458,11 +5786,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "configuration": z.string().max(5000)
-}
-```
+- `configuration` (string)
 
 ### getterminalconfigurationsconfiguration
 
@@ -7473,12 +5797,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "configuration": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `configuration` (string)
+- `expand` (array)
 
 ### postterminalconfigurationsconfiguration
 
@@ -7489,11 +5809,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "configuration": z.string().max(5000)
-}
-```
+- `configuration` (string)
 
 ### postterminalconnectiontokens
 
@@ -7504,9 +5820,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getterminallocations
 
@@ -7517,14 +5831,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postterminallocations
 
@@ -7535,9 +5845,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteterminallocationslocation
 
@@ -7548,11 +5856,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "location": z.string().max(5000)
-}
-```
+- `location` (string)
 
 ### getterminallocationslocation
 
@@ -7563,12 +5867,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "location": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `location` (string)
+- `expand` (array)
 
 ### postterminallocationslocation
 
@@ -7579,11 +5879,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "location": z.string().max(5000)
-}
-```
+- `location` (string)
 
 ### getterminalreaders
 
@@ -7594,18 +5890,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "device_type": z.enum(["bbpos_chipper2x","bbpos_wisepad3","bbpos_wisepos_e","mobile_phone_reader","simulated_wisepos_e","stripe_m2","stripe_s700","verifone_P400"]).describe("Filters readers by device type").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "location": z.string().max(5000).describe("A location ID to filter the response list to only readers at the specific location").optional(),
-  "serial_number": z.string().max(5000).describe("Filters readers by serial number").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["offline","online"]).describe("A status filter to filter readers to only offline or online readers").optional()
-}
-```
+- `device_type` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `location` (string)
+- `serial_number` (string)
+- `starting_after` (string)
+- `status` (string)
 
 ### postterminalreaders
 
@@ -7616,9 +5908,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deleteterminalreadersreader
 
@@ -7629,11 +5919,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reader": z.string().max(5000)
-}
-```
+- `reader` (string)
 
 ### getterminalreadersreader
 
@@ -7644,12 +5930,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reader": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `reader` (string)
+- `expand` (array)
 
 ### postterminalreadersreader
 
@@ -7660,11 +5942,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reader": z.string().max(5000)
-}
-```
+- `reader` (string)
 
 ### postterminalreadersreadercancelaction
 
@@ -7675,11 +5953,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reader": z.string().max(5000)
-}
-```
+- `reader` (string)
 
 ### postterminalreadersreaderprocesspaymentintent
 
@@ -7690,11 +5964,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reader": z.string().max(5000)
-}
-```
+- `reader` (string)
 
 ### postterminalreadersreaderprocesssetupintent
 
@@ -7705,11 +5975,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reader": z.string().max(5000)
-}
-```
+- `reader` (string)
 
 ### postterminalreadersreaderrefundpayment
 
@@ -7720,11 +5986,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reader": z.string().max(5000)
-}
-```
+- `reader` (string)
 
 ### postterminalreadersreadersetreaderdisplay
 
@@ -7735,11 +5997,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reader": z.string().max(5000)
-}
-```
+- `reader` (string)
 
 ### posttesthelpersconfirmationtokens
 
@@ -7750,9 +6008,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### posttesthelperscustomerscustomerfundcashbalance
 
@@ -7763,11 +6019,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "customer": z.string().max(5000)
-}
-```
+- `customer` (string)
 
 ### posttesthelpersissuingauthorizations
 
@@ -7778,9 +6030,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### posttesthelpersissuingauthorizationsauthorizationcapture
 
@@ -7791,11 +6041,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000)
-}
-```
+- `authorization` (string)
 
 ### posttesthelpersissuingauthorizationsauthorizationexpire
 
@@ -7806,11 +6052,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000)
-}
-```
+- `authorization` (string)
 
 ### posttesthelpersissuingauthorizationsauthorizationfinalizeamount
 
@@ -7821,11 +6063,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000)
-}
-```
+- `authorization` (string)
 
 ### posttesthelpersissuingauthorizationsauthorizationfraudchallenges
 
@@ -7836,11 +6074,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000)
-}
-```
+- `authorization` (string)
 
 ### posttesthelpersissuingauthorizationsauthorizationincrement
 
@@ -7851,11 +6085,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000)
-}
-```
+- `authorization` (string)
 
 ### posttesthelpersissuingauthorizationsauthorizationreverse
 
@@ -7866,11 +6096,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.string().max(5000)
-}
-```
+- `authorization` (string)
 
 ### posttesthelpersissuingcardscardshippingdeliver
 
@@ -7881,11 +6107,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000)
-}
-```
+- `card` (string)
 
 ### posttesthelpersissuingcardscardshippingfail
 
@@ -7896,11 +6118,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000)
-}
-```
+- `card` (string)
 
 ### posttesthelpersissuingcardscardshippingreturn
 
@@ -7911,11 +6129,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000)
-}
-```
+- `card` (string)
 
 ### posttesthelpersissuingcardscardshippingship
 
@@ -7926,11 +6140,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000)
-}
-```
+- `card` (string)
 
 ### posttesthelpersissuingcardscardshippingsubmit
 
@@ -7941,11 +6151,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "card": z.string().max(5000)
-}
-```
+- `card` (string)
 
 ### posttesthelpersissuingpersonalizationdesignspersonalizationdesig
 
@@ -7956,11 +6162,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "personalization_design": z.string().max(5000)
-}
-```
+- `personalization_design` (string)
 
 ### posttesthelpersissuingpersonalizationdesignspersonalizationdesig
 
@@ -7971,11 +6173,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "personalization_design": z.string().max(5000)
-}
-```
+- `personalization_design` (string)
 
 ### posttesthelpersissuingpersonalizationdesignspersonalizationdesig
 
@@ -7986,11 +6184,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "personalization_design": z.string().max(5000)
-}
-```
+- `personalization_design` (string)
 
 ### posttesthelpersissuingsettlements
 
@@ -8001,9 +6195,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### posttesthelpersissuingsettlementssettlementcomplete
 
@@ -8014,11 +6206,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "settlement": z.string().max(5000).describe("The settlement token to mark as complete.")
-}
-```
+- `settlement` (string)
 
 ### posttesthelpersissuingtransactionscreateforcecapture
 
@@ -8029,9 +6217,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### posttesthelpersissuingtransactionscreateunlinkedrefund
 
@@ -8042,9 +6228,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### posttesthelpersissuingtransactionstransactionrefund
 
@@ -8055,11 +6239,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "transaction": z.string().max(5000)
-}
-```
+- `transaction` (string)
 
 ### posttesthelpersrefundsrefundexpire
 
@@ -8070,11 +6250,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "refund": z.string()
-}
-```
+- `refund` (string)
 
 ### posttesthelpersterminalreadersreaderpresentpaymentmethod
 
@@ -8085,11 +6261,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reader": z.string().max(5000)
-}
-```
+- `reader` (string)
 
 ### gettesthelperstestclocks
 
@@ -8100,14 +6272,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### posttesthelperstestclocks
 
@@ -8118,9 +6286,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deletetesthelperstestclockstestclock
 
@@ -8131,11 +6297,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "test_clock": z.string().max(5000)
-}
-```
+- `test_clock` (string)
 
 ### gettesthelperstestclockstestclock
 
@@ -8146,12 +6308,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "test_clock": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `test_clock` (string)
+- `expand` (array)
 
 ### posttesthelperstestclockstestclockadvance
 
@@ -8162,11 +6320,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "test_clock": z.string().max(5000)
-}
-```
+- `test_clock` (string)
 
 ### posttesthelperstreasuryinboundtransfersidfail
 
@@ -8177,11 +6331,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### posttesthelperstreasuryinboundtransfersidreturn
 
@@ -8192,11 +6342,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### posttesthelperstreasuryinboundtransfersidsucceed
 
@@ -8207,11 +6353,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### posttesthelperstreasuryoutboundpaymentsid
 
@@ -8222,11 +6364,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### posttesthelperstreasuryoutboundpaymentsidfail
 
@@ -8237,11 +6375,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### posttesthelperstreasuryoutboundpaymentsidpost
 
@@ -8252,11 +6386,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### posttesthelperstreasuryoutboundpaymentsidreturn
 
@@ -8267,11 +6397,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### posttesthelperstreasuryoutboundtransfersoutboundtransfer
 
@@ -8282,11 +6408,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "outbound_transfer": z.string().max(5000)
-}
-```
+- `outbound_transfer` (string)
 
 ### posttesthelperstreasuryoutboundtransfersoutboundtransferfail
 
@@ -8297,11 +6419,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "outbound_transfer": z.string().max(5000)
-}
-```
+- `outbound_transfer` (string)
 
 ### posttesthelperstreasuryoutboundtransfersoutboundtransferpost
 
@@ -8312,11 +6430,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "outbound_transfer": z.string().max(5000)
-}
-```
+- `outbound_transfer` (string)
 
 ### posttesthelperstreasuryoutboundtransfersoutboundtransferreturn
 
@@ -8327,11 +6441,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "outbound_transfer": z.string().max(5000)
-}
-```
+- `outbound_transfer` (string)
 
 ### posttesthelperstreasuryreceivedcredits
 
@@ -8342,9 +6452,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### posttesthelperstreasuryreceiveddebits
 
@@ -8355,9 +6463,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### posttokens
 
@@ -8368,9 +6474,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettokenstoken
 
@@ -8381,12 +6485,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "token": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `token` (string)
+- `expand` (array)
 
 ### gettopups
 
@@ -8397,17 +6497,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "amount": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A positive integer representing how much to transfer.").optional(),
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("A filter on the list, based on the object \`created\` field. The value can be a string with an integer Unix timestamp, or it can be a dictionary with a number of different query options.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["canceled","failed","pending","succeeded"]).describe("Only return top-ups that have the given status. One of \`canceled\`, \`failed\`, \`pending\` or \`succeeded\`.").optional()
-}
-```
+- `amount` (other)
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### posttopups
 
@@ -8418,9 +6514,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettopupstopup
 
@@ -8431,12 +6525,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "topup": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `topup` (string)
+- `expand` (array)
 
 ### posttopupstopup
 
@@ -8447,11 +6537,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "topup": z.string().max(5000)
-}
-```
+- `topup` (string)
 
 ### posttopupstopupcancel
 
@@ -8462,11 +6548,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "topup": z.string().max(5000)
-}
-```
+- `topup` (string)
 
 ### gettransfers
 
@@ -8477,17 +6559,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return transfers that were created during the given date interval.").optional(),
-  "destination": z.string().max(5000).describe("Only return transfers for the destination specified by this account ID.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "transfer_group": z.string().max(5000).describe("Only return transfers with the specified transfer group.").optional()
-}
-```
+- `created` (other)
+- `destination` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
+- `transfer_group` (string)
 
 ### posttransfers
 
@@ -8498,9 +6576,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettransfersidreversals
 
@@ -8511,15 +6587,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `id` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### posttransfersidreversals
 
@@ -8530,11 +6602,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### gettransferstransfer
 
@@ -8545,12 +6613,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "transfer": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `transfer` (string)
+- `expand` (array)
 
 ### posttransferstransfer
 
@@ -8561,11 +6625,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "transfer": z.string().max(5000)
-}
-```
+- `transfer` (string)
 
 ### gettransferstransferreversalsid
 
@@ -8576,13 +6636,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "transfer": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `transfer` (string)
+- `expand` (array)
 
 ### posttransferstransferreversalsid
 
@@ -8593,12 +6649,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "transfer": z.string().max(5000)
-}
-```
+- `id` (string)
+- `transfer` (string)
 
 ### gettreasurycreditreversals
 
@@ -8609,17 +6661,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "financial_account": z.string().describe("Returns objects associated with this FinancialAccount."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "received_credit": z.string().max(5000).describe("Only return CreditReversals for the ReceivedCredit ID.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["canceled","posted","processing"]).describe("Only return CreditReversals for a given status.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `financial_account` (string)
+- `limit` (integer)
+- `received_credit` (string)
+- `starting_after` (string)
+- `status` (string)
 
 ### posttreasurycreditreversals
 
@@ -8630,9 +6678,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettreasurycreditreversalscreditreversal
 
@@ -8643,12 +6689,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "credit_reversal": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `credit_reversal` (string)
+- `expand` (array)
 
 ### gettreasurydebitreversals
 
@@ -8659,18 +6701,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "financial_account": z.string().describe("Returns objects associated with this FinancialAccount."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "received_debit": z.string().max(5000).describe("Only return DebitReversals for the ReceivedDebit ID.").optional(),
-  "resolution": z.enum(["lost","won"]).describe("Only return DebitReversals for a given resolution.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["canceled","completed","processing"]).describe("Only return DebitReversals for a given status.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `financial_account` (string)
+- `limit` (integer)
+- `received_debit` (string)
+- `resolution` (string)
+- `starting_after` (string)
+- `status` (string)
 
 ### posttreasurydebitreversals
 
@@ -8681,9 +6719,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettreasurydebitreversalsdebitreversal
 
@@ -8694,12 +6730,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "debit_reversal": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `debit_reversal` (string)
+- `expand` (array)
 
 ### gettreasuryfinancialaccounts
 
@@ -8710,15 +6742,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return FinancialAccounts that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("An object ID cursor for use in pagination.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit ranging from 1 to 100 (defaults to 10).").optional(),
-  "starting_after": z.string().max(5000).describe("An object ID cursor for use in pagination.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### posttreasuryfinancialaccounts
 
@@ -8729,9 +6757,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettreasuryfinancialaccountsfinancialaccount
 
@@ -8742,12 +6768,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "financial_account": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `financial_account` (string)
+- `expand` (array)
 
 ### posttreasuryfinancialaccountsfinancialaccount
 
@@ -8758,11 +6780,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "financial_account": z.string().max(5000)
-}
-```
+- `financial_account` (string)
 
 ### posttreasuryfinancialaccountsfinancialaccountclose
 
@@ -8773,11 +6791,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "financial_account": z.string().max(5000)
-}
-```
+- `financial_account` (string)
 
 ### gettreasuryfinancialaccountsfinancialaccountfeatures
 
@@ -8788,12 +6802,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "financial_account": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `financial_account` (string)
+- `expand` (array)
 
 ### posttreasuryfinancialaccountsfinancialaccountfeatures
 
@@ -8804,11 +6814,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "financial_account": z.string().max(5000)
-}
-```
+- `financial_account` (string)
 
 ### gettreasuryinboundtransfers
 
@@ -8819,16 +6825,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "financial_account": z.string().describe("Returns objects associated with this FinancialAccount."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["canceled","failed","processing","succeeded"]).describe("Only return InboundTransfers that have the given status: \`processing\`, \`succeeded\`, \`failed\` or \`canceled\`.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `financial_account` (string)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### posttreasuryinboundtransfers
 
@@ -8839,9 +6841,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettreasuryinboundtransfersid
 
@@ -8852,12 +6852,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### posttreasuryinboundtransfersinboundtransfercancel
 
@@ -8868,11 +6864,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "inbound_transfer": z.string().max(5000)
-}
-```
+- `inbound_transfer` (string)
 
 ### gettreasuryoutboundpayments
 
@@ -8883,18 +6875,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return OutboundPayments that were created during the given date interval.").optional(),
-  "customer": z.string().max(5000).describe("Only return OutboundPayments sent to this customer.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "financial_account": z.string().describe("Returns objects associated with this FinancialAccount."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["canceled","failed","posted","processing","returned"]).describe("Only return OutboundPayments that have the given status: \`processing\`, \`failed\`, \`posted\`, \`returned\`, or \`canceled\`.").optional()
-}
-```
+- `created` (other)
+- `customer` (string)
+- `ending_before` (string)
+- `expand` (array)
+- `financial_account` (string)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### posttreasuryoutboundpayments
 
@@ -8905,9 +6893,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettreasuryoutboundpaymentsid
 
@@ -8918,12 +6904,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### posttreasuryoutboundpaymentsidcancel
 
@@ -8934,11 +6916,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000)
-}
-```
+- `id` (string)
 
 ### gettreasuryoutboundtransfers
 
@@ -8949,16 +6927,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "financial_account": z.string().describe("Returns objects associated with this FinancialAccount."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["canceled","failed","posted","processing","returned"]).describe("Only return OutboundTransfers that have the given status: \`processing\`, \`canceled\`, \`failed\`, \`posted\`, or \`returned\`.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `financial_account` (string)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### posttreasuryoutboundtransfers
 
@@ -8969,9 +6943,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gettreasuryoutboundtransfersoutboundtransfer
 
@@ -8982,12 +6954,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "outbound_transfer": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `outbound_transfer` (string)
+- `expand` (array)
 
 ### posttreasuryoutboundtransfersoutboundtransfercancel
 
@@ -8998,11 +6966,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "outbound_transfer": z.string().max(5000)
-}
-```
+- `outbound_transfer` (string)
 
 ### gettreasuryreceivedcredits
 
@@ -9013,17 +6977,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "financial_account": z.string().describe("The FinancialAccount that received the funds."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "linked_flows": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nOnly return ReceivedCredits described by the flow.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["failed","succeeded"]).describe("Only return ReceivedCredits that have the given status: \`succeeded\` or \`failed\`.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `financial_account` (string)
+- `limit` (integer)
+- `linked_flows` (object)
+- `starting_after` (string)
+- `status` (string)
 
 ### gettreasuryreceivedcreditsid
 
@@ -9034,12 +6994,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### gettreasuryreceiveddebits
 
@@ -9050,16 +7006,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "financial_account": z.string().describe("The FinancialAccount that funds were pulled from."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["failed","succeeded"]).describe("Only return ReceivedDebits that have the given status: \`succeeded\` or \`failed\`.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `financial_account` (string)
+- `limit` (integer)
+- `starting_after` (string)
+- `status` (string)
 
 ### gettreasuryreceiveddebitsid
 
@@ -9070,12 +7022,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### gettreasurytransactionentries
 
@@ -9086,19 +7034,15 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return TransactionEntries that were created during the given date interval.").optional(),
-  "effective_at": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "financial_account": z.string().describe("Returns objects associated with this FinancialAccount."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "order_by": z.enum(["created","effective_at"]).describe("The results are in reverse chronological order by \`created\` or \`effective_at\`. The default is \`created\`.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "transaction": z.string().max(5000).describe("Only return TransactionEntries associated with this Transaction.").optional()
-}
-```
+- `created` (other)
+- `effective_at` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `financial_account` (string)
+- `limit` (integer)
+- `order_by` (string)
+- `starting_after` (string)
+- `transaction` (string)
 
 ### gettreasurytransactionentriesid
 
@@ -9109,12 +7053,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### gettreasurytransactions
 
@@ -9125,19 +7065,15 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "created": z.union([z.object({ "gt": z.number().int().optional(), "gte": z.number().int().optional(), "lt": z.number().int().optional(), "lte": z.number().int().optional() }), z.number().int()]).describe("Only return Transactions that were created during the given date interval.").optional(),
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "financial_account": z.string().describe("Returns objects associated with this FinancialAccount."),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "order_by": z.enum(["created","posted_at"]).describe("The results are in reverse chronological order by \`created\` or \`posted_at\`. The default is \`created\`.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional(),
-  "status": z.enum(["open","posted","void"]).describe("Only return Transactions that have the given status: \`open\`, \`posted\`, or \`void\`.").optional(),
-  "status_transitions": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nA filter for the \`status_transitions.posted_at\` timestamp. When using this filter, \`status=posted\` and \`order_by=posted_at\` must also be specified.").optional()
-}
-```
+- `created` (other)
+- `ending_before` (string)
+- `expand` (array)
+- `financial_account` (string)
+- `limit` (integer)
+- `order_by` (string)
+- `starting_after` (string)
+- `status` (string)
+- `status_transitions` (object)
 
 ### gettreasurytransactionsid
 
@@ -9148,12 +7084,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `id` (string)
+- `expand` (array)
 
 ### getwebhookendpoints
 
@@ -9164,14 +7096,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "ending_before": z.string().max(5000).describe("A cursor for use in pagination. \`ending_before\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with \`obj_bar\`, your subsequent call can include \`ending_before=obj_bar\` in order to fetch the previous page of the list.").optional(),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional(),
-  "limit": z.number().int().describe("A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.").optional(),
-  "starting_after": z.string().max(5000).describe("A cursor for use in pagination. \`starting_after\` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with \`obj_foo\`, your subsequent call can include \`starting_after=obj_foo\` in order to fetch the next page of the list.").optional()
-}
-```
+- `ending_before` (string)
+- `expand` (array)
+- `limit` (integer)
+- `starting_after` (string)
 
 ### postwebhookendpoints
 
@@ -9182,9 +7110,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### deletewebhookendpointswebhookendpoint
 
@@ -9195,11 +7121,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "webhook_endpoint": z.string().max(5000)
-}
-```
+- `webhook_endpoint` (string)
 
 ### getwebhookendpointswebhookendpoint
 
@@ -9210,12 +7132,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "webhook_endpoint": z.string().max(5000),
-  "expand": z.array(z.string().max(5000)).describe("Specifies which fields in the response should be expanded.").optional()
-}
-```
+- `webhook_endpoint` (string)
+- `expand` (array)
 
 ### postwebhookendpointswebhookendpoint
 
@@ -9226,8 +7144,4 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "webhook_endpoint": z.string().max(5000)
-}
-```
+- `webhook_endpoint` (string)

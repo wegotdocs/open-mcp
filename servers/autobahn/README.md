@@ -84,189 +84,135 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### list_autobahnen
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### list_roadworks
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "roadId": z.string().regex(new RegExp("[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?(\\/[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?)?")).describe("Kann jede gültige Straßenbezeichnung sein (nicht auf Autobahnen beschränkt). Die Gültigkeit wird nicht überprüft: Abfragen mit nicht existierenden Straßenbezeichnungen liefern einen leeren Datensatz zurück. Die Schreibweise kann von der sonst üblichen Form abweichen (z.B. S1234 statt St1234 für Staatsstraßen).\n")
-}
-```
+- `roadId` (string)
 
 ### get_roadwork
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "roadworkId": z.string()
-}
-```
+- `roadworkId` (string)
 
 ### list_webcams
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "roadId": z.string().regex(new RegExp("[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?(\\/[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?)?")).describe("Kann jede gültige Straßenbezeichnung sein (nicht auf Autobahnen beschränkt). Die Gültigkeit wird nicht überprüft: Abfragen mit nicht existierenden Straßenbezeichnungen liefern einen leeren Datensatz zurück. Die Schreibweise kann von der sonst üblichen Form abweichen (z.B. S1234 statt St1234 für Staatsstraßen).\n")
-}
-```
+- `roadId` (string)
 
 ### get_webcam
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "webcamId": z.string()
-}
-```
+- `webcamId` (string)
 
 ### list_parking_lorries
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "roadId": z.string().regex(new RegExp("[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?(\\/[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?)?")).describe("Kann jede gültige Straßenbezeichnung sein (nicht auf Autobahnen beschränkt). Die Gültigkeit wird nicht überprüft: Abfragen mit nicht existierenden Straßenbezeichnungen liefern einen leeren Datensatz zurück. Die Schreibweise kann von der sonst üblichen Form abweichen (z.B. S1234 statt St1234 für Staatsstraßen).\n")
-}
-```
+- `roadId` (string)
 
 ### get_parking_lorry
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "lorryId": z.string()
-}
-```
+- `lorryId` (string)
 
 ### list_warnings
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "roadId": z.string().regex(new RegExp("[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?(\\/[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?)?")).describe("Kann jede gültige Straßenbezeichnung sein (nicht auf Autobahnen beschränkt). Die Gültigkeit wird nicht überprüft: Abfragen mit nicht existierenden Straßenbezeichnungen liefern einen leeren Datensatz zurück. Die Schreibweise kann von der sonst üblichen Form abweichen (z.B. S1234 statt St1234 für Staatsstraßen).\n")
-}
-```
+- `roadId` (string)
 
 ### get_warning
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "warningId": z.string()
-}
-```
+- `warningId` (string)
 
 ### list_closures
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "roadId": z.string().regex(new RegExp("[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?(\\/[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?)?")).describe("Kann jede gültige Straßenbezeichnung sein (nicht auf Autobahnen beschränkt). Die Gültigkeit wird nicht überprüft: Abfragen mit nicht existierenden Straßenbezeichnungen liefern einen leeren Datensatz zurück. Die Schreibweise kann von der sonst üblichen Form abweichen (z.B. S1234 statt St1234 für Staatsstraßen).\n")
-}
-```
+- `roadId` (string)
 
 ### get_closure
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "closureId": z.string()
-}
-```
+- `closureId` (string)
 
 ### list_charging_stations
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "roadId": z.string().regex(new RegExp("[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?(\\/[A-Z][A-Za-z]*[1-9]([0-9]{1,3})?)?")).describe("Kann jede gültige Straßenbezeichnung sein (nicht auf Autobahnen beschränkt). Die Gültigkeit wird nicht überprüft: Abfragen mit nicht existierenden Straßenbezeichnungen liefern einen leeren Datensatz zurück. Die Schreibweise kann von der sonst üblichen Form abweichen (z.B. S1234 statt St1234 für Staatsstraßen).\n")
-}
-```
+- `roadId` (string)
 
 ### get_charging_station
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "stationId": z.string()
-}
-```
+- `stationId` (string)

@@ -87,12 +87,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### get_plants
 
@@ -102,11 +98,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "limit": z.number().int().describe("The maximum number of results to return").optional()
-}
-```
+- `limit` (integer)
 
 ### post_plants
 
@@ -116,9 +108,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### delete_plants_id_
 
@@ -128,8 +118,4 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.number().int().describe("ID of plant to delete")
-}
-```
+- `id` (integer)

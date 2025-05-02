@@ -87,12 +87,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### create_accounts
 
@@ -102,17 +98,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "users": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "organizations": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "workspaces": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "projects": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "organization_memberships": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "workspace_memberships": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "project_memberships": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
-}
-```
+- `users` (object)
+- `organizations` (object)
+- `workspaces` (object)
+- `projects` (object)
+- `organization_memberships` (object)
+- `workspace_memberships` (object)
+- `project_memberships` (object)
 
 ### create_account
 
@@ -122,12 +114,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "user": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "scope": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
-}
-```
+- `user` (object)
+- `scope` (object)
 
 ### get_own_org
 
@@ -137,9 +125,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### fetch_organization_details
 
@@ -149,11 +135,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "org_id": z.string()
-}
-```
+- `org_id` (string)
 
 ### update_organization
 
@@ -163,14 +145,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "org_id": z.string(),
-  "name": z.union([z.string(), z.null()]).optional(),
-  "description": z.union([z.string(), z.null()]).optional(),
-  "updated_at": z.union([z.string(), z.null()]).optional()
-}
-```
+- `org_id` (string)
+- `name` (other)
+- `description` (other)
+- `updated_at` (other)
 
 ### create_workspace
 
@@ -180,14 +158,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "org_id": z.string(),
-  "name": z.string(),
-  "description": z.union([z.string(), z.null()]).optional(),
-  "type": z.union([z.string(), z.null()]).optional()
-}
-```
+- `org_id` (string)
+- `name` (string)
+- `description` (other)
+- `type` (other)
 
 ### update_workspace
 
@@ -197,15 +171,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "org_id": z.string(),
-  "workspace_id": z.string(),
-  "name": z.union([z.string(), z.null()]).optional(),
-  "description": z.union([z.string(), z.null()]).optional(),
-  "updated_at": z.union([z.string().datetime({ offset: true }), z.null()]).optional()
-}
-```
+- `org_id` (string)
+- `workspace_id` (string)
+- `name` (other)
+- `description` (other)
+- `updated_at` (other)
 
 ### get_all_workspace_permissions
 
@@ -215,9 +185,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### assign_role_to_user
 
@@ -227,14 +195,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "workspace_id": z.string(),
-  "email": z.string(),
-  "organization_id": z.string(),
-  "role": z.union([z.string(), z.null()]).optional()
-}
-```
+- `workspace_id` (string)
+- `email` (string)
+- `organization_id` (string)
+- `role` (other)
 
 ### unassign_role_from_user
 
@@ -244,14 +208,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "workspace_id": z.string(),
-  "email": z.string(),
-  "org_id": z.string(),
-  "role": z.string()
-}
-```
+- `workspace_id` (string)
+- `email` (string)
+- `org_id` (string)
+- `role` (string)
 
 ### fetch_evaluation_ids_evaluations_by_resource_get
 
@@ -261,12 +221,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "resource_type": z.string(),
-  "resource_ids": z.array(z.string()).optional()
-}
-```
+- `resource_type` (string)
+- `resource_ids` (array)
 
 ### create_evaluation
 
@@ -276,16 +232,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string(),
-  "revisions_ids": z.array(z.string()),
-  "evaluators_configs": z.array(z.string()),
-  "testset_id": z.string(),
-  "rate_limit": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "correct_answer_column": z.union([z.string(), z.null()]).optional()
-}
-```
+- `app_id` (string)
+- `revisions_ids` (array)
+- `evaluators_configs` (array)
+- `testset_id` (string)
+- `rate_limit` (object)
+- `correct_answer_column` (other)
 
 ### fetch_list_evaluations_evaluations_get
 
@@ -295,11 +247,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string()
-}
-```
+- `app_id` (string)
 
 ### delete_evaluations
 
@@ -309,11 +257,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluations_ids": z.array(z.string())
-}
-```
+- `evaluations_ids` (array)
 
 ### fetch_evaluation_status
 
@@ -323,11 +267,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_id": z.string()
-}
-```
+- `evaluation_id` (string)
 
 ### fetch_evaluation_results
 
@@ -337,11 +277,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_id": z.string()
-}
-```
+- `evaluation_id` (string)
 
 ### fetch_evaluation_scenarios
 
@@ -351,11 +287,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_id": z.string()
-}
-```
+- `evaluation_id` (string)
 
 ### fetch_evaluation
 
@@ -365,11 +297,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_id": z.string()
-}
-```
+- `evaluation_id` (string)
 
 ### fetch_evaluation_scenarios_evaluations_evaluation_scenarios_comp
 
@@ -379,11 +307,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluations_ids": z.string()
-}
-```
+- `evaluations_ids` (string)
 
 ### create_human_evaluation
 
@@ -393,16 +317,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string(),
-  "variant_ids": z.array(z.string()),
-  "evaluation_type": z.enum(["human_a_b_testing","single_model_test"]),
-  "inputs": z.array(z.string()),
-  "testset_id": z.string(),
-  "status": z.string()
-}
-```
+- `app_id` (string)
+- `variant_ids` (array)
+- `evaluation_type` (string)
+- `inputs` (array)
+- `testset_id` (string)
+- `status` (string)
 
 ### fetch_list_human_evaluations_human_evaluations_get
 
@@ -412,11 +332,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string()
-}
-```
+- `app_id` (string)
 
 ### delete_evaluations_human_evaluations_delete
 
@@ -426,11 +342,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluations_ids": z.array(z.string())
-}
-```
+- `evaluations_ids` (array)
 
 ### fetch_human_evaluation_human_evaluations_evaluation_id_get
 
@@ -440,11 +352,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_id": z.string()
-}
-```
+- `evaluation_id` (string)
 
 ### update_human_evaluation
 
@@ -454,12 +362,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_id": z.string(),
-  "status": z.union([z.enum(["EVALUATION_INITIALIZED","EVALUATION_STARTED","EVALUATION_FINISHED","EVALUATION_FINISHED_WITH_ERRORS","EVALUATION_FAILED","EVALUATION_AGGREGATION_FAILED"]), z.null()]).optional()
-}
-```
+- `evaluation_id` (string)
+- `status` (other)
 
 ### fetch_human_evaluation_scenarios
 
@@ -469,11 +373,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_id": z.string()
-}
-```
+- `evaluation_id` (string)
 
 ### update_evaluation_scenario_router_human_evaluations_evaluation_i
 
@@ -483,20 +383,16 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_id": z.string(),
-  "evaluation_scenario_id": z.string(),
-  "evaluation_type": z.enum(["human_a_b_testing","single_model_test"]),
-  "vote": z.union([z.string(), z.null()]).optional(),
-  "score": z.union([z.string(), z.number().int(), z.null()]).optional(),
-  "correct_answer": z.union([z.string(), z.null()]).optional(),
-  "outputs": z.union([z.array(z.object({ "variant_id": z.string(), "variant_output": z.string() })), z.null()]).optional(),
-  "inputs": z.union([z.array(z.object({ "input_name": z.string(), "input_value": z.string() })), z.null()]).optional(),
-  "is_pinned": z.union([z.boolean(), z.null()]).optional(),
-  "note": z.union([z.string(), z.null()]).optional()
-}
-```
+- `evaluation_id` (string)
+- `evaluation_scenario_id` (string)
+- `evaluation_type` (string)
+- `vote` (other)
+- `score` (other)
+- `correct_answer` (other)
+- `outputs` (other)
+- `inputs` (other)
+- `is_pinned` (other)
+- `note` (other)
 
 ### get_evaluation_scenario_score_router_human_evaluations_evaluatio
 
@@ -506,11 +402,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_scenario_id": z.string()
-}
-```
+- `evaluation_scenario_id` (string)
 
 ### update_evaluation_scenario_score_router_human_evaluations_evalua
 
@@ -520,12 +412,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_scenario_id": z.string(),
-  "score": z.number()
-}
-```
+- `evaluation_scenario_id` (string)
+- `score` (number)
 
 ### fetch_results
 
@@ -535,11 +423,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluation_id": z.string()
-}
-```
+- `evaluation_id` (string)
 
 ### handle_events
 
@@ -549,9 +433,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### create_portal
 
@@ -561,9 +443,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### create_checkout
 
@@ -573,12 +453,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "plan": z.enum(["cloud_v0_hobby","cloud_v0_pro","cloud_v0_humanity_labs","cloud_v0_x_labs","cloud_v0_agenta_ai"]),
-  "success_url": z.string()
-}
-```
+- `plan` (string)
+- `success_url` (string)
 
 ### fetch_plans
 
@@ -588,9 +464,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### switch_plans
 
@@ -600,11 +474,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "plan": z.enum(["cloud_v0_hobby","cloud_v0_pro","cloud_v0_humanity_labs","cloud_v0_x_labs","cloud_v0_agenta_ai"])
-}
-```
+- `plan` (string)
 
 ### fetch_subscription
 
@@ -614,9 +484,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### cancel_plan
 
@@ -626,9 +494,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### fetch_usage
 
@@ -638,9 +504,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### admin_create_portal
 
@@ -650,11 +514,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "organization_id": z.string()
-}
-```
+- `organization_id` (string)
 
 ### admin_create_checkout
 
@@ -664,13 +524,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "organization_id": z.string(),
-  "plan": z.enum(["cloud_v0_hobby","cloud_v0_pro","cloud_v0_humanity_labs","cloud_v0_x_labs","cloud_v0_agenta_ai"]),
-  "success_url": z.string()
-}
-```
+- `organization_id` (string)
+- `plan` (string)
+- `success_url` (string)
 
 ### admin_switch_plans
 
@@ -680,12 +536,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "organization_id": z.string(),
-  "plan": z.enum(["cloud_v0_hobby","cloud_v0_pro","cloud_v0_humanity_labs","cloud_v0_x_labs","cloud_v0_agenta_ai"])
-}
-```
+- `organization_id` (string)
+- `plan` (string)
 
 ### admin_cancel_subscription
 
@@ -695,11 +547,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "organization_id": z.string()
-}
-```
+- `organization_id` (string)
 
 ### admin_report_usage
 
@@ -709,9 +557,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### health_check
 
@@ -721,9 +567,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### verify_permissions
 
@@ -733,15 +577,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "action": z.union([z.string(), z.null()]).optional(),
-  "scope_type": z.union([z.string(), z.null()]).optional(),
-  "scope_id": z.union([z.string().uuid(), z.null()]).optional(),
-  "resource_type": z.union([z.string(), z.null()]).optional(),
-  "resource_id": z.union([z.string().uuid(), z.null()]).optional()
-}
-```
+- `action` (other)
+- `scope_type` (other)
+- `scope_id` (other)
+- `resource_type` (other)
+- `resource_id` (other)
 
 ### get_projects
 
@@ -751,9 +591,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### fetch_user_profile
 
@@ -763,9 +601,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### reset_user_password
 
@@ -775,11 +611,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "user_id": z.string()
-}
-```
+- `user_id` (string)
 
 ### list_app_variants
 
@@ -789,11 +621,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string()
-}
-```
+- `app_id` (string)
 
 ### get_variant_by_env
 
@@ -803,12 +631,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string(),
-  "environment": z.string()
-}
-```
+- `app_id` (string)
+- `environment` (string)
 
 ### create_app
 
@@ -818,15 +642,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_name": z.string(),
-  "template_key": z.union([z.string(), z.null()]).optional(),
-  "project_id": z.union([z.string(), z.null()]).optional(),
-  "workspace_id": z.union([z.string(), z.null()]).optional(),
-  "organization_id": z.union([z.string(), z.null()]).optional()
-}
-```
+- `app_name` (string)
+- `template_key` (other)
+- `project_id` (other)
+- `workspace_id` (other)
+- `organization_id` (other)
 
 ### list_apps
 
@@ -836,11 +656,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_name": z.union([z.string(), z.null()]).optional()
-}
-```
+- `app_name` (other)
 
 ### update_app
 
@@ -850,12 +666,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string(),
-  "app_name": z.string()
-}
-```
+- `app_id` (string)
+- `app_name` (string)
 
 ### remove_app
 
@@ -865,11 +677,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string()
-}
-```
+- `app_id` (string)
 
 ### add_variant_from_url
 
@@ -879,16 +687,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string(),
-  "variant_name": z.string(),
-  "url": z.string(),
-  "commit_message": z.union([z.string(), z.null()]).optional(),
-  "base_name": z.union([z.string(), z.null()]).optional(),
-  "config_name": z.union([z.string(), z.null()]).optional()
-}
-```
+- `app_id` (string)
+- `variant_name` (string)
+- `url` (string)
+- `commit_message` (other)
+- `base_name` (other)
+- `config_name` (other)
 
 ### add_variant_from_key
 
@@ -898,16 +702,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string(),
-  "variant_name": z.string(),
-  "key": z.string(),
-  "commit_message": z.union([z.string(), z.null()]).optional(),
-  "base_name": z.union([z.string(), z.null()]).optional(),
-  "config_name": z.union([z.string(), z.null()]).optional()
-}
-```
+- `app_id` (string)
+- `variant_name` (string)
+- `key` (string)
+- `commit_message` (other)
+- `base_name` (other)
+- `config_name` (other)
 
 ### list_environments
 
@@ -917,11 +717,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string()
-}
-```
+- `app_id` (string)
 
 ### environment_revisions
 
@@ -931,12 +727,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string(),
-  "environment_name": z.any()
-}
-```
+- `app_id` (string)
+- `environment_name` (other)
 
 ### add_variant_from_base_and_config
 
@@ -946,15 +738,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "base_id": z.string(),
-  "new_variant_name": z.string(),
-  "new_config_name": z.string(),
-  "parameters": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "commit_message": z.union([z.string(), z.null()]).optional()
-}
-```
+- `base_id` (string)
+- `new_variant_name` (string)
+- `new_config_name` (string)
+- `parameters` (object)
+- `commit_message` (other)
 
 ### mark_variant_as_hidden
 
@@ -964,11 +752,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_id": z.string()
-}
-```
+- `variant_id` (string)
 
 ### get_variant
 
@@ -978,11 +762,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_id": z.string()
-}
-```
+- `variant_id` (string)
 
 ### update_variant_parameters
 
@@ -992,13 +772,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_id": z.string(),
-  "parameters": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "commit_message": z.union([z.string(), z.null()]).optional()
-}
-```
+- `variant_id` (string)
+- `parameters` (object)
+- `commit_message` (other)
 
 ### update_variant_url
 
@@ -1008,13 +784,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "url": z.string(),
-  "variant_id": z.string(),
-  "commit_message": z.union([z.string(), z.null()]).optional()
-}
-```
+- `url` (string)
+- `variant_id` (string)
+- `commit_message` (other)
 
 ### get_variant_revisions
 
@@ -1024,11 +796,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_id": z.string()
-}
-```
+- `variant_id` (string)
 
 ### get_variant_revision
 
@@ -1038,12 +806,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_id": z.string(),
-  "revision_number": z.number().int()
-}
-```
+- `variant_id` (string)
+- `revision_number` (integer)
 
 ### mark_variant_revision_as_hidden
 
@@ -1053,12 +817,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_id": z.string(),
-  "revision_id": z.string()
-}
-```
+- `variant_id` (string)
+- `revision_id` (string)
 
 ### configs_add
 
@@ -1068,12 +828,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_ref": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "application_ref": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
-}
-```
+- `variant_ref` (object)
+- `application_ref` (object)
 
 ### configs_fetch
 
@@ -1083,13 +839,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]).optional(), "version": z.union([z.number().int(), z.null()]).optional(), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional(),
-  "environment_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]).optional(), "version": z.union([z.number().int(), z.null()]).optional(), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional(),
-  "application_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]).optional(), "version": z.union([z.number().int(), z.null()]).optional(), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional()
-}
-```
+- `variant_ref` (other)
+- `environment_ref` (other)
+- `application_ref` (other)
 
 ### configs_fork
 
@@ -1099,13 +851,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]).optional(), "version": z.union([z.number().int(), z.null()]).optional(), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional(),
-  "environment_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]).optional(), "version": z.union([z.number().int(), z.null()]).optional(), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional(),
-  "application_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]).optional(), "version": z.union([z.number().int(), z.null()]).optional(), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional()
-}
-```
+- `variant_ref` (other)
+- `environment_ref` (other)
+- `application_ref` (other)
 
 ### configs_commit
 
@@ -1115,11 +863,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "config": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
-}
-```
+- `config` (object)
 
 ### configs_deploy
 
@@ -1129,13 +873,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_ref": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "environment_ref": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "application_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]).optional(), "version": z.union([z.number().int(), z.null()]).optional(), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional()
-}
-```
+- `variant_ref` (object)
+- `environment_ref` (object)
+- `application_ref` (other)
 
 ### configs_delete
 
@@ -1145,12 +885,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_ref": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "application_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]).optional(), "version": z.union([z.number().int(), z.null()]).optional(), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional()
-}
-```
+- `variant_ref` (object)
+- `application_ref` (other)
 
 ### configs_list
 
@@ -1160,11 +896,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "application_ref": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
-}
-```
+- `application_ref` (object)
 
 ### configs_history
 
@@ -1174,12 +906,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "variant_ref": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "application_ref": z.union([z.object({ "slug": z.union([z.string(), z.null()]).optional(), "version": z.union([z.number().int(), z.null()]).optional(), "commit_message": z.union([z.string(), z.null()]).optional(), "id": z.union([z.string().uuid(), z.null()]) }), z.null()]).optional()
-}
-```
+- `variant_ref` (object)
+- `application_ref` (other)
 
 ### container_templates
 
@@ -1189,9 +917,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### get_evaluators_endpoint_evaluators_get
 
@@ -1201,9 +927,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### evaluator_data_map_evaluators_map_post
 
@@ -1213,12 +937,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "inputs": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "mapping": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
-}
-```
+- `inputs` (object)
+- `mapping` (object)
 
 ### evaluator_run_evaluators_evaluator_key_run_post
 
@@ -1228,14 +948,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluator_key": z.string(),
-  "inputs": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
-  "settings": z.union([z.record(z.any()), z.null()]).optional(),
-  "credentials": z.union([z.record(z.any()), z.null()]).optional()
-}
-```
+- `evaluator_key` (string)
+- `inputs` (object)
+- `settings` (other)
+- `credentials` (other)
 
 ### get_evaluator_configs_evaluators_configs_get
 
@@ -1245,11 +961,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string()
-}
-```
+- `app_id` (string)
 
 ### create_new_evaluator_config_evaluators_configs_post
 
@@ -1259,14 +971,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string(),
-  "name": z.string(),
-  "evaluator_key": z.string(),
-  "settings_values": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
-}
-```
+- `app_id` (string)
+- `name` (string)
+- `evaluator_key` (string)
+- `settings_values` (object)
 
 ### get_evaluator_config_evaluators_configs_evaluator_config_id_get
 
@@ -1276,11 +984,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluator_config_id": z.string()
-}
-```
+- `evaluator_config_id` (string)
 
 ### update_evaluator_config_evaluators_configs_evaluator_config_id_p
 
@@ -1290,14 +994,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluator_config_id": z.string(),
-  "name": z.union([z.string(), z.null()]).optional(),
-  "evaluator_key": z.union([z.string(), z.null()]).optional(),
-  "settings_values": z.union([z.record(z.any()), z.null()])
-}
-```
+- `evaluator_config_id` (string)
+- `name` (other)
+- `evaluator_key` (other)
+- `settings_values` (other)
 
 ### delete_evaluator_config_evaluators_configs_evaluator_config_id_d
 
@@ -1307,11 +1007,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "evaluator_config_id": z.string()
-}
-```
+- `evaluator_config_id` (string)
 
 ### upload_file
 
@@ -1321,9 +1017,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### import_testset
 
@@ -1333,11 +1027,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "authorization": z.union([z.string(), z.null()]).optional()
-}
-```
+- `authorization` (other)
 
 ### get_testsets
 
@@ -1347,9 +1037,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### create_testset
 
@@ -1359,12 +1047,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "name": z.string(),
-  "csvdata": z.array(z.record(z.any()))
-}
-```
+- `name` (string)
+- `csvdata` (array)
 
 ### delete_testsets
 
@@ -1374,11 +1058,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "testset_ids": z.array(z.string())
-}
-```
+- `testset_ids` (array)
 
 ### update_testset
 
@@ -1388,13 +1068,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "testset_id": z.string(),
-  "name": z.string(),
-  "csvdata": z.array(z.record(z.any()))
-}
-```
+- `testset_id` (string)
+- `name` (string)
+- `csvdata` (array)
 
 ### get_single_testset
 
@@ -1404,11 +1080,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "testset_id": z.string()
-}
-```
+- `testset_id` (string)
 
 ### deploy_to_environment
 
@@ -1418,13 +1090,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "environment_name": z.string(),
-  "variant_id": z.string(),
-  "commit_message": z.union([z.string(), z.null()]).optional()
-}
-```
+- `environment_name` (string)
+- `variant_id` (string)
+- `commit_message` (other)
 
 ### list_bases
 
@@ -1434,12 +1102,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "app_id": z.string(),
-  "base_name": z.union([z.string(), z.null()]).optional()
-}
-```
+- `app_id` (string)
+- `base_name` (other)
 
 ### get_config
 
@@ -1449,13 +1113,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "base_id": z.string(),
-  "config_name": z.union([z.string(), z.null()]).optional(),
-  "environment_name": z.union([z.string(), z.null()]).optional()
-}
-```
+- `base_id` (string)
+- `config_name` (other)
+- `environment_name` (other)
 
 ### get_config_deployment_revision
 
@@ -1465,11 +1125,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "deployment_revision_id": z.string()
-}
-```
+- `deployment_revision_id` (string)
 
 ### revert_deployment_revision
 
@@ -1479,11 +1135,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "deployment_revision_id": z.string()
-}
-```
+- `deployment_revision_id` (string)
 
 ### list_api_keys
 
@@ -1493,9 +1145,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### create_api_key
 
@@ -1505,9 +1155,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### delete_api_key
 
@@ -1517,11 +1165,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "key_prefix": z.string()
-}
-```
+- `key_prefix` (string)
 
 ### list_organizations
 
@@ -1531,9 +1175,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### invite_user_to_workspace
 
@@ -1543,12 +1185,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "org_id": z.string(),
-  "workspace_id": z.string()
-}
-```
+- `org_id` (string)
+- `workspace_id` (string)
 
 ### resend_invitation
 
@@ -1558,13 +1196,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "org_id": z.string(),
-  "workspace_id": z.string(),
-  "email": z.string()
-}
-```
+- `org_id` (string)
+- `workspace_id` (string)
+- `email` (string)
 
 ### accept_invitation
 
@@ -1574,15 +1208,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "org_id": z.string(),
-  "workspace_id": z.string(),
-  "project_id": z.string(),
-  "token": z.string(),
-  "email": z.string()
-}
-```
+- `org_id` (string)
+- `workspace_id` (string)
+- `project_id` (string)
+- `token` (string)
+- `email` (string)
 
 ### get_workspace
 
@@ -1592,9 +1222,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### get_all_workspace_roles
 
@@ -1604,9 +1232,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### remove_user_from_workspace
 
@@ -1616,12 +1242,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "workspace_id": z.string(),
-  "email": z.string()
-}
-```
+- `workspace_id` (string)
+- `email` (string)
 
 ### otlp_v1_traces
 
@@ -1631,9 +1253,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### otlp_status
 
@@ -1643,9 +1263,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### otlp_receiver
 
@@ -1655,9 +1273,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### query_traces
 
@@ -1667,19 +1283,15 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "format": z.enum(["opentelemetry","agenta"]).optional(),
-  "focus": z.union([z.string(), z.null()]).optional(),
-  "oldest": z.union([z.string(), z.null()]).optional(),
-  "newest": z.union([z.string(), z.null()]).optional(),
-  "filtering": z.union([z.string(), z.null()]).optional(),
-  "page": z.union([z.number().int(), z.null()]).optional(),
-  "size": z.union([z.number().int(), z.null()]).optional(),
-  "next": z.union([z.string(), z.null()]).optional(),
-  "stop": z.union([z.string(), z.null()]).optional()
-}
-```
+- `format` (string)
+- `focus` (other)
+- `oldest` (other)
+- `newest` (other)
+- `filtering` (other)
+- `page` (other)
+- `size` (other)
+- `next` (other)
+- `stop` (other)
 
 ### delete_traces
 
@@ -1689,12 +1301,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "node_id": z.string().uuid().optional(),
-  "node_ids": z.array(z.string().uuid()).optional()
-}
-```
+- `node_id` (string)
+- `node_ids` (array)
 
 ### query_analytics
 
@@ -1704,20 +1312,16 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "format": z.enum(["legacy","agenta"]).optional(),
-  "focus": z.union([z.string(), z.null()]).optional(),
-  "oldest": z.union([z.string(), z.null()]).optional(),
-  "newest": z.union([z.string(), z.null()]).optional(),
-  "window": z.union([z.number().int(), z.null()]).optional(),
-  "filtering": z.union([z.string(), z.null()]).optional(),
-  "timeRange": z.union([z.string(), z.null()]).optional(),
-  "app_id": z.union([z.string(), z.null()]).optional(),
-  "environment": z.union([z.string(), z.null()]).optional(),
-  "variant": z.union([z.string(), z.null()]).optional()
-}
-```
+- `format` (string)
+- `focus` (other)
+- `oldest` (other)
+- `newest` (other)
+- `window` (other)
+- `filtering` (other)
+- `timeRange` (other)
+- `app_id` (other)
+- `environment` (other)
+- `variant` (other)
 
 ### fetch_trace_by_id
 
@@ -1727,12 +1331,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "trace_id": z.union([z.string(), z.number().int()]),
-  "format": z.enum(["opentelemetry","agenta"]).optional()
-}
-```
+- `trace_id` (other)
+- `format` (string)
 
 ### list_secrets
 
@@ -1742,9 +1342,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### create_secret
 
@@ -1754,12 +1352,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "header": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:"),
-  "secret": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:")
-}
-```
+- `header` (object)
+- `secret` (object)
 
 ### read_secret
 
@@ -1769,11 +1363,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "secret_id": z.string()
-}
-```
+- `secret_id` (string)
 
 ### update_secret
 
@@ -1783,13 +1373,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "secret_id": z.string(),
-  "header": z.union([z.object({ "name": z.union([z.string(), z.null()]).optional(), "description": z.union([z.string(), z.null()]).optional() }), z.null()]).optional(),
-  "secret": z.union([z.object({ "kind": z.enum(["provider_key","custom_provider"]), "data": z.union([z.object({ "kind": z.enum(["openai","cohere","anyscale","deepinfra","alephalpha","groq","mistralai","anthropic","perplexityai","togetherai","openrouter","gemini"]), "provider": z.object({ "key": z.string() }) }), z.object({ "kind": z.enum(["custom","azure","bedrock","sagemaker","vertex","openai","cohere","anyscale","deepinfra","alephalpha","groq","mistralai","anthropic","perplexityai","togetherai","openrouter","gemini"]), "provider": z.object({ "url": z.union([z.string(), z.null()]).optional(), "version": z.union([z.string(), z.null()]).optional(), "key": z.union([z.string(), z.null()]).optional(), "extras": z.union([z.record(z.any()), z.null()]).optional() }), "models": z.array(z.object({ "slug": z.string(), "extras": z.union([z.record(z.any()), z.null()]).optional() })), "provider_slug": z.union([z.string(), z.null()]).optional(), "model_keys": z.union([z.array(z.string()), z.null()]).optional() })]) }), z.null()]).optional()
-}
-```
+- `secret_id` (string)
+- `header` (other)
+- `secret` (other)
 
 ### delete_secret
 
@@ -1799,8 +1385,4 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "secret_id": z.string()
-}
-```
+- `secret_id` (string)

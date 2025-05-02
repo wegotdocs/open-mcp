@@ -92,12 +92,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### updatepet
 
@@ -107,16 +103,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.number().int().optional(),
-  "name": z.string(),
-  "category": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
-  "photoUrls": z.array(z.string()),
-  "tags": z.array(z.object({ "id": z.number().int().optional(), "name": z.string().optional() })).optional(),
-  "status": z.enum(["available","pending","sold"]).describe("pet status in the store").optional()
-}
-```
+- `id` (integer)
+- `name` (string)
+- `category` (object)
+- `photoUrls` (array)
+- `tags` (array)
+- `status` (string)
 
 ### addpet
 
@@ -126,16 +118,12 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.number().int().optional(),
-  "name": z.string(),
-  "category": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:").optional(),
-  "photoUrls": z.array(z.string()),
-  "tags": z.array(z.object({ "id": z.number().int().optional(), "name": z.string().optional() })).optional(),
-  "status": z.enum(["available","pending","sold"]).describe("pet status in the store").optional()
-}
-```
+- `id` (integer)
+- `name` (string)
+- `category` (object)
+- `photoUrls` (array)
+- `tags` (array)
+- `status` (string)
 
 ### findpetsbystatus
 
@@ -145,11 +133,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "status": z.enum(["available","pending","sold"]).describe("Status values that need to be considered for filter").optional()
-}
-```
+- `status` (string)
 
 ### findpetsbytags
 
@@ -159,11 +143,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "tags": z.array(z.string()).describe("Tags to filter by").optional()
-}
-```
+- `tags` (array)
 
 ### getpetbyid
 
@@ -174,11 +154,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "petId": z.number().int().describe("ID of pet to return")
-}
-```
+- `petId` (integer)
 
 ### updatepetwithform
 
@@ -188,13 +164,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "petId": z.number().int().describe("ID of pet that needs to be updated"),
-  "name": z.string().describe("Name of pet that needs to be updated").optional(),
-  "status": z.string().describe("Status of pet that needs to be updated").optional()
-}
-```
+- `petId` (integer)
+- `name` (string)
+- `status` (string)
 
 ### deletepet
 
@@ -204,12 +176,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "petId": z.number().int().describe("Pet id to delete"),
-  "api_key": z.string().optional()
-}
-```
+- `petId` (integer)
+- `api_key` (string)
 
 ### uploadfile
 
@@ -219,12 +187,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "petId": z.number().int().describe("ID of pet to update"),
-  "additionalMetadata": z.string().describe("Additional Metadata").optional()
-}
-```
+- `petId` (integer)
+- `additionalMetadata` (string)
 
 ### getinventory
 
@@ -234,163 +198,125 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### placeorder
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "id": z.number().int().optional(),
-  "petId": z.number().int().optional(),
-  "quantity": z.number().int().optional(),
-  "shipDate": z.string().datetime({ offset: true }).optional(),
-  "status": z.enum(["placed","approved","delivered"]).describe("Order Status").optional(),
-  "complete": z.boolean().optional()
-}
-```
+- `id` (integer)
+- `petId` (integer)
+- `quantity` (integer)
+- `shipDate` (string)
+- `status` (string)
+- `complete` (boolean)
 
 ### getorderbyid
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "orderId": z.number().int().describe("ID of order that needs to be fetched")
-}
-```
+- `orderId` (integer)
 
 ### deleteorder
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "orderId": z.number().int().describe("ID of the order that needs to be deleted")
-}
-```
+- `orderId` (integer)
 
 ### createuser
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "id": z.number().int().optional(),
-  "username": z.string().optional(),
-  "firstName": z.string().optional(),
-  "lastName": z.string().optional(),
-  "email": z.string().optional(),
-  "password": z.string().optional(),
-  "phone": z.string().optional(),
-  "userStatus": z.number().int().describe("User Status").optional()
-}
-```
+- `id` (integer)
+- `username` (string)
+- `firstName` (string)
+- `lastName` (string)
+- `email` (string)
+- `password` (string)
+- `phone` (string)
+- `userStatus` (integer)
 
 ### createuserswithlistinput
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### loginuser
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "username": z.string().describe("The user name for login").optional(),
-  "password": z.string().describe("The password for login in clear text").optional()
-}
-```
+- `username` (string)
+- `password` (string)
 
 ### logoutuser
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getuserbyname
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "username": z.string().describe("The name that needs to be fetched. Use user1 for testing")
-}
-```
+- `username` (string)
 
 ### updateuser
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "username": z.string().describe("name that need to be deleted"),
-  "id": z.number().int().optional(),
-  "b_username": z.string().optional(),
-  "firstName": z.string().optional(),
-  "lastName": z.string().optional(),
-  "email": z.string().optional(),
-  "password": z.string().optional(),
-  "phone": z.string().optional(),
-  "userStatus": z.number().int().describe("User Status").optional()
-}
-```
+- `username` (string)
+- `id` (integer)
+- `b_username` (string)
+- `firstName` (string)
+- `lastName` (string)
+- `email` (string)
+- `password` (string)
+- `phone` (string)
+- `userStatus` (integer)
 
 ### deleteuser
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "username": z.string().describe("The name that needs to be deleted")
-}
-```
+- `username` (string)

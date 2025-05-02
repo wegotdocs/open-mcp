@@ -84,93 +84,67 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### tool_get_current_weather_post
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "location": z.string()
-}
-```
+- `location` (string)
 
 ### tool_list_weather_stations_post
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### tool_get_weather_forecast_post
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "location": z.string()
-}
-```
+- `location` (string)
 
 ### tool_get_nearest_station_post
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "latitude": z.number(),
-  "longitude": z.number()
-}
-```
+- `latitude` (number)
+- `longitude` (number)
 
 ### tool_get_air_quality_post
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "location": z.string()
-}
-```
+- `location` (string)
 
 ### tool_get_air_quality_by_station_post
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "location": z.string(),
-  "station_name": z.string().optional()
-}
-```
+- `location` (string)
+- `station_name` (string)

@@ -84,25 +84,17 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### getweatherdata
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{
-  "lat": z.number().describe("Latitude of the location."),
-  "lon": z.number().describe("Longitude of the location."),
-  "appid": z.string().describe("API key for authentication.")
-}
-```
+- `lat` (number)
+- `lon` (number)
+- `appid` (string)

@@ -87,12 +87,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### getbalancesevmbyaddress
 
@@ -102,17 +98,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "address": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM wallet address to query"),
-  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional(),
-  "contract": z.string().optional(),
-  "limit": z.number().int().gte(1).lte(1000).describe("The maximum number of items returned in a single request.").optional(),
-  "page": z.number().int().gte(1).describe("The page number of the results to return.").optional()
-}
-```
+- `address` (string)
+- `network_id` (string)
+- `contract` (string)
+- `limit` (integer)
+- `page` (integer)
 
-### gettransfersevmbyaddress
+### gettransfersevm
 
 **Environment variables**
 
@@ -120,34 +112,16 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "address": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM wallet address to query"),
-  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional(),
-  "age": z.number().int().gte(1).lte(180).describe("Indicates how many days have passed since the data's creation or insertion.").optional(),
-  "contract": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("Filter by contract address").optional(),
-  "limit": z.number().int().gte(1).lte(1000).describe("The maximum number of items returned in a single request.").optional(),
-  "page": z.number().int().gte(1).describe("The page number of the results to return.").optional()
-}
-```
-
-### getholdersevmbycontract
-
-**Environment variables**
-
-- `API_KEY`
-
-**Input schema**
-
-```ts
-{
-  "contract": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM contract address to query"),
-  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional(),
-  "order_by": z.enum(["asc","desc"]).describe("The order in which to return the results: Ascending (asc) or Descending (desc).").optional(),
-  "limit": z.number().int().gte(1).lte(1000).describe("The maximum number of items returned in a single request.").optional(),
-  "page": z.number().int().gte(1).describe("The page number of the results to return.").optional()
-}
-```
+- `network_id` (string)
+- `from` (string)
+- `to` (string)
+- `contract` (string)
+- `startTime` (number)
+- `endTime` (number)
+- `orderBy` (string)
+- `transaction_id` (string)
+- `limit` (integer)
+- `page` (integer)
 
 ### gettokensevmbycontract
 
@@ -157,12 +131,74 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "contract": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM contract address to query"),
-  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional()
-}
-```
+- `contract` (string)
+- `network_id` (string)
+
+### getholdersevmbycontract
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
+- `contract` (string)
+- `network_id` (string)
+- `order_by` (string)
+- `limit` (integer)
+- `page` (integer)
+
+### getswapsevm
+
+**Environment variables**
+
+No environment variables required
+
+**Input schema**
+
+- `network_id` (string)
+- `pool` (string)
+- `caller` (string)
+- `sender` (string)
+- `recipient` (string)
+- `protocol` (string)
+- `startTime` (number)
+- `endTime` (number)
+- `orderBy` (string)
+- `transaction_id` (string)
+- `limit` (integer)
+- `page` (integer)
+
+### getpoolsevm
+
+**Environment variables**
+
+No environment variables required
+
+**Input schema**
+
+- `network_id` (string)
+- `pool` (string)
+- `factory` (string)
+- `token` (string)
+- `symbol` (string)
+- `protocol` (string)
+
+### getohlcpoolsevmbypool
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
+- `pool` (string)
+- `network_id` (string)
+- `interval` (string)
+- `startTime` (number)
+- `endTime` (number)
+- `limit` (integer)
+- `page` (integer)
 
 ### getohlcpricesevmbycontract
 
@@ -172,50 +208,57 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "contract": z.string().regex(new RegExp("^(0[xX])?[0-9a-fA-F]{40}$")).describe("EVM contract address to query"),
-  "network_id": z.enum(["mainnet","bsc","base","arbitrum-one","optimism","matic"]).describe("The Graph Network ID https://thegraph.com/networks").optional(),
-  "interval": z.enum(["1h","4h","1d","1w"]).describe("The interval for which to aggregate price data (hourly, 4-hours, daily or weekly).").optional(),
-  "startTime": z.number().gte(0).describe("UNIX timestamp in seconds.").optional(),
-  "endTime": z.number().gte(0).describe("UNIX timestamp in seconds.").optional(),
-  "limit": z.number().int().gte(1).lte(1000).describe("The maximum number of items returned in a single request.").optional(),
-  "page": z.number().int().gte(1).describe("The page number of the results to return.").optional()
-}
-```
+- `contract` (string)
+- `network_id` (string)
+- `interval` (string)
+- `startTime` (number)
+- `endTime` (number)
+- `limit` (integer)
+- `page` (integer)
+
+### gethistoricalbalancesevmbyaddress
+
+**Environment variables**
+
+- `API_KEY`
+
+**Input schema**
+
+- `address` (string)
+- `interval` (string)
+- `network_id` (string)
+- `contracts` (array)
+- `startTime` (number)
+- `endTime` (number)
+- `limit` (integer)
+- `page` (integer)
 
 ### gethealth
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getversion
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getnetworks
 
 **Environment variables**
 
-
+No environment variables required
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters

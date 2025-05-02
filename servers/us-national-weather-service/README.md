@@ -87,12 +87,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### alerts_query
 
@@ -102,45 +98,23 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "active": z.boolean().describe("List only active alerts (use /alerts/active endpoints instead)").optional(),
-  "start": z.string().datetime({ offset: true }).describe("Start time").optional(),
-  "end": z.string().datetime({ offset: true }).describe("End time").optional(),
-  "status": z.array(z.enum(["actual","exercise","system","test","draft"])).describe("Status (actual, exercise, system, test, draft)").optional(),
-  "message_type": z.array(z.enum(["alert","update","cancel"])).describe("Message type (alert, update, cancel)").optional(),
-  "event": z.array(z.string().regex(new RegExp("^[A-Za-z0-9 ]+$"))).describe("Event name").optional(),
-  "code": z.array(z.string().regex(new RegExp("^\\w{3}$"))).describe("Event code").optional(),
-  "area": z.array(z.any().superRefine((x, ctx) => {
-    const schemas = [z.enum(["AL","AK","AS","AR","AZ","CA","CO","CT","DE","DC","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","PR","RI","SC","SD","TN","TX","UT","VT","VI","VA","WA","WV","WI","WY","MP","PW","FM","MH"]), z.enum(["AM","AN","GM","LC","LE","LH","LM","LO","LS","PH","PK","PM","PS","PZ","SL"]).describe("Marine area code as defined in NWS Directive 10-302:\n* AM: Western North Atlantic Ocean and along U.S. East Coast south of Currituck Beach Light NC following the coastline into Gulf of Mexico to Ocean Reef FL including the Caribbean\n* AN: Western North Atlantic Ocean and along U.S. East Coast from Canadian border south to Currituck Beach Light NC\n* GM: Gulf of Mexico and along the U.S. Gulf Coast from the Mexican border to Ocean Reef FL\n* LC: Lake St. Clair\n* LE: Lake Erie\n* LH: Lake Huron\n* LM: Lake Michigan\n* LO: Lake Ontario\n* LS: Lake Superior\n* PH: Central Pacific Ocean including Hawaiian waters\n* PK: North Pacific Ocean near Alaska and along Alaska coastline including the Bering Sea and the Gulf of Alaska\n* PM: Western Pacific Ocean including Mariana Island waters\n* PS: South Central Pacific Ocean including American Samoa waters\n* PZ: Eastern North Pacific Ocean and along U.S. West Coast from Canadian border to Mexican border\n* SL: St. Lawrence River above St. Regis\n")];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  }).describe("State/territory codes and marine area codes")).describe("State/territory code or marine area code\nThis parameter is incompatible with the following parameters: point, region, region_type, zone\n").optional(),
-  "point": z.string().regex(new RegExp("^(-?\\d+(?:\\.\\d+)?),(-?\\d+(?:\\.\\d+)?)$")).describe("Point (latitude,longitude)\nThis parameter is incompatible with the following parameters: area, region, region_type, zone\n").optional(),
-  "region": z.array(z.enum(["AL","AT","GL","GM","PA","PI"]).describe("Marine region code. These are groups of marine areas combined.\n* AL: Alaska waters (PK)\n* AT: Atlantic Ocean (AM, AN)\n* GL: Great Lakes (LC, LE, LH, LM, LO, LS, SL)\n* GM: Gulf of Mexico (GM)\n* PA: Eastern Pacific Ocean and U.S. West Coast (PZ)\n* PI: Central and Western Pacific (PH, PM, PS)\n")).describe("Marine region code\nThis parameter is incompatible with the following parameters: area, point, region_type, zone\n").optional(),
-  "region_type": z.enum(["land","marine"]).describe("Region type (land or marine)\nThis parameter is incompatible with the following parameters: area, point, region, zone\n").optional(),
-  "zone": z.array(z.string().regex(new RegExp("^(A[KLMNRSZ]|C[AOT]|D[CE]|F[LM]|G[AMU]|I[ADLN]|K[SY]|L[ACEHMOS]|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[AHKMRSWZ]|S[CDL]|T[NX]|UT|V[AIT]|W[AIVY]|[HR]I)[CZ]\\d{3}$")).describe("UGC identifier for a NWS forecast zone or county.\nThe first two letters will correspond to either a state code or marine area code (see #/components/schemas/StateTerritoryCode and #/components/schemas/MarineAreaCode for lists of valid letter combinations).\nThe third letter will be Z for public/fire zone or C for county.\n")).describe("Zone ID (forecast or county)\nThis parameter is incompatible with the following parameters: area, point, region, region_type\n").optional(),
-  "urgency": z.array(z.enum(["Immediate","Expected","Future","Past","Unknown"])).describe("Urgency (immediate, expected, future, past, unknown)").optional(),
-  "severity": z.array(z.enum(["Extreme","Severe","Moderate","Minor","Unknown"])).describe("Severity (extreme, severe, moderate, minor, unknown)").optional(),
-  "certainty": z.array(z.enum(["Observed","Likely","Possible","Unlikely","Unknown"])).describe("Certainty (observed, likely, possible, unlikely, unknown)").optional(),
-  "limit": z.number().int().gte(1).lte(500).describe("Limit").optional(),
-  "cursor": z.string().describe("Pagination cursor").optional()
-}
-```
+- `active` (boolean)
+- `start` (string)
+- `end` (string)
+- `status` (array)
+- `message_type` (array)
+- `event` (array)
+- `code` (array)
+- `area` (array)
+- `point` (string)
+- `region` (array)
+- `region_type` (string)
+- `zone` (array)
+- `urgency` (array)
+- `severity` (array)
+- `certainty` (array)
+- `limit` (integer)
+- `cursor` (string)
 
 ### alerts_active
 
@@ -150,41 +124,19 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "status": z.array(z.enum(["actual","exercise","system","test","draft"])).describe("Status (actual, exercise, system, test, draft)").optional(),
-  "message_type": z.array(z.enum(["alert","update","cancel"])).describe("Message type (alert, update, cancel)").optional(),
-  "event": z.array(z.string().regex(new RegExp("^[A-Za-z0-9 ]+$"))).describe("Event name").optional(),
-  "code": z.array(z.string().regex(new RegExp("^\\w{3}$"))).describe("Event code").optional(),
-  "area": z.array(z.any().superRefine((x, ctx) => {
-    const schemas = [z.enum(["AL","AK","AS","AR","AZ","CA","CO","CT","DE","DC","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","PR","RI","SC","SD","TN","TX","UT","VT","VI","VA","WA","WV","WI","WY","MP","PW","FM","MH"]), z.enum(["AM","AN","GM","LC","LE","LH","LM","LO","LS","PH","PK","PM","PS","PZ","SL"]).describe("Marine area code as defined in NWS Directive 10-302:\n* AM: Western North Atlantic Ocean and along U.S. East Coast south of Currituck Beach Light NC following the coastline into Gulf of Mexico to Ocean Reef FL including the Caribbean\n* AN: Western North Atlantic Ocean and along U.S. East Coast from Canadian border south to Currituck Beach Light NC\n* GM: Gulf of Mexico and along the U.S. Gulf Coast from the Mexican border to Ocean Reef FL\n* LC: Lake St. Clair\n* LE: Lake Erie\n* LH: Lake Huron\n* LM: Lake Michigan\n* LO: Lake Ontario\n* LS: Lake Superior\n* PH: Central Pacific Ocean including Hawaiian waters\n* PK: North Pacific Ocean near Alaska and along Alaska coastline including the Bering Sea and the Gulf of Alaska\n* PM: Western Pacific Ocean including Mariana Island waters\n* PS: South Central Pacific Ocean including American Samoa waters\n* PZ: Eastern North Pacific Ocean and along U.S. West Coast from Canadian border to Mexican border\n* SL: St. Lawrence River above St. Regis\n")];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  }).describe("State/territory codes and marine area codes")).describe("State/territory code or marine area code\nThis parameter is incompatible with the following parameters: point, region, region_type, zone\n").optional(),
-  "point": z.string().regex(new RegExp("^(-?\\d+(?:\\.\\d+)?),(-?\\d+(?:\\.\\d+)?)$")).describe("Point (latitude,longitude)\nThis parameter is incompatible with the following parameters: area, region, region_type, zone\n").optional(),
-  "region": z.array(z.enum(["AL","AT","GL","GM","PA","PI"]).describe("Marine region code. These are groups of marine areas combined.\n* AL: Alaska waters (PK)\n* AT: Atlantic Ocean (AM, AN)\n* GL: Great Lakes (LC, LE, LH, LM, LO, LS, SL)\n* GM: Gulf of Mexico (GM)\n* PA: Eastern Pacific Ocean and U.S. West Coast (PZ)\n* PI: Central and Western Pacific (PH, PM, PS)\n")).describe("Marine region code\nThis parameter is incompatible with the following parameters: area, point, region_type, zone\n").optional(),
-  "region_type": z.enum(["land","marine"]).describe("Region type (land or marine)\nThis parameter is incompatible with the following parameters: area, point, region, zone\n").optional(),
-  "zone": z.array(z.string().regex(new RegExp("^(A[KLMNRSZ]|C[AOT]|D[CE]|F[LM]|G[AMU]|I[ADLN]|K[SY]|L[ACEHMOS]|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[AHKMRSWZ]|S[CDL]|T[NX]|UT|V[AIT]|W[AIVY]|[HR]I)[CZ]\\d{3}$")).describe("UGC identifier for a NWS forecast zone or county.\nThe first two letters will correspond to either a state code or marine area code (see #/components/schemas/StateTerritoryCode and #/components/schemas/MarineAreaCode for lists of valid letter combinations).\nThe third letter will be Z for public/fire zone or C for county.\n")).describe("Zone ID (forecast or county)\nThis parameter is incompatible with the following parameters: area, point, region, region_type\n").optional(),
-  "urgency": z.array(z.enum(["Immediate","Expected","Future","Past","Unknown"])).describe("Urgency (immediate, expected, future, past, unknown)").optional(),
-  "severity": z.array(z.enum(["Extreme","Severe","Moderate","Minor","Unknown"])).describe("Severity (extreme, severe, moderate, minor, unknown)").optional(),
-  "certainty": z.array(z.enum(["Observed","Likely","Possible","Unlikely","Unknown"])).describe("Certainty (observed, likely, possible, unlikely, unknown)").optional(),
-  "limit": z.number().int().gte(1).lte(500).describe("Limit").optional()
-}
-```
+- `status` (array)
+- `message_type` (array)
+- `event` (array)
+- `code` (array)
+- `area` (array)
+- `point` (string)
+- `region` (array)
+- `region_type` (string)
+- `zone` (array)
+- `urgency` (array)
+- `severity` (array)
+- `certainty` (array)
+- `limit` (integer)
 
 ### alerts_active_count
 
@@ -194,9 +146,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### alerts_active_zone
 
@@ -206,9 +156,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_alerts_active_zone_zoneid_
 
@@ -218,9 +166,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### alerts_active_area
 
@@ -230,9 +176,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_alerts_active_area_area_
 
@@ -242,9 +186,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### alerts_active_region
 
@@ -254,9 +196,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_alerts_active_region_region_
 
@@ -266,9 +206,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### alerts_types
 
@@ -278,9 +216,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### alerts_single
 
@@ -290,9 +226,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_alerts_id_
 
@@ -302,9 +236,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### cwsu
 
@@ -314,11 +246,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "cwsuId": z.enum(["ZAB","ZAN","ZAU","ZBW","ZDC","ZDV","ZFA","ZFW","ZHU","ZID","ZJX","ZKC","ZLA","ZLC","ZMA","ZME","ZMP","ZNY","ZOA","ZOB","ZSE","ZTL"]).describe("Three-letter identifier for a Center Weather Service Unit (CWSU).")
-}
-```
+- `cwsuId` (string)
 
 ### cwas
 
@@ -328,11 +256,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "cwsuId": z.enum(["ZAB","ZAN","ZAU","ZBW","ZDC","ZDV","ZFA","ZFW","ZHU","ZID","ZJX","ZKC","ZLA","ZLC","ZMA","ZME","ZMP","ZNY","ZOA","ZOB","ZSE","ZTL"]).describe("Three-letter identifier for a Center Weather Service Unit (CWSU).")
-}
-```
+- `cwsuId` (string)
 
 ### cwa
 
@@ -342,13 +266,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "cwsuId": z.enum(["ZAB","ZAN","ZAU","ZBW","ZDC","ZDV","ZFA","ZFW","ZHU","ZID","ZJX","ZKC","ZLA","ZLC","ZMA","ZME","ZMP","ZNY","ZOA","ZOB","ZSE","ZTL"]).describe("Three-letter identifier for a Center Weather Service Unit (CWSU)."),
-  "date": z.string().date().describe("Date (in YYYY-MM-DD format)."),
-  "sequence": z.number().int().gte(100).describe("Sequence number")
-}
-```
+- `cwsuId` (string)
+- `date` (string)
+- `sequence` (integer)
 
 ### sigmetquery
 
@@ -358,15 +278,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "start": z.string().datetime({ offset: true }).describe("Start time").optional(),
-  "end": z.string().datetime({ offset: true }).describe("End time").optional(),
-  "date": z.string().date().describe("Date (in YYYY-MM-DD format).").optional(),
-  "atsu": z.string().regex(new RegExp("^[A-Z]{3,4}$")).describe("ATSU Identifier").optional(),
-  "sequence": z.string().describe("SIGMET sequence number").optional()
-}
-```
+- `start` (string)
+- `end` (string)
+- `date` (string)
+- `atsu` (string)
+- `sequence` (string)
 
 ### sigmetsbyatsu
 
@@ -376,11 +292,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "atsu": z.string().regex(new RegExp("^[A-Z]{3,4}$")).describe("ATSU Identifier")
-}
-```
+- `atsu` (string)
 
 ### sigmetsbyatsubydate
 
@@ -390,12 +302,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "atsu": z.string().regex(new RegExp("^[A-Z]{3,4}$")).describe("ATSU Identifier"),
-  "date": z.string().date().describe("Date (in YYYY-MM-DD format).")
-}
-```
+- `atsu` (string)
+- `date` (string)
 
 ### sigmet
 
@@ -405,13 +313,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "atsu": z.string().regex(new RegExp("^[A-Z]{3,4}$")).describe("ATSU Identifier"),
-  "date": z.string().date().describe("Date (in YYYY-MM-DD format)."),
-  "time": z.string().regex(new RegExp("^([01][0-9]|2[0-3])[0-5][0-9]$")).describe("A time (in HHMM format). This is always specified in UTC (Zulu) time.")
-}
-```
+- `atsu` (string)
+- `date` (string)
+- `time` (string)
 
 ### glossary
 
@@ -421,9 +325,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gridpoint
 
@@ -433,9 +335,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_gridpoints_wfo_x_y_
 
@@ -445,9 +345,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gridpoint_forecast
 
@@ -457,12 +355,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "units": z.enum(["us","si"]).describe("Denotes the units used in the textual portions of the forecast.").optional(),
-  "Feature-Flags": z.array(z.enum(["forecast_temperature_qv","forecast_wind_speed_qv"])).describe("Enable future and experimental features (see documentation for more info):\n* forecast_temperature_qv: Represent temperature as QuantitativeValue\n* forecast_wind_speed_qv: Represent wind speed as QuantitativeValue\n").optional()
-}
-```
+- `units` (string)
+- `Feature-Flags` (array)
 
 ### parameters_gridpoints_wfo_x_y_forecast
 
@@ -472,9 +366,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gridpoint_forecast_hourly
 
@@ -484,12 +376,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "units": z.enum(["us","si"]).describe("Denotes the units used in the textual portions of the forecast.").optional(),
-  "Feature-Flags": z.array(z.enum(["forecast_temperature_qv","forecast_wind_speed_qv"])).describe("Enable future and experimental features (see documentation for more info):\n* forecast_temperature_qv: Represent temperature as QuantitativeValue\n* forecast_wind_speed_qv: Represent wind speed as QuantitativeValue\n").optional()
-}
-```
+- `units` (string)
+- `Feature-Flags` (array)
 
 ### parameters_gridpoints_wfo_x_y_forecast_hourly
 
@@ -499,9 +387,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### gridpoint_stations
 
@@ -511,9 +397,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_gridpoints_wfo_x_y_stations
 
@@ -523,9 +407,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### icons
 
@@ -535,9 +417,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_icons_set_timeofday_first_
 
@@ -547,9 +427,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### iconsdualcondition
 
@@ -559,9 +437,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_icons_set_timeofday_first_second_
 
@@ -571,9 +447,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### icons_summary
 
@@ -583,9 +457,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### satellite_thumbnails
 
@@ -595,9 +467,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_thumbnails_satellite_area_
 
@@ -607,9 +477,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### station_observation_list
 
@@ -619,13 +487,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "start": z.string().datetime({ offset: true }).describe("Start time").optional(),
-  "end": z.string().datetime({ offset: true }).describe("End time").optional(),
-  "limit": z.number().int().gte(1).lte(500).describe("Limit").optional()
-}
-```
+- `start` (string)
+- `end` (string)
+- `limit` (integer)
 
 ### parameters_stations_stationid_observations
 
@@ -635,9 +499,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### station_observation_latest
 
@@ -647,11 +509,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "require_qc": z.boolean().describe("Require QC").optional()
-}
-```
+- `require_qc` (boolean)
 
 ### parameters_stations_stationid_observations_latest
 
@@ -661,9 +519,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### station_observation_time
 
@@ -673,11 +529,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "time": z.string().datetime({ offset: true }).describe("Timestamp of requested observation")
-}
-```
+- `time` (string)
 
 ### parameters_stations_stationid_observations_time_
 
@@ -687,9 +539,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### tafs
 
@@ -699,11 +549,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "stationId": z.string().describe("Observation station ID")
-}
-```
+- `stationId` (string)
 
 ### taf
 
@@ -713,13 +559,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "stationId": z.string().describe("Observation station ID"),
-  "date": z.string().date().describe("Date (in YYYY-MM-DD format)."),
-  "time": z.string().regex(new RegExp("^([01][0-9]|2[0-3])[0-5][0-9]$")).describe("A time (in HHMM format). This is always specified in UTC (Zulu) time.")
-}
-```
+- `stationId` (string)
+- `date` (string)
+- `time` (string)
 
 ### obs_stations
 
@@ -729,32 +571,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.array(z.string()).describe("Filter by observation station ID").optional(),
-  "state": z.array(z.any().superRefine((x, ctx) => {
-    const schemas = [z.enum(["AL","AK","AS","AR","AZ","CA","CO","CT","DE","DC","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","PR","RI","SC","SD","TN","TX","UT","VT","VI","VA","WA","WV","WI","WY","MP","PW","FM","MH"]), z.enum(["AM","AN","GM","LC","LE","LH","LM","LO","LS","PH","PK","PM","PS","PZ","SL"]).describe("Marine area code as defined in NWS Directive 10-302:\n* AM: Western North Atlantic Ocean and along U.S. East Coast south of Currituck Beach Light NC following the coastline into Gulf of Mexico to Ocean Reef FL including the Caribbean\n* AN: Western North Atlantic Ocean and along U.S. East Coast from Canadian border south to Currituck Beach Light NC\n* GM: Gulf of Mexico and along the U.S. Gulf Coast from the Mexican border to Ocean Reef FL\n* LC: Lake St. Clair\n* LE: Lake Erie\n* LH: Lake Huron\n* LM: Lake Michigan\n* LO: Lake Ontario\n* LS: Lake Superior\n* PH: Central Pacific Ocean including Hawaiian waters\n* PK: North Pacific Ocean near Alaska and along Alaska coastline including the Bering Sea and the Gulf of Alaska\n* PM: Western Pacific Ocean including Mariana Island waters\n* PS: South Central Pacific Ocean including American Samoa waters\n* PZ: Eastern North Pacific Ocean and along U.S. West Coast from Canadian border to Mexican border\n* SL: St. Lawrence River above St. Regis\n")];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  }).describe("State/territory codes and marine area codes")).describe("Filter by state/marine area code").optional(),
-  "limit": z.number().int().gte(1).lte(500).describe("Limit").optional(),
-  "cursor": z.string().describe("Pagination cursor").optional()
-}
-```
+- `id` (array)
+- `state` (array)
+- `limit` (integer)
+- `cursor` (string)
 
 ### obs_station
 
@@ -764,9 +584,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_stations_stationid_
 
@@ -776,9 +594,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### office
 
@@ -788,9 +604,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_offices_officeid_
 
@@ -800,9 +614,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### office_headline
 
@@ -812,9 +624,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_offices_officeid_headlines_headlineid_
 
@@ -824,9 +634,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### office_headlines
 
@@ -836,9 +644,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_offices_officeid_headlines
 
@@ -848,9 +654,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### point
 
@@ -860,9 +664,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_points_point_
 
@@ -872,9 +674,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### point_stations
 
@@ -884,9 +684,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_points_point_stations
 
@@ -896,9 +694,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### radar_servers
 
@@ -908,11 +704,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reportingHost": z.string().describe("Show records from specific reporting host").optional()
-}
-```
+- `reportingHost` (string)
 
 ### radar_server
 
@@ -922,11 +714,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reportingHost": z.string().describe("Show records from specific reporting host").optional()
-}
-```
+- `reportingHost` (string)
 
 ### parameters_radar_servers_id_
 
@@ -936,9 +724,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### radar_stations
 
@@ -948,13 +734,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "stationType": z.array(z.string().regex(new RegExp("^[A-Za-z0-9-]+$"))).describe("Limit results to a specific station type or types").optional(),
-  "reportingHost": z.string().describe("Show RDA and latency info from specific reporting host").optional(),
-  "host": z.string().describe("Show latency info from specific LDM host").optional()
-}
-```
+- `stationType` (array)
+- `reportingHost` (string)
+- `host` (string)
 
 ### radar_station
 
@@ -964,12 +746,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "reportingHost": z.string().describe("Show RDA and latency info from specific reporting host").optional(),
-  "host": z.string().describe("Show latency info from specific LDM host").optional()
-}
-```
+- `reportingHost` (string)
+- `host` (string)
 
 ### parameters_radar_stations_stationid_
 
@@ -979,9 +757,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### radar_station_alarms
 
@@ -991,9 +767,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_radar_stations_stationid_alarms
 
@@ -1003,9 +777,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### radar_queue
 
@@ -1015,72 +787,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "limit": z.number().int().gte(1).lte(500).describe("Record limit").optional(),
-  "arrived": z.any().superRefine((x, ctx) => {
-    const schemas = [z.string().regex(new RegExp("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$")), z.string().regex(new RegExp("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$")), z.string().regex(new RegExp("^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$"))];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  }).describe("A time interval in ISO 8601 format. This can be one of:\n\n    1. Start and end time\n    2. Start time and duration\n    3. Duration and end time\nThe string \"NOW\" can also be used in place of a start/end time.\n").optional(),
-  "created": z.any().superRefine((x, ctx) => {
-    const schemas = [z.string().regex(new RegExp("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$")), z.string().regex(new RegExp("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$")), z.string().regex(new RegExp("^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$"))];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  }).describe("A time interval in ISO 8601 format. This can be one of:\n\n    1. Start and end time\n    2. Start time and duration\n    3. Duration and end time\nThe string \"NOW\" can also be used in place of a start/end time.\n").optional(),
-  "published": z.any().superRefine((x, ctx) => {
-    const schemas = [z.string().regex(new RegExp("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$")), z.string().regex(new RegExp("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$")), z.string().regex(new RegExp("^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$"))];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  }).describe("A time interval in ISO 8601 format. This can be one of:\n\n    1. Start and end time\n    2. Start time and duration\n    3. Duration and end time\nThe string \"NOW\" can also be used in place of a start/end time.\n").optional(),
-  "station": z.string().describe("Station identifier").optional(),
-  "type": z.string().describe("Record type").optional(),
-  "feed": z.string().describe("Originating product feed").optional(),
-  "resolution": z.number().int().gte(1).describe("Resolution version").optional()
-}
-```
+- `limit` (integer)
+- `arrived` (other)
+- `created` (other)
+- `published` (other)
+- `station` (string)
+- `type` (string)
+- `feed` (string)
+- `resolution` (integer)
 
 ### parameters_radar_queues_host_
 
@@ -1090,9 +804,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### radar_profiler
 
@@ -1102,30 +814,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "time": z.any().superRefine((x, ctx) => {
-    const schemas = [z.string().regex(new RegExp("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$")), z.string().regex(new RegExp("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$")), z.string().regex(new RegExp("^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$"))];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  }).describe("A time interval in ISO 8601 format. This can be one of:\n\n    1. Start and end time\n    2. Start time and duration\n    3. Duration and end time\nThe string \"NOW\" can also be used in place of a start/end time.\n").optional(),
-  "interval": z.string().regex(new RegExp("^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$")).describe("A time duration in ISO 8601 format.").optional()
-}
-```
+- `time` (other)
+- `interval` (string)
 
 ### parameters_radar_profilers_stationid_
 
@@ -1135,9 +825,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### products_query
 
@@ -1147,17 +835,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "location": z.array(z.string()).describe("Location id").optional(),
-  "start": z.string().datetime({ offset: true }).describe("Start time").optional(),
-  "end": z.string().datetime({ offset: true }).describe("End time").optional(),
-  "office": z.array(z.string().regex(new RegExp("^[A-Z]{4}$"))).describe("Issuing office").optional(),
-  "wmoid": z.array(z.string().regex(new RegExp("^[A-Z]{4}\\d{2}$"))).describe("WMO id code").optional(),
-  "type": z.array(z.string().regex(new RegExp("^\\w{3}$"))).describe("Product code").optional(),
-  "limit": z.number().int().gte(1).lte(500).describe("Limit").optional()
-}
-```
+- `location` (array)
+- `start` (string)
+- `end` (string)
+- `office` (array)
+- `wmoid` (array)
+- `type` (array)
+- `limit` (integer)
 
 ### product_locations
 
@@ -1167,9 +851,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### product_types
 
@@ -1179,9 +861,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### product
 
@@ -1191,9 +871,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_products_productid_
 
@@ -1203,9 +881,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### products_type
 
@@ -1215,9 +891,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_products_types_typeid_
 
@@ -1227,9 +901,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### products_type_locations
 
@@ -1239,9 +911,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_products_types_typeid_locations
 
@@ -1251,9 +921,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### location_products
 
@@ -1263,9 +931,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_products_locations_locationid_types
 
@@ -1275,9 +941,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### products_type_location
 
@@ -1287,9 +951,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_products_types_typeid_locations_locationid_
 
@@ -1299,9 +961,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### zone_list
 
@@ -1311,54 +971,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.array(z.string().regex(new RegExp("^(A[KLMNRSZ]|C[AOT]|D[CE]|F[LM]|G[AMU]|I[ADLN]|K[SY]|L[ACEHMOS]|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[AHKMRSWZ]|S[CDL]|T[NX]|UT|V[AIT]|W[AIVY]|[HR]I)[CZ]\\d{3}$")).describe("UGC identifier for a NWS forecast zone or county.\nThe first two letters will correspond to either a state code or marine area code (see #/components/schemas/StateTerritoryCode and #/components/schemas/MarineAreaCode for lists of valid letter combinations).\nThe third letter will be Z for public/fire zone or C for county.\n")).describe("Zone ID (forecast or county)").optional(),
-  "area": z.array(z.any().superRefine((x, ctx) => {
-    const schemas = [z.enum(["AL","AK","AS","AR","AZ","CA","CO","CT","DE","DC","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","PR","RI","SC","SD","TN","TX","UT","VT","VI","VA","WA","WV","WI","WY","MP","PW","FM","MH"]), z.enum(["AM","AN","GM","LC","LE","LH","LM","LO","LS","PH","PK","PM","PS","PZ","SL"]).describe("Marine area code as defined in NWS Directive 10-302:\n* AM: Western North Atlantic Ocean and along U.S. East Coast south of Currituck Beach Light NC following the coastline into Gulf of Mexico to Ocean Reef FL including the Caribbean\n* AN: Western North Atlantic Ocean and along U.S. East Coast from Canadian border south to Currituck Beach Light NC\n* GM: Gulf of Mexico and along the U.S. Gulf Coast from the Mexican border to Ocean Reef FL\n* LC: Lake St. Clair\n* LE: Lake Erie\n* LH: Lake Huron\n* LM: Lake Michigan\n* LO: Lake Ontario\n* LS: Lake Superior\n* PH: Central Pacific Ocean including Hawaiian waters\n* PK: North Pacific Ocean near Alaska and along Alaska coastline including the Bering Sea and the Gulf of Alaska\n* PM: Western Pacific Ocean including Mariana Island waters\n* PS: South Central Pacific Ocean including American Samoa waters\n* PZ: Eastern North Pacific Ocean and along U.S. West Coast from Canadian border to Mexican border\n* SL: St. Lawrence River above St. Regis\n")];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  }).describe("State/territory codes and marine area codes")).describe("State/marine area code").optional(),
-  "region": z.array(z.any().superRefine((x, ctx) => {
-    const schemas = [z.enum(["AR","CR","ER","PR","SR","WR"]).describe("Land region code. These correspond to the six NWS regional headquarters:\n* AR: Alaska Region\n* CR: Central Region\n* ER: Eastern Region\n* PR: Pacific Region\n* SR: Southern Region\n* WR: Western Region\n"), z.enum(["AL","AT","GL","GM","PA","PI"]).describe("Marine region code. These are groups of marine areas combined.\n* AL: Alaska waters (PK)\n* AT: Atlantic Ocean (AM, AN)\n* GL: Great Lakes (LC, LE, LH, LM, LO, LS, SL)\n* GM: Gulf of Mexico (GM)\n* PA: Eastern Pacific Ocean and U.S. West Coast (PZ)\n* PI: Central and Western Pacific (PH, PM, PS)\n")];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  })).describe("Region code").optional(),
-  "type": z.array(z.enum(["land","marine","forecast","public","coastal","offshore","fire","county"])).describe("Zone type").optional(),
-  "point": z.string().regex(new RegExp("^(-?\\d+(?:\\.\\d+)?),(-?\\d+(?:\\.\\d+)?)$")).describe("Point (latitude,longitude)").optional(),
-  "include_geometry": z.boolean().describe("Include geometry in results (true/false)").optional(),
-  "limit": z.number().int().gte(1).describe("Limit").optional(),
-  "effective": z.string().datetime({ offset: true }).describe("Effective date/time").optional()
-}
-```
+- `id` (array)
+- `area` (array)
+- `region` (array)
+- `type` (array)
+- `point` (string)
+- `include_geometry` (boolean)
+- `limit` (integer)
+- `effective` (string)
 
 ### zone_list_type
 
@@ -1368,54 +988,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "id": z.array(z.string().regex(new RegExp("^(A[KLMNRSZ]|C[AOT]|D[CE]|F[LM]|G[AMU]|I[ADLN]|K[SY]|L[ACEHMOS]|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[AHKMRSWZ]|S[CDL]|T[NX]|UT|V[AIT]|W[AIVY]|[HR]I)[CZ]\\d{3}$")).describe("UGC identifier for a NWS forecast zone or county.\nThe first two letters will correspond to either a state code or marine area code (see #/components/schemas/StateTerritoryCode and #/components/schemas/MarineAreaCode for lists of valid letter combinations).\nThe third letter will be Z for public/fire zone or C for county.\n")).describe("Zone ID (forecast or county)").optional(),
-  "area": z.array(z.any().superRefine((x, ctx) => {
-    const schemas = [z.enum(["AL","AK","AS","AR","AZ","CA","CO","CT","DE","DC","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","PR","RI","SC","SD","TN","TX","UT","VT","VI","VA","WA","WV","WI","WY","MP","PW","FM","MH"]), z.enum(["AM","AN","GM","LC","LE","LH","LM","LO","LS","PH","PK","PM","PS","PZ","SL"]).describe("Marine area code as defined in NWS Directive 10-302:\n* AM: Western North Atlantic Ocean and along U.S. East Coast south of Currituck Beach Light NC following the coastline into Gulf of Mexico to Ocean Reef FL including the Caribbean\n* AN: Western North Atlantic Ocean and along U.S. East Coast from Canadian border south to Currituck Beach Light NC\n* GM: Gulf of Mexico and along the U.S. Gulf Coast from the Mexican border to Ocean Reef FL\n* LC: Lake St. Clair\n* LE: Lake Erie\n* LH: Lake Huron\n* LM: Lake Michigan\n* LO: Lake Ontario\n* LS: Lake Superior\n* PH: Central Pacific Ocean including Hawaiian waters\n* PK: North Pacific Ocean near Alaska and along Alaska coastline including the Bering Sea and the Gulf of Alaska\n* PM: Western Pacific Ocean including Mariana Island waters\n* PS: South Central Pacific Ocean including American Samoa waters\n* PZ: Eastern North Pacific Ocean and along U.S. West Coast from Canadian border to Mexican border\n* SL: St. Lawrence River above St. Regis\n")];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  }).describe("State/territory codes and marine area codes")).describe("State/marine area code").optional(),
-  "region": z.array(z.any().superRefine((x, ctx) => {
-    const schemas = [z.enum(["AR","CR","ER","PR","SR","WR"]).describe("Land region code. These correspond to the six NWS regional headquarters:\n* AR: Alaska Region\n* CR: Central Region\n* ER: Eastern Region\n* PR: Pacific Region\n* SR: Southern Region\n* WR: Western Region\n"), z.enum(["AL","AT","GL","GM","PA","PI"]).describe("Marine region code. These are groups of marine areas combined.\n* AL: Alaska waters (PK)\n* AT: Atlantic Ocean (AM, AN)\n* GL: Great Lakes (LC, LE, LH, LM, LO, LS, SL)\n* GM: Gulf of Mexico (GM)\n* PA: Eastern Pacific Ocean and U.S. West Coast (PZ)\n* PI: Central and Western Pacific (PH, PM, PS)\n")];
-    const errors = schemas.reduce<z.ZodError[]>(
-      (errors, schema) =>
-        ((result) =>
-          result.error ? [...errors, result.error] : errors)(
-          schema.safeParse(x),
-        ),
-      [],
-    );
-    if (schemas.length - errors.length !== 1) {
-      ctx.addIssue({
-        path: ctx.path,
-        code: "invalid_union",
-        unionErrors: errors,
-        message: "Invalid input: Should pass single schema",
-      });
-    }
-  })).describe("Region code").optional(),
-  "type": z.array(z.enum(["land","marine","forecast","public","coastal","offshore","fire","county"])).describe("Zone type").optional(),
-  "point": z.string().regex(new RegExp("^(-?\\d+(?:\\.\\d+)?),(-?\\d+(?:\\.\\d+)?)$")).describe("Point (latitude,longitude)").optional(),
-  "include_geometry": z.boolean().describe("Include geometry in results (true/false)").optional(),
-  "limit": z.number().int().gte(1).describe("Limit").optional(),
-  "effective": z.string().datetime({ offset: true }).describe("Effective date/time").optional()
-}
-```
+- `id` (array)
+- `area` (array)
+- `region` (array)
+- `type` (array)
+- `point` (string)
+- `include_geometry` (boolean)
+- `limit` (integer)
+- `effective` (string)
 
 ### parameters_zones_type_
 
@@ -1425,9 +1005,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### zone
 
@@ -1437,11 +1015,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "effective": z.string().datetime({ offset: true }).describe("Effective date/time").optional()
-}
-```
+- `effective` (string)
 
 ### parameters_zones_type_zoneid_
 
@@ -1451,9 +1025,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### zone_forecast
 
@@ -1463,9 +1035,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_zones_type_zoneid_forecast
 
@@ -1475,9 +1045,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### zone_obs
 
@@ -1487,13 +1055,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "start": z.string().datetime({ offset: true }).describe("Start date/time").optional(),
-  "end": z.string().datetime({ offset: true }).describe("End date/time").optional(),
-  "limit": z.number().int().gte(1).lte(500).describe("Limit").optional()
-}
-```
+- `start` (string)
+- `end` (string)
+- `limit` (integer)
 
 ### parameters_zones_forecast_zoneid_observations
 
@@ -1503,9 +1067,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### zone_stations
 
@@ -1515,9 +1077,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### parameters_zones_forecast_zoneid_stations
 
@@ -1527,6 +1087,4 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters

@@ -87,12 +87,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  toolName: z.string(),
-  jsonPointers: z.array(z.string().startsWith("/").describe("The pointer to the JSON schema object which needs expanding")).describe("A list of JSON pointers"),
-}
-```
+- `toolName` (string)
+- `jsonPointers` (array)
 
 ### createexplanation
 
@@ -102,15 +98,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "output_language": z.enum(["ar","bs","cs","de","es","en","fa","fr","hr","hu","it","pl","ro","sk","sl","sr","tl","tr","uk","zh"]).describe("The ISO 639-1 code for the language in which the \`Explanation\` should be generated.\nSupported Languages:\n- ar: Arabic\n- bs: Bosnian\n- cs: Czech\n- de: German\n- es: Spanish\n- en: English\n- fa: Farsi\n- fr: French\n- hr: Croatian\n- hu: Hungarian\n- it: Italian\n- pl: Polish\n- ro: Romanian\n- sk: Slovak\n- sl: Slovenian\n- sr: Serbian\n- tl: Tagalog\n- tr: Turkish\n- uk: Ukrainian\n- zh: Mandarin\n"),
-  "language_level": z.enum(["simple","plain","detailed"]).describe("One of three language levels for the generated text:\n1. Simple Language: Answers are short and simple, using easy words and a clear structure.\n2. Plain Language: Answers are short and the assistant explains complicated terms.\n3. Detailed Language: Answers are not simplified and the assistant answers in detail.\n"),
-  "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("The unique identifier of the uploaded \`Source\` to be used as context for the \`Explanation\`."),
-  "messages": z.array(z.object({ "role": z.enum(["user","assistant"]).describe("The entity that produced the message. One of \`user\` or \`assistant\`."), "content": z.string().max(16000).describe("The content of the message. The maximum length is 16,000 characters."), "references": z.array(z.object({ "text": z.string().max(8).describe("String in the message content that needs to be replaced."), "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("What \`Source\` the generated answer depended on."), "page_number": z.number().int().gte(1).lte(1000).nullable().describe("The page number in the \`Source\` the generated answer depended on. Only applicable for documents.").optional(), "backlink": z.string().max(512).describe("The backlink of the \`Source\`, so it can be called from the client.").optional(), "custom_metadata": z.record(z.any()).describe("Custom optional metadata for a \`Source\` provided by a client. Up to 10 key-value pairs.").optional() }).strict().describe("Represents a reference to a \`Source\` that was used to generate the answer.\nThe reference is used to provide backlinks to the original source and to provide context for the generated answer.\n")).max(50).optional() }).strict().describe("Represents a message within an \`Explanation\` or a \`Knowledge Base Chat\`.\nFor \`Explanations\` - An \`assistant\` message is either an initial \`Explanation\` for the document when no messages were provided in the request or an answer to a user message in the provided conversation history.\n")).max(50).describe("The conversation history. For an initial \`Explanation\` just provide an empty array or no messages. For follow-up questions, provide the entire conversation history.").optional(),
-  "markdown_response": z.boolean().describe("Whether the response should be returned as Markdown formatted text. If 'false', the response will be returned in plain text.").optional()
-}
-```
+- `output_language` (string)
+- `language_level` (string)
+- `source_id` (string)
+- `messages` (array)
+- `markdown_response` (boolean)
 
 ### createknowledgebase
 
@@ -120,13 +112,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "name": z.string().max(256).describe("The name for the \`Knowledge Base\`").optional(),
-  "instructions": z.string().max(4096).describe("The instructions for the \`Knowledge Base\`.").optional(),
-  "project_id": z.string().regex(new RegExp("^pj_[a-zA-Z0-9]{25}$")).max(28).describe("The unique identifier for the \`Project\` that the \`Knowledge Base\` will be assigned to. If no \`project_id\` is provided, the \`Knowledge Base\` will be assigned to the default \`Project\`.").optional()
-}
-```
+- `name` (string)
+- `instructions` (string)
+- `project_id` (string)
 
 ### listknowledgebases
 
@@ -136,9 +124,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getknowledgebase
 
@@ -148,11 +134,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "knowledge_base_id": z.string().regex(new RegExp("^kb_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Knowledge Base\`.")
-}
-```
+- `knowledge_base_id` (string)
 
 ### modifyknowledgebase
 
@@ -162,14 +144,10 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "knowledge_base_id": z.string().regex(new RegExp("^kb_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Knowledge Base\`."),
-  "name": z.string().max(255).describe("The name for the \`Knowledge Base\`.").optional(),
-  "instructions": z.string().max(4096).describe("The instructions for the \`Knowledge Base\`.").optional(),
-  "project_id": z.string().regex(new RegExp("^pj_[a-zA-Z0-9]{25}$")).max(28).describe("The unique identifier for the \`Project\` that the \`Knowledge Base\` should be assigned to. If the \`project_id\` is changed, the \`project_ids\` of the \`Sources\` that are used as \`Knowledge Base Sources\` will also be changed. If a \`Source\` is used by multiple \`Knowledge Bases\`, then the \`project_id\` of the \`Knowledge Base\` cannot be changed.").optional()
-}
-```
+- `knowledge_base_id` (string)
+- `name` (string)
+- `instructions` (string)
+- `project_id` (string)
 
 ### deleteknowledgebase
 
@@ -179,11 +157,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "knowledge_base_id": z.string().regex(new RegExp("^kb_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Knowledge Base\`.")
-}
-```
+- `knowledge_base_id` (string)
 
 ### chatwithknowledgebase
 
@@ -193,15 +167,11 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "knowledge_base_id": z.string().regex(new RegExp("^kb_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Knowledge Base\`."),
-  "output_language": z.enum(["ar","bs","cs","de","es","en","fa","fr","hr","hu","it","pl","ro","sk","sl","sr","tl","tr","uk","zh"]).describe("The ISO 639-1 code for the language in which the \`Explanation\` should be generated.\nSupported Languages:\n- ar: Arabic\n- bs: Bosnian\n- cs: Czech\n- de: German\n- es: Spanish\n- en: English\n- fa: Farsi\n- fr: French\n- hr: Croatian\n- hu: Hungarian\n- it: Italian\n- pl: Polish\n- ro: Romanian\n- sk: Slovak\n- sl: Slovenian\n- sr: Serbian\n- tl: Tagalog\n- tr: Turkish\n- uk: Ukrainian\n- zh: Mandarin\n"),
-  "language_level": z.enum(["simple","plain","detailed"]).describe("One of three language levels for the generated text:\n1. Simple Language: Answers are short and simple, using easy words and a clear structure.\n2. Plain Language: Answers are short and the assistant explains complicated terms.\n3. Detailed Language: Answers are not simplified and the assistant answers in detail.\n"),
-  "messages": z.array(z.object({ "role": z.enum(["user","assistant"]).describe("The entity that produced the message. One of \`user\` or \`assistant\`."), "content": z.string().max(16000).describe("The content of the message. The maximum length is 16,000 characters."), "references": z.array(z.object({ "text": z.string().max(8).describe("String in the message content that needs to be replaced."), "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("What \`Source\` the generated answer depended on."), "page_number": z.number().int().gte(1).lte(1000).nullable().describe("The page number in the \`Source\` the generated answer depended on. Only applicable for documents.").optional(), "backlink": z.string().max(512).describe("The backlink of the \`Source\`, so it can be called from the client.").optional(), "custom_metadata": z.record(z.any()).describe("Custom optional metadata for a \`Source\` provided by a client. Up to 10 key-value pairs.").optional() }).strict().describe("Represents a reference to a \`Source\` that was used to generate the answer.\nThe reference is used to provide backlinks to the original source and to provide context for the generated answer.\n")).max(50).optional() }).strict().describe("Represents a message within an \`Explanation\` or a \`Knowledge Base Chat\`.\nFor \`Explanations\` - An \`assistant\` message is either an initial \`Explanation\` for the document when no messages were provided in the request or an answer to a user message in the provided conversation history.\n")).max(50).describe("The conversation history. Provide at least one user message to start the conversation."),
-  "markdown_response": z.boolean().describe("Whether the response should be returned as Markdown formatted text. If 'false', the response will be returned in plain text.").optional()
-}
-```
+- `knowledge_base_id` (string)
+- `output_language` (string)
+- `language_level` (string)
+- `messages` (array)
+- `markdown_response` (boolean)
 
 ### addknowledgebasesources
 
@@ -211,11 +181,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "knowledge_base_id": z.string().regex(new RegExp("^kb_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Knowledge Base\`.")
-}
-```
+- `knowledge_base_id` (string)
 
 ### listknowledgebasesources
 
@@ -225,11 +191,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "knowledge_base_id": z.string().regex(new RegExp("^kb_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Knowledge Base\`.")
-}
-```
+- `knowledge_base_id` (string)
 
 ### getknowledgebasesource
 
@@ -239,12 +201,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "knowledge_base_id": z.string().regex(new RegExp("^kb_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Knowledge Base\`."),
-  "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("Unique identifier for a \`Source\` that was uploaded to Totoy.")
-}
-```
+- `knowledge_base_id` (string)
+- `source_id` (string)
 
 ### deleteknowledgebasesource
 
@@ -254,12 +212,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "knowledge_base_id": z.string().regex(new RegExp("^kb_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Knowledge Base\`."),
-  "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("Unique identifier for a \`Source\` that was uploaded to Totoy.")
-}
-```
+- `knowledge_base_id` (string)
+- `source_id` (string)
 
 ### createsource
 
@@ -269,17 +223,13 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "text_content": z.string().max(1000000).describe("Plain-text string to be uploaded to \`Sources\`."),
-  "title": z.string().max(512).nullable().describe("Title of the text \`Source\`.").optional(),
-  "backlink": z.string().max(512).describe("A url to the text \`Source\` that can be used by clients to link back to the original text.").optional(),
-  "valid_from": z.string().datetime({ offset: true }).nullable().describe("From what time the \`Source\` can be used by a \`Knowledge Base\` or an \`Explanation\`. If no \`valid_from\` is set, the \`Source\` is valid from the time it is added to \`Sources\`.").optional(),
-  "valid_until": z.string().datetime({ offset: true }).nullable().describe("Until when the \`Source\` can be used by a \`Knowledge Base\` or an \`Explanation\`. If no \`valid_until\` is set, the \`Source\` is valid until it is removed from \`Sources\`.").optional(),
-  "project_id": z.string().regex(new RegExp("^pj_[a-zA-Z0-9]{25}$")).max(28).nullable().describe("The unique identifier of the project this \`Source\` should be assigned to. \`Sources\` can only be used by resources with the same \`project_id\`. If no \`project_id\` is set, the \`Source\` will be assigned to the default project.").optional(),
-  "custom_metadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nCustom optional metadata for a \`Source\` provided by a client. Up to 10 key-value pairs.").optional()
-}
-```
+- `text_content` (string)
+- `title` (string)
+- `backlink` (string)
+- `valid_from` (string)
+- `valid_until` (string)
+- `project_id` (string)
+- `custom_metadata` (object)
 
 ### listsources
 
@@ -289,9 +239,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getsource
 
@@ -301,11 +249,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("Unique identifier for a \`Source\` that was uploaded to Totoy.")
-}
-```
+- `source_id` (string)
 
 ### modifysource
 
@@ -315,18 +259,14 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("Unique identifier for a \`Source\` that was uploaded to Totoy."),
-  "text_content": z.string().max(1000000).describe("Plain-text string to replace the original \`text_content\` of the \`Source\`.").optional(),
-  "title": z.string().max(512).describe("Title of the text \`Source\`.").optional(),
-  "backlink": z.string().max(512).describe("A url to the text \`Source\` that can be used by clients to link back to the original text.").optional(),
-  "valid_from": z.string().datetime({ offset: true }).nullable().describe("From what time the \`Source\` can be used by a \`Knowledge Base\` or an \`Explanation\`. If no \`valid_from\` is set, the \`Source\` is valid from the time it is added to \`Sources\`.").optional(),
-  "valid_until": z.string().datetime({ offset: true }).nullable().describe("Until when the \`Source\` can be used by a \`Knowledge Base\` or an \`Explanation\`. If no \`valid_until\` is set, the \`Source\` is valid until it is removed from \`Sources\`.").optional(),
-  "project_id": z.string().regex(new RegExp("^pj_[a-zA-Z0-9]{25}$")).max(28).nullable().describe("The unique identifier of the project this \`Source\` should be assigned to. \`Sources\` can only be used by resources with the same \`project_id\`. If no \`project_id\` is set, the \`Source\` will be assigned to the default project. A \`Source\` can only be assigned to a different \`Project\`, if no \`Knowledge Bases\` are using the \`Source\`.").optional(),
-  "custom_metadata": z.record(z.any()).describe("[EXPANDABLE PARAMETER]:\nCustom optional metadata for a \`Source\` provided by a client. Up to 10 key-value pairs.").optional()
-}
-```
+- `source_id` (string)
+- `text_content` (string)
+- `title` (string)
+- `backlink` (string)
+- `valid_from` (string)
+- `valid_until` (string)
+- `project_id` (string)
+- `custom_metadata` (object)
 
 ### deletesource
 
@@ -336,11 +276,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("Unique identifier for a \`Source\` that was uploaded to Totoy.")
-}
-```
+- `source_id` (string)
 
 ### getsourcecontent
 
@@ -350,11 +286,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "source_id": z.string().regex(new RegExp("^src_[a-zA-Z0-9]{25}$")).max(29).describe("Unique identifier for a \`Source\` that was uploaded to Totoy.")
-}
-```
+- `source_id` (string)
 
 ### createproject
 
@@ -364,11 +296,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "name": z.string().max(256).describe("The name of the \`Project\`.")
-}
-```
+- `name` (string)
 
 ### listprojects
 
@@ -378,9 +306,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### getproject
 
@@ -390,11 +316,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "project_id": z.string().regex(new RegExp("^pj_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Project\` created in Totoy.")
-}
-```
+- `project_id` (string)
 
 ### modifyproject
 
@@ -404,12 +326,8 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "project_id": z.string().regex(new RegExp("^pj_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Project\` created in Totoy."),
-  "name": z.string().max(256).describe("The name of the \`Project\`.").optional()
-}
-```
+- `project_id` (string)
+- `name` (string)
 
 ### deleteproject
 
@@ -419,11 +337,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "project_id": z.string().regex(new RegExp("^pj_[a-zA-Z0-9]{25}$")).max(28).describe("Unique identifier for a \`Project\` created in Totoy.")
-}
-```
+- `project_id` (string)
 
 ### getorganization
 
@@ -433,9 +347,7 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{}
-```
+No input parameters
 
 ### createextraction
 
@@ -445,13 +357,9 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "model": z.enum(["rre-de-2025-02-14","rre-de-2025-03-31","rre-de-2025-04-07","rre-de"]).describe("The name of the model that will be used for the extraction. A model name without a date is an alias to the latest version of that model, i.e. \`rre-de\` always points to the latest version of \`rre-de\`."),
-  "document": z.string().describe("Base64-encoded contents of a document (PDF, JPG or PNG)"),
-  "expand_abbreviations": z.boolean().describe("If set to true, the extraction will expand abbreviations in the extracted fields.").optional()
-}
-```
+- `model` (string)
+- `document` (string)
+- `expand_abbreviations` (boolean)
 
 ### createclassification
 
@@ -461,9 +369,5 @@ Expand the input schema for a tool before calling the tool
 
 **Input schema**
 
-```ts
-{
-  "model": z.enum(["rdc-de-2025-02-14","rdc-de"]).describe("The name of the model that will be used for the Classification. A model name without a date is an alias to the latest version of that model, i.e. \`rdc-de\` always points to the latest version of \`rdc-de\`."),
-  "document": z.string().describe("Base64-encoded contents of a document (PDF, JPG or PNG)")
-}
-```
+- `model` (string)
+- `document` (string)
