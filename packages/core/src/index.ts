@@ -13,7 +13,8 @@ export type { OpenMCPServerTool, ParamType }
 
 async function registerToolFromOperation(
   server: McpServer,
-  operation: OpenMCPServerTool
+  operation: OpenMCPServerTool,
+  env?: Record<string, string>
 ) {
   const {
     baseUrl,
@@ -26,7 +27,9 @@ async function registerToolFromOperation(
     security,
   } = operation
 
-  const customBaseUrl = cleanUrl(process.env.OPEN_MCP_BASE_URL || baseUrl)
+  const customBaseUrl = cleanUrl(
+    env?.OPEN_MCP_BASE_URL || process.env.OPEN_MCP_BASE_URL || baseUrl
+  )
 
   if (
     !customBaseUrl.startsWith("http://") &&
@@ -47,7 +50,7 @@ async function registerToolFromOperation(
     const securityHeadersObj: Record<string, string> = {}
     const securityQueryObj: Record<string, string> = {}
     for (const item of security) {
-      const ENV_VAR = process.env[item.envVarName]
+      const ENV_VAR = env?.[item.envVarName] || process.env[item.envVarName]
       if (ENV_VAR) {
         const value = item.value.replace(enclose(item.envVarName), ENV_VAR)
         if (item.in === "header") {
@@ -149,7 +152,8 @@ async function registerToolFromOperation(
 
 export async function registerTools(
   server: McpServer,
-  tools: OpenMCPServerTool[]
+  tools: OpenMCPServerTool[],
+  env?: Record<string, string>
 ) {
   server.tool(
     "expandSchema",
@@ -207,6 +211,6 @@ export async function registerTools(
   )
 
   for (const tool of tools) {
-    await registerToolFromOperation(server, tool)
+    await registerToolFromOperation(server, tool, env)
   }
 }
