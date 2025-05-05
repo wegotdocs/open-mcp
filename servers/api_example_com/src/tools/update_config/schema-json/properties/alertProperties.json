@@ -1,0 +1,30 @@
+{
+  "required": [
+    "type",
+    "source"
+  ],
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "example": {
+    "type": "email-intake",
+    "source": "{name}",
+    "tags": [
+      "email-intake",
+      "source:{name}",
+      "{mailbox.provider.name}"
+    ]
+  }
+}

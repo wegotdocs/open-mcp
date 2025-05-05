@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "functionId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "Enabled",
+        "Disabled",
+        "DryRun"
+      ]
+    },
+    "definition": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `config` to the tool, first call the tool `expandSchema` with \"/properties/config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "api",
+          "notification",
+          "action:case",
+          "action:alert",
+          "feeder:alert"
+        ]
+      }
+    }
+  },
+  "required": [
+    "functionId"
+  ]
+}

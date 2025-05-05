@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "packageName": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "ALL",
+        "TRACE",
+        "DEBUG",
+        "INFO",
+        "WARN",
+        "ERROR",
+        "OFF"
+      ]
+    }
+  },
+  "required": [
+    "packageName",
+    "level"
+  ]
+}

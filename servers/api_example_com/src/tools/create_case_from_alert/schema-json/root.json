@@ -1,0 +1,247 @@
+{
+  "type": "object",
+  "properties": {
+    "alertId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "severity": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "startDate": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "endDate": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "flag": {
+      "type": "boolean"
+    },
+    "tlp": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "pap": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "assignee": {
+      "type": "string",
+      "description": "User to assign the case to",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "customFields": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      ]
+    },
+    "caseTemplate": {
+      "type": "string",
+      "description": "Name or id of the Case Template to use",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "group": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1048576
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 16
+          },
+          "flag": {
+            "type": "boolean"
+          },
+          "startDate": {
+            "type": "integer",
+            "format": "datetime_ms",
+            "example": 1640000000000
+          },
+          "endDate": {
+            "type": "integer",
+            "format": "datetime_ms",
+            "example": 1640000000000
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dueDate": {
+            "type": "integer",
+            "format": "datetime_ms",
+            "example": 1640000000000
+          },
+          "assignee": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "mandatory": {
+            "type": "boolean"
+          }
+        }
+      },
+      "description": "Additional tasks to create"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "required": [
+          "title",
+          "content",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 1048576
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    "sharingParameters": {
+      "type": "array",
+      "items": {
+        "required": [
+          "organisation"
+        ],
+        "type": "object",
+        "properties": {
+          "organisation": {
+            "type": "string",
+            "description": "Name or id of the organisation",
+            "example": "~354"
+          },
+          "share": {
+            "type": "boolean",
+            "description": "If true, new observables and tasks will also be shared to the organisation",
+            "default": true
+          },
+          "profile": {
+            "type": "string",
+            "description": "Profile used to define the permissions of the organisation members",
+            "default": "analyst",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "taskRule": {
+            "type": "string",
+            "description": "Sharing rule to apply to the tasks, can be manual or autoShare",
+            "default": "Sharing rule applied on the case",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "observableRule": {
+            "type": "string",
+            "description": "Sharing rule to apply to the observables, can be manual or autoShare",
+            "default": "Sharing rule applied on the case",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        }
+      }
+    },
+    "taskRule": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "observableRule": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "alertId"
+  ]
+}

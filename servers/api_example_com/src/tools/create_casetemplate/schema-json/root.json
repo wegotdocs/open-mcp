@@ -1,0 +1,153 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the CaseTemplate, must be unique in your organisation. This name can be used in your integrations, for instance when creating a case",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "displayName": {
+      "type": "string",
+      "description": "A friendly name displayed in the UI for the CaseTemplate",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "titlePrefix": {
+      "type": "string",
+      "description": "Prefix used when creating a case",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "description": {
+      "type": "string",
+      "description": "Description for the case. All other fields below concern the case that will be created from this template",
+      "maxLength": 1048576
+    },
+    "severity": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "flag": {
+      "type": "boolean"
+    },
+    "tlp": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "pap": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "group": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1048576
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 16
+          },
+          "flag": {
+            "type": "boolean"
+          },
+          "startDate": {
+            "type": "integer",
+            "format": "datetime_ms",
+            "example": 1640000000000
+          },
+          "endDate": {
+            "type": "integer",
+            "format": "datetime_ms",
+            "example": 1640000000000
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dueDate": {
+            "type": "integer",
+            "format": "datetime_ms",
+            "example": 1640000000000
+          },
+          "assignee": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "mandatory": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "pageTemplateIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "The _id of the entity or its 'name' (depends of the entity)",
+        "example": "~354"
+      }
+    },
+    "customFields": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

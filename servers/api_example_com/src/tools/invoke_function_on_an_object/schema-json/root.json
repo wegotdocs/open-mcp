@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "function": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "objectType": {
+      "type": "string"
+    },
+    "objectIdOrName": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "dryRun": {
+      "type": "boolean",
+      "default": false
+    },
+    "sync": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "function",
+    "objectType",
+    "objectIdOrName"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "alertId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "patternId": {
+      "type": "string",
+      "description": "Id of the technique in the catalog",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "occurDate": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "tactic": {
+      "type": "string",
+      "description": "Name of the tactic, useful if the technique belongs to several tactics",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    }
+  },
+  "required": [
+    "alertId",
+    "patternId",
+    "occurDate"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "eventId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "date": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "endDate": {
+      "type": "integer",
+      "format": "datetime_ms or null",
+      "example": 1640000000000
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "description": {
+      "type": "string",
+      "format": "nullable",
+      "maxLength": 1048576
+    }
+  },
+  "required": [
+    "eventId"
+  ]
+}

@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "userId": z.string().describe("The _id of the entity or its 'name' (depends of the entity)"),
+  "organisation": z.string().describe("The _id of the entity or its 'name' (depends of the entity)").optional()
+}

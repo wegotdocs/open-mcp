@@ -1,0 +1,129 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "POST"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "format": "url"
+    },
+    "interval": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `interval` to the tool, first call the tool `expandSchema` with \"/properties/interval\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>1 minute is the minimal interval allowed</property-description>",
+      "additionalProperties": true
+    },
+    "functionName": {
+      "type": "string",
+      "description": "The unique previously created function name"
+    },
+    "body": {
+      "type": "string",
+      "description": "The body that may be necessary to the alert provider"
+    },
+    "headers": {
+      "type": "array",
+      "items": {
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[ -~]+$",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        }
+      }
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "auth": {
+      "description": "Optional, the type of authentication: basic, bearer or key. Leaving it empty means no authentication",
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "basic": "#/components/schemas/BasicAuth",
+          "bearer": "#/components/schemas/BearerAuth",
+          "key": "#/components/schemas/KeyAuth",
+          "none": "#/components/schemas/NoneAuth"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "username",
+            "password",
+            "type"
+          ],
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "password": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "basic"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "proxyConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `proxyConfig` to the tool, first call the tool `expandSchema` with \"/properties/proxyConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "requestTimeout": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `requestTimeout` to the tool, first call the tool `expandSchema` with \"/properties/requestTimeout\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The maximum amount of time the request is allowed to take</property-description>",
+      "additionalProperties": true
+    },
+    "responseMaxSize": {
+      "type": "integer",
+      "description": "The maximum tolerated response payload max size in bytes",
+      "format": "int64",
+      "default": 10485760,
+      "exclusiveMinimum": 0
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "method",
+    "url",
+    "interval",
+    "functionName"
+  ]
+}

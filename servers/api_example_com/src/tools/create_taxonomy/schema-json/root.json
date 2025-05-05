@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "version": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "exclusive": {
+      "type": "boolean"
+    },
+    "predicates": {
+      "type": "array",
+      "items": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "expanded": {
+            "type": "string",
+            "maxLength": 1048576
+          },
+          "exclusive": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1048576
+          },
+          "colour": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6,6}|$"
+          }
+        }
+      }
+    },
+    "values": {
+      "type": "array",
+      "items": {
+        "required": [
+          "predicate"
+        ],
+        "type": "object",
+        "properties": {
+          "predicate": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "entry": {
+            "type": "array",
+            "items": {
+              "required": [
+                "value"
+              ],
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                },
+                "expanded": {
+                  "type": "string",
+                  "maxLength": 1048576
+                },
+                "colour": {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6,6}|$"
+                },
+                "description": {
+                  "type": "string",
+                  "maxLength": 1048576
+                },
+                "numerical_value": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "namespace",
+    "description",
+    "version"
+  ]
+}

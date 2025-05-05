@@ -1,0 +1,88 @@
+{
+  "required": [
+    "ssl"
+  ],
+  "type": "object",
+  "properties": {
+    "timeout": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `timeout` to the tool, first call the tool `expandSchema` with \"/properties/proxyConfig/properties/timeout\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "followRedirects": {
+      "type": "boolean",
+      "default": true
+    },
+    "useProxyProperties": {
+      "type": "boolean",
+      "default": true
+    },
+    "userAgent": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "compressionEnabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "ssl": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ssl` to the tool, first call the tool `expandSchema` with \"/properties/proxyConfig/properties/ssl\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "maxConnectionsPerHost": {
+      "type": "integer",
+      "format": "int32",
+      "default": -1
+    },
+    "maxConnectionsTotal": {
+      "type": "integer",
+      "format": "int32",
+      "default": -1
+    },
+    "maxConnectionLifetime": {
+      "type": "string",
+      "default": "Duration.Inf"
+    },
+    "idleConnectionInPoolTimeout": {
+      "type": "string",
+      "default": "1 minute"
+    },
+    "connectionPoolCleanerPeriod": {
+      "type": "string",
+      "default": "1 minute"
+    },
+    "maxNumberOfRedirects": {
+      "type": "integer",
+      "format": "int32",
+      "default": 5
+    },
+    "maxRequestRetry": {
+      "type": "integer",
+      "format": "int32",
+      "default": 5
+    },
+    "disableUrlEncoding": {
+      "type": "boolean",
+      "default": false
+    },
+    "keepAlive": {
+      "type": "boolean",
+      "default": true
+    },
+    "useLaxCookieEncoder": {
+      "type": "boolean",
+      "default": false
+    },
+    "useCookieStore": {
+      "type": "boolean",
+      "default": false
+    },
+    "proxy": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `proxy` to the tool, first call the tool `expandSchema` with \"/properties/proxyConfig/properties/proxy\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

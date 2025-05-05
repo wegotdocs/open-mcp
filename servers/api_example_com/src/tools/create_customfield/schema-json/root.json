@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "group": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "string",
+        "integer",
+        "float",
+        "boolean",
+        "date",
+        "url"
+      ]
+    },
+    "mandatory": {
+      "type": "boolean"
+    },
+    "options": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "name",
+    "group",
+    "description",
+    "type"
+  ]
+}

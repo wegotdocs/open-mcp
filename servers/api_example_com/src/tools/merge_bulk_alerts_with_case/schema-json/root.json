@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "type": "string",
+      "description": "Case id or number",
+      "example": "~354"
+    },
+    "alertIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "The _id of the entity or its 'name' (depends of the entity)",
+        "example": "~354"
+      },
+      "description": "List of alert ids"
+    }
+  },
+  "required": [
+    "caseId"
+  ]
+}

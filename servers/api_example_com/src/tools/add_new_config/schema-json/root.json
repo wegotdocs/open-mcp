@@ -1,0 +1,150 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "mailbox": {
+      "discriminator": {
+        "propertyName": "_kind",
+        "mapping": {
+          "api": "#/components/schemas/InputEmailIntakeApiMailbox",
+          "imap": "#/components/schemas/InputEmailIntakeImapMailbox"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "provider",
+            "credential"
+          ],
+          "type": "object",
+          "properties": {
+            "provider": {
+              "required": [
+                "name"
+              ],
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "imap",
+                    "office365",
+                    "google-workspace",
+                    "MSGraph365"
+                  ]
+                }
+              }
+            },
+            "credential": {
+              "required": [
+                "email"
+              ],
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "description": "The e-mail of the user account"
+                },
+                "basicAuth": {
+                  "required": [
+                    "password"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "password": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "Basic authentication (e-mail, password)"
+                },
+                "oAuth2": {
+                  "required": [
+                    "clientId",
+                    "secret"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "clientId": {
+                      "type": "string"
+                    },
+                    "tenantId": {
+                      "type": "string"
+                    },
+                    "secret": {
+                      "type": "string"
+                    },
+                    "authority": {
+                      "type": "string"
+                    },
+                    "scopes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "redirectUri": {
+                      "type": "string"
+                    },
+                    "authorizationCode": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "The OAuth2.0 (clientId, secret)"
+                }
+              }
+            },
+            "inbox": {
+              "type": "string",
+              "description": "The folder where the emails are fetched",
+              "default": "Inbox"
+            },
+            "archive": {
+              "type": "string",
+              "description": "The folder where the email should be moved"
+            },
+            "markAsRead": {
+              "type": "boolean",
+              "default": false
+            },
+            "_kind": {
+              "type": "string",
+              "description": "The type of the provider config (imap, api)",
+              "enum": [
+                "api"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "organisations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "At least one organisation"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "alertProperties": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `alertProperties` to the tool, first call the tool `expandSchema` with \"/properties/alertProperties\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "name",
+    "mailbox"
+  ]
+}

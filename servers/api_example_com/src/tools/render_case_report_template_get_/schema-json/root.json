@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string"
+    },
+    "caseReportTemplateId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "caseId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "maxElements": {
+      "type": "integer",
+      "format": "int32",
+      "exclusiveMinimum": 0
+    }
+  },
+  "required": [
+    "format",
+    "caseReportTemplateId"
+  ]
+}

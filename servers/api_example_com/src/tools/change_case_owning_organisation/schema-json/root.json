@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "organisation": {
+      "type": "string",
+      "description": "Id or name of the new organisation that should own the case",
+      "example": "~354"
+    },
+    "keepProfile": {
+      "type": "string",
+      "description": "Set a Profile to keep an access to the case, if none is set the current organisation will no longer have access to the case",
+      "example": "~354"
+    },
+    "taskRule": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "observableRule": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "caseId",
+    "organisation"
+  ]
+}

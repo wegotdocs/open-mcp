@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "password": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "userId",
+    "password"
+  ]
+}

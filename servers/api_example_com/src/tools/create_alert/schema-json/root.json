@@ -1,0 +1,277 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "sourceRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "externalLink": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "severity": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "date": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "default": "now()",
+      "example": 1640000000000
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "flag": {
+      "type": "boolean"
+    },
+    "tlp": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "pap": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "customFields": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "assignee": {
+      "type": "string",
+      "description": "User to assign the alert to",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "caseTemplate": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "observables": {
+      "type": "array",
+      "items": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "properties": {
+          "dataType": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "data": {
+            "description": "Either `data` or `attachment` must be set depending on the dataType",
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              }
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 1048576
+          },
+          "startDate": {
+            "type": "integer",
+            "format": "datetime_ms",
+            "example": 1640000000000
+          },
+          "attachment": {
+            "description": "Attachment must be set if the observable `dataType` has `isAttachment=true`",
+            "anyOf": [
+              {
+                "required": [
+                  "name",
+                  "contentType",
+                  "id"
+                ],
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "contentType": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  }
+                },
+                "description": "existing attachment in TheHive"
+              }
+            ]
+          },
+          "tlp": {
+            "type": "integer",
+            "format": "int32",
+            "default": 2,
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "pap": {
+            "type": "integer",
+            "format": "int32",
+            "default": 2,
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            }
+          },
+          "ioc": {
+            "type": "boolean",
+            "default": false
+          },
+          "sighted": {
+            "type": "boolean",
+            "default": false
+          },
+          "sightedAt": {
+            "type": "integer",
+            "format": "datetime_ms",
+            "example": 1640000000000
+          },
+          "ignoreSimilarity": {
+            "type": "boolean",
+            "default": false
+          },
+          "isZip": {
+            "type": "boolean",
+            "description": "If set to true, the file is unzipped using the `zipPassword` and each file in the zip is treated as an observable"
+          },
+          "zipPassword": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        }
+      }
+    },
+    "procedures": {
+      "type": "array",
+      "items": {
+        "required": [
+          "patternId",
+          "occurDate"
+        ],
+        "type": "object",
+        "properties": {
+          "patternId": {
+            "type": "string",
+            "description": "Id of the technique in the catalog",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "occurDate": {
+            "type": "integer",
+            "format": "datetime_ms",
+            "example": 1640000000000
+          },
+          "tactic": {
+            "type": "string",
+            "description": "Name of the tactic, useful if the technique belongs to several tactics",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1048576
+          }
+        }
+      },
+      "description": "List of procedures (TTPs) to link the alert to"
+    }
+  },
+  "required": [
+    "type",
+    "source",
+    "sourceRef",
+    "title",
+    "description"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "dashboardId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "user": {
+      "type": "string",
+      "description": "Id or login of the new user that should own the dashboard",
+      "example": "~354"
+    }
+  },
+  "required": [
+    "dashboardId",
+    "user"
+  ]
+}

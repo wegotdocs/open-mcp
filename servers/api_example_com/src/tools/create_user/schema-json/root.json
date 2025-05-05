@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "login": {
+      "type": "string",
+      "description": "Login the user will need to enter, this will be the main identifier for the user",
+      "pattern": "^(([^()\\[\\]\\\\.,;:\\s@\"]+(\\.[^()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9 -퟿豈-﷏ﷰ-￯]+\\.)+[a-zA-Z -퟿豈-﷏ﷰ-￯]{2,}))$",
+      "maxLength": 128
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the user",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "email": {
+      "type": "string",
+      "pattern": "^(([^()\\[\\]\\\\.,;:\\s@\"]+(\\.[^()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9 -퟿豈-﷏ﷰ-￯]+\\.)+[a-zA-Z -퟿豈-﷏ﷰ-￯]{2,}))$",
+      "maxLength": 128
+    },
+    "password": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "profile": {
+      "type": "string",
+      "description": "Profile to assign the user in the organisation",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "organisation": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "avatar": {
+      "type": "string",
+      "description": "ignored in json body",
+      "format": "binary"
+    },
+    "type": {
+      "type": "string",
+      "description": "Normal or Service. A service user cannot use the ui and needs to provide an api key for authentication",
+      "enum": [
+        "Service",
+        "Normal"
+      ]
+    }
+  },
+  "required": [
+    "login",
+    "name",
+    "profile"
+  ]
+}

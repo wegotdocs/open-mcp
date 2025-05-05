@@ -1,0 +1,216 @@
+{
+  "description": "Either provide `definition` or `caseReportTemplateId`",
+  "required": [
+    "i18n"
+  ],
+  "type": "object",
+  "properties": {
+    "widgets": {
+      "type": "array",
+      "items": {
+        "discriminator": {
+          "propertyName": "_kind",
+          "mapping": {
+            "AlertList": "#/components/schemas/AlertList",
+            "AlertTable": "#/components/schemas/AlertTable",
+            "Comments": "#/components/schemas/Comments",
+            "CustomFields": "#/components/schemas/CustomFields",
+            "CustomFieldsList": "#/components/schemas/CustomFieldsList",
+            "Image": "#/components/schemas/Image",
+            "ObservableList": "#/components/schemas/ObservableList",
+            "ObservableTable": "#/components/schemas/ObservableTable",
+            "Pages": "#/components/schemas/Pages",
+            "TTPList": "#/components/schemas/TTPList",
+            "TTPTable": "#/components/schemas/TTPTable",
+            "TaskList": "#/components/schemas/TaskList",
+            "TaskTable": "#/components/schemas/TaskTable",
+            "Text": "#/components/schemas/Text",
+            "Timeline": "#/components/schemas/Timeline"
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "_kind"
+            ],
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "_id",
+                    "type",
+                    "source",
+                    "sourceRef",
+                    "externalLink",
+                    "title",
+                    "description",
+                    "severity",
+                    "date",
+                    "tags",
+                    "tlp",
+                    "pap",
+                    "status",
+                    "stage",
+                    "assignee",
+                    "summary",
+                    "inProgressDate",
+                    "closedDate",
+                    "importedDate",
+                    "timeToDetect",
+                    "timeToTriage",
+                    "timeToQualify",
+                    "timeToAcknowledge",
+                    "_createdAt",
+                    "_createdBy",
+                    "_updatedAt",
+                    "_updatedBy"
+                  ]
+                }
+              },
+              "filter": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "_and": {
+                        "type": "array",
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "_and": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "_and": {
+                                            "type": "array",
+                                            "items": {
+                                              "anyOf": [
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "_and": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "anyOf": [
+                                                          {
+                                                            "type": "object",
+                                                            "properties": {
+                                                              "_and": {
+                                                                "type": "string"
+                                                              }
+                                                            }
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "sort": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "field",
+                        "direction"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "field": {
+                          "type": "string"
+                        },
+                        "direction": {
+                          "type": "string",
+                          "enum": [
+                            "asc",
+                            "desc"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "maxElements": {
+                "type": "integer",
+                "format": "int32",
+                "exclusiveMinimum": 0
+              },
+              "_kind": {
+                "type": "string",
+                "enum": [
+                  "Text",
+                  "Image",
+                  "CustomFields",
+                  "CustomFieldsList",
+                  "AlertTable",
+                  "AlertList",
+                  "ObservableTable",
+                  "ObservableList",
+                  "TaskTable",
+                  "TaskList",
+                  "TTPTable",
+                  "TTPList",
+                  "Timeline",
+                  "Comments",
+                  "Pages"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "header": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `header` to the tool, first call the tool `expandSchema` with \"/properties/definition/properties/header\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "footer": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `footer` to the tool, first call the tool `expandSchema` with \"/properties/definition/properties/footer\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "dateFormat": {
+      "type": "string",
+      "default": "yyyy-MM-dd"
+    },
+    "dateTimeFormat": {
+      "type": "string",
+      "default": "yyyy-MM-dd HH:mm"
+    },
+    "i18n": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `i18n` to the tool, first call the tool `expandSchema` with \"/properties/definition/properties/i18n\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}
