@@ -1,0 +1,61 @@
+{
+  "required": [
+    "state"
+  ],
+  "type": "object",
+  "properties": {
+    "host": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "port": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "enabled",
+        "disabled",
+        "default"
+      ]
+    },
+    "protocol": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16
+    },
+    "principal": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "password": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "ntlmDomain": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "encoding": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "nonProxyHosts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    }
+  },
+  "default": {
+    "state": "disabled"
+  }
+}

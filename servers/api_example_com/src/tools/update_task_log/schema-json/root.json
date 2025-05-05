@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "logId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "message": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "includeInTimeline": {
+      "type": "integer",
+      "format": "datetime_ms or null",
+      "example": 1640000000000
+    }
+  },
+  "required": [
+    "logId"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "group": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16
+    },
+    "flag": {
+      "type": "boolean"
+    },
+    "startDate": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "endDate": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "order": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "dueDate": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "assignee": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "mandatory": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "caseId",
+    "title"
+  ]
+}

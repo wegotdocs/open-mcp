@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "array",
+      "items": {
+        "discriminator": {
+          "propertyName": "_name",
+          "mapping": {
+            "<other>": "#/components/schemas/InputQueryGenericOperation",
+            "_filter": "#/components/schemas/InputQueryFilterOperation",
+            "_sort": "#/components/schemas/InputQuerySortOperation",
+            "page": "#/components/schemas/InputQueryPagingOperation"
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "_name"
+            ],
+            "type": "object",
+            "properties": {
+              "_eq": {
+                "type": "object"
+              },
+              "_name": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "excludeFields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

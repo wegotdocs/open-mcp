@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "access": {
+      "discriminator": {
+        "propertyName": "_kind",
+        "mapping": {
+          "OrganisationAccessKind": "#/components/schemas/OrganisationAccess",
+          "UserAccessKind": "#/components/schemas/UserAccess"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "_kind"
+          ],
+          "type": "object",
+          "properties": {
+            "_kind": {
+              "type": "string",
+              "enum": [
+                "OrganisationAccessKind"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "caseId",
+    "access"
+  ]
+}

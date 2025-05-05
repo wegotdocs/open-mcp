@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "title": z.string().min(1).max(512),
+  "group": z.string().min(1).max(32).optional(),
+  "description": z.string().max(1048576),
+  "status": z.enum(["Private","Shared","Deleted"]),
+  "definition": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `definition` to the tool, first call the tool `expandSchema` with \"/properties/definition\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "version": z.number().int().optional()
+}

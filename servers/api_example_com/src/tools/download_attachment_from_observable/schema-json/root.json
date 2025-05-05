@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "observableId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "attachmentId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "asZip": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "observableId",
+    "attachmentId"
+  ]
+}

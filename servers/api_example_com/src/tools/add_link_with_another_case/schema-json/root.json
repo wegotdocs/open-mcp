@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "b_caseId": {
+      "type": "string",
+      "example": "~354"
+    }
+  },
+  "required": [
+    "caseId",
+    "type",
+    "b_caseId"
+  ]
+}

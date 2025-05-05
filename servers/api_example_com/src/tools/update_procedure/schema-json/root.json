@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "procedureId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "occurDate": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "patternId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "tactic": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    }
+  },
+  "required": [
+    "procedureId"
+  ]
+}

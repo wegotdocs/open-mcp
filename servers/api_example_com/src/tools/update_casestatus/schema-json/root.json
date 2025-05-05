@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "order": {
+      "type": "integer",
+      "format": "int32 or null"
+    },
+    "description": {
+      "type": "string",
+      "format": "nullable",
+      "maxLength": 1048576
+    },
+    "colour": {
+      "type": "string",
+      "format": "nullable",
+      "pattern": "^#[0-9a-fA-F]{6,6}|$"
+    },
+    "hidden": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

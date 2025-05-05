@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "password": {
+      "description": "A password to encrypt the file. Needs to be provided when importing the file",
+      "type": "string"
+    }
+  },
+  "required": [
+    "caseId",
+    "password"
+  ]
+}

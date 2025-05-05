@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "algorithm": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "stores": {
+      "type": "array",
+      "items": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          },
+          "filePath": {
+            "type": "string"
+          },
+          "isFileOnClasspath": {
+            "type": "boolean",
+            "default": false
+          },
+          "password": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

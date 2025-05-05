@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "caseTemplateNameOrId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "pageTemplateIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "~354"
+      }
+    }
+  },
+  "required": [
+    "caseTemplateNameOrId"
+  ]
+}

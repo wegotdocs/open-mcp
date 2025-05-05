@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "observableId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "organisations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "The _id of the entity or its 'name' (depends of the entity)",
+        "example": "~354"
+      },
+      "description": "Names or ids of the organisations"
+    }
+  },
+  "required": [
+    "observableId"
+  ]
+}

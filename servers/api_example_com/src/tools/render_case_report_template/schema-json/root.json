@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `definition` to the tool, first call the tool `expandSchema` with \"/properties/definition\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Either provide `definition` or `caseReportTemplateId`</property-description>",
+      "additionalProperties": true
+    },
+    "caseReportTemplateId": {
+      "type": "string",
+      "description": "Either provide `definition` or `caseReportTemplateId`",
+      "example": "~354"
+    },
+    "caseId": {
+      "type": "string",
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "example": "~354"
+    },
+    "maxElements": {
+      "type": "integer",
+      "description": "Limit the number of elements in tables and lists, useful for a preview",
+      "format": "int32",
+      "exclusiveMinimum": 0
+    }
+  },
+  "required": [
+    "format"
+  ]
+}

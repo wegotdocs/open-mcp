@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "shares": {
+      "type": "array",
+      "items": {
+        "required": [
+          "organisation"
+        ],
+        "type": "object",
+        "properties": {
+          "organisation": {
+            "type": "string",
+            "description": "Name or id of the organisation",
+            "example": "~354"
+          },
+          "share": {
+            "type": "boolean",
+            "description": "If true, new observables and tasks will also be shared to the organisation",
+            "default": true
+          },
+          "profile": {
+            "type": "string",
+            "description": "Profile used to define the permissions of the organisation members",
+            "default": "analyst",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "taskRule": {
+            "type": "string",
+            "description": "Sharing rule to apply to the tasks, can be manual or autoShare",
+            "default": "Sharing rule applied on the case",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "observableRule": {
+            "type": "string",
+            "description": "Sharing rule to apply to the observables, can be manual or autoShare",
+            "default": "Sharing rule applied on the case",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "caseId"
+  ]
+}

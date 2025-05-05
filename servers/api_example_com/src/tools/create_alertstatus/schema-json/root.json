@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "description": "Name of the status",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "stage": {
+      "type": "string",
+      "description": "Tell which alert stage (~=category) this status will belong to",
+      "enum": [
+        "New",
+        "InProgress",
+        "Closed",
+        "Imported"
+      ]
+    },
+    "order": {
+      "type": "integer",
+      "description": "Used to order the values in the ui",
+      "format": "int32"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "colour": {
+      "type": "string",
+      "description": "Optional color to use in the ui",
+      "pattern": "^#[0-9a-fA-F]{6,6}|$"
+    },
+    "hidden": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "value",
+    "stage"
+  ]
+}

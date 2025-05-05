@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "clientAuth": {
+      "type": "string",
+      "default": "Default",
+      "minLength": 1,
+      "maxLength": 16
+    },
+    "protocols": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 16
+      }
+    }
+  }
+}

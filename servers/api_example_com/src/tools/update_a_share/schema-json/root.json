@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "shareId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "profile": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    }
+  },
+  "required": [
+    "shareId",
+    "profile"
+  ]
+}

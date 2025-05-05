@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "The _id of the entity or its 'name' (depends of the entity)",
+        "example": "~354"
+      }
+    },
+    "caseTemplate": {
+      "type": "string",
+      "description": "Id or name of the CaseTemplate to apply",
+      "example": "~354"
+    },
+    "updateTitlePrefix": {
+      "type": "boolean",
+      "default": false
+    },
+    "updateDescription": {
+      "type": "boolean",
+      "default": false
+    },
+    "updateTags": {
+      "type": "boolean",
+      "default": false
+    },
+    "updateSeverity": {
+      "type": "boolean",
+      "default": false
+    },
+    "updateFlag": {
+      "type": "boolean",
+      "default": false
+    },
+    "updateTlp": {
+      "type": "boolean",
+      "default": false
+    },
+    "updatePap": {
+      "type": "boolean",
+      "default": false
+    },
+    "updateCustomFields": {
+      "type": "boolean",
+      "default": false
+    },
+    "importTasks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "The _id of the entity or its 'name' (depends of the entity)",
+        "example": "~354"
+      },
+      "description": "Define which tasks to import in the case"
+    },
+    "importPages": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "~354"
+      },
+      "description": "Define which pages to import in the case"
+    }
+  },
+  "required": [
+    "ids",
+    "caseTemplate"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "user": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "organisation": {
+      "type": "string",
+      "description": "Organisation id or name to logged into",
+      "default": "Uses user default organisation or first joined organisation"
+    },
+    "code": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "user",
+    "password"
+  ]
+}

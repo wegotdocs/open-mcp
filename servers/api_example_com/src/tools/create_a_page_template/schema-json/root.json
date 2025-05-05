@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "content": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "order": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "title",
+    "content",
+    "category"
+  ]
+}

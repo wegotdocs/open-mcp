@@ -1,0 +1,77 @@
+{
+  "required": [
+    "loose"
+  ],
+  "type": "object",
+  "properties": {
+    "default": {
+      "type": "boolean",
+      "default": false
+    },
+    "protocol": {
+      "type": "string",
+      "default": "TLSv1.2"
+    },
+    "checkRevocation": {
+      "type": "boolean"
+    },
+    "revocationLists": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "enabledCipherSuites": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "enabledProtocols": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hostnameVerifierClass": {
+      "type": "string",
+      "default": "NoopHostnameVerifier",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "secureRandom": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "trustManager": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `trustManager` to the tool, first call the tool `expandSchema` with \"/properties/proxyConfig/properties/ssl/properties/trustManager\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "keyManager": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `keyManager` to the tool, first call the tool `expandSchema` with \"/properties/proxyConfig/properties/ssl/properties/keyManager\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "sslParametersConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sslParametersConfig` to the tool, first call the tool `expandSchema` with \"/properties/proxyConfig/properties/ssl/properties/sslParametersConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "debug": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `debug` to the tool, first call the tool `expandSchema` with \"/properties/proxyConfig/properties/ssl/properties/debug\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "loose": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `loose` to the tool, first call the tool `expandSchema` with \"/properties/proxyConfig/properties/ssl/properties/loose\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

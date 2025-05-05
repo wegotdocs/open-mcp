@@ -1,0 +1,25 @@
+{
+  "description": "1 minute is the minimal interval allowed",
+  "required": [
+    "value",
+    "unit"
+  ],
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer",
+      "format": "int32",
+      "exclusiveMinimum": 0
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "Days",
+        "Hours",
+        "Minutes",
+        "Seconds",
+        "Milliseconds"
+      ]
+    }
+  }
+}

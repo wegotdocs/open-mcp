@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "The _id of the entity or its 'name' (depends of the entity)",
+        "example": "~354"
+      }
+    },
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "message": {
+      "type": "string",
+      "format": "nullable",
+      "maxLength": 1048576
+    },
+    "tlp": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "pap": {
+      "type": "integer",
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "ioc": {
+      "type": "boolean"
+    },
+    "sighted": {
+      "type": "boolean"
+    },
+    "sightedAt": {
+      "type": "integer",
+      "format": "datetime_ms or null",
+      "example": 1640000000000
+    },
+    "ignoreSimilarity": {
+      "type": "boolean"
+    },
+    "addTags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+      "description": "Those tags will be added to the current observable"
+    },
+    "removeTags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+      "description": "Those tags will be removed from the current observable"
+    }
+  },
+  "required": [
+    "ids"
+  ]
+}

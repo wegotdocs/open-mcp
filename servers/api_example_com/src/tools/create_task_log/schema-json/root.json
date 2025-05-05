@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "taskId": {
+      "description": "The _id of the entity or its 'name' (depends of the entity)",
+      "type": "string",
+      "example": "~354"
+    },
+    "message": {
+      "type": "string",
+      "maxLength": 1048576
+    },
+    "startDate": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "includeInTimeline": {
+      "type": "integer",
+      "format": "datetime_ms",
+      "example": 1640000000000
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "binary"
+      },
+      "description": "ignored with json content, use a multipart if you want to pass attachments"
+    }
+  },
+  "required": [
+    "taskId",
+    "message"
+  ]
+}
