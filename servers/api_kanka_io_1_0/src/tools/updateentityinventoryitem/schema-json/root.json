@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "item_id": {
+      "type": "integer"
+    },
+    "amount": {
+      "type": "integer",
+      "default": 1
+    },
+    "position": {
+      "type": "integer"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "all",
+        "members",
+        "admin",
+        "self"
+      ],
+      "default": "all"
+    },
+    "is_private": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "item_id",
+    "amount"
+  ]
+}

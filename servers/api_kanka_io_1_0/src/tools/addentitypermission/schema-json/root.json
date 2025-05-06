@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "integer",
+      "nullable": true
+    },
+    "role_id": {
+      "type": "integer",
+      "nullable": true
+    },
+    "access": {
+      "type": "string",
+      "enum": [
+        "read",
+        "write",
+        "delete",
+        "admin"
+      ]
+    },
+    "created_by": {
+      "type": "integer"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_by": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "access"
+  ]
+}
