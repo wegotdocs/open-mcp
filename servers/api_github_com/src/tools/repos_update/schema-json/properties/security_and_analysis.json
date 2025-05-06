@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "description": "Specify which security and analysis features to enable or disable for the repository.\n\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).\"\n\nFor example, to enable GitHub Advanced Security, use this data in the body of the `PATCH` request:\n`{ \"security_and_analysis\": {\"advanced_security\": { \"status\": \"enabled\" } } }`.\n\nYou can check which security and analysis features are currently enabled by using a `GET /repos/{owner}/{repo}` request.",
+  "nullable": true,
+  "properties": {
+    "advanced_security": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `advanced_security` to the tool, first call the tool `expandSchema` with \"/properties/security_and_analysis/properties/advanced_security\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Use the `status` property to enable or disable GitHub Advanced Security for this repository. For more information, see \"[About GitHub Advanced Security](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).\"</property-description>",
+      "additionalProperties": true
+    },
+    "code_security": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `code_security` to the tool, first call the tool `expandSchema` with \"/properties/security_and_analysis/properties/code_security\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Use the `status` property to enable or disable GitHub Code Security for this repository.</property-description>",
+      "additionalProperties": true
+    },
+    "secret_scanning": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `secret_scanning` to the tool, first call the tool `expandSchema` with \"/properties/security_and_analysis/properties/secret_scanning\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Use the `status` property to enable or disable secret scanning for this repository. For more information, see \"[About secret scanning](/code-security/secret-security/about-secret-scanning).\"</property-description>",
+      "additionalProperties": true
+    },
+    "secret_scanning_push_protection": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `secret_scanning_push_protection` to the tool, first call the tool `expandSchema` with \"/properties/security_and_analysis/properties/secret_scanning_push_protection\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \"[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).\"</property-description>",
+      "additionalProperties": true
+    },
+    "secret_scanning_ai_detection": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `secret_scanning_ai_detection` to the tool, first call the tool `expandSchema` with \"/properties/security_and_analysis/properties/secret_scanning_ai_detection\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Use the `status` property to enable or disable secret scanning AI detection for this repository. For more information, see \"[Responsible detection of generic secrets with AI](https://docs.github.com/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets).\"</property-description>",
+      "additionalProperties": true
+    },
+    "secret_scanning_non_provider_patterns": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `secret_scanning_non_provider_patterns` to the tool, first call the tool `expandSchema` with \"/properties/security_and_analysis/properties/secret_scanning_non_provider_patterns\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Use the `status` property to enable or disable secret scanning non-provider patterns for this repository. For more information, see \"[Supported secret scanning patterns](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).\"</property-description>",
+      "additionalProperties": true
+    }
+  }
+}

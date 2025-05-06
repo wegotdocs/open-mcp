@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "The ID of the user to query for stats",
+      "type": "string"
+    },
+    "min_timestamp": {
+      "description": "The minimum timestamp to query for stats. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string"
+    },
+    "max_timestamp": {
+      "description": "The maximum timestamp to query for stats. Defaults to the time 30 days ago. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string"
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "sort": {
+      "description": "The property to sort the results by.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "last_rate_limited_timestamp",
+          "last_request_timestamp",
+          "rate_limited_request_count",
+          "subject_name",
+          "total_request_count"
+        ],
+        "default": "total_request_count"
+      }
+    },
+    "actor_name_substring": {
+      "description": "Providing a substring will filter results where the actor name contains the substring. This is a case-insensitive search.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "org",
+    "user_id",
+    "min_timestamp"
+  ]
+}

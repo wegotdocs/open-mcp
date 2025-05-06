@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "Must be passed as \"web\"."
+    },
+    "config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `config` to the tool, first call the tool `expandSchema` with \"/properties/config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Key/value pairs to provide settings for this webhook.</property-description>",
+      "additionalProperties": true
+    },
+    "events": {
+      "type": "array",
+      "description": "Determines what [events](https://docs.github.com/webhooks/event-payloads) the hook is triggered for. Set to `[\"*\"]` to receive all possible events.",
+      "default": [
+        "push"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.",
+      "default": true
+    }
+  },
+  "required": [
+    "org",
+    "name",
+    "config"
+  ]
+}

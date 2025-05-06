@@ -1,0 +1,145 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the repository."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the repository."
+    },
+    "homepage": {
+      "type": "string",
+      "description": "A URL with more information about the repository."
+    },
+    "private": {
+      "type": "boolean",
+      "description": "Whether the repository is private.",
+      "default": false
+    },
+    "visibility": {
+      "type": "string",
+      "description": "The visibility of the repository.",
+      "enum": [
+        "public",
+        "private"
+      ]
+    },
+    "has_issues": {
+      "type": "boolean",
+      "description": "Either `true` to enable issues for this repository or `false` to disable them.",
+      "default": true
+    },
+    "has_projects": {
+      "type": "boolean",
+      "description": "Either `true` to enable projects for this repository or `false` to disable them. **Note:** If you're creating a repository in an organization that has disabled repository projects, the default is `false`, and if you pass `true`, the API returns an error.",
+      "default": true
+    },
+    "has_wiki": {
+      "type": "boolean",
+      "description": "Either `true` to enable the wiki for this repository or `false` to disable it.",
+      "default": true
+    },
+    "has_downloads": {
+      "description": "Whether downloads are enabled.",
+      "default": true,
+      "type": "boolean",
+      "example": true
+    },
+    "is_template": {
+      "type": "boolean",
+      "description": "Either `true` to make this repo available as a template repository or `false` to prevent it.",
+      "default": false
+    },
+    "team_id": {
+      "type": "integer",
+      "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."
+    },
+    "auto_init": {
+      "type": "boolean",
+      "description": "Pass `true` to create an initial commit with empty README.",
+      "default": false
+    },
+    "gitignore_template": {
+      "type": "string",
+      "description": "Desired language or platform [.gitignore template](https://github.com/github/gitignore) to apply. Use the name of the template without the extension. For example, \"Haskell\"."
+    },
+    "license_template": {
+      "type": "string",
+      "description": "Choose an [open source license template](https://choosealicense.com/) that best suits your needs, and then use the [license keyword](https://docs.github.com/articles/licensing-a-repository/#searching-github-by-license-type) as the `license_template` string. For example, \"mit\" or \"mpl-2.0\"."
+    },
+    "allow_squash_merge": {
+      "type": "boolean",
+      "description": "Either `true` to allow squash-merging pull requests, or `false` to prevent squash-merging.",
+      "default": true
+    },
+    "allow_merge_commit": {
+      "type": "boolean",
+      "description": "Either `true` to allow merging pull requests with a merge commit, or `false` to prevent merging pull requests with merge commits.",
+      "default": true
+    },
+    "allow_rebase_merge": {
+      "type": "boolean",
+      "description": "Either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging.",
+      "default": true
+    },
+    "allow_auto_merge": {
+      "type": "boolean",
+      "description": "Either `true` to allow auto-merge on pull requests, or `false` to disallow auto-merge.",
+      "default": false
+    },
+    "delete_branch_on_merge": {
+      "type": "boolean",
+      "description": "Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion. **The authenticated user must be an organization owner to set this property to `true`.**",
+      "default": false
+    },
+    "squash_merge_commit_title": {
+      "type": "string",
+      "enum": [
+        "PR_TITLE",
+        "COMMIT_OR_PR_TITLE"
+      ],
+      "description": "Required when using `squash_merge_commit_message`.\n\nThe default value for a squash merge commit title:\n\n- `PR_TITLE` - default to the pull request's title.\n- `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit)."
+    },
+    "squash_merge_commit_message": {
+      "type": "string",
+      "enum": [
+        "PR_BODY",
+        "COMMIT_MESSAGES",
+        "BLANK"
+      ],
+      "description": "The default value for a squash merge commit message:\n\n- `PR_BODY` - default to the pull request's body.\n- `COMMIT_MESSAGES` - default to the branch's commit messages.\n- `BLANK` - default to a blank commit message."
+    },
+    "merge_commit_title": {
+      "type": "string",
+      "enum": [
+        "PR_TITLE",
+        "MERGE_MESSAGE"
+      ],
+      "description": "Required when using `merge_commit_message`.\n\nThe default value for a merge commit title.\n\n- `PR_TITLE` - default to the pull request's title.\n- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name)."
+    },
+    "merge_commit_message": {
+      "type": "string",
+      "enum": [
+        "PR_BODY",
+        "PR_TITLE",
+        "BLANK"
+      ],
+      "description": "The default value for a merge commit message.\n\n- `PR_TITLE` - default to the pull request's title.\n- `PR_BODY` - default to the pull request's body.\n- `BLANK` - default to a blank commit message."
+    },
+    "custom_properties": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_properties` to the tool, first call the tool `expandSchema` with \"/properties/custom_properties\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The custom properties for the new repository. The keys are the custom property names, and the values are the corresponding custom property values.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "org",
+    "name"
+  ]
+}

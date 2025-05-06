@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "ref": {
+      "description": "The name of the ref. Cannot contain wildcard characters. Optionally prefix with `refs/heads/` to limit to branches or `refs/tags/` to limit to tags. Omit the prefix to search across all refs. When specified, only rule evaluations triggered for this ref will be returned.",
+      "type": "string"
+    },
+    "repository_name": {
+      "description": "The name of the repository to filter on.",
+      "type": "string"
+    },
+    "time_period": {
+      "description": "The time period to filter by.\n\nFor example, `day` will filter for rule suites that occurred in the past 24 hours, and `week` will filter for insights that occurred in the past 7 days (168 hours).",
+      "type": "string",
+      "enum": [
+        "hour",
+        "day",
+        "week",
+        "month"
+      ],
+      "default": "day"
+    },
+    "actor_name": {
+      "description": "The handle for the GitHub user account to filter on. When specified, only rule evaluations triggered by this actor will be returned.",
+      "type": "string"
+    },
+    "rule_suite_result": {
+      "description": "The rule results to filter on. When specified, only suites with this result will be returned.",
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail",
+        "bypass",
+        "all"
+      ],
+      "default": "all"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "org"
+  ]
+}

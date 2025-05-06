@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "username": {
+      "description": "The handle for the GitHub user account.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "username"
+  ]
+}

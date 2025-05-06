@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "workflow_id": {
+      "description": "The ID of the workflow. You can also pass the workflow file name as a string.",
+      "oneOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "ref": {
+      "type": "string",
+      "description": "The git reference for the workflow. The reference can be a branch or tag name."
+    },
+    "inputs": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inputs` to the tool, first call the tool `expandSchema` with \"/properties/inputs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Input keys and values configured in the workflow file. The maximum number of properties is 10. Any default properties configured in the workflow file will be used when `inputs` are omitted.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "workflow_id",
+    "ref"
+  ]
+}

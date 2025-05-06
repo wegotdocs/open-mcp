@@ -1,0 +1,113 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the ruleset."
+    },
+    "target": {
+      "type": "string",
+      "description": "The target of the ruleset",
+      "enum": [
+        "branch",
+        "tag",
+        "push"
+      ],
+      "default": "branch"
+    },
+    "enforcement": {
+      "type": "string",
+      "description": "The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (`evaluate` is only available with GitHub Enterprise).",
+      "enum": [
+        "disabled",
+        "active",
+        "evaluate"
+      ]
+    },
+    "bypass_actors": {
+      "type": "array",
+      "description": "The actors that can bypass the rules in this ruleset",
+      "items": {
+        "title": "Repository Ruleset Bypass Actor",
+        "type": "object",
+        "description": "An actor that can bypass rules in a ruleset",
+        "required": [
+          "actor_type"
+        ],
+        "properties": {
+          "actor_id": {
+            "type": "integer",
+            "nullable": true,
+            "description": "The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
+          },
+          "actor_type": {
+            "type": "string",
+            "enum": [
+              "Integration",
+              "OrganizationAdmin",
+              "RepositoryRole",
+              "Team",
+              "DeployKey"
+            ],
+            "description": "The type of actor that can bypass a ruleset."
+          },
+          "bypass_mode": {
+            "type": "string",
+            "description": "When the specified actor can bypass the ruleset. `pull_request` means that an actor can only bypass rules on pull requests. `pull_request` is not applicable for the `DeployKey` actor type. Also, `pull_request` is only applicable to branch rulesets.",
+            "enum": [
+              "always",
+              "pull_request"
+            ],
+            "default": "always"
+          }
+        }
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `conditions` to the tool, first call the tool `expandSchema` with \"/properties/conditions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Parameters for a repository ruleset ref name condition</property-description>",
+      "additionalProperties": true
+    },
+    "rules": {
+      "type": "array",
+      "description": "An array of rules within the ruleset.",
+      "items": {
+        "title": "Repository Rule",
+        "type": "object",
+        "description": "A repository rule.",
+        "anyOf": [
+          {
+            "title": "creation",
+            "description": "Only allow users with bypass permission to create matching refs.",
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "creation"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "name",
+    "enforcement"
+  ]
+}

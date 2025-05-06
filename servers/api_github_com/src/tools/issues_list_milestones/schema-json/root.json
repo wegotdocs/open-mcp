@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "state": {
+      "description": "The state of the milestone. Either `open`, `closed`, or `all`.",
+      "type": "string",
+      "enum": [
+        "open",
+        "closed",
+        "all"
+      ],
+      "default": "open"
+    },
+    "sort": {
+      "description": "What to sort results by. Either `due_on` or `completeness`.",
+      "type": "string",
+      "enum": [
+        "due_on",
+        "completeness"
+      ],
+      "default": "due_on"
+    },
+    "direction": {
+      "description": "The direction of the sort. Either `asc` or `desc`.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "asc"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "secret_name": {
+      "description": "The name of the secret.",
+      "type": "string"
+    },
+    "registry_type": {
+      "description": "The registry type.",
+      "type": "string",
+      "enum": [
+        "maven_repository"
+      ]
+    },
+    "username": {
+      "description": "The username to use when authenticating with the private registry. This field should be omitted if the private registry does not require a username for authentication.",
+      "type": "string",
+      "nullable": true
+    },
+    "encrypted_value": {
+      "description": "The value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get private registries public key for an organization](https://docs.github.com/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization) endpoint.",
+      "type": "string",
+      "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$"
+    },
+    "key_id": {
+      "description": "The ID of the key you used to encrypt the secret.",
+      "type": "string"
+    },
+    "visibility": {
+      "description": "Which type of organization repositories have access to the private registry. `selected` means only the repositories specified by `selected_repository_ids` can access the private registry.",
+      "type": "string",
+      "enum": [
+        "all",
+        "private",
+        "selected"
+      ]
+    },
+    "selected_repository_ids": {
+      "description": "An array of repository IDs that can access the organization private registry. You can only provide a list of repository IDs when `visibility` is set to `selected`. This field should be omitted if `visibility` is set to `all` or `private`.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "org",
+    "secret_name"
+  ]
+}

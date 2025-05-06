@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "ref": {
+      "type": "string",
+      "description": "The name of the fully qualified reference (ie: `refs/heads/master`). If it doesn't start with 'refs' and have at least two slashes, it will be rejected."
+    },
+    "sha": {
+      "type": "string",
+      "description": "The SHA1 value for this reference."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "ref",
+    "sha"
+  ]
+}

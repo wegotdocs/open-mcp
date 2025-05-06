@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "Description of the gist",
+      "example": "Example Ruby script",
+      "type": "string"
+    },
+    "files": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `files` to the tool, first call the tool `expandSchema` with \"/properties/files\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Names and content for the files that make up the gist</property-description>",
+      "additionalProperties": true
+    },
+    "public": {
+      "anyOf": [
+        {
+          "description": "Flag indicating whether the gist is public",
+          "example": true,
+          "type": "boolean",
+          "default": false
+        }
+      ]
+    }
+  },
+  "required": [
+    "files"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "state": {
+      "description": "A comma-separated list of states. If specified, only alerts with these states will be returned.\n\nCan be: `auto_dismissed`, `dismissed`, `fixed`, `open`",
+      "type": "string"
+    },
+    "severity": {
+      "description": "A comma-separated list of severities. If specified, only alerts with these severities will be returned.\n\nCan be: `low`, `medium`, `high`, `critical`",
+      "type": "string"
+    },
+    "ecosystem": {
+      "description": "A comma-separated list of ecosystems. If specified, only alerts for these ecosystems will be returned.\n\nCan be: `composer`, `go`, `maven`, `npm`, `nuget`, `pip`, `pub`, `rubygems`, `rust`",
+      "type": "string"
+    },
+    "package": {
+      "description": "A comma-separated list of package names. If specified, only alerts for these packages will be returned.",
+      "type": "string"
+    },
+    "manifest": {
+      "description": "A comma-separated list of full manifest paths. If specified, only alerts for these manifests will be returned.",
+      "type": "string"
+    },
+    "epss_percentage": {
+      "description": "CVE Exploit Prediction Scoring System (EPSS) percentage. Can be specified as:\n- An exact number (`n`)\n- Comparators such as `>n`, `<n`, `>=n`, `<=n`\n- A range like `n..n`, where `n` is a number from 0.0 to 1.0\n\nFilters the list of alerts based on EPSS percentages. If specified, only alerts with the provided EPSS percentages will be returned.",
+      "type": "string"
+    },
+    "has": {
+      "description": "Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple `has` filters can be passed to filter for alerts that have all of the values. Currently, only `patch` is supported.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "patch"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": {
+      "description": "The scope of the vulnerable dependency. If specified, only alerts with this scope will be returned.",
+      "type": "string",
+      "enum": [
+        "development",
+        "runtime"
+      ]
+    },
+    "sort": {
+      "description": "The property by which to sort the results.\n`created` means when the alert was created.\n`updated` means when the alert's state last changed.\n`epss_percentage` sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.",
+      "type": "string",
+      "enum": [
+        "created",
+        "updated",
+        "epss_percentage"
+      ],
+      "default": "created"
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "page": {
+      "description": "**Closing down notice**. Page number of the results to fetch. Use cursor-based pagination with `before` or `after` instead.",
+      "type": "integer",
+      "default": 1
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "before": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "after": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "first": {
+      "description": "**Deprecated**. The number of results per page (max 100), starting from the first matching result.\nThis parameter must not be used in combination with `last`.\nInstead, use `per_page` in combination with `after` to fetch the first page of results.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 30
+    },
+    "last": {
+      "description": "**Deprecated**. The number of results per page (max 100), starting from the last matching result.\nThis parameter must not be used in combination with `first`.\nInstead, use `per_page` in combination with `before` to fetch the last page of results.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

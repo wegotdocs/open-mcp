@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "team_id": {
+      "description": "The unique identifier of the team.",
+      "type": "integer"
+    },
+    "role": {
+      "description": "Filters members returned by their role in the team.",
+      "type": "string",
+      "enum": [
+        "member",
+        "maintainer",
+        "all"
+      ],
+      "default": "all"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "team_id"
+  ]
+}

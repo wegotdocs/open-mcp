@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "alert_number": {
+      "description": "The security alert number.",
+      "type": "integer",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "alert_number"
+  ]
+}

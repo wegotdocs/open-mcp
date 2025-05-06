@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "pull_number": {
+      "description": "The number that identifies the pull request.",
+      "type": "integer"
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the pull request."
+    },
+    "body": {
+      "type": "string",
+      "description": "The contents of the pull request."
+    },
+    "state": {
+      "type": "string",
+      "description": "State of this Pull Request. Either `open` or `closed`.",
+      "enum": [
+        "open",
+        "closed"
+      ]
+    },
+    "base": {
+      "type": "string",
+      "description": "The name of the branch you want your changes pulled into. This should be an existing branch on the current repository. You cannot update the base branch on a pull request to point to another repository."
+    },
+    "maintainer_can_modify": {
+      "type": "boolean",
+      "description": "Indicates whether [maintainers can modify](https://docs.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "pull_number"
+  ]
+}

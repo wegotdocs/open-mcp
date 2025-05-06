@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "ruleset_id": {
+      "description": "The ID of the ruleset.",
+      "type": "integer"
+    },
+    "version_id": {
+      "description": "The ID of the version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "ruleset_id",
+    "version_id"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "auto_trigger_checks": {
+      "type": "array",
+      "description": "Enables or disables automatic creation of CheckSuite events upon pushes to the repository. Enabled by default.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "app_id": {
+            "type": "integer",
+            "description": "The `id` of the GitHub App."
+          },
+          "setting": {
+            "type": "boolean",
+            "description": "Set to `true` to enable automatic creation of CheckSuite events upon pushes to the repository, or `false` to disable them.",
+            "default": true
+          }
+        },
+        "required": [
+          "app_id",
+          "setting"
+        ]
+      }
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

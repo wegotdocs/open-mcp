@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "alert_number": {
+      "description": "The security alert number.",
+      "type": "integer",
+      "readOnly": true
+    },
+    "state": {
+      "description": "Sets the state of the code scanning alert. You must provide `dismissed_reason` when you set the state to `dismissed`.",
+      "type": "string",
+      "enum": [
+        "open",
+        "dismissed"
+      ]
+    },
+    "dismissed_reason": {
+      "type": "string",
+      "description": "**Required when the state is dismissed.** The reason for dismissing or closing the alert.",
+      "nullable": true,
+      "enum": [
+        "false positive",
+        "won't fix",
+        "used in tests"
+      ]
+    },
+    "dismissed_comment": {
+      "type": "string",
+      "description": "The dismissal comment associated with the dismissal of the alert.",
+      "nullable": true,
+      "maxLength": 280
+    },
+    "create_request": {
+      "type": "boolean",
+      "description": "If `true`, attempt to create an alert dismissal request."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "alert_number",
+    "state"
+  ]
+}
