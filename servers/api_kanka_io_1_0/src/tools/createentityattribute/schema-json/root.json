@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "is_private": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_star": {
+      "type": "boolean",
+      "default": false
+    },
+    "default_order": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "calendar_id": {
+      "type": "integer",
+      "nullable": true
+    },
+    "event_id": {
+      "type": "integer",
+      "nullable": true
+    },
+    "date": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "is_private": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "date"
+  ]
+}

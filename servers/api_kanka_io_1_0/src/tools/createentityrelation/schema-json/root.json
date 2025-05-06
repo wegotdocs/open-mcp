@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "target_id": {
+      "type": "integer"
+    },
+    "relation": {
+      "type": "string"
+    },
+    "attitude": {
+      "type": "integer",
+      "minimum": -100,
+      "maximum": 100
+    },
+    "color": {
+      "type": "string",
+      "nullable": true
+    },
+    "is_private": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "target_id",
+    "relation"
+  ]
+}

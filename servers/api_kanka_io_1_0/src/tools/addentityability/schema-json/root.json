@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "ability_id": {
+      "type": "integer"
+    },
+    "charges": {
+      "type": "integer",
+      "nullable": true
+    },
+    "note": {
+      "type": "string",
+      "nullable": true
+    },
+    "position": {
+      "type": "integer"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "all",
+        "members",
+        "admin",
+        "self"
+      ],
+      "default": "all"
+    }
+  },
+  "required": [
+    "ability_id"
+  ]
+}
