@@ -1,20 +1,25 @@
 {
   "type": "object",
   "properties": {
+    "apiKeyType": {
+      "type": "string",
+      "enum": [
+        "INFERENCE",
+        "ADMIN"
+      ],
+      "description": "The API Key type. Admin keys have full access to the API while inference keys are only able to call inference endpoints.",
+      "example": "ADMIN"
+    },
+    "consumptionLimit": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `consumptionLimit` to the tool, first call the tool `expandSchema` with \"/properties/consumptionLimit\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The API Key consumption limits for each epoch.</property-description>",
+      "additionalProperties": true
+    },
     "description": {
       "type": "string",
       "default": "Web3 API Key",
       "description": "The API Key description",
       "example": "Web3 API Key"
-    },
-    "apiKeyType": {
-      "type": "string",
-      "enum": [
-        "ADMIN",
-        "INFERENCE"
-      ],
-      "description": "The API Key type. Admin keys have full access to the API while inference keys are only able to call inference endpoints.",
-      "example": "ADMIN"
     },
     "expiresAt": {
       "anyOf": [
@@ -36,10 +41,10 @@
       "description": "The API Key expiration date. If not provided, the key will not expire.",
       "example": "2023-10-01T12:00:00Z"
     },
-    "consumptionLimit": {
-      "type": "object",
-      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `consumptionLimit` to the tool, first call the tool `expandSchema` with \"/properties/consumptionLimit\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The API Key consumption limits for each epoch.</property-description>",
-      "additionalProperties": true
+    "address": {
+      "type": "string",
+      "description": "The wallet's address",
+      "example": "0x45B73055F3aDcC4577Bb709db10B19d11b5c94eE"
     },
     "signature": {
       "type": "string",
@@ -50,18 +55,12 @@
       "type": "string",
       "description": "The token obtained from https://api.venice.ai/api/v1/api_keys/generate_web3_key",
       "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-    },
-    "address": {
-      "type": "string",
-      "description": "The wallet's address",
-      "example": "0x45B73055F3aDcC4577Bb709db10B19d11b5c94eE"
     }
   },
   "required": [
     "apiKeyType",
-    "consumptionLimit",
+    "address",
     "signature",
-    "token",
-    "address"
+    "token"
   ]
 }

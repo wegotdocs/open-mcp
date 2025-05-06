@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "network_id": {
+      "description": "The Graph Network ID https://thegraph.com/networks",
+      "type": "string",
+      "enum": [
+        "mainnet",
+        "bsc",
+        "base",
+        "arbitrum-one",
+        "optimism",
+        "matic",
+        "unichain"
+      ],
+      "example": "mainnet"
+    },
+    "pool": {
+      "description": "Filter by contract address",
+      "type": "string",
+      "pattern": "^(0[xX])?[0-9a-fA-F]{40}$",
+      "example": "0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640"
+    },
+    "factory": {
+      "description": "Filter by address",
+      "type": "string",
+      "pattern": "^(0[xX])?[0-9a-fA-F]{40}$"
+    },
+    "token": {
+      "description": "Filter by address",
+      "type": "string",
+      "pattern": "^(0[xX])?[0-9a-fA-F]{40}$"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "protocol": {
+      "description": "Protocol name",
+      "type": "string",
+      "enum": [
+        "uniswap_v2",
+        "uniswap_v3"
+      ],
+      "example": "uniswap_v3"
+    }
+  },
+  "required": []
+}

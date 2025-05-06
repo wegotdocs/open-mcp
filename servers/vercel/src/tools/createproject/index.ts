@@ -21,6 +21,8 @@ const tool: OpenMCPServerTool = {
       "slug": "slug"
     },
     "body": {
+      "enablePreviewFeedback": "enablePreviewFeedback",
+      "enableProductionFeedback": "enableProductionFeedback",
       "buildCommand": "buildCommand",
       "commandForIgnoringBuildStep": "commandForIgnoringBuildStep",
       "devCommand": "devCommand",

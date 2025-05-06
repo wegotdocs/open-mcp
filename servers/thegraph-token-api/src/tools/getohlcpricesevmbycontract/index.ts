@@ -3,7 +3,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 
 const tool: OpenMCPServerTool = {
   "toolName": "getohlcpricesevmbycontract",
-  "toolDescription": "Token OHLCV prices by Contract Address",
+  "toolDescription": "OHLCV by Contract",
   "baseUrl": "https://token-api.thegraph.com",
   "path": "/ohlc/prices/evm/{contract}",
   "method": "get",

@@ -54,7 +54,8 @@ const tool: OpenMCPServerTool = {
       "passwordProtection": "passwordProtection",
       "ssoProtection": "ssoProtection",
       "trustedIps": "trustedIps",
-      "optionsAllowlist": "optionsAllowlist"
+      "optionsAllowlist": "optionsAllowlist",
+      "connectConfigurations": "connectConfigurations"
     }
   },
   inputParamsSchema

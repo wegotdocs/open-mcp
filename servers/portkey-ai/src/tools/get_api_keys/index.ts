@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "get_api_keys",
   "toolDescription": "Get All",
-  "baseUrl": "https://api.portkey.ai",
+  "baseUrl": "https://api.portkey.ai/v1",
   "path": "/api-keys",
   "method": "get",
   "security": [

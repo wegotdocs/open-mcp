@@ -1,8 +1,35 @@
 # @open-mcp/thegraph-token-api
 
-## Installing
+## Using the remote server
 
-First set the environment variables as shell variables:
+To use the hosted Streamable HTTP server, add the following to your client config:
+
+```json
+{
+  "mcpServers": {
+    "thegraph-token-api": {
+      "transport": "streamableHttp",
+      "url": "https://mcp.open-mcp.org/api/server/thegraph-token-api@latest/mcp"
+    }
+  }
+}
+```
+
+#### Forwarding variables
+
+You can forward "environment" variables to the remote server by including them in the request headers or URL query string (headers take precedence). Just prefix the variable name with `FORWARD_VAR_` like so:
+
+```ini
+https://mcp.open-mcp.org/api/server/thegraph-token-api@latest/mcp?FORWARD_VAR_OPEN_MCP_BASE_URL=https%3A%2F%2Fapi.example.com
+```
+
+<Callout title="Security" type="warn">
+  Sending authentication tokens as forwarded variables is not recommended
+</Callout>
+
+## Installing locally
+
+If you want to run the server locally on your own machine instead of using the remote server, first set the environment variables as shell variables:
 
 ```bash
 API_KEY='...'
@@ -52,32 +79,10 @@ If you don't want to use the helper above, add the following to your MCP client 
 }
 ```
 
-## Customizing the base URL
+## Environment variables
 
-Set the environment variable `OPEN_MCP_BASE_URL` to override each tool's base URL. This is useful if your OpenAPI spec defines a relative server URL.
-
-## Other environment variables
-
-- `API_KEY`
-
-## Inspector
-
-Needs access to port 3000 for running a proxy server, will fail if http://localhost:3000 is already busy.
-
-```bash
-npx -y @modelcontextprotocol/inspector npx -y @open-mcp/thegraph-token-api
-```
-
-- Open http://localhost:5173
-- Transport type: `STDIO`
-- Command: `npx`
-- Arguments: `-y @open-mcp/thegraph-token-api`
-- Click `Environment Variables` to add
-- Click `Connect`
-
-It should say _MCP Server running on stdio_ in red.
-
-- Click `List Tools`
+- `OPEN_MCP_BASE_URL` - overwrites the base URL of every tool's underlying API request
+- `API_KEY` - gets sent to the API provider
 
 ## Tools
 
@@ -119,6 +124,7 @@ Expand the input schema for a tool before calling the tool
 - `startTime` (number)
 - `endTime` (number)
 - `orderBy` (string)
+- `orderDirection` (string)
 - `transaction_id` (string)
 - `limit` (integer)
 - `page` (integer)
@@ -144,7 +150,8 @@ Expand the input schema for a tool before calling the tool
 
 - `contract` (string)
 - `network_id` (string)
-- `order_by` (string)
+- `orderBy` (string)
+- `orderDirection` (string)
 - `limit` (integer)
 - `page` (integer)
 
@@ -152,7 +159,7 @@ Expand the input schema for a tool before calling the tool
 
 **Environment variables**
 
-No environment variables required
+- `API_KEY`
 
 **Input schema**
 
@@ -165,6 +172,7 @@ No environment variables required
 - `startTime` (number)
 - `endTime` (number)
 - `orderBy` (string)
+- `orderDirection` (string)
 - `transaction_id` (string)
 - `limit` (integer)
 - `page` (integer)
@@ -173,7 +181,7 @@ No environment variables required
 
 **Environment variables**
 
-No environment variables required
+- `API_KEY`
 
 **Input schema**
 

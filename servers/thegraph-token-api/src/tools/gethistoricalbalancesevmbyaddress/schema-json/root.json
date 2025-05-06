@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "address": {
+      "description": "Filter by address",
+      "type": "string",
+      "pattern": "^(0[xX])?[0-9a-fA-F]{40}$",
+      "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+    },
+    "interval": {
+      "description": "The interval for which to aggregate price data (hourly, 4-hours, daily or weekly).",
+      "type": "string",
+      "enum": [
+        "1h",
+        "4h",
+        "1d",
+        "1w"
+      ],
+      "default": "1h"
+    },
+    "network_id": {
+      "description": "The Graph Network ID https://thegraph.com/networks",
+      "type": "string",
+      "enum": [
+        "mainnet",
+        "bsc",
+        "base",
+        "arbitrum-one",
+        "optimism",
+        "matic",
+        "unichain"
+      ],
+      "example": "mainnet"
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "startTime": {
+      "description": "UNIX timestamp in seconds.",
+      "type": "number",
+      "minimum": 0
+    },
+    "endTime": {
+      "description": "UNIX timestamp in seconds.",
+      "type": "number",
+      "minimum": 0
+    },
+    "limit": {
+      "description": "The maximum number of items returned in a single request.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000,
+      "default": 10
+    },
+    "page": {
+      "description": "The page number of the results to return.",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    }
+  },
+  "required": [
+    "address"
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "type": "object",
+  "properties": {
+    "background": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "transparent",
+        "opaque",
+        "auto"
+      ],
+      "default": "auto",
+      "description": "This parameter is not used in Venice image generation but is supported for compatibility with OpenAI API",
+      "example": "auto"
+    },
+    "model": {
+      "type": "string",
+      "default": "default",
+      "description": "The model to use for image generation. Defaults to Venice's default image model. If a non-existent model is specified (ie an OpenAI model name), it will default to Venice's default image model.",
+      "example": "venice-sd35"
+    },
+    "moderation": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "low",
+        "auto"
+      ],
+      "default": "auto",
+      "description": "auto enables safe venice mode which will blur out adult content. low disables safe venice mode.",
+      "example": "auto"
+    },
+    "n": {
+      "type": "integer",
+      "nullable": true,
+      "minimum": 1,
+      "maximum": 1,
+      "default": 1,
+      "description": "Number of images to generate. Venice presently only supports 1 image per request.",
+      "example": 1
+    },
+    "output_compression": {
+      "type": "integer",
+      "nullable": true,
+      "minimum": 0,
+      "maximum": 100,
+      "default": 100,
+      "description": "This parameter is not used in Venice image generation but is supported for compatibility with OpenAI API"
+    },
+    "output_format": {
+      "type": "string",
+      "enum": [
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "default": "png",
+      "description": "Output format for generated images",
+      "example": "png"
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1500,
+      "description": "A text description of the desired image.",
+      "example": "A beautiful sunset over mountain ranges"
+    },
+    "quality": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "auto",
+        "high",
+        "medium",
+        "low",
+        "hd",
+        "standard"
+      ],
+      "default": "auto",
+      "description": "This parameter is not used in Venice image generation but is supported for compatibility with OpenAI API",
+      "example": "auto"
+    },
+    "response_format": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "b64_json",
+        "url"
+      ],
+      "default": "b64_json",
+      "description": "Response format. URL will be a data URL.",
+      "example": "b64_json"
+    },
+    "size": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "auto",
+        "256x256",
+        "512x512",
+        "1024x1024",
+        "1536x1024",
+        "1024x1536",
+        "1792x1024",
+        "1024x1792"
+      ],
+      "default": "auto",
+      "description": "Size of generated images. Default is 1024x1024",
+      "example": "1024x1024"
+    },
+    "style": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "vivid",
+        "natural"
+      ],
+      "default": "natural",
+      "description": "This parameter is not used in Venice image generation but is supported for compatibility with OpenAI API",
+      "example": "natural"
+    },
+    "user": {
+      "type": "string",
+      "description": "This parameter is not used in Venice image generation but is supported for compatibility with OpenAI API",
+      "example": "user123"
+    },
+    "Accept-Encoding": {
+      "description": "Supported compression encodings (gzip, br).",
+      "example": "gzip, br",
+      "type": "string"
+    }
+  },
+  "required": [
+    "prompt"
+  ]
+}

@@ -10,13 +10,13 @@ const tool: OpenMCPServerTool = {
   "security": [],
   "paramsMap": {
     "body": {
-      "description": "description",
       "apiKeyType": "apiKeyType",
-      "expiresAt": "expiresAt",
       "consumptionLimit": "consumptionLimit",
+      "description": "description",
+      "expiresAt": "expiresAt",
+      "address": "address",
       "signature": "signature",
-      "token": "token",
-      "address": "address"
+      "token": "token"
     }
   },
   inputParamsSchema

@@ -13,6 +13,18 @@
             "example": "project = 'My Project'",
             "type": "string"
           },
+          "cardColorStrategy": {
+            "description": "Card color settings of the board",
+            "enum": [
+              "ISSUE_TYPE",
+              "REQUEST_TYPE",
+              "ASSIGNEE",
+              "PRIORITY",
+              "NONE",
+              "CUSTOM"
+            ],
+            "type": "string"
+          },
           "cardLayout": {
             "additionalProperties": false,
             "description": "Card layout configuration.",
@@ -28,6 +40,35 @@
               }
             },
             "type": "object"
+          },
+          "cardLayouts": {
+            "description": "Card layout settings of the board",
+            "items": {
+              "additionalProperties": false,
+              "description": "Card layout settings of the board",
+              "properties": {
+                "fieldId": {
+                  "type": "string"
+                },
+                "id": {
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "mode": {
+                  "enum": [
+                    "PLAN",
+                    "WORK"
+                  ],
+                  "type": "string"
+                },
+                "position": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
           },
           "columns": {
             "description": "The columns of the board",

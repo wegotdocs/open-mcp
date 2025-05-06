@@ -3,7 +3,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 
 const tool: OpenMCPServerTool = {
   "toolName": "gettokensevmbycontract",
-  "toolDescription": "Token Metadata by Contract",
+  "toolDescription": "Token Metadata",
   "baseUrl": "https://token-api.thegraph.com",
   "path": "/tokens/evm/{contract}",
   "method": "get",

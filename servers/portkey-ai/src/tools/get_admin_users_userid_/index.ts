@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "get_admin_users_userid_",
   "toolDescription": "Get user",
-  "baseUrl": "https://api.portkey.ai",
+  "baseUrl": "https://api.portkey.ai/v1",
   "path": "/admin/users/{userId}",
   "method": "get",
   "security": [

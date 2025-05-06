@@ -22,6 +22,7 @@ const tool: OpenMCPServerTool = {
       "until": "until",
       "types": "types",
       "userId": "userId",
+      "principalId": "principalId",
       "withPayload": "withPayload",
       "teamId": "teamId",
       "slug": "slug"

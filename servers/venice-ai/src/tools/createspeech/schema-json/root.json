@@ -1,6 +1,13 @@
 {
   "type": "object",
   "properties": {
+    "input": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "description": "The text to generate audio for. The maximum length is 4096 characters.",
+      "example": "Hello, this is a test of the text to speech system."
+    },
     "model": {
       "type": "string",
       "enum": [
@@ -10,12 +17,33 @@
       "description": "The model ID of a Venice TTS model.",
       "example": "tts-kokoro"
     },
-    "input": {
+    "response_format": {
       "type": "string",
-      "minLength": 1,
-      "maxLength": 4096,
-      "description": "The text to generate audio for. The maximum length is 4096 characters.",
-      "example": "Hello, this is a test of the text to speech system."
+      "enum": [
+        "mp3",
+        "opus",
+        "aac",
+        "flac",
+        "wav",
+        "pcm"
+      ],
+      "default": "mp3",
+      "description": "The format to audio in.",
+      "example": "mp3"
+    },
+    "speed": {
+      "type": "number",
+      "minimum": 0.25,
+      "maximum": 4,
+      "default": 1,
+      "description": "The speed of the generated audio. Select a value from 0.25 to 4.0. 1.0 is the default.",
+      "example": 1
+    },
+    "streaming": {
+      "type": "boolean",
+      "default": false,
+      "description": "Should the content stream back sentence by sentence or be processed and returned as a complete audio file.",
+      "example": true
     },
     "voice": {
       "type": "string",
@@ -48,9 +76,14 @@
         "bm_fable",
         "bm_george",
         "bm_lewis",
-        "ef_dora",
-        "em_alex",
-        "em_santa",
+        "zf_xiaobei",
+        "zf_xiaoni",
+        "zf_xiaoxiao",
+        "zf_xiaoyi",
+        "zm_yunjian",
+        "zm_yunxi",
+        "zm_yunxia",
+        "zm_yunyang",
         "ff_siwis",
         "hf_alpha",
         "hf_beta",
@@ -66,46 +99,13 @@
         "pf_dora",
         "pm_alex",
         "pm_santa",
-        "zf_xiaobei",
-        "zf_xiaoni",
-        "zf_xiaoxiao",
-        "zf_xiaoyi",
-        "zm_yunjian",
-        "zm_yunxi",
-        "zm_yunxia",
-        "zm_yunyang"
+        "ef_dora",
+        "em_alex",
+        "em_santa"
       ],
       "default": "af_sky",
       "description": "The voice to use when generating the audio.",
       "example": "af_sky"
-    },
-    "response_format": {
-      "type": "string",
-      "enum": [
-        "mp3",
-        "opus",
-        "aac",
-        "flac",
-        "wav",
-        "pcm"
-      ],
-      "default": "mp3",
-      "description": "The format to audio in.",
-      "example": "mp3"
-    },
-    "speed": {
-      "type": "number",
-      "minimum": 0.25,
-      "maximum": 4,
-      "default": 1,
-      "description": "The speed of the generated audio. Select a value from 0.25 to 4.0. 1.0 is the default.",
-      "example": 1
-    },
-    "streaming": {
-      "type": "boolean",
-      "default": false,
-      "description": "Should the content stream back sentence by sentence or be processed and returned as a complete audio file.",
-      "example": true
     }
   },
   "required": [

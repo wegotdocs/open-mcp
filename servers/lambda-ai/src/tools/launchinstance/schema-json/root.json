@@ -63,6 +63,17 @@
         []
       ]
     },
+    "hostname": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 63,
+      "pattern": "^[a-z0-9][0-9a-z-]{0,62}$",
+      "title": "hostname",
+      "description": "The hostname to assign to the instance. If not specified, a default, IP-address-based\nhostname is assigned. This hostname is driven into /etc/hostname on the instance.",
+      "examples": [
+        "headnode1"
+      ]
+    },
     "name": {
       "type": "string",
       "minLength": 0,
@@ -114,6 +125,40 @@
       "format": "password",
       "title": "user_data",
       "description": "An instance configuration string specified in a valid\n[cloud-init user-data](https://cloudinit.readthedocs.io/en/latest/explanation/format.html)\nformat. You can use this field to configure your instance on launch. The\nuser data string must be plain text and cannot exceed 1MB in size."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "maxLength": 55,
+            "pattern": "^[a-z][a-z0-9-:]+$",
+            "title": "key",
+            "description": "The key of the tag.",
+            "examples": [
+              "key1"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 128,
+            "title": "value",
+            "description": "The value of the tag.",
+            "examples": [
+              "value1"
+            ]
+          }
+        },
+        "required": [
+          "key",
+          "value"
+        ],
+        "title": "RequestedTagEntry"
+      },
+      "title": "tags",
+      "description": "Key/value pairs representing the instance's tags."
     }
   },
   "required": [

@@ -17,12 +17,12 @@ const tool: OpenMCPServerTool = {
   ],
   "paramsMap": {
     "body": {
-      "model": "model",
       "input": "input",
-      "voice": "voice",
+      "model": "model",
       "response_format": "response_format",
       "speed": "speed",
-      "streaming": "streaming"
+      "streaming": "streaming",
+      "voice": "voice"
     }
   },
   inputParamsSchema

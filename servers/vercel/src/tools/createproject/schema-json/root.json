@@ -9,6 +9,16 @@
       "description": "The Team slug to perform the request on behalf of.",
       "type": "string"
     },
+    "enablePreviewFeedback": {
+      "description": "Opt-in to preview toolbar on the project level",
+      "type": "boolean",
+      "nullable": true
+    },
+    "enableProductionFeedback": {
+      "description": "Opt-in to production toolbar on the project level",
+      "type": "boolean",
+      "nullable": true
+    },
     "buildCommand": {
       "description": "The build command for this project. When `null` is used this value will be automatically detected",
       "maxLength": 256,

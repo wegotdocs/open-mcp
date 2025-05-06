@@ -1,26 +1,26 @@
 {
   "type": "object",
   "properties": {
-    "strength": {
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 100,
-      "description": "Strength of the inpainting.",
-      "example": 50
+    "mask": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `mask` to the tool, first call the tool `expandSchema` with \"/properties/inpaint/properties/mask\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
     },
     "source_image_base64": {
       "type": "string",
       "description": "Base64 encoded source image to inpaint.",
       "example": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
     },
-    "mask": {
-      "type": "object",
-      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `mask` to the tool, first call the tool `expandSchema` with \"/properties/inpaint/properties/mask\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
-      "additionalProperties": true
+    "strength": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Strength of the inpainting.",
+      "example": 50
     }
   },
   "required": [
-    "strength",
-    "source_image_base64"
+    "source_image_base64",
+    "strength"
   ]
 }

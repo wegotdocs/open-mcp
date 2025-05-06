@@ -135,6 +135,40 @@
         },
         {
           "properties": {
+            "org": {
+              "type": "string"
+            },
+            "ref": {
+              "type": "string"
+            },
+            "repo": {
+              "type": "string"
+            },
+            "sha": {
+              "type": "string"
+            },
+            "host": {
+              "type": "string"
+            },
+            "type": {
+              "enum": [
+                "github-custom-host"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "ref",
+            "org",
+            "repo",
+            "host"
+          ],
+          "type": "object",
+          "private": true
+        },
+        {
+          "properties": {
             "projectId": {
               "anyOf": [
                 {

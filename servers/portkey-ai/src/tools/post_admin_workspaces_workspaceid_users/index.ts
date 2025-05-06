@@ -4,7 +4,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 const tool: OpenMCPServerTool = {
   "toolName": "post_admin_workspaces_workspaceid_users",
   "toolDescription": "Add workspace member",
-  "baseUrl": "https://api.portkey.ai",
+  "baseUrl": "https://api.portkey.ai/v1",
   "path": "/admin/workspaces/{workspaceId}/users",
   "method": "post",
   "security": [

@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "dimensions": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "The number of dimensions the resulting output embeddings should have."
+    },
+    "encoding_format": {
+      "type": "string",
+      "enum": [
+        "float",
+        "base64"
+      ],
+      "default": "float",
+      "description": "The format to return the embeddings in. Can be either `float` or `base64`.",
+      "example": "float"
+    },
+    "input": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "description": "The string that will be turned into an embedding.",
+          "example": "This is a test.",
+          "title": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "maxItems": 2048,
+          "description": "The array of strings that will be turned into an embedding.",
+          "example": [
+            "This is a test."
+          ],
+          "title": "array"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 1,
+          "maxItems": 2048,
+          "description": "The array of integers that will be turned into an embedding.",
+          "example": [
+            1212,
+            318,
+            257,
+            1332,
+            13
+          ],
+          "title": "array"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 1
+          },
+          "minItems": 1,
+          "maxItems": 2048,
+          "description": "The array of arrays containing integers that will be turned into an embedding.",
+          "example": [
+            [
+              1212,
+              318,
+              257,
+              1332,
+              13
+            ]
+          ],
+          "title": "array"
+        }
+      ],
+      "description": "Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays. The input must not exceed the max input tokens for the model (8192 tokens for `text-embedding-ada-002`), cannot be an empty string, and any array must be 2048 dimensions or less.",
+      "example": "The quick brown fox jumped over the lazy dog"
+    },
+    "model": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "text-embedding-bge-m3"
+          ]
+        }
+      ],
+      "description": "ID of the model to use. You can use the List models API to see all of your available models, or see our Model overview for descriptions of them.",
+      "example": "text-embedding-bge-m3"
+    },
+    "user": {
+      "type": "string",
+      "description": "A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.",
+      "example": "user-1234"
+    },
+    "Accept-Encoding": {
+      "description": "Supported compression encodings (gzip, br)",
+      "example": "gzip, br",
+      "type": "string"
+    }
+  },
+  "required": [
+    "input",
+    "model"
+  ]
+}

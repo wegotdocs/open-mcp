@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "idOrName": {
+      "description": "The unique project identifier or the project name",
+      "type": "string"
+    },
+    "domain": {
+      "description": "The project domain name",
+      "type": "string",
+      "example": "www.example.com"
+    },
+    "teamId": {
+      "description": "The Team identifier to perform the request on behalf of.",
+      "type": "string"
+    },
+    "slug": {
+      "description": "The Team slug to perform the request on behalf of.",
+      "type": "string"
+    },
+    "projectId": {
+      "description": "The unique target project identifier",
+      "example": "prj_XLKmu1DyR1eY7zq8UgeRKbA7yVLA",
+      "anyOf": [
+        {
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "required": [
+    "idOrName",
+    "domain",
+    "projectId"
+  ]
+}

@@ -3,7 +3,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 
 const tool: OpenMCPServerTool = {
   "toolName": "getbalancesevmbyaddress",
-  "toolDescription": "Token Balances by Wallet Address",
+  "toolDescription": "Balances by Address",
   "baseUrl": "https://token-api.thegraph.com",
   "path": "/balances/evm/{address}",
   "method": "get",

@@ -221,6 +221,38 @@
       "type": "object",
       "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `optionsAllowlist` to the tool, first call the tool `expandSchema` with \"/properties/optionsAllowlist\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specify a list of paths that should not be protected by Deployment Protection to enable Cors preflight requests</property-description>",
       "additionalProperties": true
+    },
+    "connectConfigurations": {
+      "type": "array",
+      "description": "The list of connections from project environment to Secure Compute network",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "envId": {
+            "type": "string",
+            "description": "The ID of the environment"
+          },
+          "connectConfigurationId": {
+            "type": "string",
+            "description": "The ID of the Secure Compute network"
+          },
+          "passive": {
+            "type": "boolean",
+            "description": "Whether the configuration should be passive, meaning builds will not run there and only passive Serverless Functions will be deployed"
+          },
+          "buildsEnabled": {
+            "type": "boolean",
+            "description": "Flag saying if project builds should use Secure Compute"
+          }
+        },
+        "anyOf": [
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "minItems": 1,
+      "nullable": true
     }
   },
   "required": [

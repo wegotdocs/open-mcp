@@ -2,8 +2,8 @@ import { z } from "zod"
 
 export const inputParamsSchema = {
   "client": z.string().describe("App or oauth client name").optional(),
-  "dateFrom": z.string().describe("From (inclusive) date (yyyy-MM-dd) or time in Epoch timestamp").optional(),
-  "dateTo": z.string().describe("To (inclusive) date (yyyy-MM-dd) or time in Epoch timestamp").optional(),
+  "dateFrom": z.string().describe("From (inclusive) date (yyyy-MM-dd) or time in Epoch timestamp millis (number of milliseconds since January 1, 1970, 00:00:00 GMT)").optional(),
+  "dateTo": z.string().describe("To (inclusive) date (yyyy-MM-dd) or time in Epoch timestamp millis (number of milliseconds since January 1, 1970, 00:00:00 GMT)").optional(),
   "direction": z.string().describe("The direction to sort events by (asc or desc)").optional(),
   "first": z.number().int().describe("Paging offset").optional(),
   "ipAddress": z.string().describe("IP Address").optional(),

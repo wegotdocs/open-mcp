@@ -17,22 +17,22 @@ const tool: OpenMCPServerTool = {
   ],
   "paramsMap": {
     "body": {
-      "model": "model",
-      "prompt": "prompt",
-      "negative_prompt": "negative_prompt",
-      "style_preset": "style_preset",
-      "height": "height",
-      "width": "width",
-      "steps": "steps",
       "cfg_scale": "cfg_scale",
-      "seed": "seed",
-      "lora_strength": "lora_strength",
-      "safe_mode": "safe_mode",
-      "return_binary": "return_binary",
-      "hide_watermark": "hide_watermark",
-      "format": "format",
       "embed_exif_metadata": "embed_exif_metadata",
-      "inpaint": "inpaint"
+      "format": "format",
+      "height": "height",
+      "hide_watermark": "hide_watermark",
+      "inpaint": "inpaint",
+      "lora_strength": "lora_strength",
+      "model": "model",
+      "negative_prompt": "negative_prompt",
+      "prompt": "prompt",
+      "return_binary": "return_binary",
+      "safe_mode": "safe_mode",
+      "seed": "seed",
+      "steps": "steps",
+      "style_preset": "style_preset",
+      "width": "width"
     },
     "header": {
       "Accept-Encoding": "Accept-Encoding"

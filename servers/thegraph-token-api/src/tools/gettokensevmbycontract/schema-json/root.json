@@ -2,10 +2,10 @@
   "type": "object",
   "properties": {
     "contract": {
-      "description": "EVM contract address to query",
+      "description": "Filter by contract address",
       "type": "string",
       "pattern": "^(0[xX])?[0-9a-fA-F]{40}$",
-      "example": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      "example": "0xc944e90c64b2c07662a292be6244bdf05cda44a7"
     },
     "network_id": {
       "description": "The Graph Network ID https://thegraph.com/networks",
@@ -16,7 +16,8 @@
         "base",
         "arbitrum-one",
         "optimism",
-        "matic"
+        "matic",
+        "unichain"
       ],
       "example": "mainnet"
     }

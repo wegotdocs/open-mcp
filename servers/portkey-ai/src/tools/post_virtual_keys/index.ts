@@ -27,7 +27,8 @@ const tool: OpenMCPServerTool = {
       "workspace_id": "workspace_id",
       "deploymentConfig": "deploymentConfig",
       "usage_limits": "usage_limits",
-      "rate_limits": "rate_limits"
+      "rate_limits": "rate_limits",
+      "expires_at": "expires_at"
     }
   },
   inputParamsSchema

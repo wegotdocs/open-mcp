@@ -29,7 +29,8 @@ const tool: OpenMCPServerTool = {
       "usage_limits": "usage_limits",
       "scopes": "scopes",
       "defaults": "defaults",
-      "alert_emails": "alert_emails"
+      "alert_emails": "alert_emails",
+      "expires_at": "expires_at"
     }
   },
   inputParamsSchema

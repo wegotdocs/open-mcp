@@ -1,7 +1,7 @@
 import { z } from "zod"
 
 export const inputParamsSchema = {
-  "messages": z.array(z.object({ "role": z.enum(["system","user","assistant","tool"]).describe("The role of the messages author. Choice between: system, user, or assistant."), "content": z.string().describe("A plain text message.").describe("The content of the message, which can either be a simple string or a structured format.") })).describe("A list of messages comprising the conversation so far."),
+  "messages": z.array(z.object({ "role": z.enum(["system","user","assistant","tool"]).describe("The role of the messages author. Choice between: system, user, assistant, or tool."), "content": z.string().describe("A plain text message.").describe("The content of the message, which can either be a simple string or a structured format.") })).describe("A list of messages comprising the conversation so far."),
   "model": z.union([z.enum(["Qwen/Qwen2.5-72B-Instruct-Turbo","Qwen/Qwen2.5-7B-Instruct-Turbo","meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo","meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo","meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"]), z.string()]).describe("The name of the model to query.<br> <br> [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)\n"),
   "max_tokens": z.number().int().describe("The maximum number of tokens to generate.").optional(),
   "stop": z.array(z.string()).describe("A list of string sequences that will truncate (stop) inference text output. For example, \"</s>\" will stop generation as soon as the model generates the given token.").optional(),

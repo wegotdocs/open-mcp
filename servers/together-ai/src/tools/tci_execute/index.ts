@@ -18,6 +18,7 @@ const tool: OpenMCPServerTool = {
   "paramsMap": {
     "body": {
       "code": "code",
+      "files": "files",
       "language": "language",
       "session_id": "session_id"
     }

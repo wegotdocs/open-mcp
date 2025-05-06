@@ -27,9 +27,11 @@ const tool: OpenMCPServerTool = {
       "instance_type_name": "instance_type_name",
       "ssh_key_names": "ssh_key_names",
       "file_system_names": "file_system_names",
+      "hostname": "hostname",
       "name": "name",
       "image": "image",
-      "user_data": "user_data"
+      "user_data": "user_data",
+      "tags": "tags"
     }
   },
   inputParamsSchema

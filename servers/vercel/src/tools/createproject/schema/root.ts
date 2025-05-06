@@ -3,6 +3,8 @@ import { z } from "zod"
 export const inputParamsSchema = {
   "teamId": z.string().describe("The Team identifier to perform the request on behalf of.").optional(),
   "slug": z.string().describe("The Team slug to perform the request on behalf of.").optional(),
+  "enablePreviewFeedback": z.boolean().nullable().describe("Opt-in to preview toolbar on the project level").optional(),
+  "enableProductionFeedback": z.boolean().nullable().describe("Opt-in to production toolbar on the project level").optional(),
   "buildCommand": z.string().max(256).nullable().describe("The build command for this project. When `null` is used this value will be automatically detected").optional(),
   "commandForIgnoringBuildStep": z.string().max(256).nullable().optional(),
   "devCommand": z.string().max(256).nullable().describe("The dev command for this project. When `null` is used this value will be automatically detected").optional(),

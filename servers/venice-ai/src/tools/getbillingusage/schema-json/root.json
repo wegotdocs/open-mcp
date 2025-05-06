@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "currency": {
+      "description": "Filter by currency",
+      "type": "string",
+      "enum": [
+        "USD",
+        "VCU"
+      ],
+      "example": "USD"
+    },
+    "endDate": {
+      "description": "End date for filtering records (ISO 8601)",
+      "type": "string",
+      "format": "date-time",
+      "example": "2024-12-31T23:59:59Z"
+    },
+    "limit": {
+      "description": "Number of items per page",
+      "type": "integer",
+      "minimum": 0,
+      "exclusiveMinimum": true,
+      "maximum": 500,
+      "default": 200,
+      "example": 200
+    },
+    "page": {
+      "description": "Page number for pagination",
+      "type": "integer",
+      "minimum": 0,
+      "exclusiveMinimum": true,
+      "default": 1,
+      "example": 1
+    },
+    "sortOrder": {
+      "description": "Sort order for createdAt field",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc",
+      "example": "desc"
+    },
+    "startDate": {
+      "description": "Start date for filtering records (ISO 8601)",
+      "type": "string",
+      "format": "date-time",
+      "example": "2024-01-01T00:00:00Z"
+    },
+    "Accept": {
+      "description": "Accept header to specify the response format",
+      "example": "application/json, text/csv",
+      "type": "string"
+    }
+  },
+  "required": []
+}

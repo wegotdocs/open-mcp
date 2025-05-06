@@ -3,7 +3,7 @@ import type { OpenMCPServerTool } from "@open-mcp/core"
 
 const tool: OpenMCPServerTool = {
   "toolName": "getholdersevmbycontract",
-  "toolDescription": "Token Holders by Contract Address",
+  "toolDescription": "Token Holders",
   "baseUrl": "https://token-api.thegraph.com",
   "path": "/holders/evm/{contract}",
   "method": "get",
@@ -21,7 +21,8 @@ const tool: OpenMCPServerTool = {
     },
     "query": {
       "network_id": "network_id",
-      "order_by": "order_by",
+      "orderBy": "orderBy",
+      "orderDirection": "orderDirection",
       "limit": "limit",
       "page": "page"
     }

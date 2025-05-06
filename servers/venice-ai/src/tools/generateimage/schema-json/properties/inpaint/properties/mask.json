@@ -6,20 +6,20 @@
       "description": "A text prompt describing the original input image that an image model would use to produce a similar/identical image, including the changed features the user will be inpainting.",
       "example": "Generate a high-resolution image of a cute lop-eared rabbit with a fluffy coat. The rabbit should have a light brown and white fur pattern, with the white fur prominently covering its chest and underside. Its ears should be long and droop down on either side of its head, with the inner part of the ears showing a delicate pink hue. The rabbit's face, wearing round silver spectacles, should have expressive dark eyes and a small, pink nose. It should be sitting upright on a soft, light blue cushion, with a cozy, indoor setting in the background that includes a neutral-toned wall and wooden elements. The overall mood should be warm and endearing, capturing the gentle and charming nature of the rabbit."
     },
-    "object_target": {
-      "type": "string",
-      "description": "One or more elements contained within the original image the user wants to inpaint over; used by a segmentation model to create an image mask.",
-      "example": "rabbit's face"
-    },
     "inferred_object": {
       "type": "string",
       "description": "The content the user is adding to the image via inpainting, meant to replace the pixels occupied by object_target.",
       "example": "rabbit's face wearing round silver spectacles"
+    },
+    "object_target": {
+      "type": "string",
+      "description": "One or more elements contained within the original image the user wants to inpaint over; used by a segmentation model to create an image mask.",
+      "example": "rabbit's face"
     }
   },
   "required": [
     "image_prompt",
-    "object_target",
-    "inferred_object"
+    "inferred_object",
+    "object_target"
   ]
 }
