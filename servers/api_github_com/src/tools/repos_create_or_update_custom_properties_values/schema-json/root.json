@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "properties": {
+      "type": "array",
+      "description": "A list of custom property names and associated values to apply to the repositories.",
+      "items": {
+        "title": "Custom Property Value",
+        "description": "Custom property name and associated value",
+        "type": "object",
+        "properties": {
+          "property_name": {
+            "type": "string",
+            "description": "The name of the property"
+          },
+          "value": {
+            "description": "The value assigned to the property",
+            "nullable": true,
+            "anyOf": [
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "required": [
+          "property_name",
+          "value"
+        ]
+      }
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "properties"
+  ]
+}

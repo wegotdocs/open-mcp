@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "credentials": {
+      "type": "array",
+      "description": "A list of credentials to be revoked, up to 1000 per request.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "maxItems": 1000
+    }
+  },
+  "required": [
+    "credentials"
+  ]
+}

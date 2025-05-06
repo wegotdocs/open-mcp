@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "A descriptive name for the new key.",
+      "type": "string"
+    },
+    "armored_public_key": {
+      "description": "A GPG key in ASCII-armored format.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "armored_public_key"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "pull_number": {
+      "description": "The number that identifies the pull request.",
+      "type": "integer"
+    },
+    "review_id": {
+      "description": "The unique identifier of the review.",
+      "type": "integer"
+    },
+    "body": {
+      "type": "string",
+      "description": "The body text of the pull request review."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "pull_number",
+    "review_id",
+    "body"
+  ]
+}

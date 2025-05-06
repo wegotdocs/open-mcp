@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "enabled_repositories": {
+      "type": "string",
+      "description": "The policy that controls the repositories in the organization that are allowed to run GitHub Actions.",
+      "enum": [
+        "all",
+        "none",
+        "selected"
+      ]
+    },
+    "allowed_actions": {
+      "type": "string",
+      "description": "The permissions policy that controls the actions and reusable workflows that are allowed to run.",
+      "enum": [
+        "all",
+        "local_only",
+        "selected"
+      ]
+    }
+  },
+  "required": [
+    "org",
+    "enabled_repositories"
+  ]
+}

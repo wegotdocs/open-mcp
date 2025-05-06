@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "use_lfs": {
+      "type": "string",
+      "description": "Whether to store large files during the import. `opt_in` means large files will be stored using Git LFS. `opt_out` means large files will be removed during the import.",
+      "enum": [
+        "opt_in",
+        "opt_out"
+      ]
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "use_lfs"
+  ]
+}

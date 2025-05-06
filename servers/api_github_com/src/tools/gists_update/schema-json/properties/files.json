@@ -1,0 +1,26 @@
+{
+  "description": "The gist files to be updated, renamed, or deleted. Each `key` must match the current filename\n(including extension) of the targeted gist file. For example: `hello.py`.\n\nTo delete a file, set the whole file to null. For example: `hello.py : null`. The file will also be\ndeleted if the specified object does not contain at least one of `content` or `filename`.",
+  "example": {
+    "hello.rb": {
+      "content": "blah",
+      "filename": "goodbye.rb"
+    }
+  },
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "nullable": true,
+    "properties": {
+      "content": {
+        "description": "The new content of the file.",
+        "type": "string"
+      },
+      "filename": {
+        "description": "The new filename for the file.",
+        "type": "string",
+        "nullable": true
+      }
+    }
+  },
+  "properties": {}
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "include_claim_keys": {
+      "description": "Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "org",
+    "include_claim_keys"
+  ]
+}

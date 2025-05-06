@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "vcs_username": {
+      "type": "string",
+      "description": "The username to provide to the originating repository."
+    },
+    "vcs_password": {
+      "type": "string",
+      "description": "The password to provide to the originating repository."
+    },
+    "vcs": {
+      "type": "string",
+      "description": "The type of version control system you are migrating from.",
+      "enum": [
+        "subversion",
+        "tfvc",
+        "git",
+        "mercurial"
+      ],
+      "example": "\"git\""
+    },
+    "tfvc_project": {
+      "type": "string",
+      "description": "For a tfvc import, the name of the project that is being imported.",
+      "example": "\"project1\""
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

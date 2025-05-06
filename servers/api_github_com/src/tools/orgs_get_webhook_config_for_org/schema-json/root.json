@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "hook_id": {
+      "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "org",
+    "hook_id"
+  ]
+}

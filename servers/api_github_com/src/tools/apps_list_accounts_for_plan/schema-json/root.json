@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "plan_id": {
+      "description": "The unique identifier of the plan.",
+      "type": "integer"
+    },
+    "sort": {
+      "description": "The property to sort the results by.",
+      "type": "string",
+      "enum": [
+        "created",
+        "updated"
+      ],
+      "default": "created"
+    },
+    "direction": {
+      "description": "To return the oldest accounts first, set to `asc`. Ignored without the `sort` parameter.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": [
+    "plan_id"
+  ]
+}

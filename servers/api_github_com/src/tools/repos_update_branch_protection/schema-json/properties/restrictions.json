@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "description": "Restrict who can push to the protected branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.",
+  "nullable": true,
+  "properties": {
+    "users": {
+      "type": "array",
+      "description": "The list of user `login`s with push access",
+      "items": {
+        "type": "string"
+      }
+    },
+    "teams": {
+      "type": "array",
+      "description": "The list of team `slug`s with push access",
+      "items": {
+        "type": "string"
+      }
+    },
+    "apps": {
+      "type": "array",
+      "description": "The list of app `slug`s with push access",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "users",
+    "teams"
+  ]
+}

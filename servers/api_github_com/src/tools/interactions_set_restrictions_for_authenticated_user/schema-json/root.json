@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "type": "string",
+      "description": "The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.",
+      "example": "collaborators_only",
+      "enum": [
+        "existing_users",
+        "contributors_only",
+        "collaborators_only"
+      ]
+    },
+    "expiry": {
+      "type": "string",
+      "description": "The duration of the interaction restriction. Default: `one_day`.",
+      "example": "one_month",
+      "enum": [
+        "one_day",
+        "three_days",
+        "one_week",
+        "one_month",
+        "six_months"
+      ]
+    }
+  },
+  "required": [
+    "limit"
+  ]
+}

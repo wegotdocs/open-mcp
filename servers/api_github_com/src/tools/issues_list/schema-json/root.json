@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "properties": {
+    "filter": {
+      "description": "Indicates which sorts of issues to return. `assigned` means issues assigned to you. `created` means issues created by you. `mentioned` means issues mentioning you. `subscribed` means issues you're subscribed to updates for. `all` or `repos` means all issues you can see, regardless of participation or creation.",
+      "type": "string",
+      "enum": [
+        "assigned",
+        "created",
+        "mentioned",
+        "subscribed",
+        "repos",
+        "all"
+      ],
+      "default": "assigned"
+    },
+    "state": {
+      "description": "Indicates the state of the issues to return.",
+      "type": "string",
+      "enum": [
+        "open",
+        "closed",
+        "all"
+      ],
+      "default": "open"
+    },
+    "labels": {
+      "description": "A list of comma separated label names. Example: `bug,ui,@high`",
+      "type": "string"
+    },
+    "sort": {
+      "description": "What to sort results by.",
+      "type": "string",
+      "enum": [
+        "created",
+        "updated",
+        "comments"
+      ],
+      "default": "created"
+    },
+    "direction": {
+      "description": "The direction to sort the results by.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc"
+    },
+    "since": {
+      "description": "Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "collab": {
+      "type": "boolean"
+    },
+    "orgs": {
+      "type": "boolean"
+    },
+    "owned": {
+      "type": "boolean"
+    },
+    "pulls": {
+      "type": "boolean"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "page": {
+      "description": "The page number of the results to fetch. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": []
+}

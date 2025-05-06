@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "card_id": {
+      "description": "The unique identifier of the card.",
+      "type": "integer"
+    },
+    "note": {
+      "description": "The project card's note",
+      "example": "Update all gems",
+      "type": "string",
+      "nullable": true
+    },
+    "archived": {
+      "description": "Whether or not the card is archived",
+      "example": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "card_id"
+  ]
+}

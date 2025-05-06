@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "key": {
+      "description": "A key for identifying the cache.",
+      "type": "string"
+    },
+    "ref": {
+      "description": "The full Git reference for narrowing down the cache. The `ref` for a branch should be formatted as `refs/heads/<branch name>`. To reference a pull request use `refs/pull/<number>/merge`.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "key"
+  ]
+}

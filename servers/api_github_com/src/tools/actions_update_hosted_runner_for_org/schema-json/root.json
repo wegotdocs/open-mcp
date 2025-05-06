@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "hosted_runner_id": {
+      "description": "Unique identifier of the GitHub-hosted runner.",
+      "type": "integer"
+    },
+    "name": {
+      "description": "Name of the runner. Must be between 1 and 64 characters and may only contain upper and lowercase letters a-z, numbers 0-9, '.', '-', and '_'.",
+      "type": "string"
+    },
+    "runner_group_id": {
+      "description": "The existing runner group to add this runner to.",
+      "type": "integer"
+    },
+    "maximum_runners": {
+      "description": "The maximum amount of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit your cost.",
+      "type": "integer"
+    },
+    "enable_static_ip": {
+      "description": "Whether this runner should be updated with a static public IP. Note limit on account. To list limits on account, use `GET actions/hosted-runners/limits`",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "org",
+    "hosted_runner_id"
+  ]
+}

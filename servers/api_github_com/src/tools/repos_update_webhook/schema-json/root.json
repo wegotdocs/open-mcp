@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "hook_id": {
+      "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
+      "type": "integer"
+    },
+    "config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `config` to the tool, first call the tool `expandSchema` with \"/properties/config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration object of the webhook</property-description>",
+      "additionalProperties": true
+    },
+    "events": {
+      "type": "array",
+      "description": "Determines what [events](https://docs.github.com/webhooks/event-payloads) the hook is triggered for. This replaces the entire array of events.",
+      "default": [
+        "push"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "add_events": {
+      "type": "array",
+      "description": "Determines a list of events to be added to the list of events that the Hook triggers for.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "remove_events": {
+      "type": "array",
+      "description": "Determines a list of events to be removed from the list of events that the Hook triggers for.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.",
+      "default": true
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "hook_id"
+  ]
+}

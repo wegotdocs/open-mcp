@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "pat_request_id": {
+      "description": "Unique identifier of the request for access via fine-grained personal access token.",
+      "type": "integer"
+    },
+    "action": {
+      "type": "string",
+      "description": "Action to apply to the request.",
+      "enum": [
+        "approve",
+        "deny"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for approving or denying the request. Max 1024 characters.",
+      "maxLength": 1024,
+      "nullable": true
+    }
+  },
+  "required": [
+    "org",
+    "pat_request_id",
+    "action"
+  ]
+}

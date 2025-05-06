@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "job_id": {
+      "description": "The unique identifier of the job.",
+      "type": "integer"
+    },
+    "enable_debug_logging": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to enable debug logging for the re-run."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "job_id"
+  ]
+}

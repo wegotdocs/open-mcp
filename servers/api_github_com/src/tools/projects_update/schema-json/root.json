@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "description": "The unique identifier of the project.",
+      "type": "integer"
+    },
+    "name": {
+      "description": "Name of the project",
+      "example": "Week One Sprint",
+      "type": "string"
+    },
+    "body": {
+      "description": "Body of the project",
+      "example": "This project represents the sprint of the first week in January",
+      "type": "string",
+      "nullable": true
+    },
+    "state": {
+      "description": "State of the project; either 'open' or 'closed'",
+      "example": "open",
+      "type": "string"
+    },
+    "organization_permission": {
+      "description": "The baseline permission that all organization members have on this project",
+      "type": "string",
+      "enum": [
+        "read",
+        "write",
+        "admin",
+        "none"
+      ]
+    },
+    "private": {
+      "description": "Whether or not this project can be seen by everyone.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "project_id"
+  ]
+}

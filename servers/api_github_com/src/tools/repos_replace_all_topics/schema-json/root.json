@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "names": {
+      "type": "array",
+      "description": "An array of topics to add to the repository. Pass one or more topics to _replace_ the set of existing topics. Send an empty array (`[]`) to clear all topics from the repository. **Note:** Topic `names` will be saved as lowercase.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "names"
+  ]
+}

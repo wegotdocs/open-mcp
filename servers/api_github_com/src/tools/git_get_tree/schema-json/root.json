@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "tree_sha": {
+      "description": "The SHA1 value or ref (branch or tag) name of the tree.",
+      "type": "string"
+    },
+    "recursive": {
+      "description": "Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in `:tree_sha`. For example, setting `recursive` to any of the following will enable returning objects or subtrees: `0`, `1`, `\"true\"`, and `\"false\"`. Omit this parameter to prevent recursively returning objects or subtrees.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "tree_sha"
+  ]
+}

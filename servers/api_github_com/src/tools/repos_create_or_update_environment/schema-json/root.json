@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "environment_name": {
+      "description": "The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with `%2F`.",
+      "type": "string"
+    },
+    "wait_timer": {
+      "type": "integer",
+      "example": 30,
+      "description": "The amount of time to delay a job after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days)."
+    },
+    "prevent_self_review": {
+      "type": "boolean",
+      "example": false,
+      "description": "Whether or not a user who created the job is prevented from approving their own job."
+    },
+    "reviewers": {
+      "type": "array",
+      "nullable": true,
+      "description": "The people or teams that may review jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of reviewer.",
+            "enum": [
+              "User",
+              "Team"
+            ],
+            "example": "User"
+          },
+          "id": {
+            "type": "integer",
+            "description": "The id of the user or team who can review the deployment",
+            "example": 4532992
+          }
+        }
+      }
+    },
+    "deployment_branch_policy": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `deployment_branch_policy` to the tool, first call the tool `expandSchema` with \"/properties/deployment_branch_policy\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "environment_name"
+  ]
+}

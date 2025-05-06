@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "username": {
+      "description": "The handle for the GitHub user account.",
+      "type": "string"
+    },
+    "async": {
+      "type": "boolean",
+      "description": "When set to `true`, the request will be performed asynchronously. Returns a 202 status code when the job is successfully queued.",
+      "default": false
+    }
+  },
+  "required": [
+    "org",
+    "username"
+  ]
+}
