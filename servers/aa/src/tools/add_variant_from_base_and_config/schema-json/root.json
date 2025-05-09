@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "base_id": {
+      "type": "string",
+      "title": "Base Id"
+    },
+    "new_variant_name": {
+      "type": "string",
+      "title": "New Variant Name"
+    },
+    "new_config_name": {
+      "type": "string",
+      "title": "New Config Name"
+    },
+    "parameters": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `parameters` to the tool, first call the tool `expandSchema` with \"/properties/parameters\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "commit_message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Commit Message"
+    }
+  },
+  "required": [
+    "base_id",
+    "new_variant_name",
+    "new_config_name",
+    "parameters"
+  ]
+}

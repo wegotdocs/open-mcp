@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "testset_id": {
+      "type": "string",
+      "title": "Testset Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "csvdata": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Csvdata"
+    }
+  },
+  "required": [
+    "testset_id",
+    "name",
+    "csvdata"
+  ]
+}

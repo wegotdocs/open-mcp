@@ -1,0 +1,58 @@
+{
+  "additionalProperties": {
+    "properties": {
+      "name": {
+        "type": "string",
+        "title": "Name"
+      },
+      "description": {
+        "type": "string",
+        "title": "Description"
+      },
+      "is_default": {
+        "type": "boolean",
+        "title": "Is Default"
+      },
+      "organization_ref": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
+          },
+          "slug": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slug"
+          }
+        },
+        "type": "object",
+        "title": "Reference"
+      }
+    },
+    "type": "object",
+    "required": [
+      "name",
+      "description",
+      "is_default",
+      "organization_ref"
+    ],
+    "title": "WorkspaceRequest"
+  },
+  "type": "object",
+  "title": "Workspaces",
+  "properties": {}
+}

@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "string",
+      "title": "App Id"
+    },
+    "variant_name": {
+      "type": "string",
+      "title": "Variant Name"
+    },
+    "key": {
+      "type": "string",
+      "title": "Key"
+    },
+    "commit_message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Commit Message"
+    },
+    "base_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Base Name"
+    },
+    "config_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Config Name"
+    }
+  },
+  "required": [
+    "app_id",
+    "variant_name",
+    "key"
+  ]
+}
