@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "string",
+      "title": "App Id"
+    },
+    "variant_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Variant Ids"
+    },
+    "evaluation_type": {
+      "type": "string",
+      "enum": [
+        "human_a_b_testing",
+        "single_model_test"
+      ],
+      "title": "EvaluationType"
+    },
+    "inputs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Inputs"
+    },
+    "testset_id": {
+      "type": "string",
+      "title": "Testset Id"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status"
+    }
+  },
+  "required": [
+    "app_id",
+    "variant_ids",
+    "evaluation_type",
+    "inputs",
+    "testset_id",
+    "status"
+  ]
+}

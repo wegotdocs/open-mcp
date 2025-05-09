@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "app_name": {
+      "type": "string",
+      "title": "App Name"
+    },
+    "template_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Template Key"
+    },
+    "project_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Project Id"
+    },
+    "workspace_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Workspace Id"
+    },
+    "organization_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Organization Id"
+    }
+  },
+  "required": [
+    "app_name"
+  ]
+}

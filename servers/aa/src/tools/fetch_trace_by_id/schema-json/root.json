@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "trace_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "title": "Trace Id"
+    },
+    "format": {
+      "enum": [
+        "opentelemetry",
+        "agenta"
+      ],
+      "type": "string",
+      "default": "openetelemetry",
+      "title": "Format"
+    }
+  },
+  "required": [
+    "trace_id"
+  ]
+}
