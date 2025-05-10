@@ -1,0 +1,47 @@
+{
+  "description": "Immutable. If left unset, a default InvocationConfig will be used.",
+  "properties": {
+    "fullyRefreshIncrementalTablesEnabled": {
+      "description": "Optional. When set to true, any incremental tables will be fully refreshed.",
+      "type": "boolean"
+    },
+    "includedTags": {
+      "description": "Optional. The set of tags to include.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "includedTargets": {
+      "description": "Optional. The set of action identifiers to include.",
+      "items": {
+        "description": "Represents an action identifier. If the action writes output, the output will be written to the referenced database object.",
+        "properties": {
+          "database": {
+            "description": "The action's database (Google Cloud project ID) .",
+            "type": "string"
+          },
+          "name": {
+            "description": "The action's name, within `database` and `schema`.",
+            "type": "string"
+          },
+          "schema": {
+            "description": "The action's schema (BigQuery dataset ID), within `database`.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "transitiveDependenciesIncluded": {
+      "description": "Optional. When set to true, transitive dependencies of included actions will be executed.",
+      "type": "boolean"
+    },
+    "transitiveDependentsIncluded": {
+      "description": "Optional. When set to true, transitive dependents of included actions will be executed.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "parent": {
+      "description": "Required. The repository in which to create the workspace. Must be in the format `projects/*/locations/*/repositories/*`.",
+      "type": "string"
+    },
+    "workspaceId": {
+      "description": "Required. The ID to use for the workspace, which will become the final component of the workspace's resource name.",
+      "type": "string"
+    },
+    "name": {
+      "description": "Output only. The workspace's name.",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "parent"
+  ]
+}

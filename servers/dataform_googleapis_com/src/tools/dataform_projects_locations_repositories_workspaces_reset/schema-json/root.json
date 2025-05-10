@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Required. The workspace's name.",
+      "type": "string"
+    },
+    "clean": {
+      "description": "Optional. If set to true, untracked files will be deleted.",
+      "type": "boolean"
+    },
+    "paths": {
+      "description": "Optional. Full file paths to reset back to their committed state including filename, rooted at workspace root. If left empty, all files will be reset.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

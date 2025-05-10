@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "parent": z.string().describe("Required. The repository in which to create the workflow invocation. Must be in the format `projects/*/locations/*/repositories/*`."),
+  "compilationResult": z.string().describe("Immutable. The name of the compilation result to compile. Must be in the format `projects/*/locations/*/repositories/*/compilationResults/*`.").optional(),
+  "invocationConfig": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `invocationConfig` to the tool, first call the tool `expandSchema` with \"/properties/invocationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Immutable. If left unset, a default InvocationConfig will be used.</property-description>").optional(),
+  "invocationTiming": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `invocationTiming` to the tool, first call the tool `expandSchema` with \"/properties/invocationTiming\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Output only. This workflow invocation's timing details.</property-description>").optional(),
+  "name": z.string().describe("Output only. The workflow invocation's name.").readonly().optional(),
+  "state": z.enum(["STATE_UNSPECIFIED","RUNNING","SUCCEEDED","CANCELLED","FAILED","CANCELING"]).describe("Output only. This workflow invocation's current state.").readonly().optional(),
+  "workflowConfig": z.string().describe("Immutable. The name of the workflow config to invoke. Must be in the format `projects/*/locations/*/repositories/*/workflowConfigs/*`.").optional()
+}
