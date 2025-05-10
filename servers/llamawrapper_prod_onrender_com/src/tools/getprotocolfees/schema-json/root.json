@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "defillamaId": {
+      "description": "The DefiLlamaID of the protocol",
+      "type": "string"
+    },
+    "time_period": {
+      "description": "The time period in which the fees were collected. Can be 'day', 'week', or 'month'. Defaults to 'month'.",
+      "type": "string",
+      "enum": [
+        "day",
+        "week",
+        "month"
+      ]
+    }
+  },
+  "required": [
+    "defillamaId"
+  ]
+}

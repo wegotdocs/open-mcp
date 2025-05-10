@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "num_pools": {
+      "description": "Number of pools to retrieve. Default is 10.",
+      "type": "integer",
+      "minimum": 1,
+      "default": 10
+    },
+    "chain": {
+      "description": "Name of the chain or L2 to filter pools by.",
+      "type": "string",
+      "example": "ethereum"
+    },
+    "stablecoin": {
+      "description": "Flag indicating whether to filter for stablecoin yield pools.",
+      "type": "boolean"
+    },
+    "token": {
+      "description": "Token or token pair to filter pools by.",
+      "type": "string"
+    },
+    "single_sided": {
+      "description": "Flag indicating whether to filter for single-sided yield pools.",
+      "type": "boolean"
+    },
+    "outlook": {
+      "description": "Future outlook for the yield of this pool.",
+      "type": "string",
+      "enum": [
+        "stable",
+        "up",
+        "down"
+      ],
+      "example": "up"
+    }
+  },
+  "required": []
+}

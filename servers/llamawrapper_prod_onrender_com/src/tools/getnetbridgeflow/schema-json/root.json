@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "chain": {
+      "description": "Name of the chain or L2 to retrieve net bridge flow for.",
+      "type": "string",
+      "example": "ethereum"
+    },
+    "time_period": {
+      "description": "Time period for net bridge flow calculation. Can be day, week or month.",
+      "type": "string",
+      "enum": [
+        "day",
+        "week",
+        "month"
+      ],
+      "default": "month"
+    }
+  },
+  "required": [
+    "chain"
+  ]
+}
