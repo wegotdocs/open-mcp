@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "index_id": {
+      "description": "目录 ID",
+      "title": "Index ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "subject_id": {
+      "description": "条目 ID",
+      "title": "Subject ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "sort": {
+      "title": "Sort",
+      "type": "integer",
+      "description": "排序条件，越小越靠前"
+    },
+    "comment": {
+      "title": "Comment",
+      "type": "string"
+    }
+  },
+  "required": [
+    "index_id",
+    "subject_id"
+  ]
+}

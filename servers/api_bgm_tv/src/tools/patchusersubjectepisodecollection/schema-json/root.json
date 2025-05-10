@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "subject_id": {
+      "description": "条目 ID",
+      "title": "Subject ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "episode_id": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "example": [
+        1,
+        2,
+        8
+      ]
+    },
+    "type": {
+      "title": "EpisodeCollectionType",
+      "example": 2,
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer",
+      "description": "- `0`: 未收藏\n- `1`: 想看\n- `2`: 看过\n- `3`: 抛弃",
+      "x-ms-enum": {
+        "name": "EpisodeCollectionType",
+        "modelAsString": false,
+        "values": [
+          "Wish",
+          "Done",
+          "Dropped"
+        ]
+      },
+      "x-enum-varNames": [
+        "Wish",
+        "Done",
+        "Dropped"
+      ]
+    }
+  },
+  "required": [
+    "subject_id",
+    "episode_id",
+    "type"
+  ]
+}

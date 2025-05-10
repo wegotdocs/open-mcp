@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "person_id": {
+      "description": "人物 ID",
+      "title": "Person ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "type": {
+      "description": "枚举值 {small|grid|large|medium}",
+      "title": "Image Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "person_id",
+    "type"
+  ]
+}

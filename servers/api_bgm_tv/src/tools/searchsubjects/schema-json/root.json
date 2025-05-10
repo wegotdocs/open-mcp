@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "分页参数",
+      "type": "integer"
+    },
+    "offset": {
+      "description": "分页参数",
+      "type": "integer"
+    },
+    "keyword": {
+      "type": "string"
+    },
+    "sort": {
+      "enum": [
+        "match",
+        "heat",
+        "rank",
+        "score"
+      ],
+      "default": "match",
+      "type": "string",
+      "example": "rank",
+      "description": "排序规则\n\n- `match` meilisearch 的默认排序，按照匹配程度\n- `heat` 收藏人数\n- `rank` 排名由高到低\n- `score` 评分\n"
+    },
+    "filter": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `filter` to the tool, first call the tool `expandSchema` with \"/properties/filter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>不同条件之间是 `且` 的关系</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "keyword"
+  ]
+}

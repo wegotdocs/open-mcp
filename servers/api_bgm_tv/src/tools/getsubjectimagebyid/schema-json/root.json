@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "subject_id": {
+      "description": "条目 ID",
+      "title": "Subject ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "type": {
+      "description": "枚举值 {small|grid|large|medium|common}",
+      "title": "Image Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "subject_id",
+    "type"
+  ]
+}

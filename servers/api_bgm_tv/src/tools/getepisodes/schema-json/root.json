@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "subject_id": {
+      "description": "条目 ID",
+      "title": "Subject ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "type": {
+      "description": "参照章节的`type`",
+      "allOf": [
+        {
+          "title": "EpType",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "type": "integer",
+          "description": "本篇 = 0\n特别篇 = 1\nOP = 2\nED = 3\n预告/宣传/广告 = 4\nMAD = 5\n其他 = 6",
+          "x-ms-enum": {
+            "name": "EpType",
+            "modelAsString": false,
+            "values": [
+              "MainStory",
+              "SP",
+              "OP",
+              "ED",
+              "PV",
+              "MAD",
+              "Other"
+            ]
+          },
+          "x-enum-varnames": [
+            "MainStory",
+            "SP",
+            "OP",
+            "ED",
+            "PV",
+            "MAD",
+            "Other"
+          ]
+        }
+      ]
+    },
+    "limit": {
+      "description": "分页参数",
+      "title": "Limit",
+      "maximum": 200,
+      "minimum": 1,
+      "type": "integer",
+      "default": 100
+    },
+    "offset": {
+      "description": "分页参数",
+      "title": "Offset",
+      "minimum": 0,
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "required": [
+    "subject_id"
+  ]
+}

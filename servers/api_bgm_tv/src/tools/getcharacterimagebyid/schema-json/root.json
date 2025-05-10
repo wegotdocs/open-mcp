@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "character_id": {
+      "description": "角色 ID",
+      "title": "Character ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "type": {
+      "description": "枚举值 {small|grid|large|medium}",
+      "title": "Image Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "character_id",
+    "type"
+  ]
+}

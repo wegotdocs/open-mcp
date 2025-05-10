@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "description": "设置了用户名之后无法使用 UID。",
+      "type": "string"
+    },
+    "subject_id": {
+      "description": "条目 ID",
+      "title": "Subject ID",
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "username",
+    "subject_id"
+  ]
+}

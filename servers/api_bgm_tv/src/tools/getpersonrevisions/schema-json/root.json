@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "person_id": {
+      "description": "角色 ID",
+      "title": "Person ID",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "limit": {
+      "description": "分页参数",
+      "title": "Limit",
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "default": 30
+    },
+    "offset": {
+      "description": "分页参数",
+      "title": "Offset",
+      "minimum": 0,
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "required": [
+    "person_id"
+  ]
+}
