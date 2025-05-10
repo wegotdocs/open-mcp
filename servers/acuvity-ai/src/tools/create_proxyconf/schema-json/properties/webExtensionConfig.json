@@ -1,0 +1,62 @@
+{
+  "description": "WebExtensionConfig stores the configuration information for the webextension.",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "allowProxySettings": {
+      "description": "Allows the web extension to set the proxy settings of the employee's browser.",
+      "type": "boolean"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the webextension configuration.",
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the webextension configuration.",
+      "example": "default",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "refreshWebExtensionConfigInterval": {
+      "default": 120,
+      "description": "Defines the refresh interval in minutes for the configuration of the deployed\nweb extensions.",
+      "type": "integer"
+    },
+    "reportVisitedURLsInterval": {
+      "default": 60,
+      "description": "Define the interval in minutes between two reports of the visited URLs.",
+      "type": "integer"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

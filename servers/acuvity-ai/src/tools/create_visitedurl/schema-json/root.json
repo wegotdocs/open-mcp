@@ -1,0 +1,85 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "domainHits": {
+      "description": "Domain that has been visited.",
+      "example": [
+        {
+          "domain": "google.com",
+          "hits": 1
+        }
+      ],
+      "items": {
+        "description": "This is a domain hit.",
+        "properties": {
+          "app": {
+            "description": "The name of the application that the domain belongs to.",
+            "example": "MyApp",
+            "type": "string"
+          },
+          "component": {
+            "description": "The component of the application that the domain belongs to.",
+            "example": "frontend",
+            "type": "string"
+          },
+          "domain": {
+            "description": "Domain that has been visited.",
+            "example": "google.com",
+            "type": "string"
+          },
+          "hits": {
+            "description": "The number of hits for this report.",
+            "example": 12,
+            "type": "integer"
+          },
+          "suspicious": {
+            "description": "Suspicious is true if the service might be a Shadow AI.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "domain",
+          "hits"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "origin": {
+      "default": "Proxy",
+      "description": "Origin indicates from where the url has been tracked.",
+      "enum": [
+        "WebExtension",
+        "Proxy"
+      ]
+    },
+    "principal": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `principal` to the tool, first call the tool `expandSchema` with \"/properties/principal\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Describe the principal.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "domainHits",
+    "origin",
+    "principal"
+  ]
+}

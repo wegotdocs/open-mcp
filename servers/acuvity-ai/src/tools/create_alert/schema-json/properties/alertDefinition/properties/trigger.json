@@ -1,0 +1,20 @@
+{
+  "description": "Represents the criteria to trigger an alert notification.",
+  "properties": {
+    "interval": {
+      "default": "24h",
+      "description": "What time window to look for an alert event.",
+      "type": "string"
+    },
+    "occurrences": {
+      "default": 1,
+      "description": "The number of times an alert event is seen to cause a trigger.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "interval",
+    "occurrences"
+  ],
+  "type": "object"
+}

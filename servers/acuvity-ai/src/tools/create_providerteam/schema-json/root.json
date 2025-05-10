@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the provider team.",
+      "type": "string"
+    },
+    "disabled": {
+      "description": "Set the provider team to be disabled.",
+      "type": "boolean"
+    },
+    "excludedSubject": {
+      "description": "A tag expression that identifies user(s) to not include in the team, even if\ntheir claims match the subject.",
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the provider team.",
+      "example": "engineers",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "subject": {
+      "description": "A tag expression that identifies user(s).",
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
