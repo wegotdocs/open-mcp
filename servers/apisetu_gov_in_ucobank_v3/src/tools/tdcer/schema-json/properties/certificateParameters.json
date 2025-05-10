@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "CustID": {
+      "description": "Account Number",
+      "example": "Enter 14 Digit A/c No - TDS Information will be generated for all A/cs associated with Customer ID.",
+      "type": "string"
+    },
+    "DOB": {
+      "description": "Date of birth in DD-MM-YYYY format",
+      "example": "31-12-1980",
+      "type": "string"
+    },
+    "finYr": {
+      "description": "Financial Year",
+      "example": "2018-2019",
+      "type": "string"
+    }
+  },
+  "required": [
+    "CustID",
+    "finYr",
+    "DOB"
+  ],
+  "type": "object"
+}
