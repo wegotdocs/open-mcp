@@ -1,0 +1,552 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "serviceId": {
+      "description": "ID of the service to create the ClickPipe for.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "description": "Name of the ClickPipe.",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the ClickPipe.",
+      "type": "string"
+    },
+    "source": {
+      "properties": {
+        "kafka": {
+          "nullable": true,
+          "anyOf": [
+            {
+              "properties": {
+                "type": {
+                  "description": "Type of the Kafka source.",
+                  "type": "string",
+                  "enum": [
+                    "kafka",
+                    "redpanda",
+                    "msk",
+                    "confluent",
+                    "warpstream",
+                    "azureeventhub",
+                    "dokafka"
+                  ]
+                },
+                "format": {
+                  "description": "Format of the Kafka source.",
+                  "type": "string",
+                  "enum": [
+                    "JSONEachRow",
+                    "Avro",
+                    "AvroConfluent"
+                  ]
+                },
+                "brokers": {
+                  "description": "Brokers of the Kafka source.",
+                  "type": "string"
+                },
+                "topics": {
+                  "description": "Topics of the Kafka source.",
+                  "type": "string"
+                },
+                "consumerGroup": {
+                  "description": "Consumer group of the Kafka source. If not provided \"clickpipes-<<ID>>\" will be used.",
+                  "nullable": true,
+                  "type": "string",
+                  "example": "my-clickpipe-consumer-group"
+                },
+                "authentication": {
+                  "description": "Authentication method of the Kafka source. Supported authentication methods: kafka: PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, MUTUAL_TLS, msk: SCRAM-SHA-512, IAM_ROLE, IAM_USER, MUTUAL_TLS, confluent: PLAIN, MUTUAL_TLS, warpstream: PLAIN, azureeventhub: PLAIN, redpanda: SCRAM-SHA-256, SCRAM-SHA-512, MUTUAL_TLS, dokafka: SCRAM-SHA-256, MUTUAL_TLS",
+                  "type": "string",
+                  "enum": [
+                    "PLAIN",
+                    "SCRAM-SHA-256",
+                    "SCRAM-SHA-512",
+                    "IAM_ROLE",
+                    "IAM_USER",
+                    "MUTUAL_TLS"
+                  ]
+                },
+                "iamRole": {
+                  "description": "IAM role for the Kafka source. Use with IAM role authentication. Read more in ClickPipes documentation: https://clickhouse.com/docs/en/integrations/clickpipes/kafka#iam",
+                  "nullable": true,
+                  "type": "string",
+                  "example": "arn:aws:iam::123456789012:role/MyRole"
+                },
+                "offset": {
+                  "nullable": true,
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "strategy": {
+                          "description": "Offset strategy.",
+                          "type": "string",
+                          "enum": [
+                            "from_beginning",
+                            "from_latest",
+                            "from_timestamp"
+                          ]
+                        },
+                        "timestamp": {
+                          "description": "A minute precision UTC timestamp to start from. Required for \"from_timestamp\" strategy.",
+                          "nullable": true,
+                          "type": "string",
+                          "example": "2021-01-01T00:00"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "schemaRegistry": {
+                  "nullable": true,
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "url": {
+                          "description": "Schema URL. HTTPS required.",
+                          "type": "string",
+                          "example": "https://psrc-aa00.us-east-2.aws.confluent.cloud/schemas/ids/100004"
+                        },
+                        "authentication": {
+                          "description": "Authentication type of the schema registry.",
+                          "type": "string",
+                          "enum": [
+                            "PLAIN"
+                          ]
+                        },
+                        "credentials": {
+                          "properties": {
+                            "username": {
+                              "description": "Username for the schema registry.",
+                              "type": "string"
+                            },
+                            "password": {
+                              "description": "Password for the schema registry.",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "caCertificate": {
+                  "description": "PEM encoded CA certificates to validate the broker's certificate.",
+                  "nullable": true,
+                  "type": "string"
+                },
+                "reversePrivateEndpointIds": {
+                  "type": "array",
+                  "description": "Reverse private endpoint UUIDs used for a secure private connection to the Kafka source.",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "credentials": {
+                  "description": "Credentials for Kafka source. Chose one of that is supported by the authentication method.",
+                  "nullable": true,
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "username": {
+                          "description": "Username.",
+                          "type": "string"
+                        },
+                        "password": {
+                          "description": "Password.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "objectStorage": {
+          "nullable": true,
+          "anyOf": [
+            {
+              "properties": {
+                "type": {
+                  "description": "Type of the ObjectStorage source.",
+                  "type": "string",
+                  "enum": [
+                    "s3",
+                    "gcs",
+                    "dospaces"
+                  ]
+                },
+                "format": {
+                  "description": "Format of the files.",
+                  "type": "string",
+                  "enum": [
+                    "JSONEachRow",
+                    "CSV",
+                    "CSVWithNames",
+                    "Parquet"
+                  ]
+                },
+                "url": {
+                  "description": "Provide a path to the file(s) you want to ingest. You can specify multiple files using bash-like wildcards. For more information, see the documentation on using wildcards in path: https://clickhouse.com/docs/en/integrations/clickpipes/object-storage#limitations",
+                  "type": "string",
+                  "example": "https://datasets-documentation.s3.eu-west-3.amazonaws.com/http/**.ndjson.gz"
+                },
+                "delimiter": {
+                  "description": "Delimiter used in the files.",
+                  "nullable": true,
+                  "type": "string",
+                  "example": ","
+                },
+                "compression": {
+                  "description": "Compression algorithm used for the files.",
+                  "nullable": true,
+                  "type": "string",
+                  "enum": [
+                    "gzip",
+                    "gz",
+                    "brotli",
+                    "br",
+                    "xz",
+                    "LZMA",
+                    "zstd",
+                    "auto"
+                  ],
+                  "example": "auto"
+                },
+                "isContinuous": {
+                  "description": "If set to true, the pipe will continuously read new files from the source. If set to false, the pipe will read the files only once. New files have to be uploaded lexically order.",
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "authentication": {
+                  "description": "Authentication method. If not provided, no authentication is used. It can be used to access public buckets.",
+                  "nullable": true,
+                  "type": "string",
+                  "enum": [
+                    "IAM_ROLE",
+                    "IAM_USER"
+                  ]
+                },
+                "iamRole": {
+                  "description": "IAM role to be used with IAM role authentication. Read more in ClickPipes documentation: https://clickhouse.com/docs/en/integrations/clickpipes/object-storage#authentication",
+                  "nullable": true,
+                  "type": "string",
+                  "example": "arn:aws:iam::123456789012:role/MyRole"
+                },
+                "accessKey": {
+                  "nullable": true,
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "accessKeyId": {
+                          "description": "IAM access key ID.",
+                          "type": "string"
+                        },
+                        "secretKey": {
+                          "description": "IAM secret key.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "kinesis": {
+          "nullable": true,
+          "anyOf": [
+            {
+              "properties": {
+                "format": {
+                  "description": "Format of the Kinesis stream.",
+                  "type": "string",
+                  "enum": [
+                    "JSONEachRow",
+                    "Avro",
+                    "AvroConfluent"
+                  ]
+                },
+                "streamName": {
+                  "description": "Name of the Kinesis stream.",
+                  "type": "string",
+                  "example": "my-stream"
+                },
+                "region": {
+                  "description": "AWS region of the Kinesis stream.",
+                  "type": "string",
+                  "example": "us-east-1"
+                },
+                "useEnhancedFanOut": {
+                  "description": "Use enhanced fan-out for the Kinesis stream.",
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "iteratorType": {
+                  "description": "Type of iterator to use when reading from the Kinesis stream. If AT_TIMESTAMP is used, the timestamp field must be provided.",
+                  "type": "string",
+                  "enum": [
+                    "TRIM_HORIZON",
+                    "LATEST",
+                    "AT_TIMESTAMP"
+                  ]
+                },
+                "timestamp": {
+                  "description": "UNIX timestamp to start reading from the Kinesis stream. Required if iteratorType is AT_TIMESTAMP.",
+                  "nullable": true,
+                  "type": "integer",
+                  "example": 1615766400
+                },
+                "authentication": {
+                  "description": "Authentication method to use with the Kinesis stream.",
+                  "type": "string",
+                  "enum": [
+                    "IAM_ROLE",
+                    "IAM_USER"
+                  ]
+                },
+                "iamRole": {
+                  "description": "IAM role to use for authentication. Required if IAM_ROLE is used.",
+                  "nullable": true,
+                  "type": "string",
+                  "example": "arn:aws:iam::123456789012:role/MyRole"
+                },
+                "accessKey": {
+                  "nullable": true,
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "accessKeyId": {
+                          "description": "IAM access key ID.",
+                          "type": "string"
+                        },
+                        "secretKey": {
+                          "description": "IAM secret key.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "postgres": {
+          "properties": {
+            "host": {
+              "description": "Host of the Postgres instance to connect to.",
+              "type": "string"
+            },
+            "port": {
+              "description": "Port of the Postgres instance to connect to.",
+              "type": "number"
+            },
+            "database": {
+              "description": "Database of the Postgres instance to connect to.",
+              "type": "string"
+            },
+            "settings": {
+              "properties": {
+                "syncIntervalSeconds": {
+                  "description": "Interval in seconds to sync data from Postgres.",
+                  "type": "number"
+                },
+                "pullBatchSize": {
+                  "description": "Number of rows to pull in each batch.",
+                  "type": "number"
+                },
+                "publicationName": {
+                  "description": "Publication name to use for replication.",
+                  "type": "string"
+                },
+                "replicationMode": {
+                  "description": "Replication mode to use for the pipe.",
+                  "type": "string",
+                  "enum": [
+                    "cdc",
+                    "snapshot",
+                    "cdc_only"
+                  ]
+                },
+                "replicationSlotName": {
+                  "description": "Replication slot name to use for replication.",
+                  "type": "string"
+                },
+                "allowNullableColumns": {
+                  "description": "Allow nullable columns in the destination table.",
+                  "type": "boolean"
+                },
+                "initialLoadParallelism": {
+                  "description": "Number of parallel tables to sync during initial load.",
+                  "type": "number"
+                },
+                "snapshotNumRowsPerPartition": {
+                  "description": "Number of rows to snapshot per partition.",
+                  "type": "number"
+                },
+                "snapshotNumberOfParallelTables": {
+                  "description": "Number of parallel tables to snapshot.",
+                  "type": "number"
+                }
+              }
+            },
+            "tableMappings": {
+              "type": "array",
+              "description": "Table mappings for Postgres pipe.",
+              "items": {
+                "properties": {
+                  "sourceSchemaName": {
+                    "description": "Source schema name.",
+                    "type": "string"
+                  },
+                  "sourceTable": {
+                    "description": "Source table name.",
+                    "type": "string"
+                  },
+                  "targetTable": {
+                    "description": "Target table name.",
+                    "type": "string"
+                  },
+                  "excludedColumns": {
+                    "type": "array",
+                    "description": "Columns to exclude from the target table.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "useCustomSortingKey": {
+                    "description": "Whether to use a custom sorting key for the target table.",
+                    "type": "boolean"
+                  },
+                  "sortingKeys": {
+                    "type": "array",
+                    "description": "Ordered list of columns to use as sorting key for the target table.",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "credentials": {
+              "properties": {
+                "username": {
+                  "description": "Username.",
+                  "type": "string"
+                },
+                "password": {
+                  "description": "Password.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "validateSamples": {
+          "description": "Validate data samples received from data source. It will validate the connection and data availability and correctness. If not enabled, only connection will be validated. This has no effect on Postgres pipes, they always only validate the connection and table definitions. This is experimental and can be removed in the future.",
+          "type": "boolean"
+        }
+      }
+    },
+    "destination": {
+      "properties": {
+        "database": {
+          "description": "Destination database.",
+          "type": "string"
+        },
+        "table": {
+          "description": "Destination table. Required field for all pipe types except Postgres.",
+          "type": "string"
+        },
+        "managedTable": {
+          "description": "Is the table managed by ClickPipes? Required field for all pipe types except Postgres.",
+          "type": "boolean"
+        },
+        "tableDefinition": {
+          "properties": {
+            "engine": {
+              "properties": {
+                "type": {
+                  "description": "Engine type of the destination table. Currently MergeTree is the only supported engine.",
+                  "type": "string",
+                  "enum": [
+                    "MergeTree"
+                  ]
+                }
+              }
+            },
+            "sortingKey": {
+              "type": "array",
+              "description": "Sorting key of the destination table. List of columns.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "partitionBy": {
+              "description": "Partition key SQL expression.",
+              "type": "string"
+            },
+            "primaryKey": {
+              "description": "Primary key of SQL expression.",
+              "type": "string"
+            }
+          }
+        },
+        "columns": {
+          "type": "array",
+          "description": "Columns of the destination table. Required field for all pipe types except Postgres.",
+          "items": {
+            "properties": {
+              "name": {
+                "description": "Name of the column.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of the column.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "roles": {
+          "type": "array",
+          "description": "ClickPipe will create a ClickHouse user with these roles. Add your custom roles here if required.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "fieldMappings": {
+      "type": "array",
+      "description": "Field mappings of the ClickPipe.",
+      "items": {
+        "properties": {
+          "sourceField": {
+            "description": "Source field name.",
+            "type": "string"
+          },
+          "destinationField": {
+            "description": "Destination field name.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "organizationId",
+    "serviceId"
+  ]
+}

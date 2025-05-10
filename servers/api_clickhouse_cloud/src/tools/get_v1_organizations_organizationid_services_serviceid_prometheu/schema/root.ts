@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "organizationId": z.string().uuid().describe("ID of the organization that owns the service."),
+  "serviceId": z.string().uuid().describe("ID of the requested service."),
+  "filtered_metrics": z.string().describe("Return a filtered list of Prometheus metrics.").optional()
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization to invite a user to.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "email": {
+      "description": "Email of the invited user. Only a user with this email can join using the invitation. The email is stored in a lowercase form.",
+      "type": "string",
+      "format": "email"
+    },
+    "role": {
+      "description": "Role of the member in the organization.",
+      "type": "string",
+      "enum": [
+        "admin",
+        "developer"
+      ]
+    }
+  },
+  "required": [
+    "organizationId"
+  ]
+}

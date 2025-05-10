@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the requested organization.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "Cloud provider identifier": {
+      "description": "Cloud provider identifier. One of aws, gcp, or azure.",
+      "type": "string"
+    },
+    "Cloud provider region": {
+      "description": "Region identifier within specific cloud providers.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "organizationId",
+    "Cloud provider identifier",
+    "Cloud provider region"
+  ]
+}

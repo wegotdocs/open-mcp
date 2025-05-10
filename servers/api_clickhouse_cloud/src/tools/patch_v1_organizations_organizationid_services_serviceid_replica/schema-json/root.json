@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "serviceId": {
+      "description": "ID of the service to update scaling parameters.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "minReplicaMemoryGb": {
+      "description": "Minimum auto-scaling memory in Gb for a single replica. Available only for 'production' services. Must be a multiple of 4 and greater than or equal to 8.",
+      "type": "number",
+      "minimum": 8,
+      "maximum": 236,
+      "multipleOf": 4,
+      "example": 16
+    },
+    "maxReplicaMemoryGb": {
+      "description": "Maximum auto-scaling memory in Gb for a single replica . Available only for 'production' services. Must be a multiple of 4 and lower than or equal to 120 for non paid services or 236 for paid services.",
+      "type": "number",
+      "minimum": 8,
+      "maximum": 236,
+      "multipleOf": 4,
+      "example": 120
+    },
+    "numReplicas": {
+      "description": "Number of replicas for the service. The number of replicas must be between 2 and 20 for the first service in a warehouse. Services that are created in an existing warehouse can have a number of replicas as low as 1. Further restrictions may apply based on your organization's tier. It defaults to 1 for the BASIC tier and 3 for the SCALE and ENTERPRISE tiers.",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 20,
+      "example": 3
+    },
+    "idleScaling": {
+      "description": "When set to true the service is allowed to scale down to zero when idle. True by default.",
+      "type": "boolean"
+    },
+    "idleTimeoutMinutes": {
+      "description": "Set minimum idling timeout (in minutes). Must be >= 5 minutes.",
+      "type": "number"
+    }
+  },
+  "required": [
+    "organizationId",
+    "serviceId"
+  ]
+}

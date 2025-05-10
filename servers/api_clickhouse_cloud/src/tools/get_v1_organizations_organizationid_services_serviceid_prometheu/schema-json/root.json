@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "serviceId": {
+      "description": "ID of the requested service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "filtered_metrics": {
+      "description": "Return a filtered list of Prometheus metrics.",
+      "type": "string",
+      "format": "boolean"
+    }
+  },
+  "required": [
+    "organizationId",
+    "serviceId"
+  ]
+}

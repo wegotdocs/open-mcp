@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that owns the service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "serviceId": {
+      "description": "ID of the service to update state.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "command": {
+      "description": "Command to change the state: 'start', 'stop'.",
+      "type": "string",
+      "enum": [
+        "start",
+        "stop"
+      ]
+    }
+  },
+  "required": [
+    "organizationId",
+    "serviceId"
+  ]
+}

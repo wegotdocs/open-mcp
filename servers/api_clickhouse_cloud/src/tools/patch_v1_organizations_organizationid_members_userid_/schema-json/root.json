@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization the member is part of.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "userId": {
+      "description": "ID of the user to patch",
+      "type": "string",
+      "format": "uuid"
+    },
+    "role": {
+      "description": "Role of the member in the organization.",
+      "type": "string",
+      "enum": [
+        "admin",
+        "developer"
+      ]
+    }
+  },
+  "required": [
+    "organizationId",
+    "userId"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that has the invitation.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "invitationId": {
+      "description": "ID of the requested organization.",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "organizationId",
+    "invitationId"
+  ]
+}

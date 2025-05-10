@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the requested organization.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "serviceId": {
+      "description": "ID of the requested service.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "roles": {
+      "type": "array",
+      "description": "The roles",
+      "items": {
+        "type": "string",
+        "enum": [
+          "sql_console_read_only",
+          "sql_console_admin"
+        ]
+      }
+    },
+    "openApiKeys": {
+      "type": "array",
+      "description": "The version of the service query endpoint",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowedOrigins": {
+      "description": "The allowed origins as comma separated list of domains",
+      "type": "string"
+    }
+  },
+  "required": [
+    "organizationId",
+    "serviceId"
+  ]
+}

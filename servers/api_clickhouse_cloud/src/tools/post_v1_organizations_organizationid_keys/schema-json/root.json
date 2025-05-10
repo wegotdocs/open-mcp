@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization that will own the key.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "description": "Name of the key.",
+      "type": "string"
+    },
+    "expireAt": {
+      "description": "Timestamp the key expires. If not present or is empty the key never expires. ISO-8601.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "state": {
+      "description": "Initial state of the key: 'enabled', 'disabled'. If not provided the new key will be 'enabled'.",
+      "type": "string",
+      "enum": [
+        "enabled",
+        "disabled"
+      ]
+    },
+    "hashData": {
+      "properties": {
+        "keyIdHash": {
+          "description": "Hash of the key ID. ",
+          "type": "string"
+        },
+        "keyIdSuffix": {
+          "description": "Last 4 digits of the key ID. Algorithm: echo -n \"yourpassword\" | sha256sum | tr -d '-' | xxd -r -p | base64",
+          "type": "string"
+        },
+        "keySecretHash": {
+          "description": "Hash of the key secret. Algorithm: echo -n \"yourpassword\" | sha256sum | tr -d '-' | xxd -r -p | base64",
+          "type": "string"
+        }
+      }
+    },
+    "roles": {
+      "type": "array",
+      "description": "List of roles assigned to the key. Contains at least 1 element.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "admin",
+          "developer",
+          "query_endpoints"
+        ]
+      }
+    },
+    "ipAccessList": {
+      "type": "array",
+      "description": "List of IP addresses allowed to access the API using this key",
+      "items": {
+        "properties": {
+          "source": {
+            "description": "IP or CIDR",
+            "type": "string"
+          },
+          "description": {
+            "description": "Optional description of IPv4 address or IPv4 CIDR to allow access from",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "organizationId"
+  ]
+}

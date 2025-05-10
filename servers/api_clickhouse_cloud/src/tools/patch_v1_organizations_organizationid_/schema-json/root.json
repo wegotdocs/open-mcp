@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "ID of the organization to update.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "description": "Name of the organization.",
+      "type": "string"
+    },
+    "privateEndpoints": {
+      "properties": {
+        "remove": {
+          "type": "array",
+          "description": "Elements to remove. Executed before \"add\" part is processed.",
+          "items": {
+            "properties": {
+              "id": {
+                "description": "Private endpoint identifier",
+                "type": "string"
+              },
+              "description": {
+                "description": "Optional description of private endpoint",
+                "type": "string"
+              },
+              "cloudProvider": {
+                "description": "Cloud provider in which the private endpoint is lcoated",
+                "type": "string",
+                "enum": [
+                  "gcp",
+                  "aws",
+                  "azure"
+                ]
+              },
+              "region": {
+                "description": "Region in which the private endpoint is located",
+                "type": "string",
+                "enum": [
+                  "ap-south-1",
+                  "ap-southeast-1",
+                  "eu-central-1",
+                  "eu-west-1",
+                  "eu-west-2",
+                  "us-east-1",
+                  "us-east-2",
+                  "us-west-2",
+                  "ap-southeast-2",
+                  "ap-northeast-1",
+                  "me-central-1",
+                  "us-east1",
+                  "us-central1",
+                  "europe-west4",
+                  "asia-southeast1",
+                  "eastus",
+                  "eastus2",
+                  "westus3",
+                  "germanywestcentral"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "organizationId"
+  ]
+}
