@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "raw": {
+      "description": "Indicates that the raw request result should be returned in addition to the mapped result (default value is false)",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "proxy": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `proxy` to the tool, first call the tool `expandSchema` with \"/properties/proxy\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key</property-description>",
+      "additionalProperties": true
+    },
+    "fields": {
+      "description": "The comma separated list of fields that will be returned in the response (if empty, all fields are returned)",
+      "nullable": true,
+      "example": "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+      "type": "string"
+    },
+    "expand": {
+      "description": "The comma separated list of fields that will be expanded in the response",
+      "nullable": true,
+      "example": "groups",
+      "type": "string"
+    },
+    "x-account-id": {
+      "description": "The account identifier",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "x-account-id"
+  ]
+}

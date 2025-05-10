@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "subResourceId": {
+      "type": "string"
+    },
+    "document": {
+      "type": "string"
+    },
+    "issued_by": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string",
+      "example": "1234567890",
+      "nullable": true
+    },
+    "sub_type": {
+      "type": "string",
+      "example": "H1B",
+      "nullable": true
+    },
+    "type": {
+      "type": "string"
+    },
+    "valid_from": {
+      "type": "string",
+      "example": "2021-01-01T00:00.000Z",
+      "format": "date-time",
+      "nullable": true
+    },
+    "valid_to": {
+      "type": "string",
+      "example": "2021-01-01T00:00.000Z",
+      "format": "date-time",
+      "nullable": true
+    },
+    "passthrough": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `passthrough` to the tool, first call the tool `expandSchema` with \"/properties/passthrough\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Value to pass through to the provider</property-description>",
+      "additionalProperties": true
+    },
+    "x-account-id": {
+      "description": "The account identifier",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "subResourceId",
+    "x-account-id"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "description": "HRIS Time-Off Policies filters",
+  "properties": {
+    "updated_after": {
+      "description": "Use a string with a date to only select results updated after that given date",
+      "example": "2020-01-01T00:00:00.000Z",
+      "type": "string",
+      "nullable": true,
+      "additionalProperties": false
+    },
+    "type": {
+      "description": "Filter to select time-off policies by type",
+      "enum": [
+        "sick",
+        "unmapped_value",
+        "vacation",
+        "long_term_disability",
+        "short_term_disability",
+        "absent",
+        "comp_time",
+        "training",
+        "annual_leave",
+        "leave_of_absence",
+        "break",
+        "child_care_leave",
+        "maternity_leave",
+        "jury_duty",
+        "bereavement_leave",
+        "sabbatical",
+        "accident",
+        null
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "nullable": true,
+  "type": "object"
+}

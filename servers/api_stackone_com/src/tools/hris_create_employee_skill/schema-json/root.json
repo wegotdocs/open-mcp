@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "string",
+      "description": "The ID associated with this skill",
+      "example": "16873-IT345",
+      "nullable": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name associated with this skill",
+      "example": "Information-Technology",
+      "nullable": true
+    },
+    "maximum_proficiency": {
+      "type": "string"
+    },
+    "minimum_proficiency": {
+      "type": "string"
+    },
+    "x-account-id": {
+      "description": "The account identifier",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "x-account-id"
+  ]
+}
