@@ -1,0 +1,507 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "alerts": {
+      "description": "List of alerts that got raised during the policy resolution.",
+      "items": {
+        "description": "Represents an alert event raised by a policy.",
+        "properties": {
+          "alertDefinition": {
+            "description": "The name of the alert definition that triggered the alert event.",
+            "example": "warning-notification",
+            "type": "string"
+          },
+          "alertDefinitionNamespace": {
+            "description": "The namespace of the alert definition.",
+            "type": "string"
+          },
+          "principal": {
+            "description": "Describe the principal.",
+            "properties": {
+              "IP": {
+                "description": "The source IP address of the request.",
+                "example": "192.0.2.42",
+                "type": "string"
+              },
+              "app": {
+                "description": "Describes the principal information of an application.",
+                "properties": {
+                  "component": {
+                    "description": "The component of the application request.",
+                    "example": "frontend",
+                    "type": "string"
+                  },
+                  "labels": {
+                    "description": "The list of labels attached to an application request.",
+                    "example": [
+                      "country=us",
+                      "another-label"
+                    ],
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "description": "The name of the application.",
+                    "example": "MyApp",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "authType": {
+                "description": "The type of authentication.",
+                "enum": [
+                  "Certificate",
+                  "UserToken",
+                  "AppToken",
+                  "Hostname",
+                  "Token",
+                  "ComponentToken",
+                  "External"
+                ]
+              },
+              "claims": {
+                "description": "List of claims extracted from the user query.",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "team": {
+                "description": "The team that was used to authorize the request.",
+                "example": "admins",
+                "type": "string"
+              },
+              "tokenName": {
+                "description": "The name of the token, if any.",
+                "example": "my-user-token",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of principal.",
+                "enum": [
+                  "User",
+                  "App",
+                  "External"
+                ],
+                "example": [
+                  "User"
+                ]
+              },
+              "user": {
+                "description": "Describes the principal information of a user.",
+                "properties": {
+                  "name": {
+                    "description": "Identification bit that will be used to identify the origin of the request.",
+                    "example": "user@company.com",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          },
+          "provider": {
+            "description": "The provider used that the alert came from.",
+            "type": "string"
+          },
+          "timestamp": {
+            "description": "When the alert event was raised.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "alertDefinition",
+          "principal"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "annotations": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `annotations` to the tool, first call the tool `expandSchema` with \"/properties/annotations\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Annotations attached to the log.</property-description>",
+      "additionalProperties": true
+    },
+    "client": {
+      "description": "The client used to send the request.",
+      "example": "curl",
+      "type": "string"
+    },
+    "clientVersion": {
+      "description": "The version of the client used to send the request.",
+      "example": "7.64.1",
+      "type": "string"
+    },
+    "decision": {
+      "description": "Tell what was the decision about the data.",
+      "enum": [
+        "Deny",
+        "Allow",
+        "Ask",
+        "Bypassed",
+        "ForbiddenUser",
+        "Skipped"
+      ]
+    },
+    "destination": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `destination` to the tool, first call the tool `expandSchema` with \"/properties/destination\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Represents the destination that this request was made to.</property-description>",
+      "additionalProperties": true
+    },
+    "extractions": {
+      "description": "The extractions to log.",
+      "items": {
+        "description": "Represents the extracted information to log.",
+        "properties": {
+          "PIIs": {
+            "description": "The PIIs found during classification.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector groups 'PIIs' accross all analyzers.\n\nExample of PIIs detected: aba_routing_number, address, bank_account,\nbitcoin_wallet, credit_card, driver_license, email_address, itin_number,\nlocation, medical_license, money_amount, passport_number, person, phone_number,\nssn.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": {
+              "ssn": 0.8
+            },
+            "items": {
+              "format": "float",
+              "type": "number"
+            },
+            "type": "object"
+          },
+          "annotations": {
+            "description": "Annotations attached to the extraction.",
+            "items": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "categories": {
+            "description": "The categories are remapping of the modalities in a more human friendly way.",
+            "items": {
+              "description": "Represents the modality of a some data.",
+              "properties": {
+                "group": {
+                  "description": "The group of data.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector groups in the 'Modality' analyzer group.\n\nExample of group: application, archive, audio, code, document, executable, font,\nimage, text, unknown, video.",
+                  "example": "image",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of data.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector names in the 'Modality' analyzer group.\n\nExample of type: 3dsm, 3gp, 3mf, ace, ada, ai, apk, applebplist, appleplist, ar,\narc, arj, asc, asf, asm, asp, au, autohotkey, autoit, avi, avif, awk, ax, batch,\nbazel, bcad, bib, bmp, bpg, brainfuck, brf, bzip, bzip3, c, cab, cat, cdf, chm,\nclojure, cmake, cobol, coff, coffeescript, com, cpl, cpp, crt, crx, cs, csproj,\ncss, csv, dart, deb, dex, dey, dicom, diff, django, dll, dm, dmg, dmigd,\ndmscript, doc, dockerfile, docx, dotx, dwg, dxf, dylib, elf, elixir, emf, eml,\nepub, erb, erlang, exe, flac, flv, fortran, fpx, gemfile, gemspec, gif,\ngitattributes, gitmodules, gleam, go, gradle, groovy, gzip, h, h5, handlebars,\nhaskell, hcl, heif, hlp, hpp, hta, htaccess, html, hwp, icns, ico, ics,\nignorefile, ini, internetshortcut, ipynb, iso, jar, java, javabytecode,\njavascript, jinja, jng, jnlp, jp2, jpeg, json, jsonl, jsx, julia, jxl, ko,\nkotlin, latex, lha, license, lisp, lnk, lock, lua, lz, lz4, m3u, m4, macho,\nmakefile, markdown, matlab, mht, midi, mkv, mp3, mp4, mpegts, mscompress, msi,\nmsix, mui, mum, npy, npz, objectivec, ocaml, ocx, odex, odin, odp, ods, odt,\nogg, one, onnx, otf, outlook, pascal, pcap, pdb, pdf, pebin, pem, perl, php,\npickle, png, po, postscript, powershell, ppt, pptx, prolog, proteindb, proto,\npsd, python, pythonbytecode, pytorch, qoi, qt, r, randomascii, rar, rdf, rlib,\nrll, rpm, rst, rtf, ruby, rust, scala, scheme, scr, scss, sevenzip, sgml, shell,\nsmali, snap, so, solidity, sql, sqlite, squashfs, srt, stlbinary, stltext, sum,\nsvg, swf, swift, symlinktext, sys, tar, tcl, textproto, tga, thumbsdb, tiff,\ntoml, torrent, tsv, tsx, ttf, twig, txt, txtascii, txtutf16, txtutf8,\ntypescript, vba, vbe, vcxproj, verilog, vhdl, visio, vtt, vue, wad, wasm, wav,\nwebm, webp, webtemplate, winregistry, wma, wmf, wmv, woff, woff2, xar, xcf, xls,\nxlsb, xlsx, xml, xpi, xz, yaml, yara, zig, zip, zlibstream, zst.",
+                  "example": "png",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "group",
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "confidentiality": {
+            "description": "The level of general confidentiality of the input.",
+            "example": 0.9,
+            "type": "number"
+          },
+          "customDataSets": {
+            "description": "The custom data sets found during classification.",
+            "example": {
+              "cds": {
+                "ct1": 1,
+                "ct2": 2
+              }
+            },
+            "items": {
+              "items": {
+                "type": "float"
+              },
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "customDataTypes": {
+            "description": "The custom data types found during classification.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": {
+              "my_cdt": 1
+            },
+            "items": {
+              "format": "float",
+              "type": "number"
+            },
+            "type": "object"
+          },
+          "data": {
+            "description": "The data extracted.",
+            "type": "string"
+          },
+          "detections": {
+            "description": "The textual detections found while applying policies.",
+            "items": {
+              "description": "Represents a textual detection done by policy.",
+              "properties": {
+                "end": {
+                  "description": "The end position of the detection in the original data.",
+                  "type": "integer"
+                },
+                "key": {
+                  "description": "The key that is used in the name's place, If empty, a sequence of X's are used.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the detection.",
+                  "type": "string"
+                },
+                "redacted": {
+                  "description": "If true this detection has been redacted.",
+                  "type": "boolean"
+                },
+                "redactedEnd": {
+                  "description": "The end position of the detection in the redacted data.",
+                  "type": "integer"
+                },
+                "redactedStart": {
+                  "description": "The start position of the detection in the redacted data.",
+                  "type": "integer"
+                },
+                "score": {
+                  "description": "The confidence score of the detection.",
+                  "type": "number"
+                },
+                "start": {
+                  "description": "The start position of the detection in the original data.",
+                  "type": "integer"
+                },
+                "type": {
+                  "description": "The type of detection.",
+                  "enum": [
+                    "Keyword",
+                    "PII",
+                    "Secret",
+                    "CDT"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "exploits": {
+            "description": "The various exploits attempts.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector groups 'Exploits' accross all analyzers.\n\nExample of exploits detected: jailbreak, prompt_injection, malicious_url.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": {
+              "prompt_injection": 0.8
+            },
+            "items": {
+              "format": "float",
+              "type": "number"
+            },
+            "type": "object"
+          },
+          "hash": {
+            "description": "The hash of the extraction.",
+            "type": "string"
+          },
+          "intent": {
+            "description": "The estimated intent embodied into the text.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector groups 'Intent' accross all analyzers.\n\nExample of intent detected: explain, outline, summarize, write.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": {
+              "write": 0.8
+            },
+            "items": {
+              "format": "float",
+              "type": "number"
+            },
+            "type": "object"
+          },
+          "internal": {
+            "description": "If true, this extraction is for internal use only. This can be used by agentic\nsystems to mark an extraction as internal only as opposed to user facing.",
+            "type": "boolean"
+          },
+          "isFile": {
+            "description": "If true, the data of the extraction is a file.",
+            "type": "boolean"
+          },
+          "isStored": {
+            "description": "If true, indicates that the file has been stored.",
+            "type": "boolean"
+          },
+          "keywords": {
+            "description": "The keywords found during classification.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": {
+              "my_keywork": 0.8
+            },
+            "items": {
+              "format": "float",
+              "type": "number"
+            },
+            "type": "object"
+          },
+          "label": {
+            "description": "A means of distinguishing what was extracted, such as prompt, input file or\ncode.",
+            "type": "string"
+          },
+          "languages": {
+            "description": "The language of the classification.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector groups 'Languages' accross all analyzers.\n\nExample of languages: chinese, english, french, german, gibberish, japanese,\nrussian, spanish.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": {
+              "english": 0.8
+            },
+            "items": {
+              "format": "float",
+              "type": "number"
+            },
+            "type": "object"
+          },
+          "luaID": {
+            "description": "An internal field for lua code. it is ignored by the API.",
+            "type": "string"
+          },
+          "malcontents": {
+            "description": "The various malcontents attempts.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector groups 'Malcontents' accross all analyzers.\n\nExample of malcontents: biased, harmful, toxic.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": {
+              "toxic": 0.8
+            },
+            "items": {
+              "format": "float",
+              "type": "number"
+            },
+            "type": "object"
+          },
+          "modalities": {
+            "description": "The modalities of data detected in the data.",
+            "items": {
+              "description": "Represents the modality of a some data.",
+              "properties": {
+                "group": {
+                  "description": "The group of data.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector groups in the 'Modality' analyzer group.\n\nExample of group: application, archive, audio, code, document, executable, font,\nimage, text, unknown, video.",
+                  "example": "image",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of data.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector names in the 'Modality' analyzer group.\n\nExample of type: 3dsm, 3gp, 3mf, ace, ada, ai, apk, applebplist, appleplist, ar,\narc, arj, asc, asf, asm, asp, au, autohotkey, autoit, avi, avif, awk, ax, batch,\nbazel, bcad, bib, bmp, bpg, brainfuck, brf, bzip, bzip3, c, cab, cat, cdf, chm,\nclojure, cmake, cobol, coff, coffeescript, com, cpl, cpp, crt, crx, cs, csproj,\ncss, csv, dart, deb, dex, dey, dicom, diff, django, dll, dm, dmg, dmigd,\ndmscript, doc, dockerfile, docx, dotx, dwg, dxf, dylib, elf, elixir, emf, eml,\nepub, erb, erlang, exe, flac, flv, fortran, fpx, gemfile, gemspec, gif,\ngitattributes, gitmodules, gleam, go, gradle, groovy, gzip, h, h5, handlebars,\nhaskell, hcl, heif, hlp, hpp, hta, htaccess, html, hwp, icns, ico, ics,\nignorefile, ini, internetshortcut, ipynb, iso, jar, java, javabytecode,\njavascript, jinja, jng, jnlp, jp2, jpeg, json, jsonl, jsx, julia, jxl, ko,\nkotlin, latex, lha, license, lisp, lnk, lock, lua, lz, lz4, m3u, m4, macho,\nmakefile, markdown, matlab, mht, midi, mkv, mp3, mp4, mpegts, mscompress, msi,\nmsix, mui, mum, npy, npz, objectivec, ocaml, ocx, odex, odin, odp, ods, odt,\nogg, one, onnx, otf, outlook, pascal, pcap, pdb, pdf, pebin, pem, perl, php,\npickle, png, po, postscript, powershell, ppt, pptx, prolog, proteindb, proto,\npsd, python, pythonbytecode, pytorch, qoi, qt, r, randomascii, rar, rdf, rlib,\nrll, rpm, rst, rtf, ruby, rust, scala, scheme, scr, scss, sevenzip, sgml, shell,\nsmali, snap, so, solidity, sql, sqlite, squashfs, srt, stlbinary, stltext, sum,\nsvg, swf, swift, symlinktext, sys, tar, tcl, textproto, tga, thumbsdb, tiff,\ntoml, torrent, tsv, tsx, ttf, twig, txt, txtascii, txtutf16, txtutf8,\ntypescript, vba, vbe, vcxproj, verilog, vhdl, visio, vtt, vue, wad, wasm, wav,\nwebm, webp, webtemplate, winregistry, wma, wmf, wmv, woff, woff2, xar, xcf, xls,\nxlsb, xlsx, xml, xpi, xz, yaml, yara, zig, zip, zlibstream, zst.",
+                  "example": "png",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "group",
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "relevance": {
+            "description": "The level of general organization relevance of the input.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": 0.9,
+            "type": "number"
+          },
+          "secrets": {
+            "description": "The secrets found during classification.\n\nThe current list can be obtained through the analyzers API by searching for\ndetector groups 'Secrets' accross all analyzers.\n\nExample of secrets: adafruit, alibaba, anthropic, apideck, apify, atlassian,\naws_secret_key, buildkite, checkout, clickuppersonal, contentfulpersonalaccess,\ncredentials, database_url_with_credentials, databricks, denodeploy, dfuse,\ndigitalocean, discord_webhook, docker_hub, doppler, dropbox, endorlabs,\nfleetbase, flutterwave, frameio, freshdesk, fullstory, github, gitlab,\ngocardless, google_api, grafana, groq, huggingface, intra42, jwt, klaviyo,\nlaunchdarkly, linearapi, locationiq, mailchimp, mailgun, mapbox, maxmind,\nmicrosoft_teams_webhook, nightfall, notion, npm, openai, otp_auth_url, pagarme,\npaystack, planetscale, planetscaledb, portainer, posthog, postman, prefect,\nprivate_key, pubnub_publish, pubnub_subscribe, pulumi, ramp, razorpay, readme,\nrechargepayments, replicate, rubygems, salesforce, sendgrid, sendinblue,\nshopify, slack_access, slack_bot, slack_refresh, slack_user, slack_webhook,\nslack_workflow_webhook, sourcegraph, sourcegraphcody, squareapp, squareup,\nstripe, supabase, tailscale, tines_webhook, trufflehog, twilio, ubidots,\nvoiceflow, web_url_with_credentials, zapierwebhook.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": {
+              "credentials": 0.7
+            },
+            "items": {
+              "format": "float",
+              "type": "number"
+            },
+            "type": "object"
+          },
+          "topics": {
+            "description": "The topic of the classification.\n\nThe current list can be obtained through the analyzers API, with the following\nconditions:\n  1. Includes all analyzers EXCEPT those in the 'Modality' group\n  2. Includes all analyzer detectors EXCEPT those in these groups:\n    - 'Secrets'\n    - 'Exploits'\n    - 'Intent'\n    - 'PIIs'\n    - 'Malcontents'\n\nExample of topics: category/enterprise, category/healthcare, category/medical,\ncategory/personal, contains/blank_image, contains/certificate_signing_request,\ncontains/database_url, contains/handwritten_text, contains/printed_text,\ncontains/public_key, contains/ssh_public_key, contains/web_url,\ndecoded/base32_data, decoded/base58_data, decoded/base64_data,\ndecoded/base64_url_data, decoded/base85_data, decoded/hexadecimal_data,\ndecoded/puny_code_data, decoded/quoted_printable_data,\ndecoded/url_encoding_data, department/compliance, department/cybersecurity,\ndepartment/finance, department/human_resources,\ndepartment/information_technology, department/legal, department/logistics,\ndepartment/marketing, department/performance_evaluation,\ndepartment/product_management, department/project_management, department/sales,\ndepartment/strategy, department/support, depict/check, depict/code,\ndepict/document, depict/unclassified, depict/whiteboard, domain/commercial,\ndomain/development, domain/financial, domain/general, domain/regulatory,\ndomain/workforce, extracted/csv_cell_content, extracted/document_text_content,\nextracted/handwritten_text_content, extracted/pdf_text_content,\nextracted/pptx_text_content, extracted/spreadsheet_text_content,\nextracted/typed_text_content, timeframe/current_year, timeframe/future,\ntimeframe/last_year, timeframe/next_year, timeframe/past,\ntranscribed/audio_text_content.\n\nIf a key is not present in the map that implies that entity was not detected. If\nan entity is detected then the value is a score. Here's how to interpret the\nscores:\n  - confidence: 'low', 0 < score <0.33\n  - confidence: 'medium', 0.33 <= score < 0.66\n  - confidence: 'high', 0.66 <= score <= 1.",
+            "example": {
+              "category/enterprise": 0.7,
+              "department/logistics": 0.8,
+              "depict/document": 0.8,
+              "extracted/typed_text_content": 1,
+              "timeframe/current_year": 0.6
+            },
+            "items": {
+              "format": "float",
+              "type": "number"
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "hash": {
+      "description": "The hash of the input.",
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "latency": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `latency` to the tool, first call the tool `expandSchema` with \"/properties/latency\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Holds information about latencies introduced by Apex.</property-description>",
+      "additionalProperties": true
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "pipelineName": {
+      "description": "The name of the particular pipeline that extracted the text.",
+      "type": "string"
+    },
+    "principal": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `principal` to the tool, first call the tool `expandSchema` with \"/properties/principal\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Describe the principal.</property-description>",
+      "additionalProperties": true
+    },
+    "provider": {
+      "description": "the provider to use.",
+      "example": "openai",
+      "type": "string"
+    },
+    "reasons": {
+      "description": "The various reasons returned by the policy engine.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "summary": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `summary` to the tool, first call the tool `expandSchema` with \"/properties/summary\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Represents the summary of the extractions.</property-description>",
+      "additionalProperties": true
+    },
+    "time": {
+      "description": "Set the time of the message request.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "trace": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `trace` to the tool, first call the tool `expandSchema` with \"/properties/trace\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Holds all references to a trace.</property-description>",
+      "additionalProperties": true
+    },
+    "type": {
+      "description": "The type of text.",
+      "enum": [
+        "Input",
+        "Output"
+      ]
+    }
+  },
+  "required": [
+    "principal"
+  ]
+}
