@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "claims": {
+      "description": "The list of claims delivered in the token.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "email": {
+      "description": "The email of the user who requested the token.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "expirationDate": {
+      "description": "Tells when the token will expire.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "machineID": {
+      "description": "The optional machine ID of the token. This is used to easily retrieve the tokens\nissued for a particular machine.",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the token is specified while creating the token.",
+      "example": "my personal access token",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "sourceIP": {
+      "description": "The source IP of the request that initiated the creation of the token.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "token": {
+      "description": "The generated token. It won't be stored.",
+      "type": "string"
+    },
+    "tokenID": {
+      "description": "The ID of the associated token.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "transient": {
+      "description": "If true, the token will not be stored and will only be revocable if you keep\ntrack of the token ID yourself. Also, the validity will be capped and the token\nwon't be long lived.",
+      "type": "boolean"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "validity": {
+      "default": "8760h",
+      "description": "Configures the validity of the token.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "comment": {
+      "description": "General comments on the feedback.",
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "key": {
+      "description": "The key of the feedback.",
+      "example": "pii:emailid",
+      "type": "string"
+    },
+    "logHash": {
+      "description": "The hash of the log.",
+      "example": 4449147649844796400,
+      "type": "string"
+    },
+    "logUnixNano": {
+      "description": "The timestamp of the log.",
+      "example": 1741797027131412000,
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "principal": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `principal` to the tool, first call the tool `expandSchema` with \"/properties/principal\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Describe the principal.</property-description>",
+      "additionalProperties": true
+    },
+    "provider": {
+      "description": "The provider of the feedback.",
+      "example": "openai",
+      "type": "string"
+    },
+    "score": {
+      "description": "The feedback score (+1 for upvote, -1 for downvote).",
+      "type": "integer"
+    },
+    "status": {
+      "default": "New",
+      "description": "The status of the feedback.",
+      "enum": [
+        "New",
+        "Investigating",
+        "Confirmed",
+        "Rejected"
+      ]
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "value": {
+      "description": "The value of the feedback.",
+      "example": "tester@acuvity.ai",
+      "type": "string"
+    }
+  },
+  "required": [
+    "key",
+    "logHash",
+    "logUnixNano",
+    "principal",
+    "provider",
+    "status",
+    "value"
+  ]
+}
