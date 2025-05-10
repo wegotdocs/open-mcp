@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the product category."
+    },
+    "placement": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Ranking of the product category in the shop. Accepts values in accordance with the number of categories in the shop. When an allocated  placement value is send, following placement values shift."
+    }
+  },
+  "required": [
+    "title"
+  ]
+}
