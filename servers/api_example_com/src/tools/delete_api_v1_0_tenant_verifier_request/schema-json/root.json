@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "tenant": {
+      "description": "The ID of the tenant.",
+      "type": "string",
+      "title": "String"
+    },
+    "reason": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "title": "String"
+    },
+    "requestUid": {
+      "type": "string",
+      "title": "String"
+    }
+  },
+  "required": [
+    "tenant",
+    "requestUid"
+  ]
+}

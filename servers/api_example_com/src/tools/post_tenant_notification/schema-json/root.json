@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "tenant": {
+      "description": "Tenant ID",
+      "type": "string",
+      "title": "String"
+    },
+    "event": {
+      "type": "string",
+      "enum": [
+        "credential_accepted",
+        "credential_failure",
+        "credential_deleted"
+      ],
+      "title": "NotificationEvent"
+    },
+    "event_description": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "title": "String"
+    },
+    "notification_id": {
+      "type": "string",
+      "title": "String"
+    }
+  },
+  "required": [
+    "tenant",
+    "event",
+    "notification_id"
+  ]
+}

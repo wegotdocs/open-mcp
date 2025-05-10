@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "tenant": {
+      "description": "Tenant ID",
+      "type": "string",
+      "title": "String"
+    },
+    "state": {
+      "description": "State, i.e. session ID, identifying the presentation session, this response belongs to.",
+      "type": "string",
+      "title": "String"
+    }
+  },
+  "required": [
+    "tenant",
+    "state"
+  ]
+}

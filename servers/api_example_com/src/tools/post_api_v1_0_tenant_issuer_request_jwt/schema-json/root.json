@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "tenant": {
+      "description": "The ID of the tenant.",
+      "type": "string",
+      "title": "String"
+    },
+    "autoAccept": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "title": "Boolean"
+    },
+    "callback": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `callback` to the tool, first call the tool `expandSchema` with \"/properties/callback\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "expires": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "format": "int32",
+      "title": "Int"
+    },
+    "rawRequest": {
+      "anyOf": [
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "revocable": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "templateRequest": {
+      "anyOf": [
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "tenant",
+    "callback",
+    "revocable"
+  ]
+}
