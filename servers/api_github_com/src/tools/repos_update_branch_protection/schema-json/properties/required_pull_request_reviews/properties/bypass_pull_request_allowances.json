@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "description": "Allow specific users, teams, or apps to bypass pull request requirements.",
+  "properties": {
+    "users": {
+      "type": "array",
+      "description": "The list of user `login`s allowed to bypass pull request requirements.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "teams": {
+      "type": "array",
+      "description": "The list of team `slug`s allowed to bypass pull request requirements.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "apps": {
+      "type": "array",
+      "description": "The list of app `slug`s allowed to bypass pull request requirements.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

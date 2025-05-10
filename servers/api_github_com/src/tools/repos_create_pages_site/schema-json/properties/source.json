@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "description": "The source branch and directory used to publish your Pages site.",
+  "properties": {
+    "branch": {
+      "type": "string",
+      "description": "The repository branch used to publish your site's source files."
+    },
+    "path": {
+      "type": "string",
+      "description": "The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`. Default: `/`",
+      "enum": [
+        "/",
+        "/docs"
+      ],
+      "default": "/"
+    }
+  },
+  "required": [
+    "branch"
+  ]
+}

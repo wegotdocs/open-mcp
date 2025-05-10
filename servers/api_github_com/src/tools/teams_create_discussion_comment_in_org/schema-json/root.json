@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "team_slug": {
+      "description": "The slug of the team name.",
+      "type": "string"
+    },
+    "discussion_number": {
+      "description": "The number that identifies the discussion.",
+      "type": "integer"
+    },
+    "body": {
+      "type": "string",
+      "description": "The discussion comment's body text."
+    }
+  },
+  "required": [
+    "org",
+    "team_slug",
+    "discussion_number",
+    "body"
+  ]
+}

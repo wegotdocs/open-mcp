@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "comment_id": {
+      "description": "The unique identifier of the comment.",
+      "type": "integer",
+      "format": "int64"
+    },
+    "body": {
+      "type": "string",
+      "description": "The text of the reply to the review comment."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "comment_id",
+    "body"
+  ]
+}

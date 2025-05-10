@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "team_id": {
+      "description": "The unique identifier of the team.",
+      "type": "integer"
+    },
+    "discussion_number": {
+      "description": "The number that identifies the discussion.",
+      "type": "integer"
+    },
+    "comment_number": {
+      "description": "The number that identifies the comment.",
+      "type": "integer"
+    },
+    "content": {
+      "type": "string",
+      "description": "The [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions) to add to the team discussion comment.",
+      "enum": [
+        "+1",
+        "-1",
+        "laugh",
+        "confused",
+        "heart",
+        "hooray",
+        "rocket",
+        "eyes"
+      ]
+    }
+  },
+  "required": [
+    "team_id",
+    "discussion_number",
+    "comment_number",
+    "content"
+  ]
+}

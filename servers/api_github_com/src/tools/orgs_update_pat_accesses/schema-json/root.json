@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "description": "Action to apply to the fine-grained personal access token.",
+      "enum": [
+        "revoke"
+      ]
+    },
+    "pat_ids": {
+      "description": "The IDs of the fine-grained personal access tokens.",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "description": "Unique identifier of the fine-grained personal access token."
+      },
+      "minItems": 1,
+      "maxItems": 100
+    }
+  },
+  "required": [
+    "org",
+    "action",
+    "pat_ids"
+  ]
+}

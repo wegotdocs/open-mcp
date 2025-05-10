@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "selected_usernames": {
+      "type": "array",
+      "description": "The usernames of the organization members whose codespaces be billed to the organization.",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 100
+    }
+  },
+  "required": [
+    "org",
+    "selected_usernames"
+  ]
+}

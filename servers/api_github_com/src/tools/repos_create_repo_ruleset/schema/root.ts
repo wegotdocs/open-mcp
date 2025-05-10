@@ -1,0 +1,12 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "owner": z.string().describe("The account owner of the repository. The name is not case sensitive."),
+  "repo": z.string().describe("The name of the repository without the `.git` extension. The name is not case sensitive."),
+  "name": z.string().describe("The name of the ruleset."),
+  "target": z.enum(["branch","tag","push"]).describe("The target of the ruleset").optional(),
+  "enforcement": z.enum(["disabled","active","evaluate"]).describe("The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (`evaluate` is only available with GitHub Enterprise)."),
+  "bypass_actors": z.array(z.object({ "actor_id": z.number().int().nullable().describe("The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.").optional(), "actor_type": z.enum(["Integration","OrganizationAdmin","RepositoryRole","Team","DeployKey"]).describe("The type of actor that can bypass a ruleset."), "bypass_mode": z.enum(["always","pull_request"]).describe("When the specified actor can bypass the ruleset. `pull_request` means that an actor can only bypass rules on pull requests. `pull_request` is not applicable for the `DeployKey` actor type. Also, `pull_request` is only applicable to branch rulesets.") }).describe("An actor that can bypass rules in a ruleset")).describe("The actors that can bypass the rules in this ruleset").optional(),
+  "conditions": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `conditions` to the tool, first call the tool `expandSchema` with \"/properties/conditions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Parameters for a repository ruleset ref name condition</property-description>").optional(),
+  "rules": z.array(z.record(z.any()).and(z.object({ "type": z.literal("creation") }).describe("Only allow users with bypass permission to create matching refs.")).describe("A repository rule.")).describe("An array of rules within the ruleset.").optional()
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string",
+      "description": "Which users can access codespaces in the organization. `disabled` means that no users can access codespaces in the organization.",
+      "enum": [
+        "disabled",
+        "selected_members",
+        "all_members",
+        "all_members_and_outside_collaborators"
+      ]
+    },
+    "selected_usernames": {
+      "type": "array",
+      "description": "The usernames of the organization members who should have access to codespaces in the organization. Required when `visibility` is `selected_members`. The provided list of usernames will replace any existing value.",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 100
+    }
+  },
+  "required": [
+    "org",
+    "visibility"
+  ]
+}

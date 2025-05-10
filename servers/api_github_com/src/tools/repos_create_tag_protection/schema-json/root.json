@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "pattern": {
+      "type": "string",
+      "description": "An optional glob pattern to match against when enforcing tag protection."
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "pattern"
+  ]
+}

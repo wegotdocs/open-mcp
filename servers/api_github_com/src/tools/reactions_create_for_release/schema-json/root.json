@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "release_id": {
+      "description": "The unique identifier of the release.",
+      "type": "integer"
+    },
+    "content": {
+      "type": "string",
+      "description": "The [reaction type](https://docs.github.com/rest/reactions/reactions#about-reactions) to add to the release.",
+      "enum": [
+        "+1",
+        "laugh",
+        "heart",
+        "hooray",
+        "rocket",
+        "eyes"
+      ]
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "release_id",
+    "content"
+  ]
+}

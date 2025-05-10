@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "subject_digest": {
+      "description": "The parameter should be set to the attestation's subject's SHA256 digest, in the form `sha256:HEX_DIGEST`.",
+      "type": "string"
+    },
+    "per_page": {
+      "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "integer",
+      "default": 30
+    },
+    "before": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "after": {
+      "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+      "type": "string"
+    },
+    "predicate_type": {
+      "description": "Optional filter for fetching attestations with a given predicate type.\nThis option accepts `provenance`, `sbom`, or freeform text for custom predicate types.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "subject_digest"
+  ]
+}

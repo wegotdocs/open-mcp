@@ -1,0 +1,21 @@
+{
+  "title": "metadata",
+  "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values.",
+  "type": "object",
+  "maxProperties": 8,
+  "additionalProperties": {
+    "nullable": true,
+    "anyOf": [
+      {
+        "type": "string"
+      },
+      {
+        "type": "number"
+      },
+      {
+        "type": "boolean"
+      }
+    ]
+  },
+  "properties": {}
+}

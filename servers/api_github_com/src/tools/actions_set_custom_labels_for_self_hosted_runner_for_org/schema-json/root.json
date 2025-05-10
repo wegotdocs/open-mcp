@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "runner_id": {
+      "description": "Unique identifier of the self-hosted runner.",
+      "type": "integer"
+    },
+    "labels": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 100,
+      "description": "The names of the custom labels to set for the runner. You can pass an empty array to remove all custom labels.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "org",
+    "runner_id",
+    "labels"
+  ]
+}

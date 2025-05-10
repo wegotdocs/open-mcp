@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "team_slug": {
+      "description": "The slug of the team name.",
+      "type": "string"
+    },
+    "username": {
+      "description": "The handle for the GitHub user account.",
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "description": "The role that this user should have in the team.",
+      "enum": [
+        "member",
+        "maintainer"
+      ],
+      "default": "member"
+    }
+  },
+  "required": [
+    "org",
+    "team_slug",
+    "username"
+  ]
+}

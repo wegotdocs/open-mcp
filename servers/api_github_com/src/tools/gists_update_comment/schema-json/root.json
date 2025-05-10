@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "gist_id": {
+      "description": "The unique identifier of the gist.",
+      "type": "string"
+    },
+    "comment_id": {
+      "description": "The unique identifier of the comment.",
+      "type": "integer",
+      "format": "int64"
+    },
+    "body": {
+      "description": "The comment text.",
+      "type": "string",
+      "maxLength": 65535,
+      "example": "Body of the attachment"
+    }
+  },
+  "required": [
+    "gist_id",
+    "comment_id",
+    "body"
+  ]
+}

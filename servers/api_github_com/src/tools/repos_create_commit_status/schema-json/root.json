@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "sha": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "description": "The state of the status.",
+      "enum": [
+        "error",
+        "failure",
+        "pending",
+        "success"
+      ]
+    },
+    "target_url": {
+      "type": "string",
+      "nullable": true,
+      "description": "The target URL to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the source of the status.  \nFor example, if your continuous integration system is posting build status, you would want to provide the deep link for the build output for this specific SHA:  \n`http://ci.example.com/user/repo/build/sha`"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "description": "A short description of the status."
+    },
+    "context": {
+      "type": "string",
+      "description": "A string label to differentiate this status from the status of other systems. This field is case-insensitive.",
+      "default": "default"
+    }
+  },
+  "required": [
+    "owner",
+    "repo",
+    "sha",
+    "state"
+  ]
+}

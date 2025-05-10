@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "hosted_runner_id": {
+      "description": "Unique identifier of the GitHub-hosted runner.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "org",
+    "hosted_runner_id"
+  ]
+}

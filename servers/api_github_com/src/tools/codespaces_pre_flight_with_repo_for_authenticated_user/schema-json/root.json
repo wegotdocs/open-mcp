@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "owner": {
+      "description": "The account owner of the repository. The name is not case sensitive.",
+      "type": "string"
+    },
+    "repo": {
+      "description": "The name of the repository without the `.git` extension. The name is not case sensitive.",
+      "type": "string"
+    },
+    "ref": {
+      "description": "The branch or commit to check for a default devcontainer path. If not specified, the default branch will be checked.",
+      "type": "string",
+      "example": "main"
+    },
+    "client_ip": {
+      "description": "An alternative IP for default location auto-detection, such as when proxying a request.",
+      "type": "string",
+      "example": "1.2.3.4"
+    }
+  },
+  "required": [
+    "owner",
+    "repo"
+  ]
+}

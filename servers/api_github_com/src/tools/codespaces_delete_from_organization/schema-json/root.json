@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "username": {
+      "description": "The handle for the GitHub user account.",
+      "type": "string"
+    },
+    "codespace_name": {
+      "description": "The name of the codespace.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "org",
+    "username",
+    "codespace_name"
+  ]
+}

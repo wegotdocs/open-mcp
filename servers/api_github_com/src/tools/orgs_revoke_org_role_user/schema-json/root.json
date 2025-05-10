@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "description": "The organization name. The name is not case sensitive.",
+      "type": "string"
+    },
+    "username": {
+      "description": "The handle for the GitHub user account.",
+      "type": "string"
+    },
+    "role_id": {
+      "description": "The unique identifier of the role.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "org",
+    "username",
+    "role_id"
+  ]
+}
