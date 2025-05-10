@@ -1,0 +1,120 @@
+{
+  "type": "object",
+  "properties": {
+    "file_id": {
+      "description": "Unique identifier for the File to list Logs for.",
+      "type": "string",
+      "title": "File ID"
+    },
+    "page": {
+      "description": "Page number for pagination.",
+      "type": "integer",
+      "minimum": 1,
+      "title": "Page number",
+      "default": 1
+    },
+    "size": {
+      "description": "Page size for pagination. Number of Logs to fetch.",
+      "type": "integer",
+      "minimum": 0,
+      "title": "Page size",
+      "default": 10
+    },
+    "version_id": {
+      "description": "If provided, only Logs belonging to the specified Version will be returned.",
+      "type": "string",
+      "title": "Version ID"
+    },
+    "version_status": {
+      "description": "If provided, only Logs belonging to Versions with the specified status will be returned.",
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "uncommitted",
+            "committed",
+            "deleted"
+          ],
+          "title": "VersionStatus",
+          "description": "An enumeration."
+        }
+      ],
+      "title": "Version status"
+    },
+    "id": {
+      "description": "If provided, returns Logs whose IDs contain any of the specified values as substrings.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Log IDs"
+    },
+    "search": {
+      "description": "If provided, only Logs that contain the provided string in its inputs and output will be returned.",
+      "type": "string",
+      "title": "Search"
+    },
+    "metadata_search": {
+      "description": "If provided, only Logs that contain the provided string in its metadata will be returned.",
+      "type": "string",
+      "title": "Metadata search"
+    },
+    "start_date": {
+      "description": "If provided, only Logs created after the specified date will be returned.",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "string",
+          "format": "date"
+        }
+      ],
+      "title": "Start date"
+    },
+    "end_date": {
+      "description": "If provided, only Logs created before the specified date will be returned.",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "string",
+          "format": "date"
+        }
+      ],
+      "title": "End date"
+    },
+    "include_parent": {
+      "description": "If true, include the full parent Log in the response. Only applicable when retrieving Evaluator Logs.",
+      "type": "boolean",
+      "title": "Include parent Log",
+      "default": false
+    },
+    "in_trace_filter": {
+      "description": "If true, return Logs that are associated to a Trace. False, return Logs that are not associated to a Trace.",
+      "items": {
+        "type": "boolean"
+      },
+      "type": "array",
+      "title": "Trace"
+    },
+    "sample": {
+      "description": "If provided, limit the response to a random subset of logs from the filtered results. (This will be an approximate sample, not a strict limit.)",
+      "type": "integer",
+      "minimum": 0,
+      "title": "Sample"
+    },
+    "include_trace_children": {
+      "description": "If true, populate `trace_children` for the retrieved Logs. Only applicable when retrieving Flow Logs.",
+      "type": "boolean",
+      "title": "Include trace children",
+      "default": false
+    }
+  },
+  "required": [
+    "file_id"
+  ]
+}

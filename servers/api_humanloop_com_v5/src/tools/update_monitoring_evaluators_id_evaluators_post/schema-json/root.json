@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "Id"
+    },
+    "activate": {
+      "items": {
+        "anyOf": [
+          {
+            "properties": {
+              "evaluator_version_id": {
+                "type": "string",
+                "title": "Evaluator Version ID",
+                "description": "Unique identifier for the Evaluator Version to be used for monitoring."
+              }
+            },
+            "type": "object",
+            "required": [
+              "evaluator_version_id"
+            ],
+            "title": "MonitoringEvaluatorVersionRequest"
+          },
+          {
+            "properties": {
+              "evaluator_id": {
+                "type": "string",
+                "title": "Evaluator ID",
+                "description": "Unique identifier for the Evaluator to be used for monitoring."
+              },
+              "environment_id": {
+                "type": "string",
+                "title": "Environment ID",
+                "description": "Unique identifier for the Environment. The Evaluator Version deployed to this Environment will be used for monitoring."
+              }
+            },
+            "type": "object",
+            "required": [
+              "evaluator_id",
+              "environment_id"
+            ],
+            "title": "MonitoringEvaluatorEnvironmentRequest"
+          }
+        ]
+      },
+      "type": "array",
+      "title": "Evaluators to activate",
+      "description": "Evaluators to activate for Monitoring. These will be automatically run on new Logs."
+    },
+    "deactivate": {
+      "items": {
+        "anyOf": [
+          {
+            "properties": {
+              "evaluator_version_id": {
+                "type": "string",
+                "title": "Evaluator Version ID",
+                "description": "Unique identifier for the Evaluator Version to be used for monitoring."
+              }
+            },
+            "type": "object",
+            "required": [
+              "evaluator_version_id"
+            ],
+            "title": "MonitoringEvaluatorVersionRequest"
+          },
+          {
+            "properties": {
+              "evaluator_id": {
+                "type": "string",
+                "title": "Evaluator ID",
+                "description": "Unique identifier for the Evaluator to be used for monitoring."
+              },
+              "environment_id": {
+                "type": "string",
+                "title": "Environment ID",
+                "description": "Unique identifier for the Environment. The Evaluator Version deployed to this Environment will be used for monitoring."
+              }
+            },
+            "type": "object",
+            "required": [
+              "evaluator_id",
+              "environment_id"
+            ],
+            "title": "MonitoringEvaluatorEnvironmentRequest"
+          }
+        ]
+      },
+      "type": "array",
+      "title": "Evaluators to deactivate",
+      "description": "Evaluators to deactivate. These will not be run on new Logs."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

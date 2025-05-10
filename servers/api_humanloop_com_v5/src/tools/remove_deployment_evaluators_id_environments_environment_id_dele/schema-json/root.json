@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Evaluator.",
+      "type": "string",
+      "title": "Evaluator ID"
+    },
+    "environment_id": {
+      "description": "Unique identifier for the Environment to remove the deployment from.",
+      "type": "string",
+      "title": "Environment ID"
+    }
+  },
+  "required": [
+    "id",
+    "environment_id"
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "type": "object",
+  "properties": {
+    "version_id": {
+      "description": "A specific Version ID of the Flow to log to.",
+      "type": "string",
+      "title": "Version ID"
+    },
+    "environment": {
+      "description": "Name of the Environment identifying a deployed version to log to.",
+      "type": "string",
+      "title": "Environment"
+    },
+    "messages": {
+      "items": {
+        "properties": {
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "text"
+                          ],
+                          "title": "Type"
+                        },
+                        "text": {
+                          "type": "string",
+                          "title": "Text",
+                          "description": "The message's text content."
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "text"
+                      ],
+                      "title": "TextChatContent"
+                    },
+                    {
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "image_url"
+                          ],
+                          "title": "Type"
+                        },
+                        "image_url": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "image_url"
+                      ],
+                      "title": "ImageChatContent"
+                    }
+                  ]
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Content",
+            "description": "The content of the message.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Optional name of the message author.",
+            "nullable": true
+          },
+          "tool_call_id": {
+            "type": "string",
+            "title": "Tool call id",
+            "description": "Tool call that this message is responding to.",
+            "nullable": true
+          },
+          "role": {
+            "type": "string"
+          },
+          "tool_calls": {
+            "items": {
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "title": "Id"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "function"
+                  ],
+                  "title": "ToolType",
+                  "description": "The type of tool to call."
+                },
+                "function": {
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Name"
+                    },
+                    "arguments": {
+                      "type": "string",
+                      "title": "Arguments"
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "title": "FunctionTool",
+                  "description": "A function tool to be called by the model where user owns runtime."
+                }
+              },
+              "type": "object",
+              "required": [
+                "id",
+                "type",
+                "function"
+              ],
+              "title": "ToolCall",
+              "description": "A tool call to be made."
+            },
+            "type": "array",
+            "title": "Tool calls",
+            "description": "A list of tool calls requested by the assistant.",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "role"
+        ],
+        "title": "ChatMessage"
+      },
+      "type": "array",
+      "title": "Messages",
+      "description": "List of chat messages that were used as an input to the Flow."
+    },
+    "output_message": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string",
+      "title": "Run ID",
+      "description": "Unique identifier for the Run to associate the Log to."
+    },
+    "path": {
+      "type": "string",
+      "title": "Flow path",
+      "description": "Path of the Flow, including the name. This locates the Flow in the Humanloop filesystem and is used as as a unique identifier. For example: `folder/name` or just `name`."
+    },
+    "id": {
+      "type": "string",
+      "title": "Flow ID",
+      "description": "ID for an existing Flow."
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Start time",
+      "description": "The start time of the Trace. Will be updated if a child Log with an earlier start time is added."
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time",
+      "title": "End time",
+      "description": "The end time of the Trace. Will be updated if a child Log with a later end time is added."
+    },
+    "output": {
+      "type": "string",
+      "title": "Model output",
+      "description": "Generated output from your model for the provided inputs. Can be `None` if logging an error, or if creating a parent Log with the intention to populate it later."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created at",
+      "description": "User defined timestamp for when the log was created. "
+    },
+    "error": {
+      "type": "string",
+      "title": "Error",
+      "description": "Error message if the log is an error."
+    },
+    "provider_latency": {
+      "type": "number",
+      "title": "Log latency",
+      "description": "Duration of the logged event in seconds."
+    },
+    "stdout": {
+      "type": "string",
+      "title": "Standard Output",
+      "description": "Captured log and debug statements."
+    },
+    "provider_request": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `provider_request` to the tool, first call the tool `expandSchema` with \"/properties/provider_request\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Raw request sent to provider.</property-description>",
+      "additionalProperties": true
+    },
+    "provider_response": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `provider_response` to the tool, first call the tool `expandSchema` with \"/properties/provider_response\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Raw response received the provider.</property-description>",
+      "additionalProperties": true
+    },
+    "inputs": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inputs` to the tool, first call the tool `expandSchema` with \"/properties/inputs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The inputs passed to the prompt template.</property-description>",
+      "additionalProperties": true
+    },
+    "source": {
+      "type": "string",
+      "title": "Source",
+      "description": "Identifies where the model was called from."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `metadata` to the tool, first call the tool `expandSchema` with \"/properties/metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Any additional metadata to record.</property-description>",
+      "additionalProperties": true
+    },
+    "log_status": {
+      "type": "string"
+    },
+    "source_datapoint_id": {
+      "type": "string",
+      "title": "Source Datapoint ID",
+      "description": "Unique identifier for the Datapoint that this Log is derived from. This can be used by Humanloop to associate Logs to Evaluations. If provided, Humanloop will automatically associate this Log to Evaluations that require a Log for this Datapoint-Version pair."
+    },
+    "trace_parent_id": {
+      "type": "string",
+      "title": "Trace Parent ID",
+      "description": "The ID of the parent Log to nest this Log under in a Trace."
+    },
+    "user": {
+      "type": "string",
+      "title": "End-user identifier",
+      "description": "End-user ID related to the Log."
+    },
+    "b_environment": {
+      "type": "string",
+      "title": "Environment name",
+      "description": "The name of the Environment the Log is associated to."
+    },
+    "save": {
+      "type": "boolean",
+      "title": "Save",
+      "description": "Whether the request/response payloads will be stored on Humanloop.",
+      "default": true
+    },
+    "log_id": {
+      "type": "string",
+      "title": "Log ID",
+      "description": "This will identify a Log. If you don't provide a Log ID, Humanloop will generate one for you."
+    },
+    "flow": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,31 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "version_id": z.string().describe("A specific Version ID of the Flow to log to.").optional(),
+  "environment": z.string().describe("Name of the Environment identifying a deployed version to log to.").optional(),
+  "messages": z.array(z.object({ "content": z.union([z.string(), z.array(z.union([z.object({ "type": z.literal("text"), "text": z.string().describe("The message's text content.") }), z.object({ "type": z.literal("image_url"), "image_url": z.string() })]))]).nullable().describe("The content of the message.").optional(), "name": z.string().nullable().describe("Optional name of the message author.").optional(), "tool_call_id": z.string().nullable().describe("Tool call that this message is responding to.").optional(), "role": z.string(), "tool_calls": z.array(z.object({ "id": z.string(), "type": z.literal("function").describe("The type of tool to call."), "function": z.object({ "name": z.string(), "arguments": z.string().optional() }).describe("A function tool to be called by the model where user owns runtime.") }).describe("A tool call to be made.")).nullable().describe("A list of tool calls requested by the assistant.").optional() })).describe("List of chat messages that were used as an input to the Flow.").optional(),
+  "output_message": z.string().optional(),
+  "run_id": z.string().describe("Unique identifier for the Run to associate the Log to.").optional(),
+  "path": z.string().describe("Path of the Flow, including the name. This locates the Flow in the Humanloop filesystem and is used as as a unique identifier. For example: `folder/name` or just `name`.").optional(),
+  "id": z.string().describe("ID for an existing Flow.").optional(),
+  "start_time": z.string().datetime({ offset: true }).describe("The start time of the Trace. Will be updated if a child Log with an earlier start time is added.").optional(),
+  "end_time": z.string().datetime({ offset: true }).describe("The end time of the Trace. Will be updated if a child Log with a later end time is added.").optional(),
+  "output": z.string().describe("Generated output from your model for the provided inputs. Can be `None` if logging an error, or if creating a parent Log with the intention to populate it later.").optional(),
+  "created_at": z.string().datetime({ offset: true }).describe("User defined timestamp for when the log was created. ").optional(),
+  "error": z.string().describe("Error message if the log is an error.").optional(),
+  "provider_latency": z.number().describe("Duration of the logged event in seconds.").optional(),
+  "stdout": z.string().describe("Captured log and debug statements.").optional(),
+  "provider_request": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `provider_request` to the tool, first call the tool `expandSchema` with \"/properties/provider_request\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Raw request sent to provider.</property-description>").optional(),
+  "provider_response": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `provider_response` to the tool, first call the tool `expandSchema` with \"/properties/provider_response\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Raw response received the provider.</property-description>").optional(),
+  "inputs": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inputs` to the tool, first call the tool `expandSchema` with \"/properties/inputs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The inputs passed to the prompt template.</property-description>").optional(),
+  "source": z.string().describe("Identifies where the model was called from.").optional(),
+  "metadata": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `metadata` to the tool, first call the tool `expandSchema` with \"/properties/metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Any additional metadata to record.</property-description>").optional(),
+  "log_status": z.string().optional(),
+  "source_datapoint_id": z.string().describe("Unique identifier for the Datapoint that this Log is derived from. This can be used by Humanloop to associate Logs to Evaluations. If provided, Humanloop will automatically associate this Log to Evaluations that require a Log for this Datapoint-Version pair.").optional(),
+  "trace_parent_id": z.string().describe("The ID of the parent Log to nest this Log under in a Trace.").optional(),
+  "user": z.string().describe("End-user ID related to the Log.").optional(),
+  "b_environment": z.string().describe("The name of the Environment the Log is associated to.").optional(),
+  "save": z.boolean().describe("Whether the request/response payloads will be stored on Humanloop.").optional(),
+  "log_id": z.string().describe("This will identify a Log. If you don't provide a Log ID, Humanloop will generate one for you.").optional(),
+  "flow": z.string().optional()
+}

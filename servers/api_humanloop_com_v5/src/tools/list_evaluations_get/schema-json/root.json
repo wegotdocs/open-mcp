@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "file_id": {
+      "description": "Filter by File ID. Only Evaluations for the specified File will be returned.",
+      "type": "string",
+      "title": "File ID"
+    },
+    "page": {
+      "description": "Page number for pagination.",
+      "type": "integer",
+      "minimum": 1,
+      "title": "Page number",
+      "default": 1
+    },
+    "size": {
+      "description": "Page size for pagination. Number of Evaluations to fetch.",
+      "type": "integer",
+      "minimum": 0,
+      "title": "Page size",
+      "default": 10
+    }
+  },
+  "required": [
+    "file_id"
+  ]
+}

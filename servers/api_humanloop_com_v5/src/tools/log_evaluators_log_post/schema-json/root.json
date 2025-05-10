@@ -1,0 +1,419 @@
+{
+  "type": "object",
+  "properties": {
+    "version_id": {
+      "description": "ID of the Evaluator version to log against.",
+      "type": "string",
+      "title": "Version ID."
+    },
+    "environment": {
+      "description": "Name of the Environment identifying a deployed version to log to.",
+      "type": "string",
+      "title": "Environment"
+    },
+    "path": {
+      "type": "string",
+      "title": "Evaluator path",
+      "description": "Path of the Evaluator, including the name. This locates the Evaluator in the Humanloop filesystem and is used as as a unique identifier. For example: `folder/name` or just `name`."
+    },
+    "id": {
+      "type": "string",
+      "title": "Evaluator ID",
+      "description": "ID for an existing Evaluator."
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Start time",
+      "description": "When the logged event started."
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time",
+      "title": "End time",
+      "description": "When the logged event ended."
+    },
+    "output": {
+      "type": "string",
+      "title": "Output",
+      "description": "Generated output from the LLM. Only populated for LLM Evaluator Logs."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created at",
+      "description": "User defined timestamp for when the log was created. "
+    },
+    "error": {
+      "type": "string",
+      "title": "Error",
+      "description": "Error message if the log is an error."
+    },
+    "provider_latency": {
+      "type": "number",
+      "title": "Log latency",
+      "description": "Duration of the logged event in seconds."
+    },
+    "stdout": {
+      "type": "string",
+      "title": "Standard Output",
+      "description": "Captured log and debug statements."
+    },
+    "provider_request": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `provider_request` to the tool, first call the tool `expandSchema` with \"/properties/provider_request\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Raw request sent to provider. Only populated for LLM Evaluator Logs.</property-description>",
+      "additionalProperties": true
+    },
+    "provider_response": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `provider_response` to the tool, first call the tool `expandSchema` with \"/properties/provider_response\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Raw response received the provider. Only populated for LLM Evaluator Logs.</property-description>",
+      "additionalProperties": true
+    },
+    "inputs": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inputs` to the tool, first call the tool `expandSchema` with \"/properties/inputs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The inputs passed to the prompt template.</property-description>",
+      "additionalProperties": true
+    },
+    "source": {
+      "type": "string",
+      "title": "Source",
+      "description": "Identifies where the model was called from."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `metadata` to the tool, first call the tool `expandSchema` with \"/properties/metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Any additional metadata to record.</property-description>",
+      "additionalProperties": true
+    },
+    "log_status": {
+      "type": "string"
+    },
+    "parent_id": {
+      "type": "string",
+      "title": "Parent ID",
+      "description": "Identifier of the evaluated Log. The newly created Log will have this one set as parent."
+    },
+    "source_datapoint_id": {
+      "type": "string",
+      "title": "Source Datapoint ID",
+      "description": "Unique identifier for the Datapoint that this Log is derived from. This can be used by Humanloop to associate Logs to Evaluations. If provided, Humanloop will automatically associate this Log to Evaluations that require a Log for this Datapoint-Version pair."
+    },
+    "trace_parent_id": {
+      "type": "string",
+      "title": "Trace Parent ID",
+      "description": "The ID of the parent Log to nest this Log under in a Trace."
+    },
+    "user": {
+      "type": "string",
+      "title": "End-user identifier",
+      "description": "End-user ID related to the Log."
+    },
+    "b_environment": {
+      "type": "string",
+      "title": "Environment name",
+      "description": "The name of the Environment the Log is associated to."
+    },
+    "save": {
+      "type": "boolean",
+      "title": "Save",
+      "description": "Whether the request/response payloads will be stored on Humanloop.",
+      "default": true
+    },
+    "log_id": {
+      "type": "string",
+      "title": "Log ID",
+      "description": "This will identify a Log. If you don't provide a Log ID, Humanloop will generate one for you."
+    },
+    "output_message": {
+      "type": "string"
+    },
+    "judgment": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "title": "Judgment Value",
+      "description": "Evaluator assessment of the Log."
+    },
+    "marked_completed": {
+      "type": "boolean",
+      "title": "Marked Completed",
+      "description": "Whether the Log has been manually marked as completed by a user."
+    },
+    "spec": {
+      "anyOf": [
+        {
+          "properties": {
+            "arguments_type": {
+              "type": "string"
+            },
+            "return_type": {
+              "type": "string"
+            },
+            "attributes": {
+              "type": "object",
+              "title": "Attributes",
+              "description": "Additional fields to describe the Evaluator. Helpful to separate Evaluator versions from each other with details on how they were created or used."
+            },
+            "options": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "The name of the option."
+                  },
+                  "valence": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "title": "EvaluatorJudgmentOptionResponse"
+              },
+              "type": "array",
+              "title": "Options",
+              "description": "The options that can be applied as judgments. Only for Evaluators with `return_type` of 'boolean', 'select' or 'multi_select'."
+            },
+            "number_limits": {
+              "type": "string"
+            },
+            "number_valence": {
+              "type": "string"
+            },
+            "evaluator_type": {
+              "type": "string",
+              "enum": [
+                "llm"
+              ],
+              "title": "Evaluator type",
+              "description": "The type of the evaluator.",
+              "default": "llm"
+            },
+            "prompt": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "arguments_type",
+            "return_type"
+          ],
+          "title": "LLMEvaluatorRequest"
+        },
+        {
+          "properties": {
+            "arguments_type": {
+              "type": "string"
+            },
+            "return_type": {
+              "type": "string"
+            },
+            "attributes": {
+              "type": "object",
+              "title": "Attributes",
+              "description": "Additional fields to describe the Evaluator. Helpful to separate Evaluator versions from each other with details on how they were created or used."
+            },
+            "options": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "The name of the option."
+                  },
+                  "valence": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "title": "EvaluatorJudgmentOptionResponse"
+              },
+              "type": "array",
+              "title": "Options",
+              "description": "The options that can be applied as judgments. Only for Evaluators with `return_type` of 'boolean', 'select' or 'multi_select'."
+            },
+            "number_limits": {
+              "type": "string"
+            },
+            "number_valence": {
+              "type": "string"
+            },
+            "evaluator_type": {
+              "type": "string",
+              "enum": [
+                "python"
+              ],
+              "title": "Evaluator type",
+              "description": "The type of the evaluator.",
+              "default": "python"
+            },
+            "code": {
+              "type": "string",
+              "title": "Code",
+              "description": "The code for the Evaluator. This code will be executed in a sandboxed environment."
+            }
+          },
+          "type": "object",
+          "required": [
+            "arguments_type",
+            "return_type",
+            "code"
+          ],
+          "title": "CodeEvaluatorRequest"
+        },
+        {
+          "properties": {
+            "arguments_type": {
+              "type": "string"
+            },
+            "return_type": {
+              "type": "string",
+              "enum": [
+                "select",
+                "multi_select",
+                "text",
+                "number",
+                "boolean"
+              ],
+              "title": "Return type",
+              "description": "The type of the return value of the Evaluator."
+            },
+            "attributes": {
+              "type": "object",
+              "title": "Attributes",
+              "description": "Additional fields to describe the Evaluator. Helpful to separate Evaluator versions from each other with details on how they were created or used."
+            },
+            "options": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "The name of the option."
+                  },
+                  "valence": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "title": "EvaluatorJudgmentOptionResponse"
+              },
+              "type": "array",
+              "title": "Options",
+              "description": "The options that can be applied as judgments."
+            },
+            "number_limits": {
+              "type": "string"
+            },
+            "number_valence": {
+              "type": "string"
+            },
+            "evaluator_type": {
+              "type": "string",
+              "enum": [
+                "human"
+              ],
+              "title": "Evaluator type",
+              "description": "The type of the evaluator.",
+              "default": "human"
+            },
+            "instructions": {
+              "type": "string",
+              "title": "Instructions",
+              "description": "Instructions and guidelines for applying judgments."
+            }
+          },
+          "type": "object",
+          "required": [
+            "arguments_type",
+            "return_type"
+          ],
+          "title": "HumanEvaluatorRequest"
+        },
+        {
+          "properties": {
+            "arguments_type": {
+              "type": "string"
+            },
+            "return_type": {
+              "type": "string"
+            },
+            "attributes": {
+              "type": "object",
+              "title": "Attributes",
+              "description": "Additional fields to describe the Evaluator. Helpful to separate Evaluator versions from each other with details on how they were created or used."
+            },
+            "options": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "The name of the option."
+                  },
+                  "valence": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "title": "EvaluatorJudgmentOptionResponse"
+              },
+              "type": "array",
+              "title": "Options",
+              "description": "The options that can be applied as judgments. Only for Evaluators with `return_type` of 'boolean', 'select' or 'multi_select'."
+            },
+            "number_limits": {
+              "type": "string"
+            },
+            "number_valence": {
+              "type": "string"
+            },
+            "evaluator_type": {
+              "type": "string",
+              "enum": [
+                "external"
+              ],
+              "title": "Evaluator type",
+              "description": "The type of the evaluator.",
+              "default": "external"
+            }
+          },
+          "type": "object",
+          "required": [
+            "arguments_type",
+            "return_type"
+          ],
+          "title": "ExternalEvaluatorRequest"
+        }
+      ],
+      "title": "Spec"
+    }
+  },
+  "required": [
+    "parent_id"
+  ]
+}

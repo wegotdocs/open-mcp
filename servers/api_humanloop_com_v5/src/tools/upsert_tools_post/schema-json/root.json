@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "title": "Tool path",
+      "description": "Path of the Tool, including the name. This locates the Tool in the Humanloop filesystem and is used as as a unique identifier. For example: `folder/name` or just `name`."
+    },
+    "id": {
+      "type": "string",
+      "title": "Tool ID",
+      "description": "ID for an existing Tool."
+    },
+    "function": {
+      "type": "string"
+    },
+    "source_code": {
+      "type": "string",
+      "title": "Source Code",
+      "description": "Code source of the Tool."
+    },
+    "setup_values": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `setup_values` to the tool, first call the tool `expandSchema` with \"/properties/setup_values\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Values needed to setup the Tool, defined in JSON Schema format: https://json-schema.org/</property-description>",
+      "additionalProperties": true
+    },
+    "attributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `attributes` to the tool, first call the tool `expandSchema` with \"/properties/attributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional fields to describe the Tool. Helpful to separate Tool versions from each other with details on how they were created or used.</property-description>",
+      "additionalProperties": true
+    },
+    "tool_type": {
+      "type": "string"
+    },
+    "version_name": {
+      "type": "string",
+      "title": "Version name",
+      "description": "Unique identifier for this Tool version. Each Tool can only have one version with a given name."
+    },
+    "version_description": {
+      "type": "string",
+      "title": "Version description",
+      "description": "Description of the Version."
+    }
+  },
+  "required": []
+}

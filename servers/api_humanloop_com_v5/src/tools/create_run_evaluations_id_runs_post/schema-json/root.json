@@ -1,0 +1,145 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Evaluation.",
+      "type": "string",
+      "title": "Evaluation ID"
+    },
+    "dataset": {
+      "anyOf": [
+        {
+          "properties": {
+            "version_id": {
+              "type": "string",
+              "title": "Version ID",
+              "description": "Unique identifier for the Version."
+            }
+          },
+          "type": "object",
+          "required": [
+            "version_id"
+          ],
+          "title": "VersionId"
+        },
+        {
+          "properties": {
+            "environment": {
+              "type": "string",
+              "title": "Environment name",
+              "description": "If provided, the Version deployed to this Environment is used. If not provided, the Version deployed to the default Environment is used."
+            },
+            "id": {
+              "type": "string",
+              "title": "File ID",
+              "description": "Unique identifier for the File."
+            }
+          },
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "title": "FileId",
+          "description": "Specification of a File by its ID."
+        },
+        {
+          "properties": {
+            "environment": {
+              "type": "string",
+              "title": "Environment name",
+              "description": "If provided, the Version deployed to this Environment is used. If not provided, the Version deployed to the default Environment is used."
+            },
+            "path": {
+              "type": "string",
+              "title": "File path",
+              "description": "Path identifying a File. Provide this to specify a File."
+            }
+          },
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "title": "FilePath",
+          "description": "Specification of a File by its path."
+        }
+      ],
+      "title": "Dataset",
+      "description": "Dataset to use in this Run."
+    },
+    "version": {
+      "anyOf": [
+        {
+          "properties": {
+            "version_id": {
+              "type": "string",
+              "title": "Version ID",
+              "description": "Unique identifier for the Version."
+            }
+          },
+          "type": "object",
+          "required": [
+            "version_id"
+          ],
+          "title": "VersionId"
+        },
+        {
+          "properties": {
+            "environment": {
+              "type": "string",
+              "title": "Environment name",
+              "description": "If provided, the Version deployed to this Environment is used. If not provided, the Version deployed to the default Environment is used."
+            },
+            "id": {
+              "type": "string",
+              "title": "File ID",
+              "description": "Unique identifier for the File."
+            }
+          },
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "title": "FileId",
+          "description": "Specification of a File by its ID."
+        },
+        {
+          "properties": {
+            "environment": {
+              "type": "string",
+              "title": "Environment name",
+              "description": "If provided, the Version deployed to this Environment is used. If not provided, the Version deployed to the default Environment is used."
+            },
+            "path": {
+              "type": "string",
+              "title": "File path",
+              "description": "Path identifying a File. Provide this to specify a File."
+            }
+          },
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "title": "FilePath",
+          "description": "Specification of a File by its path."
+        }
+      ],
+      "title": "Version",
+      "description": "Version to use in this Run."
+    },
+    "orchestrated": {
+      "type": "boolean",
+      "title": "Humanloop Orchestrated",
+      "description": "Whether the Run is orchestrated by Humanloop. If `True`, Humanloop will generate Logs for the Run; `dataset` and `version` must be provided. If `False`, a log for the Prompt/Tool should be submitted by the user via the API.",
+      "default": true
+    },
+    "use_existing_logs": {
+      "type": "boolean",
+      "title": "Use existing Logs",
+      "description": "If `True`, the Run will be initialized with existing Logs associated with the Dataset and Version. If `False`, the Run will be initialized with no Logs. Can only be set to `True` when both `dataset` and `version` are provided.",
+      "default": false
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

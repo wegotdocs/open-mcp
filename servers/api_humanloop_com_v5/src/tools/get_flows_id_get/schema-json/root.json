@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Flow.",
+      "type": "string",
+      "title": "Flow ID"
+    },
+    "version_id": {
+      "description": "A specific Version ID of the Flow to retrieve.",
+      "type": "string",
+      "title": "Version ID"
+    },
+    "environment": {
+      "description": "Name of the Environment to retrieve a deployed Version from.",
+      "type": "string",
+      "title": "Environment"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

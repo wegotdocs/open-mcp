@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Flow.",
+      "type": "string",
+      "title": "Flow ID"
+    },
+    "path": {
+      "type": "string",
+      "title": "Flow path",
+      "description": "Path of the Flow including the Flow name, which is used as a unique identifier."
+    },
+    "name": {
+      "type": "string",
+      "title": "Flow name",
+      "description": "Name of the Flow."
+    },
+    "directory_id": {
+      "type": "string",
+      "title": "Directory ID",
+      "description": "Unique identifier for the Directory to move Flow to. Starts with `dir_`."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

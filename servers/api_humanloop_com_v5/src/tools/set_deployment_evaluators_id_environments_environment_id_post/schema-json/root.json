@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Evaluator.",
+      "type": "string",
+      "title": "Evaluator ID"
+    },
+    "environment_id": {
+      "description": "Unique identifier for the Environment to deploy the Version to.",
+      "type": "string",
+      "title": "Environment ID"
+    },
+    "version_id": {
+      "description": "Unique identifier for the specific version of the Evaluator.",
+      "type": "string",
+      "title": "Version ID"
+    }
+  },
+  "required": [
+    "id",
+    "environment_id",
+    "version_id"
+  ]
+}

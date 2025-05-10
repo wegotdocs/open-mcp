@@ -1,0 +1,313 @@
+{
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "title": "Prompt path",
+      "description": "Path of the Prompt, including the name. This locates the Prompt in the Humanloop filesystem and is used as as a unique identifier. For example: `folder/name` or just `name`."
+    },
+    "id": {
+      "type": "string",
+      "title": "Prompt ID",
+      "description": "ID for an existing Prompt."
+    },
+    "model": {
+      "type": "string",
+      "title": "Model instance used",
+      "description": "The model instance used, e.g. `gpt-4`. See [supported models](https://humanloop.com/docs/reference/supported-models)"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "template": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "properties": {
+              "content": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "text"
+                              ],
+                              "title": "Type"
+                            },
+                            "text": {
+                              "type": "string",
+                              "title": "Text",
+                              "description": "The message's text content."
+                            }
+                          },
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "text"
+                          ],
+                          "title": "TextChatContent"
+                        },
+                        {
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "image_url"
+                              ],
+                              "title": "Type"
+                            },
+                            "image_url": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "image_url"
+                          ],
+                          "title": "ImageChatContent"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  }
+                ],
+                "title": "Content",
+                "description": "The content of the message.",
+                "nullable": true
+              },
+              "name": {
+                "type": "string",
+                "title": "Name",
+                "description": "Optional name of the message author.",
+                "nullable": true
+              },
+              "tool_call_id": {
+                "type": "string",
+                "title": "Tool call id",
+                "description": "Tool call that this message is responding to.",
+                "nullable": true
+              },
+              "role": {
+                "type": "string"
+              },
+              "tool_calls": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "title": "Id"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "function"
+                      ],
+                      "title": "ToolType",
+                      "description": "The type of tool to call."
+                    },
+                    "function": {
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "title": "Name"
+                        },
+                        "arguments": {
+                          "type": "string",
+                          "title": "Arguments"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "title": "FunctionTool",
+                      "description": "A function tool to be called by the model where user owns runtime."
+                    }
+                  },
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "type",
+                    "function"
+                  ],
+                  "title": "ToolCall",
+                  "description": "A tool call to be made."
+                },
+                "type": "array",
+                "title": "Tool calls",
+                "description": "A list of tool calls requested by the assistant.",
+                "nullable": true
+              }
+            },
+            "type": "object",
+            "required": [
+              "role"
+            ],
+            "title": "ChatMessage"
+          },
+          "type": "array"
+        }
+      ],
+      "title": "Template",
+      "description": "The template contains the main structure and instructions for the model, including input variables for dynamic values. \n\nFor chat models, provide the template as a ChatTemplate (a list of messages), e.g. a system message, followed by a user message with an input variable.\nFor completion models, provide a prompt template as a string. \n\nInput variables should be specified with double curly bracket syntax: `{{input_name}}`."
+    },
+    "template_language": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "max_tokens": {
+      "type": "integer",
+      "title": "Maximum tokens",
+      "description": "The maximum number of tokens to generate. Provide max_tokens=-1 to dynamically calculate the maximum number of tokens to generate given the length of the prompt",
+      "default": -1
+    },
+    "temperature": {
+      "type": "number",
+      "title": "Sampling temperature",
+      "description": "What sampling temperature to use when making a generation. Higher values means the model will be more creative.",
+      "default": 1
+    },
+    "top_p": {
+      "type": "number",
+      "title": "Top p probability mass",
+      "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass.",
+      "default": 1
+    },
+    "stop": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      ],
+      "title": "Stop sequence(s)",
+      "description": "The string (or list of strings) after which the model will stop generating. The returned text will not contain the stop sequence."
+    },
+    "presence_penalty": {
+      "type": "number",
+      "title": "Presence penalty",
+      "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the generation so far.",
+      "default": 0
+    },
+    "frequency_penalty": {
+      "type": "number",
+      "title": "Frequency penalty",
+      "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on how frequently they appear in the generation so far.",
+      "default": 0
+    },
+    "other": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `other` to the tool, first call the tool `expandSchema` with \"/properties/other\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Other parameter values to be passed to the provider call.</property-description>",
+      "additionalProperties": true
+    },
+    "seed": {
+      "type": "integer",
+      "title": "Seed",
+      "description": "If specified, model will make a best effort to sample deterministically, but it is not guaranteed."
+    },
+    "response_format": {
+      "type": "string"
+    },
+    "reasoning_effort": {
+      "type": "string"
+    },
+    "tools": {
+      "items": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name for the tool referenced by the model."
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the tool referenced by the model"
+          },
+          "strict": {
+            "type": "boolean",
+            "title": "Strict",
+            "description": "If true, forces the model to output json data in the structure of the parameters schema.",
+            "default": false
+          },
+          "parameters": {
+            "type": "object",
+            "title": "Tool parameters",
+            "description": "Parameters needed to run the Tool, defined in JSON Schema format: https://json-schema.org/"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "description"
+        ],
+        "title": "ToolFunction"
+      },
+      "type": "array",
+      "title": "Tools",
+      "description": "The tool specification that the model can choose to call if Tool calling is supported."
+    },
+    "linked_tools": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Linked tools",
+      "description": "The IDs of the Tools in your organization that the model can choose to call if Tool calling is supported. The default deployed version of that tool is called."
+    },
+    "attributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `attributes` to the tool, first call the tool `expandSchema` with \"/properties/attributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional fields to describe the Prompt. Helpful to separate Prompt versions from each other with details on how they were created or used.</property-description>",
+      "additionalProperties": true
+    },
+    "version_name": {
+      "type": "string",
+      "title": "Version name",
+      "description": "Unique name for the Prompt version. Version names must be unique for a given Prompt."
+    },
+    "version_description": {
+      "type": "string",
+      "title": "Version description",
+      "description": "Description of the version, e.g., the changes made in this version."
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "Description of the Prompt."
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Description",
+      "description": "List of tags associated with this prompt."
+    },
+    "readme": {
+      "type": "string",
+      "title": "Description",
+      "description": "Long description of the Prompt."
+    }
+  },
+  "required": [
+    "model"
+  ]
+}

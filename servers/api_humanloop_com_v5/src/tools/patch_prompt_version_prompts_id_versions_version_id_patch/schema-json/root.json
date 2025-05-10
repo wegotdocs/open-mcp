@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Prompt.",
+      "type": "string",
+      "title": "Prompt ID"
+    },
+    "version_id": {
+      "description": "Unique identifier for the specific version of the Prompt.",
+      "type": "string",
+      "title": "Version ID"
+    },
+    "name": {
+      "type": "string",
+      "title": "Version name",
+      "description": "Name of the version."
+    },
+    "description": {
+      "type": "string",
+      "title": "Version description",
+      "description": "Description of the version."
+    }
+  },
+  "required": [
+    "id",
+    "version_id"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for Dataset.",
+      "type": "string",
+      "title": "Dataset ID"
+    },
+    "version_id": {
+      "description": "A specific Version ID of the Dataset to retrieve.",
+      "type": "string",
+      "title": "Version ID"
+    },
+    "environment": {
+      "description": "Name of the Environment to retrieve a deployed Version from.",
+      "type": "string",
+      "title": "Environment"
+    },
+    "include_datapoints": {
+      "description": "If set to `true`, include all Datapoints in the response. Defaults to `false`. Consider using the paginated List Datapoints endpoint instead.",
+      "type": "boolean",
+      "title": "Include Datapoints",
+      "default": false
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

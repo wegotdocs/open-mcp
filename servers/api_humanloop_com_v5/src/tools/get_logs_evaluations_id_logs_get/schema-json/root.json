@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "String ID of evaluation. Starts with `ev_` or `evr_`.",
+      "type": "string",
+      "title": "Evaluation ID"
+    },
+    "page": {
+      "description": "Page number for pagination.",
+      "type": "integer",
+      "minimum": 1,
+      "title": "Page number",
+      "default": 1
+    },
+    "size": {
+      "description": "Page size for pagination. Number of Logs to fetch.",
+      "type": "integer",
+      "minimum": 0,
+      "title": "Page size",
+      "default": 10
+    },
+    "run_id": {
+      "description": "Filter by Run IDs. Only Logs for the specified Runs will be returned.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Run ID"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

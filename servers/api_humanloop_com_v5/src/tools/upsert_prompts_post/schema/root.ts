@@ -1,0 +1,29 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "path": z.string().describe("Path of the Prompt, including the name. This locates the Prompt in the Humanloop filesystem and is used as as a unique identifier. For example: `folder/name` or just `name`.").optional(),
+  "id": z.string().describe("ID for an existing Prompt.").optional(),
+  "model": z.string().describe("The model instance used, e.g. `gpt-4`. See [supported models](https://humanloop.com/docs/reference/supported-models)"),
+  "endpoint": z.string().optional(),
+  "template": z.union([z.string(), z.array(z.object({ "content": z.union([z.string(), z.array(z.union([z.object({ "type": z.literal("text"), "text": z.string().describe("The message's text content.") }), z.object({ "type": z.literal("image_url"), "image_url": z.string() })]))]).nullable().describe("The content of the message.").optional(), "name": z.string().nullable().describe("Optional name of the message author.").optional(), "tool_call_id": z.string().nullable().describe("Tool call that this message is responding to.").optional(), "role": z.string(), "tool_calls": z.array(z.object({ "id": z.string(), "type": z.literal("function").describe("The type of tool to call."), "function": z.object({ "name": z.string(), "arguments": z.string().optional() }).describe("A function tool to be called by the model where user owns runtime.") }).describe("A tool call to be made.")).nullable().describe("A list of tool calls requested by the assistant.").optional() }))]).describe("The template contains the main structure and instructions for the model, including input variables for dynamic values. \n\nFor chat models, provide the template as a ChatTemplate (a list of messages), e.g. a system message, followed by a user message with an input variable.\nFor completion models, provide a prompt template as a string. \n\nInput variables should be specified with double curly bracket syntax: `{{input_name}}`.").optional(),
+  "template_language": z.string().optional(),
+  "provider": z.string().optional(),
+  "max_tokens": z.number().int().describe("The maximum number of tokens to generate. Provide max_tokens=-1 to dynamically calculate the maximum number of tokens to generate given the length of the prompt").optional(),
+  "temperature": z.number().describe("What sampling temperature to use when making a generation. Higher values means the model will be more creative.").optional(),
+  "top_p": z.number().describe("An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass.").optional(),
+  "stop": z.union([z.string(), z.array(z.string())]).describe("The string (or list of strings) after which the model will stop generating. The returned text will not contain the stop sequence.").optional(),
+  "presence_penalty": z.number().describe("Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the generation so far.").optional(),
+  "frequency_penalty": z.number().describe("Number between -2.0 and 2.0. Positive values penalize new tokens based on how frequently they appear in the generation so far.").optional(),
+  "other": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `other` to the tool, first call the tool `expandSchema` with \"/properties/other\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Other parameter values to be passed to the provider call.</property-description>").optional(),
+  "seed": z.number().int().describe("If specified, model will make a best effort to sample deterministically, but it is not guaranteed.").optional(),
+  "response_format": z.string().optional(),
+  "reasoning_effort": z.string().optional(),
+  "tools": z.array(z.object({ "name": z.string().describe("Name for the tool referenced by the model."), "description": z.string().describe("Description of the tool referenced by the model"), "strict": z.boolean().describe("If true, forces the model to output json data in the structure of the parameters schema."), "parameters": z.record(z.any()).describe("Parameters needed to run the Tool, defined in JSON Schema format: https://json-schema.org/").optional() })).describe("The tool specification that the model can choose to call if Tool calling is supported.").optional(),
+  "linked_tools": z.array(z.string()).describe("The IDs of the Tools in your organization that the model can choose to call if Tool calling is supported. The default deployed version of that tool is called.").optional(),
+  "attributes": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `attributes` to the tool, first call the tool `expandSchema` with \"/properties/attributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional fields to describe the Prompt. Helpful to separate Prompt versions from each other with details on how they were created or used.</property-description>").optional(),
+  "version_name": z.string().describe("Unique name for the Prompt version. Version names must be unique for a given Prompt.").optional(),
+  "version_description": z.string().describe("Description of the version, e.g., the changes made in this version.").optional(),
+  "description": z.string().describe("Description of the Prompt.").optional(),
+  "tags": z.array(z.string()).describe("List of tags associated with this prompt.").optional(),
+  "readme": z.string().describe("Long description of the Prompt.").optional()
+}

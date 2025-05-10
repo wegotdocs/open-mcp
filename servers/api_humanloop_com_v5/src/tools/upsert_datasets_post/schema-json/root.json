@@ -1,0 +1,236 @@
+{
+  "type": "object",
+  "properties": {
+    "version_id": {
+      "description": "ID of the specific Dataset version to base the created Version on. Only used when `action` is `\"add\"` or `\"remove\"`.",
+      "type": "string",
+      "title": "Version ID"
+    },
+    "environment": {
+      "description": "Name of the Environment identifying a deployed Version to base the created Version on. Only used when `action` is `\"add\"` or `\"remove\"`.",
+      "type": "string",
+      "title": "Environment"
+    },
+    "include_datapoints": {
+      "description": "If set to `true`, include all Datapoints in the response. Defaults to `false`. Consider using the paginated List Datapoints endpoint instead.",
+      "type": "boolean",
+      "title": "Include Datapoints",
+      "default": false
+    },
+    "path": {
+      "type": "string",
+      "title": "Dataset path",
+      "description": "Path of the Dataset, including the name. This locates the Dataset in the Humanloop filesystem and is used as as a unique identifier. For example: `folder/name` or just `name`."
+    },
+    "id": {
+      "type": "string",
+      "title": "Dataset ID",
+      "description": "ID for an existing Dataset."
+    },
+    "datapoints": {
+      "items": {
+        "properties": {
+          "inputs": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Inputs",
+            "description": "The inputs to the prompt template.",
+            "default": {}
+          },
+          "messages": {
+            "items": {
+              "properties": {
+                "content": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "items": {
+                        "anyOf": [
+                          {
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "text"
+                                ],
+                                "title": "Type"
+                              },
+                              "text": {
+                                "type": "string",
+                                "title": "Text",
+                                "description": "The message's text content."
+                              }
+                            },
+                            "type": "object",
+                            "required": [
+                              "type",
+                              "text"
+                            ],
+                            "title": "TextChatContent"
+                          },
+                          {
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "image_url"
+                                ],
+                                "title": "Type"
+                              },
+                              "image_url": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object",
+                            "required": [
+                              "type",
+                              "image_url"
+                            ],
+                            "title": "ImageChatContent"
+                          }
+                        ]
+                      },
+                      "type": "array"
+                    }
+                  ],
+                  "title": "Content",
+                  "description": "The content of the message.",
+                  "nullable": true
+                },
+                "name": {
+                  "type": "string",
+                  "title": "Name",
+                  "description": "Optional name of the message author.",
+                  "nullable": true
+                },
+                "tool_call_id": {
+                  "type": "string",
+                  "title": "Tool call id",
+                  "description": "Tool call that this message is responding to.",
+                  "nullable": true
+                },
+                "role": {
+                  "type": "string"
+                },
+                "tool_calls": {
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "title": "Id"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "function"
+                        ],
+                        "title": "ToolType",
+                        "description": "The type of tool to call."
+                      },
+                      "function": {
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "title": "Name"
+                          },
+                          "arguments": {
+                            "type": "string",
+                            "title": "Arguments"
+                          }
+                        },
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "title": "FunctionTool",
+                        "description": "A function tool to be called by the model where user owns runtime."
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "type",
+                      "function"
+                    ],
+                    "title": "ToolCall",
+                    "description": "A tool call to be made."
+                  },
+                  "type": "array",
+                  "title": "Tool calls",
+                  "description": "A list of tool calls requested by the assistant.",
+                  "nullable": true
+                }
+              },
+              "type": "object",
+              "required": [
+                "role"
+              ],
+              "title": "ChatMessage"
+            },
+            "type": "array",
+            "title": "Chat messages",
+            "description": "List of chat messages to provide to the model."
+          },
+          "target": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "items": {},
+                  "type": "array"
+                },
+                {
+                  "type": "object"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Target",
+            "description": "Object with criteria necessary to evaluate generations with this Datapoint. This is passed in as an argument to Evaluators when used in an Evaluation."
+          }
+        },
+        "type": "object",
+        "title": "CreateDatapointRequest"
+      },
+      "type": "array",
+      "title": "Datapoints",
+      "description": "The Datapoints to create this Dataset version with. Modify the `action` field to determine how these Datapoints are used."
+    },
+    "action": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `attributes` to the tool, first call the tool `expandSchema` with \"/properties/attributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional fields to describe the Dataset. Helpful to separate Dataset versions from each other with details on how they were created or used.</property-description>",
+      "additionalProperties": true
+    },
+    "version_name": {
+      "type": "string",
+      "title": "Version name",
+      "description": "Unique name for the Dataset version. Version names must be unique for a given Dataset."
+    },
+    "version_description": {
+      "type": "string",
+      "title": "Version description",
+      "description": "Description of the version, e.g., the changes made in this version."
+    }
+  },
+  "required": [
+    "datapoints"
+  ]
+}
