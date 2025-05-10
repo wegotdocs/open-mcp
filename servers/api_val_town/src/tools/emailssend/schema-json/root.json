@@ -1,0 +1,292 @@
+{
+  "type": "object",
+  "properties": {
+    "subject": {
+      "description": "The subject line of the email",
+      "type": "string"
+    },
+    "from": {
+      "title": "EmailData",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "title": "EmailNameAndAddress",
+          "description": "An email address and name",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "email"
+          ]
+        }
+      ]
+    },
+    "headers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `headers` to the tool, first call the tool `expandSchema` with \"/properties/headers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A set of headers to include the email that you send</property-description>",
+      "additionalProperties": true
+    },
+    "to": {
+      "title": "EmailDataInput",
+      "description": "A single email or list of emails for one of the address fields",
+      "anyOf": [
+        {
+          "title": "EmailData",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "title": "EmailNameAndAddress",
+              "description": "An email address and name",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "email"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "EmailDataList",
+          "type": "array",
+          "items": {
+            "title": "EmailData",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "title": "EmailNameAndAddress",
+                "description": "An email address and name",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "cc": {
+      "title": "EmailDataInput",
+      "description": "A single email or list of emails for one of the address fields",
+      "anyOf": [
+        {
+          "title": "EmailData",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "title": "EmailNameAndAddress",
+              "description": "An email address and name",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "email"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "EmailDataList",
+          "type": "array",
+          "items": {
+            "title": "EmailData",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "title": "EmailNameAndAddress",
+                "description": "An email address and name",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "bcc": {
+      "title": "EmailDataInput",
+      "description": "A single email or list of emails for one of the address fields",
+      "anyOf": [
+        {
+          "title": "EmailData",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "title": "EmailNameAndAddress",
+              "description": "An email address and name",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "email"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "EmailDataList",
+          "type": "array",
+          "items": {
+            "title": "EmailData",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "title": "EmailNameAndAddress",
+                "description": "An email address and name",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "text": {
+      "description": "Text content of the email, for email clients that may not support HTML",
+      "type": "string"
+    },
+    "html": {
+      "description": "HTML content of the email. Can be specified alongside text",
+      "type": "string"
+    },
+    "attachments": {
+      "description": "A list of attachments to add to the email",
+      "type": "array",
+      "items": {
+        "title": "AttachmentObject",
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "disposition": {
+            "type": "string"
+          },
+          "contentId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content",
+          "filename"
+        ]
+      }
+    },
+    "replyToList": {
+      "title": "ReplyToList",
+      "description": "A reply-to list of email addresses",
+      "anyOf": [
+        {
+          "title": "EmailNameAndAddress",
+          "description": "An email address and name",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "email"
+          ]
+        },
+        {
+          "title": "EmailList",
+          "type": "array",
+          "items": {
+            "title": "EmailNameAndAddress",
+            "description": "An email address and name",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "email"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "val_id": {
+      "description": "Id of a val",
+      "format": "uuid",
+      "type": "string"
+    },
+    "version": {
+      "description": "Specific branch version to query",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "branch_id": {
+      "description": "Id to query",
+      "format": "uuid",
+      "type": "string"
+    },
+    "path": {
+      "description": "Path to a file or directory (e.g. 'dir/subdir/file.ts'). Pass in an empty string to represent the root directory.",
+      "type": "string"
+    },
+    "recursive": {
+      "description": "Whether to recursively act on all files in the project",
+      "default": false,
+      "type": "boolean"
+    },
+    "offset": {
+      "description": "Number of items to skip in order to deliver paginated results",
+      "minimum": 0,
+      "default": 0,
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Maximum items to return in each paginated response",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "val_id",
+    "path",
+    "recursive",
+    "offset",
+    "limit"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "val_id": {
+      "description": "Id of a val",
+      "format": "uuid",
+      "type": "string"
+    },
+    "version": {
+      "description": "Specific branch version to query",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "branch_id": {
+      "description": "Id to query",
+      "format": "uuid",
+      "type": "string"
+    },
+    "path": {
+      "description": "Path to a file or directory (e.g. 'dir/subdir/file.ts'). Pass in an empty string to represent the root directory.",
+      "type": "string"
+    },
+    "If-Match": {
+      "type": "string"
+    },
+    "If-Unmodified-Since": {
+      "type": "string"
+    },
+    "If-None-Match": {
+      "type": "string"
+    },
+    "If-Modified-Since": {
+      "type": "string"
+    },
+    "Cache-Control": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "val_id",
+    "path"
+  ]
+}

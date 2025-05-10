@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "offset": z.number().int().gte(0).describe("Number of items to skip in order to deliver paginated results"),
+  "limit": z.number().int().gte(1).lte(100).describe("Maximum items to return in each paginated response"),
+  "query": z.string().min(1).max(256).describe("Search query")
+}

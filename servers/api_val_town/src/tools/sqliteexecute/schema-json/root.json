@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "statement": {
+      "anyOf": [
+        {
+          "description": "Simple SQL statement to run in SQLite",
+          "type": "string"
+        },
+        {
+          "title": "ParameterizedQuery",
+          "description": "A parameterized SQL query. See https://docs.turso.tech/sdk/ts/reference#batch-transactions for reference",
+          "type": "object",
+          "properties": {
+            "sql": {
+              "description": "SQL statement, with ? placeholders for arguments",
+              "type": "string"
+            },
+            "args": {
+              "title": "StatementArg",
+              "description": "List of arguments to be used in the given statement",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "title": "TursoValue",
+                    "description": "A value to be used as a parameter"
+                  }
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": {
+                    "title": "TursoValue",
+                    "description": "A value to be used as a parameter"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "sql",
+            "args"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "statement"
+  ]
+}

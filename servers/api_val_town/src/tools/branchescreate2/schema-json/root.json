@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "val_id": {
+      "description": "Id of a val",
+      "format": "uuid",
+      "type": "string"
+    },
+    "name": {
+      "minLength": 1,
+      "maxLength": 48,
+      "pattern": "^[a-zA-Z0-9\\-_.]+$",
+      "type": "string"
+    },
+    "branchId": {
+      "format": "uuid",
+      "description": "The branch ID to fork from. If this is not specified, the new branch will be forked from main.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "val_id",
+    "name"
+  ]
+}

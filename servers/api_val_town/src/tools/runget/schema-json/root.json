@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "valname": {
+      "description": "Name of the val, in concatenated style, like username.valname",
+      "pattern": "^[^.]+.[^.]+$",
+      "type": "string"
+    },
+    "args": {
+      "description": "An argument that will be passed to the function as a JavaScript value",
+      "type": "string"
+    }
+  },
+  "required": [
+    "valname"
+  ]
+}
