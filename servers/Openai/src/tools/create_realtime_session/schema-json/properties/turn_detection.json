@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "description": "Configuration for turn detection, ether Server VAD or Semantic VAD. This can be set to `null` to turn off, in which case the client must manually trigger model response.\nServer VAD means that the model will detect the start and end of speech based on audio volume and respond at the end of user speech.\nSemantic VAD is more advanced and uses a turn detection model (in conjuction with VAD) to semantically estimate whether the user has finished speaking, then dynamically sets a timeout based on this probability. For example, if user audio trails off with \"uhhm\", the model will score a low probability of turn end and wait longer for the user to continue speaking. This can be useful for more natural conversations, but may have a higher latency.\n",
+  "properties": {
+    "type": {
+      "type": "string",
+      "default": "server_vad",
+      "enum": [
+        "server_vad",
+        "semantic_vad"
+      ],
+      "description": "Type of turn detection.\n"
+    },
+    "eagerness": {
+      "type": "string",
+      "default": "auto",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "auto"
+      ],
+      "description": "Used only for `semantic_vad` mode. The eagerness of the model to respond. `low` will wait longer for the user to continue speaking, `high` will respond more quickly. `auto` is the default and is equivalent to `medium`.\n"
+    },
+    "threshold": {
+      "type": "number",
+      "description": "Used only for `server_vad` mode. Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. A \nhigher threshold will require louder audio to activate the model, and \nthus might perform better in noisy environments.\n"
+    },
+    "prefix_padding_ms": {
+      "type": "integer",
+      "description": "Used only for `server_vad` mode. Amount of audio to include before the VAD detected speech (in \nmilliseconds). Defaults to 300ms.\n"
+    },
+    "silence_duration_ms": {
+      "type": "integer",
+      "description": "Used only for `server_vad` mode. Duration of silence to detect speech stop (in milliseconds). Defaults \nto 500ms. With shorter values the model will respond more quickly, \nbut may jump in on short pauses from the user.\n"
+    },
+    "create_response": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether or not to automatically generate a response when a VAD stop event occurs.\n"
+    },
+    "interrupt_response": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether or not to automatically interrupt any ongoing response with output to the default\nconversation (i.e. `conversation` of `auto`) when a VAD start event occurs.\n"
+    }
+  }
+}
