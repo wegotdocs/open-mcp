@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "input": {
+      "description": "Input (or inputs) to classify. Can be a single string, an array of strings, or\nan array of multi-modal input objects similar to other models.\n",
+      "x-oaiExpandable": true,
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "A string of text to classify for moderation.",
+          "default": "",
+          "example": "I want to kill them."
+        }
+      ]
+    },
+    "model": {
+      "description": "The content moderation model you would like to use. Learn more in\n[the moderation guide](/docs/guides/moderation), and learn about\navailable models [here](/docs/models#moderation).\n",
+      "nullable": false,
+      "default": "omni-moderation-latest",
+      "example": "omni-moderation-2024-09-26",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "omni-moderation-latest",
+            "omni-moderation-2024-09-26",
+            "text-moderation-latest",
+            "text-moderation-stable"
+          ]
+        }
+      ],
+      "x-oaiTypeLabel": "string"
+    }
+  },
+  "required": [
+    "input"
+  ]
+}

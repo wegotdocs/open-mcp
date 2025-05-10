@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "properties": {
+    "start_time": {
+      "description": "Start time (Unix seconds) of the query time range, inclusive.",
+      "type": "integer"
+    },
+    "end_time": {
+      "description": "End time (Unix seconds) of the query time range, exclusive.",
+      "type": "integer"
+    },
+    "bucket_width": {
+      "description": "Width of each time bucket in response. Currently `1m`, `1h` and `1d` are supported, default to `1d`.",
+      "type": "string",
+      "enum": [
+        "1m",
+        "1h",
+        "1d"
+      ],
+      "default": "1d"
+    },
+    "sources": {
+      "description": "Return only usages for these sources. Possible values are `image.generation`, `image.edit`, `image.variation` or any combination of them.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "image.generation",
+          "image.edit",
+          "image.variation"
+        ]
+      }
+    },
+    "sizes": {
+      "description": "Return only usages for these image sizes. Possible values are `256x256`, `512x512`, `1024x1024`, `1792x1792`, `1024x1792` or any combination of them.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "256x256",
+          "512x512",
+          "1024x1024",
+          "1792x1792",
+          "1024x1792"
+        ]
+      }
+    },
+    "project_ids": {
+      "description": "Return only usage for these projects.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_ids": {
+      "description": "Return only usage for these users.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "api_key_ids": {
+      "description": "Return only usage for these API keys.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "models": {
+      "description": "Return only usage for these models.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "group_by": {
+      "description": "Group the usage data by the specified fields. Support fields include `project_id`, `user_id`, `api_key_id`, `model`, `size`, `source` or any combination of them.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "project_id",
+          "user_id",
+          "api_key_id",
+          "model",
+          "size",
+          "source"
+        ]
+      }
+    },
+    "limit": {
+      "description": "Specifies the number of buckets to return.\n- `bucket_width=1d`: default: 7, max: 31\n- `bucket_width=1h`: default: 24, max: 168\n- `bucket_width=1m`: default: 60, max: 1440\n",
+      "type": "integer"
+    },
+    "page": {
+      "description": "A cursor for use in pagination. Corresponding to the `next_page` field from the previous response.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "start_time"
+  ]
+}

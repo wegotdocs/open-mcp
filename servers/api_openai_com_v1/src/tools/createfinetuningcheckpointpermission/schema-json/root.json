@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "permission_id": {
+      "description": "The ID of the fine-tuned model checkpoint to create a permission for.\n",
+      "type": "string",
+      "example": "ft:gpt-4o-mini-2024-07-18:org:weather:B7R9VjQd"
+    },
+    "project_ids": {
+      "type": "array",
+      "description": "The project identifiers to grant access to.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "permission_id",
+    "project_ids"
+  ]
+}
