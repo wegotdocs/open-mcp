@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "agentConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `agentConfig` to the tool, first call the tool `expandSchema` with \"/properties/agentConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>AgentConfig stores the configuration information for the acushield agent.</property-description>",
+      "additionalProperties": true
+    },
+    "currentVersion": {
+      "description": "The current version of the agent.",
+      "example": "0.1.0",
+      "type": "string"
+    },
+    "hostname": {
+      "description": "The name of the host where the agent is runnning.",
+      "example": "this-hostname",
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "isAPEXReachable": {
+      "description": "True if the apex is reachable.",
+      "type": "boolean"
+    },
+    "isAPEXTrusted": {
+      "description": "True if the apex is trusted.",
+      "type": "boolean"
+    },
+    "managedCAState": {
+      "description": "The state of the managed CA.",
+      "type": "boolean"
+    },
+    "managedInterfaces": {
+      "description": "The list of managed interfaces.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "ping": {
+      "description": "The last ping recorded for the agent.",
+      "example": "2024-06-21T00:36:15.021Z",
+      "format": "date-time",
+      "type": "string"
+    },
+    "principal": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `principal` to the tool, first call the tool `expandSchema` with \"/properties/principal\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Describe the principal.</property-description>",
+      "additionalProperties": true
+    },
+    "start": {
+      "description": "The start time for the agent.",
+      "example": "2024-06-21T00:36:15.021Z",
+      "format": "date-time",
+      "type": "string"
+    },
+    "status": {
+      "description": "The status of the agent.",
+      "enum": [
+        "Alive",
+        "Stopped"
+      ],
+      "example": "Alive"
+    },
+    "systemProxyManagementState": {
+      "description": "The state of the system proxy management.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "currentVersion",
+    "hostname",
+    "ping",
+    "principal",
+    "start",
+    "status"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "The description of the sink.",
+      "type": "string"
+    },
+    "email": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `email` to the tool, first call the tool `expandSchema` with \"/properties/email\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional configuration for sending an email.</property-description>",
+      "additionalProperties": true
+    },
+    "friendlyName": {
+      "description": "Friendly name of the object.",
+      "example": "Simple name",
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The internal reference name of the object. It is a sanitized version of Friendly\nName if empty.",
+      "example": "my-simple-policy",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "pagerDuty": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `pagerDuty` to the tool, first call the tool `expandSchema` with \"/properties/pagerDuty\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional configuration for sending a PagerDuty event.</property-description>",
+      "additionalProperties": true
+    },
+    "propagate": {
+      "default": true,
+      "description": "Propagates the object to all child namespaces. This is always true.",
+      "type": "boolean"
+    },
+    "slack": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `slack` to the tool, first call the tool `expandSchema` with \"/properties/slack\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional configuration for sending a Slack message.</property-description>",
+      "additionalProperties": true
+    },
+    "splunk": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `splunk` to the tool, first call the tool `expandSchema` with \"/properties/splunk\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional configuration for sending an alert to Splunk.</property-description>",
+      "additionalProperties": true
+    },
+    "type": {
+      "default": "Email",
+      "description": "The type of sink.",
+      "enum": [
+        "Email",
+        "PagerDuty",
+        "Slack",
+        "Splunk"
+      ]
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "friendlyName",
+    "type"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "description": "Represents the summary of the extractions.",
+  "properties": {
+    "PIIs": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PIIs` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/PIIs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The PIIs found during classification.</property-description>",
+      "additionalProperties": true
+    },
+    "categories": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `categories` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/categories\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The categories are remapping of the modalities in a more human friendly way.</property-description>",
+      "additionalProperties": true
+    },
+    "customDataSets": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customDataSets` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/customDataSets\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The data sets.</property-description>",
+      "additionalProperties": true
+    },
+    "customDataTypes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customDataTypes` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/customDataTypes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The data types.</property-description>",
+      "additionalProperties": true
+    },
+    "exploits": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `exploits` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/exploits\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The various exploits attempts.</property-description>",
+      "additionalProperties": true
+    },
+    "intent": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `intent` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/intent\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The estimated intent embodied into the text.</property-description>",
+      "additionalProperties": true
+    },
+    "keywords": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `keywords` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/keywords\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The keywords found during classification.</property-description>",
+      "additionalProperties": true
+    },
+    "languages": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `languages` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/languages\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The language of the classification.</property-description>",
+      "additionalProperties": true
+    },
+    "malcontents": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `malcontents` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/malcontents\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The various malcontents attempts.</property-description>",
+      "additionalProperties": true
+    },
+    "modalities": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `modalities` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/modalities\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The modalities of data detected in the data.</property-description>",
+      "additionalProperties": true
+    },
+    "secrets": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `secrets` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/secrets\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The secrets found during classification.</property-description>",
+      "additionalProperties": true
+    },
+    "topics": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `topics` to the tool, first call the tool `expandSchema` with \"/properties/summary/properties/topics\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The topic of the classification.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

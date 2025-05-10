@@ -1,0 +1,103 @@
+{
+  "description": "AgentConfig stores the configuration information for the acushield agent.",
+  "properties": {
+    "DNSMonitorEnabled": {
+      "description": "If enabled, the agent will monitor DNS traffic.",
+      "type": "boolean"
+    },
+    "DNSMonitorPolicy": {
+      "default": "Warn",
+      "description": "What action to take if the DNS monitor cannot start when enabled. Enforce will\nstop the agent with an error, while Warn will post a log and continue on.",
+      "enum": [
+        "Warn",
+        "Enforce"
+      ]
+    },
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "allowedPauseInterval": {
+      "default": "0s",
+      "description": "An administrator can set this for users to pause enforcement for this interval.\nA value of 0s means that users are not allowed to pause the enforcement.",
+      "example": "60m",
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the agent configuration.",
+      "type": "string"
+    },
+    "disableManagedCA": {
+      "description": "If disabled, the agent will rely on the CA already installed and trusted on the\nsystem.",
+      "type": "boolean"
+    },
+    "disableSystemProxyManagement": {
+      "description": "If disabled, the system proxy needs to be configured manually.",
+      "type": "boolean"
+    },
+    "disableURLDiscovery": {
+      "description": "If disabled, the agent will stop reporting the visited domains.",
+      "type": "boolean"
+    },
+    "enablePause": {
+      "description": "If enabled, the agent will have the ability to pause enforcement.",
+      "type": "boolean"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "listeningPort": {
+      "default": "8081",
+      "description": "The port use by the agent to proxy the traffic.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the agent configuration.",
+      "example": "default",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "pacName": {
+      "description": "The name of the PAC configuration to use.",
+      "example": "default",
+      "type": "string"
+    },
+    "pingInterval": {
+      "default": "10m",
+      "description": "The ping interval at which acushield should check in with the backend.",
+      "example": "30m",
+      "type": "string"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "useDynamicPort": {
+      "description": "If system proxy management is enabled and this flag is enabled, the system\ncan take another port, different that the listeningPort.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "listeningPort",
+    "name"
+  ],
+  "type": "object"
+}
