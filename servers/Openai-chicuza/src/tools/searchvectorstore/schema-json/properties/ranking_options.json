@@ -1,0 +1,21 @@
+{
+  "description": "Ranking options for search.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ranker": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "default-2024-11-15"
+      ],
+      "default": "auto"
+    },
+    "score_threshold": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0
+    }
+  }
+}
