@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "nodeType": {
+      "description": "The node (entity) type the returned Refs can be applied to",
+      "type": "string",
+      "example": "POINT",
+      "enum": [
+        "SITE",
+        "EQUIP",
+        "POINT"
+      ]
+    },
+    "classId": {
+      "description": "The unique identifier of the Point or Equip Class the returned Refs must be associated with. Set to `\"NONE\"` to retrieve Refs that are not associated with any class.",
+      "type": "string",
+      "format": "uuid|any",
+      "example": "e71ee5bf-6481-4031-931d-aabf67a4292a"
+    }
+  },
+  "required": []
+}

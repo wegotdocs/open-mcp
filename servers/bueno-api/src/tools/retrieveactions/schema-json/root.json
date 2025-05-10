@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "organisationId": {
+      "description": "Unique identifier of an Organisation",
+      "type": "string",
+      "format": "uuid",
+      "example": "9f1748db-ea2b-4e9a-b035-e5757d7e97c7"
+    },
+    "ids": {
+      "description": "Numeric identifier of an Action",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int64",
+        "example": 1234
+      },
+      "default": null
+    },
+    "siteIds": {
+      "description": "List of unique Site Ids the Actions pertain to",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "example": "8a7869df-6cad-4642-a015-9fbb36d3b337"
+      },
+      "default": null
+    },
+    "statusIds": {
+      "description": "List of unique Status Ids the Actions have",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "uuid",
+        "example": "2f4da57d-0c81-4087-bc23-caeb773e26f8"
+      },
+      "default": null
+    },
+    "updatedBefore": {
+      "description": "Latest timestamp at which the Actions were last updated",
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-10-08T12:00:00Z"
+    },
+    "updatedAfter": {
+      "description": "Earliest timestamp at which the Actions were last updated",
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-10-08T12:00:00Z"
+    },
+    "createdBefore": {
+      "description": "Latest timestamp at which the Actions were created",
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-10-08T12:00:00Z"
+    },
+    "createdAfter": {
+      "description": "Earliest timestamp at which the Actions were created",
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-10-08T12:00:00Z"
+    },
+    "closedBefore": {
+      "description": "Latest timestamp at which the Actions were closed",
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-10-08T12:00:00Z"
+    },
+    "closedAfter": {
+      "description": "Earliest timestamp at which the Actions were closed",
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-10-08T12:00:00Z"
+    }
+  },
+  "required": [
+    "organisationId"
+  ]
+}

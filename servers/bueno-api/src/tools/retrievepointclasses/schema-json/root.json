@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "equipClassId": {
+      "description": "The unique identifier of the Equipment Class the returned Point Classes must be a child of",
+      "type": "string",
+      "format": "uuid",
+      "example": "f1d37b44-1f68-4267-afb0-51ba7f9d04cc"
+    },
+    "unitTypeId": {
+      "description": "The unique identifier of the Unit Type the returned Point Classes must have",
+      "type": "string",
+      "format": "uuid",
+      "example": "8190096a-1275-4fc6-b70e-69154647ce93"
+    },
+    "pointType": {
+      "description": "The Point Type the returned Point Classes can be applied to",
+      "type": "string",
+      "example": "number",
+      "enum": [
+        "boolean",
+        "number",
+        "multistate - string",
+        "multistate - numeric"
+      ]
+    }
+  },
+  "required": []
+}

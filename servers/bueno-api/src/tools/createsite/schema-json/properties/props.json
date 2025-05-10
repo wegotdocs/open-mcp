@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "default": null,
+  "description": "Additional key-value typed properties associated with the Site",
+  "example": {
+    "slowSync": {
+      "type": "NUMBER",
+      "value": {
+        "unit": "h",
+        "num": 24
+      }
+    },
+    "energyAlertEmail": {
+      "type": "STRING",
+      "value": "user@example.com"
+    },
+    "waterAlertsRecipients": {
+      "type": "LIST",
+      "value": [
+        "test-user-1",
+        "test-user-2"
+      ]
+    }
+  },
+  "properties": {}
+}

@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "equipId": {
+      "description": "Unique identifier of the Equipment",
+      "type": "string",
+      "format": "uuid",
+      "example": "0e366a9c-3b7c-4e4f-8da1-ad0fdfd40c3d"
+    },
+    "from": {
+      "description": "Start date of the Occurrence for which Equipment Occurrences are requested",
+      "type": "string",
+      "format": "date",
+      "example": "2023-09-08"
+    },
+    "to": {
+      "description": "End date of the Occurrence for which Equipment Occurrences are requested",
+      "type": "string",
+      "format": "date",
+      "default": "9999-12-31"
+    },
+    "ruleIds": {
+      "description": "List of unique Rule IDs for which Equipment Occurrences are requested",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "example": "7404f7e2-4a5a-4362-bc6c-fcbaa792c546"
+      }
+    }
+  },
+  "required": [
+    "equipId",
+    "from"
+  ]
+}

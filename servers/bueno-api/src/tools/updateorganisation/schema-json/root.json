@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier of the Organisation",
+      "example": "9f1748db-ea2b-4e9a-b035-e5757d7e97c7"
+    },
+    "key": {
+      "type": "string",
+      "description": "Unique, immutable, human readable key to identify the Organisation",
+      "example": "ACME"
+    },
+    "name": {
+      "type": "string",
+      "description": "Full name of the Organisation",
+      "example": "Acme Corporation"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Timezone of the Organisation",
+      "example": "Australia/Melbourne"
+    }
+  },
+  "required": [
+    "id",
+    "key",
+    "name",
+    "timezone"
+  ]
+}

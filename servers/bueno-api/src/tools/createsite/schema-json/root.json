@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the Site",
+      "example": "Acme Building 1"
+    },
+    "area": {
+      "type": "number",
+      "default": null,
+      "description": "Area of the Site in square meters",
+      "example": 42500
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude co-ordinates of the Site",
+      "example": -37.812765
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude co-ordinates of the Site",
+      "example": 144.973535
+    },
+    "address": {
+      "type": "string",
+      "description": "Address of the Site",
+      "example": "Sugartopped Loaf, Melbourne VIC 3000"
+    },
+    "city": {
+      "type": "string",
+      "description": "City in which the Site is located",
+      "example": "Melbourne"
+    },
+    "state": {
+      "type": "string",
+      "description": "State in which the Site is located",
+      "example": "VIC"
+    },
+    "country": {
+      "type": "string",
+      "description": "Two letter country in which the Site is located",
+      "example": "AU"
+    },
+    "postcode": {
+      "type": "string",
+      "description": "Postcode of the Site",
+      "example": "3000"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Timezone of the Site",
+      "example": "Australia/Melbourne"
+    },
+    "props": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `props` to the tool, first call the tool `expandSchema` with \"/properties/props\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional key-value typed properties associated with the Site</property-description>",
+      "additionalProperties": true
+    },
+    "tags": {
+      "type": "array",
+      "default": null,
+      "description": "Strings applied to the Site to add context and used for analytics",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "acme",
+        "site",
+        "officeBuilding"
+      ]
+    },
+    "refs": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `refs` to the tool, first call the tool `expandSchema` with \"/properties/refs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Upstream references for the Site</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "name",
+    "latitude",
+    "longitude",
+    "address",
+    "city",
+    "state",
+    "country",
+    "postcode",
+    "timezone",
+    "refs"
+  ]
+}

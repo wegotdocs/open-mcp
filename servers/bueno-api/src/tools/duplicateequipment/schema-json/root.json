@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "equipId": {
+      "description": "Unique identifier of the Equipment",
+      "type": "string",
+      "format": "uuid",
+      "example": "110e9ea8-d8e9-4270-a084-92c064d528da"
+    },
+    "name": {
+      "default": null,
+      "type": "string",
+      "description": "Name of the new duplicated Equipment. If not provided, the name will be the same as the original Equipment with a <code>(copy)</code> suffix appended.",
+      "example": "Gas Meter"
+    },
+    "duplicatePoints": {
+      "default": true,
+      "type": "boolean",
+      "description": "Boolean flag indicating if the original Equipment's Points should be duplicated.",
+      "example": false
+    },
+    "duplicateDataStreamMappings": {
+      "default": true,
+      "type": "boolean",
+      "description": "Boolean flag indicating if the original Point's Data Stream Mappings should be duplicated. (Irrelevant if duplicatePoints is <code>false</code>.)",
+      "example": false
+    },
+    "groupId": {
+      "default": null,
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier of the Group the duplicated Equipment will belong to. If not provided, the duplicated Equipment will belong to the same Group as the original Equipment.",
+      "example": "38d77506-9c7a-447e-9153-b9ce23b7ceb6"
+    }
+  },
+  "required": [
+    "equipId"
+  ]
+}

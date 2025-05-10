@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "siteId": {
+      "description": "Unique identifier of the Site",
+      "type": "string",
+      "format": "uuid",
+      "example": "8a7869df-6cad-4642-a015-9fbb36d3b337"
+    },
+    "includeDeleted": {
+      "description": "Include deleted Equipment in the response",
+      "type": "boolean",
+      "default": false,
+      "example": false
+    },
+    "equipGroupId": {
+      "description": "Unique identifier of a Group",
+      "type": "string",
+      "format": "uuid",
+      "default": null,
+      "example": "f11b46d2-f569-41a3-b0f2-5f95edc0bf94"
+    }
+  },
+  "required": [
+    "siteId"
+  ]
+}

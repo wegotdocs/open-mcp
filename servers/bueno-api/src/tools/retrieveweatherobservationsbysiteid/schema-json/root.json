@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "siteId": {
+      "description": "Unique identifier of the Site",
+      "type": "string",
+      "format": "uuid",
+      "example": "8a7869df-6cad-4642-a015-9fbb36d3b337"
+    },
+    "from": {
+      "description": "Start timestamp of the period requested",
+      "type": "string",
+      "format": "date-time",
+      "default": null,
+      "example": "2022-10-08T04:23:00.000Z"
+    },
+    "to": {
+      "description": "End timestamp of the period requested",
+      "type": "string",
+      "format": "date-time",
+      "default": null,
+      "example": "2022-10-12T04:23:00.000Z"
+    },
+    "aggregateType": {
+      "description": "Duration at which weather observations are aggregated",
+      "type": "string",
+      "default": "RAW",
+      "example": "RAW",
+      "enum": [
+        "RAW",
+        "FIVE_MINUTE",
+        "QUARTER_HOURLY",
+        "HALF_HOURLY",
+        "HOURLY",
+        "DAILY",
+        "MONTHLY",
+        "QUARTERLY",
+        "YEARLY"
+      ]
+    },
+    "unitSystem": {
+      "description": "Unit system applied to response data",
+      "type": "string",
+      "default": "METRIC",
+      "example": "METRIC",
+      "enum": [
+        "METRIC",
+        "USC"
+      ]
+    }
+  },
+  "required": [
+    "siteId"
+  ]
+}

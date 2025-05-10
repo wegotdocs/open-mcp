@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the Integration",
+      "example": "1 Sesame St BMS "
+    },
+    "organisationId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier of the Organisation the Integration belongs to",
+      "example": "9f1748db-ea2b-4e9a-b035-e5757d7e97c7"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Timezone of the Integration",
+      "example": "Australia/Melbourne"
+    }
+  },
+  "required": [
+    "name",
+    "organisationId",
+    "timezone"
+  ]
+}

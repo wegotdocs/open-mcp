@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "siteId": {
+      "description": "Unique identifier of the Site",
+      "type": "string",
+      "format": "uuid",
+      "example": "5c198552-51dd-4214-994f-dd089ba0e1dc"
+    },
+    "metricId": {
+      "description": "Unique identifier of the Weather Metric",
+      "type": "number",
+      "format": "int",
+      "example": 1
+    },
+    "from": {
+      "description": "Start date of the duration for which Weather histories are requested",
+      "type": "string",
+      "format": "date",
+      "default": null,
+      "example": "2022-10-08"
+    },
+    "to": {
+      "description": "End date of the duration for which Weather histories are requested",
+      "type": "string",
+      "format": "date",
+      "default": null,
+      "example": "2022-10-12"
+    },
+    "type": {
+      "description": "The interval to which the Histories are aggregated to e.g. an interval of _MONTHLY_ will rollup all timestamps into a single timestamp per month, from the first to the last day of the month inclusive",
+      "type": "string",
+      "enum": [
+        "DAILY",
+        "MONTHLY",
+        "QUARTERLY",
+        "YEARLY"
+      ],
+      "example": "MONTHLY"
+    }
+  },
+  "required": [
+    "siteId",
+    "metricId",
+    "from",
+    "to",
+    "type"
+  ]
+}

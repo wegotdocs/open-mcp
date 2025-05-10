@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "organisationId": {
+      "description": "Unique identifier of an Organisation",
+      "type": "string",
+      "format": "uuid",
+      "example": "9f1748db-ea2b-4e9a-b035-e5757d7e97c7"
+    },
+    "actionId": {
+      "description": "Numeric identifier of an Action within an Organisation",
+      "type": "integer",
+      "format": "int64",
+      "example": 1234
+    }
+  },
+  "required": [
+    "organisationId",
+    "actionId"
+  ]
+}
