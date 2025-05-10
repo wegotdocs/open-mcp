@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "activity_id": {
+      "description": "活动id",
+      "example": "2016042700826004508401111111",
+      "type": "string"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务单号，用作幂等控制。\t\t幂等作用：\t参数不变的情况下，再次请求返回与上一次相同的结果。\t\t外部接入方需保证业务单号唯一。",
+      "example": "20170101000001654bb46ba",
+      "type": "string"
+    }
+  },
+  "required": [
+    "activity_id"
+  ]
+}

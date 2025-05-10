@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "account_book_id": {
+      "description": "记账账簿id",
+      "example": "2088001409188095",
+      "type": "string"
+    },
+    "merchant_user_id": {
+      "description": "商户会员的唯一标识，如果传入account_book_id此字段必传并比对一致性。",
+      "example": "243893499",
+      "type": "string"
+    },
+    "scene_code": {
+      "description": "资金记账本的开通场景码",
+      "example": "SATF_FUND_BOOK",
+      "type": "string"
+    },
+    "ext_info": {
+      "description": "JSON格式，传递业务扩展参数",
+      "example": "{\"agreement_no\":\"2019000000000\"}",
+      "type": "string"
+    }
+  },
+  "required": []
+}

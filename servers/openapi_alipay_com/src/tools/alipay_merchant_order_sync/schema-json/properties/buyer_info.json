@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "cert_no": {
+      "description": "证件号",
+      "type": "string"
+    },
+    "cert_type": {
+      "description": "证件类型。",
+      "type": "string"
+    },
+    "ext_info": {
+      "description": "扩展信息",
+      "items": {
+        "properties": {
+          "ext_key": {
+            "description": "键值",
+            "type": "string"
+          },
+          "ext_value": {
+            "description": "值",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "mobile": {
+      "description": "手机号",
+      "type": "string"
+    },
+    "name": {
+      "description": "姓名",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "支付宝用户openId",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "支付宝用户ID，可以通过支付结果通知、用户授权等渠道获取",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

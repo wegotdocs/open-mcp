@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "consult_mode": {
+      "description": "费控咨询模式：\t0-支付宝内部计算规则可用金额\t1-咨询外部服务商规则可用金额",
+      "example": "0",
+      "type": "string"
+    },
+    "effective": {
+      "description": "制度是否启用",
+      "example": "0",
+      "type": "string"
+    },
+    "effective_end_date": {
+      "description": "制度生效结束时间（可空），最小粒度为天，最早是当日",
+      "example": "2022-09-30 23:59:59",
+      "type": "string"
+    },
+    "effective_start_date": {
+      "description": "制度生效起始时间",
+      "example": "2022-09-10 00:00:00",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业id",
+      "example": "2088123412341234",
+      "type": "string"
+    },
+    "institution_desc": {
+      "description": "制度描述",
+      "example": "餐补制度",
+      "type": "string"
+    },
+    "institution_id": {
+      "description": "制度id",
+      "example": "2022031000152617000000000001",
+      "type": "string"
+    },
+    "institution_name": {
+      "description": "制度名称",
+      "example": "费用制度",
+      "type": "string"
+    },
+    "modify_issue_rule_detail_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `modify_issue_rule_detail_info` to the tool, first call the tool `expandSchema` with \"/properties/modify_issue_rule_detail_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "modify_scope_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `modify_scope_info` to the tool, first call the tool `expandSchema` with \"/properties/modify_scope_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "modify_standard_detail_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `modify_standard_detail_info` to the tool, first call the tool `expandSchema` with \"/properties/modify_standard_detail_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

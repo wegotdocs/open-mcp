@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "act_pay_amount": {
+      "description": "用户实际付的现金金额\t\t1.针对预付卡面额的核销金额在use_benefit_list展现，作为权益金额\t\t2.权益金额不叠加在该金额上",
+      "example": "23.9",
+      "type": "string"
+    },
+    "card_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `card_info` to the tool, first call the tool `expandSchema` with \"/properties/card_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "gain_benefit_list": {
+      "description": "获取权益列表",
+      "items": {
+        "properties": {
+          "amount": {
+            "description": "PRE_FUND：实际核销或者商户赠送的金额\t\tDISCOUNT：实际折扣掉的金额（获取权益不支持该类型）\t\tCOUPON：实际核销或者商户赠送的券",
+            "type": "string"
+          },
+          "benefit_type": {
+            "description": "权益类型",
+            "type": "string"
+          },
+          "count": {
+            "description": "COUPON：当核销或者赠送券时，可以设置该值",
+            "type": "string"
+          },
+          "description": {
+            "description": "产生核销或者赠送权益的描述",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "memo": {
+      "description": "备注信息，现有直接填写门店信息",
+      "example": "用户门店充值100",
+      "type": "string"
+    },
+    "shop_code": {
+      "description": "门店编号",
+      "example": "201606270000001",
+      "type": "string"
+    },
+    "swipe_cert_type": {
+      "description": "产生该笔交易时，用户出具的凭证类型。枚举支持：\t*ALIPAY：支付宝电子卡；\t*ENTITY：实体卡；\t*OTHER：其他。",
+      "example": "ALIPAY",
+      "type": "string"
+    },
+    "target_card_no": {
+      "description": "支付宝业务卡号，即通过<a  href=\"https://opendocs.alipay.com/apis/009zw3\">alipay.marketing.card.open</a>(会员卡开卡)接口开卡后获取的  card_info.biz_card_no 值。",
+      "example": "0000001",
+      "type": "string"
+    },
+    "target_card_no_type": {
+      "description": "卡号ID类型。支持：\t*BIZ_CARD：支付宝业务卡号（商户会员卡场景使用）。",
+      "example": "BIZ_CARD",
+      "type": "string"
+    },
+    "trade_amount": {
+      "description": "交易金额：本次交易的实际总金额（可认为标价金额）",
+      "example": "67.5",
+      "type": "string"
+    },
+    "trade_name": {
+      "description": "交易名称。为空时支付宝将根据交易类型提供默认名称。",
+      "example": "预付卡充值100元",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "支付宝交易号",
+      "example": "201606270000000001",
+      "type": "string"
+    },
+    "trade_time": {
+      "description": "线下交易时间，为用户付款的交易时间。\t说明：当交易时间晚于上次消费记录同步时间时，将变更会员卡信息。",
+      "example": "2012-11-22 10:47:20",
+      "type": "string"
+    },
+    "trade_type": {
+      "description": "交易类型。枚举支持：\t*开卡：OPEN；\t*消费：TRADE；\t*充值：DEPOSIT；\t*退卡：RETURN。",
+      "example": "DEPOSIT",
+      "type": "string"
+    },
+    "use_benefit_list": {
+      "description": "实际消耗的权益",
+      "items": {
+        "properties": {
+          "amount": {
+            "description": "PRE_FUND：实际核销或者商户赠送的金额\t\tDISCOUNT：实际折扣掉的金额（获取权益不支持该类型）\t\tCOUPON：实际核销或者商户赠送的券",
+            "type": "string"
+          },
+          "benefit_type": {
+            "description": "权益类型",
+            "type": "string"
+          },
+          "count": {
+            "description": "COUPON：当核销或者赠送券时，可以设置该值",
+            "type": "string"
+          },
+          "description": {
+            "description": "产生核销或者赠送权益的描述",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

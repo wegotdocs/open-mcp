@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "app_origin": {
+      "description": "业务来源",
+      "example": "ASTORE",
+      "type": "string"
+    },
+    "merchandise_id": {
+      "description": "订购的服务商品ID",
+      "example": "I1060100001000050367,插件发布接口返回的商品ID",
+      "type": "string"
+    },
+    "mini_app_id": {
+      "description": "一二方支持传入appId",
+      "example": "123123",
+      "type": "string"
+    },
+    "request_id": {
+      "description": "业务幂等号，规则为商品id+appOrigin+requestId 作为幂等流水号\t非必填,不传则默认生成一个8位requestId",
+      "example": "fd434frr",
+      "type": "string"
+    }
+  },
+  "required": []
+}

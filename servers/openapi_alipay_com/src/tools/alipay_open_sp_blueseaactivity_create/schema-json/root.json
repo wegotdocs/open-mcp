@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "address": {
+      "description": "详细地址。\t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "万塘路18号黄龙时代广场B座",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "蓝海活动的场景，支持场景如下：\t* 直连餐饮（BLUE_SEA_FOOD_APPLY）；\t* 直连快消（BLUE_SEA_FMCG_APPLY）；\t* 间连餐饮（BLUE_SEA_FOOD_INDIRECT_APPLY）；\t* 间连快消（BLUE_SEA_FMCG_INDIRECT_APPLY）。",
+      "example": "BLUE_SEA_FOOD_APPLY",
+      "type": "string"
+    },
+    "business_lic": {
+      "description": "营业执照，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。\t请传入<a href='https://opendocs.alipay.com/apis/01ea4t'>alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。\t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "city_code": {
+      "description": "城市编码。请按照<a href='https://gw.alipayobjects.com/os/basement_prod/253c4dcb-b8a4-4a1e-8be2-79e191a9b6db.xlsx'>表格</a> 中内容填写。 （请参考资料：<a href='http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/'> 统计用区划和城乡划分代码</a>）",
+      "example": "310001",
+      "type": "string"
+    },
+    "district_code": {
+      "description": "区县编码。请按照<a href='https://gw.alipayobjects.com/os/basement_prod/253c4dcb-b8a4-4a1e-8be2-79e191a9b6db.xlsx'>表格</a> 中内容填写。 （请参考资料：<a href='http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/'> 统计用区划和城乡划分代码</a>）",
+      "example": "310006",
+      "type": "string"
+    },
+    "food_business_lic": {
+      "description": "食品经营许可证，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。\t请传入<a href='https://opendocs.alipay.com/apis/01ea4t'>alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。\t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "food_circulate_lic": {
+      "description": "食品流通许可证，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。\t请传入<a href='https://opendocs.alipay.com/apis/01ea4t'>alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。\t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "food_health_lic": {
+      "description": "食品卫生许可证，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。\t请传入<a href='https://opendocs.alipay.com/apis/01ea4t'>alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。 \t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "food_production_lic": {
+      "description": "食品生产许可证，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。\t请传入<a href='https://opendocs.alipay.com/apis/01ea4t'>alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。\t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "food_service_lic": {
+      "description": "餐饮服务许可证，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。\t请传入<a href='https://opendocs.alipay.com/apis/01ea4t'>alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。\t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "indoor_pic": {
+      "description": "内景照，要求图片清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。\t请传入<a href='https://opendocs.alipay.com/apis/01ea4t'>alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。\t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "merchant_logon": {
+      "description": "参与蓝海活动的商户支付宝账号，只有当参与直连蓝海活动场景（BLUE_SEA_FOOD_APPLY/BLUE_SEA_FMCG_APPLY）时必填，间连场景可空。",
+      "example": "13200132000",
+      "type": "string"
+    },
+    "province_code": {
+      "description": "省份编码。请按照<a href='https://gw.alipayobjects.com/os/basement_prod/253c4dcb-b8a4-4a1e-8be2-79e191a9b6db.xlsx'>表格</a> 中内容填写。 （请参考资料：<a href='http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/'>  统计用区划和城乡划分代码</a>）",
+      "example": "310000",
+      "type": "string"
+    },
+    "shop_entrance_pic": {
+      "description": "门头照，要求图片清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。\t请传入<a href='https://opendocs.alipay.com/apis/01ea4t'>alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。\t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    },
+    "sub_merchant_id": {
+      "description": "参与蓝海活动的间连商户账号，只有当参与间连蓝海活动场景（BLUE_SEA_FOOD_INDIRECT_APPLY/BLUE_SEA_FMCG_INDIRECT_APPLY）时必填，直连场景可空。",
+      "example": "2088100010001000",
+      "type": "string"
+    },
+    "tobacco_lic": {
+      "description": "烟草专卖零售许可证，要求证件文本信息清晰可见，图片文件大小在 50K-5M 之间，不限制长宽，支持 png、bmp、gif、jpg、jpeg 格式。\t请传入<a href='https://opendocs.alipay.com/apis/01ea4t'>alipay.open.sp.image.upload</a>(图片上传接口) 返回的 image_id。 \t该资质是否必传请参见<a href='https://opendocs.alipay.com/open/01hd83'>报名资质要求</a>。",
+      "example": "A*7j1pTrCpV8EAAAAAAAAAAAAAAQAAAA",
+      "type": "string"
+    }
+  },
+  "required": []
+}

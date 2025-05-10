@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "discount_amount": {
+      "description": "商户回传的优惠金额，如用户享受的红包金额，单位元",
+      "example": "8.75",
+      "type": "string"
+    },
+    "discount_desc": {
+      "description": "商户数据回传的优惠信息的名称。",
+      "example": "消费满减优惠001",
+      "type": "string"
+    },
+    "task_amount": {
+      "description": "用户和商户发生交易的交易单金额，单位元。",
+      "example": "3.57",
+      "type": "string"
+    },
+    "task_desc": {
+      "description": "任务描述",
+      "example": "完成一次任务001",
+      "type": "string"
+    },
+    "task_times": {
+      "description": "当为次数型任务时必须传。",
+      "example": 1,
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

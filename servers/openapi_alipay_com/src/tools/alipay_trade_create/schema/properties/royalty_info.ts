@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "royalty_detail_infos": z.array(z.object({ "amount": z.string().describe("分账的金额，单位为元").optional(), "amount_percentage": z.string().describe("分账的比例，值为20代表按20%的比例分账").optional(), "batch_no": z.string().describe("分账批次号\r\t分账批次号。\r\t目前需要和转入账号类型为bankIndex配合使用。").optional(), "desc": z.string().describe("分账描述信息").optional(), "out_relation_id": z.string().describe("商户分账的外部关联号，用于关联到每一笔分账信息，商户需保证其唯一性。\r\t如果为空，该值则默认为“商户网站唯一订单号+分账序列号”").optional(), "serial_no": z.number().int().describe("分账序列号，表示分账执行的顺序，必须为正整数").optional(), "trans_in": z.string().describe("如果转入账号类型为userId，本参数为接受分账金额的支付宝账号对应的支付宝唯一用户号。以2088开头的纯16位数字。\r\t&#61548;\t如果转入账号类型为bankIndex，本参数为28位的银行编号（商户和支付宝签约时确定）。\r\t如果转入账号类型为storeId，本参数为商户的门店ID。").optional(), "trans_in_type": z.string().describe("接受分账金额的账户类型").optional(), "trans_out": z.string().describe("如果转出账号类型为userId，本参数为要分账的支付宝账号对应的支付宝唯一用户号。以2088开头的纯16位数字。").optional(), "trans_out_type": z.string().describe("要分账的账户类型。\r\t目前只支持userId：支付宝账号对应的支付宝唯一用户号。\r\t默认值为userId。").optional() })).describe("分账明细的信息，可以描述多条分账指令，json数组。").optional(),
+  "royalty_type": z.string().describe("分账类型\r\t卖家的分账类型，目前只支持传入ROYALTY（普通分账类型）。").optional()
+}

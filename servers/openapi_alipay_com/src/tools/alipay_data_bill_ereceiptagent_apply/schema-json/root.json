@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_no": {
+      "description": "ISV与商户签约授权协议号",
+      "example": "20200826170801",
+      "type": "string"
+    },
+    "agreement_type": {
+      "description": "根据不同业务协议类型，传入不同参数。传入协议产品码（personal_product_code，通过协议查询接口、协议签约通知响应参数获取），不填的话默认按照示例值传入。 安全发协议：FUND_SAFT_SIGN_WITHHOLDING_P 专用金协议：FLEXIBLE_EMPLOYMENT_SERVICE_P 批量有密：FUND_AUTHORIZE_FLOW",
+      "example": "FUND_SAFT_SIGN_WITHHOLDING_P",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "查询时间区间的结束时间，属于闭区间。\t[start_time,end_time]",
+      "example": "2023-11-08 00:00:00",
+      "type": "string"
+    },
+    "key": {
+      "description": "根据不同业务类型，传入不同参数。格式如下： * FUND_DETAIL - 资金业务回单。传入资金单号(fundOrderId，可通过充值、转账、提现接口获取)",
+      "example": "2020xxx",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "搜索范围的起始时间",
+      "example": "2023-11-08 00:00:00",
+      "type": "string"
+    },
+    "type": {
+      "description": "申请的类型（目前仅支持资金业务回单）。可传入： * FUND_DETAIL - 资金业务回单。",
+      "example": "FUND_DETAIL",
+      "type": "string"
+    }
+  },
+  "required": []
+}

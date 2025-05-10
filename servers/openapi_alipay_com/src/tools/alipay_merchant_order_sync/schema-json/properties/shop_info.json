@@ -1,0 +1,50 @@
+{
+  "properties": {
+    "address": {
+      "description": "店铺地址",
+      "type": "string"
+    },
+    "alipay_shop_id": {
+      "description": "蚂蚁门店shop_id",
+      "type": "string"
+    },
+    "ext_info": {
+      "description": "门店其他业务属性，不同业务场景KEY枚举值不同，使用前请参考产品文档",
+      "items": {
+        "properties": {
+          "ext_key": {
+            "description": "键值",
+            "type": "string"
+          },
+          "ext_value": {
+            "description": "值",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "merchant_shop_id": {
+      "description": "商户门店id\t支持英文、数字的组合",
+      "type": "string"
+    },
+    "merchant_shop_link_page": {
+      "description": "店铺详情链接地址",
+      "type": "string"
+    },
+    "name": {
+      "description": "店铺名称",
+      "type": "string"
+    },
+    "phone_num": {
+      "description": "联系电话-支持固话或手机号 仅支持数字、+、- 。例如 手机：1380***1111、固话：021-888**888",
+      "type": "string"
+    },
+    "type": {
+      "description": "仅当alipay_shop_id字段值为非标准蚂蚁门店时使用，其他场景无需传入",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

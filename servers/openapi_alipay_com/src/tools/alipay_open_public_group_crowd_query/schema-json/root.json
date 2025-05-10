@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "label_rule": {
+      "description": "用户分组的规则项列表，规则项之间元素是与的逻辑，每个规则项内部用多个值表示或的逻辑",
+      "items": {
+        "properties": {
+          "label_id": {
+            "description": "标签id",
+            "type": "string"
+          },
+          "label_value": {
+            "description": "标签取值，当有多个取值时用英文\",\"分隔（比如使用in操作符时）；不允许传入下划线\"_\"、竖线\"|\"或者空格\" \"",
+            "type": "string"
+          },
+          "operator": {
+            "description": "目前支持EQ（等于）、NEQ（不等于）、LT（小于），GT（大于）、LTEQ（小于等于）、GTEQ（大于等于）、LIKE（匹配）、BETWEEN（范围）、IN（包含）、NOTIN（不包含）操作",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

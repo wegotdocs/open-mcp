@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "a": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `a` to the tool, first call the tool `expandSchema` with \"/properties/a\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "b": {
+      "description": "1",
+      "example": "21",
+      "type": "string"
+    },
+    "de": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `de` to the tool, first call the tool `expandSchema` with \"/properties/de\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "stringbuff": {
+      "description": "1",
+      "example": "1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

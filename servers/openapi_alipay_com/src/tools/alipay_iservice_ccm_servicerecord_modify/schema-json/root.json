@@ -1,0 +1,146 @@
+{
+  "type": "object",
+  "properties": {
+    "acid": {
+      "description": "来电唯一标识",
+      "example": "CCC/2459691380492662222224097452",
+      "type": "string"
+    },
+    "aid": {
+      "description": "客服坐席号(软电话中定义的)",
+      "example": "20000105",
+      "type": "string"
+    },
+    "ani": {
+      "description": "主叫号码",
+      "example": "15123090087",
+      "type": "string"
+    },
+    "asid": {
+      "description": "恒生专用来电唯一标识",
+      "example": "29de02050ce1403db710a0b1f4daad6d",
+      "type": "string"
+    },
+    "category_list": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `category_list` to the tool, first call the tool `expandSchema` with \"/properties/category_list\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "chat_begin_time": {
+      "description": "标准时间格式：yyyy-MM-dd HH:mm:ss",
+      "example": "2018-11-20 11:37:26",
+      "type": "string"
+    },
+    "chat_end_time": {
+      "description": "标准时间格式：yyyy-MM-dd HH:mm:ss",
+      "example": "2018-11-20 11:38:49",
+      "type": "string"
+    },
+    "city": {
+      "description": "来电地址",
+      "example": "山东",
+      "type": "string"
+    },
+    "creator_id": {
+      "description": "创建者ID",
+      "example": "2020042801917879",
+      "type": "string"
+    },
+    "discon_symbol": {
+      "description": "先挂断方 AGENT:客服 CUSTOMER:客户",
+      "example": "AGENT",
+      "type": "string"
+    },
+    "dnis": {
+      "description": "被叫号码",
+      "example": "15925998721",
+      "type": "string"
+    },
+    "file_size": {
+      "description": "文件大小",
+      "example": 1222000,
+      "type": "integer"
+    },
+    "gmt_create": {
+      "description": "创建时间(yyyy-MM-dd HH:mm:ss)",
+      "example": "2010-11-11 11:11:11",
+      "type": "string"
+    },
+    "gmt_modified": {
+      "description": "修改时间",
+      "example": "2010-11-11 11:11:11",
+      "type": "string"
+    },
+    "id": {
+      "description": "云客服服务记录ID",
+      "example": "202011161113010100000000739715",
+      "type": "string"
+    },
+    "memo": {
+      "description": "服务记录备注信息",
+      "example": "亲，昨天已经寄给你了呢",
+      "type": "string"
+    },
+    "modifier_id": {
+      "description": "修改人ID",
+      "example": "2020042801917879",
+      "type": "string"
+    },
+    "outbound_task_id": {
+      "description": "外呼任务ID",
+      "example": "10.253.104.12_1d5d40fd-aa5e-4f23-9247-14cd28e125f2",
+      "type": "string"
+    },
+    "satisfaction": {
+      "description": "满意度 0:非常满意 1:满意 2:一般 3:不满意 4:非常不满意",
+      "example": "0",
+      "type": "string"
+    },
+    "satisfaction_memo": {
+      "description": "满意度补充信息",
+      "example": "其它:非常不满意，完全都是我在自问自答;",
+      "type": "string"
+    },
+    "service_source": {
+      "description": "1:客户来电 4:电话回访 5:网点服务 6:在线服务 7:外呼任务 8:手动外呼 9:在线离线留言",
+      "example": "1",
+      "type": "string"
+    },
+    "service_time": {
+      "description": "服务时长(单位:秒)",
+      "example": 1924,
+      "type": "integer"
+    },
+    "skillgroup_id": {
+      "description": "技能组ID",
+      "example": "100000000001",
+      "type": "string"
+    },
+    "skillgroup_name": {
+      "description": "技能组名称(技能组ID对应的技能组名称)",
+      "example": "融资业务还款组",
+      "type": "string"
+    },
+    "status": {
+      "description": "1:待处理\t2:暂存\t3:完结\t4:废除\t5:无效\t6:未知",
+      "example": "1",
+      "type": "string"
+    },
+    "tnt_inst_id": {
+      "description": "业务租户",
+      "example": "ORGJC1CN",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "来访用户唯一标识ID",
+      "example": "202007011113010526000000035332",
+      "type": "string"
+    },
+    "verify_result": {
+      "description": "IVR验证结果 ROLE_N:未定位到用户 CERTNO_Y_PWD_Y:证件号码+交易密码验证通过 CERTNO_Y_PWD_N:证件号码验证通过+交易密码不通过 CERTNO_Y_PWD_UNKNOW:证件号码验证通过 PHONE_Y_PWD_Y:来电手机+交易密码验证通过 PHONE_Y_PWD_N:来电手机+交易密码未通过 PHONE_Y_PWD_UNKNOW:来电手机账户 SEARCH_Y_PWD_Y:搜索定位用户+推屏交易密码通过 SEARCH_Y_PWD_N:搜索定位用户+推屏交易密码未通过 SEARCH_Y_PWD_UNKNOW:搜索定位用户",
+      "example": "ROLE_N",
+      "type": "string"
+    }
+  },
+  "required": []
+}

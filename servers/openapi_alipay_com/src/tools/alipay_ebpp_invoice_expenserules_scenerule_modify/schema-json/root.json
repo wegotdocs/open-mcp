@@ -1,0 +1,85 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业ID",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "action": {
+      "description": "修改操作\t枚举值：\tADD_RULE（新增费控条件），DELETE_RULE（删除费控条件），MODIFY_RULE（修改费控条件），MODIFY_STANDARD（修改费控规则基本信息）",
+      "example": "ADD_RULE",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "effective_end_date": {
+      "description": "有效期截止\t特殊说明：修改费控规则基本信息时必传",
+      "example": "2021-08-27 00:00:00",
+      "type": "string"
+    },
+    "effective_start_date": {
+      "description": "有效期起始\t特殊说明：修改费控规则基本信息时必传",
+      "example": "2021-08-26 00:00:00",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业码企业id",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "expense_ctrl_rule_info_list": {
+      "description": "费控规则条件列表 特殊说明：新增费控条件/修改费控条件/删除费控条件操作时必填",
+      "items": {
+        "properties": {
+          "rule_factor": {
+            "description": "费控维度",
+            "type": "string"
+          },
+          "rule_id": {
+            "description": "费控条件ID",
+            "type": "string"
+          },
+          "rule_name": {
+            "description": "费控条件名称",
+            "type": "string"
+          },
+          "rule_operator": {
+            "description": "费控条件操作符\t枚举值：\tLT(\"<\",\"小于\")\tLE(\"<=\",\"小于等于\")\tEQ(\"=\",\"等于\")\tNE(\"!=\",\"不等于\")\tGE(\">=\",\"大于等于\")\tGT(\">\",\"大于\")",
+            "type": "string"
+          },
+          "rule_value": {
+            "description": "费控条件值",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "payment_policy": {
+      "description": "当笔消费金额大于规则可用余额时，用于控制支付策略，该字段缺省时采取因公账户和个人账户组合支付策略， 枚举值：PERSONAL（全部个人账户支付）, COMBINATION（因公账户和个人账户组合支付）",
+      "example": "PERSONAL",
+      "type": "string"
+    },
+    "standard_desc": {
+      "description": "费控规则说明\t特殊说明：\t1）敏感词校验\t2）修改费控规则基本信息时必传",
+      "example": "费控规则说明",
+      "type": "string"
+    },
+    "standard_id": {
+      "description": "费控规则ID",
+      "example": "2021062800152601350000001466",
+      "type": "string"
+    },
+    "standard_name": {
+      "description": "费控规则名称\t特殊说明：\t1）敏感词校验\t2）修改费控规则基本信息时必传\t3）不能重复，若需要重复联系支持人员定向放开",
+      "example": "费控规则名称",
+      "type": "string"
+    }
+  },
+  "required": []
+}

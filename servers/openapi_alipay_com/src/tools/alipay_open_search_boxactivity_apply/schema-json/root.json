@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "properties": {
+    "action_url": {
+      "description": "活动链接，必须为关联的小程序的页面链接（链接以 alipays 开头），可参考<a href=\"https://opendocs.alipay.com/support/01rb18\"> 小程序scheme链接介绍 </a>",
+      "example": "alipays://platformapi/startapp?appId=2021001198637195&pages/kaq_maid/kaq_maid",
+      "type": "string"
+    },
+    "background_word": {
+      "description": "创建banner活动时，可添加底纹推广词，有机会在首页搜索框内展示，提升banner活动曝光机会",
+      "example": "搜索底纹推广词",
+      "type": "string"
+    },
+    "box_id": {
+      "description": "搜索直达配置id",
+      "example": "20211130000000100415",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "活动结束时间，开始和结束时间之间不得超过90天",
+      "example": "2022-09-30 23:59:59",
+      "type": "string"
+    },
+    "material_id": {
+      "description": "当material_type=\"IMAGE\"时，为图片id；当material_type=\"VIDEO\"时，为视频id。小程序直达仅支持图片类型。图片id可以通过调用<a href=\"https://opendocs.alipay.com/mini/03hvl1?ref=api\"> 支付宝文件上传接口 </a>上传图片，获取图片id(bizCode：search_box_banner)。<a href=\"https://opendocs.alipay.com/b/03al6f\"> 图片规范 </a>",
+      "example": "A*oZQmT4xTBPUAAAAAAAAAAAAAAQAAAQ",
+      "type": "string"
+    },
+    "material_type": {
+      "description": "IMAGE-图片/VIDEO-视频",
+      "example": "IMAGE",
+      "type": "string"
+    },
+    "merchant_id": {
+      "description": "商户id，代运营模式下传入。代运营模式，需要服务商已获得商家\"运营支付宝小程序\"授权。",
+      "example": "2088xxxxxxxxxxxx",
+      "type": "string"
+    },
+    "oriented_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `oriented_rule` to the tool, first call the tool `expandSchema` with \"/properties/oriented_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "start_time": {
+      "description": "活动开始时间，开始和结束时间之间不得超过90天",
+      "example": "2022-02-10 08:00:00",
+      "type": "string"
+    },
+    "target_appid": {
+      "description": "跳转应用ID",
+      "example": "2021001191699651",
+      "type": "string"
+    },
+    "target_appname": {
+      "description": "跳转小程序名称",
+      "example": "目标小程序名",
+      "type": "string"
+    },
+    "target_regions": {
+      "description": "投放目标区域列表",
+      "items": {
+        "properties": {
+          "region_code": {
+            "description": "区域编码，参考<a href=\"https://opendocs.alipay.com/pre-open/03144c\" target=\"_blank\">取值说明</a>",
+            "type": "string"
+          },
+          "region_name": {
+            "description": "区域名，参考<a href=\"https://opendocs.alipay.com/pre-open/03144c\" target=\"_blank\">取值说明</a>",
+            "type": "string"
+          },
+          "region_type": {
+            "description": "区域类型，1代表全国，2代表省级区域，3代表市级区域，参考<a href=\"https://opendocs.alipay.com/pre-open/03144c\" target=\"_blank\">取值说明</a>",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "title": {
+      "description": "活动标题",
+      "example": "活动标题",
+      "type": "string"
+    },
+    "video_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `video_info` to the tool, first call the tool `expandSchema` with \"/properties/video_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

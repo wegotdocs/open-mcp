@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "cert_image": {
+      "description": "证照图片（使用图片上传接口）",
+      "example": "a5d373f6-3e79-405f-9993-fb7ea051c372.jpg",
+      "type": "string"
+    },
+    "cert_no": {
+      "description": "证件编号",
+      "example": "0000001",
+      "type": "string"
+    },
+    "cert_type": {
+      "description": "登记证书类型时必填，枚举：统一社会信用代码证书（UNIT_SOCIAL_CREDIT）、慈善组织公开募捐资格证书（CHARITY_ORG_SOLICIT），社会团体法人登记证书（SOCIAL_ORG_LEGAL），民办非企业单位登记证书（CIVIL_UN_ENT），基金会法人登记证书（FOUNDATION_LEGAL_PERSON），农民专业合作社法人营业执照（FARMERS_COOPERATE），宗教活动场所登记证（RELIGION_PLACES），其他证书/批文/证明（OTHER_REG_CERT）",
+      "example": "UNIT_SOCIAL_CREDIT",
+      "type": "string"
+    },
+    "effect_time": {
+      "description": "证照生效时间",
+      "example": "1999-01-01",
+      "type": "string"
+    },
+    "expire_time": {
+      "description": "证照过期时间，yyyy-mm-dd格式，如果是长期有效时传“forever”",
+      "example": "2020-11-01",
+      "type": "string"
+    },
+    "legal_person_name": {
+      "description": "证照法人姓名",
+      "example": "李四",
+      "type": "string"
+    },
+    "merchant_name": {
+      "description": "证照商户名称",
+      "example": "新新饭店",
+      "type": "string"
+    },
+    "register_address": {
+      "description": "证照注册地址",
+      "example": "浙江省杭州市西湖区xxx街道xxx门牌号",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

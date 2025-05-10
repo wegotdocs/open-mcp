@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "areacode": {
+      "description": "地域编码",
+      "example": "010",
+      "type": "string"
+    },
+    "biz_type": {
+      "description": "人脸产品能力，预热场景，需要传college，k12，scenic，subway，traffic。具体值视具体场景",
+      "example": "1",
+      "type": "string"
+    },
+    "bizscale": {
+      "description": "业务量规模",
+      "example": "99999999活跃人数",
+      "type": "string"
+    },
+    "brandcode": {
+      "description": "商户品牌",
+      "example": "KFC",
+      "type": "string"
+    },
+    "devicenum": {
+      "description": "商户机具唯一编码，关键参数\t人脸预热，传logicGroupId",
+      "example": "123456",
+      "type": "string"
+    },
+    "extinfo": {
+      "description": "拓展参数",
+      "example": "{}",
+      "type": "string"
+    },
+    "facetype": {
+      "description": "入库类型 IDCARD:身份证 ALIPAY_USER:支付宝用户id, ALIPAY_TEL:手机号入库 CUSTOMER:自定义 DIRECT_CLIENT_PRE：本地预写入 DIRECT_CLIENT：本地客户端库 ENCLOSED：封闭场景",
+      "example": "DIRECT_CLIENT",
+      "type": "string"
+    },
+    "faceval": {
+      "description": "入库用户信息 人脸预热，alipayUid必填",
+      "example": "示例[{\"alipayUid\":\"2088402144983195\",\"customUserId\":\"01\", \"faceContent\":\"base64String\"}]",
+      "type": "string"
+    },
+    "group": {
+      "description": "分组5",
+      "example": "group0",
+      "type": "string"
+    },
+    "storecode": {
+      "description": "门店编码",
+      "example": "HZ1000435",
+      "type": "string"
+    },
+    "validtimes": {
+      "description": "有效期天数，如7天、30天、365天",
+      "example": "7",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,149 @@
+{
+  "type": "object",
+  "properties": {
+    "apply_order_id": {
+      "description": "开票申请ID，唯一标识开票申请表的ID",
+      "example": "2017090710122000473800320000049574",
+      "type": "string"
+    },
+    "buyer_invoice_title": {
+      "description": "买方发票抬头，用于打印在发票上",
+      "example": "联想 ( 上海 ) 电子科技有限公司",
+      "type": "string"
+    },
+    "buyer_ipid": {
+      "description": "对应发票商户的ipId，在主站标示mid，在其他环境标示ip_id。",
+      "example": "10000004",
+      "type": "string"
+    },
+    "buyer_ipids": {
+      "description": "购方商户ID集合",
+      "example": "2345643",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "buyer_iprole_id": {
+      "description": "商户结算的ipRoleId，表示商户的结算对象，在主站表示pid。",
+      "example": "2088621524618252",
+      "type": "string"
+    },
+    "buyer_iprole_ids": {
+      "description": "购方PID集合",
+      "example": "2088621524618252",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "inst_id": {
+      "description": "对应发票所在OU的id，用于标示该发票所述的OU。",
+      "example": "Z50",
+      "type": "string"
+    },
+    "invoice_channel": {
+      "description": "开票渠道 01 线上;02 线下",
+      "example": "01",
+      "type": "string"
+    },
+    "invoice_code": {
+      "description": "发票代码，税务部门给予发票的编码",
+      "example": "031001600211",
+      "type": "string"
+    },
+    "invoice_create_date_begin": {
+      "description": "发票创建日期【起始日期，格式yyyyMMdd】",
+      "example": "20180723",
+      "type": "string"
+    },
+    "invoice_create_date_end": {
+      "description": "发票创建日期【结束日期，格式yyyyMMdd】",
+      "example": "20180723",
+      "type": "string"
+    },
+    "invoice_ids": {
+      "description": "发票ID集合，发票ID，唯一标示一张发票的ID",
+      "example": "2017011210122000494000670000000001",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "invoice_material": {
+      "description": "开票介质 01电子 02纸质",
+      "example": "01",
+      "type": "string"
+    },
+    "invoice_no": {
+      "description": "发票号码，税务部门给予发票的编码",
+      "example": "86230814",
+      "type": "string"
+    },
+    "invoice_open_date_begin": {
+      "description": "发票开票日期【起始日期，格式yyyyMMdd】",
+      "example": "20180723",
+      "type": "string"
+    },
+    "invoice_open_date_end": {
+      "description": "发票开票日期【结束日期，格式yyyyMMdd】",
+      "example": "20180723",
+      "type": "string"
+    },
+    "invoice_status": {
+      "description": "发票状态：用于标示发票当前的状态，状态类型以及相关含义：01 待开票;02 开票中;03 已开票;04 作废中;05 已作废;06 红冲中;07 已红冲;08 部分红冲;09 无效",
+      "example": "01",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "invoice_types": {
+      "description": "发票类型,01专票 02普票 03营业税发票 04国际形式发票 05其它发票",
+      "example": "01",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "is_online": {
+      "description": "是否能在线开票 Y能 N不能",
+      "example": "Y",
+      "type": "string"
+    },
+    "is_red": {
+      "description": "是否红字 Y红字 N蓝字",
+      "example": "N",
+      "type": "string"
+    },
+    "mail_status": {
+      "description": "邮寄状态 01 待邮寄;02 已邮寄;03 退回中;04 已退回",
+      "example": "01",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "monthly_bill_no": {
+      "description": "月账单号",
+      "example": "2017090510122000040400320000017749",
+      "type": "string"
+    },
+    "page_no": {
+      "description": "起始页，分页时必须提供",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "每页显示数，分页时必须提供",
+      "example": 20,
+      "type": "integer"
+    },
+    "tracking_no": {
+      "description": "快递单号",
+      "example": "20170112101",
+      "type": "string"
+    }
+  },
+  "required": []
+}

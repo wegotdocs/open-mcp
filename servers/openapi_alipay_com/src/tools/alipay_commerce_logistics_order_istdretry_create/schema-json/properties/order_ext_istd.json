@@ -1,0 +1,69 @@
+{
+  "properties": {
+    "cash_on_delivery": {
+      "description": "骑手应付金额",
+      "type": "string"
+    },
+    "cash_on_pickup": {
+      "description": "骑手应收金额",
+      "type": "string"
+    },
+    "consumer_order_time": {
+      "description": "消费者下单时间",
+      "type": "string"
+    },
+    "delivery_direction": {
+      "description": "物流流向，1：从门店取件送至用户；2：从用户取件送至门店",
+      "type": "integer"
+    },
+    "delivery_type": {
+      "description": "配送类型, 0: 即时单 1 预约单",
+      "type": "integer"
+    },
+    "desc": {
+      "description": "备注",
+      "type": "string"
+    },
+    "expected_delivery_time": {
+      "description": "期望派单时间",
+      "type": "string"
+    },
+    "expected_finish_time": {
+      "description": "期望送达时间",
+      "type": "string"
+    },
+    "expected_pick_time": {
+      "description": "期望取件时间",
+      "type": "string"
+    },
+    "insure_price": {
+      "description": "保价金额",
+      "type": "string"
+    },
+    "is_direct_delivery": {
+      "description": "是否直拿直送，1:直拿直送 0:非直拿直送",
+      "type": "integer"
+    },
+    "is_finish_code_needed": {
+      "description": "是否需要收货码，1:需要 0:不需要",
+      "type": "integer"
+    },
+    "is_insured": {
+      "description": "是否保价，1:保价 0:不保价",
+      "type": "integer"
+    },
+    "is_pickup_code_needed": {
+      "description": "是否需要取货码，1:需要 0:不需要",
+      "type": "integer"
+    },
+    "poi_seq": {
+      "description": "门店订单流水号",
+      "type": "string"
+    },
+    "service_code": {
+      "description": "即时配送公司的服务代码",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

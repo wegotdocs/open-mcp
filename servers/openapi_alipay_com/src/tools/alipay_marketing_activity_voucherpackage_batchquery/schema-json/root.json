@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "page_num": {
+      "description": "分页参数，需要查询的页码，起始页是1",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "分页参数，每页记录数，最大不可超过30",
+      "example": 20,
+      "type": "integer"
+    },
+    "voucher_package_purchase_start_time": {
+      "description": "券包购买开始时间。 格式为：yyyy-MM-dd HH:mm:ss",
+      "example": "2017-01-01 00:00:01",
+      "type": "string"
+    },
+    "voucher_package_status": {
+      "description": "券包状态",
+      "example": "ENABLE",
+      "type": "string"
+    }
+  },
+  "required": []
+}

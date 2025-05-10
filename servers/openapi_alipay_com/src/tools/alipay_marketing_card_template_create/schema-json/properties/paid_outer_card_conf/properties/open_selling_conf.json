@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "end_date": {
+      "description": "售卖结束时间。\t格式：yyyy-MM-dd HH:mm:ss\t如果永久有效则不传。",
+      "type": "string"
+    },
+    "price_detail": {
+      "description": "售卖方案列表",
+      "items": {
+        "properties": {
+          "desc": {
+            "description": "方案描述",
+            "type": "string"
+          },
+          "price": {
+            "description": "售卖具体金额。单位为元。支持两位小数。",
+            "type": "string"
+          },
+          "price_type": {
+            "description": "售卖金额类型",
+            "type": "string"
+          },
+          "worth": {
+            "description": "价值。单位为元。支持两位小数",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "selling_url": {
+      "description": "售卖地址",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "售卖开始时间。格式：yyyy-MM-dd HH:mm:ss",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

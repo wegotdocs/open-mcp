@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_scene": {
+      "description": "场景码",
+      "example": "TWO_PHASE_TRANSFER_REFUND",
+      "type": "string"
+    },
+    "business_params": {
+      "description": "JSON格式，传递业务扩展参数，使用前请与支付宝工程师联系！",
+      "example": "{\"MERCHANT_PAYER_ID\":\"1234567890\",\"MERCHANT_PAYER_PHONE:\"15012341234\"}",
+      "type": "string"
+    },
+    "order_id": {
+      "description": "发红包时支付宝返回的支付宝订单号order_id。",
+      "example": "20190703110075000006530004756875",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "标识一次资金退回请求，一笔资金退回失败后重新提交，要采用原来的资金退回单号。总退款金额不能超过用户实际支付金额。",
+      "example": "2018999960760005838333",
+      "type": "string"
+    },
+    "passback_params": {
+      "description": "公用回传参数，如果请求时传递了该参数，则异步通知商户时会回传该参数。",
+      "example": "{\"merchantBizType\":\"peerPay\"}",
+      "type": "string"
+    },
+    "product_code": {
+      "description": "产品码",
+      "example": "TRANS_ACCOUNT_NO_PWD",
+      "type": "string"
+    },
+    "refund_amount": {
+      "description": "需要退款的金额，该金额不能大于订单金额,单位为元，支持两位小数",
+      "example": "8.88",
+      "type": "string"
+    },
+    "remark": {
+      "description": "资金退回备注",
+      "example": "红包超时退回",
+      "type": "string"
+    }
+  },
+  "required": []
+}

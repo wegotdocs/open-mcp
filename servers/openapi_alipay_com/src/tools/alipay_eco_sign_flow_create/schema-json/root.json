@@ -1,0 +1,123 @@
+{
+  "type": "object",
+  "properties": {
+    "target_app_id": {
+      "description": "目标isv应用ID",
+      "type": "string"
+    },
+    "attachments": {
+      "description": "附件信息",
+      "items": {
+        "properties": {
+          "attachment_name": {
+            "description": "流程附件名称",
+            "type": "string"
+          },
+          "file_id": {
+            "description": "流程附件id",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "business_scene": {
+      "description": "流程主题",
+      "example": "商品签收",
+      "type": "string"
+    },
+    "config_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `config_info` to the tool, first call the tool `expandSchema` with \"/properties/config_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "template_infos": {
+      "description": "模板信息",
+      "items": {
+        "properties": {
+          "fill_contents": {
+            "description": "模板填充项",
+            "items": {
+              "properties": {
+                "struct_key": {
+                  "description": "模板组件自定义key",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "模板值,该值长度取决于配置模板时该字段的限制",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "name": {
+            "description": "文件名称",
+            "example": "iphone手机签收单",
+            "type": "string"
+          },
+          "signfields": {
+            "properties": {
+              "auto_execute": {
+                "description": "平台自动签",
+                "example": "true",
+                "type": "string"
+              },
+              "signer": {
+                "properties": {
+                  "email": {
+                    "description": "邮箱",
+                    "example": "593100192@tsign.cn",
+                    "type": "string"
+                  },
+                  "id_number": {
+                    "description": "证件号",
+                    "example": "330304199806083911",
+                    "type": "string"
+                  },
+                  "id_type": {
+                    "description": "证件类型,详见个人证件类型说明（http://open.esign.cn/docs/xy/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/%E9%99%84%E5%BD%95/%E4%B8%AA%E4%BA%BA%E8%AF%81%E4%BB%B6%E7%B1%BB%E5%9E%8B.html），默认CRED_PSN_CH_IDCARD (证件号不为空，则必填)",
+                    "example": "CRED_PSN_CH_IDCARD",
+                    "type": "string"
+                  },
+                  "mobile": {
+                    "description": "手机号",
+                    "example": "18888888888",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "姓名",
+                    "example": "姓名",
+                    "type": "string"
+                  },
+                  "user_id": {
+                    "description": "支付宝userId",
+                    "example": "2088102924502823",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "struct_key": {
+                "description": "模板组件id",
+                "example": "18247776929e433784636126b33b08a3",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "template_id": {
+            "description": "模板id",
+            "example": "6b95e887c4b342a8b6501bd334b286df",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

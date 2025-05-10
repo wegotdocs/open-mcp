@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "belong_merchant_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `belong_merchant_info` to the tool, first call the tool `expandSchema` with \"/properties/belong_merchant_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_base_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_base_info` to the tool, first call the tool `expandSchema` with \"/properties/delivery_base_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_booth_code": {
+      "description": "投放的展位编码。",
+      "example": "PUBLIC_UNION",
+      "type": "string"
+    },
+    "delivery_config_list": {
+      "description": "[已废弃]\t待创建的投放配置列表。\t最大数量限制20个。",
+      "items": {
+        "properties": {
+          "activity_id": {
+            "description": "活动id",
+            "type": "string"
+          },
+          "booth_code": {
+            "description": "展位码:boothCode表达的是具体渠道所属的展位码。例如：支付结果页PAYMENT_RESULT",
+            "type": "string"
+          },
+          "channel": {
+            "description": "可投放的渠道标识.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "delivery_play_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_play_config` to the tool, first call the tool `expandSchema` with \"/properties/delivery_play_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "delivery_target_rule": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `delivery_target_rule` to the tool, first call the tool `expandSchema` with \"/properties/delivery_target_rule\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "idem_no": {
+      "description": "商品卖货推广创建幂等号，用作幂等控制。 幂等作用：请求返回与上一次相同的结果。 外部接入方需保证幂等号唯一。",
+      "example": "202404110000001",
+      "type": "string"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "SELF_MODE",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务单号，用作幂等控制。 幂等作用：请求返回与上一次相同的结果。 外部接入方需保证业务单号唯一。",
+      "example": "20170101000001654bb46ba",
+      "type": "string"
+    }
+  },
+  "required": []
+}

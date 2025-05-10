@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "create_share_code": {
+      "description": "是否需要生成吱口令，默认不生成",
+      "example": true,
+      "type": "boolean"
+    },
+    "department_ids": {
+      "description": "员工所属部门，支持多个部门，不传默认为根部门",
+      "example": "[\"1001069000162569\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "employee_cert_no": {
+      "description": "员工证件号码",
+      "example": "260101202310011234",
+      "type": "string"
+    },
+    "employee_cert_type": {
+      "description": "员工证件类型",
+      "example": "IDENTITY_CARD",
+      "type": "string"
+    },
+    "employee_email": {
+      "description": "员工邮箱",
+      "example": "test123@email.com",
+      "type": "string"
+    },
+    "employee_mobile": {
+      "description": "员工手机号",
+      "example": "13388888888",
+      "type": "string"
+    },
+    "employee_name": {
+      "description": "员工姓名",
+      "example": "张三",
+      "type": "string"
+    },
+    "employee_no": {
+      "description": "员工编号/工号",
+      "example": "D28339",
+      "type": "string"
+    },
+    "encrypt_cert_no": {
+      "description": "加密证件号，需与证件类型搭配使用，可替代证件号码(employee_cert_no)字段",
+      "example": "B0160ABEE2099421C8B30EF3D9ED4E13C6C5708D6BB71441C7858B0C3AF89274",
+      "type": "string"
+    },
+    "encrypt_mobile": {
+      "description": "加密手机号，可替代手机号(employee_mobile)字段",
+      "example": "B0160ABEE2099421C8B30EF3D9ED4E13C6C5708D6BB71441C7858B0C3AF89274",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "员工所属企业ID",
+      "example": "20887448493929",
+      "type": "string"
+    },
+    "free_sign_token": {
+      "description": "员工签约授权密钥；<br/>\t该密钥需联系企业码业务小二申请，当传入密钥有效，则员工添加时会默认签约企业因公付，并激活员工。",
+      "example": "66WertX2ZyMqHDqEmnfe8I00xxu1AK30qIRx12mr9uhJB6oVuyjZcb32QBLWBU+2",
+      "type": "string"
+    },
+    "identity": {
+      "description": "员工身份唯一标识",
+      "example": "20889939994000",
+      "type": "string"
+    },
+    "identity_open_id": {
+      "description": "当身份类型为支付宝会员ID(identity_type=ALIPAY_USER_ID)时，传入user_id对应的open_id",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "identity_type": {
+      "description": "员工身份类型",
+      "example": "ALIPAY_USER_ID",
+      "type": "string"
+    },
+    "iot_check_type": {
+      "description": "员工签约开通企业刷脸付时，刷脸核身的核验方式",
+      "example": "facepay_epc_agree_check_nores",
+      "type": "string"
+    },
+    "profiles": {
+      "description": "个性化信息 <a href='https://opendocs.alipay.com/pre-open/0ceh47?pathHash=14fac87c'>详见文档</a>",
+      "example": "{\"consume_remark\":\"员工账单备注内容示例\", \"inst_id\":\"CMBC\", \"card_type\":\"DC\", \"check_bind_card\":\"Y\"}",
+      "type": "string"
+    },
+    "sign_return_url": {
+      "description": "员工签约后回跳地址；支持 alipay scheme 协议地址，不传默认跳转企业码小程序首页",
+      "example": "alipays://platformapi/startapp?appId=xxx&page=xxx",
+      "type": "string"
+    },
+    "sign_url_carry_info": {
+      "description": "签约链接页面是否需要自动回显员工的身份信息（手机或邮箱），默认不显示",
+      "example": true,
+      "type": "boolean"
+    },
+    "withholding_sign_str": {
+      "description": "代扣签约字符串，员工需签约开通代扣时必传，否则无需传值",
+      "example": "app_id%3D2015052600090779%26biz_content%3D%257B%2522access_params%2522%253A%257B%2522channel%2522%253A%2522ALIPAYAPP%2522%257D%252C%2522external_agreement_no%2522%253A%25222019_06_0910%2522%252C%2522personal_product_code%2522%253A%2522...",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业ID",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权签约协议号",
+      "example": "20215425001112341234",
+      "type": "string"
+    },
+    "consumption_end": {
+      "description": "交易结束时间，格式：yyyy-MM-dd HH:mm:ss",
+      "example": "2021-12-16 00:00:00",
+      "type": "string"
+    },
+    "consumption_start": {
+      "description": "交易开始时间，格式：yyyy-MM-dd HH:mm:ss",
+      "example": "2021-12-16 00:00:00",
+      "type": "string"
+    },
+    "employee_list": {
+      "description": "员工支付宝UID列表，单次传入最大员工数量为10",
+      "example": "[\"2088210888827370\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "employee_open_ids": {
+      "description": "员工支付宝UID列表，单次传入最大员工数量为10",
+      "example": "[\"074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

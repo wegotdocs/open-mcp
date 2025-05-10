@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "child_name": {
+      "description": "修改后的学生姓名\r\t本接口调用时，child_name、student_code、student_identify、users这几个参数至少需要填写其中一个，不能同时为空",
+      "example": "张三",
+      "type": "string"
+    },
+    "isv_pid": {
+      "description": "已经签约教育缴费的isv的支付宝PID",
+      "example": "2088121212121212",
+      "type": "string"
+    },
+    "school_no": {
+      "description": "学校编号，调用alipay.eco.edu.kt.schoolinfo.modify接口录入学校信息时，接口返回的编号",
+      "example": "11010100000001",
+      "type": "string"
+    },
+    "school_pid": {
+      "description": "学校用来签约支付宝教育缴费的支付宝PID",
+      "example": "2088101117955611",
+      "type": "string"
+    },
+    "status": {
+      "description": "区分ISV操作，“D”表示删除，“U”表示更新，区分大小写。\r\t如果为U，则学生名字，学号，身份证至少填写一项",
+      "example": "U",
+      "type": "string"
+    },
+    "student_code": {
+      "description": "修改后的学号\r\t本接口调用时，child_name、student_code、student_identify、users这几个参数至少需要填写其中一个，不能同时为空",
+      "example": "6589154",
+      "type": "string"
+    },
+    "student_identify": {
+      "description": "修改后的身份证号码\r\t本接口调用时，child_name、student_code、student_identify、users这几个参数至少需要填写其中一个，不能同时为空",
+      "example": "610824197812044680",
+      "type": "string"
+    },
+    "student_no": {
+      "description": "支付宝-中小学-教育缴费生成的学生唯一编号",
+      "example": "57de63cb1ef157595c005467",
+      "type": "string"
+    },
+    "users": {
+      "description": "孩子的家长信息，最多一次输入20个家长。如果输入的家长信息不存在，则该改学生增加家长信息\r\t本接口调用时，child_name、student_code、student_identify、users这几个参数至少需要填写其中一个，不能同时为空",
+      "items": {
+        "properties": {
+          "user_change_mobile": {
+            "description": "用户变更手机号，替换旧的手机号",
+            "type": "string"
+          },
+          "user_mobile": {
+            "description": "孩子家长的手机号",
+            "type": "string"
+          },
+          "user_name": {
+            "description": "张三",
+            "type": "string"
+          },
+          "user_relation": {
+            "description": "孩子与家长的关系： 1、爸爸  2、妈妈  3、爷爷  4、奶奶  5、外公  6、外婆  7、家长",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

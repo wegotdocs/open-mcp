@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "activity_id": {
+      "description": "活动id",
+      "example": "2016042700826004508401111111",
+      "type": "string"
+    },
+    "merchant_access_mode": {
+      "description": "商户接入模式",
+      "example": "AGENCY_MODE",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务单号，用作幂等控制。\t\t幂等作用：\t参数不变的情况下，再次请求返回与上一次相同的结果。\t\t外部接入方需保证业务单号唯一。",
+      "example": "20170101000001654bb46ba",
+      "type": "string"
+    },
+    "voucher_codes": {
+      "description": "券码的数量列表。接口参数为列表类型。\t\t限制：\t目前最大上传 1000 个。\t\t单个code最长64位。\t\t商户上传的券code列表，code允许包含的字符有0-9、a-z、A-Z、-、_、+、=、|。",
+      "example": "[\"123AB\",\"45zz6\",\"789CE\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "activity_id"
+  ]
+}

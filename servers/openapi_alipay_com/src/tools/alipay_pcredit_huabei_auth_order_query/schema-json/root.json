@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_opt_id": {
+      "description": "支付宝侧花呗冻结、解冻操作单据id。在原先的冻结或者解冻接口调用中同步返回给商户，或者通过商户通知返回给商户。按订单号查询时，此字段不可为空。",
+      "example": "2018081010020817070009689955",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "买家在支付宝的用户id。通过userid+请求流水号组合查询时，此字段不可为空。",
+      "example": "2088101117955611",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "买家在支付宝的用户id",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "商户原先调用冻结、解冻接口传入的请求流水号。按照流水号查询订单时，此字段不能为空。",
+      "example": "8077735255938032",
+      "type": "string"
+    }
+  },
+  "required": []
+}

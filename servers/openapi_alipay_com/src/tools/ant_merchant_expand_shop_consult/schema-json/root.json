@@ -1,0 +1,250 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_cards": {
+      "description": "\"门店结算卡信息。本业务当前只允许传入一张结算卡。 说明：本参数仅直付通业务使用，其余业务无需关注。\"",
+      "items": {
+        "properties": {
+          "account_branch_name": {
+            "description": "开户支行名",
+            "type": "string"
+          },
+          "account_holder_name": {
+            "description": "卡户名",
+            "type": "string"
+          },
+          "account_inst_city": {
+            "description": "开户行所在地-市",
+            "type": "string"
+          },
+          "account_inst_id": {
+            "description": "开户行简称缩写",
+            "type": "string"
+          },
+          "account_inst_name": {
+            "description": "银行名称",
+            "type": "string"
+          },
+          "account_inst_province": {
+            "description": "开户行所在地-省",
+            "type": "string"
+          },
+          "account_no": {
+            "description": "银行卡号",
+            "type": "string"
+          },
+          "account_type": {
+            "description": "卡类型\r\t借记卡-DC\r\t信用卡-CC",
+            "type": "string"
+          },
+          "bank_code": {
+            "description": "联行号",
+            "type": "string"
+          },
+          "usage_type": {
+            "description": "账号使用类型\r\t对公-01\r\t对私-02",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "brand_id": {
+      "description": "品牌id，非加油站等特殊门店无需关注。",
+      "example": "20181026000001",
+      "type": "string"
+    },
+    "business_address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `business_address` to the tool, first call the tool `expandSchema` with \"/properties/business_address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "business_time": {
+      "description": "店铺经营时间。",
+      "items": {
+        "properties": {
+          "close_time": {
+            "description": "关门时间 格式：HH:mm",
+            "type": "string"
+          },
+          "open_time": {
+            "description": "开门时间 格式：HH:mm",
+            "type": "string"
+          },
+          "week_day": {
+            "description": "本对象表示周几的营业时间。1~6表示周一到周六，7表示周日",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cert_image": {
+      "description": "营业执照图片KEY。通过<a href=\"https://opendocs.alipay.com/apis/api_1/ant.merchant.expand.indirect.image.upload\">ant.merchant.expand.indirect.image.upload</a> 接口上传图片后得到的 image_id",
+      "example": "c6c0c7a1-b9d5-4e5d-b9d4-9eed39f00e65.jpg",
+      "type": "string"
+    },
+    "cert_name": {
+      "description": "营业执照名称，填写值为营业执照或统一社会信用代码证上的名称。",
+      "example": "支付宝东门小卖铺",
+      "type": "string"
+    },
+    "cert_no": {
+      "description": "证件号码，请填写店铺营业执照号。",
+      "example": "9133010608210550XR",
+      "type": "string"
+    },
+    "cert_type": {
+      "description": "证件类型",
+      "example": "201",
+      "type": "string"
+    },
+    "contact_infos": {
+      "description": "联系人信息。如果填写，其中名称必填，手机、固话、email 三选一必填。",
+      "items": {
+        "properties": {
+          "email": {
+            "description": "电子邮箱",
+            "type": "string"
+          },
+          "id_card_no": {
+            "description": "身份证号",
+            "type": "string"
+          },
+          "mobile": {
+            "description": "手机号",
+            "type": "string"
+          },
+          "name": {
+            "description": "联系人名字",
+            "type": "string"
+          },
+          "phone": {
+            "description": "电话",
+            "type": "string"
+          },
+          "tag": {
+            "description": "商户联系人业务标识枚举，表示商户联系人的职责",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": {
+            "description": "联系人类型，取值范围：LEGAL_PERSON：法人；CONTROLLER：实际控制人；AGENT：代理人；OTHER：其他",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "contact_mobile": {
+      "description": "店铺联系手机，与店铺联系固话二选一必填",
+      "example": "13901390139",
+      "type": "string"
+    },
+    "contact_phone": {
+      "description": "店铺的联系固话，和店铺联系手机二选一必填",
+      "example": "010-62286228",
+      "type": "string"
+    },
+    "ext_infos": {
+      "description": "扩展信息列表。key值需要向对应行业的bd进行申请。",
+      "items": {
+        "properties": {
+          "key_name": {
+            "description": "KV数据对的key，表示该kv对象表示什么含义。",
+            "type": "string"
+          },
+          "value": {
+            "description": "kv对象的值",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ip_role_id": {
+      "description": "商户角色id，表示将要开的店属于哪个商户角色。对于直连开店场景，填写商户pid；对于间连开店场景（线上、线下、直付通），填写商户smid。特别说明：IoT设备三绑定场景统一填写商户pid",
+      "example": "2088301155943087",
+      "type": "string"
+    },
+    "legal_cert_no": {
+      "description": "法人身份证号",
+      "example": "100100198811110001",
+      "type": "string"
+    },
+    "legal_name": {
+      "description": "法人名称。",
+      "example": "支小宝",
+      "type": "string"
+    },
+    "license_auth_letter_image": {
+      "description": "营业执照授权函。需传入<a href=\"https://opendocs.alipay.com/apis/api_1/ant.merchant.expand.indirect.image.upload\">ant.merchant.expand.indirect.image.upload</a> 接口上传图片后得到的 image_id。\t蚂蚁门店管理场景可选。",
+      "example": "c6c0c7a1-b9d5-4e5d-b9d4-9eed39f00e65.jpg",
+      "type": "string"
+    },
+    "memo": {
+      "description": "备注",
+      "example": "备注",
+      "type": "string"
+    },
+    "out_door_images": {
+      "description": "门头照 id，需传入 <a href=\"https://opendocs.alipay.com/apis/api_1/ant.merchant.expand.indirect.image.upload\">ant.merchant.expand.indirect.image.upload</a> 接口上传图片后得到的 image_id",
+      "example": "c6c0c7a1-b9d5-4e5d-b9d4-9eed39f00e65.jpg",
+      "type": "string"
+    },
+    "qualifications": {
+      "description": "行业特殊资质。",
+      "items": {
+        "properties": {
+          "industry_qualification_image": {
+            "description": "商户行业资质图片。其值为通过ant.merchant.expand.indirect.image.upload上传图片得到的image_id",
+            "type": "string"
+          },
+          "industry_qualification_type": {
+            "description": "<a href=\"https://gw.alipayobjects.com/os/bmw-prod/7aa3a36b-2bc2-4d57-815f-08edd55ef67e.xlsx\">商户行业资质类型，具体选值参见文档</a>",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "scene": {
+      "description": "场景，非加油站等特殊门店无需关注。",
+      "example": "PARK",
+      "type": "string"
+    },
+    "settle_alipay_logon_id": {
+      "description": "结算支付宝账号的登录号，需传入小程序归属账号。若需增加收款账号，可在创建门店后登录<a href=\"https://b.alipay.com/index2.htm\">商家中心</a> ，在 账户中心 > 经营信息 > 门店管理 中选择对应门店选择 更多 > 编辑 > 新增收款账号。",
+      "example": "demo@163.com",
+      "type": "string"
+    },
+    "shop_category": {
+      "description": "新版门店类目标准二级类目code。类目标准及与原类目映射关系参见 <a href=\"https://ur.alipay.com/4cmn0n\">支付宝门店类目-最新</a> 表格。",
+      "example": "B0001",
+      "type": "string"
+    },
+    "shop_name": {
+      "description": "店铺名称。直连开店要保证全局店铺名称+地址唯一，间连开店要保证服务商pid下店铺名称+地址唯一",
+      "example": "庆丰包子铺中关村店",
+      "type": "string"
+    },
+    "shop_type": {
+      "description": "店铺经营类型，01表示直营，02表示加盟",
+      "example": "01",
+      "type": "string"
+    },
+    "store_id": {
+      "description": "门店编号，表示该门店在该商户角色id(直连pid，间连smid)下，由商户自己定义的外部门店编号",
+      "example": "NO0001",
+      "type": "string"
+    }
+  },
+  "required": []
+}

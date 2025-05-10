@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_token": {
+      "description": "用户授权令牌",
+      "type": "string"
+    },
+    "order_type": {
+      "description": "支付宝订单类型。公共事业缴纳JF,信用卡还款HK",
+      "example": "JF",
+      "type": "string"
+    },
+    "merchant_order_no": {
+      "description": "输出机构的业务流水号，需要保证唯一性。",
+      "example": "201203031234567",
+      "type": "string"
+    }
+  },
+  "required": []
+}

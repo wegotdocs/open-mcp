@@ -1,0 +1,167 @@
+{
+  "type": "object",
+  "properties": {
+    "target_app_id": {
+      "description": "目标isv应用ID",
+      "type": "string"
+    },
+    "attachments": {
+      "description": "附件信息（附件可作为合同的辅助证明材料，无需签署。需通过文件直传接口上传附件，获取文件id后添加）。注意事项参见 <a href=\"https://opendocs.alipay.com/mini/00kr2w\">文件流上传方法</a>。",
+      "items": {
+        "properties": {
+          "attachment_name": {
+            "description": "流程附件名称",
+            "type": "string"
+          },
+          "file_id": {
+            "description": "流程附件id",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "business_scene": {
+      "description": "流程主题（简要概括合同的签署内容）",
+      "example": "爱租机手机交付单；某某公司劳动合同等",
+      "type": "string"
+    },
+    "config_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `config_info` to the tool, first call the tool `expandSchema` with \"/properties/config_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "template_infos": {
+      "description": "模板信息（基于合同模板填充内容生成待签文件，并指定签署人）",
+      "items": {
+        "properties": {
+          "fill_contents": {
+            "description": "模板填充项，根据组件key值传入填写内容",
+            "items": {
+              "properties": {
+                "struct_key": {
+                  "description": "模板组件自定义key",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "模板值,该值长度取决于配置模板时该字段的限制",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "name": {
+            "description": "签署文件名称",
+            "example": "iPhone手机签收单",
+            "type": "string"
+          },
+          "signfields": {
+            "description": "签署区，根据签署区key值传入对应的签署人信息",
+            "items": {
+              "properties": {
+                "sign_field_type": {
+                  "description": "签署类型：\t\tplatform-平台自动签：无需指定签署人。创建流程后，系统将自动盖上商户的默认企业印章。\t\tperson-个人签署：需要指定签署人个人信息。创建流程后，需通过签署插件完成签署。\torg-企业签署：需要指定签署企业信息与经办人个人信息。创建流程后，需经办人代企业完成签署。（企业暂不支持插件签署，可通过获取签署地址接口获取企业签署地址）",
+                  "example": "person",
+                  "type": "string"
+                },
+                "signer": {
+                  "properties": {
+                    "email": {
+                      "description": "个人邮箱",
+                      "example": "593100192@tsign.cn",
+                      "type": "string"
+                    },
+                    "id_number": {
+                      "description": "个人证件号",
+                      "example": "330304199801011111",
+                      "type": "string"
+                    },
+                    "id_type": {
+                      "description": "个人证件类型（证件号不为空时必填，详见个人证件类型说明 ）",
+                      "example": "CRED_PSN_CH_IDCARD",
+                      "type": "string"
+                    },
+                    "mobile": {
+                      "description": "个人手机号",
+                      "example": "18888888888",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "个人姓名",
+                      "example": "折颜",
+                      "type": "string"
+                    },
+                    "org": {
+                      "properties": {
+                        "org_id_number": {
+                          "description": "企业证件号",
+                          "example": "913301087458306077",
+                          "type": "string"
+                        },
+                        "org_id_type": {
+                          "description": "企业证件类型，（证件号不为空时必填，详见企业证件类型）",
+                          "example": "CRED_ORG_USCC",
+                          "type": "string"
+                        },
+                        "org_legal_id_number": {
+                          "description": "法定代表人证件号",
+                          "example": "330304199801011111",
+                          "type": "string"
+                        },
+                        "org_legal_id_type": {
+                          "description": "法定代表人证件类型",
+                          "example": "CRED_PSN_CH_IDCARD",
+                          "type": "string"
+                        },
+                        "org_legal_name": {
+                          "description": "法定代表人名称",
+                          "example": "折颜",
+                          "type": "string"
+                        },
+                        "org_name": {
+                          "description": "企业名称",
+                          "example": "杭州天谷信息科技有限公司",
+                          "type": "string"
+                        },
+                        "third_party_user_id": {
+                          "description": "企业唯一标识：可传入平台机构id、企业证件号、企业邮箱等（个人用户与企业的唯一标识不可重复）",
+                          "example": "913301087458306077",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "third_party_user_id": {
+                      "description": "个人唯一标识：可传入平台的个人用户id、支付宝userid、证件号、手机号、邮箱等。",
+                      "example": "2088102924502823",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "struct_key": {
+                  "description": "签署区key值",
+                  "example": "signer1",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "template_id": {
+            "description": "模板id，通过创建合同模板获取",
+            "example": "6b95e887c4b342a8b6501bd334b286df",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

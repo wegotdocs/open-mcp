@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "description": "蚂蚁统一会员ID，如果未开启openid改造，则此值必传",
+      "example": "2088123443211234",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "蚂蚁统一会员ID，蚂蚁统一会员ID，如果已完成openid改造，则此值必传",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "scopes": {
+      "description": "查询授权关系所关联的scope，半角逗号分隔的列表，且不允许有重复值",
+      "example": "auth_user,auth_zhima",
+      "type": "string"
+    }
+  },
+  "required": []
+}

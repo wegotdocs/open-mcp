@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "isv_auth_scene_infos": {
+      "description": "代运营授权场景信息",
+      "items": {
+        "properties": {
+          "scene_code": {
+            "description": "运营场景编码\tOPERATION_POINTS：管理运营积分\tSHOP_MANAGE：管理门店信息\tMINI_APP_OPER：运营支付宝小程序\tPROMOTION_MANAGE：运营营销活动",
+            "example": "PROMOTION_MANAGE",
+            "type": "string"
+          },
+          "scene_permissions": {
+            "description": "运营场景下的权限编码，多个权限编码以,隔开\t1、管理门店信息：SHOP_MANAGE；基础权限（升级）：SHOP_MANAGE_BASE\t2、运营营销活动：PROMOTION_MANAGE ；基础权限（升级）：PROMOTION_MANAGE_BASE\t3、运营支付宝小程序：MINI_APP_OPER；基础权限（升级）：MINI_APP_OPER_BASE\t4、管理运营积分：OPERATION_POINTS；基础权限（升级）：OPERATION_POINTS_BASE",
+            "example": "SHOP_MANAGE_BASE",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "merchant_logon_id": {
+      "description": "商户登录账号\t支持手机号和邮箱账号；不支持pid",
+      "example": "13181141917",
+      "type": "string"
+    },
+    "need_app_auth": {
+      "description": "1表示需要，0表示不需要\t不传参数默认是需要（1）\t是否创建三方应用授权子任务，也就是是否需要给三方应用授权",
+      "example": "1",
+      "type": "string"
+    },
+    "sign_order_no": {
+      "description": "签约单号\t可通过alipay.open.agent.confirm接口获取签约单号",
+      "example": "20211015034000100000052128459671",
+      "type": "string"
+    }
+  },
+  "required": []
+}

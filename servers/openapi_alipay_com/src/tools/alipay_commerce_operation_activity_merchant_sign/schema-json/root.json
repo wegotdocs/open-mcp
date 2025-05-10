@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "consumption_threshold": {
+      "description": "消费门槛（单位分）",
+      "example": 5000,
+      "type": "integer"
+    },
+    "discount_amount": {
+      "description": "优惠金额，单位分",
+      "example": 500,
+      "type": "integer"
+    },
+    "type": {
+      "description": "报名类型，NORMAL 常规类型，不限制, RESTRICTED 限制报名条件",
+      "example": "NORMAL",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "共同账号id，与enterprise_id两者必填其一",
+      "example": "2088000397722031",
+      "type": "string"
+    },
+    "create_by": {
+      "description": "创建人",
+      "example": "昭运",
+      "type": "string"
+    },
+    "employee_id": {
+      "description": "企业域定义的员工id，与user_id两者必填其一",
+      "example": "228800000000002000002",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业域定义下的企业id，与accountId两者必填其一",
+      "example": "2088000230921202",
+      "type": "string"
+    },
+    "modify_by": {
+      "description": "修改人",
+      "example": "昭运",
+      "type": "string"
+    },
+    "new_title_id": {
+      "description": "修改后的抬头id",
+      "example": "2022060900801711450000073478",
+      "type": "string"
+    },
+    "old_title_id": {
+      "description": "修改前的抬头id",
+      "example": "2022060900801711450000073478",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "支付宝open_id，与employee_id两者必填其一",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "title_tag": {
+      "description": "员工抬头关系标",
+      "example": "ou",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "支付宝id2088，与employee_id两者必填其一",
+      "example": "2088502255168118",
+      "type": "string"
+    }
+  },
+  "required": []
+}

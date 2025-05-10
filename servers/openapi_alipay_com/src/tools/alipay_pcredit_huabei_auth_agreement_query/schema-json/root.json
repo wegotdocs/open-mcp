@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_no": {
+      "description": "支付宝系统中用以唯一标识用户签约记录的编号，即花芝轻会员。传入该参数，会忽略其它所有参数。",
+      "example": "20185513447859192007",
+      "type": "string"
+    },
+    "alipay_user_id": {
+      "description": "买家在支付宝的用户id",
+      "example": "2088101117955611",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "买家在支付宝的用户id",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "out_sign_no": {
+      "description": "外部签约号，由商户提供，花芝轻会员协议中标识用户的唯一签约号（确保在商户系统中唯一）。",
+      "example": "2018053100073208416400000002",
+      "type": "string"
+    },
+    "auth_scene": {
+      "description": "花芝轻会员签约场景，商户和支付宝签约时确定。该值需要与系统/页面签约接口调用时传入的值保持一致。",
+      "example": "EXTERNAL_PCARD",
+      "type": "string"
+    }
+  },
+  "required": []
+}

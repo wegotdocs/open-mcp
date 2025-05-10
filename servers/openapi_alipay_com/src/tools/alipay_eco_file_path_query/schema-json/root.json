@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "target_app_id": {
+      "description": "目标isv应用ID",
+      "type": "string"
+    },
+    "content_md_5": {
+      "description": "先计算文件md5值，在对该md5值进行base64编码",
+      "example": "eGMHwA4TWnbg6PYKMxreUQ==",
+      "type": "string"
+    },
+    "content_type": {
+      "description": "目标文件的MIME类型",
+      "example": "application/octet-stream",
+      "type": "string"
+    },
+    "file_name": {
+      "description": "文件名称。\t注意：必须带上文件扩展名，不然会导致后续发起流程校验不通过。示例：合同.pdf。",
+      "example": "附件.zip",
+      "type": "string"
+    },
+    "file_size": {
+      "description": "文件大小，单位byte。最大允许上传30Mb",
+      "example": 2542635,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "enterprise_id": {
+      "description": "企业id",
+      "example": "2088985758939",
+      "type": "string"
+    },
+    "employee_id": {
+      "description": "企业码员工ID，签约适用对象为指定员工时填写",
+      "example": "2288099887700000",
+      "type": "string"
+    },
+    "page_content_code": {
+      "description": "用于展示不同的页面文案，使用标准页面文案是无需传值",
+      "example": "PCC_STANDARD",
+      "type": "string"
+    },
+    "withholding_sign_str": {
+      "description": "代扣签约串。需要签约代扣协议时，必传，返回的签约链接会拼接上代扣签约串。",
+      "example": "biz_content=%7B%22access_params%22%3A%7B%22personal_product_code%22%3A%22GENERAL_WITHHOLDING_P%22%2C%22sign_scene%22%3A%22INDUSTRY%7CMULTI_MEDIA%22%7D&sign=111&app_id=2017090501336035&method=alipay.user.agreement.page.sign&version=1.0",
+      "type": "string"
+    },
+    "create_share_code": {
+      "description": "是否生成签约吱口令，不传默认为N",
+      "example": "Y",
+      "type": "string"
+    }
+  },
+  "required": []
+}

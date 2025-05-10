@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_token": {
+      "description": "用户授权令牌",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "查询交易数据场景码",
+      "example": "BRAND_MARKET_PROMOTION",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "拉取的结算时间，格式yyyy-MM-dd HH:mm:ss，拉取逻辑包含该时刻。",
+      "example": "2022-02-11 00:00:00",
+      "type": "string"
+    },
+    "page_index": {
+      "description": "分页页码，从1开始，必须大于0",
+      "example": "1",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "分页大小，必须大于0，最大设置100",
+      "example": "100",
+      "type": "string"
+    },
+    "product_code": {
+      "description": "查询交易数据产品码",
+      "example": "MARKET_PROMOTION",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "拉取的起始时间，格式yyyy-MM-dd HH:mm:ss，时间必须早于拉取的截止时间，并且，接口仅限查询用户30天内交易数据，拉取逻辑包含该时刻。",
+      "example": "2022-02-10 00:00:00",
+      "type": "string"
+    }
+  },
+  "required": []
+}

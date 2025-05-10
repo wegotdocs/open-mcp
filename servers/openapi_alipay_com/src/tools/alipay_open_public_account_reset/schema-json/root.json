@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "agreement_id": {
+      "description": "需要重置的协议号，商户会员在支付宝生活号账号中的唯一标识。",
+      "example": "29022222",
+      "type": "string"
+    },
+    "bind_account_no": {
+      "description": "绑定帐号，建议在开发者的系统中保持唯一性",
+      "example": "test002",
+      "type": "string"
+    },
+    "display_name": {
+      "description": "商户期望在生活号首页看到的关于该用户的显示信息，最长10个字符。\t",
+      "example": "test002",
+      "type": "string"
+    },
+    "from_user_id": {
+      "description": "要绑定的商户会员对应的支付宝唯一标识，2088开头长度为16位的字符串。\t",
+      "example": "2088801234567890",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "支付宝用户的唯一标识",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "real_name": {
+      "description": "要绑定的商户会员的真实姓名，最长10个汉字",
+      "example": "张三",
+      "type": "string"
+    },
+    "remark": {
+      "description": "备注信息，开发者可以通过该字段纪录其他的额外信息",
+      "example": "备注信息",
+      "type": "string"
+    }
+  },
+  "required": []
+}

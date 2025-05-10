@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "credit_biz_order_id": {
+      "description": "信用服务订单号",
+      "example": "ZMCB20201021200102012",
+      "type": "string"
+    },
+    "is_fulfilled": {
+      "description": "字符串类型，用户此订单是否守约。\t传\"true\"时，用户在芝麻信用-守约记录中，该笔订单是已守约状态；\t传\"false\"时，用户在芝麻信用-守约记录中，该笔订单是已取消状态。",
+      "example": "\"true\"",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "商户外部请求号",
+      "example": "2014070700166653",
+      "type": "string"
+    },
+    "remark": {
+      "description": "商户对本次操作的附言描述",
+      "example": "完结订单",
+      "type": "string"
+    }
+  },
+  "required": []
+}
