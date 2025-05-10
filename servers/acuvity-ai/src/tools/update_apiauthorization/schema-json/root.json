@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the authorization rule.",
+      "type": "string"
+    },
+    "disabled": {
+      "description": "When disabled, an API Authorization has no effect.",
+      "type": "boolean"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the authorization rule.",
+      "example": "my api authorization.",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "permissions": {
+      "description": "The individual permissions. Only works if role is Custom.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "role": {
+      "default": "Employee",
+      "description": "The role for the subjects.",
+      "enum": [
+        "Administrator",
+        "Application",
+        "Custom",
+        "Employee",
+        "Owner",
+        "Proxy",
+        "Trial",
+        "Viewer"
+      ]
+    },
+    "subject": {
+      "description": "A tag expression that identifies the authorized user(s).",
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "targetNamespaces": {
+      "description": "Defines the namespace or namespaces in which the permission for subject should\napply. If empty, the object's namespace will be used.",
+      "example": "/my/namespace",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

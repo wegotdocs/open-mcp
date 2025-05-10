@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the token. As token contents are hidden after creation, name allows a\nway to delete it.",
+      "example": "openai-token-1",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "provider": {
+      "description": "Name of the provider this token is used with.",
+      "example": "openai",
+      "type": "string"
+    },
+    "token": {
+      "description": "token to authenticate with the provider.",
+      "example": "token1",
+      "type": "string"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "provider",
+    "token"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "description": "Additional configuration for sending an alert to Splunk.",
+  "properties": {
+    "HECURL": {
+      "description": "The HTTP event collector (HEC) URL to send the alert to.",
+      "example": "https://mysplunkserver.example.com:8088/services/collector",
+      "type": "string"
+    },
+    "certificateAuthority": {
+      "description": "If set, will use this as the CA for TLS communication.",
+      "type": "string"
+    },
+    "insecureSkipVerify": {
+      "description": "If true, will attempt to skip TLS verification when communicating.",
+      "type": "boolean"
+    },
+    "token": {
+      "description": "The token to communicate with the HTTP event collector.",
+      "example": "CF179AE4-3C99-45F5-A7CC-3284AA91CF67",
+      "type": "string"
+    }
+  },
+  "required": [
+    "HECURL",
+    "token"
+  ],
+  "type": "object"
+}

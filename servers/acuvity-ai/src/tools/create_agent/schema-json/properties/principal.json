@@ -1,0 +1,64 @@
+{
+  "description": "Describe the principal.",
+  "properties": {
+    "IP": {
+      "description": "The source IP address of the request.",
+      "example": "192.0.2.42",
+      "type": "string"
+    },
+    "app": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `app` to the tool, first call the tool `expandSchema` with \"/properties/principal/properties/app\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Describes the principal information of an application.</property-description>",
+      "additionalProperties": true
+    },
+    "authType": {
+      "description": "The type of authentication.",
+      "enum": [
+        "Certificate",
+        "UserToken",
+        "AppToken",
+        "Hostname",
+        "Token",
+        "ComponentToken",
+        "External"
+      ]
+    },
+    "claims": {
+      "description": "List of claims extracted from the user query.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "team": {
+      "description": "The team that was used to authorize the request.",
+      "example": "admins",
+      "type": "string"
+    },
+    "tokenName": {
+      "description": "The name of the token, if any.",
+      "example": "my-user-token",
+      "type": "string"
+    },
+    "type": {
+      "description": "The type of principal.",
+      "enum": [
+        "User",
+        "App",
+        "External"
+      ],
+      "example": [
+        "User"
+      ]
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/principal/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Describes the principal information of a user.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}
