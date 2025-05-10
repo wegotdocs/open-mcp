@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "teamId": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "webhook_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "compression_enabled": {
+      "type": "boolean"
+    },
+    "include_entities": {
+      "type": "boolean"
+    },
+    "include_topics": {
+      "type": "boolean"
+    },
+    "include_extraction": {
+      "type": "boolean"
+    },
+    "restricted_to": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `restricted_to` to the tool, first call the tool `expandSchema` with \"/properties/restricted_to\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "blocked": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `blocked` to the tool, first call the tool `expandSchema` with \"/properties/blocked\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "teamId"
+  ]
+}
