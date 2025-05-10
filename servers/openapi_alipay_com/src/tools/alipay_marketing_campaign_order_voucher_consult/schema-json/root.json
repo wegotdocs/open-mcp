@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_token": {
+      "description": "用户授权令牌",
+      "type": "string"
+    },
+    "business_param": {
+      "description": "业务参数大字段，优惠咨询的控制参数，json格式；目前支持传入useBigAmountSkipOrderThold为N来控制不使用大金额跳过优惠的订单门槛检查；默认不传；",
+      "example": "{\"useBigAmountSkipOrderThold\":\"N\"}",
+      "type": "string"
+    },
+    "item_consult_list": {
+      "description": "商品咨询请求列表（当需要咨询单品券时必传，如果某商品不希望参与本次单品优惠咨询则不传递对应信息即可）",
+      "items": {
+        "properties": {
+          "item_id": {
+            "description": "商品id",
+            "example": "20210105003",
+            "type": "string"
+          },
+          "price": {
+            "description": "商品单价，单位为元，最多2位小数",
+            "example": "20.29",
+            "type": "string"
+          },
+          "quantity": {
+            "description": "商品数量",
+            "example": "3",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "order_amount": {
+      "description": "订单金额（如同时享受商户自有优惠请先扣除后传入），单位为元，最多2位小数",
+      "example": "120.87",
+      "type": "string"
+    },
+    "scene_code": {
+      "description": "场景码：默认(DEFAULT)",
+      "example": "[\"DEFAULT\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "specified_app_id": {
+      "description": "券指定的核销appid（如果配券时指定了核销范围为线上小程序及相应的appid则此处必传）",
+      "example": "2021001159604390",
+      "type": "string"
+    }
+  },
+  "required": []
+}

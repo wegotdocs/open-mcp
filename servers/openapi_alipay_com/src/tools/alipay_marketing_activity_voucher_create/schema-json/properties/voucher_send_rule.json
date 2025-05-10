@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "max_quantity_by_day": {
+      "description": "设置此字段，允许指定单天最大发券数量。\t\t限制:\t每天发放张数*活动天数应小于等于优惠券发放总量",
+      "type": "integer"
+    },
+    "natural_person_limit": {
+      "description": "限制相同身份证号领取次数(voucher_quantity_limit_per_user)。默认false不限制。\t枚举值\ttrue：是\tfalse：否",
+      "type": "boolean"
+    },
+    "phone_number_limit": {
+      "description": "限制相同手机号领取次数(voucher_quantity_limit_per_user)。默认false不限制\t枚举值\ttrue：是\tfalse：否",
+      "type": "boolean"
+    },
+    "real_name_limit": {
+      "description": "限制支付宝实名用户才能领取支付券,默认为false表示不限制\t枚举值\ttrue\\false",
+      "type": "boolean"
+    },
+    "voucher_quantity": {
+      "description": "发行券的总数量。\t限制：\t1、发放总个数最少1个\t2、发放总个数最多99999999个",
+      "type": "integer"
+    },
+    "voucher_quantity_limit_per_user": {
+      "description": "每人领取限制。 默认按照支付宝账号进行领取限制; \t不填写或填入0表示没有领取限制.",
+      "type": "integer"
+    },
+    "voucher_quantity_limit_per_user_period_type": {
+      "description": "周期限领配置,限制每人在固定周期内领取张数(voucher_quantity_limit_per_user),默认LIFE_CYCLE",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

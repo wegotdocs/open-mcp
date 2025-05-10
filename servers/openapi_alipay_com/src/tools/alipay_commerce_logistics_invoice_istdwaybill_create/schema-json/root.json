@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "invoice": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `invoice` to the tool, first call the tool `expandSchema` with \"/properties/invoice\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "logistics_code": {
+      "description": "即时配送公司编码",
+      "example": "FENGNIAO",
+      "type": "string"
+    },
+    "out_invoice_request_no": {
+      "description": "开票请求流水号",
+      "example": "out_invoice_no_00001",
+      "type": "string"
+    },
+    "waybill_invoices": {
+      "description": "即时配送运单列表",
+      "items": {
+        "properties": {
+          "waybill_amount": {
+            "description": "即时配送运单金额",
+            "example": "100",
+            "type": "string"
+          },
+          "waybill_no": {
+            "description": "即时配送运单编号",
+            "example": "waybill_no_00001",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

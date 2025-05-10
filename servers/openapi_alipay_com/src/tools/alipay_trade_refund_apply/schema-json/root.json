@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "extend_params": {
+      "description": "商户传入业务信息，具体值要和支付宝约定，格式为json格式。\r\t医保退款场景下，DESIGNATED_REFUND_ASSET为INNER_ASSET表示只退自费部分，DESIGNATED_REFUND_ASSET为OUTSIDE_ASSET表示只退医保部分，医保部分不支持部分退。退医保资金必需传cancel_bill_no和cancel_serial_no。",
+      "example": "{\"DESIGNATED_REFUND_ASSET\" :\"OUTSIDE_ASSET\",\"cancel_bill_no\":\"ZF26039675\",\"cancel_serial_no\":\"77640503\"}",
+      "type": "string"
+    },
+    "notify_url": {
+      "description": "通知地址",
+      "type": "string"
+    },
+    "operator_id": {
+      "description": "商户的操作员编号",
+      "example": "OP001",
+      "type": "string"
+    },
+    "out_request_no": {
+      "description": "标识一次退款请求，同一笔交易多次退款需要保证唯一，如需部分退款，则此参数必传。",
+      "example": "HZ01RF001",
+      "type": "string"
+    },
+    "out_trade_no": {
+      "description": "订单支付时传入的商户订单号,不能和 trade_no同时为空",
+      "example": "20150320010101001",
+      "type": "string"
+    },
+    "refund_amount": {
+      "description": "需要退款的金额，该金额不能大于订单金额,单位为元，支持两位小数",
+      "example": "200.12",
+      "type": "string"
+    },
+    "refund_fund_details": {
+      "description": "退款资金明细\r\t注：目前只有SETTLE_OFFLINE_GROUP产品的退款支持该字段",
+      "items": {
+        "properties": {
+          "funds": {
+            "description": "退款资金明细\r\t详：\r\t若type为paySerialNo则funds为\r\t[{\"paySerialNo\":\"支付流水1\",\"refundFee\":\"退款金额1\"},{\"paySerialNo\":\"支付流水2\",\"refundFee\":\"退款金额2\"}]",
+            "example": "[\"{\\\"paySerialNo\\\":\\\"2018081603020111\\\",\\\"refundFee\\\":\\\"12.00\\\"}\",\"{\\\"paySerialNo\\\":\\\"2018081603020112\\\",\\\"refundFee\\\":\\\"2.00\\\"}\"]",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "trans_in": {
+            "description": "收入方账户\r\t为空则原路退回",
+            "example": "2088101126708402",
+            "type": "string"
+          },
+          "trans_in_type": {
+            "description": "收入方账户类型",
+            "example": "bankAccount",
+            "type": "string"
+          },
+          "type": {
+            "description": "描述资金明细类型\r\t详：若type为paySerialNo\r\t则funds参数中体现的都为对应支付流水的退款明细",
+            "example": "paySerialNo",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "refund_reason": {
+      "description": "退款的原因说明",
+      "example": "正常退款",
+      "type": "string"
+    },
+    "store_id": {
+      "description": "商户的门店编号",
+      "example": "NJ_S_001",
+      "type": "string"
+    },
+    "terminal_id": {
+      "description": "商户的终端编号",
+      "example": "NJ_T_001",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "支付宝交易号，和商户订单号不能同时为空",
+      "example": "2014112611001004680073956707",
+      "type": "string"
+    }
+  },
+  "required": []
+}

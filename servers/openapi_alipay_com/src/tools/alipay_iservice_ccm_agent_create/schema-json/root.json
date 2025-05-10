@@ -1,0 +1,124 @@
+{
+  "type": "object",
+  "properties": {
+    "answering_mode": {
+      "description": "热线接入方式，取值0，1，2",
+      "example": "0",
+      "type": "string"
+    },
+    "ccs_instance_ids": {
+      "description": "部门id列表",
+      "example": "[\"XAHSNRBS\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "chat_configs": {
+      "description": "在线技能组设置，技能组部门间隔离，此设置应与ccs_instance_ids对应",
+      "items": {
+        "properties": {
+          "ccs_instance_id": {
+            "description": "数据权限id(租户实例id)",
+            "type": "string"
+          },
+          "extended_group_ids": {
+            "description": "在线扩展技能组id列表",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "group_id": {
+            "description": "在线技能组id",
+            "type": "string"
+          },
+          "level_id": {
+            "description": "在线服务等级",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "creator_id": {
+      "description": "操作人客服id",
+      "example": "2019032101896769",
+      "type": "string"
+    },
+    "email": {
+      "description": "客服邮箱",
+      "example": "test@163.com",
+      "type": "string"
+    },
+    "external_user_id": {
+      "description": "客服账号id，当user_channel=ALIPAY时，external_user_id为支付宝账号id",
+      "example": "2088xxx",
+      "type": "string"
+    },
+    "hotline_configs": {
+      "description": "热线技能组设置，技能组部门间隔离，此设置应与ccs_instance_ids对应",
+      "items": {
+        "properties": {
+          "ccs_instance_id": {
+            "description": "数据权限id(租户实例id)",
+            "type": "string"
+          },
+          "group_ids": {
+            "description": "热线技能组id",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "job_number": {
+      "description": "客服工号，新增后不可变更。4位数字，不可重复",
+      "example": "0002",
+      "type": "string"
+    },
+    "mobile": {
+      "description": "客服手机号",
+      "example": "13812345678",
+      "type": "string"
+    },
+    "nick_name": {
+      "description": "客服昵称",
+      "example": "风清扬",
+      "type": "string"
+    },
+    "real_name": {
+      "description": "客服姓名",
+      "example": "张三",
+      "type": "string"
+    },
+    "role_ids": {
+      "description": "角色id列表",
+      "items": {
+        "properties": {
+          "ccs_instance_id": {
+            "description": "部门id（即租户实例ID、数据权限ID）",
+            "type": "string"
+          },
+          "role_id": {
+            "description": "角色ID",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "user_channel": {
+      "description": "客服账号渠道 ALIPAY:支付宝账号",
+      "example": "ALIPAY",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "enterprise_id": {
+      "description": "企业id；enterprise_id与account_id至少传一个，如果都传了优先使用enterprise_id",
+      "example": "2088441399627416",
+      "type": "string"
+    },
+    "account_id": {
+      "description": "资金共同账号id；enterprise_id与account_id至少传一个，如果都传了优先使用enterprise_id(为兼容企业码1.0老接口保留的字段，已过时，新接客户请使用enterprise_id)",
+      "example": "2088610274867962",
+      "type": "string"
+    }
+  },
+  "required": []
+}

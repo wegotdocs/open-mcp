@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "payment_restriction_list": {
+      "description": "支付方式限制",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "quantity_limit_per_user": {
+      "description": "核销次数限制。",
+      "type": "integer"
+    },
+    "quantity_limit_per_user_period_type": {
+      "description": "周期限领配置,限制每人在固定周期内领取张数(voucher_quantity_limit_per_user),默认LIFE_CYCLE",
+      "type": "string"
+    },
+    "voucher_max_use_times": {
+      "description": "券最大核销次数。",
+      "type": "integer"
+    },
+    "voucher_use_ext_info": {
+      "description": "自定义扩展信息",
+      "type": "string"
+    },
+    "voucher_use_time_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_use_time_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule_info/properties/voucher_use_time_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

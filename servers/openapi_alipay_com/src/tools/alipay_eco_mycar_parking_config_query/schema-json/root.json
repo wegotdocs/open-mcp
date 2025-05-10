@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "interface_name": {
+      "description": "接口名称。H5传入参数固定值：alipay.eco.mycar.parking.userpage.query；\t小程序传入参数固定值：alipay.eco.mycar.parking.isv.homepage；\t协议状态变更通知传入参数固定值： alipay.eco.mycar.parking.agreement.notify。",
+      "example": "alipay.eco.mycar.parking.userpage.query",
+      "type": "string"
+    },
+    "interface_type": {
+      "description": "接口类型。H5、小程序传入参数固定值：interface_page；\t通知接口传入参数固定值：interface_service。",
+      "example": "interface_page",
+      "type": "string"
+    }
+  },
+  "required": []
+}

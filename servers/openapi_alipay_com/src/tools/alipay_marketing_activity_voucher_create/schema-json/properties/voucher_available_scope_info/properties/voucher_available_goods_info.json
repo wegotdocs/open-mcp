@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "available_goods_sku_ids": {
+      "description": "可优惠商品编码，商家自定义商品编码。当用户支付时，交易中的商品编码和支付券配置的商品编码有任一匹配时，可以使用优惠券。",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "exclude_goods_sku_ids": {
+      "description": "不可核销商品编码，商家自定义商品编码。当用户支付时，交易中的商品编码和支付券配置的商品编码有任一匹配时，不可以使用优惠券。",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "goods_description": {
+      "description": "商品描述信息。 用于券面展示，向用户介绍商品",
+      "type": "string"
+    },
+    "goods_detail": {
+      "description": "商品详情，会展示在特定渠道(如服务市场团购业务插件的套餐明细)。",
+      "type": "string"
+    },
+    "goods_detail_images": {
+      "description": "商品详情图片列表，会展示在特定渠道(如服务市场团购业务插件的头图)",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "goods_detail_rich_description": {
+      "description": "商品详情富文本描述",
+      "type": "string"
+    },
+    "goods_name": {
+      "description": "商品名称。",
+      "type": "string"
+    },
+    "origin_amount": {
+      "description": "原价。说明：该字段可不填，填入商品名称goods_name则必填;",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

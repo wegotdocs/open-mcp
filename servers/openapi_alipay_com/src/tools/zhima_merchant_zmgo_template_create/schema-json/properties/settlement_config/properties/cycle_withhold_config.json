@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "deduct_plan": {
+      "description": "扣款计划",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "exemption_period": {
+      "description": "豁免期天数",
+      "type": "string"
+    },
+    "period": {
+      "description": "周期",
+      "type": "string"
+    },
+    "period_type": {
+      "description": "扣款周期类型，支持DAY-天模式，MONTH-月模式",
+      "type": "string"
+    },
+    "support_cycle_withhold_high_mode": {
+      "description": "是否支持周期扣高级模式，高级模式下扣款计划中内一起的扣款金额可以进行定制",
+      "type": "boolean"
+    },
+    "support_exemption_period": {
+      "description": "是否支持豁免期，如果支持豁免期，用户开通后再豁免期内退出无需扣款",
+      "type": "boolean"
+    },
+    "withhold_mode": {
+      "description": "设置扣款模式，目前支持每月固定日期或固定时间间隔",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

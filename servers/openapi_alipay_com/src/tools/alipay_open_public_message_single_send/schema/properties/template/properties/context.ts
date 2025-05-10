@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "action_name": z.string().describe("底部链接描述文字，如“查看详情”，最多能传8个汉字或16个英文字符，长度超出会报错").optional(),
+  "first": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `first` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/context/properties/first\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "head_color": z.string().describe("顶部色条的色值").optional(),
+  "keyword1": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `keyword1` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/context/properties/keyword1\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "keyword2": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `keyword2` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/context/properties/keyword2\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "remark": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `remark` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/context/properties/remark\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "url": z.string().describe("点击消息后承接页的地址").optional()
+}

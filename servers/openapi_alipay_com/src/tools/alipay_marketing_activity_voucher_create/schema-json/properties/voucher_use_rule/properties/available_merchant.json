@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "available_pids": {
+      "description": "优惠券可核销的直连商户PID\t\t限制：\t1、available_pids和available_smids至少二选一。",
+      "example": "[\"2088102111111111\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "available_smids": {
+      "description": "优惠券可核销的间连商户SMID\t\t限制： \t1、available_pids和available_smids至少二选一。",
+      "example": "[\"2088102111111111\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

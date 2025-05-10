@@ -1,0 +1,153 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "商品描述",
+      "example": "精选东北优质非转基因大豆",
+      "type": "string"
+    },
+    "ext_info": {
+      "description": "商品扩展信息（覆盖商品已存在扩展信息、具体KEY请参见产品文档）",
+      "items": {
+        "properties": {
+          "ext_key": {
+            "description": "扩展信息的key",
+            "type": "string"
+          },
+          "ext_value": {
+            "description": "扩展信息的值",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "item_id": {
+      "description": "商品ID",
+      "example": "2019073100702219000000100000",
+      "type": "string"
+    },
+    "material_list": {
+      "description": "商品素材列表（会和商品已存在素材做差异化比较后做增删改操作）",
+      "items": {
+        "properties": {
+          "content": {
+            "description": "素材内容（素材地址或素材KEY）",
+            "type": "string"
+          },
+          "type": {
+            "description": "素材类型",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "商品名称",
+      "example": "西红柿炒蛋",
+      "type": "string"
+    },
+    "property_list": {
+      "description": "商品属性列表（覆盖商品已存在属性）",
+      "items": {
+        "properties": {
+          "property_key": {
+            "description": "属性名称",
+            "type": "string"
+          },
+          "property_value_list": {
+            "description": "属性值列表",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "sku_list": {
+      "description": "SKU列表（会和商品已存在SKU做差异化比较后做增删改操作）",
+      "items": {
+        "properties": {
+          "inventory": {
+            "description": "库存",
+            "example": 100,
+            "type": "integer"
+          },
+          "material_list": {
+            "description": "SKU素材列表（会和SKU已存在素材做差异化比较后做增删改操作）",
+            "items": {
+              "properties": {
+                "content": {
+                  "description": "素材内容（素材地址或素材KEY）",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "素材类型",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "original_price": {
+            "description": "标价，单位分",
+            "example": 100,
+            "type": "integer"
+          },
+          "price": {
+            "description": "售价，单位分",
+            "example": 100,
+            "type": "integer"
+          },
+          "property_list": {
+            "description": "SKU属性列表（覆盖SKU已存在属性）",
+            "items": {
+              "properties": {
+                "property_key": {
+                  "description": "属性",
+                  "type": "string"
+                },
+                "property_value": {
+                  "description": "属性值",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "sku_id": {
+            "description": "SKU ID（传空表示新增对应SKU）",
+            "example": "2018092600502220000000100274",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "standard_category_id": {
+      "description": "商品所属标准类目ID，当 type 为STANDARD_GOODS（标品）时必填。 请填入 https://opendocs.alipay.com/mini/011lxt 小程序商品类目表中三级类目ID。",
+      "example": "2019073100992228000000100000",
+      "type": "string"
+    },
+    "status": {
+      "description": "商品状态",
+      "example": "EFFECT",
+      "type": "string"
+    },
+    "type": {
+      "description": "商品类型：STANDARD_GOODS（标品）、NON_STANDARD_GOODS（非标品）",
+      "example": "STANDARD_GOODS",
+      "type": "string"
+    }
+  },
+  "required": []
+}

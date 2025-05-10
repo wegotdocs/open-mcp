@@ -1,0 +1,141 @@
+{
+  "type": "object",
+  "properties": {
+    "activity_list": {
+      "description": "活动信息列表",
+      "items": {
+        "properties": {
+          "activity_click_url": {
+            "description": "活动点击跳转到小程序的链接地址",
+            "example": "alipays://platformapi/startapp?appId= 2017072607907880&page=pages/index/index?param=xxxx",
+            "type": "string"
+          },
+          "activity_id": {
+            "description": "活动的唯一标识，同一个小程序橱窗下，该标识唯一，请开发者自行保证",
+            "example": "8948968498",
+            "type": "string"
+          },
+          "activity_name": {
+            "description": "活动名称",
+            "example": "这是一个活动名称",
+            "type": "string"
+          },
+          "activity_picture_urls": {
+            "description": "活动图片链接,最多不能超过5个",
+            "example": "[\"https://xxx.xxx.com/xxx.jpg\"]",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "data_type": {
+      "description": "数据类型，可选值：ACTIVITY(活动数据)、GOODS(商品数据)",
+      "example": "ACTIVITY",
+      "type": "string"
+    },
+    "goods_list": {
+      "description": "商品信息列表",
+      "items": {
+        "properties": {
+          "buying_url": {
+            "description": "该商品的小程序购买链接，如果需要进行公域推广，请字段请必填",
+            "type": "string"
+          },
+          "goods_brand": {
+            "description": "商品品牌，如果需要进行公域推广，该字段请必填",
+            "type": "string"
+          },
+          "goods_comment": {
+            "description": "商品辅助说明文案",
+            "type": "string"
+          },
+          "goods_description_label": {
+            "description": "商品说明标签（如-随心退）",
+            "type": "string"
+          },
+          "goods_id": {
+            "description": "商品的唯一标识，同一个小部件下，该标识唯一，请开发者自行保证",
+            "type": "string"
+          },
+          "goods_label": {
+            "description": "营销标签（如-限量特价），每个商品仅支持一个营销标签",
+            "type": "string"
+          },
+          "goods_name": {
+            "description": "商品名称",
+            "type": "string"
+          },
+          "goods_type": {
+            "description": "商品所属品类",
+            "type": "string"
+          },
+          "main_pic_url": {
+            "description": "商品主图片地址，如果需要进行公域推广，该字段请必填。",
+            "type": "string"
+          },
+          "need_public_promo": {
+            "description": "是否需要进行公域推广，默认情况下为false",
+            "type": "boolean"
+          },
+          "order_number": {
+            "description": "商品排序，自然整数, 数字越小越靠前",
+            "type": "integer"
+          },
+          "original_price": {
+            "description": "单位\"元\"的商品原价，传入数字，不需要传入\"元\"。如果需要进行公域推广，该字段请必填。",
+            "type": "string"
+          },
+          "publish_cities": {
+            "description": "投放城市的列表，详见https://www.mca.gov.cn/article/sj/xzqh/2020/2020/202007170301.html，有多个用英文,分隔。如果没有限制则不传入",
+            "type": "string"
+          },
+          "remaining_quantity": {
+            "description": "剩余库存，如果需要进行公域推广，该字段请必填，并且当剩余库存为0时，请及时同步。",
+            "type": "integer"
+          },
+          "sell_price": {
+            "description": "单位\"元\"的售价，传入数字，不需要传入\"元\"。如果需要进行公域推广，该字段请必填。",
+            "type": "string"
+          },
+          "sell_tag_list": {
+            "description": "商品的卖点标签，如果需要进行公域推广，请至少填写两个卖点标签。",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "sold_quantity": {
+            "description": "已售数量",
+            "type": "integer"
+          },
+          "status": {
+            "description": "商品状态，商品的上下架，默认情况为上架，上架为ONLINE,下架为OFFLINE",
+            "type": "string"
+          },
+          "total_quantity": {
+            "description": "总库存量",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "mini_app_id": {
+      "description": "商家小程序ID",
+      "example": "2017072607907880",
+      "type": "string"
+    },
+    "pid": {
+      "description": "小程序背后的商家，和mini_app_id要求对应",
+      "example": "2088xxxxxxxxx",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "mini_app_id": {
+      "description": "券可用的小程序appId，卡包详情页可跳转到该appId",
+      "type": "string"
+    },
+    "mini_app_path": {
+      "description": "指定跳转到mini_app_id时的具体页面路径。",
+      "type": "string"
+    },
+    "mini_app_use_guide": {
+      "description": "小程序核销。",
+      "type": "boolean"
+    },
+    "offline_code_use_guide": {
+      "description": "线下扫码核销。",
+      "type": "boolean"
+    },
+    "service_codes": {
+      "description": "小程序服务编码，通过 alipay.open.app.appcontent.function.create(小程序服务创建)接口创建服务后获取。",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

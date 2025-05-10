@@ -1,0 +1,15 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "available_app_ids": z.array(z.string()).describe("可核销的支付宝小程序id\t\t限制： \t1、必须是支付宝小程序\t2、如果包含重复的小程序id会自动进行去重操作。").optional(),
+  "available_goods": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `available_goods` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/available_goods\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "available_merchant": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `available_merchant` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/available_merchant\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "available_store_ids": z.array(z.string()).describe("可核销支付门店id。\t限制： \t1、available_store_ids中的门店id必须是支付宝门店id。 \t2、available_store_ids如果包含重复的门店id会自动进行去重操作。").optional(),
+  "fix_voucher": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fix_voucher` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/fix_voucher\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "unavailable_goods_ids": z.array(z.string()).describe("不可核销商品编码，商家自定义商品编码。当用户支付时，交易中的商品编码和支付券配置的商品编码有任一匹配时，不可以使用优惠券。\t\t限制:\t1、available_goods与unavailable_goods_ids只能二选一或者同时为空").optional(),
+  "use_mode": z.string().describe("核销跳转方式,默认CAN_USE(详情页展示可使用按钮)").optional(),
+  "use_url": z.string().describe("核销跳转链接\t限制:\t1、只有use_mode为SELF_LINK时该值有效且必传。\t2、核销跳转链接必须是支付宝小程序链接。").optional(),
+  "voucher_quantity_limit_per_user": z.number().int().describe("每个支付宝账号的核销次数限制。 默认不限制").optional(),
+  "voucher_quantity_limit_per_user_period_type": z.string().describe("核销次数限制周期配置。默认值LIFE_CYCLE表示限制每个支付宝账号在整个活动期间核销次数。").optional(),
+  "voucher_valid_period": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_valid_period` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule/properties/voucher_valid_period\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional()
+}

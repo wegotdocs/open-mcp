@@ -1,0 +1,50 @@
+{
+  "properties": {
+    "auth_scope": {
+      "description": "用于开放认证授权",
+      "example": "xxx",
+      "type": "string"
+    },
+    "auth_type": {
+      "description": "用于指定授权类型，与auth_scope配合使用",
+      "example": "xxx",
+      "type": "string"
+    },
+    "face_reserve_strategy": {
+      "description": "不传默认为reserve",
+      "example": "reserve",
+      "type": "string"
+    },
+    "facial_picture_level": {
+      "description": "若有特殊人脸等级采集要求，可指定等级",
+      "example": "FIN0",
+      "type": "string"
+    },
+    "linked_merchant_app_id": {
+      "description": "用于授权二级商户操作",
+      "example": "202134xxxx",
+      "type": "string"
+    },
+    "linked_merchant_logo_url": {
+      "description": "用于指定展示的商户logo",
+      "example": "http://xxx",
+      "type": "string"
+    },
+    "linked_merchant_name": {
+      "description": "用于指定展示的商户名称",
+      "example": "杭州xx公司",
+      "type": "string"
+    },
+    "out_put_facial_picture": {
+      "description": "在拥有该权限前提下，用于商户控制是否透出活体人脸",
+      "example": true,
+      "type": "boolean"
+    },
+    "return_url": {
+      "description": "认证成功后需要跳转的地址，一般为商户业务页面；若无跳转地址可填空字符\"\";",
+      "example": "https://xxx",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

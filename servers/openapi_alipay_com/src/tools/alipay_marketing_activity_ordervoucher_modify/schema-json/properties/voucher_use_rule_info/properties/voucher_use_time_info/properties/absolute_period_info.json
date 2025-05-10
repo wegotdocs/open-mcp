@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "time_restrict_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `time_restrict_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_use_rule_info/properties/voucher_use_time_info/properties/absolute_period_info/properties/time_restrict_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "valid_begin_time": {
+      "description": "券可使用的开始时间。 格式为：yyyy-MM-dd HH:mm:ss。",
+      "type": "string"
+    },
+    "valid_end_time": {
+      "description": "券可使用的结束时间。 格式为yyyy-MM-dd HH:mm:ss。",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

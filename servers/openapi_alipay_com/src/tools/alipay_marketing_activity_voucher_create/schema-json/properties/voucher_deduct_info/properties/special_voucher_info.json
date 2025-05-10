@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "floor_amount": {
+      "description": "门槛金额。说明：该字段可不填，认为无门槛;",
+      "type": "string"
+    },
+    "special_amount": {
+      "description": "特价，即：原价-特价=优惠金额。",
+      "type": "string"
+    },
+    "voucher_deduct_threshold_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voucher_deduct_threshold_info` to the tool, first call the tool `expandSchema` with \"/properties/voucher_deduct_info/properties/special_voucher_info/properties/voucher_deduct_threshold_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

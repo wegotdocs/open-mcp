@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "biz_scene": {
+      "description": "用于区分资金因公付协议、以及收银台文案等差异；",
+      "example": "ISV_QYM",
+      "type": "string"
+    },
+    "create_fund_account": {
+      "description": "是否设置管理员支付宝为企业出资账户",
+      "example": true,
+      "type": "boolean"
+    },
+    "create_iot_group": {
+      "description": "是否创建企业人脸库，适用于对接团餐刷脸付、门禁刷脸通行等场景",
+      "example": false,
+      "type": "boolean"
+    },
+    "enterprise_alias": {
+      "description": "企业简称",
+      "example": "企业码测试",
+      "type": "string"
+    },
+    "enterprise_name": {
+      "description": "企业名称",
+      "example": "企业码测试有限公司",
+      "type": "string"
+    },
+    "group_app_id": {
+      "description": "订购【一脸通行开通插件】的小程序appId",
+      "example": "2021001188888888",
+      "type": "string"
+    },
+    "identity": {
+      "description": "管理员身份标识",
+      "example": "2088501412314698",
+      "type": "string"
+    },
+    "identity_name": {
+      "description": "管理员姓名",
+      "example": "张三",
+      "type": "string"
+    },
+    "identity_open_id": {
+      "description": "管理员身份openId",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "identity_type": {
+      "description": "管理员身份类型",
+      "example": "ALIPAY_USER_ID",
+      "type": "string"
+    },
+    "out_biz_no": {
+      "description": "外部业务号",
+      "example": "28839390030030",
+      "type": "string"
+    },
+    "sign_return_url": {
+      "description": "企业码签约后回跳地址。不传默认为空，签约后停留在当前页。",
+      "example": "https://www.alipay.com",
+      "type": "string"
+    }
+  },
+  "required": []
+}

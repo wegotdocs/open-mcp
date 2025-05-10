@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "账户ID",
+      "example": "2088900976746215",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "授权协议号",
+      "example": "20889009767462151233",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "业务场景",
+      "example": "DEFAULT",
+      "type": "string"
+    },
+    "member_list": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `member_list` to the tool, first call the tool `expandSchema` with \"/properties/member_list\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "product_code": {
+      "description": "产品码",
+      "example": "ENTERPRISE_PAY",
+      "type": "string"
+    }
+  },
+  "required": []
+}

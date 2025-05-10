@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "action": {
+      "description": "操作动作",
+      "example": "CREATE_SHOP",
+      "type": "string"
+    },
+    "apply_ids": {
+      "description": "支付宝流水ID列表，最大不超过100个",
+      "example": "2015052100077000000000120773,2015052100077000000000120774",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "biz_id": {
+      "description": "业务主体ID。根据biz_type不同可能对应shop_id或item_id。",
+      "example": "2015052100077000000000120774",
+      "type": "string"
+    },
+    "biz_type": {
+      "description": "业务类型：SHOP-店铺，ITEM-商品。",
+      "example": "SHOP",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "查询的流水创建时间最后值。格式：yyyy-MM-dd HH:mm:ss",
+      "example": "2015-10-29 10:51:57",
+      "type": "string"
+    },
+    "op_id": {
+      "description": "操作用户的支付账号id",
+      "example": "2088001969784501",
+      "type": "string"
+    },
+    "op_role": {
+      "description": "系统集成商统一传入ISV",
+      "example": "ISV",
+      "type": "string"
+    },
+    "page_no": {
+      "description": "页码，留空标示第一页，默认20个结果为一页",
+      "example": 1,
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "每页记录数。默认20，最大100。",
+      "example": 20,
+      "type": "integer"
+    },
+    "request_ids": {
+      "description": "请求ID列表，最大不超过100个。\r\t注意：暂时不支持此字段查询。",
+      "example": "2015123235324534,2015123235324535",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "start_time": {
+      "description": "查询的流水创建时间起始值，只能查询近3个月数据。格式：yyyy-MM-dd HH:mm:ss",
+      "example": "2015-10-27 10:51:57",
+      "type": "string"
+    },
+    "status": {
+      "description": "流水状态：INIT-初始，PROCESS-处理中，SUCCESS-成功，FAIL-失败。",
+      "example": "FAIL",
+      "type": "string"
+    }
+  },
+  "required": []
+}

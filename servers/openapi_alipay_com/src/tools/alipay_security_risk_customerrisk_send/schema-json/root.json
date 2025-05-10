@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "properties": {
+    "bank_card_no": {
+      "description": "交易对应的银行卡的卡号（支付宝直连和间连合作伙伴均可回传此参数）",
+      "example": "421234234234234000",
+      "type": "string"
+    },
+    "business_license_no": {
+      "description": "该账号对应的营业执照号码（支付宝直连和间连合作伙伴均可回传此参数）",
+      "example": "34xggdf345",
+      "type": "string"
+    },
+    "cert_no": {
+      "description": "该用户对应的身份证号码（支付宝直连和间连合作伙伴均可回传此参数）",
+      "example": "659004198009128344",
+      "type": "string"
+    },
+    "email_address": {
+      "description": "账户注册时填写的邮箱地址(适用于支付宝直连商户回传此信息)",
+      "example": "12345@abcd.com",
+      "type": "string"
+    },
+    "external_id": {
+      "description": "适用于间连业务场景下，商户在银行被分配的ID（适用于支付宝间连合作伙伴回传此信息）",
+      "example": "2088011993690428",
+      "type": "string"
+    },
+    "merch_name": {
+      "description": "该笔风险交易购买的具体商品名称（适用于支付宝直连商户回传此信息）",
+      "example": "游戏道具",
+      "type": "string"
+    },
+    "mobile": {
+      "description": "手机（支付宝直连和间连合作伙伴均可回传此参数）",
+      "example": "1359892324",
+      "type": "string"
+    },
+    "mobile_ip": {
+      "description": "该账号登录合作伙伴平台时的IP地址（适用于支付宝直连商户回传此信息）",
+      "example": "10.253.231.22",
+      "type": "string"
+    },
+    "order_ip": {
+      "description": "该账户在商户平台下单时的MAC地址或IP地址（适用于支付宝直连商户回传此信息）",
+      "example": "00000000-01010000-10111010",
+      "type": "string"
+    },
+    "pid": {
+      "description": "适用于直连商户场景下的支付宝合作伙伴ID（适用于支付宝直连合作伙伴回传此信息）",
+      "example": "2088123456789012",
+      "type": "string"
+    },
+    "plat_account": {
+      "description": "指第三方在商户平台注册成功后，平台给予的账户号（适用于支付宝直连商户回传此信息）",
+      "example": "abc123",
+      "type": "string"
+    },
+    "process_code": {
+      "description": "直连场景下，商户对该账户采取的措施：\r\t多种处理结果可调用多次，每次回传一种处理结果。\r\t（01：暂停发货；\r\t02：延迟结算；\r\t03：关停账户；\r\t04：暂停发货+关停账户；\r\t05：延迟结算+关停账户；\r\t06：其他；\r\t07：平台进行退款退订；\r\t08：平台跟用户沟通后，用户撤诉。\r\t间连场景下，商户回传处理结果：\r\t对商户的处理情况：\r\t01：已延迟结算，02：关停商户，99：其他\r\t多重处理结果可调用多次，每次回传一种处理结果",
+      "example": "01",
+      "type": "string"
+    },
+    "smid": {
+      "description": "指间连交易场景下商家被支付宝分配的ID（适用于支付宝间连合作伙伴回传此信息）",
+      "example": "17022079254",
+      "type": "string"
+    },
+    "trade_no": {
+      "description": "支付宝推送的风险消息中的交易号（支付宝直连和间连合作伙伴均需回传此参数）",
+      "example": "2017113021001004640000000000",
+      "type": "string"
+    }
+  },
+  "required": []
+}

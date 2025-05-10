@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "企业签约账户ID",
+      "example": "2088888888",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "平台和企业的三方授权协议号",
+      "example": "1231231321323",
+      "type": "string"
+    },
+    "biz_scene": {
+      "description": "场景码，联系支付宝分配",
+      "example": "ANT_GROUP",
+      "type": "string"
+    },
+    "fund_ext_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fund_ext_info` to the tool, first call the tool `expandSchema` with \"/properties/fund_ext_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "群组名称",
+      "example": "后勤组",
+      "type": "string"
+    },
+    "operation_type_list": {
+      "description": "更新操作类型：多个时逗号分隔\tNAME-群组名称\tFUND-出资信息\t字段不传时，默认全量更新",
+      "example": "[\"NAME\",\"FUND\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "out_biz_no": {
+      "description": "外部业务号",
+      "example": "12123123",
+      "type": "string"
+    },
+    "product_code": {
+      "description": "产品码，默认值\tENTERPRISE_PAY",
+      "example": "ENTERPRISE_PAY",
+      "type": "string"
+    }
+  },
+  "required": []
+}

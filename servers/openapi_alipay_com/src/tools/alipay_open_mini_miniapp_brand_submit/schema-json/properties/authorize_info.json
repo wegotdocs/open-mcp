@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "auth_ids": {
+      "description": "授权方身份证明(当前只支持图片类型，请调用alipay.open.mini.miniapp.brand.upload接口上传图片,可以上传多个授权方身份证明)",
+      "example": "[\"ua2qD53TRpyfX-UYYin6sQAAACMAAQED\",\"ua2qD53TRpyfX-UYYin6sQAAACMAAQED\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "auth_materials": {
+      "description": "授权有效资质(当前只支持图片类型，请调用alipay.open.mini.miniapp.brand.upload接口上传图片，可以上传多个授权有效资质)",
+      "example": "[\"ua2qD53TRpyfX-UYYin6sQAAACMAAQED\",\"ua2qD53TRpyfX-UYYin6sQAAACMAAQED\"]",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "auth_name": {
+      "description": "被授权人名称",
+      "example": "张三",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "授权有效期(结束日期)",
+      "example": "2021-10-16",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "授权有效期(开始日期)",
+      "example": "2022-02-10 08:00:00",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

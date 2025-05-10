@@ -1,0 +1,144 @@
+{
+  "type": "object",
+  "properties": {
+    "amount": {
+      "description": "订单金额",
+      "example": "12234.33",
+      "type": "string"
+    },
+    "link_url": {
+      "description": "订单链接",
+      "example": "http://taobao.com/order/1214134234",
+      "type": "string"
+    },
+    "logistic_count": {
+      "description": "订单物流数量",
+      "example": 1,
+      "type": "integer"
+    },
+    "logistics": {
+      "description": "物流信息列表",
+      "items": {
+        "properties": {
+          "channel": {
+            "description": "物流公司名称",
+            "example": "菜鸟",
+            "type": "string"
+          },
+          "detail": {
+            "description": "物流详情",
+            "example": "[{\"time\":\"2022-09-09 09:09:09\",\"location\":\"北京\",\"operation\":\"揽收\"}]",
+            "type": "string"
+          },
+          "logistic_id": {
+            "description": "物流id",
+            "example": "121414124124",
+            "type": "string"
+          },
+          "ship_area": {
+            "description": "发货地",
+            "example": "北京",
+            "type": "string"
+          },
+          "ship_period": {
+            "description": "发货时效",
+            "example": "48",
+            "type": "string"
+          },
+          "status": {
+            "description": "物流状态",
+            "example": "已签收",
+            "type": "string"
+          },
+          "stop_update_time": {
+            "description": "物流停更时间",
+            "example": "15",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "order_create_time": {
+      "description": "订单创建时间",
+      "example": "2022-04-04 09:09:09",
+      "type": "string"
+    },
+    "order_id": {
+      "description": "订单id",
+      "example": "123121414",
+      "type": "string"
+    },
+    "order_type": {
+      "description": "普通订单：NORMAL\t预售订单：PRE_SALE",
+      "example": "NORMAL",
+      "type": "string"
+    },
+    "spu_count": {
+      "description": "订单商品种类",
+      "example": 1,
+      "type": "integer"
+    },
+    "spus": {
+      "description": "订单商品信息",
+      "items": {
+        "properties": {
+          "brand": {
+            "description": "品牌名称",
+            "example": "壳牌",
+            "type": "string"
+          },
+          "category": {
+            "description": "类目",
+            "example": "美妆",
+            "type": "string"
+          },
+          "count": {
+            "description": "商品数量",
+            "example": 1,
+            "type": "integer"
+          },
+          "icon": {
+            "description": "图片链接",
+            "example": "http://baidu.com/imge/dfadf.jpg",
+            "type": "string"
+          },
+          "price": {
+            "description": "商品单价(单位:元)",
+            "example": "23",
+            "type": "string"
+          },
+          "provider": {
+            "description": "商品提供方，店铺或品牌方",
+            "example": "XX店铺",
+            "type": "string"
+          },
+          "spu_id": {
+            "description": "商品ID",
+            "example": "spu12141239912",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status": {
+      "description": "订单状态，目前支持以下几种状态\t下单未支付\tWAIT_PAY\t支付未发货\tPAIED\t已发货\tIN_DELIVERY\t售后中\tIN_AFTER_SALE\t订单完成\tFINISHED",
+      "example": "WAIT_PAY",
+      "type": "string"
+    },
+    "sub_status": {
+      "description": "订单子状态",
+      "example": "SIGNED",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "下单用户id(外部系统ID)",
+      "example": "90932423423",
+      "type": "string"
+    }
+  },
+  "required": []
+}

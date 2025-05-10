@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "description": "用户ID",
+      "example": "2088302186230962",
+      "type": "string"
+    },
+    "open_id": {
+      "description": "用户UserId在应用AppId下的唯一用户标识",
+      "example": "074a1CcTG1LelxKe4xQC0zgNdId0nxi95b5lsNpazWYoCo5",
+      "type": "string"
+    },
+    "agreement_id": {
+      "description": "支付宝代扣协议Id。若协议id不传递，则需要保证业务类型、子业务类型、出账机构、户号必传",
+      "example": "1234557890",
+      "type": "string"
+    },
+    "biz_type": {
+      "description": "业务类型。\r\tJF：缴水、电、燃气、固话宽带、有线电视、交通罚款费用\r\tWUYE：缴物业费\r\tHK：信用卡还款\r\tTX：手机充值",
+      "example": "JF",
+      "type": "string"
+    },
+    "sub_biz_type": {
+      "description": "业务子类型。\r\tWATER：缴水费\r\tELECTRIC：缴电费\r\tGAS：缴燃气费\r\tCOMMUN：缴固话宽带\r\tCATV：缴有线电视费\r\tTRAFFIC：缴交通罚款\r\tWUYE：缴物业费\r\tHK：信用卡还款\r\tCZ：手机充值",
+      "example": "ELECTRIC",
+      "type": "string"
+    },
+    "charge_inst": {
+      "description": "支付宝缴费系统中的出账机构ID",
+      "example": "CQCENTERELECTRIC",
+      "type": "string"
+    },
+    "bill_key": {
+      "description": "户号，机构针对于每户的水、电都会有唯一的标识户号",
+      "example": "02659981",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "action": {
+      "description": "变更模式",
+      "example": "ADD",
+      "type": "string"
+    },
+    "amount": {
+      "description": "变更的金额/余额，日元或者韩元以（元）为单位，其他币种以（分）为单位，当变更的资产类型为次卡时，单位为次",
+      "example": "10",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "企业ID",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "outer_source_id": {
+      "description": "外部操作幂等ID（接入方接口调用幂等控制ID）",
+      "example": "TN00000000000001",
+      "type": "string"
+    },
+    "quota_id": {
+      "description": "额度ID",
+      "example": "2021062800152601350000001468",
+      "type": "string"
+    },
+    "share_mode": {
+      "description": "是否可转赠，1表示可转赠，0表示不可转赠",
+      "example": "1",
+      "type": "string"
+    }
+  },
+  "required": []
+}

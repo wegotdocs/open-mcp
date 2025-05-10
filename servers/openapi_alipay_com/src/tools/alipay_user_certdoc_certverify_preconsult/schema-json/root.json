@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "cert_no": {
+      "description": "证件号",
+      "example": "230100199901010001",
+      "type": "string"
+    },
+    "cert_type": {
+      "description": "证件类型。暂仅支持 IDENTITY_CARD （身份证）。",
+      "example": "IDENTITY_CARD",
+      "type": "string"
+    },
+    "ext_info": {
+      "description": "拓展字段,JSON格式",
+      "example": "{}",
+      "type": "string"
+    },
+    "logon_id": {
+      "description": "支付宝登录名",
+      "example": "sample@sample.com",
+      "type": "string"
+    },
+    "mobile": {
+      "description": "手机号码",
+      "example": "13812345678",
+      "type": "string"
+    },
+    "user_name": {
+      "description": "真实姓名",
+      "example": "张三",
+      "type": "string"
+    }
+  },
+  "required": []
+}

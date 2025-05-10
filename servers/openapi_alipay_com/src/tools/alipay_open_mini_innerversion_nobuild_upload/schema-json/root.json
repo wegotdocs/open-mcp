@@ -1,0 +1,165 @@
+{
+  "type": "object",
+  "properties": {
+    "build_extra_info": {
+      "description": "扩展信息，比如adaptorName、tinycliVersion、tinycliName、import-module、allowPrecompile、extJson、allowInstallDependency、aggregationMainAppId，如果没有特殊要求，tinycliVersion版本请用最新的： https://registry.npm.alibaba-inc.com/@alipay/tiny-cli/huoban-prod",
+      "example": "{\"tinycliVersion\":\"1.5.20200213201649\"}",
+      "type": "string"
+    },
+    "build_js_permission": {
+      "description": "jsapi权限文件",
+      "example": "{\"permissionJSON\":[1, 2, 3, 4, 5]}",
+      "type": "string"
+    },
+    "build_main_url": {
+      "description": "小程序页面主入口。/index.html#page/component/index，该值需要和extendInfo中的page参数保持一致",
+      "example": "/index.html#page/component/index",
+      "type": "string"
+    },
+    "build_qcloud_info": {
+      "description": "打包平台扩展信息",
+      "example": "{\"launchParams\":{\"enableTabBar\":\"YES\",\"enableJSC\":\"YES\",\"page\":\"page/component/index\",\"enableKeepAlive\":\"YES\",\"enableWK\":\"YES\"}}",
+      "type": "string"
+    },
+    "build_version": {
+      "description": "小程序版本",
+      "example": "0.0.1",
+      "type": "string"
+    },
+    "builded_package_size": {
+      "description": "已经构建过的amr包大小，单位是字节，建议如实填写",
+      "example": "20",
+      "type": "string"
+    },
+    "builded_package_url": {
+      "description": "已经构建的包地址，目前主要自行构建的场景使用",
+      "example": "产物包地址",
+      "type": "string"
+    },
+    "builded_plugin_size": {
+      "description": "构建好的插件包amr大小",
+      "example": "100",
+      "type": "string"
+    },
+    "builded_plugin_url": {
+      "description": "构建好的插件包地址",
+      "example": "构建好的插件包地址",
+      "type": "string"
+    },
+    "bundle_id": {
+      "description": "一个端的标识，用于区分不同的客户端，每接入一个客户端，都需要向小程序应用中心申请bundleId入驻",
+      "example": "com.alipay.alipaywallet",
+      "type": "string"
+    },
+    "components": {
+      "description": "组件参数",
+      "example": "{}",
+      "type": "string"
+    },
+    "inst_code": {
+      "description": "上传调试版的接入租户类型",
+      "example": "taobao",
+      "type": "string"
+    },
+    "mini_app_id": {
+      "description": "小程序id",
+      "example": "2017122101357757",
+      "type": "string"
+    },
+    "new_builded_package_size": {
+      "description": "2.0已经构建过的amr包大小，单位是字节，主要是给自行构建的场景使用",
+      "example": "100",
+      "type": "string"
+    },
+    "new_builded_package_url": {
+      "description": "2.0产物包地址",
+      "example": "2.0产物包地址",
+      "type": "string"
+    },
+    "new_builded_plugin_size": {
+      "description": "构建好的插件包amr大小",
+      "example": "100",
+      "type": "string"
+    },
+    "new_builded_plugin_url": {
+      "description": "构建好的插件包地址",
+      "example": "构建好的插件包地址",
+      "type": "string"
+    },
+    "no_sign": {
+      "description": "否免加签, true的时候代表传过来的是加签后的包地址",
+      "example": true,
+      "type": "boolean"
+    },
+    "plugin_refs": {
+      "description": "小程序代码中引用的插件列表，包含插件id和插件版本信息，业务方需要自行解析源码包的app.json里面的plugins信息",
+      "items": {
+        "properties": {
+          "lazy": {
+            "description": "是否懒加载",
+            "type": "boolean"
+          },
+          "plugin_id": {
+            "description": "插件id，即插件的唯一标识，形如小程序的appId",
+            "type": "string"
+          },
+          "plugin_lazy": {
+            "description": "是否懒加载",
+            "type": "boolean"
+          },
+          "plugin_version": {
+            "description": "小程序引用的插件版本，可以指定插件版本，如：1.0.11；也可以填*，表示引用最新的插件版本，此时，当插件发布新版本后，小程序内的插件会自动更新到最新的版本。",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "sub_packages": {
+      "description": "构建好的分包信息",
+      "items": {
+        "properties": {
+          "builded_package_url": {
+            "description": "构建好的结果地址",
+            "example": "构建好的结果地址",
+            "type": "string"
+          },
+          "new_builded_package_url": {
+            "description": "构建好的分包地址",
+            "example": "构建好的分包地址",
+            "type": "string"
+          },
+          "new_size": {
+            "description": "2.0分包大小，单位字节",
+            "example": "1000",
+            "type": "string"
+          },
+          "path": {
+            "description": "分包路径",
+            "example": "main/packageA/packageB",
+            "type": "string"
+          },
+          "size": {
+            "description": "分包大小，单位字节",
+            "example": "1000",
+            "type": "string"
+          },
+          "source_url": {
+            "description": "源码地址",
+            "example": "源码地址",
+            "type": "string"
+          },
+          "type": {
+            "description": "分包类型： MAIN ｜ SUB",
+            "example": "MAIN",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "通过企业码1.0接口签约的共同账户，和agreement_no搭配使用。",
+      "example": "2088000194958956",
+      "type": "string"
+    },
+    "address": {
+      "description": "详细地址最长50个字符",
+      "example": "西溪路569号蚂蚁A空间6楼601",
+      "type": "string"
+    },
+    "address_id": {
+      "description": "地址id",
+      "example": "19393030303",
+      "type": "string"
+    },
+    "agreement_no": {
+      "description": "可通过签约消息获取。配合共同账户id使用，当填写企业共同账户id时，此字段必填。",
+      "example": "20215425001181407500",
+      "type": "string"
+    },
+    "city_code": {
+      "description": "市(国家统一行政规划编码)",
+      "example": "330100",
+      "type": "string"
+    },
+    "city_name": {
+      "description": "城市名称",
+      "example": "杭州市",
+      "type": "string"
+    },
+    "community": {
+      "description": "小区/楼宇",
+      "example": "蚂蚁A空间",
+      "type": "string"
+    },
+    "enterprise_id": {
+      "description": "通过企业码2.0签约接口签约，只填写企业id，无需填写共同账户id和授权签约协议号。",
+      "example": "2088123412341234",
+      "type": "string"
+    },
+    "latitude": {
+      "description": "纬度",
+      "example": "30.261121",
+      "type": "string"
+    },
+    "longitude": {
+      "description": "经度",
+      "example": "120.104735",
+      "type": "string"
+    },
+    "mark": {
+      "description": "备注",
+      "example": "备注",
+      "type": "string"
+    },
+    "poi_id": {
+      "description": "高德地图poi",
+      "example": "B0GKN4522Z",
+      "type": "string"
+    },
+    "status": {
+      "description": "状态(生效/失效)",
+      "example": "NORMAL",
+      "type": "string"
+    }
+  },
+  "required": []
+}

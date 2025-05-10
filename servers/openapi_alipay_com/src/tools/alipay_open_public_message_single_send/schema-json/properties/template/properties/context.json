@@ -1,0 +1,40 @@
+{
+  "properties": {
+    "action_name": {
+      "description": "底部链接描述文字，如“查看详情”，最多能传8个汉字或16个英文字符，长度超出会报错",
+      "example": "查看详情",
+      "type": "string"
+    },
+    "first": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `first` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/context/properties/first\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "head_color": {
+      "description": "顶部色条的色值",
+      "example": "#85be53",
+      "type": "string"
+    },
+    "keyword1": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `keyword1` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/context/properties/keyword1\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "keyword2": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `keyword2` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/context/properties/keyword2\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "remark": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `remark` to the tool, first call the tool `expandSchema` with \"/properties/template/properties/context/properties/remark\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "url": {
+      "description": "点击消息后承接页的地址",
+      "example": "http://m.baidu.com",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

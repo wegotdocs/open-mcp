@@ -1,0 +1,64 @@
+{
+  "properties": {
+    "background_id": {
+      "description": "背景图片Id，通过接口（alipay.offline.material.image.upload）上传图片\t\t\t\t图片说明：2M以内，格式：bmp、png、jpeg、jpg、gif；\t\t尺寸不小于1020*643px；\t\t图片不得有圆角，不得拉伸变形",
+      "type": "string"
+    },
+    "banner_img_id": {
+      "description": "banner图片id。 通过接口（alipay.offline.material.image.upload）上传图片。",
+      "type": "string"
+    },
+    "banner_url": {
+      "description": "banner跳转地址。",
+      "type": "string"
+    },
+    "bg_color": {
+      "description": "字体颜色（非背景色），只影响卡详情中部信息区域字体颜色",
+      "type": "string"
+    },
+    "brand_name": {
+      "description": "品牌商名称",
+      "type": "string"
+    },
+    "card_show_name": {
+      "description": "钱包端显示名称",
+      "type": "string"
+    },
+    "color": {
+      "description": "注意：此字段已废弃。",
+      "type": "string"
+    },
+    "column_info_layout": {
+      "description": "如果为空则默认为list。",
+      "type": "string"
+    },
+    "feature_descriptions": {
+      "description": "特色信息，用于领卡预览",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "front_image_enable": {
+      "description": "设置是否在卡面展示（个人头像）图片信息，默认不展示；\t\t当前仅用于身份验证信息类型的个人头像图片；\t\t图片id随创建卡/更新卡时传入；\t\t详见会员卡产品文档。",
+      "type": "boolean"
+    },
+    "front_text_list_enable": {
+      "description": "设置是否在卡面展示文案信息，默认不展示；\t\t文案信息分行展示，最多展示4行文案，每行文案分为label和value两部分；\t\t文案实际内容随创建卡/更新卡时传入；\t\t详见会员卡产品说明文档。",
+      "type": "boolean"
+    },
+    "logo_id": {
+      "description": "logo的图片ID，通过接口（alipay.offline.material.image.upload）上传图片\t\t\t\t图片说明：1M以内，格式bmp、png、jpeg、jpg、gif；\t\t尺寸不小于500*500px的正方形；\t\t请优先使用商家LOGO；",
+      "type": "string"
+    },
+    "slogan": {
+      "description": "标语",
+      "type": "string"
+    },
+    "slogan_img_id": {
+      "description": "标语图片id， 通过接口（alipay.offline.material.image.upload）上传图片",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

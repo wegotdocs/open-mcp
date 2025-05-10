@@ -1,0 +1,39 @@
+{
+  "properties": {
+    "description": {
+      "description": "页面展示的任务描（collect_attachement值为true时必填）",
+      "example": "请仔细检查手机外观，如有划痕部位请仔细拍摄。",
+      "type": "string"
+    },
+    "details": {
+      "description": "附件列表，用于定义每个附件code的描述及页面展示顺序",
+      "items": {
+        "properties": {
+          "code": {
+            "description": "自定义附件标识，后续下载附件使用此标识区分。",
+            "example": "phonePicture",
+            "type": "string"
+          },
+          "description": {
+            "description": "页面展示的附件中文描述（collectAttachement值为true时必填）",
+            "example": "请上传手机正面照",
+            "type": "string"
+          },
+          "order": {
+            "description": "展示顺序（collectAttachement值为true时必填）",
+            "example": 1,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "title": {
+      "description": "页面展示的任务标题（collect_attachement值为true时必填）",
+      "example": "请上传手机照片",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
