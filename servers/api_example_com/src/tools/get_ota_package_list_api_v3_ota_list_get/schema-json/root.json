@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "os_type_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Os Type Id"
+    },
+    "package_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Package Name"
+    },
+    "version_code": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Version Code"
+    },
+    "version_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Version Name"
+    },
+    "flavor": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Flavor"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    }
+  },
+  "required": []
+}

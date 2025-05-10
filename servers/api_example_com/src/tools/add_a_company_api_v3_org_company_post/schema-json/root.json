@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Display Name"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "time_offset": {
+      "type": "number",
+      "title": "Time Offset",
+      "description": "Ex: China Standard Time: +8, Eastern Standard Time: -5"
+    }
+  },
+  "required": [
+    "name",
+    "time_offset"
+  ]
+}

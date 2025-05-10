@@ -1,0 +1,54 @@
+{
+  "properties": {
+    "subject_start_time": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Subject Start Time",
+      "description": "Subject start time (edge local time)."
+    },
+    "subject_end_time": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Subject End Time",
+      "description": "Subject end time (edge local time). Only for urgent breaking program dispatching."
+    },
+    "start_time": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Start Time",
+      "description": "Task start time (edge local time). Null: Start immediately"
+    },
+    "end_time": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "End Time",
+      "description": "Task end time (edge local time). Null: Never ends"
+    }
+  },
+  "type": "object",
+  "required": [
+    "subject_start_time"
+  ],
+  "title": "Task_In"
+}

@@ -1,0 +1,166 @@
+{
+  "type": "object",
+  "properties": {
+    "skd_id": {
+      "type": "integer",
+      "title": "Skd Id"
+    },
+    "rename_only": {
+      "description": "Rename only? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rename Only"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Display Name"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "skditem_list": {
+      "anyOf": [
+        {
+          "items": {
+            "properties": {
+              "skditem_type_id": {
+                "type": "integer",
+                "title": "Skditem Type Id",
+                "description": "時程項目類型 ID。1: 預設節目 (最低優先權), 2: 每日, 3: 每週 (根據 dow), 4: 不重覆 (單日), 5: 週間 (一至五), 6: 週末 (六日), 7: 插播節目 (最高優先權)。"
+              },
+              "prog_id": {
+                "type": "integer",
+                "title": "Prog Id",
+                "description": "節目 ID。"
+              },
+              "dow": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Dow",
+                "description": "星期幾 (ISO-8601)。一: 1, 二: 2, 三: 3, 四: 4, 五, 5, 六, 6, 日: 7)。"
+              },
+              "start_date": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Start Date",
+                "description": "開始日期 (區域時間)。"
+              },
+              "end_date": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "End Date",
+                "description": "結束日期 (區域時間)。"
+              },
+              "start_time": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "time"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Start Time",
+                "description": "開始時間 (區域時間)。"
+              },
+              "end_time": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "time"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "End Time",
+                "description": "結束時間 (區域時間)。"
+              },
+              "exclusion_date_list": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Exclusion Date List",
+                "description": "排除日期清單 (區域時間)。"
+              }
+            },
+            "type": "object",
+            "required": [
+              "skditem_type_id",
+              "prog_id"
+            ],
+            "title": "Skditem_In"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Skditem List"
+    }
+  },
+  "required": [
+    "skd_id",
+    "name"
+  ]
+}

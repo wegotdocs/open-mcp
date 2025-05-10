@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "org_id": {
+      "type": "integer",
+      "title": "Org Id"
+    },
+    "dev_id_list": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Dev Id List"
+    }
+  },
+  "required": [
+    "org_id",
+    "dev_id_list"
+  ]
+}

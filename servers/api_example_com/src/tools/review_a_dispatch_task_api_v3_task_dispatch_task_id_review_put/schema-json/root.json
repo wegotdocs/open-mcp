@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "integer",
+      "title": "Task Id"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "result": {
+      "type": "boolean",
+      "title": "Result",
+      "description": "true: Approved, false: Rejected"
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Note"
+    }
+  },
+  "required": [
+    "task_id",
+    "result"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "skd_id": {
+      "description": "時程 ID。",
+      "type": "integer",
+      "title": "Skd Id"
+    },
+    "flush_current_skd": {
+      "description": "是否清除設備上已有的時程。不指定/0: 不清除, 與設備上已有的時程進行合併; 任意值/1: 清除, 取代設備上已有的時程。",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Flush Current Skd"
+    },
+    "replace_previous_dispatch": {
+      "description": "若設備尚有擱置中的派送任務, 是否取代該任務。不指定/0: 不取代, 此次派送失敗; 任意值/1: 取消擱置中的派送任務, 以此派送任務取代。",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Replace Previous Dispatch"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "task_in": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `task_in` to the tool, first call the tool `expandSchema` with \"/properties/task_in\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>任務。</property-description>",
+      "additionalProperties": true
+    },
+    "dev_id_list": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Dev Id List",
+      "description": "設備 ID 清單。"
+    }
+  },
+  "required": [
+    "skd_id",
+    "task_in",
+    "dev_id_list"
+  ]
+}

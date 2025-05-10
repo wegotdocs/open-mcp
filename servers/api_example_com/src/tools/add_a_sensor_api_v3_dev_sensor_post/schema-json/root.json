@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "display_name": {
+      "type": "string",
+      "title": "Display Name"
+    },
+    "org_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Org Id",
+      "description": "Only the super administrator can specify the org_id; otherwise, the org_id will default to the user's org_id."
+    },
+    "output_list": {
+      "items": {
+        "properties": {
+          "output_name": {
+            "type": "string",
+            "title": "Output Name"
+          },
+          "output_type_id": {
+            "type": "integer",
+            "title": "Output Type Id",
+            "description": "1: Text, 2: Number, 3: Array"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "output_name",
+          "output_type_id"
+        ],
+        "title": "DevOutput_In"
+      },
+      "type": "array",
+      "title": "Output List"
+    }
+  },
+  "required": [
+    "display_name",
+    "output_list"
+  ]
+}

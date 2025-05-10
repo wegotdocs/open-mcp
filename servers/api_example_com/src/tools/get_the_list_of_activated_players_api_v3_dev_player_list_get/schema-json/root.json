@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "os_type_id": {
+      "description": "Empty / 0: All, 1: Windows, 2: Android, 3: Web",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Os Type Id"
+    },
+    "exclude_unknown_os": {
+      "description": "Rename only? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Exclude Unknown Os"
+    },
+    "brief": {
+      "description": "Brief data only? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Brief"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    }
+  },
+  "required": []
+}

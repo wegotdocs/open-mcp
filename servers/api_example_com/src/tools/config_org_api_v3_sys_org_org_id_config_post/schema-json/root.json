@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "org_id": {
+      "type": "integer",
+      "title": "Org Id"
+    },
+    "task_review_required": {
+      "description": "null or 0: Off, any or 1: On",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Review Required"
+    },
+    "task_retention": {
+      "description": "minutes. null: forever",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Retention"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    }
+  },
+  "required": [
+    "org_id"
+  ]
+}

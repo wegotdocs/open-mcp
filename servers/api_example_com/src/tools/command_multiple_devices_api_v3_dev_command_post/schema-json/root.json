@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "dev_id_list": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Dev Id List"
+    },
+    "command": {
+      "type": "string",
+      "title": "Command"
+    },
+    "log_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Log Date"
+    }
+  },
+  "required": [
+    "dev_id_list",
+    "command"
+  ]
+}

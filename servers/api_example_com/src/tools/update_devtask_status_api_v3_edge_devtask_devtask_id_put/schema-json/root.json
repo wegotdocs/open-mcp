@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "devtask_id": {
+      "description": "設備任務 ID。",
+      "type": "integer",
+      "title": "Devtask Id"
+    },
+    "display_name": {
+      "description": "設備名稱。",
+      "type": "string",
+      "title": "Display Name"
+    },
+    "status_id": {
+      "description": "設備任務狀態 ID。只能是 1000 Done, 1001 Failed 或 1005 Processing。",
+      "type": "integer",
+      "title": "Status Id"
+    },
+    "total_count": {
+      "description": "總下載數量 (bytes)。不指定: 清除。",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Total Count"
+    },
+    "downloaded_count": {
+      "description": "已下載數量 (bytes)。不指定: 清除。",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Downloaded Count"
+    },
+    "download_speed": {
+      "description": "下載速度 (bytes/s)。不指定: 清除。",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Download Speed"
+    },
+    "note": {
+      "description": "備註 (下載中檔名或錯誤訊息)。不指定: 清除。",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Note"
+    },
+    "storage_usage": {
+      "description": "儲存空間使用量。不指定: 不更新。",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Storage Usage"
+    },
+    "access-code": {
+      "description": "設備存取碼。",
+      "type": "string",
+      "title": "Access-Code"
+    }
+  },
+  "required": [
+    "devtask_id",
+    "display_name",
+    "status_id",
+    "access-code"
+  ]
+}

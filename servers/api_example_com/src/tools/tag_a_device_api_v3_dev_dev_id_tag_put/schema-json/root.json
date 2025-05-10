@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "dev_id": {
+      "type": "integer",
+      "title": "Dev Id"
+    },
+    "flush": {
+      "description": "Flush out old tags? Empty / 0: No, Any / 1: Yes",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Flush"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    }
+  },
+  "required": [
+    "dev_id"
+  ]
+}

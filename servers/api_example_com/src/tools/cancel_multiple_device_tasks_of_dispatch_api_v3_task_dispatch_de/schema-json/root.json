@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "devtask_id_list": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Devtask Id List"
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Note"
+    }
+  },
+  "required": [
+    "devtask_id_list"
+  ]
+}

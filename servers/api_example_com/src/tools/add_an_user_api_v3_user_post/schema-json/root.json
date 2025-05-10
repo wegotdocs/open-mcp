@@ -1,0 +1,150 @@
+{
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Display Name"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "role_id": {
+      "type": "integer",
+      "maximum": 3,
+      "minimum": 1,
+      "title": "Role Id"
+    },
+    "org_id": {
+      "type": "integer",
+      "title": "Org Id"
+    },
+    "email": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Email"
+    },
+    "prefer_lang": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Prefer Lang"
+    },
+    "authorization": {
+      "anyOf": [
+        {
+          "properties": {
+            "org": {
+              "type": "integer",
+              "maximum": 2,
+              "minimum": 0,
+              "title": "Org",
+              "description": "組織。使用者角色最少要為 Administrator。"
+            },
+            "user": {
+              "type": "integer",
+              "maximum": 2,
+              "minimum": 0,
+              "title": "User",
+              "description": "使用者。使用者角色最少要為 Manager。"
+            },
+            "dev": {
+              "type": "integer",
+              "maximum": 2,
+              "minimum": 0,
+              "title": "Dev",
+              "description": "設備 (播放器、感測器)。使用者角色最少要為 Manager。"
+            },
+            "content": {
+              "type": "integer",
+              "maximum": 2,
+              "minimum": 0,
+              "title": "Content",
+              "description": "內容 (節目、媒體、事件、排程)。"
+            },
+            "dispatch": {
+              "type": "integer",
+              "maximum": 2,
+              "minimum": 0,
+              "title": "Dispatch",
+              "description": "派送。"
+            },
+            "settings": {
+              "type": "integer",
+              "maximum": 2,
+              "minimum": 0,
+              "title": "Settings",
+              "description": "設定。"
+            }
+          },
+          "type": "object",
+          "required": [
+            "org",
+            "user",
+            "dev",
+            "content",
+            "dispatch",
+            "settings"
+          ],
+          "title": "Userauth_InOut",
+          "description": "0: 無權限, 1: 唯讀, 2: 全權限。"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "accessible_org_id_list": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Accessible Org Id List"
+    }
+  },
+  "required": [
+    "name",
+    "role_id",
+    "org_id"
+  ]
+}

@@ -1,0 +1,15 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "volume": z.union([z.number().int(), z.null()]).describe("0-100 (%)").optional(),
+  "web_browser_readonly": z.union([z.boolean(), z.null()]).optional(),
+  "allow_touchscreen": z.union([z.boolean(), z.null()]).optional(),
+  "topmost": z.union([z.boolean(), z.null()]).optional(),
+  "hide_taskbar": z.union([z.boolean(), z.null()]).optional(),
+  "hide_cursor": z.union([z.boolean(), z.null()]).optional(),
+  "monitor_on_schedule": z.union([z.object({ "all": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "sun": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "mon": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "tue": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "wed": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "thu": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "fri": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "sat": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional() }), z.null()]).optional(),
+  "monitor_off_schedule": z.union([z.object({ "all": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "sun": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "mon": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "tue": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "wed": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "thu": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "fri": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "sat": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional() }), z.null()]).optional(),
+  "reboot_schedule": z.union([z.object({ "all": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "sun": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "mon": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "tue": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "wed": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "thu": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "fri": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional(), "sat": z.union([z.string(), z.null()]).describe("Ex: 08:00").optional() }), z.null()]).optional(),
+  "facematch": z.union([z.object({ "host": z.union([z.string(), z.null()]).optional(), "port": z.union([z.number().int(), z.null()]).optional(), "secure": z.union([z.boolean(), z.null()]).optional(), "username": z.union([z.string(), z.null()]).optional(), "password": z.union([z.string(), z.null()]).optional(), "ws_port": z.union([z.number().int(), z.null()]).optional() }), z.null()]).optional(),
+  "video_player": z.union([z.string(), z.null()]).optional()
+}

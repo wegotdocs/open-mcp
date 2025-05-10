@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "dst_tag_id": {
+      "type": "integer",
+      "title": "Dst Tag Id"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Display Name"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    }
+  },
+  "required": [
+    "dst_tag_id",
+    "name"
+  ]
+}

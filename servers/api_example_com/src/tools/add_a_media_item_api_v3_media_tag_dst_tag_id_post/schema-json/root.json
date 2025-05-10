@@ -1,0 +1,227 @@
+{
+  "type": "object",
+  "properties": {
+    "dst_tag_id": {
+      "type": "integer",
+      "title": "Dst Tag Id"
+    },
+    "is_temporary": {
+      "description": "Is temporary? Empty / 0: No, Any / 1: Yes (for the thumbnail creation)",
+      "type": "integer",
+      "title": "Is Temporary"
+    },
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "display_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Display Name"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "media_type_id": {
+      "type": "integer",
+      "title": "Media Type Id",
+      "description": "Refer to Enum.MediaTypeEnum."
+    },
+    "html_addon_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Html Addon Id",
+      "description": "Refer to Enum.HtmlAddonEnum. Once specified, media_type_id will be set to 6."
+    },
+    "button_type_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Button Type Id",
+      "description": "Null: Non-button, 1: Button group (Default button style), 2: Button item"
+    },
+    "activation_time": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Activation Time"
+    },
+    "expiration_time": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Expiration Time"
+    },
+    "partner_media_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Partner Media Id"
+    },
+    "content": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Content"
+    },
+    "content_source": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Content Source"
+    },
+    "extra_content": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Extra Content"
+    },
+    "argument": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Argument"
+    },
+    "fore_color": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Fore Color",
+      "description": "#RGBA. Ex: #E63131FF"
+    },
+    "back_color": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Back Color",
+      "description": "#RGBA. Ex: #F0E596FF"
+    },
+    "font_prop": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Font Prop"
+    },
+    "width": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Width",
+      "description": "Expected width (pixels). Only for thumbnail creation."
+    },
+    "height": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Height",
+      "description": "Expected height (pixels). Only for thumbnail creation."
+    },
+    "scale": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Scale"
+    }
+  },
+  "required": [
+    "dst_tag_id",
+    "name",
+    "media_type_id"
+  ]
+}

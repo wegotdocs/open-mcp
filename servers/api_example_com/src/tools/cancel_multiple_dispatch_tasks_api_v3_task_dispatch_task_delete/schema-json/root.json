@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "title": "Session Id"
+    },
+    "task_id_list": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Task Id List",
+      "description": "任務 ID 清單。"
+    },
+    "note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Note",
+      "description": "說明。"
+    }
+  },
+  "required": [
+    "task_id_list"
+  ]
+}
