@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional(),
+  "loans": z.array(z.object({ "loan_id": z.string().describe("A unique identifier for the loan.\nPersonally identifiable information, such as an email address or phone number, should not be used in the `loan_id`."), "closed_with_status": z.object({ "status": z.enum(["APPROVED","DECLINED","BOOKED","CURRENT","DELINQUENT","DEFAULT","CHARGED_OFF","TRANSFERRED","PAID_OFF","OTHER"]).describe("The status of the loan."), "date": z.string().date().describe("The effective date for the status of the loan. The date should be in ISO 8601 format (YYYY-MM-DD).") }).catchall(z.any()).describe("Contains the status and date information of the loan when unregistering.") }).catchall(z.any()).describe("Contains loan data for the loan being unregistered.")).describe("A list of loans to unregister.")
+}

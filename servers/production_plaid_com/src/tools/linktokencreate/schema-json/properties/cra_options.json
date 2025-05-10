@@ -1,0 +1,40 @@
+{
+  "title": "LinkTokenCreateRequestCraOptions",
+  "type": "object",
+  "description": "Specifies options for initializing Link for use with Plaid Check products",
+  "properties": {
+    "days_requested": {
+      "type": "integer",
+      "description": "The number of days of history to include in Plaid Check products. Default value is 365; maximum is 730; minimum is 180. If a value lower than 180 is provided, a minimum of 180 days of history will be requested.",
+      "maximum": 730
+    },
+    "days_required": {
+      "type": "integer",
+      "description": "The minimum number of days of data required for the report to be successfully generated.",
+      "maximum": 730
+    },
+    "client_report_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Client-generated identifier, which can be used by lenders to track loan applications."
+    },
+    "partner_insights": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `partner_insights` to the tool, first call the tool `expandSchema` with \"/properties/cra_options/properties/partner_insights\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Credit Partner Insights product.</property-description>",
+      "additionalProperties": true
+    },
+    "base_report": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `base_report` to the tool, first call the tool `expandSchema` with \"/properties/cra_options/properties/base_report\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Base Report product.</property-description>",
+      "additionalProperties": true
+    },
+    "cashflow_insights": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `cashflow_insights` to the tool, first call the tool `expandSchema` with \"/properties/cra_options/properties/cashflow_insights\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for initializing Link for use with the Cashflow Insights product.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "days_requested"
+  ]
+}

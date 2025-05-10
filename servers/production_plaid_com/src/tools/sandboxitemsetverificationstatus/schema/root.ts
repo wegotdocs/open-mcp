@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional(),
+  "access_token": z.string().describe("The access token associated with the Item data is being requested for."),
+  "account_id": z.string().describe("The `account_id` of the account whose verification status is to be modified"),
+  "verification_status": z.enum(["automatically_verified","verification_expired"]).describe("The verification status to set the account to.")
+}

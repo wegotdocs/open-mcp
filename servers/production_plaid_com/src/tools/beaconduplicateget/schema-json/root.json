@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "beacon_duplicate_id": {
+      "type": "string",
+      "title": "BeaconDuplicateID",
+      "example": "becdup_11111111111111",
+      "description": "ID of the associated Beacon Duplicate."
+    },
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    }
+  },
+  "required": [
+    "beacon_duplicate_id"
+  ]
+}

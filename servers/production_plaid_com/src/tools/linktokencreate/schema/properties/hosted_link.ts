@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "delivery_method": z.enum(["sms","email"]).describe("How Plaid should deliver the Plaid Link session to the customer. Only available to customers enabled for Link Delivery (beta). To request Link Delivery access, contact your account manager.\n'sms' will deliver via SMS. Must pass `user.phone_number`.\n'email' will deliver via email. Must pass `user.email_address`. In the Sandbox environment, this field will be ignored; use the Production environment to test Link Delivery instead.\n").optional(),
+  "completion_redirect_uri": z.string().describe("URI that Hosted Link will redirect to upon completion of the Link flow. This will only occur in Hosted Link sessions, not in other implementation methods.\n").optional(),
+  "url_lifetime_seconds": z.number().int().describe("How many seconds the link will be valid for. Must be positive. Cannot be longer than 21 days. The default lifetime is 7 days for links delivered by email, 1 day for links delivered via SMS, and 30 minutes for links not sent via Plaid Link delivery. This parameter will override the value of all three link types.\n").optional(),
+  "is_mobile_app": z.boolean().describe("This indicates whether the client is opening hosted Link in a mobile app in an out of process web view (OOPWV) (i.e., an `AsWebAuthenticationSession` / `SFSafariViewController` or Android Custom Tab).\n").optional()
+}

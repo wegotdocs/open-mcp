@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "idempotency_key": {
+      "title": "WalletTransactionIdempotencyKey",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1,
+      "description": "A random key provided by the client, per unique wallet transaction. Maximum of 128 characters.\n\nThe API supports idempotency for safely retrying requests without accidentally performing the same operation twice. If a request to execute a wallet transaction fails due to a network connection error, then after a minimum delay of one minute, you can retry the request with the same idempotency key to guarantee that only a single wallet transaction is created. If the request was successfully processed, it will prevent any transaction that uses the same idempotency key, and was received within 24 hours of the first request, from being processed."
+    },
+    "wallet_id": {
+      "type": "string",
+      "description": "The ID of the e-wallet to debit from",
+      "minLength": 1
+    },
+    "counterparty": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `counterparty` to the tool, first call the tool `expandSchema` with \"/properties/counterparty\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object representing the e-wallet transaction's counterparty</property-description>",
+      "additionalProperties": true
+    },
+    "amount": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `amount` to the tool, first call the tool `expandSchema` with \"/properties/amount\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The amount and currency of a transaction</property-description>",
+      "additionalProperties": true
+    },
+    "reference": {
+      "type": "string",
+      "maxLength": 18,
+      "minLength": 6,
+      "description": "A reference for the transaction. This must be an alphanumeric string with 6 to 18 characters and must not contain any special characters or spaces.\nEnsure that the `reference` field is unique for each transaction."
+    },
+    "originating_fund_source": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `originating_fund_source` to the tool, first call the tool `expandSchema` with \"/properties/originating_fund_source\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The original source of the funds. This field is required by local regulation for certain businesses (e.g. money remittance) to send payouts to recipients in the EU and UK.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "idempotency_key",
+    "wallet_id",
+    "counterparty",
+    "amount",
+    "reference"
+  ]
+}

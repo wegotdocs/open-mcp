@@ -1,0 +1,35 @@
+{
+  "title": "TransactionsRuleDetails",
+  "type": "object",
+  "description": "A representation of transactions rule details.",
+  "x-examples": {},
+  "properties": {
+    "field": {
+      "title": "TransactionsRuleField",
+      "type": "string",
+      "enum": [
+        "TRANSACTION_ID",
+        "NAME"
+      ],
+      "description": "Transaction field for which the rule is defined."
+    },
+    "type": {
+      "title": "TransactionsRuleType",
+      "type": "string",
+      "enum": [
+        "EXACT_MATCH",
+        "SUBSTRING_MATCH"
+      ],
+      "description": "Transaction rule's match type. For TRANSACTION_ID field, EXACT_MATCH is available.\nMatches are case sensitive.\n"
+    },
+    "query": {
+      "type": "string",
+      "description": "For TRANSACTION_ID field, provide transaction_id. For NAME field, provide a string pattern.\n"
+    }
+  },
+  "required": [
+    "field",
+    "type",
+    "query"
+  ]
+}

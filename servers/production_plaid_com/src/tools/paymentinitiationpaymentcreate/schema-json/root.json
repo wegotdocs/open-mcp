@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "recipient_id": {
+      "type": "string",
+      "description": "The ID of the recipient the payment is for."
+    },
+    "reference": {
+      "type": "string",
+      "description": "A reference for the payment. This must be an alphanumeric string with at most 18 characters and must not contain any special characters (since not all institutions support them).\nIn order to track settlement via Payment Confirmation, each payment must have a unique reference. If the reference provided through the API is not unique, Plaid will adjust it.\nSome institutions may limit the reference to less than 18 characters. If necessary, Plaid will adjust the reference by truncating it to fit the institution's requirements.\nBoth the originally provided and automatically adjusted references (if any) can be found in the `reference` and `adjusted_reference` fields, respectively.",
+      "minLength": 1,
+      "maxLength": 18
+    },
+    "amount": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `amount` to the tool, first call the tool `expandSchema` with \"/properties/amount\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The amount and currency of a payment</property-description>",
+      "additionalProperties": true
+    },
+    "schedule": {
+      "type": "string"
+    },
+    "options": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `options` to the tool, first call the tool `expandSchema` with \"/properties/options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional payment options</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "recipient_id",
+    "reference",
+    "amount"
+  ]
+}

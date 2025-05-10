@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "program_id": z.string().describe("ID of the associated Beacon Program."),
+  "client_user_id": z.string().describe("A unique ID that identifies the end user in your system. This ID can also be used to associate user-specific data from other Plaid products. Financial Account Matching requires this field and the `/link/token/create` `client_user_id` to be consistent. Personally identifiable information, such as an email address or phone number, should not be used in the `client_user_id`."),
+  "user": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A Beacon User's data which is used to check against duplicate records and the Beacon Fraud Network.\n\nIn order to create a Beacon User, in addition to the `name`, _either_ the `date_of_birth` _or_ the `depository_accounts` field must be provided.</property-description>"),
+  "access_tokens": z.array(z.string().describe("The access token associated with the Item data is being requested for.")).nullable().describe("Send this array of access tokens to link accounts to the Beacon User and have them evaluated for Account Insights.\nA maximum of 50 accounts total can be added to a single Beacon User.").optional(),
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional()
+}

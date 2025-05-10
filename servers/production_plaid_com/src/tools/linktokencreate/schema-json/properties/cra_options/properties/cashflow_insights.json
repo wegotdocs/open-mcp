@@ -1,0 +1,25 @@
+{
+  "title": "LinkTokenCreateRequestCraOptionsCashflowInsights",
+  "type": "object",
+  "description": "Specifies options for initializing Link for use with the Cashflow Insights product.",
+  "properties": {
+    "plaid_check_score_version": {
+      "x-hidden-from-docs": true,
+      "type": "string",
+      "description": "The version of the Plaid Check Score",
+      "nullable": true,
+      "enum": [
+        "v1.0",
+        "v2.0"
+      ]
+    },
+    "attributes_version": {
+      "type": "string",
+      "description": "The version of cashflow attributes",
+      "nullable": true,
+      "enum": [
+        "v1.0"
+      ]
+    }
+  }
+}

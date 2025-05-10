@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "description": "An optional object to filter `/beacon/account_risk/v1/evaluate` results to a subset of the accounts on the linked Item.",
+  "properties": {
+    "account_ids": {
+      "type": "array",
+      "description": "An array of `account_ids` for the specific accounts to evaluate.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

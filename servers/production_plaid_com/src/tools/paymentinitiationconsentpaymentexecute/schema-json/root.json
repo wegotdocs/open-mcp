@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "consent_id": {
+      "type": "string",
+      "description": "The consent ID."
+    },
+    "amount": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `amount` to the tool, first call the tool `expandSchema` with \"/properties/amount\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The amount and currency of a payment</property-description>",
+      "additionalProperties": true
+    },
+    "idempotency_key": {
+      "title": "ConsentPaymentIdempotencyKey",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1,
+      "description": "A random key provided by the client, per unique consent payment. Maximum of 128 characters.\n\nThe API supports idempotency for safely retrying requests without accidentally performing the same operation twice. If a request to execute a consent payment fails due to a network connection error, you can retry the request with the same idempotency key to guarantee that only a single payment is created. If the request was successfully processed, it will prevent any payment that uses the same idempotency key, and was received within 48 hours of the first request, from being processed."
+    },
+    "reference": {
+      "type": "string",
+      "description": "A reference for the payment. This must be an alphanumeric string with at most 18 characters and must not contain any special characters (since not all institutions support them).\nIf not provided, Plaid will automatically fall back to the reference from consent. In order to track settlement via Payment Confirmation, each payment must have a unique reference. If the reference provided through the API is not unique, Plaid will adjust it.\nSome institutions may limit the reference to less than 18 characters. If necessary, Plaid will adjust the reference by truncating it to fit the institution's requirements.\nBoth the originally provided and automatically adjusted references (if any) can be found in the `reference` and `adjusted_reference` fields, respectively.",
+      "minLength": 1,
+      "maxLength": 18,
+      "nullable": true
+    },
+    "processing_mode": {
+      "type": "string",
+      "title": "PaymentInitiationConsentProcessingMode",
+      "enum": [
+        "ASYNC",
+        "IMMEDIATE"
+      ],
+      "description": "Decides the mode under which the payment processing should be performed, using `IMMEDIATE` as default.\n\n`IMMEDIATE`: Will immediately execute the payment, waiting for a response from the ASPSP before returning the result of the payment initiation. This is ideal for user-present flows.\n\n `ASYNC`: Will accept a payment execution request and schedule it for processing, immediately returning the new `payment_id`. Listen for webhooks or use the [`/payment_initiation/payment/get`](https://plaid.com/docs/api/products/payment-initiation/#payment_initiationpaymentget) endpoint to obtain updates on the payment status. This is ideal for non user-present flows."
+    }
+  },
+  "required": [
+    "consent_id",
+    "amount",
+    "idempotency_key"
+  ]
+}

@@ -1,0 +1,12 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional(),
+  "payment_id": z.string().describe("The ID of the payment to reverse"),
+  "idempotency_key": z.string().min(1).max(128).describe("A random key provided by the client, per unique wallet transaction. Maximum of 128 characters.\n\nThe API supports idempotency for safely retrying requests without accidentally performing the same operation twice. If a request to execute a wallet transaction fails due to a network connection error, then after a minimum delay of one minute, you can retry the request with the same idempotency key to guarantee that only a single wallet transaction is created. If the request was successfully processed, it will prevent any transaction that uses the same idempotency key, and was received within 24 hours of the first request, from being processed."),
+  "reference": z.string().min(6).max(18).describe("A reference for the refund. This must be an alphanumeric string with 6 to 18 characters and must not contain any special characters or spaces."),
+  "amount": z.string().optional(),
+  "counterparty_date_of_birth": z.string().date().nullable().describe("The counterparty's birthdate, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) (YYYY-MM-DD) format.").optional(),
+  "counterparty_address": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `counterparty_address` to the tool, first call the tool `expandSchema` with \"/properties/counterparty_address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The optional address of the payment recipient's bank account. Required by most institutions outside of the UK.</property-description>").optional()
+}

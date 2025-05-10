@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "income_source_types": z.array(z.enum(["bank","payroll"]).describe("The types of source income data that users should be able to share")).describe("The types of source income data that users will be permitted to share. Options include `bank` and `payroll`. Currently you can only specify one of these options.").optional(),
+  "bank_income": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `bank_income` to the tool, first call the tool `expandSchema` with \"/properties/options/properties/income_verification/properties/bank_income\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies options for Bank Income. This field is required if `income_verification` is included in the `initial_products` array and `bank` is specified in `income_source_types`.</property-description>").optional()
+}

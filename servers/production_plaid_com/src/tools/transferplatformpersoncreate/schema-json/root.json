@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "originator_client_id": {
+      "type": "string",
+      "description": "The client ID of the originator"
+    },
+    "name": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `name` to the tool, first call the tool `expandSchema` with \"/properties/name\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The person's legal name</property-description>",
+      "additionalProperties": true
+    },
+    "email_address": {
+      "type": "string",
+      "example": "user@example.com",
+      "description": "A valid email address. Must not have leading or trailing spaces."
+    },
+    "phone_number": {
+      "type": "string",
+      "example": "+12345678909",
+      "description": "A valid phone number in E.164 format."
+    },
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Home address of a person</property-description>",
+      "additionalProperties": true
+    },
+    "id_number": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `id_number` to the tool, first call the tool `expandSchema` with \"/properties/id_number\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>ID number of the person</property-description>",
+      "additionalProperties": true
+    },
+    "date_of_birth": {
+      "type": "string",
+      "description": "The date of birth of the person. Formatted as YYYY-MM-DD.",
+      "format": "date"
+    },
+    "relationship_to_originator": {
+      "type": "string",
+      "description": "The relationship between this person and the originator they are related to."
+    }
+  },
+  "required": [
+    "originator_client_id"
+  ]
+}

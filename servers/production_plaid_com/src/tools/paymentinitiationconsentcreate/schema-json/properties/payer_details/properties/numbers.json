@@ -1,0 +1,14 @@
+{
+  "title": "PaymentInitiationConsentPayerNumbers",
+  "type": "object",
+  "description": "The counterparty's bank account numbers. Exactly one of IBAN or BACS data is required.",
+  "additionalProperties": true,
+  "properties": {
+    "bacs": {
+      "type": "string"
+    },
+    "iban": {
+      "type": "string"
+    }
+  }
+}

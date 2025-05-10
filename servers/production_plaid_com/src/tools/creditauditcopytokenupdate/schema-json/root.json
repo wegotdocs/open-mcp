@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "audit_copy_token": {
+      "type": "string",
+      "description": "The `audit_copy_token` you would like to update."
+    },
+    "report_tokens": {
+      "type": "array",
+      "description": "Array of tokens which the specified Audit Copy Token will be updated with. The types of token supported are asset report token and employment report token. There can be at most 1 of each token type in the array.",
+      "items": {
+        "title": "AssetReportToken",
+        "type": "string",
+        "description": "A token that can be provided to endpoints such as `/asset_report/get` or `/asset_report/pdf/get` to fetch or update an Asset Report."
+      }
+    }
+  },
+  "required": [
+    "audit_copy_token",
+    "report_tokens"
+  ]
+}

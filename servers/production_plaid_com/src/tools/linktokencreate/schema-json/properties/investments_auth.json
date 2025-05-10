@@ -1,0 +1,31 @@
+{
+  "description": "Configuration parameters for the Investments Move product",
+  "type": "object",
+  "properties": {
+    "manual_entry_enabled": {
+      "nullable": true,
+      "default": false,
+      "type": "boolean",
+      "description": "If `true`, show institutions that use the manual entry fallback flow."
+    },
+    "masked_number_match_enabled": {
+      "nullable": true,
+      "default": false,
+      "type": "boolean",
+      "description": "If `true`, show institutions that use the masked number match fallback flow."
+    },
+    "stated_account_number_enabled": {
+      "nullable": true,
+      "default": false,
+      "type": "boolean",
+      "description": "If `true`, show institutions that use the stated account number fallback flow."
+    },
+    "rollover_401k_enabled": {
+      "x-hidden-from-docs": true,
+      "nullable": true,
+      "default": false,
+      "type": "boolean",
+      "description": "If `true`, the fee and contribution details for 401k accounts will be returned."
+    }
+  }
+}

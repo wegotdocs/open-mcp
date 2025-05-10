@@ -1,0 +1,18 @@
+{
+  "description": "Assets under management for the given end customer. Required for end customers with monthly service commitments.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "amount": {
+      "type": "number",
+      "format": "double"
+    },
+    "iso_currency_code": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "amount",
+    "iso_currency_code"
+  ]
+}

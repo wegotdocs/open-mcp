@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "client_id": z.string().describe("Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body.").optional(),
+  "secret": z.string().describe("Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body.").optional(),
+  "recipient_id": z.string().describe("The ID of the recipient the payment consent is for. The created consent can be used to transfer funds to this recipient only."),
+  "reference": z.string().min(1).max(18).describe("A reference for the payment consent. This must be an alphanumeric string with at most 18 characters and must not contain any special characters."),
+  "type": z.enum(["SWEEPING","COMMERCIAL"]).describe("Payment consent type. Defines possible use case for payments made with the given consent.\n\n`SWEEPING`: Allows moving money between accounts owned by the same user.\n\n`COMMERCIAL`: Allows initiating payments from the user's account to third parties.").optional(),
+  "constraints": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `constraints` to the tool, first call the tool `expandSchema` with \"/properties/constraints\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Limitations that will be applied to payments initiated using the payment consent.</property-description>"),
+  "payer_details": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payer_details` to the tool, first call the tool `expandSchema` with \"/properties/payer_details\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object representing the payment consent payer details.\nPayer `name` and account `numbers` are required to lock the account to which the consent can be created.</property-description>").optional()
+}

@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "originator_client_id": {
+      "type": "string",
+      "description": "The client ID of the originator"
+    },
+    "tos_acceptance_metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `tos_acceptance_metadata` to the tool, first call the tool `expandSchema` with \"/properties/tos_acceptance_metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Metadata related to the acceptance of Terms of Service</property-description>",
+      "additionalProperties": true
+    },
+    "originator_reviewed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO8601 timestamp indicating the most recent time the platform collected onboarding data from the originator"
+    },
+    "webhook": {
+      "type": "string",
+      "description": "The webhook URL to which a `PLATFORM_ONBOARDING_UPDATE` webhook should be sent."
+    }
+  },
+  "required": [
+    "originator_client_id",
+    "tos_acceptance_metadata",
+    "originator_reviewed_at"
+  ]
+}

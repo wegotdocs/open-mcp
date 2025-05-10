@@ -1,0 +1,32 @@
+{
+  "title": "AddressData",
+  "type": "object",
+  "nullable": true,
+  "additionalProperties": true,
+  "description": "Data about the components comprising an address.",
+  "properties": {
+    "city": {
+      "type": "string",
+      "description": "The full city name"
+    },
+    "region": {
+      "type": "string",
+      "description": "The region or state\nExample: `\"NC\"`",
+      "nullable": true
+    },
+    "street": {
+      "type": "string",
+      "description": "The full street address\nExample: `\"564 Main Street, APT 15\"`"
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "The postal code",
+      "nullable": true
+    },
+    "country": {
+      "type": "string",
+      "description": "The ISO 3166-1 alpha-2 country code",
+      "nullable": true
+    }
+  }
+}

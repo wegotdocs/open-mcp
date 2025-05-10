@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "The start datetime of transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "The end datetime of transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 25,
+      "default": 25,
+      "description": "The maximum number of transfers to return."
+    },
+    "offset": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "description": "The number of transfers to skip before returning results."
+    },
+    "originator_client_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Filter transfers to only those with the specified originator client."
+    },
+    "funding_account_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Filter transfers to only those with the specified `funding_account_id`."
+    }
+  },
+  "required": []
+}

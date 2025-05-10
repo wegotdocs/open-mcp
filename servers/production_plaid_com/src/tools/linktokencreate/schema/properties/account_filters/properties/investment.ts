@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "account_subtypes": z.array(z.enum(["529","401a","401k","403B","457b","brokerage","cash isa","crypto exchange","education savings account","fixed annuity","gic","health reimbursement arrangement","hsa","ira","isa","keogh","lif","life insurance","lira","lrif","lrsp","mutual fund","non-custodial wallet","non-taxable brokerage account","other","other annuity","other insurance","pension","prif","profit sharing plan","qshr","rdsp","resp","retirement","rlif","roth","roth 401k","rrif","rrsp","sarsep","sep ira","simple ira","sipp","stock plan","tfsa","trust","ugma","utma","variable annuity","all"]).describe("Valid account subtypes for investment accounts. For a list containing descriptions of each subtype, see [Account schemas](https://plaid.com/docs/api/accounts/#StandaloneAccountType-investment).")).describe("An array of account subtypes to display in Link. If not specified, all account subtypes will be shown. For a full list of valid types and subtypes, see the [Account schema](https://plaid.com/docs/api/accounts#account-type-schema). ")
+}

@@ -1,0 +1,27 @@
+{
+  "title": "SignalUser",
+  "type": "object",
+  "description": "Details about the end user initiating the transaction (i.e., the account holder). When calling `/signal/evaluate` or `/signal/processor/evaluate`, this field is optional, but strongly recommended to increase the accuracy of Signal results.",
+  "properties": {
+    "name": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `name` to the tool, first call the tool `expandSchema` with \"/properties/user/properties/name\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The user's legal name</property-description>",
+      "additionalProperties": true
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "The user's phone number, in E.164 format: +{countrycode}{number}. For example: \"+14151234567\"",
+      "nullable": true
+    },
+    "email_address": {
+      "type": "string",
+      "description": "The user's email address.",
+      "nullable": true
+    },
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/user/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Data about the components comprising an address.</property-description>",
+      "additionalProperties": true
+    }
+  }
+}

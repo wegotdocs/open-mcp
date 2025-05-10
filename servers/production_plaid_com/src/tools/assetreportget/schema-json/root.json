@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "asset_report_token": {
+      "title": "AssetReportTokenNullable",
+      "type": "string",
+      "description": "A token that can be provided to endpoints such as `/asset_report/get` or `/asset_report/pdf/get` to fetch or update an Asset Report."
+    },
+    "user_token": {
+      "type": "string",
+      "description": "The user token associated with the User for which to create an asset report for. The latest asset report associated with the User will be returned",
+      "x-hidden-from-docs": true
+    },
+    "include_insights": {
+      "type": "boolean",
+      "default": false,
+      "description": "`true` if you would like to retrieve the Asset Report with Insights, `false` otherwise. This field defaults to `false` if omitted."
+    },
+    "fast_report": {
+      "type": "boolean",
+      "default": false,
+      "description": "`true` to fetch \"fast\" version of asset report. Defaults to false if omitted. Can only be used if `/asset_report/create` was called with `options.add_ons` set to `[\"fast_assets\"]`."
+    },
+    "options": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `options` to the tool, first call the tool `expandSchema` with \"/properties/options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An optional object to filter or add data to `/asset_report/get` results. If provided, must be non-`null`.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

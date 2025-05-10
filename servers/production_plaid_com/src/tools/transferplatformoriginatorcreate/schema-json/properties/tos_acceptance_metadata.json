@@ -1,0 +1,26 @@
+{
+  "x-hidden-from-docs": true,
+  "title": "TOSAcceptanceMetadata",
+  "type": "object",
+  "description": "Metadata related to the acceptance of Terms of Service",
+  "properties": {
+    "agreement_accepted": {
+      "type": "boolean",
+      "description": "Indicates whether the TOS agreement was accepted"
+    },
+    "originator_ip_address": {
+      "type": "string",
+      "description": "The IP address of the originator when they accepted the TOS. Formatted as an IPv4 or IPv6 IP address"
+    },
+    "agreement_accepted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO8601 timestamp indicating when the originator accepted the TOS"
+    }
+  },
+  "required": [
+    "agreement_accepted",
+    "originator_ip_address",
+    "agreement_accepted_at"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "description": "Instructions for the `custom` retry strategy specifying which steps should be required or skipped.\n\n\nNote:\n\n\nThis field must be provided when the retry strategy is `custom` and must be omitted otherwise.\n\nCustom retries override settings in your Plaid Template. For example, if your Plaid Template has `verify_sms` disabled, a custom retry with `verify_sms` enabled will still require the step.\n\nThe `selfie_check` step is currently not supported on the sandbox server. Sandbox requests will silently disable the `selfie_check` step when provided.",
+  "properties": {
+    "verify_sms": {
+      "description": "A boolean field specifying whether the new session should require or skip the `verify_sms` step.",
+      "type": "boolean"
+    },
+    "kyc_check": {
+      "description": "A boolean field specifying whether the new session should require or skip the `kyc_check` (Data Source Verification) step.",
+      "type": "boolean"
+    },
+    "documentary_verification": {
+      "description": "A boolean field specifying whether the new session should require or skip the `documentary_verification` step.",
+      "type": "boolean"
+    },
+    "selfie_check": {
+      "description": "A boolean field specifying whether the new session should require or skip the `selfie_check` step.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "verify_sms",
+    "kyc_check",
+    "documentary_verification",
+    "selfie_check"
+  ],
+  "nullable": true
+}

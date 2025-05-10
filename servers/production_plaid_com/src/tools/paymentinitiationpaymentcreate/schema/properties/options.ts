@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "request_refund_details": z.boolean().nullable().describe("When `true`, Plaid will attempt to request refund details from the payee's financial institution.  Support varies between financial institutions and will not always be available.  If refund details could be retrieved, they will be available in the `/payment_initiation/payment/get` response.").optional(),
+  "iban": z.string().min(15).max(34).nullable().describe("The International Bank Account Number (IBAN) for the payer's account. Where possible, the end user will be able to send payments only from the specified bank account if provided.").optional(),
+  "bacs": z.string().optional(),
+  "scheme": z.union([z.literal(null), z.literal("LOCAL_DEFAULT"), z.literal("LOCAL_INSTANT"), z.literal("SEPA_CREDIT_TRANSFER"), z.literal("SEPA_CREDIT_TRANSFER_INSTANT")]).nullable().describe("Payment scheme. If not specified - the default in the region will be used (e.g. `SEPA_CREDIT_TRANSFER` for EU). Using unsupported values will result in a failed payment.\n\n`LOCAL_DEFAULT`: The default payment scheme for the selected market and currency will be used.\n\n`LOCAL_INSTANT`: The instant payment scheme for the selected market and currency will be used (if applicable). Fees may be applied by the institution. If the market does not support an Instant Scheme (e.g. Denmark), the default in the region will be used.\n\n`SEPA_CREDIT_TRANSFER`: The standard payment to a beneficiary within the SEPA area.\n\n`SEPA_CREDIT_TRANSFER_INSTANT`: Instant payment within the SEPA area. May involve additional fees and may not be available at some banks.").optional()
+}

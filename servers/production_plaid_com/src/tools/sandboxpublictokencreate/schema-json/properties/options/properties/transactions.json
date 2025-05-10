@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "description": "An optional set of parameters corresponding to transactions options.",
+  "properties": {
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The earliest date for which to fetch transaction history. Dates should be formatted as YYYY-MM-DD."
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The most recent date for which to fetch transaction history. Dates should be formatted as YYYY-MM-DD."
+    },
+    "days_requested": {
+      "description": "The maximum number of days of transaction history to request for the Transactions product.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 730,
+      "default": 90,
+      "x-hidden-from-docs": true
+    }
+  },
+  "title": "SandboxPublicTokenCreateRequestOptionsTransactions"
+}

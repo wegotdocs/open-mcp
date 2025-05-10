@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "start_virtual_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The start virtual timestamp of test clocks to return. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)",
+      "nullable": true
+    },
+    "end_virtual_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The end virtual timestamp of test clocks to return. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)",
+      "nullable": true
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 25,
+      "default": 25,
+      "description": "The maximum number of test clocks to return.",
+      "nullable": true
+    },
+    "offset": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "description": "The number of test clocks to skip before returning results."
+    }
+  },
+  "required": []
+}

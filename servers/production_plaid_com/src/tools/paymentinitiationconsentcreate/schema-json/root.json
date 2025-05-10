@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "recipient_id": {
+      "type": "string",
+      "description": "The ID of the recipient the payment consent is for. The created consent can be used to transfer funds to this recipient only."
+    },
+    "reference": {
+      "type": "string",
+      "description": "A reference for the payment consent. This must be an alphanumeric string with at most 18 characters and must not contain any special characters.",
+      "minLength": 1,
+      "maxLength": 18
+    },
+    "type": {
+      "type": "string",
+      "title": "PaymentInitiationConsentType",
+      "enum": [
+        "SWEEPING",
+        "COMMERCIAL"
+      ],
+      "description": "Payment consent type. Defines possible use case for payments made with the given consent.\n\n`SWEEPING`: Allows moving money between accounts owned by the same user.\n\n`COMMERCIAL`: Allows initiating payments from the user's account to third parties."
+    },
+    "constraints": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `constraints` to the tool, first call the tool `expandSchema` with \"/properties/constraints\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Limitations that will be applied to payments initiated using the payment consent.</property-description>",
+      "additionalProperties": true
+    },
+    "payer_details": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payer_details` to the tool, first call the tool `expandSchema` with \"/properties/payer_details\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>An object representing the payment consent payer details.\nPayer `name` and account `numbers` are required to lock the account to which the consent can be created.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "recipient_id",
+    "reference",
+    "constraints"
+  ]
+}

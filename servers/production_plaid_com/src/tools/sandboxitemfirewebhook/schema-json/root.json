@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "title": "ClientID",
+      "type": "string",
+      "description": "Your Plaid API `client_id`. The `client_id` is required and may be provided either in the `PLAID-CLIENT-ID` header or as part of a request body."
+    },
+    "secret": {
+      "title": "APISecret",
+      "type": "string",
+      "description": "Your Plaid API `secret`. The `secret` is required and may be provided either in the `PLAID-SECRET` header or as part of a request body."
+    },
+    "access_token": {
+      "title": "AccessToken",
+      "type": "string",
+      "description": "The access token associated with the Item data is being requested for."
+    },
+    "webhook_type": {
+      "type": "string",
+      "enum": [
+        "AUTH",
+        "HOLDINGS",
+        "INVESTMENTS_TRANSACTIONS",
+        "ITEM",
+        "LIABILITIES",
+        "TRANSACTIONS",
+        "ASSETS"
+      ],
+      "description": "The webhook types that can be fired by this test endpoint."
+    },
+    "webhook_code": {
+      "type": "string",
+      "enum": [
+        "DEFAULT_UPDATE",
+        "NEW_ACCOUNTS_AVAILABLE",
+        "SMS_MICRODEPOSITS_VERIFICATION",
+        "AUTHORIZATION_GRANTED",
+        "USER_PERMISSION_REVOKED",
+        "USER_ACCOUNT_REVOKED",
+        "PENDING_DISCONNECT",
+        "RECURRING_TRANSACTIONS_UPDATE",
+        "LOGIN_REPAIRED",
+        "SYNC_UPDATES_AVAILABLE",
+        "PRODUCT_READY",
+        "ERROR"
+      ],
+      "description": "The webhook codes that can be fired by this test endpoint."
+    }
+  },
+  "required": [
+    "access_token",
+    "webhook_code"
+  ]
+}
