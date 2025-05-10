@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "name": z.string().describe("The name of the new project."),
+  "team": z.string().describe("Sets the team of the new project. If team is not defined, the new project will be in the same team as the the original project.").optional(),
+  "include": z.string().regex(new RegExp("([allocations|members|notes|forms|task_notes|task_assignee|task_subtasks|task_attachments|task_dates|task_dependencies|task_followers|task_tags|task_projects])(,\\1)*")).describe("A comma-separated list of elements that will be duplicated to the new project. Tasks are always included.\n##### Fields\n- allocations\n- forms\n- members\n- notes\n- task_assignee\n- task_attachments\n- task_dates\n- task_dependencies\n- task_followers\n- task_notes\n- task_projects\n- task_subtasks\n- task_tags").optional(),
+  "schedule_dates": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `schedule_dates` to the tool, first call the tool `expandSchema` with \"/properties/data/properties/schedule_dates\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A dictionary of options to auto-shift dates. `task_dates` must be included to use this option. Requires either `start_on` or `due_on`, but not both.</property-description>").optional()
+}
