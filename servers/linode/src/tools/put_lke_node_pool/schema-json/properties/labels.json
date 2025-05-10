@@ -1,0 +1,15 @@
+{
+  "additionalProperties": {
+    "maxLength": 63,
+    "minLength": 0,
+    "pattern": "^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?",
+    "type": "string",
+    "x-additionalPropertiesName": "value"
+  },
+  "description": "Key-value pairs added as labels to nodes in the node pool. Labels help classify your nodes and easily select subsets of objects. To learn more, review [Add Labels and Taints to your LKE node pools](https://www.linode.com/docs/products/compute/kubernetes/guides/deploy-and-manage-cluster-with-the-linode-api/#add-labels-and-taints-to-your-lke-node-pools).\n\n**Label key:**\n\n- A key can contain alphanumeric characters, dashes (`-`), underscores (`_`), or dots (`.`). Start and end it with an alphanumeric character.\n\n- If the key begins with a DNS subdomain prefix followed by a single slash, for example `example.com/my-app`, the maximum total length of the label key is 128 characters. Domain labels can be up to 62 characters after the '/'. The prefix needs to adhere to [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123) DNS subdomain restrictions.\n\n- If the key doesn't begin with a DNS subdomain prefix, the maximum key length is 63 characters.\n\nSpecifying an empty object removes all previously set labels.\n\n**Label value:**\n\n- The label's value can contain alphanumeric characters, dashes (`-`), underscores (`_`), or dots (`.`). Start and end it with an alphanumeric character.\n\n- Can be specified as an empty string value with `\"\"`.",
+  "example": {
+    "example.com/my-app": "teams"
+  },
+  "type": "object",
+  "properties": {}
+}

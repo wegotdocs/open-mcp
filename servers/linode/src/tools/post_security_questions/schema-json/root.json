@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "security_questions": {
+      "description": "Security questions and response objects.",
+      "items": {
+        "additionalProperties": false,
+        "description": "Single security question and response object for POST operation.",
+        "properties": {
+          "question_id": {
+            "description": "The ID representing the security question.",
+            "example": 1,
+            "type": "integer"
+          },
+          "response": {
+            "description": "The security question response.",
+            "example": "Gotham City",
+            "maxLength": 17,
+            "minLength": 3,
+            "type": "string"
+          },
+          "security_question": {
+            "description": "__Read-only__ The security question.",
+            "example": "In what city were you born?",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": []
+}

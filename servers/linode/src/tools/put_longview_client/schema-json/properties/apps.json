@@ -1,0 +1,26 @@
+{
+  "additionalProperties": false,
+  "description": "__Read-only__ The apps this Client is monitoring on your Linode. This is configured when you install the Longview Client application, and is present here for information purposes only.",
+  "properties": {
+    "apache": {
+      "description": "__Read-only__ If `true`, the Apache Longview Client module is monitoring Apache on your server.",
+      "example": true,
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "mysql": {
+      "description": "__Read-only__ If `true`, the MySQL Longview Client modules is monitoring MySQL on your server.",
+      "example": true,
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "nginx": {
+      "description": "__Read-only__ If `true`, the Nginx Longview Client module is monitoring Nginx on your server.",
+      "example": false,
+      "readOnly": true,
+      "type": "boolean"
+    }
+  },
+  "readOnly": true,
+  "type": "object"
+}

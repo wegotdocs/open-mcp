@@ -1,0 +1,19 @@
+{
+  "additionalProperties": false,
+  "description": "Defines settings for the Kubernetes control plane, including High Availability (HA) and an IP-based Access Control List (ACL) for the control plane components.\n\nWhen upgrading pre-existing LKE clusters to use the HA Control Plane, the following changes will additionally occur:\n\n- All nodes will be deleted and new nodes will be created to replace them.\n\n- Any local storage (such as `hostPath` volumes) will be erased.\n\n- The upgrade process may take several minutes to complete, as nodes will be replaced on a rolling basis.\n\nWhen upgrading pre-existing LKE clusters to use the control plane ACL for the first time, it may take several hours for external clients to respect the access control settings. This is partly due to delays from DNS propagation.",
+  "properties": {
+    "acl": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `acl` to the tool, first call the tool `expandSchema` with \"/properties/control_plane/properties/acl\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Defines settings related to the IP-based ACL of the LKE cluster. The object requires the `enabled` and `addresses` keys. It also supports the optional key `revision-id`. The default policy is set to `ALLOW`, so that access controls are disabled. An empty object value (`{}`) sets default elements.</property-description>",
+      "additionalProperties": true
+    },
+    "high_availability": {
+      "default": false,
+      "description": "Enables High Availability for the cluster's control plane components. It defaults to `false`. Enabling High Availability for LKE is an irreversible change.",
+      "example": true,
+      "type": "boolean",
+      "x-linode-cli-display": 5
+    }
+  },
+  "type": "object"
+}

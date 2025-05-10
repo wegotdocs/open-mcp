@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "api_key": {
+      "description": "__Read-only__ The API key for this Client, used when configuring the Longview Client application on your Linode.\n\nReturns as `[REDACTED]` if you do not have read-write access to this client.",
+      "example": "{{api_key}}",
+      "readOnly": true,
+      "type": "string"
+    },
+    "apps": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `apps` to the tool, first call the tool `expandSchema` with \"/properties/apps\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>__Read-only__ The apps this Client is monitoring on your Linode. This is configured when you install the Longview Client application, and is present here for information purposes only.</property-description>",
+      "additionalProperties": true
+    },
+    "created": {
+      "description": "__Read-only__ When this Longview Client was created.",
+      "example": "{{created}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 3
+    },
+    "id": {
+      "description": "__Read-only__ This Client's unique ID.",
+      "example": "{{id}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-linode-cli-display": 1
+    },
+    "install_code": {
+      "description": "__Read-only__ The install code for this Client, used when configuring the Longview Client application on your Linode.\n\nReturns as `[REDACTED]` if you do not have read-write access to this client.",
+      "example": "{{install_code}}",
+      "readOnly": true,
+      "type": "string",
+      "x-linode-cli-display": 4
+    },
+    "label": {
+      "description": "__Filterable__ This Client's unique label. This is for display purposes only.",
+      "example": "{{label}}",
+      "maxLength": 32,
+      "minLength": 3,
+      "pattern": "[a-zA-Z0-9-_]{3,32}",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "updated": {
+      "description": "__Read-only__ When this Longview Client was last updated.",
+      "example": "{{updated}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,18 @@
+{
+  "additionalProperties": false,
+  "description": "__Read-only__ The credit card information assigned to this account.",
+  "properties": {
+    "expiry": {
+      "description": "The expiration month and year of the `credit_card`.",
+      "example": "11/2022",
+      "type": "string"
+    },
+    "last_four": {
+      "description": "The last four digits of the `credit_card` assigned to this account.",
+      "example": 1111,
+      "type": "string"
+    }
+  },
+  "readOnly": true,
+  "type": "object"
+}

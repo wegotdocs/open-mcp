@@ -1,0 +1,23 @@
+{
+  "additionalProperties": false,
+  "description": "Defines settings related to the IP-based ACL of the LKE cluster. The object requires the `enabled` and `addresses` keys. It also supports the optional key `revision-id`. The default policy is set to `ALLOW`, so that access controls are disabled. An empty object value (`{}`) sets default elements.",
+  "properties": {
+    "addresses": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `addresses` to the tool, first call the tool `expandSchema` with \"/properties/control_plane/properties/acl/properties/addresses\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Supports keys `ipv4` and `ipv6`. Defaults to `{}`.</property-description>",
+      "additionalProperties": true
+    },
+    "enabled": {
+      "description": "Defines a default policy. A value of `true` results in a default policy of `DENY`. A value of `false` results in a default policy of `ALLOW`, such as for disabled access controls. It defaults to `true`. Creating a cluster with ACL, or upgrading a cluster to use ACL for LKE, is an irreversible change. Once upgraded, you can only toggle access controls with this field.",
+      "example": true,
+      "type": "boolean",
+      "x-linode-cli-display": 6
+    },
+    "revision-id": {
+      "description": "Enables clients to track events related to ACL update requests and enforcements. Optional field. If omitted, defaults to a randomly generated string.",
+      "example": "20240127r001",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

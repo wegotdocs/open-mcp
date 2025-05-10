@@ -1,0 +1,50 @@
+{
+  "additionalProperties": false,
+  "description": "A dictionary of device disks to use as a device map in a Linode's configuration profile.\n\n- An empty device disk dictionary or a dictionary with empty values for device slots is allowed.\n- If no devices are specified, booting from this configuration will hold until a device exists that allows the boot process to start.",
+  "properties": {
+    "sda": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sda` to the tool, first call the tool `expandSchema` with \"/properties/devices/properties/sda\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be `null`. Devices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.</property-description>",
+      "additionalProperties": true
+    },
+    "sdb": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sdb` to the tool, first call the tool `expandSchema` with \"/properties/devices/properties/sdb\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be `null`. Devices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.</property-description>",
+      "additionalProperties": true
+    },
+    "sdc": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sdc` to the tool, first call the tool `expandSchema` with \"/properties/devices/properties/sdc\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be `null`. Devices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.</property-description>",
+      "additionalProperties": true
+    },
+    "sdd": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sdd` to the tool, first call the tool `expandSchema` with \"/properties/devices/properties/sdd\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be `null`. Devices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.</property-description>",
+      "additionalProperties": true
+    },
+    "sde": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sde` to the tool, first call the tool `expandSchema` with \"/properties/devices/properties/sde\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be `null`. Devices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.</property-description>",
+      "additionalProperties": true
+    },
+    "sdf": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sdf` to the tool, first call the tool `expandSchema` with \"/properties/devices/properties/sdf\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be `null`. Devices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.</property-description>",
+      "additionalProperties": true
+    },
+    "sdg": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sdg` to the tool, first call the tool `expandSchema` with \"/properties/devices/properties/sdg\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be `null`. Devices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.</property-description>",
+      "additionalProperties": true
+    },
+    "sdh": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sdh` to the tool, first call the tool `expandSchema` with \"/properties/devices/properties/sdh\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be `null`. Devices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object",
+  "x-akamai": {
+    "file-path": "schemas/devices.yaml"
+  }
+}

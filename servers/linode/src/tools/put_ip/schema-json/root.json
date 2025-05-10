@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "rdns": {
+      "description": "The reverse DNS assigned to this address. For public IPv4 addresses, this will be set to a default value provided by Linode if not explicitly set.",
+      "example": "{{rdns}}",
+      "nullable": true,
+      "type": "string",
+      "x-linode-cli-display": 4
+    }
+  },
+  "required": [
+    "rdns"
+  ]
+}

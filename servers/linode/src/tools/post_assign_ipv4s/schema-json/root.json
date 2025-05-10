@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "assignments": {
+      "description": "The list of assignments to make. You must have read_write access to all IPs being assigned and all Linodes being assigned to in order for the assignments to succeed.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "address": {
+            "description": "The IPv4 address or IPv6 range for this assignment.\n\n- Must be an IPv4 address or an IPv6 range you can access in the Region specified.\n- IPv6 ranges must include a prefix length of `/56` or `/64`, for example: `2001:db8:3c4d:15::/64`.\n- Assignment of an IPv6 range to a Linode updates the route target of the range to the assigned Linode's SLAAC address.\n- May be a public or private address.",
+            "example": "192.0.2.1",
+            "format": "ipv4|ipv6/prefix_length",
+            "type": "string"
+          },
+          "linode_id": {
+            "description": "The ID of the Linode to assign this address to. The IP's previous Linode will lose this address, and must end up with at least one public address and no more than one private address once all assignments have been made.",
+            "example": 123,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "address",
+          "linode_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "region": {
+      "description": "The ID of the Region in which these assignments are to take place. All IPs and Linodes must exist in this Region.",
+      "example": "{{region}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "assignments",
+    "region"
+  ]
+}

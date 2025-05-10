@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "description": "__Read-only__ This NodeBalancer's related LKE cluster, if any. The value is `null` if this NodeBalancer isn't related to an LKE cluster.",
+  "nullable": true,
+  "properties": {
+    "id": {
+      "description": "The ID of the related LKE cluster.",
+      "example": 12345,
+      "type": "string"
+    },
+    "label": {
+      "description": "The label of the related LKE cluster.",
+      "example": "lkecluster12345",
+      "type": "string"
+    },
+    "type": {
+      "description": "__Read-only__ The type for LKE clusters.",
+      "example": "lkecluster",
+      "readOnly": true,
+      "type": "string"
+    },
+    "url": {
+      "description": "The URL where you can access the related LKE cluster.",
+      "example": "/v4/lke/clusters/12345",
+      "type": "string"
+    }
+  },
+  "readOnly": true,
+  "type": "object",
+  "x-linode-cli-display": 8
+}

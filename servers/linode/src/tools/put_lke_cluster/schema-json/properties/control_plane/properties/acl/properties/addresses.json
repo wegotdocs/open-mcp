@@ -1,0 +1,28 @@
+{
+  "additionalProperties": false,
+  "description": "Supports keys `ipv4` and `ipv6`. Defaults to `{}`.",
+  "properties": {
+    "ipv4": {
+      "description": "A list of individual ipv4 addresses or CIDRs to ALLOW. Defaults to `[]`.",
+      "example": [
+        "203.0.113.1",
+        "192.0.2.0/24"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ipv6": {
+      "description": "A list of individual ipv6 addresses or CIDRs to ALLOW. Defaults to `[]`.",
+      "example": [
+        "2001:db8:1234:abcd::/64"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

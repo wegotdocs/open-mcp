@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "ip_ranges": z.array(z.string().ip()).describe("IPv4 CIDR VPC subnet ranges that are routed to this interface.\n\n- A range can't include any addresses that are assigned to an active Linode or another VPC subnet.\n\n- When updating, you need to include any existing ranges to maintain them. If a range is left out, it will be removed.\n\n- Include this as an empty array (`[]`) to remove all existing `nat_1_1` values.\n\n- Omit this array to leave all existing `ip_ranges` as is.\n<<LB>>\n> 📘\n>\n> This only applies to interfaces with a `purpose` of `vpc`.").optional(),
+  "ipv4": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ipv4` to the tool, first call the tool `expandSchema` with \"/properties/ipv4\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>IPv4 addresses configured for this interface.\n\n> 📘\n>\n> This only applies to interfaces with a `purpose` of `vpc`.</property-description>").optional(),
+  "primary": z.boolean().describe("Set to `true` to label this configuration profile interface as the default route to the Linode.\n\n- Each Linode can have one interface set as its `primary`.\n\n- If you don't specifically set a `primary`, the first non-`vlan` type interface is automatically treated as the primary.").optional()
+}

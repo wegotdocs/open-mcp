@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "description": "The address to email this Contact to alert them of issues.",
+      "example": "{{email}}",
+      "format": "email",
+      "type": "string",
+      "x-linode-cli-display": 3
+    },
+    "group": {
+      "description": "__Filterable__ A grouping for this Contact. This is for display purposes only.",
+      "example": "{{group}}",
+      "maxLength": 50,
+      "minLength": 2,
+      "nullable": true,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 5,
+      "x-linode-filterable": true
+    },
+    "id": {
+      "description": "__Read-only__ This Contact's unique ID.",
+      "example": "{{id}}",
+      "readOnly": true,
+      "type": "integer",
+      "x-linode-cli-display": 1
+    },
+    "name": {
+      "description": "The name of this Contact.",
+      "example": "{{name}}",
+      "maxLength": 64,
+      "minLength": 2,
+      "pattern": "[a-zA-Z0-9-_ ]{2,64}",
+      "type": "string",
+      "x-linode-cli-display": 2
+    },
+    "phone": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `phone` to the tool, first call the tool `expandSchema` with \"/properties/phone\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Information about how to reach this Contact by phone.</property-description>",
+      "additionalProperties": true
+    },
+    "updated": {
+      "description": "__Read-only__ When this Contact was last updated.",
+      "example": "{{updated}}",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": []
+}

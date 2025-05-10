@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "label": {
+      "description": "__Filterable__ The Firewall's label, for display purposes only.\n\nFirewall labels have the following constraints:\n\n  - Must begin and end with an alphanumeric character.\n  - May only consist of alphanumeric characters, hyphens (`-`), underscores (`_`) or periods (`.`).\n  - Cannot have two hyphens (`--`), underscores (`__`) or periods (`..`) in a row.\n  - Must be between 3 and 32 characters.\n  - Must be unique.",
+      "example": "{{label}}",
+      "maxLength": 32,
+      "minLength": 3,
+      "pattern": "^[a-zA-Z]((?!--|__|\\.\\.)[a-zA-Z0-9-_.])+$",
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 2,
+      "x-linode-filterable": true
+    },
+    "status": {
+      "description": "The status to be applied to this Firewall.\n\n - When a Firewall is first created its status is `enabled`.\n - Run the [Delete a firewall](https://techdocs.akamai.com/linode-api/reference/delete-firewall) operation to delete a Firewall.",
+      "enum": [
+        "enabled",
+        "disabled"
+      ],
+      "example": "{{status}}",
+      "type": "string",
+      "x-linode-cli-display": 3
+    },
+    "tags": {
+      "description": "__Filterable__ An array of tags applied to this object. Tags are for organizational purposes only.",
+      "example": [
+        "example tag",
+        "another example"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-filterable": true
+    }
+  },
+  "required": []
+}

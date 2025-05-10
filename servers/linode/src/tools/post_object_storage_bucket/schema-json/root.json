@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "acl": {
+      "default": "private",
+      "description": "The S3 predefined collection of grantees and permissions set for the bucket, also referred to as a [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).",
+      "enum": [
+        "private",
+        "public-read",
+        "authenticated-read",
+        "public-read-write"
+      ],
+      "example": "{{acl}}",
+      "type": "string"
+    },
+    "cors_enabled": {
+      "description": "If set to `false`, cross-origin resource sharing (CORS) is disabled for all origins in the bucket.",
+      "example": "{{cors_enabled}}",
+      "type": "boolean"
+    },
+    "endpoint_type": {
+      "description": "The type of `s3_endpoint` available to the active `user` in this `region`. See [Endpoint types](https://techdocs.akamai.com/cloud-computing/docs/object-storage#endpoint-types) for more information.",
+      "enum": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "example": "{{endpoint_type}}",
+      "type": "string"
+    },
+    "label": {
+      "description": "The name for this bucket.\n\n* A bucket name can contain from 3 to 63 alphanumeric characters, dashes (`-`), or dots (`.`).\n* A bucket name can't end in a dash and you can't use two consecutive dashes.\n* A bucket name can't start or end in a dot, and you can't use two consecutive dots. As a best practice, only use dots if a certificate you're using with your bucket requires it. (For example, if you're using a custom TLS certificate.)\n* A bucket name needs to be unique in the `region` where you're creating the bucket. The API only reserves labels for the `region` where active buckets are created and stored. If you want to reserve this bucket's label in another `region`, create a new bucket with the same label in the new `region`.",
+      "example": "{{label}}",
+      "pattern": "^(?=.{3,63}$)[a-z0-9]+(?:-[a-z0-9]+)*(?:[.][a-z0-9]+(?:-[a-z0-9]+)*)*$",
+      "type": "string"
+    },
+    "region": {
+      "description": "The `id` assigned to the data center ([region](https://techdocs.akamai.com/linode-api/reference/get-regions)) where this Object Storage bucket should be created.\n\n> 📘\n>\n> This supports legacy `clusterId` values that represented a specific region. For example, `us-east-1` is the legacy reference for the `us-east` region.",
+      "example": "{{region}}",
+      "type": "string"
+    },
+    "s3_endpoint": {
+      "description": "The active user's S3-compatible endpoint URL, based on the `endpoint_type` and `region`.",
+      "example": "{{s3_endpoint}}",
+      "type": "string"
+    }
+  },
+  "required": [
+    "label"
+  ]
+}

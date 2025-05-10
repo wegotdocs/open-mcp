@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParams = {
+  "acl": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `acl` to the tool, first call the tool `expandSchema` with \"/properties/acl\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Defines settings related to the IP-based ACL of the LKE cluster. The object requires the `enabled` and `addresses` keys. It also supports the optional key `revision-id`. The default policy is set to `ALLOW`, so that access controls are disabled. An empty object value (`{}`) sets default elements.</property-description>").optional()
+}

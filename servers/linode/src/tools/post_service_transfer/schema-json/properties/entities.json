@@ -1,0 +1,19 @@
+{
+  "additionalProperties": false,
+  "description": "A collection of the services to include in this transfer request, separated by type.",
+  "properties": {
+    "linodes": {
+      "description": "An array containing the IDs of each of the Linodes included in this transfer.",
+      "example": [
+        111,
+        222
+      ],
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "x-linode-cli-display": 5
+    }
+  },
+  "type": "object"
+}

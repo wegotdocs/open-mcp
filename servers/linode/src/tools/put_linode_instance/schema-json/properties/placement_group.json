@@ -1,0 +1,55 @@
+{
+  "additionalProperties": false,
+  "description": "__Read-only__ Details on the [placement group](https://www.linode.com/docs/products/compute/compute-instances/guides/placement-groups/) that this Linode belongs to. Empty if the Linode isn't in a placement group.",
+  "nullable": true,
+  "properties": {
+    "id": {
+      "description": "The placement group's ID. You need to provide it for all operations that affect it.",
+      "example": 528,
+      "nullable": false,
+      "type": "integer",
+      "x-linode-cli-display": null
+    },
+    "label": {
+      "description": "__Filterable__ The unique name set for the placement group. A label has these constraints:\n\n- It needs to begin and end with an alphanumeric character.\n- It can only consist of alphanumeric characters, hyphens (`-`), underscores (`_`) or periods (`.`).",
+      "example": "PG_Miami_failover",
+      "minLength": 1,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": 10,
+      "x-linode-filterable": true
+    },
+    "placement_group_policy": {
+      "description": "How requests to add future compute instances to your placement group are handled, and whether it remains compliant:\n\n- `strict`. Don't assign a new compute instance if it breaks the grouped-together or spread-apart model set by the `placement_group_type`. Use this to ensure the placement group stays compliant (`is_compliant: true`).\n- `flexible`. Assign a new compute instance, even if it breaks the grouped-together or spread-apart model set by the `placement_group_type`. This makes the group non-compliant (`is_compliant: false`). You need to wait for Akamai to move the offending compute instance to make it compliant again, once the necessary capacity is available in the region. Offers flexibility to add future compute instances if compliance isn't an immediate concern.\n\n<<LB>>\n\n> 📘\n>\n> In rare cases, non-compliance can occur with a `strict` placement group if Akamai needs to failover or migrate your compute instances for maintenance. Fixing non-compliance for a `strict` placement group is prioritized over a `flexible` group.",
+      "enum": [
+        "strict",
+        "flexible"
+      ],
+      "example": "strict",
+      "type": "string",
+      "x-linode-cli-display": null
+    },
+    "placement_group_type": {
+      "description": "__Filterable__, __Read-only__ How compute instances are distributed in your placement group. A `placement_group_type` using anti-affinity (`anti-affinity:local`) places compute instances in separate hosts, but still in the same region. This best supports the spread-apart model for high availability. A `placement_group_type` using affinity places compute instances physically close together, possibly on the same host. This supports the grouped-together model for low-latency.\n\n> 📘\n>\n> Currently, only `anti_affinity:local` is available for `placement_group_type`.",
+      "enum": [
+        "anti_affinity:local"
+      ],
+      "example": "anti-affinity:local",
+      "readOnly": true,
+      "type": "string",
+      "x-akamai": {
+        "labels": [
+          "Filterable"
+        ]
+      },
+      "x-linode-cli-display": null,
+      "x-linode-filterable": true
+    }
+  },
+  "readOnly": true,
+  "type": "object"
+}
