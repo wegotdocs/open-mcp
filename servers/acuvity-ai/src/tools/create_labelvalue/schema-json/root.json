@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "end": {
+      "description": "The end of the time window in any format supported by\nhttps://github.com/araddon/dateparse.",
+      "example": "May 8, 2009 5:57:51 PM",
+      "type": "string"
+    },
+    "endRelative": {
+      "description": "The relative end of the time window as time.Duration.",
+      "example": "10h",
+      "type": "string"
+    },
+    "label": {
+      "description": "The label to retrieve all available the values for.",
+      "example": [
+        "decision"
+      ],
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "query": {
+      "description": "A set of log stream selector that selects the streams to match and return label\nvalues for.",
+      "example": "{\"app\": \"myapp\", \"environment\": \"dev\"}",
+      "type": "string"
+    },
+    "result": {
+      "description": "The result of the request.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "start": {
+      "description": "The start of the time window in any format supported by\nhttps://github.com/araddon/dateparse.",
+      "example": 1700083708672317000,
+      "type": "string"
+    },
+    "startRelative": {
+      "description": "The relative start of the time window as time.Duration.",
+      "example": "10h",
+      "type": "string"
+    }
+  },
+  "required": [
+    "label"
+  ]
+}

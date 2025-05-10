@@ -1,0 +1,122 @@
+{
+  "description": "Manage the default settings for the entire organization.",
+  "properties": {
+    "CA": {
+      "description": "The Certificate authority to use to validate user certificates in PEM format.",
+      "example": "-----BEGIN CERTIFICATE-----\nMIIBZTCCAQugAwIBAgIRANYvXLTa16Ykvc9hQ4BBLJEwCgYIKoZIzj0EAwIwEjEQ\nMA4GA1UEAxMHQUNNRSBDQTAeFw0yMTExMDEyMzAwMTlaFw0zMTA5MTAyMzAwMTla\nMBIxEDAOBgNVBAMTB0FDTUUgQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASa\n7wknroxwB1znupZ67NzTG9Kuc+tNRlbI22eTDNMKYpIexzWDOyiQ95N3GQIdmAz5\nwVu9l2V3VuKUpD9mNgkRo0IwQDAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUw\nAwEB/zAdBgNVHQ4EFgQURIT2kL76vMj9A3r9AUnaiHnHf4EwCgYIKoZIzj0EAwID\nSAAwRQIgS4SGaJ/B1Ul88Jal11Q5BwiY9bY2y9w+4xPNBxSyAIcCIQCSWVq+00xS\nbOmROq+EsxO4L/GzJx7MBbeJ6x142VKSBQ==\n-----END CERTIFICATE-----",
+      "type": "string"
+    },
+    "CACommonNames": {
+      "description": "The currently used Certificate authorities's Common Name.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "ID": {
+      "description": "ID is the identifier of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "accessPolicy": {
+      "description": "The rego policy that decides if the incoming request can access the\nprovider. If this empty, the dynamic policy transpiled from\nAccessPolicies API objects will be used by Apexes. If set however,\neverything computed by API objects are ignored and this becomes the final\npolicy.",
+      "type": "string"
+    },
+    "allowSupportAccess": {
+      "description": "When enabled, an API authorization will be created in your\norganization to allow the Support Team to access your organization in\nread-only fashion to help you with any issue you might have.\nDisable it again to remove the permissions.",
+      "type": "boolean"
+    },
+    "askConsent": {
+      "description": "Ask the user of web applications for consent before accessing a monitored\nprovider, using an html splash screen the first time they connect. If\nthis is not set, the users of the providers can still figure out the\nprovider is monitored. This is a courtesy and not a security feature.",
+      "type": "boolean"
+    },
+    "assignPolicy": {
+      "description": "The rego policy that decides in which team an user should be in. The team\nwill be passed to the accessPolicy. If this empty, the dynamic policy\ntranspiled from AssignPolicies API objects will be used by Apexes. If set\nhowever, everything computed by API objects are ignored and this becomes\nthe final policy.",
+      "type": "string"
+    },
+    "contentPolicy": {
+      "description": "The policy that decides how to handle the request content, once access\nhas been granted by accessPolicy and the content analysis was performed.\nIf this empty, the dynamic policy transpiled from AccessPolicies API\nobjects will be used by Apexes. If set however, everything computed by\nAPI objects are ignored and this becomes the final policy.",
+      "type": "string"
+    },
+    "createTime": {
+      "description": "Creation date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "disableURLDiscovery": {
+      "description": "If true, it disables discovering of the visited URLs.",
+      "type": "boolean"
+    },
+    "fingerprints": {
+      "description": "the fingerprint of the cas in the chain.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "importHash": {
+      "description": "The hash of the structure used to compare with new import version.",
+      "type": "string"
+    },
+    "importLabel": {
+      "description": "The user-defined import label that allows the system to group resources from the\nsame import operation.",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the object.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "profile": {
+      "description": "A few sentences about the organization. The description must be short\nand detailed. It will be used by the inference engine to decide if the content\nsent by the users are relevant to your company.",
+      "example": "Acme Corp is a publicly traded company specialized in car manufacturing.",
+      "type": "string"
+    },
+    "propagate": {
+      "default": true,
+      "description": "Propagates the object to all child namespaces. This is always true.",
+      "type": "boolean"
+    },
+    "providersWithoutConsent": {
+      "description": "The providers which do not request employees' consent.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "safeUsageURL": {
+      "description": "A link to the AI Safe Usage Document for the organization. \nIf provided, it is presented in the consent banner to the employees.",
+      "type": "string"
+    },
+    "storeInputFiles": {
+      "description": "If set, files uploaded by the users will be stored.",
+      "type": "boolean"
+    },
+    "storeOutputFiles": {
+      "description": "If set, files sent to the users will be stored.",
+      "type": "boolean"
+    },
+    "subjectKeyIDs": {
+      "description": "the IDs of the subject keys of the cas in the chain.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "updateTime": {
+      "description": "Last update date of the object.",
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "useRegoCodeOnly": {
+      "description": "If true, it uses Rego code to define team assignment, provider access and\ncontent policies.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}
