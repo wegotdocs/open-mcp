@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "downloadClientWorkingFolders": {
+      "type": "string",
+      "nullable": true
+    },
+    "enableCompletedDownloadHandling": {
+      "type": "boolean"
+    },
+    "checkForFinishedDownloadInterval": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "autoRedownloadFailed": {
+      "type": "boolean"
+    },
+    "autoRedownloadFailedFromInteractiveSearch": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

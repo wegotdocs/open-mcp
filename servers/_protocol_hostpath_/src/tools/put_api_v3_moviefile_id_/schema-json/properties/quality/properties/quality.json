@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "source": {
+      "enum": [
+        "unknown",
+        "cam",
+        "telesync",
+        "telecine",
+        "workprint",
+        "dvd",
+        "tv",
+        "webdl",
+        "webrip",
+        "bluray"
+      ],
+      "type": "string"
+    },
+    "resolution": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "modifier": {
+      "enum": [
+        "none",
+        "regional",
+        "screener",
+        "rawhd",
+        "brdisk",
+        "remux"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

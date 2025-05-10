@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "sendUpdatesToClient": {
+      "type": "boolean"
+    },
+    "updateScheduledTask": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "completionMessage": {
+      "type": "string",
+      "nullable": true,
+      "readOnly": true
+    },
+    "requiresDiskAccess": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "isExclusive": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "isTypeExclusive": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "isLongRunning": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "nullable": true,
+      "readOnly": true
+    },
+    "lastExecutionTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "lastStartTime": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "trigger": {
+      "enum": [
+        "unspecified",
+        "manual",
+        "scheduled"
+      ],
+      "type": "string"
+    },
+    "suppressMessages": {
+      "type": "boolean"
+    },
+    "clientUserAgent": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false
+}

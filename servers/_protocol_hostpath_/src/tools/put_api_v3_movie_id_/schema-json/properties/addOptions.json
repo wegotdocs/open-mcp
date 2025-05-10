@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "ignoreEpisodesWithFiles": {
+      "type": "boolean"
+    },
+    "ignoreEpisodesWithoutFiles": {
+      "type": "boolean"
+    },
+    "monitor": {
+      "enum": [
+        "movieOnly",
+        "movieAndCollection",
+        "none"
+      ],
+      "type": "string"
+    },
+    "searchForMovie": {
+      "type": "boolean"
+    },
+    "addMethod": {
+      "enum": [
+        "manual",
+        "list",
+        "collection"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

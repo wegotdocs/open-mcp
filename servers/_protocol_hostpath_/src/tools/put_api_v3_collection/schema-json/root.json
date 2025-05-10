@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "collectionIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "monitored": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "monitorMovies": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "searchOnAdd": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "qualityProfileId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "rootFolderPath": {
+      "type": "string",
+      "nullable": true
+    },
+    "minimumAvailability": {
+      "enum": [
+        "tba",
+        "announced",
+        "inCinemas",
+        "released",
+        "deleted"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

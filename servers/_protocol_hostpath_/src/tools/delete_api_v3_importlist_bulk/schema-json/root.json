@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "applyTags": {
+      "enum": [
+        "add",
+        "remove",
+        "replace"
+      ],
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "enableAuto": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "rootFolderPath": {
+      "type": "string",
+      "nullable": true
+    },
+    "qualityProfileId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "minimumAvailability": {
+      "enum": [
+        "tba",
+        "announced",
+        "inCinemas",
+        "released",
+        "deleted"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

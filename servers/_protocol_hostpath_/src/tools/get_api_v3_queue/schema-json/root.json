@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    },
+    "pageSize": {
+      "type": "integer",
+      "format": "int32",
+      "default": 10
+    },
+    "sortKey": {
+      "type": "string"
+    },
+    "sortDirection": {
+      "enum": [
+        "default",
+        "ascending",
+        "descending"
+      ],
+      "type": "string"
+    },
+    "includeUnknownMovieItems": {
+      "type": "boolean",
+      "default": false
+    },
+    "includeMovie": {
+      "type": "boolean",
+      "default": false
+    },
+    "movieIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "protocol": {
+      "enum": [
+        "unknown",
+        "usenet",
+        "torrent"
+      ],
+      "type": "string"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "quality": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "status": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "unknown",
+          "queued",
+          "paused",
+          "downloading",
+          "completed",
+          "failed",
+          "warning",
+          "delay",
+          "downloadClientUnavailable",
+          "fallback"
+        ],
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

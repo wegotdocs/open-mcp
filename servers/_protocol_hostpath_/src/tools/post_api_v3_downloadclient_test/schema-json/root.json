@@ -1,0 +1,1677 @@
+{
+  "type": "object",
+  "properties": {
+    "forceTest": {
+      "type": "boolean",
+      "default": false
+    },
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit": {
+            "type": "string",
+            "nullable": true
+          },
+          "helpText": {
+            "type": "string",
+            "nullable": true
+          },
+          "helpTextWarning": {
+            "type": "string",
+            "nullable": true
+          },
+          "helpLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "advanced": {
+            "type": "boolean"
+          },
+          "selectOptions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "order": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "hint": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "dividerAfter": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "selectOptionsProviderAction": {
+            "type": "string",
+            "nullable": true
+          },
+          "section": {
+            "type": "string",
+            "nullable": true
+          },
+          "hidden": {
+            "type": "string",
+            "nullable": true
+          },
+          "privacy": {
+            "enum": [
+              "normal",
+              "password",
+              "apiKey",
+              "userName"
+            ],
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFloat": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "implementationName": {
+      "type": "string",
+      "nullable": true
+    },
+    "implementation": {
+      "type": "string",
+      "nullable": true
+    },
+    "configContract": {
+      "type": "string",
+      "nullable": true
+    },
+    "infoLink": {
+      "type": "string",
+      "nullable": true
+    },
+    "message": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `message` to the tool, first call the tool `expandSchema` with \"/properties/message\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "tags": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "presets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "order": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "label": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "unit": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "helpText": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "helpTextWarning": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "helpLink": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "value": {
+                  "nullable": true
+                },
+                "type": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "advanced": {
+                  "type": "boolean"
+                },
+                "selectOptions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "name": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "order": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "hint": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "dividerAfter": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "nullable": true
+                },
+                "selectOptionsProviderAction": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "section": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "hidden": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "privacy": {
+                  "enum": [
+                    "normal",
+                    "password",
+                    "apiKey",
+                    "userName"
+                  ],
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "isFloat": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "implementationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "implementation": {
+            "type": "string",
+            "nullable": true
+          },
+          "configContract": {
+            "type": "string",
+            "nullable": true
+          },
+          "infoLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "nullable": true
+              },
+              "type": {
+                "enum": [
+                  "info",
+                  "warning",
+                  "error"
+                ],
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "tags": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "presets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "name": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "order": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "name": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "label": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "unit": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "helpText": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "helpTextWarning": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "helpLink": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "value": {
+                        "nullable": true
+                      },
+                      "type": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "advanced": {
+                        "type": "boolean"
+                      },
+                      "selectOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "name": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "order": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "hint": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "dividerAfter": {
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "nullable": true
+                      },
+                      "selectOptionsProviderAction": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "section": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "hidden": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "privacy": {
+                        "enum": [
+                          "normal",
+                          "password",
+                          "apiKey",
+                          "userName"
+                        ],
+                        "type": "string"
+                      },
+                      "placeholder": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "isFloat": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "nullable": true
+                },
+                "implementationName": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "implementation": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "configContract": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "infoLink": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "message": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "type": {
+                      "enum": [
+                        "info",
+                        "warning",
+                        "error"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "tags": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "nullable": true
+                },
+                "presets": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "name": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "fields": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "order": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "name": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "label": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "unit": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "helpText": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "helpTextWarning": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "helpLink": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "value": {
+                              "nullable": true
+                            },
+                            "type": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "advanced": {
+                              "type": "boolean"
+                            },
+                            "selectOptions": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "order": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "hint": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "dividerAfter": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "nullable": true
+                            },
+                            "selectOptionsProviderAction": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "section": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "hidden": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "privacy": {
+                              "enum": [
+                                "normal",
+                                "password",
+                                "apiKey",
+                                "userName"
+                              ],
+                              "type": "string"
+                            },
+                            "placeholder": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "isFloat": {
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "nullable": true
+                      },
+                      "implementationName": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "implementation": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "configContract": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "infoLink": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "message": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "type": {
+                            "enum": [
+                              "info",
+                              "warning",
+                              "error"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "tags": {
+                        "uniqueItems": true,
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "nullable": true
+                      },
+                      "presets": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "name": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "fields": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "order": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "label": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "helpText": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "helpTextWarning": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "helpLink": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "value": {
+                                    "nullable": true
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "advanced": {
+                                    "type": "boolean"
+                                  },
+                                  "selectOptions": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "order": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "hint": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "dividerAfter": {
+                                          "type": "boolean"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    },
+                                    "nullable": true
+                                  },
+                                  "selectOptionsProviderAction": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "section": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "hidden": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "privacy": {
+                                    "enum": [
+                                      "normal",
+                                      "password",
+                                      "apiKey",
+                                      "userName"
+                                    ],
+                                    "type": "string"
+                                  },
+                                  "placeholder": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "isFloat": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "nullable": true
+                            },
+                            "implementationName": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "implementation": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "configContract": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "infoLink": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "message": {
+                              "type": "object",
+                              "properties": {
+                                "message": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "type": {
+                                  "enum": [
+                                    "info",
+                                    "warning",
+                                    "error"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            "tags": {
+                              "uniqueItems": true,
+                              "type": "array",
+                              "items": {
+                                "type": "integer",
+                                "format": "int32"
+                              },
+                              "nullable": true
+                            },
+                            "presets": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "fields": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "order": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "label": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "unit": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "helpText": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "helpTextWarning": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "helpLink": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "value": {
+                                          "nullable": true
+                                        },
+                                        "type": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "advanced": {
+                                          "type": "boolean"
+                                        },
+                                        "selectOptions": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "value": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "order": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "hint": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "dividerAfter": {
+                                                "type": "boolean"
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          },
+                                          "nullable": true
+                                        },
+                                        "selectOptionsProviderAction": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "section": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "hidden": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "privacy": {
+                                          "enum": [
+                                            "normal",
+                                            "password",
+                                            "apiKey",
+                                            "userName"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "placeholder": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "isFloat": {
+                                          "type": "boolean"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    },
+                                    "nullable": true
+                                  },
+                                  "implementationName": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "implementation": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "configContract": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "infoLink": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "message": {
+                                    "type": "object",
+                                    "properties": {
+                                      "message": {
+                                        "type": "string",
+                                        "nullable": true
+                                      },
+                                      "type": {
+                                        "enum": [
+                                          "info",
+                                          "warning",
+                                          "error"
+                                        ],
+                                        "type": "string"
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  },
+                                  "tags": {
+                                    "uniqueItems": true,
+                                    "type": "array",
+                                    "items": {
+                                      "type": "integer",
+                                      "format": "int32"
+                                    },
+                                    "nullable": true
+                                  },
+                                  "presets": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "name": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "fields": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "order": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "label": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "unit": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "helpText": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "helpTextWarning": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "helpLink": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "value": {
+                                                "nullable": true
+                                              },
+                                              "type": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "advanced": {
+                                                "type": "boolean"
+                                              },
+                                              "selectOptions": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "value": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "name": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "order": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "hint": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "dividerAfter": {
+                                                      "type": "boolean"
+                                                    }
+                                                  },
+                                                  "additionalProperties": false
+                                                },
+                                                "nullable": true
+                                              },
+                                              "selectOptionsProviderAction": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "section": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "hidden": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "privacy": {
+                                                "enum": [
+                                                  "normal",
+                                                  "password",
+                                                  "apiKey",
+                                                  "userName"
+                                                ],
+                                                "type": "string"
+                                              },
+                                              "placeholder": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "isFloat": {
+                                                "type": "boolean"
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          },
+                                          "nullable": true
+                                        },
+                                        "implementationName": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "implementation": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "configContract": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "infoLink": {
+                                          "type": "string",
+                                          "nullable": true
+                                        },
+                                        "message": {
+                                          "type": "object",
+                                          "properties": {
+                                            "message": {
+                                              "type": "string",
+                                              "nullable": true
+                                            },
+                                            "type": {
+                                              "enum": [
+                                                "info",
+                                                "warning",
+                                                "error"
+                                              ],
+                                              "type": "string"
+                                            }
+                                          },
+                                          "additionalProperties": false
+                                        },
+                                        "tags": {
+                                          "uniqueItems": true,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                          },
+                                          "nullable": true
+                                        },
+                                        "presets": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "fields": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "order": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "name": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "label": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "unit": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "helpText": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "helpTextWarning": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "helpLink": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "value": {
+                                                      "nullable": true
+                                                    },
+                                                    "type": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "advanced": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "selectOptions": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "string"
+                                                          },
+                                                          "name": {
+                                                            "type": "string"
+                                                          },
+                                                          "order": {
+                                                            "type": "string"
+                                                          },
+                                                          "hint": {
+                                                            "type": "string"
+                                                          },
+                                                          "dividerAfter": {
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "additionalProperties": false
+                                                      },
+                                                      "nullable": true
+                                                    },
+                                                    "selectOptionsProviderAction": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "section": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "hidden": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "privacy": {
+                                                      "enum": [
+                                                        "normal",
+                                                        "password",
+                                                        "apiKey",
+                                                        "userName"
+                                                      ],
+                                                      "type": "string"
+                                                    },
+                                                    "placeholder": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "isFloat": {
+                                                      "type": "boolean"
+                                                    }
+                                                  },
+                                                  "additionalProperties": false
+                                                },
+                                                "nullable": true
+                                              },
+                                              "implementationName": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "implementation": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "configContract": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "infoLink": {
+                                                "type": "string",
+                                                "nullable": true
+                                              },
+                                              "message": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "message": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                  },
+                                                  "type": {
+                                                    "enum": [
+                                                      "info",
+                                                      "warning",
+                                                      "error"
+                                                    ],
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "additionalProperties": false
+                                              },
+                                              "tags": {
+                                                "uniqueItems": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "integer",
+                                                  "format": "int32"
+                                                },
+                                                "nullable": true
+                                              },
+                                              "presets": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "id": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "name": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "fields": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "order": {
+                                                            "type": "string"
+                                                          },
+                                                          "name": {
+                                                            "type": "string"
+                                                          },
+                                                          "label": {
+                                                            "type": "string"
+                                                          },
+                                                          "unit": {
+                                                            "type": "string"
+                                                          },
+                                                          "helpText": {
+                                                            "type": "string"
+                                                          },
+                                                          "helpTextWarning": {
+                                                            "type": "string"
+                                                          },
+                                                          "helpLink": {
+                                                            "type": "string"
+                                                          },
+                                                          "value": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": {
+                                                            "type": "string"
+                                                          },
+                                                          "advanced": {
+                                                            "type": "string"
+                                                          },
+                                                          "selectOptions": {
+                                                            "type": "string"
+                                                          },
+                                                          "selectOptionsProviderAction": {
+                                                            "type": "string"
+                                                          },
+                                                          "section": {
+                                                            "type": "string"
+                                                          },
+                                                          "hidden": {
+                                                            "type": "string"
+                                                          },
+                                                          "privacy": {
+                                                            "type": "string"
+                                                          },
+                                                          "placeholder": {
+                                                            "type": "string"
+                                                          },
+                                                          "isFloat": {
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "additionalProperties": false
+                                                      },
+                                                      "nullable": true
+                                                    },
+                                                    "implementationName": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "implementation": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "configContract": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "infoLink": {
+                                                      "type": "string",
+                                                      "nullable": true
+                                                    },
+                                                    "message": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "message": {
+                                                          "type": "string",
+                                                          "nullable": true
+                                                        },
+                                                        "type": {
+                                                          "enum": [
+                                                            "info",
+                                                            "warning",
+                                                            "error"
+                                                          ],
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "additionalProperties": false
+                                                    },
+                                                    "tags": {
+                                                      "uniqueItems": true,
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "integer",
+                                                        "format": "int32"
+                                                      },
+                                                      "nullable": true
+                                                    },
+                                                    "presets": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "string"
+                                                          },
+                                                          "name": {
+                                                            "type": "string"
+                                                          },
+                                                          "fields": {
+                                                            "type": "string"
+                                                          },
+                                                          "implementationName": {
+                                                            "type": "string"
+                                                          },
+                                                          "implementation": {
+                                                            "type": "string"
+                                                          },
+                                                          "configContract": {
+                                                            "type": "string"
+                                                          },
+                                                          "infoLink": {
+                                                            "type": "string"
+                                                          },
+                                                          "message": {
+                                                            "type": "string"
+                                                          },
+                                                          "tags": {
+                                                            "type": "string"
+                                                          },
+                                                          "presets": {
+                                                            "type": "string"
+                                                          },
+                                                          "enable": {
+                                                            "type": "string"
+                                                          },
+                                                          "protocol": {
+                                                            "type": "string"
+                                                          },
+                                                          "priority": {
+                                                            "type": "string"
+                                                          },
+                                                          "removeCompletedDownloads": {
+                                                            "type": "string"
+                                                          },
+                                                          "removeFailedDownloads": {
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "additionalProperties": false
+                                                      },
+                                                      "nullable": true
+                                                    },
+                                                    "enable": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "protocol": {
+                                                      "enum": [
+                                                        "unknown",
+                                                        "usenet",
+                                                        "torrent"
+                                                      ],
+                                                      "type": "string"
+                                                    },
+                                                    "priority": {
+                                                      "type": "integer",
+                                                      "format": "int32"
+                                                    },
+                                                    "removeCompletedDownloads": {
+                                                      "type": "boolean"
+                                                    },
+                                                    "removeFailedDownloads": {
+                                                      "type": "boolean"
+                                                    }
+                                                  },
+                                                  "additionalProperties": false
+                                                },
+                                                "nullable": true
+                                              },
+                                              "enable": {
+                                                "type": "boolean"
+                                              },
+                                              "protocol": {
+                                                "enum": [
+                                                  "unknown",
+                                                  "usenet",
+                                                  "torrent"
+                                                ],
+                                                "type": "string"
+                                              },
+                                              "priority": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                              },
+                                              "removeCompletedDownloads": {
+                                                "type": "boolean"
+                                              },
+                                              "removeFailedDownloads": {
+                                                "type": "boolean"
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          },
+                                          "nullable": true
+                                        },
+                                        "enable": {
+                                          "type": "boolean"
+                                        },
+                                        "protocol": {
+                                          "enum": [
+                                            "unknown",
+                                            "usenet",
+                                            "torrent"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "priority": {
+                                          "type": "integer",
+                                          "format": "int32"
+                                        },
+                                        "removeCompletedDownloads": {
+                                          "type": "boolean"
+                                        },
+                                        "removeFailedDownloads": {
+                                          "type": "boolean"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    },
+                                    "nullable": true
+                                  },
+                                  "enable": {
+                                    "type": "boolean"
+                                  },
+                                  "protocol": {
+                                    "enum": [
+                                      "unknown",
+                                      "usenet",
+                                      "torrent"
+                                    ],
+                                    "type": "string"
+                                  },
+                                  "priority": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                  },
+                                  "removeCompletedDownloads": {
+                                    "type": "boolean"
+                                  },
+                                  "removeFailedDownloads": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "nullable": true
+                            },
+                            "enable": {
+                              "type": "boolean"
+                            },
+                            "protocol": {
+                              "enum": [
+                                "unknown",
+                                "usenet",
+                                "torrent"
+                              ],
+                              "type": "string"
+                            },
+                            "priority": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "removeCompletedDownloads": {
+                              "type": "boolean"
+                            },
+                            "removeFailedDownloads": {
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "nullable": true
+                      },
+                      "enable": {
+                        "type": "boolean"
+                      },
+                      "protocol": {
+                        "enum": [
+                          "unknown",
+                          "usenet",
+                          "torrent"
+                        ],
+                        "type": "string"
+                      },
+                      "priority": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "removeCompletedDownloads": {
+                        "type": "boolean"
+                      },
+                      "removeFailedDownloads": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "nullable": true
+                },
+                "enable": {
+                  "type": "boolean"
+                },
+                "protocol": {
+                  "enum": [
+                    "unknown",
+                    "usenet",
+                    "torrent"
+                  ],
+                  "type": "string"
+                },
+                "priority": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "removeCompletedDownloads": {
+                  "type": "boolean"
+                },
+                "removeFailedDownloads": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "nullable": true
+          },
+          "enable": {
+            "type": "boolean"
+          },
+          "protocol": {
+            "enum": [
+              "unknown",
+              "usenet",
+              "torrent"
+            ],
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "removeCompletedDownloads": {
+            "type": "boolean"
+          },
+          "removeFailedDownloads": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "nullable": true
+    },
+    "enable": {
+      "type": "boolean"
+    },
+    "protocol": {
+      "enum": [
+        "unknown",
+        "usenet",
+        "torrent"
+      ],
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "removeCompletedDownloads": {
+      "type": "boolean"
+    },
+    "removeFailedDownloads": {
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "nullable": true
+    },
+    "applyTags": {
+      "enum": [
+        "add",
+        "remove",
+        "replace"
+      ],
+      "type": "string"
+    },
+    "enableRss": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "enableAutomaticSearch": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "enableInteractiveSearch": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "priority": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": []
+}
