@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "description": "Beginning of the time entry on which to delete time entries (day included)",
+      "examples": [
+        "2021-01-01"
+      ],
+      "format": "date",
+      "title": "Start Date",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "End of the time entry on which to delete time entries (day included)",
+      "examples": [
+        "2021-01-02"
+      ],
+      "format": "date",
+      "title": "End Date",
+      "type": "string"
+    },
+    "user.napta_id": {
+      "description": "Napta identifier of the User. Either `user.napta_id` or `user.external_id` must be provided (but not both).",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        1
+      ],
+      "title": "User.Napta Id"
+    },
+    "user.external_id": {
+      "description": "Unique reference of the User (see [External Ids](#tag/External-Ids)). Either `user.napta_id` or `user.external_id` must be provided (but not both).",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "agent-007"
+      ],
+      "title": "User.External Id"
+    },
+    "project.napta_id": {
+      "description": "Napta identifier of the Project. Either `project.napta_id` or `project.external_id` must be provided (but not both).",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        1
+      ],
+      "title": "Project.Napta Id"
+    },
+    "project.external_id": {
+      "description": "Unique reference of the Project (see [External Ids](#tag/External-Ids)). Either `project.napta_id` or `project.external_id` must be provided (but not both).",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "mission-007"
+      ],
+      "title": "Project.External Id"
+    }
+  },
+  "required": [
+    "start_date",
+    "end_date"
+  ]
+}

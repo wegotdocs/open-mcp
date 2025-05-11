@@ -1,0 +1,128 @@
+{
+  "type": "object",
+  "properties": {
+    "pagination[cursor]": {
+      "description": "Identifier of the next item to fetch",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "MTAw"
+      ],
+      "title": "Pagination[Cursor]"
+    },
+    "pagination[limit]": {
+      "description": "Maximum number of items to fetch",
+      "default": 100,
+      "examples": [
+        100
+      ],
+      "maximum": 500,
+      "minimum": 1,
+      "title": "Pagination[Limit]",
+      "type": "integer"
+    },
+    "id.napta_id[eq]": {
+      "description": "Filter on Napta identifier of the Project",
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        1
+      ],
+      "title": "Id.Napta Id[Eq]"
+    },
+    "id.napta_id[in]": {
+      "description": "Filter on multiple Napta identifier of the Projects, comma separated",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "1,7"
+      ],
+      "title": "Id.Napta Id[In]"
+    },
+    "id.external_id[eq]": {
+      "description": "Filter on unique reference of the Project (see [External Ids](#tag/External-Ids)).",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "mission-007"
+      ],
+      "title": "Id.External Id[Eq]"
+    },
+    "id.external_id[in]": {
+      "description": "Filter on multiple unique reference of the Projects, comma separated (see [External Ids](#tag/External-Ids)).",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "mission-007,mission-006"
+      ],
+      "title": "Id.External Id[In]"
+    },
+    "text_fields[{field_name}][in]": {
+      "description": "Filter on multiple values of a custom text field of the Project. {field_name} must be replaced by the name of the custom text field. All values must be comma separated without space character. If the value contains a comma, just escape the comma with a backslash (\\,). To filter on null value, pass the encoded null ASCII value (%00). To filter on multiple different text fields, you can provide this parameter multiple time (ex: text_fields[my_field_name][in]=value1,value2&text_fields[my_field_name2][in]=value3,value4). In this case, an 'and' filter will be applied between the different fields.",
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "array"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Text Fields[{Field Name}][In]"
+    }
+  },
+  "required": []
+}

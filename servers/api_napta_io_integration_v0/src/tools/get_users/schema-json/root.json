@@ -1,0 +1,102 @@
+{
+  "type": "object",
+  "properties": {
+    "pagination[cursor]": {
+      "description": "Identifier of the next item to fetch",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "MTAw"
+      ],
+      "title": "Pagination[Cursor]"
+    },
+    "pagination[limit]": {
+      "description": "Maximum number of items to fetch",
+      "default": 100,
+      "examples": [
+        100
+      ],
+      "maximum": 500,
+      "minimum": 1,
+      "title": "Pagination[Limit]",
+      "type": "integer"
+    },
+    "id.napta_id[eq]": {
+      "description": "Filter on Napta identifier of the User",
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        1
+      ],
+      "title": "Id.Napta Id[Eq]"
+    },
+    "id.napta_id[in]": {
+      "description": "Filter on multiple Napta identifier of the Users, comma separated",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "1,7"
+      ],
+      "title": "Id.Napta Id[In]"
+    },
+    "id.external_id[eq]": {
+      "description": "Filter on unique reference of the User (see [External Ids](#tag/External-Ids)).",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "agent-007"
+      ],
+      "title": "Id.External Id[Eq]"
+    },
+    "id.external_id[in]": {
+      "description": "Filter on multiple unique reference of the Users, comma separated (see [External Ids](#tag/External-Ids)).",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "agent-007,agent-q"
+      ],
+      "title": "Id.External Id[In]"
+    }
+  },
+  "required": []
+}

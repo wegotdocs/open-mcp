@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "description": "Start date of the Leave",
+      "examples": [
+        "2021-01-01"
+      ],
+      "format": "date",
+      "title": "Start Date",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "End date of the Leave",
+      "examples": [
+        "2021-01-04"
+      ],
+      "format": "date",
+      "title": "End Date",
+      "type": "string"
+    },
+    "starts_at_midday": {
+      "default": false,
+      "description": "Whether the Leave starts at midday",
+      "title": "Starts At Midday",
+      "type": "boolean"
+    },
+    "ends_at_midday": {
+      "default": false,
+      "description": "Whether the Leave ends at midday",
+      "title": "Ends At Midday",
+      "type": "boolean"
+    },
+    "user": {
+      "type": "string"
+    },
+    "category": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Category of the Leave (created if not existing)",
+      "examples": [
+        "Paid Leave"
+      ],
+      "title": "Category"
+    }
+  },
+  "required": [
+    "start_date",
+    "end_date",
+    "user"
+  ]
+}

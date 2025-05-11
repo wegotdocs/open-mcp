@@ -1,0 +1,210 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "simulated": {
+      "default": false,
+      "description": "Whether the Assignment is simulated or not",
+      "examples": [
+        false
+      ],
+      "title": "Simulated",
+      "type": "boolean"
+    },
+    "status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Name of the status associated to the Assignment",
+      "examples": [
+        "Validated"
+      ],
+      "title": "Status"
+    },
+    "custom_dropdown_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_dropdown_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_dropdown_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom dropdown fields of the Assignment, (see [Custom Dropdown Fields](#tag/Custom-Fields/Custom-Dropdown-Fields))</property-description>",
+      "additionalProperties": true
+    },
+    "custom_text_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_text_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_text_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom text fields of the Assignment, (see [Custom Text Fields](#tag/Custom-Fields/Custom-Text-Fields))</property-description>",
+      "additionalProperties": true
+    },
+    "user": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "periods": {
+      "description": "List of periods associated to the Assignment. Only pass the periods that need to be persisted.\n⚠️ Passing an empty list or `null` will remove all periods associated to the Assignment.",
+      "items": {
+        "properties": {
+          "start_date": {
+            "description": "Start date of the period",
+            "examples": [
+              "2021-01-01"
+            ],
+            "format": "date",
+            "title": "Start Date",
+            "type": "string"
+          },
+          "end_date": {
+            "description": "End date of the period",
+            "examples": [
+              "2021-01-04"
+            ],
+            "format": "date",
+            "title": "End Date",
+            "type": "string"
+          },
+          "starts_at_midday": {
+            "default": false,
+            "description": "Whether the period starts at midday",
+            "title": "Starts At Midday",
+            "type": "boolean"
+          },
+          "ends_at_midday": {
+            "default": false,
+            "description": "Whether the period ends at midday",
+            "title": "Ends At Midday",
+            "type": "boolean"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Name of the status associated to the period (created if not existing)",
+            "examples": [
+              "Billable"
+            ],
+            "title": "Status"
+          },
+          "custom_dropdown_fields": {
+            "additionalProperties": false,
+            "description": "Custom dropdown fields of the period, (see [Custom Dropdown Fields](#tag/Custom-Fields/Custom-Dropdown-Fields))",
+            "examples": [
+              {
+                "confidentiality_level": "Public",
+                "gear_allowance": [
+                  "Aston Martin",
+                  "Rolex Submariner watch",
+                  "Spy camera",
+                  "Jetpack",
+                  "Pen grenade",
+                  "Spectre rings"
+                ]
+              }
+            ],
+            "properties": {
+              "confidentiality_level": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Corresponding to custom field named 'Confidentiality level'",
+                "title": "Confidentiality Level"
+              },
+              "gear_allowance": {
+                "description": "Corresponding to custom field named 'Gear allowance'",
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "title": "Gear Allowance",
+                "type": "array"
+              }
+            },
+            "title": "Custom Dropdown Fields",
+            "type": "object"
+          },
+          "workload": {
+            "type": "string"
+          },
+          "daily_fee_info": {
+            "anyOf": [
+              {
+                "properties": {
+                  "amount": {
+                    "description": "Amount",
+                    "examples": [
+                      1000.5
+                    ],
+                    "minimum": 0,
+                    "title": "Amount",
+                    "type": "number"
+                  },
+                  "currency": {
+                    "default": null,
+                    "description": "Currency. If `null`, the currency will be set to the default currency",
+                    "enum": [
+                      "EUR",
+                      "USD",
+                      "GBP",
+                      null
+                    ],
+                    "examples": [
+                      null
+                    ],
+                    "title": "Currency"
+                  }
+                },
+                "required": [
+                  "amount"
+                ],
+                "title": "MonetaryFieldRequest",
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Daily fee of the Assignment period",
+            "examples": [
+              {
+                "amount": 1000,
+                "currency": "EUR"
+              }
+            ]
+          }
+        },
+        "required": [
+          "start_date",
+          "end_date",
+          "workload"
+        ],
+        "title": "AssignmentPeriodRequest",
+        "type": "object"
+      },
+      "title": "Periods",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "user",
+    "project"
+  ]
+}

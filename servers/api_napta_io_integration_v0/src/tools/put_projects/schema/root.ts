@@ -1,0 +1,26 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.string(),
+  "name": z.string().min(1).describe("Name of the Project"),
+  "description": z.union([z.string().min(1), z.null()]).describe("Description of the Project (markdown field - converted to text)").optional(),
+  "client": z.string().min(1).describe("Name of the client associated to the Project (created if not existing)"),
+  "category": z.union([z.string().min(1), z.null()]).describe("Name of the category associated to the Project (created if not existing)").optional(),
+  "status": z.union([z.string().min(1), z.null()]).describe("Name of the status associated to the Project (created if not existing)").optional(),
+  "business_units": z.array(z.string().min(1)).describe("List of names of the business units associated to the Project (created if not existing)").optional(),
+  "estimated_start_date": z.union([z.string().date(), z.null()]).describe("Estimated start date of the Project").optional(),
+  "estimated_end_date": z.union([z.string().date(), z.null()]).describe("Estimated end date of the Project").optional(),
+  "archived": z.boolean().describe("Whether the Project is archived or not").optional(),
+  "locked": z.boolean().describe("Whether the Project is locked (modification and staffing disabled on the app) or not").optional(),
+  "billing_method": z.union([z.string(), z.null()]).describe("Billing method of the Project").optional(),
+  "target_margin_rate": z.union([z.number(), z.null()]).describe("Target margin rate on the Project").optional(),
+  "man_days_sold": z.array(z.object({ "position": z.enum(["Agents","Special Agents"]).describe("Name of the position sold"), "days": z.number().gte(0).describe("Number of days sold") })).describe("List of man days sold associated to the Project").optional(),
+  "kanban_column": z.union([z.string(), z.null()]).describe("Name of the kanban column the Project will be put in. Column names are the ones from the english version of the app").optional(),
+  "custom_dropdown_fields": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_dropdown_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_dropdown_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom dropdown fields of the Project, (see [Custom Dropdown Fields](#tag/Custom-Fields/Custom-Dropdown-Fields))</property-description>").optional(),
+  "custom_text_fields": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_text_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_text_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom text fields of the Project, (see [Custom Text Fields](#tag/Custom-Fields/Custom-Text-Fields))</property-description>").optional(),
+  "creator": z.union([z.object({ "napta_id": z.union([z.number().int().gt(0), z.null()]).describe("Napta identifier of the User"), "external_id": z.union([z.string().min(1), z.null()]).describe("Unique reference of the User (see [External Ids](#tag/External-Ids))") }), z.null()]).describe("Identifier of the User that owns the Project (at least one identification value must be provided)").optional(),
+  "co_owners": z.array(z.object({ "napta_id": z.union([z.number().int().gt(0), z.null()]).describe("Napta identifier of the User"), "external_id": z.union([z.string().min(1), z.null()]).describe("Unique reference of the User (see [External Ids](#tag/External-Ids))") })).describe("List of identifiers of the Users that are co-owners of the Project (at least one identification value must be provided)").optional(),
+  "parent_project": z.union([z.object({ "napta_id": z.union([z.number().int().gt(0), z.null()]).describe("Napta identifier of the Project"), "external_id": z.union([z.string().min(1), z.null()]).describe("Unique reference of the Project (see [External Ids](#tag/External-Ids))") }), z.null()]).describe("Identifier of the Project parent (in project hierarchy) of the current project (at least one identification value must be provided)").optional(),
+  "fees": z.array(z.object({ "amount": z.number().gte(0).describe("Amount"), "currency": z.union([z.literal("EUR"), z.literal("USD"), z.literal("GBP"), z.literal(null)]).describe("Currency. If `null`, the currency will be set to the default currency"), "name": z.string().min(1).describe("Name of the fee"), "date": z.string().date().describe("Date of the fee") })).describe("List of fees associated to the Project").optional(),
+  "sold_budget_info": z.union([z.object({ "amount": z.number().gte(0).describe("Amount"), "currency": z.union([z.literal("EUR"), z.literal("USD"), z.literal("GBP"), z.literal(null)]).describe("Currency. If `null`, the currency will be set to the default currency") }), z.null()]).describe("Sold budget on the Project").optional()
+}

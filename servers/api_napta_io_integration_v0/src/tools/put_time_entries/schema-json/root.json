@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "date": {
+      "description": "Date of the time entry",
+      "examples": [
+        "2021-01-01"
+      ],
+      "format": "date",
+      "title": "Date",
+      "type": "string"
+    },
+    "user": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "workload": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "date",
+    "user",
+    "project",
+    "workload"
+  ]
+}
