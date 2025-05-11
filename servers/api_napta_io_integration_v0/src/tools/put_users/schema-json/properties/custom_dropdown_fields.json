@@ -1,0 +1,40 @@
+{
+  "additionalProperties": false,
+  "description": "Custom dropdown fields of the User, (see [Custom Dropdown Fields](#tag/Custom-Fields/Custom-Dropdown-Fields))",
+  "examples": [
+    {
+      "accreditation": [
+        "Ride the James Bond car",
+        "Fly a plane",
+        "Dive with sharks"
+      ],
+      "contract": "CDI"
+    }
+  ],
+  "properties": {
+    "contract": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Corresponding to custom field named 'Contract'",
+      "title": "Contract"
+    },
+    "accreditation": {
+      "description": "Corresponding to custom field named 'Accreditation'",
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Accreditation",
+      "type": "array"
+    }
+  },
+  "title": "Custom Dropdown Fields",
+  "type": "object"
+}

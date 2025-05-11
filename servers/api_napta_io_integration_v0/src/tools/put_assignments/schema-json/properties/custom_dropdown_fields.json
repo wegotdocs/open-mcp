@@ -1,0 +1,41 @@
+{
+  "additionalProperties": false,
+  "description": "Custom dropdown fields of the Assignment, (see [Custom Dropdown Fields](#tag/Custom-Fields/Custom-Dropdown-Fields))",
+  "examples": [
+    {
+      "assignment_probability": "25 %",
+      "role": [
+        "Contractor",
+        "Operator",
+        "Supervisor",
+        "Manager"
+      ]
+    }
+  ],
+  "properties": {
+    "assignment_probability": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Corresponding to custom field named 'Assignment probability'",
+      "title": "Assignment Probability"
+    },
+    "role": {
+      "description": "Corresponding to custom field named 'Role'",
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Role",
+      "type": "array"
+    }
+  },
+  "title": "Custom Dropdown Fields",
+  "type": "object"
+}

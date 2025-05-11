@@ -1,0 +1,812 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "first_name": {
+      "description": "First Name of the User",
+      "examples": [
+        "James"
+      ],
+      "minLength": 1,
+      "title": "First Name",
+      "type": "string"
+    },
+    "last_name": {
+      "description": "Last Name of the User",
+      "examples": [
+        "Bond"
+      ],
+      "minLength": 1,
+      "title": "Last Name",
+      "type": "string"
+    },
+    "email": {
+      "description": "Email of the User",
+      "examples": [
+        "james.bond@example.xyz"
+      ],
+      "format": "email",
+      "minLength": 1,
+      "title": "Email",
+      "type": "string"
+    },
+    "group": {
+      "description": "Name of the group associated to the User",
+      "enum": [
+        "Basic Accreditation",
+        "Special Accreditation"
+      ],
+      "examples": [
+        "Special Accreditation"
+      ],
+      "title": "Group",
+      "type": "string"
+    },
+    "position": {
+      "description": "Name of position associated to the User (created if not existing)",
+      "examples": [
+        "Special Agents"
+      ],
+      "minLength": 1,
+      "title": "Position",
+      "type": "string"
+    },
+    "active": {
+      "default": true,
+      "description": "Whether the User is active or not (an inactive user is unable to log in)",
+      "examples": [
+        true
+      ],
+      "title": "Active",
+      "type": "boolean"
+    },
+    "business_unit": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Name of the business unit associated to the User (created if not existing)",
+      "examples": [
+        "MI6 - Level 8"
+      ],
+      "title": "Business Unit"
+    },
+    "location": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Name of the location associated to the User (created if not existing)",
+      "examples": [
+        "London"
+      ],
+      "title": "Location"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Description of the User (markdown field - converted to text)",
+      "examples": [
+        "I'm a secret agent, I save the world!"
+      ],
+      "title": "Description"
+    },
+    "phone_number": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Phone number of the User",
+      "examples": [
+        "+44 20 7946 0000"
+      ],
+      "title": "Phone Number"
+    },
+    "hiring_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Hiring date of the User",
+      "examples": [
+        "1953-01-01"
+      ],
+      "title": "Hiring Date"
+    },
+    "leaving_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Leaving date of the User",
+      "examples": [
+        "2022-10-06"
+      ],
+      "title": "Leaving Date"
+    },
+    "custom_dropdown_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_dropdown_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_dropdown_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom dropdown fields of the User, (see [Custom Dropdown Fields](#tag/Custom-Fields/Custom-Dropdown-Fields))</property-description>",
+      "additionalProperties": true
+    },
+    "custom_text_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_text_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_text_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom text fields of the User, (see [Custom Text Fields](#tag/Custom-Fields/Custom-Text-Fields))</property-description>",
+      "additionalProperties": true
+    },
+    "productive_share": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Productive share of the User",
+      "examples": [
+        0.8
+      ],
+      "title": "Productive Share"
+    },
+    "event_timelines": {
+      "anyOf": [
+        {
+          "properties": {
+            "position": {
+              "anyOf": [
+                {
+                  "items": {
+                    "properties": {
+                      "application_date": {
+                        "anyOf": [
+                          {
+                            "const": "first_event",
+                            "enum": [
+                              "first_event"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "format": "date",
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Application date of the event (YYYY-MM-DD) or literal 'first_event' for the first event of the timeline",
+                        "title": "Application Date"
+                      },
+                      "value": {
+                        "description": "Value to apply for the event",
+                        "minLength": 1,
+                        "title": "Value",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "application_date",
+                      "value"
+                    ],
+                    "title": "TimelineEvent[Annotated[str, StringConstraints]]",
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Position event timeline",
+              "examples": [
+                [
+                  {
+                    "application_date": "first_event",
+                    "value": "Agents"
+                  },
+                  {
+                    "application_date": "2021-01-01",
+                    "value": "Special Agents"
+                  }
+                ]
+              ],
+              "title": "Position"
+            },
+            "business_unit": {
+              "anyOf": [
+                {
+                  "items": {
+                    "properties": {
+                      "application_date": {
+                        "anyOf": [
+                          {
+                            "const": "first_event",
+                            "enum": [
+                              "first_event"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "format": "date",
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Application date of the event (YYYY-MM-DD) or literal 'first_event' for the first event of the timeline",
+                        "title": "Application Date"
+                      },
+                      "value": {
+                        "anyOf": [
+                          {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "description": "Value to apply for the event",
+                        "title": "Value"
+                      }
+                    },
+                    "required": [
+                      "application_date",
+                      "value"
+                    ],
+                    "title": "TimelineEvent[Union[Annotated[str, StringConstraints], NoneType]]",
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Business unit event timeline",
+              "examples": [
+                [
+                  {
+                    "application_date": "first_event",
+                    "value": "MI6 - Level 7"
+                  },
+                  {
+                    "application_date": "2021-01-01",
+                    "value": "MI6 - Level 8"
+                  }
+                ]
+              ],
+              "title": "Business Unit"
+            },
+            "location": {
+              "anyOf": [
+                {
+                  "items": {
+                    "properties": {
+                      "application_date": {
+                        "anyOf": [
+                          {
+                            "const": "first_event",
+                            "enum": [
+                              "first_event"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "format": "date",
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Application date of the event (YYYY-MM-DD) or literal 'first_event' for the first event of the timeline",
+                        "title": "Application Date"
+                      },
+                      "value": {
+                        "anyOf": [
+                          {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "description": "Value to apply for the event",
+                        "title": "Value"
+                      }
+                    },
+                    "required": [
+                      "application_date",
+                      "value"
+                    ],
+                    "title": "TimelineEvent[Union[Annotated[str, StringConstraints], NoneType]]",
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Location event timeline",
+              "examples": [
+                [
+                  {
+                    "application_date": "first_event",
+                    "value": "Paris"
+                  },
+                  {
+                    "application_date": "2021-01-01",
+                    "value": "London"
+                  }
+                ]
+              ],
+              "title": "Location"
+            },
+            "daily_cost_info": {
+              "anyOf": [
+                {
+                  "items": {
+                    "properties": {
+                      "application_date": {
+                        "anyOf": [
+                          {
+                            "const": "first_event",
+                            "enum": [
+                              "first_event"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "format": "date",
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Application date of the event (YYYY-MM-DD) or literal 'first_event' for the first event of the timeline",
+                        "title": "Application Date"
+                      },
+                      "value": {
+                        "anyOf": [
+                          {
+                            "properties": {
+                              "amount": {
+                                "description": "Amount",
+                                "examples": [
+                                  1000.5
+                                ],
+                                "minimum": 0,
+                                "title": "Amount",
+                                "type": "number"
+                              },
+                              "currency": {
+                                "default": null,
+                                "description": "Currency. If `null`, the currency will be set to the default currency",
+                                "enum": [
+                                  "EUR",
+                                  "USD",
+                                  "GBP",
+                                  null
+                                ],
+                                "examples": [
+                                  null
+                                ],
+                                "title": "Currency"
+                              }
+                            },
+                            "required": [
+                              "amount"
+                            ],
+                            "title": "MonetaryFieldRequest",
+                            "type": "object"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "description": "Value to apply for the event"
+                      }
+                    },
+                    "required": [
+                      "application_date",
+                      "value"
+                    ],
+                    "title": "TimelineEvent[Union[MonetaryFieldRequest, NoneType]]",
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Daily cost event timeline",
+              "examples": [
+                [
+                  {
+                    "application_date": "first_event",
+                    "value": {
+                      "amount": 500.75,
+                      "currency": "EUR"
+                    }
+                  },
+                  {
+                    "application_date": "2021-01-01",
+                    "value": {
+                      "amount": 1000.5,
+                      "currency": "EUR"
+                    }
+                  }
+                ]
+              ],
+              "title": "Daily Cost Info"
+            },
+            "productive_share": {
+              "anyOf": [
+                {
+                  "items": {
+                    "properties": {
+                      "application_date": {
+                        "anyOf": [
+                          {
+                            "const": "first_event",
+                            "enum": [
+                              "first_event"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "format": "date",
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Application date of the event (YYYY-MM-DD) or literal 'first_event' for the first event of the timeline",
+                        "title": "Application Date"
+                      },
+                      "value": {
+                        "description": "Value to apply for the event",
+                        "maximum": 1,
+                        "minimum": 0,
+                        "title": "Value",
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "application_date",
+                      "value"
+                    ],
+                    "title": "TimelineEvent[Annotated[float, Interval]]",
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Productive share event timeline",
+              "examples": [
+                [
+                  {
+                    "application_date": "first_event",
+                    "value": 0.6
+                  },
+                  {
+                    "application_date": "2021-01-01",
+                    "value": 0.8
+                  }
+                ]
+              ],
+              "title": "Productive Share"
+            },
+            "hours_per_day": {
+              "anyOf": [
+                {
+                  "items": {
+                    "properties": {
+                      "application_date": {
+                        "anyOf": [
+                          {
+                            "const": "first_event",
+                            "enum": [
+                              "first_event"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "format": "date",
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Application date of the event (YYYY-MM-DD) or literal 'first_event' for the first event of the timeline",
+                        "title": "Application Date"
+                      },
+                      "value": {
+                        "description": "Value to apply for the event",
+                        "minimum": 0,
+                        "title": "Value",
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "application_date",
+                      "value"
+                    ],
+                    "title": "TimelineEvent[Annotated[float, Ge]]",
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Hours per day event timeline",
+              "examples": [
+                [
+                  {
+                    "application_date": "first_event",
+                    "value": 7.5
+                  },
+                  {
+                    "application_date": "2021-01-01",
+                    "value": 8.2
+                  }
+                ]
+              ],
+              "title": "Hours Per Day"
+            }
+          },
+          "title": "UserTimelinesRequest",
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "List of events associated to the User (see [Event Timelines Fields](#tag/Event-Timelines-Fields))"
+    },
+    "direct_managers": {
+      "description": "List of identifiers of the User's direct managers (at least one identification value must be provided). Note that N+2 and more hierarchical links will be created automatically using managers' managers.",
+      "examples": [
+        [
+          {
+            "external_id": "agent-001"
+          },
+          {
+            "external_id": "agent-002"
+          }
+        ]
+      ],
+      "items": {
+        "properties": {
+          "napta_id": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Napta identifier of the User",
+            "examples": [
+              1
+            ],
+            "title": "Napta Id"
+          },
+          "external_id": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Unique reference of the User (see [External Ids](#tag/External-Ids))",
+            "examples": [
+              "agent-007"
+            ],
+            "title": "External Id"
+          }
+        },
+        "title": "UserIdentifier",
+        "type": "object"
+      },
+      "title": "Direct Managers",
+      "type": "array"
+    },
+    "daily_cost_info": {
+      "anyOf": [
+        {
+          "properties": {
+            "amount": {
+              "description": "Amount",
+              "examples": [
+                1000.5
+              ],
+              "minimum": 0,
+              "title": "Amount",
+              "type": "number"
+            },
+            "currency": {
+              "default": null,
+              "description": "Currency. If `null`, the currency will be set to the default currency",
+              "enum": [
+                "EUR",
+                "USD",
+                "GBP",
+                null
+              ],
+              "examples": [
+                null
+              ],
+              "title": "Currency"
+            }
+          },
+          "required": [
+            "amount"
+          ],
+          "title": "MonetaryFieldRequest",
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Daily cost of the User",
+      "examples": [
+        {
+          "amount": 1000.5,
+          "currency": "EUR"
+        }
+      ]
+    },
+    "hours_per_day": {
+      "anyOf": [
+        {
+          "maximum": 24,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Number of hours per day of the User",
+      "examples": [
+        8.2
+      ],
+      "title": "Hours Per Day"
+    },
+    "workweek": {
+      "anyOf": [
+        {
+          "properties": {
+            "monday": {
+              "description": "Whether the User works on Monday",
+              "title": "Monday",
+              "type": "boolean"
+            },
+            "tuesday": {
+              "description": "Whether the User works on Tuesday",
+              "title": "Tuesday",
+              "type": "boolean"
+            },
+            "wednesday": {
+              "description": "Whether the User works on Wednesday",
+              "title": "Wednesday",
+              "type": "boolean"
+            },
+            "thursday": {
+              "description": "Whether the User works on Thursday",
+              "title": "Thursday",
+              "type": "boolean"
+            },
+            "friday": {
+              "description": "Whether the User works on Friday",
+              "title": "Friday",
+              "type": "boolean"
+            },
+            "saturday": {
+              "description": "Whether the User works on Saturday",
+              "title": "Saturday",
+              "type": "boolean"
+            },
+            "sunday": {
+              "description": "Whether the User works on Sunday",
+              "title": "Sunday",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "title": "Workweek",
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Workweek of the User (description of the days worked by the User)",
+      "examples": [
+        {
+          "friday": true,
+          "monday": true,
+          "saturday": false,
+          "sunday": false,
+          "thursday": true,
+          "tuesday": true,
+          "wednesday": true
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "first_name",
+    "last_name",
+    "email",
+    "group",
+    "position"
+  ]
+}

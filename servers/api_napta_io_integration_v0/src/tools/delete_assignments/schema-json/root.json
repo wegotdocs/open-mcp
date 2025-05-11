@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id.napta_id": {
+      "description": "Napta identifier of the Assignment. Either `id.napta_id` or `id.external_id` must be provided (but not both).",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        1
+      ],
+      "title": "Id.Napta Id"
+    },
+    "id.external_id": {
+      "description": "Unique reference of the Assignment (see [External Ids](#tag/External-Ids)).\nEither `id.napta_id` or `id.external_id` must be provided (but not both).",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "test-new-weapons"
+      ],
+      "title": "Id.External Id"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,26 @@
+{
+  "additionalProperties": false,
+  "description": "Custom text fields of the Project, (see [Custom Text Fields](#tag/Custom-Fields/Custom-Text-Fields))",
+  "examples": [
+    {
+      "complementary_info": "My 'Complementary info' value"
+    }
+  ],
+  "properties": {
+    "complementary_info": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Corresponding to custom field named 'Complementary info'",
+      "title": "Complementary Info"
+    }
+  },
+  "title": "Custom Text Fields",
+  "type": "object"
+}

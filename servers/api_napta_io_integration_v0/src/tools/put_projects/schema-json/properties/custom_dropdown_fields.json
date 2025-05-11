@@ -1,0 +1,40 @@
+{
+  "additionalProperties": false,
+  "description": "Custom dropdown fields of the Project, (see [Custom Dropdown Fields](#tag/Custom-Fields/Custom-Dropdown-Fields))",
+  "examples": [
+    {
+      "priority": "High",
+      "transportation": [
+        "Car",
+        "Plane",
+        "Boat"
+      ]
+    }
+  ],
+  "properties": {
+    "priority": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Corresponding to custom field named 'Priority'",
+      "title": "Priority"
+    },
+    "transportation": {
+      "description": "Corresponding to custom field named 'Transportation'",
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Transportation",
+      "type": "array"
+    }
+  },
+  "title": "Custom Dropdown Fields",
+  "type": "object"
+}

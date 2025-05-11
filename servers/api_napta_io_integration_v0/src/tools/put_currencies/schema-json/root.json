@@ -1,0 +1,97 @@
+{
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "Currency Code. Must be a valid ISO-4217 formatted currency code (3 uppercase letters).",
+      "examples": [
+        "USD",
+        "EUR"
+      ],
+      "minLength": 1,
+      "title": "Code",
+      "type": "string"
+    },
+    "label": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Custom label for the currency that will be displayed in the application. If not given, the default conventional label of the currency will be used (such as $, €, £, etc.). Length cannot exceed 5 characters.",
+      "examples": [
+        "$",
+        "€",
+        "£"
+      ],
+      "title": "Label"
+    },
+    "archived": {
+      "default": false,
+      "description": "Whether the currency is archived (not used anymore in the application) or not. Currency cannot be deleted for history purpose. Main currency cannot be archived.",
+      "examples": [
+        true,
+        false
+      ],
+      "title": "Archived",
+      "type": "boolean"
+    },
+    "exchange_rate_timeline": {
+      "description": "Exchange rates timeline (see [Event Timelines Fields](#tag/Event-Timelines-Fields))",
+      "examples": [
+        [
+          {
+            "application_date": "first_event",
+            "value": 1.2
+          },
+          {
+            "application_date": "2021-01-01",
+            "value": 1.3
+          }
+        ]
+      ],
+      "items": {
+        "properties": {
+          "application_date": {
+            "anyOf": [
+              {
+                "const": "first_event",
+                "enum": [
+                  "first_event"
+                ],
+                "type": "string"
+              },
+              {
+                "format": "date",
+                "type": "string"
+              }
+            ],
+            "description": "Application date of the event (YYYY-MM-DD) or literal 'first_event' for the first event of the timeline",
+            "title": "Application Date"
+          },
+          "value": {
+            "description": "Value to apply for the event",
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": [
+          "application_date",
+          "value"
+        ],
+        "title": "TimelineEvent[float]",
+        "type": "object"
+      },
+      "title": "Exchange Rate Timeline",
+      "type": "array"
+    }
+  },
+  "required": [
+    "code",
+    "exchange_rate_timeline"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id.napta_id": {
+      "description": "Napta identifier of the Project. Either `id.napta_id` or `id.external_id` must be provided (but not both).",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        1
+      ],
+      "title": "Id.Napta Id"
+    },
+    "id.external_id": {
+      "description": "Unique reference of the Project (see [External Ids](#tag/External-Ids)). Either `id.napta_id` or `id.external_id` must be provided (but not both).",
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "agent-007"
+      ],
+      "title": "Id.External Id"
+    }
+  },
+  "required": []
+}
