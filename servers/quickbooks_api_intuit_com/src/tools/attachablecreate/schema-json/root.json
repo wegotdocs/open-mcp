@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string",
+      "example": "delete"
+    },
+    "AttachableRef": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "EntityRef": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "Invoice"
+              },
+              "value": {
+                "type": "string",
+                "example": "130"
+              }
+            }
+          },
+          "IncludeOnSend": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "example": [
+        {
+          "EntityRef": {
+            "type": "Invoice",
+            "value": "130"
+          },
+          "IncludeOnSend": false
+        }
+      ]
+    },
+    "Id": {
+      "type": "string",
+      "example": "5000000000000029383"
+    },
+    "MetaData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `MetaData` to the tool, first call the tool `expandSchema` with \"/properties/MetaData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "Note": {
+      "type": "string",
+      "example": "This is an attached note. Updated1"
+    },
+    "SyncToken": {
+      "type": "string",
+      "example": "2"
+    },
+    "domain": {
+      "type": "string",
+      "example": "QBO"
+    },
+    "sparse": {
+      "type": "boolean",
+      "example": false
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,233 @@
+{
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string",
+      "example": "delete"
+    },
+    "Id": {
+      "type": "string",
+      "description": "Unique identifier for this object. Sort order is ASC by default."
+    },
+    "Line": {
+      "type": "array",
+      "description": "Individual line items of a transaction. Valid Line types include SalesItemLine, GroupLine, DescriptionOnlyLine (also used for inline Subtotal lines), DiscountLine and SubTotalLine (used for the overall transaction)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Unique identifier for this object. Sort order is ASC by default."
+          },
+          "DetailType": {
+            "type": "string",
+            "enum": [
+              "DepositLineDetail"
+            ]
+          },
+          "DepositLineDetail": {
+            "type": "object",
+            "properties": {
+              "AccountRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "PaymentMethodRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "ClassRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "CheckNum": {
+                "type": "string",
+                "description": "The check number of the deposit line."
+              },
+              "TaxCodeRef": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "TxnType": {
+                "type": "string",
+                "description": "The type of transaction. Valid values include Payment, SalesReceipt, and JournalEntry.",
+                "enum": [
+                  "APCreditCard",
+                  "ARRefundCreditCard",
+                  "Bill",
+                  "BillPaymentCheck",
+                  "BuildAssembly",
+                  "CarryOver",
+                  "Charge",
+                  "Check",
+                  "CreditMemo",
+                  "Deposit",
+                  "EFPLiabilityCheck",
+                  "EFTBillPayment",
+                  "EFTRefund",
+                  "Estimate",
+                  "InventoryAdjustment",
+                  "InventoryTransfer",
+                  "Invoice",
+                  "ItemReceipt",
+                  "JournalEntry"
+                ]
+              },
+              "Entity": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "Project": {
+                "type": "object",
+                "description": "Reference type",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+                  }
+                }
+              },
+              "Description": {
+                "type": "string",
+                "description": "A description of the deposit line"
+              }
+            }
+          },
+          "Amount": {
+            "type": "number",
+            "description": "The amount of the deposit line."
+          },
+          "ProjectRef": {
+            "type": "object",
+            "description": "Reference type",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The ID for the referenced object as found in the Id field of the object payload. The context is set by the type of reference and is specific to the QuickBooks company file."
+              },
+              "name": {
+                "type": "string",
+                "description": "An identifying name for the object being referenced by value and is derived from the field that holds the common name of that object. This varies by context and specific type of object referenced. For example, references to a Customer object use Customer.DisplayName to populate this field. Optionally returned in responses, implementation dependent."
+              }
+            }
+          },
+          "Description": {
+            "type": "string",
+            "description": "A description of the deposit line"
+          },
+          "LineNum": {
+            "type": "number",
+            "description": "The line number of the deposit line."
+          },
+          "LinkedTxn": {
+            "type": "array",
+            "description": "Zero or more related transactions to this Deposit object. The following linked relationships are supported- Links to Estimate and TimeActivity objects can be established directly to this Deposit object with UI or with the API. Create, Read, Update, and Query operations are avaialble at the API level for these types of links. Only one link can be made to an Estimate. Progress Invoicing is not supported via the API. Links to expenses incurred on behalf of the customer are returned in the response with LinkedTxn.TxnType set to ReimburseCharge, ChargeCredit or StatementCharge corresponding to billable customer expenses of type Cash, Delayed Credit, and Delayed Charge, respectively. Links to these types of transactions are established within the QuickBooks UI, only, and are available as read-only at the API level. Links to payments applied to an Deposit object are returned in the response with LinkedTxn.TxnType set to Payment. Links to Payment transactions are established within the QuickBooks UI, only, and are available as read-only at the API level. Use LinkedTxn.TxnId as the ID in a separate read request for the specific resource to retrieve details of the linked object.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "TxnId": {
+                  "type": "string",
+                  "description": "Transaction Id of the related transaction."
+                },
+                "TxnType": {
+                  "type": "string",
+                  "description": "Transaction type of the linked object."
+                },
+                "TxnLineId": {
+                  "type": "string",
+                  "description": "Required for Deposit and Bill entities. -The line number of a specific line of the linked transaction. - If supplied, the TxnId and TxnType attributes of the linked transaction must also be populated."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SyncToken": {
+      "type": "string",
+      "description": "Version number of the object. It is used to lock an object for use by one app at a time. As soon as an application modifies an object, its SyncToken is incremented. Attempts to modify an object specifying an older SyncToken fails. Only the latest version of the object is maintained by QuickBooks Online."
+    },
+    "CurrencyRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CurrencyRef` to the tool, first call the tool `expandSchema` with \"/properties/CurrencyRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference to the currency in which all amounts on the associated transaction are expressed. This must be defined if multicurrency is enabled for the company. Multicurrency is enabled for the company if Preferences.MultiCurrencyEnabled is set to true. Read more about multicurrency support here. Applicable if multicurrency is enabled for the company.</property-description>",
+      "additionalProperties": true
+    },
+    "PrivateNote": {
+      "type": "string",
+      "description": "User entered, organization-private note about the transaction. This note does not appear on the invoice to the customer. This field maps to the Statement Memo field on the Invoice form in the QuickBooks Online UI."
+    },
+    "DepositToAccountRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DepositToAccountRef` to the tool, first call the tool `expandSchema` with \"/properties/DepositToAccountRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    },
+    "TxnDate": {
+      "type": "string",
+      "description": "The date entered by the user when this transaction occurred. yyyy/MM/dd is the valid date format. For posting transactions, this is the posting date that affects the financial statements. If the date is not supplied, the current date on the server is used. Sort order is ASC by default."
+    },
+    "TxnSource": {
+      "type": "string",
+      "description": "Used internally to specify originating source of a credit card transaction."
+    },
+    "DepartmentRef": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DepartmentRef` to the tool, first call the tool `expandSchema` with \"/properties/DepartmentRef\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Reference type</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

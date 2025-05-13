@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "TaxCode": {
+      "type": "string",
+      "example": "MyTaxCodeName"
+    },
+    "TaxRateDetails": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "RateValue": {
+            "type": "string",
+            "example": "8"
+          },
+          "TaxAgencyId": {
+            "type": "string",
+            "example": "1"
+          },
+          "TaxApplicableOn": {
+            "type": "string",
+            "example": "Sales"
+          },
+          "TaxRateName": {
+            "type": "string",
+            "example": "myNewTaxRateName"
+          }
+        }
+      },
+      "example": [
+        {
+          "RateValue": "8",
+          "TaxAgencyId": "1",
+          "TaxApplicableOn": "Sales",
+          "TaxRateName": "myNewTaxRateName"
+        }
+      ]
+    }
+  },
+  "required": []
+}
