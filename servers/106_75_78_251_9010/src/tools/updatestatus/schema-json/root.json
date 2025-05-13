@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "title": "用户id",
+      "type": "integer",
+      "format": "int64"
+    },
+    "status": {
+      "title": "帐号状态（1启用, 0停用，参考枚举YesOrNo）",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "userId",
+    "status"
+  ]
+}

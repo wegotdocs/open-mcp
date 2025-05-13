@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "接口 ID",
+      "type": "integer",
+      "format": "int64"
+    },
+    "code": {
+      "title": "接口编码（英文大写，用下划线分隔）",
+      "type": "string"
+    },
+    "name": {
+      "title": "接口名称",
+      "type": "string"
+    },
+    "title": {
+      "title": "接口描述",
+      "type": "string"
+    },
+    "apiType": {
+      "title": "接口类型",
+      "type": "string",
+      "enum": [
+        "NOTIFY",
+        "CALLBACK"
+      ]
+    },
+    "url": {
+      "title": "接口地址",
+      "type": "string"
+    },
+    "method": {
+      "title": "接口请求方法，如 GET、POST",
+      "type": "string"
+    },
+    "encoding": {
+      "title": "接口请求编码",
+      "type": "string"
+    },
+    "headers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `headers` to the tool, first call the tool `expandSchema` with \"/properties/headers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>仅在回传类请求中生效</property-description>",
+      "additionalProperties": true
+    },
+    "format": {
+      "title": "接口请求格式，对应 MediaType 的枚举",
+      "type": "string"
+    },
+    "auth": {
+      "title": "是否进行接口认证",
+      "type": "boolean"
+    },
+    "authUrl": {
+      "title": "认证服务地址",
+      "type": "string"
+    },
+    "grantType": {
+      "title": "接口认证类型",
+      "type": "string"
+    },
+    "username": {
+      "title": "认证服务用户名",
+      "type": "string"
+    },
+    "password": {
+      "title": "认证服务密码",
+      "type": "string"
+    },
+    "secretId": {
+      "title": "密钥 ID",
+      "type": "string"
+    },
+    "secretKey": {
+      "title": "密钥",
+      "type": "string"
+    },
+    "tokenName": {
+      "title": "认证服务响应的 token 名称",
+      "type": "string"
+    },
+    "enabled": {
+      "title": "是否开启",
+      "type": "boolean"
+    },
+    "syncCallback": {
+      "title": "是否同步调用",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "code",
+    "name",
+    "apiType",
+    "url",
+    "method",
+    "format",
+    "auth"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "warehouseCode": {
+      "type": "string"
+    },
+    "containerSpecCode": {
+      "type": "string"
+    },
+    "warehouseAreaId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "emptySlotNum": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "warehouseLogicCode": {
+      "type": "string"
+    },
+    "planCount": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "workStationId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "containerStatus": {
+      "type": "string",
+      "enum": [
+        "IN_SIDE",
+        "OUT_SIDE"
+      ]
+    },
+    "emptyContainer": {
+      "type": "boolean"
+    },
+    "locked": {
+      "type": "boolean"
+    },
+    "perPage": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "containerSpecCode",
+    "warehouseAreaId",
+    "workStationId"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "warehouseAreaGroupCode": {
+      "type": "string"
+    },
+    "warehouseAreaGroupName": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "string"
+    },
+    "warehouseCode": {
+      "type": "string"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "enable": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "warehouseAreaGroupCode",
+    "warehouseAreaGroupName",
+    "warehouseCode"
+  ]
+}

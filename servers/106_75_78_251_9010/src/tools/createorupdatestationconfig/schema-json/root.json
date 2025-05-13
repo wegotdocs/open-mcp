@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "configId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "workStationId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "inboundStationConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inboundStationConfig` to the tool, first call the tool `expandSchema` with \"/properties/inboundStationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "pickingStationConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `pickingStationConfig` to the tool, first call the tool `expandSchema` with \"/properties/pickingStationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "stocktakeStationConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `stocktakeStationConfig` to the tool, first call the tool `expandSchema` with \"/properties/stocktakeStationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "relocationStationConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `relocationStationConfig` to the tool, first call the tool `expandSchema` with \"/properties/relocationStationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": []
+}

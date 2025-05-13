@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "code": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "warehouseCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ownerCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "customerOrderTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "productCriterion": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `productCriterion` to the tool, first call the tool `expandSchema` with \"/properties/productCriterion\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "batchAttributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `batchAttributes` to the tool, first call the tool `expandSchema` with \"/properties/batchAttributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "putAwayDirection": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `putAwayDirection` to the tool, first call the tool `expandSchema` with \"/properties/putAwayDirection\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "warehouseCode": {
+      "type": "string"
+    },
+    "warehouseAreaId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "locationType": {
+      "type": "string",
+      "enum": [
+        "RACK"
+      ]
+    },
+    "locationDescList": {
+      "type": "array",
+      "items": {
+        "required": [
+          "aisleCode",
+          "containerSpecCode",
+          "shelfLine",
+          "shelfNumber",
+          "warehouseLogicId"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouseAreaGroupCode": {
+            "type": "string"
+          },
+          "warehouseAreaCode": {
+            "type": "string"
+          },
+          "aisleCode": {
+            "type": "string"
+          },
+          "shelfLine": {
+            "type": "string"
+          },
+          "warehouseLogicId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "containerSpecCode": {
+            "type": "string"
+          },
+          "shelfNumber": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "singleEntrance": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "warehouseAreaId",
+    "locationType",
+    "locationDescList"
+  ]
+}

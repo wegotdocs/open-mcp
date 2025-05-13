@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "account": {
+      "title": "账号",
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string"
+    },
+    "password": {
+      "title": "密码",
+      "maxLength": 2147483647,
+      "minLength": 6,
+      "type": "string"
+    }
+  },
+  "required": [
+    "account",
+    "password"
+  ]
+}

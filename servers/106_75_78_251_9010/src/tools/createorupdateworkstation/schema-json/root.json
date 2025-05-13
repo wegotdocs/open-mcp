@@ -1,0 +1,313 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "stationCode": {
+      "type": "string"
+    },
+    "stationName": {
+      "type": "string"
+    },
+    "workStationStatus": {
+      "type": "string",
+      "enum": [
+        "ONLINE",
+        "PAUSED",
+        "OFFLINE"
+      ]
+    },
+    "warehouseCode": {
+      "type": "string"
+    },
+    "warehouseAreaId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "enable": {
+      "type": "boolean"
+    },
+    "workStationMode": {
+      "type": "string",
+      "enum": [
+        "RECEIVE",
+        "SELECT_CONTAINER_PUT_AWAY",
+        "RECOMMENDED_CONTAINER_PUT_AWAY",
+        "PICKING",
+        "STOCKTAKE",
+        "EMPTY_CONTAINER_OUTBOUND",
+        "ONE_STEP_RELOCATION",
+        "TWO_STEP_RELOCATION"
+      ]
+    },
+    "allowWorkStationModes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "RECEIVE",
+          "SELECT_CONTAINER_PUT_AWAY",
+          "RECOMMENDED_CONTAINER_PUT_AWAY",
+          "PICKING",
+          "STOCKTAKE",
+          "EMPTY_CONTAINER_OUTBOUND",
+          "ONE_STEP_RELOCATION",
+          "TWO_STEP_RELOCATION"
+        ]
+      }
+    },
+    "workLocations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stationCode": {
+            "type": "string"
+          },
+          "workLocationType": {
+            "type": "string",
+            "enum": [
+              "BUFFER_SHELVING",
+              "ROBOT",
+              "CONVEYOR"
+            ]
+          },
+          "workLocationCode": {
+            "type": "string"
+          },
+          "enable": {
+            "type": "boolean"
+          },
+          "workLocationSlots": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "workLocationCode": {
+                  "type": "string"
+                },
+                "groupCode": {
+                  "type": "string"
+                },
+                "slotCode": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "bay": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "enable": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "putWalls": {
+      "type": "array",
+      "items": {
+        "required": [
+          "containerSpecCode",
+          "putWallCode",
+          "putWallName",
+          "putWallSlots",
+          "warehouseCode",
+          "workStationId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "warehouseCode": {
+            "type": "string"
+          },
+          "workStationId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "putWallCode": {
+            "type": "string"
+          },
+          "putWallName": {
+            "type": "string"
+          },
+          "containerSpecCode": {
+            "type": "string"
+          },
+          "putWallSlots": {
+            "type": "array",
+            "items": {
+              "required": [
+                "ptlTag"
+              ],
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "workStationId": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "putWallId": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "putWallCode": {
+                  "type": "string"
+                },
+                "putWallSlotCode": {
+                  "type": "string"
+                },
+                "ptlTag": {
+                  "type": "string"
+                },
+                "face": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "string"
+                },
+                "bay": {
+                  "type": "string"
+                },
+                "locLevel": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "locBay": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "enable": {
+                  "type": "boolean"
+                },
+                "pickingOrderId": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "taskDispatchRuleId": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "putWallSlotStatus": {
+                  "type": "string",
+                  "enum": [
+                    "IDLE",
+                    "WAITING_BINDING",
+                    "BOUND",
+                    "DISPATCH",
+                    "WAITING_SEAL"
+                  ]
+                },
+                "transferContainerCode": {
+                  "type": "string"
+                },
+                "transferContainerRecordId": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "version": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "putWallSlotDesc": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "fieldName": {
+                        "type": "string"
+                      },
+                      "fieldDesc": {
+                        "type": "string"
+                      },
+                      "fieldValue": {
+                        "type": "string"
+                      },
+                      "display": {
+                        "type": "boolean"
+                      },
+                      "color": {
+                        "type": "string"
+                      },
+                      "bold": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "qtyDispatched": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "string"
+          },
+          "enable": {
+            "type": "boolean"
+          },
+          "displayOrder": {
+            "type": "string",
+            "enum": [
+              "LEFT_TO_RIGHT",
+              "RIGHT_TO_LEFT"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "putWallStatus": {
+            "type": "string",
+            "enum": [
+              "IDLE",
+              "WORKING"
+            ]
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "taskDispatchRuleId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "workStationConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `workStationConfig` to the tool, first call the tool `expandSchema` with \"/properties/workStationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "position": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `position` to the tool, first call the tool `expandSchema` with \"/properties/position\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "stationCode",
+    "stationName",
+    "warehouseCode",
+    "warehouseAreaId"
+  ]
+}

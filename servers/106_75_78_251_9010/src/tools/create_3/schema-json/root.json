@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "warehouseCode": {
+      "type": "string"
+    },
+    "containerType": {
+      "type": "string",
+      "enum": [
+        "CONTAINER",
+        "TRANSFER_CONTAINER",
+        "SHELF",
+        "PUT_WALL"
+      ]
+    },
+    "containerSpecCode": {
+      "type": "string"
+    },
+    "containerCodePrefix": {
+      "type": "string"
+    },
+    "startIndex": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "indexNumber": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "createNumber": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "endIndex": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "containerType",
+    "containerSpecCode",
+    "containerCodePrefix",
+    "startIndex",
+    "indexNumber",
+    "createNumber"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "emptyToteRecycle": {
+      "type": "boolean"
+    },
+    "leftPutWallDisplayOrder": {
+      "type": "string",
+      "enum": [
+        "LEFT_TO_RIGHT",
+        "RIGHT_TO_LEFT"
+      ]
+    },
+    "rightPutWallDisplayOrder": {
+      "type": "string",
+      "enum": [
+        "LEFT_TO_RIGHT",
+        "RIGHT_TO_LEFT"
+      ]
+    },
+    "putWallTagConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `putWallTagConfig` to the tool, first call the tool `expandSchema` with \"/properties/workStationConfig/properties/pickingStationConfig/properties/putWallTagConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "putWallSlotFields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "type": "string"
+          },
+          "fieldDesc": {
+            "type": "string"
+          },
+          "fieldValue": {
+            "type": "string"
+          },
+          "display": {
+            "type": "boolean"
+          },
+          "color": {
+            "type": "string"
+          },
+          "bold": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

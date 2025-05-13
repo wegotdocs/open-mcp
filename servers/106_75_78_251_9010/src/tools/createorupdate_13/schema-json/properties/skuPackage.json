@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "skuPackageDetails": {
+      "type": "array",
+      "description": "商品包装明细信息",
+      "items": {
+        "required": [
+          "height",
+          "length",
+          "level",
+          "packageCode",
+          "unit",
+          "weight",
+          "width"
+        ],
+        "type": "object",
+        "properties": {
+          "level": {
+            "title": "包装级别",
+            "type": "integer",
+            "format": "int32"
+          },
+          "packageCode": {
+            "title": "包装编码",
+            "type": "string"
+          },
+          "unit": {
+            "title": "包装单位",
+            "type": "string"
+          },
+          "enableSplit": {
+            "title": "是否可拆包",
+            "type": "boolean",
+            "description": "true 是，false 否"
+          },
+          "height": {
+            "title": "包装高度",
+            "minimum": 0,
+            "type": "integer",
+            "description": "毫米(mm)",
+            "format": "int64"
+          },
+          "width": {
+            "title": "包装宽度",
+            "minimum": 0,
+            "type": "integer",
+            "description": "毫米(mm)",
+            "format": "int64"
+          },
+          "length": {
+            "title": "包装高度",
+            "minimum": 0,
+            "type": "integer",
+            "description": "毫米(mm)",
+            "format": "int64"
+          },
+          "weight": {
+            "title": "包装重量",
+            "minimum": 0,
+            "type": "integer",
+            "description": "毫克(mg)",
+            "format": "int32"
+          }
+        },
+        "description": "商品包装明细信息"
+      }
+    }
+  },
+  "description": "商品包装信息"
+}

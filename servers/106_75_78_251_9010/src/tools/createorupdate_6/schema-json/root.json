@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "code": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "ownerCode": {
+      "type": "string"
+    },
+    "skuFirstCategory": {
+      "type": "string"
+    },
+    "enable": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "batchAttributeFieldConfigs": {
+      "type": "array",
+      "items": {
+        "required": [
+          "fieldCode",
+          "fieldName"
+        ],
+        "type": "object",
+        "properties": {
+          "fieldCode": {
+            "type": "string"
+          },
+          "fieldName": {
+            "type": "string"
+          },
+          "enable": {
+            "type": "boolean"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "exactMatch": {
+            "type": "boolean"
+          },
+          "keyAttribute": {
+            "type": "boolean"
+          },
+          "index": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "code",
+    "name",
+    "batchAttributeFieldConfigs"
+  ]
+}
