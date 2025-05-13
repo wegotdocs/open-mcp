@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "period": {
+      "description": "Report period. Default is today's date. Options: week, month, last_month and year",
+      "type": "string",
+      "enum": [
+        "week",
+        "month",
+        "last_month",
+        "year"
+      ]
+    },
+    "date_min": {
+      "description": "Return sales for a specific start date, the date need to be in the YYYY-MM-DD format.",
+      "type": "string"
+    },
+    "date_max": {
+      "description": "Return sales for a specific end date, the date need to be in the YYYY-MM-DD format.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

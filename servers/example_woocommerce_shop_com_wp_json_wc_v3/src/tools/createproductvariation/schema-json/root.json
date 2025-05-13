@@ -1,0 +1,239 @@
+{
+  "type": "object",
+  "properties": {
+    "productId": {
+      "description": "ID of parent product for variation to create",
+      "type": "integer"
+    },
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the resource. read-only"
+    },
+    "date_created": {
+      "type": "string",
+      "description": "The date the variation  was created, in the site's timezone. read-only",
+      "format": "date-time"
+    },
+    "date_created_gmt": {
+      "type": "string",
+      "description": "The date the variation  was created, as GMT. read-only",
+      "format": "date-time"
+    },
+    "date_modified": {
+      "type": "string",
+      "description": "The date the variation  was last modified, in the site's timezone. read-only",
+      "format": "date-time"
+    },
+    "date_modified_gmt": {
+      "type": "string",
+      "description": "The date the variation  was last modified, as GMT. read-only",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string",
+      "description": "Variation description."
+    },
+    "permalink": {
+      "type": "string",
+      "description": "Variation URL. read-only"
+    },
+    "sku": {
+      "type": "string",
+      "description": "Unique identifier."
+    },
+    "price": {
+      "type": "string",
+      "description": "Current variation price. read-only"
+    },
+    "regular_price": {
+      "type": "string",
+      "description": "Variation product price."
+    },
+    "sale_price": {
+      "type": "string",
+      "description": "Variation sale price."
+    },
+    "date_on_sale_from": {
+      "type": "string",
+      "description": "Start date of sale price, in the site's timezone.",
+      "format": "date-time"
+    },
+    "date_on_sale_from_gmt": {
+      "type": "string",
+      "description": "Start date of sale price, as GMT.",
+      "format": "date-time"
+    },
+    "date_on_sale_to": {
+      "type": "string",
+      "description": "End date of sale price, in the site's timezone.",
+      "format": "date-time"
+    },
+    "date_on_sale_to_gmt": {
+      "type": "string",
+      "description": "End date of sale price, as GMT.",
+      "format": "date-time"
+    },
+    "on_sale": {
+      "type": "boolean",
+      "description": "Shows if the variation is on sale. read-only"
+    },
+    "status": {
+      "type": "string",
+      "description": "Variation status. Options: draft, pending, private and publish. Default is publish."
+    },
+    "purchasable": {
+      "type": "boolean",
+      "description": "Shows if the variation can be bought. read-only"
+    },
+    "virtual": {
+      "type": "boolean",
+      "description": "If the variation is virtual. Default is false."
+    },
+    "downloadable": {
+      "type": "boolean",
+      "description": "If the variation is downloadable. Default is false."
+    },
+    "downloads": {
+      "type": "array",
+      "description": "List of downloadable files.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "File ID."
+          },
+          "name": {
+            "type": "string",
+            "description": "File name."
+          },
+          "file": {
+            "type": "string",
+            "description": "File URL."
+          }
+        }
+      }
+    },
+    "download_limit": {
+      "type": "integer",
+      "description": "Number of times downloadable files can be downloaded after purchase. Default is -1."
+    },
+    "download_expiry": {
+      "type": "integer",
+      "description": "Number of days until access to downloadable files expires. Default is -1."
+    },
+    "tax_status": {
+      "type": "string",
+      "description": "Tax status. Options: taxable, shipping and none. Default is taxable."
+    },
+    "tax_class": {
+      "type": "string",
+      "description": "Tax class."
+    },
+    "manage_stock": {
+      "type": "boolean",
+      "description": "Stock management at variation level. Default is false."
+    },
+    "stock_quantity": {
+      "type": "integer",
+      "description": "Stock quantity."
+    },
+    "stock_status": {
+      "type": "string",
+      "description": "Controls the stock status of the product. Options: instock, outofstock, onbackorder. Default is instock."
+    },
+    "backorders": {
+      "type": "string",
+      "description": "If managing stock, this controls if backorders are allowed. Options: no, notify and yes. Default is no."
+    },
+    "backorders_allowed": {
+      "type": "boolean",
+      "description": "Shows if backorders are allowed. read-only"
+    },
+    "backordered": {
+      "type": "boolean",
+      "description": "Shows if the variation is on backordered. read-only"
+    },
+    "weight": {
+      "type": "string",
+      "description": "Variation weight."
+    },
+    "dimensions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `dimensions` to the tool, first call the tool `expandSchema` with \"/properties/dimensions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "shipping_class": {
+      "type": "string",
+      "description": "Shipping class slug."
+    },
+    "shipping_class_id": {
+      "type": "integer",
+      "description": "Shipping class ID."
+    },
+    "image": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `image` to the tool, first call the tool `expandSchema` with \"/properties/image\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "attributes": {
+      "type": "array",
+      "description": "List of attributes.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Attribute ID."
+          },
+          "name": {
+            "type": "string",
+            "description": "Attribute name."
+          },
+          "option": {
+            "type": "string",
+            "description": "Selected attribute term name. Applicable only for Product represents SKU (variation)"
+          }
+        }
+      }
+    },
+    "menu_order": {
+      "type": "integer",
+      "description": "Menu order, used to custom sort products."
+    },
+    "meta_data": {
+      "type": "array",
+      "description": "Meta data properties.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Meta ID."
+          },
+          "key": {
+            "type": "string",
+            "description": "Meta key."
+          },
+          "value": {
+            "type": "object",
+            "properties": {},
+            "description": "Meta value."
+          },
+          "display_key": {
+            "type": "string",
+            "description": "Meta key for UI display."
+          },
+          "display_value": {
+            "type": "object",
+            "properties": {},
+            "description": "Meta value for UI display."
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "productId"
+  ]
+}

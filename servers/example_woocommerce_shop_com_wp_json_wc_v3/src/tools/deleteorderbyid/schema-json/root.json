@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "description": "ID of order to delete",
+      "type": "integer"
+    },
+    "force": {
+      "description": "Required to be true, as resource does not support trashing.",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "orderId",
+    "force"
+  ]
+}
