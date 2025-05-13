@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "productId": {
+      "description": "ID of product to delete",
+      "type": "integer"
+    },
+    "force": {
+      "description": "Required to be true, as resource does not support trashing.",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "productId",
+    "force"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "description": "ID of customer to delete",
+      "type": "integer"
+    },
+    "force": {
+      "description": "Required to be true, as resource does not support trashing.",
+      "type": "string"
+    },
+    "reassign": {
+      "description": "User ID to reassign posts to.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "customerId",
+    "force"
+  ]
+}

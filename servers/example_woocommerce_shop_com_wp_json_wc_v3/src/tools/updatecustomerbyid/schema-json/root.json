@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "description": "ID of customer to update",
+      "type": "integer"
+    },
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the resource. read-only"
+    },
+    "date_created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date the customer was created, in the site's timezone. read-only"
+    },
+    "date_created_gmt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date the customer was created, as GMT. read-only"
+    },
+    "date_modified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date the customer was last modified, in the site's timezone. read-only"
+    },
+    "date_modified_gmt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date the customer was last modified, as GMT. read-only"
+    },
+    "email": {
+      "type": "string",
+      "description": "The email address for the customer. mandatory"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "Customer first name."
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Customer last name."
+    },
+    "role": {
+      "type": "string",
+      "description": "Customer role. read-only"
+    },
+    "username": {
+      "type": "string",
+      "description": "Customer login name."
+    },
+    "password": {
+      "type": "string",
+      "description": "Customer password. write-only"
+    },
+    "billing": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `billing` to the tool, first call the tool `expandSchema` with \"/properties/billing\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "shipping": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `shipping` to the tool, first call the tool `expandSchema` with \"/properties/shipping\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "is_paying_customer": {
+      "type": "boolean",
+      "description": "Is the customer a paying customer? read-only"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "Avatar URL. read-only"
+    },
+    "meta_data": {
+      "type": "array",
+      "description": "Meta data.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Meta ID."
+          },
+          "key": {
+            "type": "string",
+            "description": "Meta key."
+          },
+          "value": {
+            "type": "object",
+            "properties": {},
+            "description": "Meta value."
+          },
+          "display_key": {
+            "type": "string",
+            "description": "Meta key for UI display."
+          },
+          "display_value": {
+            "type": "object",
+            "properties": {},
+            "description": "Meta value for UI display."
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "customerId"
+  ]
+}

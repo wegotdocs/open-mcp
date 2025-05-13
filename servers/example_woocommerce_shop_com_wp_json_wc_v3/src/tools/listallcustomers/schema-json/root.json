@@ -1,0 +1,83 @@
+{
+  "type": "object",
+  "properties": {
+    "context": {
+      "description": "Scope under which the request is made; determines fields present in response.",
+      "type": "string",
+      "enum": [
+        "view",
+        "edit"
+      ]
+    },
+    "page": {
+      "description": "Current page of the collection.",
+      "type": "integer",
+      "default": 1
+    },
+    "per_page": {
+      "description": "Maximum number of items to be returned in result set.",
+      "type": "integer",
+      "default": 10
+    },
+    "search": {
+      "description": "Limit results to those matching a string.",
+      "type": "string"
+    },
+    "exclude": {
+      "description": "Ensure result set excludes specific IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "include": {
+      "description": "Limit result set to specific IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "offset": {
+      "description": "Offset the result set by a specific number of items.",
+      "type": "integer"
+    },
+    "order": {
+      "description": "Order sort attribute ascending or descending (asc as default).",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "orderby": {
+      "description": "Sort collection by object attribute.",
+      "type": "string",
+      "enum": [
+        "id",
+        "include",
+        "name",
+        "registered_date",
+        "email"
+      ]
+    },
+    "email": {
+      "description": "Limit result set to resources with a specific email address.",
+      "type": "string"
+    },
+    "role": {
+      "description": "Limit result set to resources with a specific role. Default is customer.",
+      "type": "string",
+      "enum": [
+        "all",
+        "administrator",
+        "editor",
+        "author",
+        "contributor",
+        "subscriber",
+        "customer",
+        "shop_manager"
+      ]
+    }
+  },
+  "required": []
+}
