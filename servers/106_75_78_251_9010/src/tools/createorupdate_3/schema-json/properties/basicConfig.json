@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "transferContainerReleaseMethod": {
+      "type": "string",
+      "enum": [
+        "INTERFACE",
+        "AUTOMATED"
+      ]
+    },
+    "autoReleaseDelayTimeMin": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

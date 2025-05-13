@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "systemCode": {
+      "title": "所属系统（参考枚举AppCodeEnum）",
+      "type": "string"
+    },
+    "parentId": {
+      "title": "父菜单id, 如果为顶级菜单, 则设置为空",
+      "type": "integer",
+      "format": "int64"
+    },
+    "type": {
+      "title": "菜单类型（1: 系统、2: 菜单、3: 权限，参考枚举MenuTypeEnum）",
+      "type": "integer",
+      "format": "int32"
+    },
+    "title": {
+      "title": "菜单名称",
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string"
+    },
+    "description": {
+      "title": "描述",
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string"
+    },
+    "permissions": {
+      "title": "权限标识",
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string"
+    },
+    "component": {
+      "title": "vue组件名称",
+      "type": "string"
+    },
+    "orderNum": {
+      "title": "排序",
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "icon": {
+      "title": "图标",
+      "maxLength": 32,
+      "minLength": 0,
+      "type": "string"
+    },
+    "path": {
+      "title": "路径地址",
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string"
+    },
+    "iframeShow": {
+      "title": "是否以 iframe 的方式显示",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "type",
+    "title",
+    "permissions",
+    "orderNum"
+  ]
+}

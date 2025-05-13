@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "skuCode": {
+      "title": "商品编码",
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "warehouseCode": {
+      "title": "仓库编码",
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "ownerCode": {
+      "title": "货主编码",
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "skuName": {
+      "title": "商品名称",
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string"
+    },
+    "style": {
+      "title": "商品样式",
+      "type": "string"
+    },
+    "color": {
+      "title": "商品颜色",
+      "type": "string"
+    },
+    "size": {
+      "title": "商品尺寸",
+      "type": "string"
+    },
+    "brand": {
+      "title": "商品品牌",
+      "type": "string"
+    },
+    "weight": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `weight` to the tool, first call the tool `expandSchema` with \"/properties/weight\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>重量信息</property-description>",
+      "additionalProperties": true
+    },
+    "volumeDTO": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `volumeDTO` to the tool, first call the tool `expandSchema` with \"/properties/volumeDTO\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>体积信息</property-description>",
+      "additionalProperties": true
+    },
+    "skuAttribute": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `skuAttribute` to the tool, first call the tool `expandSchema` with \"/properties/skuAttribute\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>商品属性信息</property-description>",
+      "additionalProperties": true
+    },
+    "skuConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `skuConfig` to the tool, first call the tool `expandSchema` with \"/properties/skuConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>商品配置信息</property-description>",
+      "additionalProperties": true
+    },
+    "skuPackage": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `skuPackage` to the tool, first call the tool `expandSchema` with \"/properties/skuPackage\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>商品包装信息</property-description>",
+      "additionalProperties": true
+    },
+    "skuBarcode": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `skuBarcode` to the tool, first call the tool `expandSchema` with \"/properties/skuBarcode\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>商品条码信息</property-description>",
+      "additionalProperties": true
+    },
+    "skuFirstCategory": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "skuCode",
+    "warehouseCode",
+    "ownerCode",
+    "skuName"
+  ]
+}

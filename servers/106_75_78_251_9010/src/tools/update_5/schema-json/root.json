@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "接口转换配置 ID",
+      "type": "integer",
+      "format": "int64"
+    },
+    "code": {
+      "title": "接口编码（英文大写，用下划线分隔）",
+      "type": "string"
+    },
+    "paramConverterType": {
+      "title": "请求转换脚本的类型",
+      "type": "string",
+      "enum": [
+        "NONE",
+        "JS",
+        "TEMPLATE"
+      ]
+    },
+    "jsParamConverter": {
+      "title": "JS 类型的请求请求转换脚本",
+      "type": "string"
+    },
+    "templateParamConverter": {
+      "title": "FreeMarker 类型的请求转换脚本",
+      "type": "string"
+    },
+    "responseConverterType": {
+      "title": "响应换脚本的类型",
+      "type": "string",
+      "enum": [
+        "NONE",
+        "JS",
+        "TEMPLATE"
+      ]
+    },
+    "jsResponseConverter": {
+      "title": "JS 类型的请求响应转换脚本",
+      "type": "string"
+    },
+    "templateResponseConverter": {
+      "title": "FreeMarker 类型的响应转换脚本",
+      "type": "string"
+    }
+  },
+  "required": [
+    "code",
+    "paramConverterType",
+    "responseConverterType"
+  ]
+}

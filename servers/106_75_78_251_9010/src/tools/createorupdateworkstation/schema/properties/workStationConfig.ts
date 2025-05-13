@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "configId": z.number().int().optional(),
+  "workStationId": z.number().int().optional(),
+  "inboundStationConfig": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inboundStationConfig` to the tool, first call the tool `expandSchema` with \"/properties/workStationConfig/properties/inboundStationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "pickingStationConfig": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `pickingStationConfig` to the tool, first call the tool `expandSchema` with \"/properties/workStationConfig/properties/pickingStationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "stocktakeStationConfig": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `stocktakeStationConfig` to the tool, first call the tool `expandSchema` with \"/properties/workStationConfig/properties/stocktakeStationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "relocationStationConfig": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `relocationStationConfig` to the tool, first call the tool `expandSchema` with \"/properties/workStationConfig/properties/relocationStationConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "version": z.number().int().optional()
+}

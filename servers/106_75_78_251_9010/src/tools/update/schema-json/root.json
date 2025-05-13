@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "locationIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int64"
+      }
+    },
+    "warehouseLogicId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "heat": {
+      "type": "string"
+    },
+    "locationStatus": {
+      "type": "string",
+      "enum": [
+        "PUT_AWAY_ONLY",
+        "TAKE_OFF_ONLY",
+        "PUT_AWAY_PUT_DOWN",
+        "NONE"
+      ]
+    }
+  },
+  "required": [
+    "locationIds",
+    "warehouseLogicId",
+    "heat",
+    "locationStatus"
+  ]
+}

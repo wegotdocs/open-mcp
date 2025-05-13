@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "warehouseCode": {
+      "title": "仓库编码",
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "ownerCode": {
+      "title": "货主编码",
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "ownerName": {
+      "title": "货主名称",
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string"
+    },
+    "ownerType": {
+      "title": "货主类型",
+      "type": "string",
+      "enum": [
+        "SELF",
+        "THIRD_PARTY"
+      ]
+    },
+    "contactorDTO": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `contactorDTO` to the tool, first call the tool `expandSchema` with \"/properties/contactorDTO\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "addressDTO": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `addressDTO` to the tool, first call the tool `expandSchema` with \"/properties/addressDTO\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "ownerCode",
+    "ownerName",
+    "ownerType"
+  ]
+}

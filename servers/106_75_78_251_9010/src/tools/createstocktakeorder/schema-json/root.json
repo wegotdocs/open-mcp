@@ -1,0 +1,129 @@
+{
+  "type": "object",
+  "properties": {
+    "warehouseCode": {
+      "title": "仓库编码",
+      "type": "string"
+    },
+    "stocktakeType": {
+      "title": "盘点类型",
+      "type": "string",
+      "enum": [
+        "ORDINARY",
+        "RANDOM",
+        "ACTIVE",
+        "DISCREPANCY_REVIEW"
+      ]
+    },
+    "stocktakeMethod": {
+      "title": "盘点方式",
+      "type": "string",
+      "enum": [
+        "INFORMED",
+        "BLIND"
+      ]
+    },
+    "stocktakeCreateMethod": {
+      "title": "盘点创建方式",
+      "type": "string",
+      "enum": [
+        "MANUAL",
+        "IMPORT",
+        "EXTERNAL_API"
+      ]
+    },
+    "stocktakeUnitType": {
+      "title": "盘点基本单位",
+      "type": "string",
+      "enum": [
+        "SHELF",
+        "CONTAINER",
+        "SKU",
+        "STOCK"
+      ]
+    },
+    "includeZeroStock": {
+      "title": "是否盘点零库存",
+      "type": "boolean"
+    },
+    "includeEmptySlot": {
+      "title": "是否盘点空格口",
+      "type": "boolean"
+    },
+    "shelfCodes": {
+      "title": "货架列表",
+      "type": "array",
+      "description": "要盘点的货架列表",
+      "items": {
+        "title": "货架列表",
+        "type": "string",
+        "description": "要盘点的货架列表"
+      }
+    },
+    "shelfCodeFacePairs": {
+      "title": "货架面列表",
+      "type": "array",
+      "description": "要盘点的货架面列表",
+      "items": {
+        "title": "货架面列表",
+        "type": "string",
+        "description": "要盘点的货架面列表"
+      }
+    },
+    "containerCodes": {
+      "title": "容器列表",
+      "type": "array",
+      "description": "要盘点的容器列表",
+      "items": {
+        "title": "容器列表",
+        "type": "string",
+        "description": "要盘点的容器列表"
+      }
+    },
+    "skuIds": {
+      "title": "商品id列表",
+      "type": "array",
+      "description": "要盘点的商品id列表",
+      "items": {
+        "title": "商品id列表",
+        "type": "integer",
+        "description": "要盘点的商品id列表",
+        "format": "int64"
+      }
+    },
+    "stockIds": {
+      "title": "库存id列表",
+      "type": "array",
+      "description": "要盘点的库存id列表",
+      "items": {
+        "title": "库存id列表",
+        "type": "integer",
+        "description": "要盘点的库存id列表",
+        "format": "int64"
+      }
+    },
+    "warehouseAreaId": {
+      "title": "库区ID",
+      "type": "integer",
+      "format": "int64"
+    },
+    "warehouseLogicId": {
+      "title": "逻辑区ID",
+      "type": "integer",
+      "format": "int64"
+    },
+    "workStationId": {
+      "title": "工作站ID",
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "stocktakeType",
+    "stocktakeMethod",
+    "stocktakeCreateMethod",
+    "stocktakeUnitType",
+    "warehouseAreaId"
+  ]
+}

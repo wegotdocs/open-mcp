@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "menuId": {
+      "title": "菜单id",
+      "type": "integer",
+      "format": "int64"
+    },
+    "enable": {
+      "title": "是否启用（1启用, 0停用，参考枚举YesOrNo）",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "menuId",
+    "enable"
+  ]
+}

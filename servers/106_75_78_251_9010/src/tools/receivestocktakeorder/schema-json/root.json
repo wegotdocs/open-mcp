@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "stocktakeTaskIds": {
+      "title": "盘点任务ID",
+      "type": "array",
+      "items": {
+        "title": "盘点任务ID",
+        "type": "integer",
+        "format": "int64"
+      }
+    },
+    "workStationId": {
+      "title": "工作站ID",
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "stocktakeTaskIds"
+  ]
+}

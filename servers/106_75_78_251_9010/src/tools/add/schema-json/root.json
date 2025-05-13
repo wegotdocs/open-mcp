@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "roleIds": {
+      "uniqueItems": true,
+      "type": "array",
+      "example": "角色id集合",
+      "items": {
+        "type": "integer",
+        "format": "int64"
+      }
+    },
+    "name": {
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string",
+      "example": "用户名称"
+    },
+    "account": {
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string",
+      "example": "账号"
+    },
+    "status": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "phone": {
+      "type": "string",
+      "example": "手机号"
+    },
+    "email": {
+      "type": "string",
+      "example": "邮箱"
+    }
+  },
+  "required": [
+    "roleIds",
+    "name",
+    "account",
+    "status"
+  ]
+}

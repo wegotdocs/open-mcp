@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "warehouseCode": {
+      "type": "string"
+    },
+    "ruleCode": {
+      "type": "string"
+    },
+    "ruleName": {
+      "type": "string"
+    },
+    "ruleType": {
+      "type": "string",
+      "enum": [
+        "OUTBOUND",
+        "STOCKTAKE"
+      ]
+    },
+    "splitCondition": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `splitCondition` to the tool, first call the tool `expandSchema` with \"/properties/splitCondition\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "queryConditions": {
+      "type": "array",
+      "items": {
+        "required": [
+          "filterValue",
+          "queryType"
+        ],
+        "type": "object",
+        "properties": {
+          "queryType": {
+            "type": "string",
+            "enum": [
+              "WAREHOUSE_AREA",
+              "CUSTOMER_ORDER_TYPE",
+              "ORIG_PLATFORM"
+            ]
+          },
+          "filterValue": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sortConditions": {
+      "type": "array",
+      "items": {
+        "required": [
+          "sortType"
+        ],
+        "type": "object",
+        "properties": {
+          "sortType": {
+            "type": "string",
+            "enum": [
+              "CATEGORY_L1",
+              "STYLE",
+              "SIZE"
+            ]
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "enable": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "ruleCode",
+    "ruleName",
+    "ruleType",
+    "splitCondition"
+  ]
+}

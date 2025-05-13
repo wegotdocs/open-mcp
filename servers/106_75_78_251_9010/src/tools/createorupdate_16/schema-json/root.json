@@ -1,0 +1,129 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "warehouseCode": {
+      "type": "string"
+    },
+    "containerSpecCode": {
+      "type": "string"
+    },
+    "containerSpecName": {
+      "type": "string"
+    },
+    "length": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "width": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "height": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "volume": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int64"
+    },
+    "location": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "containerType": {
+      "type": "string",
+      "enum": [
+        "CONTAINER",
+        "TRANSFER_CONTAINER",
+        "SHELF",
+        "PUT_WALL"
+      ]
+    },
+    "containerSlotSpecs": {
+      "type": "array",
+      "items": {
+        "required": [
+          "bay",
+          "containerSlotSpecCode",
+          "level",
+          "locBay",
+          "locLevel"
+        ],
+        "type": "object",
+        "properties": {
+          "containerSlotSpecCode": {
+            "type": "string"
+          },
+          "face": {
+            "type": "string"
+          },
+          "length": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "width": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "volume": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64"
+          },
+          "level": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "bay": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "locLevel": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "locBay": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "containerSlotNum": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "containerSpecCode",
+    "containerSpecName",
+    "containerType",
+    "containerSlotSpecs"
+  ]
+}

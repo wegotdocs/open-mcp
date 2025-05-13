@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "warehouseCode": {
+      "title": "仓库编码",
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "orderNos": {
+      "title": "盘点单编号列表",
+      "type": "array",
+      "items": {
+        "title": "盘点单编号列表",
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "orderNos"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "required": [
+    "splitType",
+    "threshold"
+  ],
+  "type": "object",
+  "properties": {
+    "splitType": {
+      "type": "string",
+      "enum": [
+        "QUANTITY_LIMIT",
+        "VOLUME_LIMIT",
+        "WEIGHT_LIMIT",
+        "SKU_KIND_LIMIT"
+      ]
+    },
+    "threshold": {
+      "type": "number"
+    }
+  }
+}

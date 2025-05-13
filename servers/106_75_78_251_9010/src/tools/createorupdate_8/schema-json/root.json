@@ -1,0 +1,111 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "warehouseCode": {
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "warehouseName": {
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string"
+    },
+    "warehouseType": {
+      "type": "string",
+      "enum": [
+        "CENTER_WAREHOUSE",
+        "DELIVERY_WAREHOUSE",
+        "TRANSIT_WAREHOUSE",
+        "HUB_WAREHOUSE",
+        "FACTORY_WAREHOUSE",
+        "RETURN_WAREHOUSE",
+        "FRONT_WAREHOUSE"
+      ]
+    },
+    "warehouseAttrType": {
+      "type": "string",
+      "enum": [
+        "NORMAL",
+        "COLD_CHAIN",
+        "DANGEROUS",
+        "BONDED"
+      ]
+    },
+    "warehouseLevel": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ]
+    },
+    "warehouseLabel": {
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "businessType": {
+      "type": "string",
+      "enum": [
+        "TOB",
+        "TOC",
+        "RETURN",
+        "CROSS_BORDER",
+        "CONSUMABLES"
+      ]
+    },
+    "structureType": {
+      "type": "string",
+      "enum": [
+        "STEEL",
+        "FLOOR",
+        "FLAT",
+        "OUTSIDE"
+      ]
+    },
+    "area": {
+      "minimum": 0,
+      "type": "integer",
+      "format": "int32"
+    },
+    "height": {
+      "minimum": 0,
+      "type": "integer",
+      "format": "int32"
+    },
+    "virtualWarehouse": {
+      "type": "boolean"
+    },
+    "contactorDTO": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `contactorDTO` to the tool, first call the tool `expandSchema` with \"/properties/contactorDTO\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "addressDTO": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `addressDTO` to the tool, first call the tool `expandSchema` with \"/properties/addressDTO\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "warehouseName",
+    "warehouseType",
+    "warehouseAttrType",
+    "warehouseLevel",
+    "businessType",
+    "structureType"
+  ]
+}

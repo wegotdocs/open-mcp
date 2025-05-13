@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "warehouseAreaCode": {
+      "type": "string"
+    },
+    "warehouseCode": {
+      "type": "string"
+    },
+    "warehouseAreaName": {
+      "type": "string"
+    },
+    "warehouseGroupCode": {
+      "type": "string"
+    },
+    "warehouseAreaType": {
+      "type": "string",
+      "enum": [
+        "STORAGE_AREA",
+        "STORAGE_CACHE",
+        "PICKING_STORAGE_CACHE",
+        "ABNORMAL_AREA"
+      ]
+    },
+    "warehouseAreaWorkType": {
+      "type": "string",
+      "enum": [
+        "MANUAL",
+        "ROBOT"
+      ]
+    },
+    "warehouseAreaUse": {
+      "type": "string",
+      "enum": [
+        "RECEIVE",
+        "PUT_AWAY_HOLDER",
+        "PICK"
+      ]
+    },
+    "level": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "temperatureLimit": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "wetLimit": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "enable": {
+      "type": "boolean"
+    },
+    "remark": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "warehouseAreaCode",
+    "warehouseCode",
+    "warehouseAreaName",
+    "warehouseGroupCode",
+    "warehouseAreaType",
+    "warehouseAreaWorkType",
+    "warehouseAreaUse"
+  ]
+}

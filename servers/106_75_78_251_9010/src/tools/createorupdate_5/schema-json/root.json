@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "createTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "createUser": {
+      "type": "string"
+    },
+    "updateUser": {
+      "type": "string"
+    },
+    "updateTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "code": {
+      "type": "string"
+    },
+    "editable": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "showContent": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "defaultItem": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "code",
+    "name",
+    "items"
+  ]
+}

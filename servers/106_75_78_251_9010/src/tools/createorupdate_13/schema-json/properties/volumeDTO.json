@@ -1,0 +1,40 @@
+{
+  "required": [
+    "height",
+    "length",
+    "volume",
+    "width"
+  ],
+  "type": "object",
+  "properties": {
+    "volume": {
+      "title": "体积",
+      "minimum": 0,
+      "type": "integer",
+      "description": "立方毫米(mm³)",
+      "format": "int64"
+    },
+    "height": {
+      "title": "高",
+      "minimum": 0,
+      "type": "integer",
+      "description": "毫米(mm)",
+      "format": "int64"
+    },
+    "width": {
+      "title": "宽",
+      "minimum": 0,
+      "type": "integer",
+      "description": "毫米(mm)",
+      "format": "int64"
+    },
+    "length": {
+      "title": "长",
+      "minimum": 0,
+      "type": "integer",
+      "description": "毫米(mm)",
+      "format": "int64"
+    }
+  },
+  "description": "体积信息"
+}

@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "角色id",
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "title": "角色名称",
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "code": {
+      "title": "角色编码",
+      "maxLength": 32,
+      "minLength": 0,
+      "type": "string"
+    },
+    "status": {
+      "title": "状态（1启用, 0停用，参考枚举YesOrNo）",
+      "type": "integer",
+      "format": "int32"
+    },
+    "description": {
+      "title": "角色描述",
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string"
+    },
+    "warehouseCodes": {
+      "title": "仓库权限",
+      "type": "array",
+      "items": {
+        "title": "仓库权限",
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "code",
+    "status",
+    "warehouseCodes"
+  ]
+}

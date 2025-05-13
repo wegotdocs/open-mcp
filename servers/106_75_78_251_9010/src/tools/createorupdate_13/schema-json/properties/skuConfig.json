@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "enableSn": {
+      "title": "是否启用唯一码管理",
+      "type": "boolean",
+      "description": "true 启用，false 禁用"
+    },
+    "enableEffective": {
+      "title": "是否启用效期管理",
+      "type": "boolean",
+      "description": "true 启用，false 禁用"
+    },
+    "shelfLife": {
+      "title": "保质期",
+      "type": "integer",
+      "format": "int32"
+    },
+    "effectiveDays": {
+      "title": "效期限制",
+      "type": "integer",
+      "format": "int32"
+    },
+    "barcodeRuleCode": {
+      "title": "条码规则",
+      "type": "string"
+    },
+    "heat": {
+      "title": "热度",
+      "type": "string"
+    },
+    "maxStock": {
+      "title": "库存上限",
+      "type": "integer",
+      "format": "int32"
+    },
+    "minStock": {
+      "title": "库存下限",
+      "type": "integer",
+      "format": "int32"
+    },
+    "calculateHeat": {
+      "title": "是否计算热度",
+      "type": "boolean",
+      "description": "true 是，false 否"
+    },
+    "noBarcode": {
+      "title": "是否无码商品",
+      "type": "boolean",
+      "description": "true 是，false 否"
+    }
+  },
+  "description": "商品配置信息"
+}

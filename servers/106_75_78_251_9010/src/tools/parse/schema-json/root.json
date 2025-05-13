@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "barcode": {
+      "type": "string"
+    },
+    "ownerCode": {
+      "type": "string"
+    },
+    "knownSkus": {
+      "type": "array",
+      "items": {
+        "required": [
+          "brand",
+          "ownerCode",
+          "skuCode"
+        ],
+        "type": "object",
+        "properties": {
+          "ownerCode": {
+            "type": "string"
+          },
+          "skuCode": {
+            "type": "string"
+          },
+          "brand": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "businessFlow": {
+      "type": "string",
+      "enum": [
+        "INBOUND",
+        "OUTBOUND",
+        "STOCK_TAKE"
+      ]
+    },
+    "executeTime": {
+      "type": "string",
+      "enum": [
+        "SCAN_CONTAINER",
+        "SCAN_SKU",
+        "SCAN_SN"
+      ]
+    }
+  },
+  "required": [
+    "barcode",
+    "businessFlow",
+    "executeTime"
+  ]
+}

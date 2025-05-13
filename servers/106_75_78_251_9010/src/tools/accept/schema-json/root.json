@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "inboundPlanOrderId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "inboundPlanOrderDetailId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "warehouseCode": {
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "batchAttributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `batchAttributes` to the tool, first call the tool `expandSchema` with \"/properties/batchAttributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "qtyAccepted": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "skuId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "qtyAbnormal": {
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "targetContainerId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "targetContainerCode": {
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "targetContainerSpecCode": {
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "targetContainerSlotCode": {
+      "maxLength": 64,
+      "minLength": 0,
+      "type": "string"
+    },
+    "targetContainerFace": {
+      "type": "string"
+    },
+    "workStationId": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "warehouseCode",
+    "qtyAccepted",
+    "skuId",
+    "targetContainerId",
+    "targetContainerCode",
+    "targetContainerSpecCode",
+    "targetContainerSlotCode",
+    "workStationId"
+  ]
+}
