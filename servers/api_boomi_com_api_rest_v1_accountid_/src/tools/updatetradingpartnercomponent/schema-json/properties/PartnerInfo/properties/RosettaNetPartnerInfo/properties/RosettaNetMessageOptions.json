@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "attachmentCache": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "compressed": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "contentTransferEncoding": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "binary",
+        "base64"
+      ]
+    },
+    "encryptServiceHeader": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "encrypted": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "encryptionAlgorithm": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "na",
+        "tripledes",
+        "des",
+        "rc2-128",
+        "rc2-64",
+        "rc2-40",
+        "aes-128",
+        "aes-192",
+        "aes-256"
+      ]
+    },
+    "signatureDigestAlgorithm": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "SHA1",
+        "SHA224",
+        "SHA256",
+        "SHA384",
+        "SHA512"
+      ]
+    },
+    "signed": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

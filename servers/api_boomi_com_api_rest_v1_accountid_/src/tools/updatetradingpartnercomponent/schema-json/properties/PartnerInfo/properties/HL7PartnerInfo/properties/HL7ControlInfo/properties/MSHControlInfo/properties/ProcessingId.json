@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "processingId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "D",
+        "P",
+        "T"
+      ]
+    },
+    "processingMode": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "A",
+        "R",
+        "I",
+        "T",
+        "NOT_PRESENT"
+      ]
+    }
+  }
+}

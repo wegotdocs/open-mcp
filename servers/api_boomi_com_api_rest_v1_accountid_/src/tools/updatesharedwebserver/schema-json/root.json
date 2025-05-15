@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "atomId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "cloudTennantGeneral": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `cloudTennantGeneral` to the tool, first call the tool `expandSchema` with \"/properties/cloudTennantGeneral\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "corsConfiguration": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `corsConfiguration` to the tool, first call the tool `expandSchema` with \"/properties/corsConfiguration\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "generalSettings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `generalSettings` to the tool, first call the tool `expandSchema` with \"/properties/generalSettings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "shouldRestartPlugin": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "userManagement": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `userManagement` to the tool, first call the tool `expandSchema` with \"/properties/userManagement\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id",
+    "atomId",
+    "cloudTennantGeneral",
+    "corsConfiguration",
+    "generalSettings",
+    "userManagement"
+  ]
+}

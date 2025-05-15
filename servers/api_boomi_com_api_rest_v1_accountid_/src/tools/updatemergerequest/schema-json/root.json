@@ -1,0 +1,190 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the merge request.",
+      "type": "string"
+    },
+    "MergeRequestDetails": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `MergeRequestDetails` to the tool, first call the tool `expandSchema` with \"/properties/MergeRequestDetails\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "createdBy": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The user who created the merge request."
+    },
+    "createdDate": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The date and time the merge request was created."
+    },
+    "destinationBranchId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the destination branch."
+    },
+    "destinationBranchName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "b_id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "inactiveDate": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "lockNonce": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "lockedBy": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "lockedDate": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "mergeRequestAction": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "UPDATE",
+        "MERGE",
+        "RETRY_DRAFTING",
+        "REVERT"
+      ]
+    },
+    "modifiedBy": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The user who last modified the merge request."
+    },
+    "modifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The date and time the merge request was last modified."
+    },
+    "note": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "previousStage": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "NOT_EXIST",
+        "DRAFTING",
+        "FAILED_TO_DRAFT",
+        "FAILED_TO_REDRAFT",
+        "DRAFTED",
+        "REVIEWING",
+        "MERGING",
+        "MERGED",
+        "FAILED_TO_MERGE",
+        "DELETED",
+        "REDRAFTING",
+        "REVERTED"
+      ],
+      "description": "The previous stage of the merge."
+    },
+    "priorityBranch": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "SOURCE",
+        "DESTINATION"
+      ],
+      "description": "The branch which should take priority in an override merge."
+    },
+    "sourceBranchId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the source branch."
+    },
+    "sourceBranchName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "stage": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "NOT_EXIST",
+        "DRAFTING",
+        "FAILED_TO_DRAFT",
+        "FAILED_TO_REDRAFT",
+        "DRAFTED",
+        "REVIEWING",
+        "MERGING",
+        "MERGED",
+        "FAILED_TO_MERGE",
+        "DELETED",
+        "REDRAFTING",
+        "REVERTED"
+      ],
+      "description": "The current stage of the merge."
+    },
+    "strategy": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "OVERRIDE",
+        "CONFLICT_RESOLVE",
+        "SUBSET"
+      ],
+      "description": "The merge strategy."
+    }
+  },
+  "required": [
+    "id",
+    "MergeRequestDetails"
+  ]
+}

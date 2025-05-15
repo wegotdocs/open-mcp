@@ -1,0 +1,195 @@
+{
+  "example": {
+    "crossReference": {
+      "name": "My Cross Reference",
+      "overrideValues": "true",
+      "id": "a6759305...",
+      "CrossReferenceRows": {
+        "row": [
+          {
+            "ref3": "3",
+            "ref2": "2",
+            "ref1": "1"
+          },
+          {
+            "ref3": "1"
+          },
+          {
+            "ref3": "2"
+          }
+        ]
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "crossReference": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "required": [
+          "CrossReferenceRows"
+        ],
+        "type": "object",
+        "properties": {
+          "CrossReferenceRows": {
+            "type": "object",
+            "properties": {
+              "row": {
+                "type": "array",
+                "xml": {
+                  "namespace": "http://api.platform.boomi.com/"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ref1": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref10": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref11": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref12": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref13": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref14": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref15": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref16": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref17": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref18": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref19": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref2": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref20": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref3": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref4": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref5": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref6": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref7": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref8": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "ref9": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "overrideValues": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

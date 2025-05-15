@@ -1,0 +1,31 @@
+{
+  "required": [
+    "sortField"
+  ],
+  "type": "object",
+  "properties": {
+    "sortField": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "sortOrder": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

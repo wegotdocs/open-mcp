@@ -1,0 +1,115 @@
+{
+  "type": "object",
+  "properties": {
+    "MergeRequestDetail": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "changeType": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "enum": [
+              "ADDED",
+              "MODIFIED",
+              "DELETED"
+            ]
+          },
+          "componentGuid": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "conflict": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "createdBy": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "destinationRevision": {
+            "type": "integer",
+            "format": "int64",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "lockedOnDestinationBranch": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "mergeRevision": {
+            "type": "integer",
+            "format": "int64",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "modifiedBy": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "modifiedDate": {
+            "type": "string",
+            "format": "date-time",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "resolution": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "enum": [
+              "OVERRIDE",
+              "KEEP_DESTINATION"
+            ]
+          },
+          "sourceRevision": {
+            "type": "integer",
+            "format": "int64",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "stage": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "enum": [
+              "DRAFTED",
+              "REVIEWED",
+              "CONFLICT_RESOLVED",
+              "MERGED",
+              "REVERTED"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

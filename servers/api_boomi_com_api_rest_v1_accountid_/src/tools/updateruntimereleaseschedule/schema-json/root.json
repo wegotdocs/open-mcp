@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the container for which you want to set a schedule.",
+      "type": "string"
+    },
+    "atomId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The ID of the container for which you want to set a schedule."
+    },
+    "dayOfWeek": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The day of the week that you want to receive updates on the Runtime, Runtime cluster, or Runtime cloud. <br /> 1. Required if scheduleType is set to FIRST or LAST"
+    },
+    "hourOfDay": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The hour of the day that you want to receive updates on the Runtime, Runtime cluster, or Runtime cloud. 1. Must be between 0-23<br /> 2. Required if scheduleType is set to FIRST or LAST"
+    },
+    "scheduleType": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "enum": [
+        "NEVER",
+        "FIRST",
+        "LAST"
+      ],
+      "description": "Required. Determines whether you want to receive the updates when available, and if so, whether you receive them in the first or second \\(last\\) week they are available prior to the .-   FIRST - Update within the first week that updates are available<br /> 1. LAST - Update within the second week that updates are available<br />2. NEVER - Update with the"
+    },
+    "timeZone": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The time zone of your set schedule. <br />1. Must be a [valid time zone](/api/platformapi#section/Introduction/Valid-time-zones) <br />2. Required if scheduleType is set to FIRST or LAST"
+    }
+  },
+  "required": [
+    "id",
+    "atomId",
+    "dayOfWeek",
+    "scheduleType",
+    "timeZone"
+  ]
+}

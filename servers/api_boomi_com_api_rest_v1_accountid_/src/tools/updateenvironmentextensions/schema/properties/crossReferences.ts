@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "crossReference": z.array(z.object({ "CrossReferenceRows": z.object({ "row": z.array(z.object({ "ref1": z.string().optional(), "ref10": z.string().optional(), "ref11": z.string().optional(), "ref12": z.string().optional(), "ref13": z.string().optional(), "ref14": z.string().optional(), "ref15": z.string().optional(), "ref16": z.string().optional(), "ref17": z.string().optional(), "ref18": z.string().optional(), "ref19": z.string().optional(), "ref2": z.string().optional(), "ref20": z.string().optional(), "ref3": z.string().optional(), "ref4": z.string().optional(), "ref5": z.string().optional(), "ref6": z.string().optional(), "ref7": z.string().optional(), "ref8": z.string().optional(), "ref9": z.string().optional() })).optional() }), "id": z.string().optional(), "name": z.string().optional(), "overrideValues": z.boolean().optional() })).optional()
+}

@@ -1,0 +1,44 @@
+{
+  "example": {
+    "property": [
+      {
+        "name": "reference",
+        "value": "myreference"
+      },
+      {
+        "name": "baseURL"
+      },
+      {
+        "name": "datetime"
+      }
+    ]
+  },
+  "type": "object",
+  "properties": {
+    "property": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Name of property. Refer the Startup Properties Reference table."
+          },
+          "value": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Value of property."
+          }
+        }
+      }
+    }
+  }
+}

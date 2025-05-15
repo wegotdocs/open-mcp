@@ -1,0 +1,127 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "ContactInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ContactInfo` to the tool, first call the tool `expandSchema` with \"/properties/ContactInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "PartnerCommunication": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PartnerCommunication` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "PartnerCommunicationTypes": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "string",
+        "xml": {
+          "name": "PartnerCommunicationTypes"
+        }
+      }
+    },
+    "PartnerDocumentTypes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PartnerDocumentTypes` to the tool, first call the tool `expandSchema` with \"/properties/PartnerDocumentTypes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "PartnerInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PartnerInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "classification": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "tradingpartner",
+        "mycompany"
+      ],
+      "example": "tradingpartner"
+    },
+    "componentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "12345678-9abc-def0-1234-56789abcdef0"
+    },
+    "componentName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "Best Wholesaling"
+    },
+    "deleted": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "description": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "folderId": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "example": "11356"
+    },
+    "folderName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "Home:TPs"
+    },
+    "identifier": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "organizationId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "standard": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "x12",
+        "edifact",
+        "hl7",
+        "custom",
+        "rosettanet",
+        "tradacoms",
+        "odette"
+      ],
+      "example": "x12"
+    }
+  },
+  "required": [
+    "id",
+    "ContactInfo",
+    "PartnerCommunication",
+    "PartnerDocumentTypes",
+    "PartnerInfo"
+  ]
+}

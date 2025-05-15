@@ -1,0 +1,49 @@
+{
+  "required": [
+    "fileFilter",
+    "getDirectory"
+  ],
+  "type": "object",
+  "properties": {
+    "deleteAfterRead": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "fileFilter": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "filterMatchType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "wildcard",
+        "regex"
+      ]
+    },
+    "getDirectory": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "maxFileCount": {
+      "type": "integer",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "useDefaultGetOptions": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

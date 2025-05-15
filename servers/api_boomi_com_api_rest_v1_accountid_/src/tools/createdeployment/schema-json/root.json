@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "componentId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "example": "789abcde-f012-3456-789a-bcdef0123456"
+    },
+    "componentType": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "current": {
+      "type": "boolean",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "example": "true"
+    },
+    "deployedBy": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "example": "user123company.biz"
+    },
+    "deployedOn": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "example": "2013-08-13T17:13:46Z"
+    },
+    "digest": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "example": "abb98d1a5b659afbe77cc361cb255c8b"
+    },
+    "environmentId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "example": "456789ab-cdef-0123-4567-89abcdef0123"
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "example": "89abcdef-0123-4567-89ab-cdef01234567"
+    },
+    "listenerStatus": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "enum": [
+        "RUNNING",
+        "PAUSED"
+      ]
+    },
+    "message": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "notes": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "example": "Added Message step"
+    },
+    "processId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "version": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "example": "54"
+    }
+  },
+  "required": [
+    "componentId",
+    "componentType",
+    "deployedBy",
+    "deployedOn",
+    "digest",
+    "environmentId",
+    "id",
+    "notes",
+    "processId"
+  ]
+}

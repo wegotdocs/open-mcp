@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "AS2DefaultPartnerSettings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `AS2DefaultPartnerSettings` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2DefaultPartnerSettings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "AS2ReceiveOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `AS2ReceiveOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2ReceiveOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "AS2SendOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `AS2SendOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2SendOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "AS2SendSettings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `AS2SendSettings` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2SendSettings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "CommunicationSetting": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "default",
+        "custom",
+        "component"
+      ]
+    },
+    "SharedCommunicationChannel": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `SharedCommunicationChannel` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/SharedCommunicationChannel\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

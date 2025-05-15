@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.string().describe("The unique ID assigned by the system to the container.\n\n1. Use the Runtime ID for Runtimes, Runtime clusters, and Runtime clouds found in the user interface by navigating to **Manage** > **Runtime Management** and viewing the Runtime Information panel for a selected container.\n\n2. Use the Gateway ID found in the user interface by navigating to **Configure Server** > **Gateways** > `<gatewayName>` > Gateway Information panel.\n\n3. Use the Broker ID found in the user interface by navigating to **Configure Server** > **Authentication** > `<brokerName>` > Broker Information panel."),
+  "atomId": z.string().describe("The unique ID assigned by the system to the container.\n\n1. Use the Runtime ID for Runtimes, Runtime clusters, and Runtime clouds found in the user interface by navigating to **Manage** > **Runtime Management** and viewing the Runtime Information panel for a selected container.\n\n2. Use the Gateway ID found in the user interface by navigating to **Configure Server** > **Gateways** > `<gatewayName>` > Gateway Information panel.\n\n3. Use the Broker ID found in the user interface by navigating to **Configure Server** > **Authentication** > `<brokerName>` > Broker Information panel.").optional()
+}

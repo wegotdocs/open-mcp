@@ -1,0 +1,54 @@
+{
+  "required": [
+    "clientSSLCertificate",
+    "sslCertificate",
+    "url"
+  ],
+  "type": "object",
+  "properties": {
+    "AuthSettings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `AuthSettings` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2DefaultPartnerSettings/properties/AuthSettings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "authenticationType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "NONE",
+        "BASIC"
+      ]
+    },
+    "clientSSLCertificate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `clientSSLCertificate` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2DefaultPartnerSettings/properties/clientSSLCertificate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "sslCertificate": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sslCertificate` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2DefaultPartnerSettings/properties/sslCertificate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "url": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "useDefaultSettings": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "verifyHostname": {
+      "type": "boolean",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "default": false
+    }
+  }
+}

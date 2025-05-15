@@ -1,0 +1,157 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the Runtime that is hosting the shared web server.",
+      "type": "string"
+    },
+    "apiType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "basic",
+        "intermediate",
+        "advanced"
+      ],
+      "description": "The level of user management and API management functionality applicable to the shared web server.Options are basic, intermediate, and advanced. The default is intermediate.",
+      "example": "basic"
+    },
+    "atomId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the Runtime that is hosting the shared web server.",
+      "example": "3456789a-bcde-f012-3456-789abcdef012"
+    },
+    "auth": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "none",
+        "basic"
+      ],
+      "description": "The authentication required by the web server. Options are none and basic. If minAuth is set to basic, you must also set auth to basic."
+    },
+    "authToken": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "If you configure BASIC authentication, this is an authentication token for connecting to the shared web server. You cannot update this with the UPDATE operation.",
+      "example": "bcdef012-3456-789a-bcde-f0123456789a"
+    },
+    "checkForwardedHeaders": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Information regarding the external host, might be forwarded in headers. The embedded Java technology is capable of examining these headers and extracting external host information for response and callback purposes. Set this to true to enable the server to check for this information. The default is false.",
+      "example": "false"
+    },
+    "externalHost": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The external host name or IP for the listener.",
+      "example": ""
+    },
+    "externalHttpPort": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The external HTTP port routes to the shared web server listener.",
+      "example": "0"
+    },
+    "externalHttpsPort": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The external HTTPS port routes to the shared web server listener.",
+      "example": "0"
+    },
+    "httpPort": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The HTTP port on which the web server listens. The default port is 9090.",
+      "example": "9090"
+    },
+    "httpsPort": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The SSL \\(HTTPS\\) port on which the web server listens, if applicable. The default port is 9093.",
+      "example": "9093"
+    },
+    "internalHost": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "For multi-homed boxes, the IP address you want to use for binding to a specific interface.",
+      "example": "127.0.0.1"
+    },
+    "maxThreads": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The maximum number of handler threads that the listen process spawn. It queues other requests.",
+      "example": "250"
+    },
+    "minAuth": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "none",
+        "basic"
+      ],
+      "description": "The minimum authentication required by the web server. Options are none and basic. The are multi-tenant, so the default is set to basic. The default for local Runtimes and Runtime clusters is none.",
+      "example": "basic"
+    },
+    "overrideUrl": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Allows manual overriding of the exposed URL used to connect to the shared web server. This value is for informational purposes for any tenant. By default, this is false, meaning the URL is constructed based on the host name or external host name and port or SSL port settings. Set this to true to specify a custom URL attribute value.",
+      "example": "false"
+    },
+    "sslCertificateId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The component ID for the SSL certificate used by the server, if applicable.",
+      "example": "6789abcd-ef01-2345-6789-abcdef012345"
+    },
+    "url": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The URL for connecting to the shared web server.",
+      "example": "http://system.sub.domain.tld:9090"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

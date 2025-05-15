@@ -1,0 +1,34 @@
+{
+  "description": "\\(Required\\) An instance of a generalized queue object indicating the queue from which to obtain the messages. Contains information describing the desired queue.",
+  "example": {
+    "QueueName": "PointToPoint_Source"
+  },
+  "required": [
+    "DLQ",
+    "QueueName"
+  ],
+  "type": "object",
+  "properties": {
+    "DLQ": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "(Required) true, or false. Allows the user to choose the regular or dead letter queue for deleting messages. The default is `false`, which deletes messages from the regular queue."
+    },
+    "QueueName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "(Required) The name of the queue or topic. You can find this in the [List Queues](/api/platformapi#tag/ListQueues) action or in Queue Management."
+    },
+    "SubscriberName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "(Optional. Use only for topic subscribers.) The name of the subscriber as it exists on the Runtime. You can find this by using the [List Queues](/api/platformapi#tag/ListQueues) action or by looking up the Component ID of the process associated with the subscriber.\n\n >**Note:** This field is not only the subscriber name shown on the Queue Management screen of the user interface."
+    }
+  }
+}

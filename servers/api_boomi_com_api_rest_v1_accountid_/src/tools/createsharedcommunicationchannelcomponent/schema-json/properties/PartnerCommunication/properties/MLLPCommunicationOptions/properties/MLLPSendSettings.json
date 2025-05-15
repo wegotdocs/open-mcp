@@ -1,0 +1,99 @@
+{
+  "required": [
+    "MLLPSSLOptions",
+    "endBlock",
+    "endData",
+    "host",
+    "port",
+    "startBlock"
+  ],
+  "type": "object",
+  "properties": {
+    "MLLPSSLOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `MLLPSSLOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/MLLPCommunicationOptions/properties/MLLPSendSettings/properties/MLLPSSLOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "endBlock": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `endBlock` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/MLLPCommunicationOptions/properties/MLLPSendSettings/properties/endBlock\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "endData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `endData` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/MLLPCommunicationOptions/properties/MLLPSendSettings/properties/endData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "haltTimeout": {
+      "type": "boolean",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "default": false
+    },
+    "host": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "inactivityTimeout": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "default": 60
+    },
+    "maxConnections": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "default": 10
+    },
+    "maxRetry": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "default": 0
+    },
+    "persistent": {
+      "type": "boolean",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "default": false
+    },
+    "port": {
+      "type": "integer",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "receiveTimeout": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "default": 120
+    },
+    "sendTimeout": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "default": 120
+    },
+    "startBlock": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `startBlock` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/MLLPCommunicationOptions/properties/MLLPSendSettings/properties/startBlock\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

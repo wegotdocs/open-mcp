@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "ReleasePackagedComponents": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ReleasePackagedComponents` to the tool, first call the tool `expandSchema` with \"/properties/ReleasePackagedComponents\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the integration pack.",
+      "example": "f0f7face-3a9d-48b1-8a32-82b84499cd4e"
+    },
+    "installationType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The type of integration pack. Possible values:\n\n- SINGLE — single attachment \n- MULTI — multiple attachment",
+      "enum": [
+        "SINGLE",
+        "MULTI"
+      ],
+      "example": "MULTI"
+    },
+    "name": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name of the integration pack.",
+      "example": "Testing MULTI"
+    },
+    "releaseOnDate": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Date for future release of integration pack. \nDate Format: yyyy-MM-dd"
+    },
+    "releaseSchedule": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Specify the type of release schedule for the integration pack. Possible values:\n- IMMEDIATELY — for immediate release\n- RELEASE_ON_SPECIFIED_DATE — for future release",
+      "enum": [
+        "IMMEDIATELY",
+        "RELEASE_ON_SPECIFIED_DATE"
+      ],
+      "example": "IMMEDIATELY"
+    },
+    "releaseStatusUrl": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The complete endpoint URL used to make a second call to the ReleaseIntegrationPackStatus object. \nIt is provided for your convenience in the `releaseStatusUrl` field of the initial POST response.",
+      "example": "https://api.boomi.com/api/rest/v1/boomi-8Q78Q1/ReleaseIntegrationPackStatus/release-11031691-dc62-4280-a3b2-dcf7f3521f8a"
+    },
+    "requestId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID assigned by the system to the integration pack release request.",
+      "example": "release-11031691-dc62-4280-a3b2-dcf7f3521f8a"
+    }
+  },
+  "required": []
+}

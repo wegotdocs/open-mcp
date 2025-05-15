@@ -1,0 +1,94 @@
+{
+  "required": [
+    "expression"
+  ],
+  "type": "object",
+  "properties": {
+    "expression": {
+      "anyOf": [
+        {
+          "required": [
+            "operator",
+            "property"
+          ],
+          "type": "object",
+          "properties": {
+            "argument": {
+              "type": "array",
+              "xml": {
+                "namespace": "http://api.platform.boomi.com/"
+              },
+              "items": {
+                "type": "string",
+                "xml": {
+                  "name": "argument"
+                }
+              }
+            },
+            "operator": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "EQUALS",
+                "STARTS_WITH",
+                "BETWEEN",
+                "GREATER_THAN",
+                "GREATER_THAN_OR_EQUAL",
+                "LESS_THAN",
+                "LESS_THAN_OR_EQUAL"
+              ]
+            },
+            "property": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "sfiddsn",
+                "sfiddate",
+                "sfidtime",
+                "sfiddest",
+                "initiator_ssidcode",
+                "responder_ssidcode",
+                "sfidorig",
+                "sfidsec",
+                "sfidcomp",
+                "sfidciph",
+                "sfiddesc",
+                "sfidsign",
+                "sfidosiz",
+                "sfidenv",
+                "status",
+                "account",
+                "executionId",
+                "atomId",
+                "dateProcessed",
+                "id",
+                "actionType",
+                "connectorType",
+                "connectorName",
+                "operationName",
+                "documentIndex",
+                "successful",
+                "size",
+                "customFields",
+                "nareas",
+                "nareast"
+              ]
+            }
+          },
+          "xml": {
+            "name": "SimpleExpression",
+            "namespace": "http://api.platform.boomi.com/"
+          }
+        }
+      ]
+    }
+  },
+  "xml": {
+    "name": "QueryFilter",
+    "namespace": "http://api.platform.boomi.com/"
+  }
+}

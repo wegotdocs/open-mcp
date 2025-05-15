@@ -1,0 +1,63 @@
+{
+  "required": [
+    "expression"
+  ],
+  "type": "object",
+  "properties": {
+    "expression": {
+      "anyOf": [
+        {
+          "required": [
+            "operator",
+            "property"
+          ],
+          "type": "object",
+          "properties": {
+            "argument": {
+              "type": "array",
+              "xml": {
+                "namespace": "http://api.platform.boomi.com/"
+              },
+              "items": {
+                "type": "string",
+                "xml": {
+                  "name": "argument"
+                }
+              }
+            },
+            "operator": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "EQUALS",
+                "STARTS_WITH",
+                "BETWEEN",
+                "GREATER_THAN",
+                "GREATER_THAN_OR_EQUAL",
+                "LESS_THAN",
+                "LESS_THAN_OR_EQUAL"
+              ],
+              "description": "The STARTS_WITH operator accepts values that do not include spaces."
+            },
+            "property": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              }
+            }
+          },
+          "xml": {
+            "name": "SimpleExpression",
+            "namespace": "http://api.platform.boomi.com/"
+          }
+        }
+      ]
+    }
+  },
+  "xml": {
+    "name": "QueryFilter",
+    "namespace": "http://api.platform.boomi.com/"
+  }
+}

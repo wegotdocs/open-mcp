@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "node": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "required": [
+          "clusterProblem",
+          "hostName",
+          "nodeId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "clusterProblem": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "description": "Lists any issues reported for nodes."
+          },
+          "hostName": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "description": "Displays the external host name or IP of the machine where the node currently lives."
+          },
+          "nodeId": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "description": "Displays the unique identifier associated with a particular node in the Runtime cluster or Runtime cloud. A star icon indicates the cluster's head node."
+          },
+          "status": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "description": "Lists the nodes in the Runtime cluster or Runtime cloud and displays some basic information about each node. By default, the nodes are sorted by `status`. You can sort the list by `status`, `nodeId`, or `hostName`."
+          }
+        }
+      }
+    }
+  }
+}

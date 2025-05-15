@@ -1,0 +1,40 @@
+{
+  "example": {
+    "PGPCertificate": {
+      "id": "6a9cb126...",
+      "value": "Production Certificate"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "PGPCertificate": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "useDefault": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "value": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "accountGroupId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the account group.",
+      "example": "cd17f866-c247-4c54-a1a1-ea8f8f86a1d1"
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID assigned by the system to the integration pack. This field populates only if you add the integration pack to an account group.",
+      "example": "MXxjZDE3Zjg2Ni1jMjQ3LTRjNTQtYTFhMS1lYThmOGY4NmExZDE"
+    },
+    "installationType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "SINGLE",
+        "MULTI"
+      ],
+      "description": "The type of integration pack. Possible values:\n \n - SINGLE — single attachment\n - MULTI — multiple attachment",
+      "example": "SINGLE"
+    },
+    "integrationPackId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID assigned by the system to the integration pack.",
+      "example": "cd17f866-c247-4c54-a1a1-ea8f8f863456"
+    },
+    "integrationPackName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name of the integration pack.",
+      "example": "test integration pack"
+    }
+  },
+  "required": []
+}

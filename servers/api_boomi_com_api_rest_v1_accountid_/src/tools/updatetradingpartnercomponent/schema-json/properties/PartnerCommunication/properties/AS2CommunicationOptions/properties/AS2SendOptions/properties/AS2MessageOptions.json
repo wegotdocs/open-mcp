@@ -1,0 +1,105 @@
+{
+  "required": [
+    "subject"
+  ],
+  "type": "object",
+  "properties": {
+    "attachmentCache": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "attachmentOption": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "BATCH",
+        "DOCUMENT_CACHE"
+      ]
+    },
+    "compressed": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "dataContentType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "textplain",
+        "binary",
+        "edifact",
+        "edix12",
+        "applicationxml",
+        "textxml"
+      ]
+    },
+    "encrypted": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "encryptionAlgorithm": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "na",
+        "tripledes",
+        "des",
+        "rc2-128",
+        "rc2-64",
+        "rc2-40",
+        "aes-128",
+        "aes-192",
+        "aes-256"
+      ]
+    },
+    "maxDocumentCount": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "multipleAttachments": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "signed": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "signingDigestAlg": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "SHA1",
+        "SHA224",
+        "SHA256",
+        "SHA384",
+        "SHA512"
+      ]
+    },
+    "subject": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    }
+  }
+}

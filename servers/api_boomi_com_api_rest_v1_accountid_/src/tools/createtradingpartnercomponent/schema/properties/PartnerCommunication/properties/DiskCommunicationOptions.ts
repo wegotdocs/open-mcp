@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "CommunicationSetting": z.enum(["default","custom","component"]).optional(),
+  "DiskGetOptions": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DiskGetOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/DiskCommunicationOptions/properties/DiskGetOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "DiskSendOptions": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DiskSendOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/DiskCommunicationOptions/properties/DiskSendOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "SharedCommunicationChannel": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `SharedCommunicationChannel` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/DiskCommunicationOptions/properties/SharedCommunicationChannel\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional()
+}

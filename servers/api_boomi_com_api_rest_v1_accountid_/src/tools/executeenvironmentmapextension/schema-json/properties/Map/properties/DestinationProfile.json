@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "Node": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "xpath": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    },
+    "componentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "type": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    }
+  },
+  "description": "Represents the fields in a source or destination profile of the given map, and specifies the section of the map in which to extend. \n\n >**Note:** You cannot add or create new fields in the object's request body. You must add new fields in the user interface of the underlying Map component or from a dynamic reimport. See the Customizing profiles section later in this topic.\n\nThe following SourceProfile attributes define fields in the source profile:\n\n- componentId - represents the object definition extension ID. A GET request returns this value.\n- name - the user-defined field label(s) found in the source profile.\n- xpath - represents the field location in the source profile hierarchy."
+}

@@ -1,0 +1,19 @@
+{
+  "required": [
+    "OdetteControlInfo",
+    "OdetteOptions"
+  ],
+  "type": "object",
+  "properties": {
+    "OdetteControlInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `OdetteControlInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/OdettePartnerInfo/properties/OdetteControlInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "OdetteOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `OdetteOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/OdettePartnerInfo/properties/OdetteOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

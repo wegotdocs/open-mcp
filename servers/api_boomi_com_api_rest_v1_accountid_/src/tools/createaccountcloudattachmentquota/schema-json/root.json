@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the account authorizing the call."
+    },
+    "cloudId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the Runtime cloud that you want to get, add, edit, or delete a Cloud quota."
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID generated for a newly created or recently updated Cloud quota \\(using the Account Cloud Attachment quota object\\). You can use this ID to get a Cloud quota for an account's specific Cloud ID."
+    },
+    "maxAtomAttachment": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The number of Runtime attachments that you want to set on the Cloud quota."
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "Node": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "Character": {
+            "type": "object"
+          },
+          "DateTime": {
+            "type": "object",
+            "properties": {
+              "format": {
+                "type": "string",
+                "xml": {
+                  "attribute": true
+                }
+              }
+            }
+          },
+          "Number": {
+            "type": "object",
+            "properties": {
+              "format": {
+                "type": "string",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "impliedDecimal": {
+                "type": "integer",
+                "format": "int32",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "signed": {
+                "type": "boolean",
+                "xml": {
+                  "attribute": true
+                }
+              }
+            }
+          },
+          "enforceUnique": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "fieldLengthValidation": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "mandatory": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "maxLength": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "minLength": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "description": "Contains the user-defined custom fields for the source or destination profile. Applicable only to Flat File profiles. Represents the field and value configuration settings manually specified in the source or destination profile's Data Element tab. For more information, refer to [Customizing Profiles](/docs/APIs/PlatformAPI/Customizing_profiles_environment_map_extension)."
+}

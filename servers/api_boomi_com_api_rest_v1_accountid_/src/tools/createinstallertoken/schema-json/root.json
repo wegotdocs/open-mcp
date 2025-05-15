@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "fakeAccountId"
+    },
+    "cloudId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "\\(For Runtime cloud installation\\) A unique ID assigned by the system to the Runtime cloud."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      },
+      "example": "2017-02-07T22:31:10.136Z"
+    },
+    "durationMinutes": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The number of minutes for which the installer token is valid, from 30 to 1440."
+    },
+    "expiration": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      },
+      "example": "2017-02-07T23:01:10.136Z"
+    },
+    "installType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "CLOUD",
+        "ATOM",
+        "MOLECULE",
+        "BROKER",
+        "GATEWAY"
+      ],
+      "description": "-   ATOM<br />-   MOLECULE<br />-   CLOUD<br />-   BROKER",
+      "example": "MOLECULE"
+    },
+    "token": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "molecule-45aa1e3c-499a-4405-9869-51c1914cdfb9"
+    }
+  },
+  "required": []
+}

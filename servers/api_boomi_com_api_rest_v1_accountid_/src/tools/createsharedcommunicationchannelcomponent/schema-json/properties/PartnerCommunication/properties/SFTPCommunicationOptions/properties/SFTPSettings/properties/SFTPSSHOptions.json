@@ -1,0 +1,40 @@
+{
+  "required": [
+    "knownHostEntry",
+    "sshkeypassword",
+    "sshkeypath"
+  ],
+  "type": "object",
+  "properties": {
+    "dhKeySizeMax1024": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "knownHostEntry": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "sshkeyauth": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "sshkeypassword": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "sshkeypath": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    }
+  }
+}

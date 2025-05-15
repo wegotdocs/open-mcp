@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "expression": z.object({ "argument": z.array(z.string()).optional(), "operator": z.enum(["EQUALS","STARTS_WITH","BETWEEN","GREATER_THAN","GREATER_THAN_OR_EQUAL","LESS_THAN","LESS_THAN_OR_EQUAL"]), "property": z.enum(["executionId","atomId","dateProcessed","id","actionType","connectorType","connectorName","operationName","documentIndex","successful","size","errorMessage","ackStatus","ackReport","senderID","receiverID","knownInitiatingPartnerID","frameworkVersion","PIPCode","PIPVersion","globalProcessCode","globalBusinessActionCode","globalDocumentFunctionCode","fromGlobalPartnerRoleClassificationCode","toGlobalPartnerRoleClassificationCode","fromGlobalBusinessServiceCode","toGlobalBusinessServiceCode","businessActivityIdentifier","processInstanceIdentifier","transactionInstanceIdentifier","actionInstanceIdentifier","inResponseToGlobalBusinessActionCode","inResponseToInstanceIdentifier","globalUsageCode","attemptCount","dateTime","isSecureTransportRequired","timeToAcknowledgeAcceptance","timeToAcknowledgeReceipt","timeToPerform","outboundValidationStatus","outboundValidationReport"]) })
+}

@@ -1,0 +1,57 @@
+{
+  "required": [
+    "FTPSSLOptions",
+    "host",
+    "password",
+    "port",
+    "user"
+  ],
+  "type": "object",
+  "properties": {
+    "FTPSSLOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `FTPSSLOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/FTPCommunicationOptions/properties/FTPSettings/properties/FTPSSLOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "connectionMode": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "active",
+        "passive"
+      ]
+    },
+    "host": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "password": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "port": {
+      "type": "integer",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "useDefaultSettings": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "user": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "required": [
+    "expression"
+  ],
+  "type": "object",
+  "properties": {
+    "expression": {
+      "anyOf": [
+        {
+          "required": [
+            "operator",
+            "property"
+          ],
+          "type": "object",
+          "properties": {
+            "argument": {
+              "type": "array",
+              "xml": {
+                "namespace": "http://api.platform.boomi.com/"
+              },
+              "items": {
+                "type": "string",
+                "xml": {
+                  "name": "argument"
+                }
+              }
+            },
+            "operator": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "EQUALS",
+                "LIKE",
+                "NOT_EQUALS",
+                "IS_NULL",
+                "IS_NOT_NULL",
+                "BETWEEN",
+                "GREATER_THAN",
+                "GREATER_THAN_OR_EQUAL",
+                "LESS_THAN",
+                "LESS_THAN_OR_EQUAL",
+                "CONTAINS",
+                "NOT_CONTAINS"
+              ]
+            },
+            "property": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "accountId",
+                "componentId",
+                "version",
+                "name",
+                "type",
+                "subType",
+                "createdDate",
+                "createdBy",
+                "modifiedDate",
+                "modifiedBy",
+                "deleted",
+                "currentVersion",
+                "folderName",
+                "folderId",
+                "copiedFromComponentId",
+                "copiedFromComponentVersion",
+                "branchName",
+                "branchId"
+              ]
+            }
+          },
+          "xml": {
+            "name": "SimpleExpression",
+            "namespace": "http://api.platform.boomi.com/"
+          }
+        }
+      ]
+    }
+  },
+  "xml": {
+    "name": "QueryFilter",
+    "namespace": "http://api.platform.boomi.com/"
+  }
+}

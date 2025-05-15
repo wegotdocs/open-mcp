@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique ID assigned by the system to the Runtime.",
+      "type": "string"
+    },
+    "atomId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID assigned by the system to the Runtime."
+    },
+    "counter": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "The name of the counter."
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "attribute": true
+            },
+            "description": "The assigned value to the counter."
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

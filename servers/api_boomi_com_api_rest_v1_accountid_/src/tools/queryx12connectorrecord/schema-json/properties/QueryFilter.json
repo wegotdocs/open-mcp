@@ -1,0 +1,100 @@
+{
+  "required": [
+    "expression"
+  ],
+  "type": "object",
+  "properties": {
+    "expression": {
+      "anyOf": [
+        {
+          "required": [
+            "operator",
+            "property"
+          ],
+          "type": "object",
+          "properties": {
+            "argument": {
+              "type": "array",
+              "xml": {
+                "namespace": "http://api.platform.boomi.com/"
+              },
+              "items": {
+                "type": "string",
+                "xml": {
+                  "name": "argument"
+                }
+              }
+            },
+            "operator": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "EQUALS",
+                "STARTS_WITH",
+                "BETWEEN",
+                "GREATER_THAN",
+                "GREATER_THAN_OR_EQUAL",
+                "LESS_THAN",
+                "LESS_THAN_OR_EQUAL"
+              ]
+            },
+            "property": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "executionId",
+                "atomId",
+                "dateProcessed",
+                "id",
+                "actionType",
+                "connectorType",
+                "connectorName",
+                "operationName",
+                "documentIndex",
+                "successful",
+                "size",
+                "errorMessage",
+                "isaAckStatus",
+                "isaAckReport",
+                "ackStatus",
+                "ackReport",
+                "isaControl",
+                "gsControl",
+                "stControl",
+                "functionalID",
+                "transactionSet",
+                "testIndicator",
+                "senderIDQualifier",
+                "senderID",
+                "receiverIDQualifier",
+                "receiverID",
+                "appSenderID",
+                "appReceiverID",
+                "standardID",
+                "standard",
+                "gsVersion",
+                "agencyCode",
+                "gsDate",
+                "gsTime",
+                "outboundValidationStatus",
+                "outboundValidationReport"
+              ]
+            }
+          },
+          "xml": {
+            "name": "SimpleExpression",
+            "namespace": "http://api.platform.boomi.com/"
+          }
+        }
+      ]
+    }
+  },
+  "xml": {
+    "name": "QueryFilter",
+    "namespace": "http://api.platform.boomi.com/"
+  }
+}

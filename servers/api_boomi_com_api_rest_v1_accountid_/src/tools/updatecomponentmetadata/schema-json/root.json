@@ -1,0 +1,180 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Required. Read only. The ID of the component. The component ID is available on the Revision History dialog, which you can access from the Build page in the service.",
+      "type": "string"
+    },
+    "branchId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "If specified, the branch on which you want to manage the component."
+    },
+    "branchName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "componentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Required. Read only. The ID of the component. The component ID is available on the Revision History dialog, which you can access from the Build page in the service.",
+      "example": "456789a-bcde-f0123-4567-89abcdef012"
+    },
+    "copiedFromComponentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. If you copied the component, this field is the ID of the original component from where you copied the component.",
+      "example": "123456a-bcde-f4567-8901-23abcdef456"
+    },
+    "copiedFromComponentVersion": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. If you copied the component, this field is the revision number of the original component you copied.",
+      "example": "6"
+    },
+    "createdBy": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. User name of the user who created the component.",
+      "example": "johndoeboomi.com"
+    },
+    "createdDate": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. Date and time.",
+      "example": "2019-11-05T20:13:25Z"
+    },
+    "currentVersion": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. Indicates if the value specified in the version field is the most current and latest revision number created for the component on the **Build** tab. A value of True indicates that the revision number is the most current revision number on the **Build** tab, whereas False indicates that the version field value is not the most current revision number.",
+      "example": "false"
+    },
+    "deleted": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. Indicates if the component is deleted. A value of True indicates a deleted status, whereas False indicates an active status.",
+      "example": "true"
+    },
+    "folderId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the folder where the component currently resides.",
+      "example": "\"PloxRzM5OTk\""
+    },
+    "folderName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. The folder location of the component within Component Explorer.",
+      "example": "Boomi"
+    },
+    "modifiedBy": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. User name of the user who last modified the component.",
+      "example": "janedoeboomi.com"
+    },
+    "modifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. Date and time.",
+      "example": "2019-11-26T21:23:55Z"
+    },
+    "name": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only.",
+      "example": "Component123"
+    },
+    "subType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only. Used by connector-related components \\(connections and operations\\) to identify the connector type. Subtype values are the internal connector ID, not the user-facing name.See [Connector object](/api/platformapi#tag/Connector).",
+      "example": "process"
+    },
+    "type": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "certificate",
+        "connector-action",
+        "connector-settings",
+        "crossref",
+        "documentcache",
+        "transform.map",
+        "transform.function",
+        "certificate.pgp",
+        "process",
+        "processproperty",
+        "profile.db",
+        "profile.edi",
+        "profile.flatfile",
+        "profile.xml",
+        "profile.json",
+        "queue",
+        "tradingpartner",
+        "tpgroup",
+        "tporganization",
+        "tpcommoptions",
+        "webservice",
+        "webservice.external",
+        "processroute",
+        "customlibrary",
+        "edistandard",
+        "flowservice",
+        "script.processing",
+        "script.mapping",
+        "xslt"
+      ],
+      "description": "Read only. The type of component. See the section **Component Types** later in this topic for a complete list of component type values",
+      "example": "process"
+    },
+    "version": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Read only.",
+      "example": "7"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

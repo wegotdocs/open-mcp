@@ -1,0 +1,79 @@
+{
+  "required": [
+    "apiType",
+    "authentication",
+    "baseUrl",
+    "externalHost",
+    "internalHost",
+    "listenerPorts",
+    "protectedHeaders",
+    "sslCertificate"
+  ],
+  "type": "object",
+  "properties": {
+    "apiType": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "authentication": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `authentication` to the tool, first call the tool `expandSchema` with \"/properties/generalSettings/properties/authentication\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "baseUrl": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "examineForwardHeaders": {
+      "type": "boolean",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "externalHost": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "internalHost": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "listenerPorts": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `listenerPorts` to the tool, first call the tool `expandSchema` with \"/properties/generalSettings/properties/listenerPorts\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "maxNumberOfThreads": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "overrideUrl": {
+      "type": "boolean",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "protectedHeaders": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `protectedHeaders` to the tool, first call the tool `expandSchema` with \"/properties/generalSettings/properties/protectedHeaders\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "sslCertificate": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    }
+  }
+}

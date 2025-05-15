@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "filterSignals": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "outboundDocumentValidation": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "rejectDuplicateTransactions": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "version": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "v11",
+        "v20"
+      ]
+    }
+  }
+}

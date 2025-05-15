@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "PartnerArchiving": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PartnerArchiving` to the tool, first call the tool `expandSchema` with \"/properties/PartnerArchiving\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "PartnerCommunication": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PartnerCommunication` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "communicationType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "AS2"
+    },
+    "componentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "0cfe0d5a-0d33-48f8-825a-1d67667e0cd5"
+    },
+    "componentName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "Shared AS2 API"
+    },
+    "deleted": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "example": false
+    },
+    "description": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "folderId": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "example": 921
+    },
+    "folderName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "Boomi/SampleFolder"
+    }
+  },
+  "required": [
+    "PartnerArchiving",
+    "PartnerCommunication"
+  ]
+}

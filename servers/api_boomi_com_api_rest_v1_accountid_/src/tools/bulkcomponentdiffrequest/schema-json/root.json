@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "request": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "example": "56789abc-def0-1234-5678-9abcdef01234"
+          }
+        }
+      }
+    },
+    "type": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "GET",
+        "DELETE",
+        "UPDATE",
+        "CREATE"
+      ],
+      "description": "Read only. The type of component. See the section Component Types later in this topic for a complete list of component type values"
+    }
+  },
+  "required": []
+}

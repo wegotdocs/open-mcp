@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "atomId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "3456789a-bcde-f0123-4567-89abcdef012",
+      "description": "A unique ID assigned by the system to the Runtime."
+    },
+    "enabled": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "example": "true",
+      "description": "If set to true, the schedules are in effect. Setting it to falsestops the schedules."
+    },
+    "b_id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "Ab0Cd1Ef1Gh3Ij4Kl5Mn6Op7Qr8St9Uv0Wx9Yz8Zy7Xw6Vu5Ts4Rq3Po2Nm1Lk0Ji1Hg",
+      "description": "The object’s conceptual ID, which is synthesized from the process and Runtime IDs."
+    },
+    "processId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "789abcde-f012-3456-789a-bcdef0123456",
+      "description": "A unique ID assigned by the system to the process."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

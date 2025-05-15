@@ -1,0 +1,73 @@
+{
+  "required": [
+    "externalURL",
+    "mdnClientSSLCert",
+    "mdnSSLCert"
+  ],
+  "type": "object",
+  "properties": {
+    "externalURL": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "mdnClientSSLCert": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `mdnClientSSLCert` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2ReceiveOptions/properties/AS2DefaultPartnerMDNOptions/properties/mdnClientSSLCert\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "mdnDigestAlg": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "SHA1",
+        "SHA224",
+        "SHA256",
+        "SHA384",
+        "SHA512"
+      ]
+    },
+    "mdnSSLCert": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `mdnSSLCert` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2ReceiveOptions/properties/AS2DefaultPartnerMDNOptions/properties/mdnSSLCert\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "requestMDN": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "signed": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "synchronous": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "sync",
+        "async"
+      ]
+    },
+    "useExternalURL": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "useSSL": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

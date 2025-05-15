@@ -1,0 +1,123 @@
+{
+  "example": {
+    "operation": {
+      "id": "2b9a80d2...",
+      "name": "WebService Operation",
+      "field": {
+        "componentOverride": "false",
+        "encryptedValueSet": "false",
+        "id": "ObjectName",
+        "usesEncryption": "false",
+        "value": "Updated",
+        "useDefault": "true"
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "object",
+              "properties": {
+                "componentOverride": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "customProperties": {
+                  "type": "object",
+                  "properties": {
+                    "properties": {
+                      "type": "array",
+                      "xml": {
+                        "namespace": "http://api.platform.boomi.com/"
+                      },
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "encrypted": {
+                            "type": "boolean",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "key": {
+                            "type": "string",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "value": {
+                            "type": "string",
+                            "xml": {
+                              "attribute": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "encryptedValueSet": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "id": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "useDefault": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "usesEncryption": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "value": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

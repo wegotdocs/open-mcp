@@ -1,0 +1,70 @@
+{
+  "example": {
+    "X12PartnerInfo": {
+      "X12Options": {
+        "acknowledgementoption": "donotackitem",
+        "envelopeoption": "groupall",
+        "filteracknowledgements": "false",
+        "rejectDuplicateInterchange": "false",
+        "outboundInterchangeValidation": "true",
+        "outboundValidationOption": "filterError",
+        "elementDelimiter": {
+          "delimiterValue": "stardelimited"
+        },
+        "bns:segmentTerminator": {
+          "segmentTerminatorValue": "newline"
+        }
+      },
+      "bns:X12ControlInfo": {
+        "ISAControlInfo": {
+          "testindicator": "P",
+          "ackrequested": "false",
+          "authorizationInformationQualifier": "X12AUTHQUAL_00",
+          "securityInformationQualifier": "X12SECQUAL_00",
+          "interchangeIdQualifier": "X12IDQUAL_01"
+        },
+        "bns:GSControlInfo": {
+          "respagencycode": "T"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "CustomPartnerInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CustomPartnerInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/CustomPartnerInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "EdifactPartnerInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `EdifactPartnerInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/EdifactPartnerInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "HL7PartnerInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `HL7PartnerInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/HL7PartnerInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "OdettePartnerInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `OdettePartnerInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/OdettePartnerInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "RosettaNetPartnerInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `RosettaNetPartnerInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/RosettaNetPartnerInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "TradacomsPartnerInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `TradacomsPartnerInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/TradacomsPartnerInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "X12PartnerInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `X12PartnerInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/X12PartnerInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

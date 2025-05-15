@@ -1,0 +1,25 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "capabilities": z.array(z.enum(["GATEWAY","BROKER"])).optional(),
+  "cloudId": z.string().describe("\\(For Runtimes attached to Runtime clouds\\) A unique ID assigned by the system to the Runtime cloud.").optional(),
+  "cloudMoleculeId": z.string().describe("ID of the Runtime cloud cluster to which the Cloud Attachment is assigned. This field is populated only for Cloud Attachments.").optional(),
+  "cloudMoleculeName": z.string().describe("The name of the Runtime cloud cluster to which the Cloud Attachment is assigned. This field is populated only for Cloud Attachments.").optional(),
+  "cloudName": z.string().describe("The name of the associated Runtime cloud. This field is populated only for Cloud Attachments and Cloud runtime clusters.").optional(),
+  "cloudOwnerName": z.string().describe("The account name of the associated Runtime cloud’s owner.").optional(),
+  "cluster": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `cluster` to the tool, first call the tool `expandSchema` with \"/properties/cluster\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "createdBy": z.string().describe("The user ID (email address) of a user who created the Runtime.").optional(),
+  "currentVersion": z.string().describe("A string that identifies the Runtime, Runtime cluster, or Runtime cloud's latest build.").optional(),
+  "dateInstalled": z.string().datetime({ offset: true }).describe("The installation date and time of the Runtime, Runtime cluster, or Runtime cloud. For Runtimes attached to a Runtime cloud, this is the installation date and time of the Runtime cloud.").optional(),
+  "forceRestartTime": z.number().int().describe("The length of time, in milliseconds, that the platform waits before it forces the Runtime \\(or Runtime cluster or Runtime cloud\\) to restart after changes to the Atom’s configuration. Changes do not take effect until a restart occurs. However, regardless of this value, in a Runtime cluster or Runtime cloud that uses forked execution, automatic restart is deferred until currently running processes are complete.").optional(),
+  "hostName": z.string().describe("The name or IP address of the installation machine for the Runtime, Runtime cluster, or Runtime cloud. If the Runtime is attached to a Runtime cloud, the name of the Runtime cloud appears.").optional(),
+  "id": z.string().describe("A unique ID for the Runtime, Runtime cluster, or Runtime cloud.").optional(),
+  "instanceId": z.string().describe("\\(For Runtimes attached to Runtime clouds\\) A unique ID for the Runtime. The ID consists of the owning account ID followed by a period and a suffix.").optional(),
+  "isCloudAttachment": z.boolean().describe("Indicates if a Runtime is a Cloud Attachment. It is set to `True` for the Cloud Attachment; otherwise, it is False for other Runtime. It is only populated for Cloud Attachments and Cloud runtime clusters.").optional(),
+  "name": z.string().describe("A user-defined name for the Runtime, Runtime cluster, or Runtime cloud.").optional(),
+  "purgeHistoryDays": z.number().int().describe("The number of days after a process run when the purging of logs, processed documents, and temporary data occurs. The default is 30 days. The maximum is 9999. A value of 0 disables purging.").optional(),
+  "purgeImmediate": z.boolean().describe("If true, purges processed documents and temporary data immediately after a process ends. If you set this to true, also set purgeHistoryDays to a value greater than 0, such as 1. This combination not only purges your data right away, but also runs an extra cleanup process on a daily basis.").optional(),
+  "status": z.enum(["UNKNOWN","ONLINE","WARNING","OFFLINE"]).describe("The status of the Runtime. Possible values are: UNKNOWN, ONLINE, WARNING, OFFLINE").optional(),
+  "type": z.enum(["CLOUD","MOLECULE","ATOM"]).describe("The type of Runtime. Possible values are: Cloud, Molecule, Atom").optional(),
+  "statusDetail": z.string().describe("Provides more granular status details for the runtime. <details> <summary>Possible values:</summary> \n\n When the runtime status is ONLINE: \n\n - ONLINE_RUNNING \n - ONLINE_STOPPING \n - ONLINE_STARTING \n - CLUSTER_ISSUE \n - RESTARTING \n - RESTARTING_TOO_LONG \n - RESTARTING_DEAD \n\n When the runtime status is OFFLINE: \n\n - OFFLINE \n - OFFLINE_NOT_STOPPED \n - OFFLINE_NOT_INITIALIZED \n - OFFLINE_WITH_ERROR \n - OFFLINE_WITH_CLUSTER_ISSUE \n - DELETED \n - OFFBOARDING \n\n When the runtime status is WARNING: CLUSTER_ISSUE \n\n When the runtime status is UNKNOWN: UNKNOWN \n\n </details>").optional()
+}

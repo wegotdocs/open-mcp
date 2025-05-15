@@ -1,0 +1,176 @@
+{
+  "example": {
+    "connection": [
+      {
+        "name": "Local MySql",
+        "id": "9ba5dfab-8781-4e6a-b908-0c7a7797d17a",
+        "field": [
+          {
+            "componentOverride": "false",
+            "usesEncryption": "false",
+            "encryptedValueSet": "false",
+            "id": "exhaustedAction",
+            "useDefault": "true"
+          },
+          {
+            "componentOverride": "false",
+            "usesEncryption": "false",
+            "encryptedValueSet": "false",
+            "id": "driverId",
+            "useDefault": "true",
+            "customProperties": {
+              "properties": [
+                {
+                  "key": "plainTextKey",
+                  "value": "plaintextValue",
+                  "encrypted": "false"
+                },
+                {
+                  "key": "encryptedKey"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "AndLinux - Datadump",
+        "id": "e3aeadb7-ee49-4596-9e8f-22c04724c88d",
+        "field": {
+          "componentOverride": "false",
+          "usesEncryption": "false",
+          "encryptedValueSet": "false",
+          "id": "directory",
+          "value": "mydirectory",
+          "useDefault": "true"
+        }
+      },
+      {
+        "name": "New QuickBooks Connection",
+        "id": "c9f59f09-e592-4dae-98b9-ddf1e3512f53",
+        "field": [
+          {
+            "componentOverride": "false",
+            "usesEncryption": "false",
+            "encryptedValueSet": "false",
+            "id": "appName",
+            "useDefault": "true"
+          },
+          {
+            "componentOverride": "false"
+          },
+          {
+            "componentOverride": "false"
+          }
+        ]
+      }
+    ]
+  },
+  "type": "object",
+  "properties": {
+    "connection": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "object",
+              "properties": {
+                "componentOverride": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "customProperties": {
+                  "type": "object",
+                  "properties": {
+                    "properties": {
+                      "type": "array",
+                      "xml": {
+                        "namespace": "http://api.platform.boomi.com/"
+                      },
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "encrypted": {
+                            "type": "boolean",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "key": {
+                            "type": "string",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "value": {
+                            "type": "string",
+                            "xml": {
+                              "attribute": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "encryptedValueSet": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "id": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "useDefault": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "usesEncryption": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "value": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

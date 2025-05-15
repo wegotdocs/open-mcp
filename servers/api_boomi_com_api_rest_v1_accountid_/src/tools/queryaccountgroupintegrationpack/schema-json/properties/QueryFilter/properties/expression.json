@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "",
+      "description": "A unique ID assigned by the system to the integration pack. This field populates only if you add the integration pack to an account group."
+    },
+    "name": {
+      "type": "string",
+      "example": "",
+      "description": "The name of the integration pack."
+    },
+    "status": {
+      "type": "string",
+      "enum": [],
+      "example": ""
+    },
+    "metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `metadata` to the tool, first call the tool `expandSchema` with \"/properties/QueryFilter/properties/expression/properties/metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [],
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "argument": {
+          "type": "array",
+          "xml": {
+            "namespace": "http://api.platform.boomi.com/"
+          },
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "argument"
+            }
+          }
+        },
+        "operator": {
+          "type": "string",
+          "xml": {
+            "attribute": true
+          },
+          "enum": [
+            "EQUALS",
+            "LIKE",
+            "NOT_EQUALS",
+            "IS_NULL",
+            "IS_NOT_NULL",
+            "BETWEEN",
+            "GREATER_THAN",
+            "GREATER_THAN_OR_EQUAL",
+            "LESS_THAN",
+            "LESS_THAN_OR_EQUAL",
+            "CONTAINS",
+            "NOT_CONTAINS"
+          ]
+        },
+        "property": {
+          "type": "string",
+          "xml": {
+            "attribute": true
+          }
+        }
+      },
+      "required": [
+        "operator",
+        "property"
+      ],
+      "xml": {
+        "name": "SimpleExpression",
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    }
+  ]
+}

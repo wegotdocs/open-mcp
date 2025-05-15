@@ -1,0 +1,117 @@
+{
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Identifies if the packaged component is actively deployed."
+    },
+    "branchName": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "componentId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The ID of the component. You can use the `componentId` to create and deploy a new packaged component. The **component ID** is available in the **Revision History** dialog, which you can access from the **Build** page in the user interface."
+    },
+    "componentType": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The type of component: <br />-   certificate<br />-   customlibrary<br />-   flowservice<br />-   process<br />-   processroute<br />-   tpgroup<br />-   webservice"
+    },
+    "componentVersion": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The Revision History number assigned to each saved configuration change made to a component on the **Build** tab. The component version is available in the **Revision History** dialog, which you can access from the **Build** page in the service."
+    },
+    "deployedBy": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The user ID of the user who deployed the packaged component."
+    },
+    "deployedDate": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The date and time you deployed the packaged component."
+    },
+    "deploymentId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The ID of the deployment."
+    },
+    "environmentId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The ID of the environment."
+    },
+    "listenerStatus": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "enum": [
+        "RUNNING",
+        "PAUSED"
+      ],
+      "description": "\\(Optional, for packaged listener processes only\\) The status of a listener process as RUNNING or PAUSED. If you do not specify `listenerStatus` \\(or you specify an invalid value\\), the current status remains unchanged. By default, the deployment of listener processes are in a running state.<br />**Important:** This field is only available for the CREATE operation. To retrieve the status of deployed listeners, use the [Listener Status object](/api/platformapi#tag/ListenerStatus)."
+    },
+    "message": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "This tag is returned with the following message only when a successful additional deployment is performed after utilizing all the available connections in the account for CREATE operation: \n\n ``` <bns:message>Your packaged components were successfully deployed. You have exceeded the usage count in your current connection licenses by 15. Contact a Boomi representative to purchase a higher connection licenses count.</bns:message> ```"
+    },
+    "notes": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Notes that describe the deployment."
+    },
+    "packageId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The ID of the packaged component. You can use `packageId` to deploy an existing packaged component. The packaged component ID is available from the:<br />-   Packaged Component object<br />-   The **Packaged Component Details** page on the **Deploy** \\> **Packaged Components** page in the user interface."
+    },
+    "packageVersion": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The user-defined version of the packaged component."
+    },
+    "version": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "The version number generated automatically for a deployment."
+    }
+  },
+  "required": []
+}
