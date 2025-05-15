@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "PublisherPackagedComponent": z.array(z.object({ "componentId": z.string().describe("ID of the primary component in the packaged component.").optional(), "componentName": z.string().describe("Name of the primary component in the packaged component.").optional(), "componentType": z.string().describe("Component type of the primary component in the packaged component.").optional(), "currentVersion": z.string().describe("Packaged component version of the component that is currently released in this integration pack.").optional(), "deleted": z.boolean().describe("If true, the packaged component will be removed from the integration pack in the next release.").optional(), "latestVersion": z.string().describe("Latest packaged component version of the component that is available to be added to this integration pack.").optional(), "pendingVersion": z.string().describe("Packaged component version of the component that will be included in the next release of this integration pack.").optional() })).optional()
+}

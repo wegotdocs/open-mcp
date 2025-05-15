@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "atomId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the Runtime.",
+      "example": "3456789a-bcde-f012-3456-789abcdef012"
+    },
+    "includeBin": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "If true, binary files are included in the download. The default is false.",
+      "example": "true"
+    },
+    "logDate": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The date of the logged events.",
+      "example": "2016-02-05"
+    }
+  },
+  "required": []
+}

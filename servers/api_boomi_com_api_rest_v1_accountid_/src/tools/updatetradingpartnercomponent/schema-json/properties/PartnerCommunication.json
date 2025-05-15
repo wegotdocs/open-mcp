@@ -1,0 +1,63 @@
+{
+  "example": {
+    "FTPCommunicationOptions": {
+      "CommunicationSetting": "custom",
+      "SharedCommunicationChannel": null,
+      "FTPSettings": {
+        "connectionMode": "active",
+        "useDefaultSettings": "false",
+        "host": "ftp.bestwholesaling.com",
+        "port": "1010",
+        "user": "tom.miller",
+        "FTPSSLOptions": {
+          "sslmode": "none",
+          "useClientAuthentication": "false"
+        }
+      },
+      "bns:FTPGetOptions": {
+        "transferType": "ascii"
+      },
+      "bns:FTPSendOptions": {
+        "transferType": "ascii"
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "AS2CommunicationOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `AS2CommunicationOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "DiskCommunicationOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DiskCommunicationOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/DiskCommunicationOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "FTPCommunicationOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `FTPCommunicationOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/FTPCommunicationOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "HTTPCommunicationOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `HTTPCommunicationOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/HTTPCommunicationOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "MLLPCommunicationOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `MLLPCommunicationOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/MLLPCommunicationOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "OFTPCommunicationOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `OFTPCommunicationOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/OFTPCommunicationOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "SFTPCommunicationOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `SFTPCommunicationOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/SFTPCommunicationOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

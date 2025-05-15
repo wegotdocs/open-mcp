@@ -1,0 +1,32 @@
+{
+  "example": {
+    "TradingPartner": [
+      {
+        "id": "12345678-9abc-def0-1234-56789abcdef0"
+      },
+      {
+        "id": "0fedcba9-8765-4321-0fed-cba987654321"
+      }
+    ]
+  },
+  "type": "object",
+  "properties": {
+    "TradingPartner": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

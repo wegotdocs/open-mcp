@@ -1,0 +1,187 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique ID for the Runtime, Runtime cluster, or Runtime cloud.",
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "string",
+        "enum": [
+          "GATEWAY",
+          "BROKER"
+        ]
+      }
+    },
+    "cloudId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "\\(For Runtimes attached to Runtime clouds\\) A unique ID assigned by the system to the Runtime cloud."
+    },
+    "cloudMoleculeId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "ID of the Runtime cloud cluster to which the Cloud Attachment is assigned. This field is populated only for Cloud Attachments."
+    },
+    "cloudMoleculeName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name of the Runtime cloud cluster to which the Cloud Attachment is assigned. This field is populated only for Cloud Attachments."
+    },
+    "cloudName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name of the associated Runtime cloud. This field is populated only for Cloud Attachments and Cloud runtime clusters."
+    },
+    "cloudOwnerName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The account name of the associated Runtime cloud’s owner."
+    },
+    "cluster": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `cluster` to the tool, first call the tool `expandSchema` with \"/properties/cluster\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "createdBy": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The user ID (email address) of a user who created the Runtime."
+    },
+    "currentVersion": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A string that identifies the Runtime, Runtime cluster, or Runtime cloud's latest build.",
+      "example": "17.08.0.0"
+    },
+    "dateInstalled": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The installation date and time of the Runtime, Runtime cluster, or Runtime cloud. For Runtimes attached to a Runtime cloud, this is the installation date and time of the Runtime cloud.",
+      "example": "2016-02-05T14:49:21Z"
+    },
+    "forceRestartTime": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The length of time, in milliseconds, that the platform waits before it forces the Runtime \\(or Runtime cluster or Runtime cloud\\) to restart after changes to the Atom’s configuration. Changes do not take effect until a restart occurs. However, regardless of this value, in a Runtime cluster or Runtime cloud that uses forked execution, automatic restart is deferred until currently running processes are complete.",
+      "example": "9"
+    },
+    "hostName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name or IP address of the installation machine for the Runtime, Runtime cluster, or Runtime cloud. If the Runtime is attached to a Runtime cloud, the name of the Runtime cloud appears.",
+      "example": "WN7X64-11A2BB3"
+    },
+    "b_id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID for the Runtime, Runtime cluster, or Runtime cloud.",
+      "example": "3456789a-bcde-f012-3456-789abcdef012"
+    },
+    "instanceId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "\\(For Runtimes attached to Runtime clouds\\) A unique ID for the Runtime. The ID consists of the owning account ID followed by a period and a suffix."
+    },
+    "isCloudAttachment": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Indicates if a Runtime is a Cloud Attachment. It is set to `True` for the Cloud Attachment; otherwise, it is False for other Runtime. It is only populated for Cloud Attachments and Cloud runtime clusters."
+    },
+    "name": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A user-defined name for the Runtime, Runtime cluster, or Runtime cloud.",
+      "example": "My Local Atom"
+    },
+    "purgeHistoryDays": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The number of days after a process run when the purging of logs, processed documents, and temporary data occurs. The default is 30 days. The maximum is 9999. A value of 0 disables purging.",
+      "example": "18"
+    },
+    "purgeImmediate": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "If true, purges processed documents and temporary data immediately after a process ends. If you set this to true, also set purgeHistoryDays to a value greater than 0, such as 1. This combination not only purges your data right away, but also runs an extra cleanup process on a daily basis.",
+      "example": "false"
+    },
+    "status": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "UNKNOWN",
+        "ONLINE",
+        "WARNING",
+        "OFFLINE"
+      ],
+      "description": "The status of the Runtime. Possible values are: UNKNOWN, ONLINE, WARNING, OFFLINE",
+      "example": "OFFLINE"
+    },
+    "type": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "CLOUD",
+        "MOLECULE",
+        "ATOM"
+      ],
+      "description": "The type of Runtime. Possible values are: Cloud, Molecule, Atom",
+      "example": "ATOM"
+    },
+    "statusDetail": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Provides more granular status details for the runtime. <details> <summary>Possible values:</summary> \n\n When the runtime status is ONLINE: \n\n - ONLINE_RUNNING \n - ONLINE_STOPPING \n - ONLINE_STARTING \n - CLUSTER_ISSUE \n - RESTARTING \n - RESTARTING_TOO_LONG \n - RESTARTING_DEAD \n\n When the runtime status is OFFLINE: \n\n - OFFLINE \n - OFFLINE_NOT_STOPPED \n - OFFLINE_NOT_INITIALIZED \n - OFFLINE_WITH_ERROR \n - OFFLINE_WITH_CLUSTER_ISSUE \n - DELETED \n - OFFBOARDING \n\n When the runtime status is WARNING: CLUSTER_ISSUE \n\n When the runtime status is UNKNOWN: UNKNOWN \n\n </details>"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "Description": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Description of the role",
+      "example": "This is a custom role added"
+    },
+    "Privileges": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `Privileges` to the tool, first call the tool `expandSchema` with \"/properties/Privileges\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>One or more privileges assigned to the role.</property-description>",
+      "additionalProperties": true
+    },
+    "accountId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The account ID under which the role exists.",
+      "example": "accountId-12345"
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the role.",
+      "example": "794f61e2-b483-40cd-81f9-de0f835fee1d"
+    },
+    "name": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name of the role.",
+      "example": "myRole"
+    },
+    "parentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the role from which this role inherits privileges."
+    }
+  },
+  "required": []
+}

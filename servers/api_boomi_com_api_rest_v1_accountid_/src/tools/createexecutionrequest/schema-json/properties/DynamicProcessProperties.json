@@ -1,0 +1,40 @@
+{
+  "description": "The full list of Dynamic Process properties within the specified Runtime, Runtime cluster, or cloud, where each property is defined by their name and value.",
+  "example": {
+    "DynamicProcessProperty": [
+      {
+        "name": "property1",
+        "value": "value1"
+      },
+      {
+        "name": "property2"
+      }
+    ]
+  },
+  "type": "object",
+  "properties": {
+    "DynamicProcessProperty": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "value": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

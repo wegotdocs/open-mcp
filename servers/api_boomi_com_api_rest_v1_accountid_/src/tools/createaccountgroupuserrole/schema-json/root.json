@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "accountGroupId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the account group.",
+      "example": "fedcba98-7654-3210-fedc-ba9876543c210"
+    },
+    "firstName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The first name of the user.",
+      "example": "John"
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The object’s conceptual ID, which is synthesized from the role, user, and account group IDs.",
+      "example": "Ab0Cd1Ef1Gh3Ij4Kl5Mn6Op7Qr8St9Uv0Wx9Yz8Zy7Xw6Vu5Ts4Rq3Po2Nm1Lk0Ji1Hg"
+    },
+    "lastName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The last name of the user.",
+      "example": "Doe"
+    },
+    "notifyUser": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "If true, which is the default, users receive an email notification when adding them to the account group."
+    },
+    "roleId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the role.",
+      "example": "01234567-89ab-cdef-0123-456789abcdef"
+    },
+    "userId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The user ID.",
+      "example": "user123company.biz"
+    }
+  },
+  "required": []
+}

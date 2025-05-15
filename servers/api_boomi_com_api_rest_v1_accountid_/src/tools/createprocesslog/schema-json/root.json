@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "executionId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the process run.",
+      "example": "execution-3456789a-bcde-f012-3456-789abcdef012-2015.01.01"
+    },
+    "logLevel": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "SEVERE",
+        "WARNING",
+        "INFO",
+        "CONFIG",
+        "FINE",
+        "FINER",
+        "FINEST",
+        "ALL"
+      ],
+      "description": "The process execution log level with ALL being the default. \n\n If you do not specify the log level, you receive all types of logs. The log level is case sensitive; you must use all uppercase letters.",
+      "example": "ALL"
+    }
+  },
+  "required": []
+}

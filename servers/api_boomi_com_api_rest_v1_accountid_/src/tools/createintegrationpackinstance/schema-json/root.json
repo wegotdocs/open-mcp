@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "ProcessId": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "The name of the process."
+          },
+          "originalProcessId": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "A unique ID assigned by the system when the process is created."
+          },
+          "wrapperProcessId": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "A unique ID assigned to each process associated with multi-install integration packs. A `wrapperProcessId` is generated when an IntegrationPackInstance is installed or created. \n\n >**Note:** The `wrapperProcessId` will not be returned for the single-install integration pack while making API calls, as it is only generated for the multi-install integration packs."
+          }
+        }
+      },
+      "description": "A list of process IDs associated with the integration pack instance",
+      "example": {
+        "originalProcessId": "bc407c7d-cacc-48da-a430-c6a4d2835a83",
+        "wrapperProcessId": "0331193a-2675-4f33-97fc-e050a4fd4eec",
+        "name": "Domestic Order Intake - INT"
+      }
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID assigned by the system to the installed instance of the integration pack. This field populates only if you install the integration pack in the requesting account.",
+      "example": "SW50ZWdyYXRpb25QYWNrSW5zdGFuY2UyMA"
+    },
+    "integrationPackId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID assigned by the system to the integration pack.",
+      "example": "a3c4917d-9622-4c5f-978c-0f02b5f5457a"
+    },
+    "integrationPackOverrideName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name of the installed instance of the integration pack. You can set this value only in the case of multi-install integration packs; its purpose is to distinguish between instances.",
+      "example": "Domestic Order Intake"
+    }
+  },
+  "required": []
+}

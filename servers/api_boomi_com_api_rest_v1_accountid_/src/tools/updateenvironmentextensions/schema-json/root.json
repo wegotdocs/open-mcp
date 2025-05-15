@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the object. This can be either of the following: \n 1. The value of environmentId. \n 2. A conceptual ID synthesized from the environment ID (environmentId) and the ID of the multi-install integration pack to which the extension values apply (extensionGroupId).",
+      "type": "string"
+    },
+    "PGPCertificates": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PGPCertificates` to the tool, first call the tool `expandSchema` with \"/properties/PGPCertificates\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "connections": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `connections` to the tool, first call the tool `expandSchema` with \"/properties/connections\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "crossReferences": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `crossReferences` to the tool, first call the tool `expandSchema` with \"/properties/crossReferences\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "environmentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the environment.",
+      "example": "456789ab-cdef-0123-4567-89abcdef0123"
+    },
+    "extensionGroupId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The synthesized ID of the process belonging to a multi-install integration pack to which the extension values apply, if applicable. For more information, see the section in the Working with Environment Extensions subtopic about multi-install integration packs.",
+      "example": ""
+    },
+    "b_id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the object. This can be either of the following:<br /> 1. The value of environmentId.<br /> 2. A conceptual ID synthesized from the environment ID \\(environmentId\\) and the ID of the multi-install integration pack to which the extension values apply \\(extensionGroupId\\).",
+      "example": "456789ab-cdef-0123-4567-89abcdef0123"
+    },
+    "operations": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `operations` to the tool, first call the tool `expandSchema` with \"/properties/operations\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "partial": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Supplied only in an UPDATE operation. <br />-   If set to true, indicates that the request includes only a subset of environment extension values to update. <br /> -   If set to false, indicates that the request includes the full set of environment extension values to update. Values not included in the request are reset to use their default values."
+    },
+    "processProperties": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `processProperties` to the tool, first call the tool `expandSchema` with \"/properties/processProperties\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "properties": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `properties` to the tool, first call the tool `expandSchema` with \"/properties/properties\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "sharedCommunications": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sharedCommunications` to the tool, first call the tool `expandSchema` with \"/properties/sharedCommunications\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "tradingPartners": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `tradingPartners` to the tool, first call the tool `expandSchema` with \"/properties/tradingPartners\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id",
+    "PGPCertificates",
+    "connections",
+    "crossReferences",
+    "operations",
+    "processProperties",
+    "properties",
+    "sharedCommunications",
+    "tradingPartners"
+  ]
+}

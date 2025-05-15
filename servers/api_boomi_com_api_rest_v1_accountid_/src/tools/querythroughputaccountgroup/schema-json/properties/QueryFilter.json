@@ -1,0 +1,72 @@
+{
+  "required": [
+    "expression"
+  ],
+  "type": "object",
+  "properties": {
+    "expression": {
+      "anyOf": [
+        {
+          "required": [
+            "operator",
+            "property"
+          ],
+          "type": "object",
+          "properties": {
+            "argument": {
+              "type": "array",
+              "xml": {
+                "namespace": "http://api.platform.boomi.com/"
+              },
+              "items": {
+                "type": "string",
+                "xml": {
+                  "name": "argument"
+                }
+              }
+            },
+            "operator": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "EQUALS",
+                "LIKE",
+                "NOT_EQUALS",
+                "IS_NULL",
+                "IS_NOT_NULL",
+                "BETWEEN",
+                "GREATER_THAN",
+                "GREATER_THAN_OR_EQUAL",
+                "LESS_THAN",
+                "LESS_THAN_OR_EQUAL",
+                "CONTAINS",
+                "NOT_CONTAINS"
+              ],
+              "description": "You can use the EQUALS operator only with the accountGroupId filter parameter. The authenticating user for a QUERY operation must have the Dashboard privilege."
+            },
+            "property": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "accountGroupId",
+                "processDate"
+              ]
+            }
+          },
+          "xml": {
+            "name": "SimpleExpression",
+            "namespace": "http://api.platform.boomi.com/"
+          }
+        }
+      ]
+    }
+  },
+  "xml": {
+    "name": "QueryFilter",
+    "namespace": "http://api.platform.boomi.com/"
+  }
+}

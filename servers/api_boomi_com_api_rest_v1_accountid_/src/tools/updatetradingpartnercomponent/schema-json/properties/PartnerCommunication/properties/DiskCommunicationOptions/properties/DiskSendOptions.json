@@ -1,0 +1,38 @@
+{
+  "required": [
+    "sendDirectory"
+  ],
+  "type": "object",
+  "properties": {
+    "createDirectory": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "sendDirectory": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "useDefaultSendOptions": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "writeOption": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "unique",
+        "over",
+        "append",
+        "abort"
+      ]
+    }
+  }
+}

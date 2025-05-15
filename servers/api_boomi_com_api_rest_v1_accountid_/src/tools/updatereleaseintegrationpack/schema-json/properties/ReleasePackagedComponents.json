@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "ReleasePackagedComponent": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "The ID of the component.",
+            "example": "b420a8ab-8e4e-41b2-93ce-079093a03af2"
+          },
+          "releasedVersion": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "The released version of the packaged component.",
+            "example": "2.0"
+          },
+          "version": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Packaged component version of the component that will be included in the next release of this integration pack.",
+            "example": "2.0"
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  "required": [
+    "ReleasePackagedComponent"
+  ]
+}

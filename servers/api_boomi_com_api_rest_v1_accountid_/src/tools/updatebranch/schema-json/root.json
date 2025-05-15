@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the branch.",
+      "type": "string"
+    },
+    "createdBy": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The user who created the branch."
+    },
+    "createdDate": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The date and time when the branch was created."
+    },
+    "deleted": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Whether the branch is deleted."
+    },
+    "deploymentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "description": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "b_id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the branch."
+    },
+    "modifiedBy": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The user who last modified the branch."
+    },
+    "modifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The date and time when the branch was updated."
+    },
+    "name": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name of the branch."
+    },
+    "packageId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the packaged component from which the branch is created."
+    },
+    "parentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the parent branch."
+    },
+    "ready": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Whether the branch is ready to use."
+    },
+    "stage": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The branch status: CREATING, NORMAL (ready for use), or DELETING."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

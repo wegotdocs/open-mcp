@@ -1,0 +1,86 @@
+{
+  "required": [
+    "expression"
+  ],
+  "type": "object",
+  "properties": {
+    "expression": {
+      "anyOf": [
+        {
+          "required": [
+            "operator",
+            "property"
+          ],
+          "type": "object",
+          "properties": {
+            "argument": {
+              "type": "array",
+              "xml": {
+                "namespace": "http://api.platform.boomi.com/"
+              },
+              "items": {
+                "type": "string",
+                "xml": {
+                  "name": "argument"
+                }
+              }
+            },
+            "operator": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              },
+              "enum": [
+                "EQUALS",
+                "STARTS_WITH",
+                "BETWEEN",
+                "GREATER_THAN",
+                "GREATER_THAN_OR_EQUAL",
+                "LESS_THAN",
+                "LESS_THAN_OR_EQUAL"
+              ]
+            },
+            "property": {
+              "type": "string",
+              "xml": {
+                "attribute": true
+              }
+            }
+          },
+          "content": {
+            "application/json": {
+              "examples": {
+                "jsonExample": {
+                  "summary": "Simple Expression in JSON",
+                  "value": {
+                    "operator": "EQUALS",
+                    "property": "executionId",
+                    "argument": [
+                      "execution-01234567-89ab-cdef-0123-456789abcdef-2018.07.11"
+                    ]
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "examples": {
+                "xmlExample": {
+                  "summary": "Simple Expression in XML",
+                  "value": "<SimpleExpression operator=\"EQUALS\" property=\"executionId\" xmlns=\"http://api.platform.boomi.com/\">\n  <argument>execution-01234567-89ab-cdef-0123-456789abcdef-2018.07.11</argument>\n</SimpleExpression>"
+                }
+              }
+            }
+          },
+          "xml": {
+            "name": "SimpleExpression",
+            "namespace": "http://api.platform.boomi.com/"
+          }
+        }
+      ]
+    }
+  },
+  "xml": {
+    "name": "QueryFilter",
+    "namespace": "http://api.platform.boomi.com/"
+  }
+}

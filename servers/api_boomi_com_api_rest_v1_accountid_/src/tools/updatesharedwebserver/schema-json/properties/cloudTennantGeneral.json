@@ -1,0 +1,34 @@
+{
+  "required": [
+    "apiType",
+    "authType",
+    "baseUrl",
+    "listenerPorts"
+  ],
+  "type": "object",
+  "properties": {
+    "apiType": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "authType": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "baseUrl": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "listenerPorts": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `listenerPorts` to the tool, first call the tool `expandSchema` with \"/properties/cloudTennantGeneral/properties/listenerPorts\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

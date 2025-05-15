@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "address1": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "First line of the street address of the organization.",
+      "example": "127 Comstock Ave."
+    },
+    "address2": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Second line of the street address of the organization.",
+      "example": ""
+    },
+    "city": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Location of the city for the organization.",
+      "example": "Philadelphia"
+    },
+    "contactName": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Name of the contact for the organization.",
+      "example": "Tom Miller"
+    },
+    "contactUrl": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Contact URL for the organization.",
+      "example": "https://www.bestwholesaling.biz"
+    },
+    "country": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Location of the country for the organization.",
+      "example": ""
+    },
+    "email": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Email address of the organization.",
+      "example": "tom@bestwholesaling.biz"
+    },
+    "fax": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Fax number for the organization.",
+      "example": "311 555-9753"
+    },
+    "phone": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Phone number for the organization.",
+      "example": "311 555-3579"
+    },
+    "postalcode": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Postal code, such as a Zip Code.",
+      "example": "19100"
+    },
+    "state": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "Location of the state or province for the organization.",
+      "example": "PA"
+    }
+  },
+  "required": [
+    "address1",
+    "address2",
+    "city",
+    "contactName",
+    "contactUrl",
+    "country",
+    "email",
+    "fax",
+    "phone",
+    "postalcode",
+    "state"
+  ]
+}

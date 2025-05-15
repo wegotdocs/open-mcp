@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "AtomId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "\\(Required\\) The Runtime ID that the queue or topic exists under and where you can find it in Runtime Management. You can find the Runtime ID for Runtimes, Runtime clusters, and Runtime clouds in the user interface by navigating to **Manage** \\> **Runtime Management** and viewing the **Runtime Information** panel for a selected container.",
+      "example": "${#TestSuite#atomId}"
+    },
+    "DestinationQueue": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DestinationQueue` to the tool, first call the tool `expandSchema` with \"/properties/DestinationQueue\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>\\(Required\\) An instance of a generalized queue object indicating the queue from which to send the messages. Contains information describing the desired queue.</property-description>",
+      "additionalProperties": true
+    },
+    "SourceQueue": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `SourceQueue` to the tool, first call the tool `expandSchema` with \"/properties/SourceQueue\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>\\(Required\\) An instance of a generalized queue object indicating the queue from which to obtain the messages. Contains information describing the desired queue.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "AtomId",
+    "DestinationQueue",
+    "SourceQueue"
+  ]
+}

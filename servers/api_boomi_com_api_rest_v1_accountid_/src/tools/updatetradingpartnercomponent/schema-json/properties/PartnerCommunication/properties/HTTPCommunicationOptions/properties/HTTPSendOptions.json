@@ -1,0 +1,106 @@
+{
+  "required": [
+    "pathElements",
+    "requestHeaders",
+    "responseHeaderMapping"
+  ],
+  "type": "object",
+  "properties": {
+    "dataContentType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "followRedirects": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "methodType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    },
+    "pathElements": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `pathElements` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/HTTPCommunicationOptions/properties/HTTPSendOptions/properties/pathElements\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "reflectHeaders": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `reflectHeaders` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/HTTPCommunicationOptions/properties/HTTPSendOptions/properties/reflectHeaders\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "requestHeaders": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `requestHeaders` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/HTTPCommunicationOptions/properties/HTTPSendOptions/properties/requestHeaders\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "requestProfile": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "requestProfileType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "NONE",
+        "XML",
+        "JSON"
+      ]
+    },
+    "responseHeaderMapping": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `responseHeaderMapping` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/HTTPCommunicationOptions/properties/HTTPSendOptions/properties/responseHeaderMapping\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "responseProfile": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "responseProfileType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "NONE",
+        "XML",
+        "JSON"
+      ]
+    },
+    "returnErrors": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "returnResponses": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "useDefaultOptions": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

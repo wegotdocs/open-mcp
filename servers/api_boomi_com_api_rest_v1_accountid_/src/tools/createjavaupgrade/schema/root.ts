@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "JavaUpgradeOptions": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `JavaUpgradeOptions` to the tool, first call the tool `expandSchema` with \"/properties/JavaUpgradeOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "atomId": z.string().describe("The unique ID assigned by the system to the container<br /> 1. Use the Runtime ID for Runtimes, Runtime clusters, and Runtime clouds found in the user interface by navigating to **Manage** > **Runtime Management** and viewing the **Runtime Information** panel for a selected container. <br /> 2. Use the Gateway ID found in the user interface by navigating to **Configure Server** > **Gateways** > **click on a Gateway's name** > **Gateway Information panel**. <br /> 3. Use the Broker ID found in the user interface by navigating to **Configure Server** > **Authentication** > **click on a Broker's name** > **Broker Information panel**.").optional()
+}

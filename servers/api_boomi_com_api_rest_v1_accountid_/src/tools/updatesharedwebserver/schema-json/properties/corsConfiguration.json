@@ -1,0 +1,99 @@
+{
+  "type": "object",
+  "properties": {
+    "origins": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "required": [
+          "domain"
+        ],
+        "type": "object",
+        "properties": {
+          "EnableHTTPRequestHandling": {
+            "type": "boolean",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "default": false
+          },
+          "EnableHTTPSRequestHandling": {
+            "type": "boolean",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "default": false
+          },
+          "allowCredentials": {
+            "type": "boolean",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "default": false
+          },
+          "allowMethods": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "string",
+              "xml": {
+                "name": "header"
+              }
+            }
+          },
+          "allowRequestHeaders": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "string",
+              "xml": {
+                "name": "header"
+              }
+            }
+          },
+          "allowResponseHeaders": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "string",
+              "xml": {
+                "name": "header"
+              }
+            }
+          },
+          "cacheTimeout": {
+            "type": "integer",
+            "format": "int64",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "domain": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "ports": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      }
+    }
+  }
+}

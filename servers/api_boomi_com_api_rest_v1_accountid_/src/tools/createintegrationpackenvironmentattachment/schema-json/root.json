@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "environmentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID assigned by the system to the environment.",
+      "example": "456789ab-cdef-0123-4567-89abcdef0123"
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The object’s conceptual ID, which is synthesized from the environment and integration pack instance IDs.",
+      "example": "Ab0Cd1Ef1Gh3Ij4Kl5Mn6Op7Qr8St9Uv0Wx9Yz8Zy7Xw6Vu5Ts4Rq3Po2Nm1Lk0Ji1Hg"
+    },
+    "integrationPackInstanceId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID assigned by the system to the integration pack instance.",
+      "example": "76543210-fedc-ba98-7654-3210fedcba98"
+    }
+  },
+  "required": []
+}

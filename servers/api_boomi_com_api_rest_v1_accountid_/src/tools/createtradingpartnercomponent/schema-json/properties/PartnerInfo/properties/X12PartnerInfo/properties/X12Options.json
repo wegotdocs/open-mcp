@@ -1,0 +1,69 @@
+{
+  "required": [
+    "elementDelimiter",
+    "segmentTerminator"
+  ],
+  "type": "object",
+  "properties": {
+    "acknowledgementoption": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "donotackitem",
+        "ackfuncitem",
+        "acktranitem"
+      ]
+    },
+    "elementDelimiter": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `elementDelimiter` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/X12PartnerInfo/properties/X12Options/properties/elementDelimiter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "envelopeoption": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "groupall",
+        "groupfg",
+        "groupst"
+      ]
+    },
+    "filteracknowledgements": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "outboundInterchangeValidation": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "outboundValidationOption": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "filterError",
+        "failAll"
+      ]
+    },
+    "rejectDuplicateInterchange": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "segmentTerminator": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `segmentTerminator` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/X12PartnerInfo/properties/X12Options/properties/segmentTerminator\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  }
+}

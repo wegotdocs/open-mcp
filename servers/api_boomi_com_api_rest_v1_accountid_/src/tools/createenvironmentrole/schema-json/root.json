@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "environmentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The environment ID.",
+      "example": "myEnvironment"
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The object’s conceptual ID, which is synthesized from the role and environment IDs."
+    },
+    "roleId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the role.",
+      "example": "userRole"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,97 @@
+{
+  "type": "object",
+  "properties": {
+    "enableAPIMInternalRoles": {
+      "type": "boolean",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "users": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "required": [
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "clientCertificate": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "componentFilters": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "string",
+              "xml": {
+                "name": "header"
+              }
+            }
+          },
+          "externalUsername": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "ipFilters": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "string",
+              "xml": {
+                "name": "header"
+              }
+            }
+          },
+          "roleAssociations": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "string",
+              "xml": {
+                "name": "header"
+              }
+            }
+          },
+          "token": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "username": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "usingComponentFilters": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "usingIPFilters": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

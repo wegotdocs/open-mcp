@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "restart",
+        "restart_all",
+        "pause",
+        "pause_all",
+        "resume",
+        "resume_all"
+      ],
+      "description": "The action to be performed."
+    },
+    "containerId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the Runtime, Runtime cluster, or Runtime cloud to which you deploy the listener or listeners."
+    },
+    "listenerId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of a single listener process whose status you want to change. To change the status of all listeners, omit this parameter. \n\n >**Note:** You can obtain the ID for a listener process by using a QUERY operation on the Process object."
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "Resources": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `Resources` to the tool, first call the tool `expandSchema` with \"/properties/Resources\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "accountId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the primary account under which the account group exists.",
+      "example": "account-123456"
+    },
+    "autoSubscribeAlertLevel": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "none",
+        "info",
+        "warning",
+        "error"
+      ],
+      "description": "The severity level of email alerts sent to member users in the account group.",
+      "example": "none"
+    },
+    "defaultGroup": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "true — The account group is All Accounts, which the system creates automatically.<br /> false — The account group is not All Accounts.",
+      "example": "false"
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the account group.",
+      "example": "fedcba98-7654-3210-fedc-ba9876543210"
+    },
+    "name": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name of the account group as displayed on the **Account Information** tab of the **Setup** page.",
+      "example": "Analyst Accounts"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "as2Id": z.string(),
+  "enabledLegacySMIME": z.boolean().optional(),
+  "encryptionPrivateCertificate": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `encryptionPrivateCertificate` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2ReceiveOptions/properties/AS2MyCompanyInfo/properties/encryptionPrivateCertificate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "mdnSignaturePrivateCertificate": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `mdnSignaturePrivateCertificate` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2ReceiveOptions/properties/AS2MyCompanyInfo/properties/mdnSignaturePrivateCertificate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "signingPrivateCertificate": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `signingPrivateCertificate` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/AS2CommunicationOptions/properties/AS2ReceiveOptions/properties/AS2MyCompanyInfo/properties/signingPrivateCertificate\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>")
+}

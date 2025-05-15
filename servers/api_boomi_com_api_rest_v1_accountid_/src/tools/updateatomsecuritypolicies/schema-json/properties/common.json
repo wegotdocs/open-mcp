@@ -1,0 +1,60 @@
+{
+  "example": {
+    "policies": {
+      "privilegeType": "RuntimePermission",
+      "arguments": [
+        {
+          "value": "arg1"
+        },
+        {
+          "value": "arg2"
+        }
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "policies": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "required": [
+          "privilegeType"
+        ],
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "required": [
+                "value"
+              ],
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  },
+                  "description": "An argument value in a Java runtime permission."
+                }
+              }
+            }
+          },
+          "privilegeType": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "A valid Java runtime permission."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.string().describe("The runtime (container) id for the applicable runtime (accepts only Runtime cloud cluster and regular Runtime cluster types, no basic runtimes or cloud attachments)."),
+  "atomId": z.string().describe("The ID of the Runtime cloud or Runtime cluster."),
+  "browser": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `browser` to the tool, first call the tool `expandSchema` with \"/properties/browser\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "common": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `common` to the tool, first call the tool `expandSchema` with \"/properties/common\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "runner": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `runner` to the tool, first call the tool `expandSchema` with \"/properties/runner\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "worker": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `worker` to the tool, first call the tool `expandSchema` with \"/properties/worker\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional()
+}

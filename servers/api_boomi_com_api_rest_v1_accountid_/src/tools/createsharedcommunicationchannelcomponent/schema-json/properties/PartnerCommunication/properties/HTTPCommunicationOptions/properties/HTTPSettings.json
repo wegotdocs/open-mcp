@@ -1,0 +1,92 @@
+{
+  "required": [
+    "HTTPAuthSettings",
+    "HTTPSSLOptions"
+  ],
+  "type": "object",
+  "properties": {
+    "HTTPAuthSettings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `HTTPAuthSettings` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/HTTPCommunicationOptions/properties/HTTPSettings/properties/HTTPAuthSettings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "HTTPOAuth2Settings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `HTTPOAuth2Settings` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/HTTPCommunicationOptions/properties/HTTPSettings/properties/HTTPOAuth2Settings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "HTTPOAuthSettings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `HTTPOAuthSettings` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/HTTPCommunicationOptions/properties/HTTPSettings/properties/HTTPOAuthSettings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "HTTPSSLOptions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `HTTPSSLOptions` to the tool, first call the tool `expandSchema` with \"/properties/PartnerCommunication/properties/HTTPCommunicationOptions/properties/HTTPSettings/properties/HTTPSSLOptions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "authenticationType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "NONE",
+        "BASIC",
+        "PASSWORD_DIGEST",
+        "CUSTOM",
+        "OAUTH",
+        "OAUTH2"
+      ]
+    },
+    "connectTimeout": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "cookieScope": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "IGNORED",
+        "GLOBAL",
+        "CONNECTOR_SHAPE"
+      ]
+    },
+    "readTimeout": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "url": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "useBasicAuth": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "useCustomAuth": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "useDefaultSettings": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

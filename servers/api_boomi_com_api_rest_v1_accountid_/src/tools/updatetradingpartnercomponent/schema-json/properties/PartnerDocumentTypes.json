@@ -1,0 +1,90 @@
+{
+  "example": {
+    "PartnerDocumentType": [
+      {
+        "typeId": "101",
+        "profileId": "23456789-abcd-ef01-2345-6789abcdef01",
+        "use999Ack": "false",
+        "useTA1Ack": "false",
+        "expectAckForOutbound": "false",
+        "validateOutboundTransactionSets": "false",
+        "qualifierValidation": "true"
+      },
+      {
+        "typeId": "810"
+      }
+    ]
+  },
+  "type": "object",
+  "properties": {
+    "PartnerDocumentType": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "expectAckForOutbound": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "invalidDocumentRouting": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "enum": [
+              "documentsPath",
+              "errorsPath"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "profileId": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "qualifierValidation": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "typeId": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "use999Ack": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "useTA1Ack": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "validateOutboundTransactionSets": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

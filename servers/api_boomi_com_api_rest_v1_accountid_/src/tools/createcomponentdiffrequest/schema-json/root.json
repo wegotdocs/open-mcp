@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "CompDiffConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `CompDiffConfig` to the tool, first call the tool `expandSchema` with \"/properties/CompDiffConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "componentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The ID of the component for which you want to compare versions."
+    },
+    "sourceVersion": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The source version of the component."
+    },
+    "targetVersion": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The target version which you want to compare to the source version."
+    }
+  },
+  "required": [
+    "componentId",
+    "sourceVersion",
+    "targetVersion"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "DefaultRouting": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DefaultRouting` to the tool, first call the tool `expandSchema` with \"/properties/DefaultRouting\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "DocumentRouting": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DocumentRouting` to the tool, first call the tool `expandSchema` with \"/properties/DocumentRouting\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "PartnerRouting": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PartnerRouting` to the tool, first call the tool `expandSchema` with \"/properties/PartnerRouting\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "TradingPartners": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `TradingPartners` to the tool, first call the tool `expandSchema` with \"/properties/TradingPartners\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "componentId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "3456789a-bcde-f012-34-56789abcdef012"
+    },
+    "componentName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "East Coast partners"
+    },
+    "deleted": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "description": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "folderId": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "example": "11669"
+    },
+    "folderName": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "example": "Home:TPs:PGs:Domestic"
+    }
+  },
+  "required": []
+}

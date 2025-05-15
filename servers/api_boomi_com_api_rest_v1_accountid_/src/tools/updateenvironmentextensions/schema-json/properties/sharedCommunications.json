@@ -1,0 +1,144 @@
+{
+  "example": {
+    "sharedCommunication": {
+      "id": "54748ce7...",
+      "name": "Best Enterprises MyCo",
+      "type": "http",
+      "field": [
+        {
+          "id": "http-trustedcertalias",
+          "encryptedValueSet": "false",
+          "usesEncryption": "false",
+          "componentOverride": "false",
+          "value": "usercred",
+          "useDefault": "true"
+        },
+        {
+          "id": "http-password"
+        },
+        {
+          "id": "http-clientId"
+        },
+        {
+          "id": "http-user"
+        },
+        {
+          "id": "http-password"
+        }
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "sharedCommunication": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "object",
+              "properties": {
+                "componentOverride": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "customProperties": {
+                  "type": "object",
+                  "properties": {
+                    "properties": {
+                      "type": "array",
+                      "xml": {
+                        "namespace": "http://api.platform.boomi.com/"
+                      },
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "encrypted": {
+                            "type": "boolean",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "key": {
+                            "type": "string",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "value": {
+                            "type": "string",
+                            "xml": {
+                              "attribute": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "encryptedValueSet": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "id": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "useDefault": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "usesEncryption": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "value": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "type": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

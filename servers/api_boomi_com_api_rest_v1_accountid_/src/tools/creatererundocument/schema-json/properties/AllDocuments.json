@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "documentStatus": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "ANY",
+        "SUCCESS",
+        "ERROR"
+      ],
+      "description": "- A value of ANY reruns all documents in the specified process run (in other words, the originalExecutionID).\n - A value of SUCCESS returns successfully run documents in the process run.\n - A value of ERROR returns documents that unsuccessfully ran in the process run."
+    }
+  },
+  "description": "You must include either the `AllDocuments` field or the `SelectedDocuments` field in a request, but not both.\n\n Indicates that the Rerun Document operation reruns all documents in the original run.\n\nWhen using AllDocuments in a request, you must also specify a `documentStatus` value."
+}

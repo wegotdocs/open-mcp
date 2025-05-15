@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "compositeDelimiter": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `compositeDelimiter` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/TradacomsPartnerInfo/properties/TradacomsOptions/properties/compositeDelimiter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "elementDelimiter": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `elementDelimiter` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/TradacomsPartnerInfo/properties/TradacomsOptions/properties/elementDelimiter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "filterAcknowledgements": z.boolean().optional(),
+  "segmentTerminator": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `segmentTerminator` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/TradacomsPartnerInfo/properties/TradacomsOptions/properties/segmentTerminator\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "useReconciliationMessage": z.boolean().optional()
+}

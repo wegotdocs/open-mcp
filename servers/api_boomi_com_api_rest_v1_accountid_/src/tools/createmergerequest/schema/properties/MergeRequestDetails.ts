@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "MergeRequestDetail": z.array(z.object({ "changeType": z.enum(["ADDED","MODIFIED","DELETED"]).optional(), "componentGuid": z.string().optional(), "conflict": z.boolean().optional(), "createdBy": z.string().optional(), "createdDate": z.string().datetime({ offset: true }).optional(), "destinationRevision": z.number().int().optional(), "lockedOnDestinationBranch": z.boolean().optional(), "mergeRevision": z.number().int().optional(), "modifiedBy": z.string().optional(), "modifiedDate": z.string().datetime({ offset: true }).optional(), "resolution": z.enum(["OVERRIDE","KEEP_DESTINATION"]).optional(), "sourceRevision": z.number().int().optional(), "stage": z.enum(["DRAFTED","REVIEWED","CONFLICT_RESOLVED","MERGED","REVERTED"]).optional() })).optional()
+}

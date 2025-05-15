@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "Resource": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "objectType": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "enum": [
+              "Cloud",
+              "Connector",
+              "Data Hub Model",
+              "Integration Pack",
+              "Published Process",
+              "Role"
+            ],
+            "description": "Resource object type details.",
+            "example": "Integration Pack"
+          },
+          "resourceId": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Account group resource ID.",
+            "example": "ffd7622d-1f6f-4f08-9bf7-5f2f6eabbf30"
+          },
+          "resourceName": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Account group resource name.",
+            "example": "Test Integration Pack"
+          }
+        },
+        "required": [
+          "resourceId",
+          "resourceName"
+        ]
+      }
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "PublisherPackagedComponent": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "ID of the primary component in the packaged component.",
+            "example": "76742659-845c-45e4-bb9f-d63ff998f658"
+          },
+          "componentName": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Name of the primary component in the packaged component.",
+            "example": "New Process 4"
+          },
+          "componentType": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Component type of the primary component in the packaged component.",
+            "example": "process"
+          },
+          "currentVersion": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Packaged component version of the component that is currently released in this integration pack.",
+            "example": "1.0"
+          },
+          "deleted": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            },
+            "description": "If true, the packaged component will be removed from the integration pack in the next release.",
+            "example": false
+          },
+          "latestVersion": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Latest packaged component version of the component that is available to be added to this integration pack.",
+            "example": "1.2"
+          },
+          "pendingVersion": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "Packaged component version of the component that will be included in the next release of this integration pack.",
+            "example": "1.1"
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  "required": []
+}

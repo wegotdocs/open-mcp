@@ -1,0 +1,53 @@
+{
+  "required": [
+    "host",
+    "password",
+    "port",
+    "user"
+  ],
+  "type": "object",
+  "properties": {
+    "host": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "password": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "port": {
+      "type": "integer",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "proxyEnabled": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "type": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "ATOM",
+        "HTTP",
+        "SOCKS4",
+        "SOCKS5"
+      ]
+    },
+    "user": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    }
+  }
+}

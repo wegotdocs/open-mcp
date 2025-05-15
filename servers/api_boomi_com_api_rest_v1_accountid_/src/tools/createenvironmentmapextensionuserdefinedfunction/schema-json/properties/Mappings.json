@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "Mapping": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "fromFunction": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "fromKey": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "toFunction": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "toKey": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "description": "Defines the mapping of inputs and outputs for the user-defined function and each function step. It uses the following attributes:\n\n 1. fromFunction - represents the function ID from which you are mapping.\n 2. fromKey - represents the function's output key from which you are mapping.\n 3. toFunction - represents the function ID to which you are mapping.\n 4. toKey - represents the function's input key to which you are mapping."
+}

@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "loginModule": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "encrypt": {
+            "type": "boolean",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "value": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          }
+        }
+      }
+    }
+  }
+}

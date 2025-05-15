@@ -1,0 +1,112 @@
+{
+  "type": "object",
+  "properties": {
+    "CompDiffElement": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "CompDiffAttribute": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "object",
+              "properties": {
+                "idpart": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  },
+                  "description": "Whether the attribute is part of an identifying key for the element."
+                },
+                "ignored": {
+                  "type": "boolean",
+                  "xml": {
+                    "attribute": true
+                  },
+                  "description": "Whether the element described in the `CompDiffElement` section is excluded from the comparative diff results."
+                },
+                "name": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  },
+                  "description": "The name of the attribute for the element that you want to configure for the comparative diff results."
+                }
+              }
+            }
+          },
+          "ignored": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "The tag name of the element that you want to target for the comparative diff results."
+          },
+          "ordered": {
+            "type": "boolean",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "parent": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "description": "The parent element for the element that you want to configure for the comparative diff results."
+          }
+        }
+      }
+    },
+    "componentType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The type of component that you want to compare.",
+      "enum": [
+        "certificate",
+        "connector-action",
+        "connector-settings",
+        "crossref",
+        "documentcache",
+        "transform.map",
+        "transform.function",
+        "certificate.pgp",
+        "process",
+        "processproperty",
+        "profile.db",
+        "profile.edi",
+        "profile.flatfile",
+        "profile.xml",
+        "profile.json",
+        "queue",
+        "tradingpartner",
+        "tpgroup",
+        "tporganization",
+        "tpcommoptions",
+        "webservice",
+        "webservice.external",
+        "processroute",
+        "customlibrary",
+        "edistandard",
+        "flowservice",
+        "script.processing",
+        "script.mapping",
+        "xslt"
+      ]
+    }
+  }
+}

@@ -1,0 +1,638 @@
+{
+  "type": "object",
+  "properties": {
+    "Step": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "required": [
+          "Configuration",
+          "Inputs",
+          "Outputs"
+        ],
+        "type": "object",
+        "properties": {
+          "Configuration": {
+            "type": "object",
+            "properties": {
+              "CrossReferenceLookup": {
+                "required": [
+                  "Inputs",
+                  "Outputs"
+                ],
+                "type": "object",
+                "properties": {
+                  "Inputs": {
+                    "type": "object",
+                    "properties": {
+                      "Input": {
+                        "type": "array",
+                        "xml": {
+                          "namespace": "http://api.platform.boomi.com/"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "index": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "name": {
+                              "type": "string",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "refId": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Outputs": {
+                    "type": "object",
+                    "properties": {
+                      "Output": {
+                        "type": "array",
+                        "xml": {
+                          "namespace": "http://api.platform.boomi.com/"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "index": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "name": {
+                              "type": "string",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "refId": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "lookupTableId": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "skipIfNoInputs": {
+                    "type": "boolean",
+                    "xml": {
+                      "attribute": true
+                    }
+                  }
+                }
+              },
+              "DocCacheLookup": {
+                "required": [
+                  "Inputs",
+                  "Outputs"
+                ],
+                "type": "object",
+                "properties": {
+                  "Inputs": {
+                    "type": "object",
+                    "properties": {
+                      "Input": {
+                        "type": "array",
+                        "xml": {
+                          "namespace": "http://api.platform.boomi.com/"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "index": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "keyId": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "name": {
+                              "type": "string",
+                              "xml": {
+                                "attribute": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Outputs": {
+                    "type": "object",
+                    "properties": {
+                      "Output": {
+                        "type": "array",
+                        "xml": {
+                          "namespace": "http://api.platform.boomi.com/"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "index": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "key": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "name": {
+                              "type": "string",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "tagListKey": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "cacheIndex": {
+                    "type": "integer",
+                    "format": "int32",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "docCache": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  }
+                }
+              },
+              "DocumentProperty": {
+                "type": "object",
+                "properties": {
+                  "defaultValue": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "persist": {
+                    "type": "boolean",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "propertyId": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "propertyName": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  }
+                }
+              },
+              "JapaneseCharacterConversion": {
+                "type": "object",
+                "properties": {
+                  "convertFrom": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "convertTo": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  }
+                }
+              },
+              "Scripting": {
+                "required": [
+                  "Inputs",
+                  "Outputs",
+                  "Script"
+                ],
+                "type": "object",
+                "properties": {
+                  "Inputs": {
+                    "type": "object",
+                    "properties": {
+                      "Input": {
+                        "type": "array",
+                        "xml": {
+                          "namespace": "http://api.platform.boomi.com/"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "dataType": {
+                              "type": "string",
+                              "xml": {
+                                "attribute": true
+                              },
+                              "enum": [
+                                "CHARACTER",
+                                "DATETIME",
+                                "FLOAT",
+                                "INTEGER"
+                              ]
+                            },
+                            "index": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "name": {
+                              "type": "string",
+                              "xml": {
+                                "attribute": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Outputs": {
+                    "type": "object",
+                    "properties": {
+                      "Output": {
+                        "type": "array",
+                        "xml": {
+                          "namespace": "http://api.platform.boomi.com/"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "dataType": {
+                              "type": "string",
+                              "xml": {
+                                "attribute": true
+                              },
+                              "enum": [
+                                "CHARACTER",
+                                "DATETIME",
+                                "FLOAT",
+                                "INTEGER"
+                              ]
+                            },
+                            "index": {
+                              "type": "integer",
+                              "format": "int32",
+                              "xml": {
+                                "attribute": true
+                              }
+                            },
+                            "name": {
+                              "type": "string",
+                              "xml": {
+                                "attribute": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Script": {
+                    "type": "string",
+                    "xml": {
+                      "namespace": "http://api.platform.boomi.com/"
+                    }
+                  },
+                  "language": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    },
+                    "enum": [
+                      "GROOVY",
+                      "GROOVY2",
+                      "Javascript"
+                    ]
+                  }
+                }
+              },
+              "SequentialValue": {
+                "type": "object",
+                "properties": {
+                  "batchSize": {
+                    "type": "integer",
+                    "format": "int32",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "keyFixToLength": {
+                    "type": "integer",
+                    "format": "int32",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "keyName": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  }
+                }
+              },
+              "SimpleLookup": {
+                "required": [
+                  "Table"
+                ],
+                "type": "object",
+                "properties": {
+                  "Table": {
+                    "required": [
+                      "Rows"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "Rows": {
+                        "type": "object",
+                        "properties": {
+                          "Row": {
+                            "type": "array",
+                            "xml": {
+                              "namespace": "http://api.platform.boomi.com/"
+                            },
+                            "items": {
+                              "required": [
+                                "ref1",
+                                "ref2"
+                              ],
+                              "type": "object",
+                              "properties": {
+                                "ref1": {
+                                  "type": "string",
+                                  "xml": {
+                                    "namespace": "http://api.platform.boomi.com/"
+                                  }
+                                },
+                                "ref2": {
+                                  "type": "string",
+                                  "xml": {
+                                    "namespace": "http://api.platform.boomi.com/"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "StringConcat": {
+                "type": "object",
+                "properties": {
+                  "delimiter": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "fixedLength": {
+                    "type": "integer",
+                    "format": "int32",
+                    "xml": {
+                      "attribute": true
+                    }
+                  }
+                }
+              },
+              "StringSplit": {
+                "type": "object",
+                "properties": {
+                  "delimiter": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "splitLength": {
+                    "type": "integer",
+                    "format": "int32",
+                    "xml": {
+                      "attribute": true
+                    }
+                  }
+                }
+              },
+              "UserDefinedFunction": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "xml": {
+                      "attribute": true
+                    }
+                  },
+                  "version": {
+                    "type": "integer",
+                    "format": "int32",
+                    "xml": {
+                      "attribute": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Inputs": {
+            "type": "object",
+            "properties": {
+              "Input": {
+                "type": "array",
+                "xml": {
+                  "namespace": "http://api.platform.boomi.com/"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "default": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "key": {
+                      "type": "integer",
+                      "format": "int32",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "name": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Lists the function's input and outputs according to their user-given names and keys. You must list inputs and outputs sequentially in order according to their key values. When creating or updating functions, it requires all input and output values in the request regardless if they are to be mapped or populated with a default value. \n\n The maximum number of inputs or outputs is 100."
+          },
+          "Outputs": {
+            "type": "object",
+            "properties": {
+              "Output": {
+                "type": "array",
+                "xml": {
+                  "namespace": "http://api.platform.boomi.com/"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "integer",
+                      "format": "int32",
+                      "xml": {
+                        "attribute": true
+                      }
+                    },
+                    "name": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Lists the function's input and outputs according to their user-given names and keys. You must list inputs and outputs sequentially in order according to their key values. See the following row for more information. When creating or updating functions, it requires all input and output values in the request regardless if they are to be mapped or populated with a default value. \n\n The maximum number of inputs or outputs is 100."
+          },
+          "cacheType": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "enum": [
+              "None",
+              "ByDocument",
+              "ByMap"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "position": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "type": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "enum": [
+              "Count",
+              "CurrentDate",
+              "DateFormat",
+              "LeftTrim",
+              "LineItemIncrement",
+              "MathABS",
+              "MathAdd",
+              "MathCeil",
+              "MathDivide",
+              "MathFloor",
+              "MathMultiply",
+              "MathSetPrecision",
+              "MathSubtract",
+              "NumberFormat",
+              "PropertyGet",
+              "PropertySet",
+              "RightTrim",
+              "RunningTotal",
+              "StringAppend",
+              "StringPrepend",
+              "StringRemove",
+              "StringReplace",
+              "StringToLower",
+              "StringToUpper",
+              "Sum",
+              "TrimWhitespace",
+              "StringConcat",
+              "StringSplit",
+              "SequentialValue",
+              "SimpleLookup",
+              "DocumentPropertyGet",
+              "DocumentPropertySet",
+              "CrossRefLookup",
+              "DocumentCacheLookup",
+              "CustomScripting",
+              "UserDefined",
+              "JapaneseCharacterConversion"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "description": "Defines the individual function steps and the order in which they need to occur within the greater user-defined function. The following attributes are used: 1.`position` - represents the step's number order in the greater function. 2.`cacheType` - indicates the caching behavior of the individual function step. The allowed `cacheType` values are:1.`None` \\(default, if omitted in the request\\)— It does not use Map function caching. 2. `ByDocument` — Caches the map function’s input and output values for each processed document. 3. `ByMap` — Caches the map function’s input and output values for each processed map. -   `id` - represents the function step's ID in the format of \"FUNCEXT--xxxxxxxxxx\". 4. `type` - represents the type of function \\(for example, \"MathCeil\" or \"CustomScripting\"\\).<br /> Within the `Steps` element, you also need to define the following `input` and `output` variables for each function step:<br />1. `default` - Optional. Specifies the input value that the function uses if not provided by the user.<br />2. `name` - the user-defined name of the associated input or output. \n\n >**Note:** The user interface automatically uses the used function type as the step name, but you can use this API object to change function step names. 3. `key` - the number ID assigned to a function step. This key is used to map function steps together in the `Mappings` attribute."
+}

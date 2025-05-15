@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "port": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "required": [
+          "authType",
+          "baseUrlForRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "authType": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "baseUrlForRequest": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "defaultPort": {
+            "type": "boolean",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "enablePort": {
+            "type": "boolean",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "externalPort": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "externalSSL": {
+            "type": "boolean",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "port": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "ssl": {
+            "type": "boolean",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          }
+        }
+      }
+    }
+  }
+}

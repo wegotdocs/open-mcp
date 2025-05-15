@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "attachmentCache": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "attachmentContentType": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "string",
+        "enum": [
+          "application/xml",
+          "application/pdf",
+          "application/msword",
+          "image/tiff",
+          "image/jpeg",
+          "text/plain"
+        ]
+      }
+    },
+    "multipleAttachments": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

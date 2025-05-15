@@ -1,0 +1,49 @@
+{
+  "required": [
+    "moveToDirectory",
+    "remoteDirectory"
+  ],
+  "type": "object",
+  "properties": {
+    "ftpAction": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "actionputrename",
+        "actionputappend",
+        "actionputerror",
+        "actionputoverwrite"
+      ]
+    },
+    "moveToDirectory": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "remoteDirectory": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "transferType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "ascii",
+        "binary"
+      ]
+    },
+    "useDefaultSendOptions": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

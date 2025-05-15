@@ -1,0 +1,110 @@
+{
+  "example": {
+    "processId": "543210fe-dcba-9876-5432-10fedcba9876",
+    "StandardRoute": [
+      {
+        "standard": "edifact",
+        "processId": "456789ab-cdef-0123-4567-89abcdef0123",
+        "DocumentTypeRoute": {
+          "documentType": "AUTHOR",
+          "processId": "56789abc-def0-1234-5678-9abcdef01234"
+        }
+      },
+      {
+        "standard": "x12",
+        "processId": "3210fedc-ba98-7654-3210-fedcba987654",
+        "DocumentTypeRoute": {
+          "documentType": "107",
+          "processId": "43210fed-cba9-8765-4321-0fedcba98765"
+        }
+      }
+    ]
+  },
+  "type": "object",
+  "properties": {
+    "StandardRoute": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "DocumentTypeRoute": {
+            "type": "array",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "items": {
+              "type": "object",
+              "properties": {
+                "PartnerRoute": {
+                  "type": "array",
+                  "xml": {
+                    "namespace": "http://api.platform.boomi.com/"
+                  },
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "processId": {
+                        "type": "string",
+                        "xml": {
+                          "attribute": true
+                        }
+                      },
+                      "tradingPartnerId": {
+                        "type": "string",
+                        "xml": {
+                          "attribute": true
+                        }
+                      }
+                    }
+                  }
+                },
+                "documentType": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "processId": {
+                  "type": "string",
+                  "xml": {
+                    "attribute": true
+                  }
+                }
+              }
+            }
+          },
+          "processId": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "standard": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            },
+            "enum": [
+              "x12",
+              "edifact",
+              "hl7",
+              "custom",
+              "rosettanet",
+              "tradacoms",
+              "odette"
+            ]
+          }
+        }
+      }
+    },
+    "processId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

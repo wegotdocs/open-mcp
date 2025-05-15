@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "DynamicProcessProperties": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DynamicProcessProperties` to the tool, first call the tool `expandSchema` with \"/properties/DynamicProcessProperties\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The full list of Dynamic Process properties within the specified Runtime, Runtime cluster, or cloud, where each property is defined by their name and value.</property-description>"),
+  "ProcessProperties": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ProcessProperties` to the tool, first call the tool `expandSchema` with \"/properties/ProcessProperties\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The full list of Process properties within the specified Runtime, Runtime cluster, or cloud, where each property is defined by their name and value.</property-description>"),
+  "atomId": z.string().describe("The ID of the Runtime on which to run the process. Locate the Runtime ID by navigating to **Manage** \\> **Runtime Management** on the user interface, and viewing the Runtime Information panel for a selected Runtime."),
+  "processId": z.string().describe("The ID of the process to run. You can find ID of a process by locating the process' **Component ID** in the **Revision History** dialog on the user interface.").optional(),
+  "processName": z.string().optional(),
+  "recordUrl": z.string().describe("\\(Response-only field\\) The ID of the process run. This field is returned in the initial POST response and is used in the subsequent call to find the corresponding run record.").optional(),
+  "requestId": z.string().optional()
+}

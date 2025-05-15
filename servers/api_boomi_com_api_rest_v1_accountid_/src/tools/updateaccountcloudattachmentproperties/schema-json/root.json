@@ -1,0 +1,245 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "accountDiskUsage": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Represented in bytes, this property sets the size limit for an account that uses the private Runtime cloud."
+    },
+    "as2Workload": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "GENERAL",
+        "LOW_LATENCY_DEBUG"
+      ],
+      "description": "Used to select the process run mode for AS2 listener processes.Accepted values:<br />1. inherited — \\(Default\\) The setting is inherited from the Runtime cluster.<br />2. general — The default process mode for all new processes.<br />3. low\\_latency\\_debug — All AS2 listener processes use an execution worker.\n >**Note:** After you change this property value you must restart the Runtime cloud cluster or Runtime. <br /><br />If you select Low\\_Latency\\_Debug, Trading Partner components that use AS2 listeners also use that run mode."
+    },
+    "atomInputSize": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Represented in bytes. For Web Services Server listener processes, limits the input size of a web service request. If reaching this limit, it rejects the request.For Flow Services Server listener processes, limits the request size and response size. If reaching this limit, it rejects the request. If reaching this limit, it rejects the request with a 400 error code. If reaching the limit on a response, it rejects the request with a 503 error code."
+    },
+    "atomOutputOverflowSize": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Represented in bytes, if specified, this value must be a positive number. For Runtime worker processes, this property limits the number of bytes per output datastore maintained in memory before overflowing to disk."
+    },
+    "atomWorkingOverflowSize": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Represented in bytes. For Runtime worker processes, this property limits the number of bytes per working datastore maintained in memory before overflowing to disk."
+    },
+    "cloudAccountExecutionLimit": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The total number of concurrent runs allowed. If specified, this value must be a positive number. If this field does not contain a value, there is no limit. On a Cloud, for this limit to take effect, you must also set the **Cloud Partition Size** property. The **Cloud Partition Size** property is set in the **Properties** panel, under **Runtime Management**."
+    },
+    "cloudAccountExecutionWarningOffset": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "If specified, this value must be a positive number. If this field does not contain a value, it does not generate a warning. This value is subtracted from the Account Concurrent Execution Limit to determine when the Runtime generates a warning that the account is close to exceeding its number of concurrent runs. For example, if this property is set to 5 and the Account Concurrent Execution Limit is set to 20, the Runtime generates a warning in the container log when the account exceeds 15 concurrent runs."
+    },
+    "containerId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "downloadRunnerlogs": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Runtime cloud owners can set this property to give account users or specific tenants the ability to download Runtime Worker log files from **Runtime Management** and run artifacts from **Process Reporting**.Accepted values:<br />1. Inherited \\(false\\) — The setting is inherited from the Runtime cloud cluster, and the feature is turned off.<br />2. False — The feature is not enabled, and users cannot download Runtime Worker logs or run artifacts.<br />3. True — \\(default\\) The feature is enabled. Users can download Runtime Worker logs and run artifacts.\n >**Note:** This property is turned on automatically for public Runtime clouds."
+    },
+    "enableAccountDataArchiving": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Accepted values:<br />1. inherited- \\(plus the value of the setting being inherited. For example, inherited\\(true\\) or inherited\\(false\\)\\) indicates that the property inherits what is set in the Runtime cloud cluster.<br />2. true- If true or Inherited \\(true\\), the owner of the selected attached Runtime can enable [processed document archiving](https://help.boomi.com/bundle/integration/page/c-atm-Processed_document_archiving.html).<br />3. false- indicates that the feature is not enabled."
+    },
+    "enableAtomWorkerWarmup": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Accepted values:<br />1. inherited- indicating that the property inherits what is set in the Runtime cloud cluster.<br />2. true- indicating that when an execution worker is within 30 minutes of shutting down, the Cloud starts \\(“warm-up”\\) another Runtime worker to replace it.<br />3. false- indicates that you did not enable the feature. You can use this feature if you provision your account with at least one Runtime worker. If you provision your account with more than one execution worker, and if there are multiple execution workers within 30 minutes of shutting down, then by default it replaces only one execution worker. However, if one of those execution workers has a load greater than “LOW”, then it is replaced even though there is another execution worker running. If you have set the **Minimum Execution Workers** property, then it replaces the appropriate number of execution workers so that you do not go below the minimum."
+    },
+    "flowControlParallelProcessTypeOverride": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "NONE",
+        "THREADS",
+        "PROCESSES"
+      ],
+      "description": "Overrides the **Parallel Process Type** setting in **Flow Control** shapes at a global Runtime cloud or Attachment Quota level. You can set the property only if you are a private Runtime cloud owner.The default value is NONE."
+    },
+    "httpRequestRate": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Limits the number of Web Services Server requests per second. This limitation is per node in the Runtime cloud, and per Cloud or Runtime attachment \\(*not* per account\\).If it exceeds this value, callers receive a 503 error. After you change this property value you must restart the Runtime cloud cluster or Runtime. \n\n >**Note:** If you set an HTTP Request Rate value, API Management uses this limit before the values specified in the API Contract for Rate Limit or Quota Limit."
+    },
+    "httpWorkload": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "GENERAL",
+        "LOW_LATENCY_DEBUG",
+        "LOW_LATENCY"
+      ],
+      "description": "Accepted values:<br />1. inherited- \\(plus the value of the setting being inherited. For example, inherited\\(true\\) or inherited\\(false\\)\\) indicating that the property inherits what is set in the Runtime cloud cluster.<br />2. general- The default process mode for all new processes. General mode processes do not use an execution worker, but Low\\_Latency mode processes do use one.<br />3. low\\_latency- All Web Services Server processes use an execution worker and run in Low\\_Latency mode.<br />4. low\\_latency\\_debug- All Web Services Server processes use an execution worker. Processes configured in Generalmode run in Low\\_Latency\\_Debug mode."
+    },
+    "listenerMaxConcurrentExecutions": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The maximum number of concurrent runs allowed per listener — that is, the maximum listener pool size."
+    },
+    "maxConnectorTrackDocs": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "You must set a positive integer less than or equal to 10,000. For example, in a process run, the maximum number of connector tracking generated documents for a single connector step.After reaching this limit, it does not report more tracking documents to the platform for that step in that run."
+    },
+    "minNumberofAtomWorkers": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The minimum number of execution workers that run continuously in the Cloud.If this property is set to a number greater than zero, then a few minutes after the Cloud starts and stabilizes, this number of execution workers begin to run. Their starting is not dependent upon receiving incoming process run requests. This behavior is like having multiple runners at the starting line of a race. All runners are ready and start to run as soon as the starter pistol is fired. This property works in conjunction with the **Execution Worker Warmup Enabled** property. If you set **Minimum Execution Workers** \\> 0, then it enables Execution Worker Warmup behavior. As your minimum number of execution workers reach the end of their life span, they are replaced with new execution workers. If the load on active execution workers drop, the Runtime cloud reduces the number of execution workers to the value you set for this property. \n\n >**Note:** Setting this property to a number greater than the number of provisioned execution workers in your account does not cause additional execution workers to run. If you would like to have additional execution workers provisioned in your account, contact the Support team."
+    },
+    "numberofAtomWorkers": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Allocated number of execution workers."
+    },
+    "queueIncomingMessageRateLimit": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The maximum number of requests the attachment is allowed to send to the Shared Queue Server per minute. The limit is only enforced if the Incoming Message Rate Limit is set in the underlying cloud Queue Shared Server. If a value is not set or is less than 1, the Shared Queue Server limit is used. The message is rejected if the limit is exceeded and should be retried from within the integration process. The limit is enforced per cloud node."
+    },
+    "sessionId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "statusCode": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "testModeMaxDocBytes": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Represented in bytes, the maximum aggregate data size across the run of a process in test mode. A negative value means there is no maximum.This field is present only if you enable the enhanced test mode feature in the account. If you want to enable this feature, contact your sales representative."
+    },
+    "testModeMaxDocs": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The maximum number of files \\(documents\\) per inbound connector shape during the run of a process in test mode. A negative value means there is no maximum.This field is present only if you enable enhanced test mode feature in the account."
+    },
+    "workerElasticScalingThreshold": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "workerMaxExecutionTime": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Maximum run time in milliseconds for Execution worker processes. For example, an accepted value is 30000. After this amount of time passes, a 522 HTTP status code message is returned to the client saying that the process exceeds the time limit and then cancels the process run. After you change this property value, you must restart the Runtime cloud cluster or Runtime."
+    },
+    "workerMaxGeneralExecutionTime": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Maximum run time in milliseconds for Execution worker processes that use Low\\_Latency\\_Debug mode. For example, an accepted value is 60000. After you change this property value, you must restart the Runtime cloud cluster or Runtime."
+    },
+    "workerMaxQueuedExecutions": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Maximum number of extra processes that can queue in a single Execution worker, when the maximum number of processes is running. If specified, this value must be a positive number. After you change this property value you must restart the Runtime cloud cluster or Runtime."
+    },
+    "workerMaxRunningExecutions": {
+      "type": "integer",
+      "format": "int32",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The maximum number of simultaneous processes that can run in a single Execution worker.After you change this property value, you must restart the Runtime cloud cluster or Runtime."
+    },
+    "workerQueuedExecutionTimeout": {
+      "type": "integer",
+      "format": "int64",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Maximum time that a job in the queue can wait to run. After this amount of time, the job fails with a time-out exception.For example, an accepted value is 0:10:00. After you change this property value you must restart the Runtime cloud cluster or Runtime."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

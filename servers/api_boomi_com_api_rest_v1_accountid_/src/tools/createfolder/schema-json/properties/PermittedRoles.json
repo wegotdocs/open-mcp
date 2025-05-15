@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "RoleReference": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "attribute": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "description": "Optional. The defined role assigned to the available folder object."
+}

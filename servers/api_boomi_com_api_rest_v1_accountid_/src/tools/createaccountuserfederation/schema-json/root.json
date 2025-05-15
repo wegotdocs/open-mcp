@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The account ID.",
+      "example": "account-123456"
+    },
+    "federationId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The federation ID uniquely identifies the user.",
+      "example": "user123"
+    },
+    "id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The object’s conceptual ID, which is synthesized from the federation, user, and account IDs.",
+      "example": "Ab0Cd1Ef1Gh3Ij4Kl5Mn6Op7Qr8St9Uv0Wx9Yz8Zy7Xw6Vu5Ts"
+    },
+    "userId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The user ID.",
+      "example": "user123company.biz"
+    }
+  },
+  "required": []
+}

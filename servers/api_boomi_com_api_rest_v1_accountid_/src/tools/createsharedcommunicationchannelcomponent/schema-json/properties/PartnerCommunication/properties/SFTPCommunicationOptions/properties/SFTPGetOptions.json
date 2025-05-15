@@ -1,0 +1,58 @@
+{
+  "required": [
+    "fileToMove",
+    "maxFileCount",
+    "moveToDirectory",
+    "remoteDirectory"
+  ],
+  "type": "object",
+  "properties": {
+    "fileToMove": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "ftpAction": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "actionget",
+        "actiongetdelete",
+        "actiongetmove"
+      ]
+    },
+    "maxFileCount": {
+      "type": "integer",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "moveToDirectory": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "moveToForceOverride": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "remoteDirectory": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "useDefaultGetOptions": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

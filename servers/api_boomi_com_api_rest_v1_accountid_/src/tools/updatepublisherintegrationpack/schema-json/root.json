@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      }
+    },
+    "PublisherPackagedComponents": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `PublisherPackagedComponents` to the tool, first call the tool `expandSchema` with \"/properties/PublisherPackagedComponents\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "b_id": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique ID assigned by the system to the integration pack.",
+      "example": "d7c16f5d-3311-417e-a149-3c55436f7d8d"
+    },
+    "installationType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The type of integration pack. Possible values:\n\n- SINGLE — single attachment \n- MULTI — multiple attachment",
+      "enum": [
+        "SINGLE",
+        "MULTI"
+      ],
+      "example": "MULTI"
+    },
+    "name": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "The name of the integration pack.",
+      "example": "perf testing ipack"
+    },
+    "operationType": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "Specifies the type of operation (ADD or DELETE) to perform when updating the packaged component to the integration pack. This field is mandatory for the Update operation and is not available for other operations",
+      "enum": [
+        "ADD",
+        "DELETE"
+      ],
+      "example": "ADD"
+    }
+  },
+  "required": [
+    "id",
+    "Description"
+  ]
+}

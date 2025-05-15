@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "delimiterSpecial": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "delimiterValue": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "stardelimited",
+        "commadelimited",
+        "tabdelimited",
+        "tickdelimited",
+        "bardelimited",
+        "plusdelimited",
+        "colondelimited",
+        "caratdelimited",
+        "ampersanddelimited",
+        "bytecharacter",
+        "othercharacter"
+      ]
+    }
+  }
+}

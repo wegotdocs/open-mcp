@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "X12ControlInfo": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `X12ControlInfo` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/X12PartnerInfo/properties/X12ControlInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional(),
+  "X12Options": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `X12Options` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/X12PartnerInfo/properties/X12Options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional()
+}

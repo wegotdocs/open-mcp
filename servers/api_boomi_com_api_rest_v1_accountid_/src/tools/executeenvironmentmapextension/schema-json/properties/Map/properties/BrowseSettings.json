@@ -1,0 +1,26 @@
+{
+  "required": [
+    "DestinationBrowse",
+    "SourceBrowse"
+  ],
+  "type": "object",
+  "properties": {
+    "DestinationBrowse": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `DestinationBrowse` to the tool, first call the tool `expandSchema` with \"/properties/Map/properties/BrowseSettings/properties/DestinationBrowse\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "SourceBrowse": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `SourceBrowse` to the tool, first call the tool `expandSchema` with \"/properties/Map/properties/BrowseSettings/properties/SourceBrowse\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "containerId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    }
+  },
+  "description": "Represents the Connection information and is used to re-import newly-appended profile fields. This attribute is only applicable for certain application Connectors. To perform a re-import, the client must use the EXECUTE operation. For more information, see the Customizing profiles section later in this topic.\n\n **Note:** `containerId` is a required field when using BrowseSettings."
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "compositeDelimiter": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `compositeDelimiter` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/TradacomsPartnerInfo/properties/TradacomsOptions/properties/compositeDelimiter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "elementDelimiter": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `elementDelimiter` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/TradacomsPartnerInfo/properties/TradacomsOptions/properties/elementDelimiter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "filterAcknowledgements": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "segmentTerminator": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `segmentTerminator` to the tool, first call the tool `expandSchema` with \"/properties/PartnerInfo/properties/TradacomsPartnerInfo/properties/TradacomsOptions/properties/segmentTerminator\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "useReconciliationMessage": {
+      "type": "boolean",
+      "xml": {
+        "attribute": true
+      }
+    }
+  }
+}

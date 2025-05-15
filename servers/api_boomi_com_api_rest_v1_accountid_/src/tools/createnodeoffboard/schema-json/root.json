@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "atomId": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "description": "A unique, -generated identifier assigned to the Runtime cluster or Runtime cloud. In the  user interface, this ID appears on the **Runtime Information** panel of Runtime Management.",
+      "example": "3456789a-bcde-f012-3456-789abcdef012"
+    },
+    "nodeId": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "type": "string",
+        "xml": {
+          "name": "nodeId"
+        }
+      },
+      "description": "The ID of the Runtime cluster or Cloud node that is intended for deletion. In the  user interface, this ID appears on the **Cluster Status** panel of Runtime Management.",
+      "example": [
+        "node1",
+        "node2"
+      ]
+    }
+  },
+  "required": []
+}

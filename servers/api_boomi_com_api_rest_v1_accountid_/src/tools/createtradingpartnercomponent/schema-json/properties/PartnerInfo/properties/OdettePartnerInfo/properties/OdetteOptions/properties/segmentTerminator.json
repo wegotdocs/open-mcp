@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "segmentTerminatorSpecial": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      }
+    },
+    "segmentTerminatorValue": {
+      "type": "string",
+      "xml": {
+        "attribute": true
+      },
+      "enum": [
+        "newline",
+        "singlequote",
+        "tilde",
+        "carriagereturn",
+        "bytecharacter",
+        "othercharacter"
+      ]
+    }
+  }
+}

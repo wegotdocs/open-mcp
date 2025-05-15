@@ -1,0 +1,129 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique ID assigned by the system to the Runtime.",
+      "type": "string"
+    },
+    "Process": {
+      "type": "array",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "items": {
+        "required": [
+          "ProcessProperties",
+          "processId"
+        ],
+        "type": "object",
+        "properties": {
+          "ProcessProperties": {
+            "type": "object",
+            "properties": {
+              "ProcessProperty": {
+                "type": "array",
+                "xml": {
+                  "namespace": "http://api.platform.boomi.com/"
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ProcessPropertyValue": {
+                      "type": "array",
+                      "xml": {
+                        "namespace": "http://api.platform.boomi.com/"
+                      },
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "componentOverride": {
+                            "type": "boolean",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "encryptedValueSet": {
+                            "type": "boolean",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "key": {
+                            "type": "string",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "label": {
+                            "type": "string",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "useDefault": {
+                            "type": "boolean",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "usesEncryption": {
+                            "type": "boolean",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "validate": {
+                            "type": "boolean",
+                            "xml": {
+                              "attribute": true
+                            }
+                          },
+                          "value": {
+                            "type": "string",
+                            "xml": {
+                              "attribute": true
+                            },
+                            "description": "The value assigned to the persisted process property."
+                          }
+                        }
+                      }
+                    },
+                    "componentId": {
+                      "type": "string",
+                      "xml": {
+                        "attribute": true
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "The complete list of Persisted Process properties within the specified Runtime, Runtime cluster, or cloud, where the definition of each property is by its name and value.",
+            "xml": {
+              "name": "ProcessProperties",
+              "namespace": "http://api.platform.boomi.com/"
+            }
+          },
+          "processId": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://api.platform.boomi.com/"
+            },
+            "description": "A unique ID assigned by the system to the process."
+          }
+        }
+      }
+    },
+    "atomId": {
+      "type": "string",
+      "xml": {
+        "namespace": "http://api.platform.boomi.com/"
+      },
+      "description": "A unique ID assigned by the system to the Runtime."
+    }
+  },
+  "required": [
+    "id",
+    "atomId"
+  ]
+}
