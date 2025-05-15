@@ -1,0 +1,137 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "description": "ID of the business to update",
+      "type": "integer",
+      "example": 2001
+    },
+    "id": {
+      "type": "integer",
+      "example": 10
+    },
+    "b_businessId": {
+      "type": "integer",
+      "example": 2001
+    },
+    "name": {
+      "type": "string",
+      "example": "ACME Pty Ltd"
+    },
+    "abn": {
+      "type": "string",
+      "pattern": "^\\d{11}$",
+      "example": "12345678901",
+      "description": "Australian Business Number"
+    },
+    "acn": {
+      "type": "string",
+      "pattern": "^\\d{9}$",
+      "example": "123456789",
+      "description": "Australian Company Number"
+    },
+    "industryType": {
+      "type": "string",
+      "enum": [
+        "AGRICULTURE",
+        "MINING",
+        "MANUFACTURING",
+        "CONSTRUCTION",
+        "RETAIL",
+        "HOSPITALITY",
+        "FINANCE",
+        "TECHNOLOGY",
+        "HEALTHCARE",
+        "EDUCATION",
+        "OTHER"
+      ],
+      "example": "TECHNOLOGY"
+    },
+    "businessSize": {
+      "type": "string",
+      "enum": [
+        "SMALL",
+        "MEDIUM",
+        "LARGE",
+        "ENTERPRISE"
+      ],
+      "example": "MEDIUM",
+      "description": "Business size category based on employee count"
+    },
+    "streetAddress": {
+      "type": "string",
+      "example": "123 Example Street"
+    },
+    "suburb": {
+      "type": "string",
+      "example": "Sydney"
+    },
+    "state": {
+      "type": "string",
+      "example": "NSW"
+    },
+    "postcode": {
+      "type": "string",
+      "example": "2000"
+    },
+    "country": {
+      "type": "string",
+      "example": "Australia"
+    },
+    "contactEmail": {
+      "type": "string",
+      "format": "email",
+      "example": "contact@acme.com.au"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "example": "+61 2 1234 5678"
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "example": "https://www.acme.com.au"
+    },
+    "participantsCount": {
+      "type": "integer",
+      "example": 25
+    },
+    "packagesEnrolled": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "example": [
+        101,
+        102
+      ]
+    },
+    "status": {
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "example": 1
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2024-02-14T08:00:00Z"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2024-02-14T11:15:00Z"
+    }
+  },
+  "required": [
+    "businessId",
+    "name",
+    "abn",
+    "industryType",
+    "businessSize",
+    "contactEmail"
+  ]
+}
