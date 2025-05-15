@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "description": "ID of the business to retrieve participants for",
+      "type": "integer",
+      "example": 2001
+    },
+    "limit": {
+      "description": "Maximum number of results to return",
+      "type": "integer",
+      "example": 10
+    },
+    "offset": {
+      "description": "Number of results to skip",
+      "type": "integer",
+      "example": 0
+    }
+  },
+  "required": [
+    "businessId"
+  ]
+}

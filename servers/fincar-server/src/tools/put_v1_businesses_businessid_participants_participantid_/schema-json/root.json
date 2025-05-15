@@ -1,0 +1,110 @@
+{
+  "type": "object",
+  "properties": {
+    "participantId": {
+      "type": "string"
+    },
+    "businessId": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer",
+      "example": 1001
+    },
+    "b_participantId": {
+      "type": "integer",
+      "example": 30001
+    },
+    "employeeId": {
+      "type": "string",
+      "example": "E12345"
+    },
+    "name": {
+      "type": "string",
+      "example": "John Doe"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "example": "john.doe@example.com"
+    },
+    "employmentStatus": {
+      "type": "string",
+      "enum": [
+        "FULL_TIME",
+        "PART_TIME",
+        "CASUAL",
+        "CONTRACT"
+      ],
+      "example": "FULL_TIME",
+      "description": "Current employment status"
+    },
+    "employmentStartDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2023-01-15",
+      "description": "Date when employment started"
+    },
+    "department": {
+      "type": "string",
+      "example": "Finance",
+      "description": "Department or business unit"
+    },
+    "streetAddress": {
+      "type": "string",
+      "example": "456 Another Street"
+    },
+    "suburb": {
+      "type": "string",
+      "example": "Melbourne"
+    },
+    "state": {
+      "type": "string",
+      "example": "VIC"
+    },
+    "postcode": {
+      "type": "string",
+      "example": "3000"
+    },
+    "country": {
+      "type": "string",
+      "example": "Australia"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "example": "+61 3 9876 5432"
+    },
+    "salary": {
+      "type": "number",
+      "example": 75000
+    },
+    "status": {
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "example": 1
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2024-02-14T09:30:00Z"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2024-02-14T10:45:00Z"
+    }
+  },
+  "required": [
+    "participantId",
+    "businessId",
+    "name",
+    "email",
+    "employmentStatus",
+    "employmentStartDate",
+    "department"
+  ]
+}
