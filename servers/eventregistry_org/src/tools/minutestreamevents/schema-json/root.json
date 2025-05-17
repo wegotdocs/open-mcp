@@ -1,0 +1,167 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "recentActivityEventsMaxEventCount": {
+      "description": "The maximum number of events to return. Maximum value specified can be 2.000. The number of used tokens will correspond to the number of returned events. For 200 returned events, for example, 4*5 tokens will be used - 5 tokens for each 50 events.\n",
+      "type": "integer",
+      "default": 50,
+      "maximum": 2000
+    },
+    "recentActivityEventsUpdatesAfterMinsAgo": {
+      "description": "The parameter can be used to retrieve not only the last minute of events, but more minutes. When using some filtering parameters below you use can use this parameter to call `minuteStreamEvents` endpoint only every few minutes and still retrieve all added content matching your filters. The value should be at most 240 (4 hours).\n",
+      "type": "integer"
+    },
+    "recentActivityEventsUpdatesAfterTm": {
+      "description": "The parameter can be used to retrieve events that were updated after the specified time. The value should be in format `YYYY-MM-DDTHH:MM:SS` and should represent datetime in UTC timezone. The value should be at most 4 hours in the past.\n",
+      "type": "string"
+    },
+    "keyword": {
+      "description": "Find events in which news articles mention the specified keyword or a phrase. If you specify multiple `keyword` parameters, then only events with articles that mention all of them will be returned, unless you specify `keywordOper` parameter and set it to 'or'.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conceptUri": {
+      "description": "Find events for which the concept with concept uri is important. You can specify up to 50 concepts in a single search. If multiple `conceptUri` parameters are provided, then only events that are about all specified concepts will be returned, unless you specify `conceptOper` parameter and set it to 'or'. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggConcepts) to get concept URI value for a specified concept label.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "categoryUri": {
+      "description": "Find events that are about a particular category. You can specify up to 20 categories in a single search. If multiple `categoryUri` parameters are provided, then events that are about any of the specified categories will be returned, unless you specify `categoryOper` parameter and set it to 'and'. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggCategories) to get value for a specified category name.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceUri": {
+      "description": "Find events that contain one or more articles that have been written by a specific news source. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggSources) to get value for a source name.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceLocationUri": {
+      "description": "Find events that contain one or more articles by news sources located at the given geographic location (city or a country). Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggLocations) to get value for a location name.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceGroupUri": {
+      "description": "Find events that contain one or more articles by news sources that are assigned to the predefined group of news sources. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggSourceGroups) to get value for a source group or find the uri.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorUri": {
+      "description": "Find events that contain articles that were written by a particular author. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggAuthors) to get value for author uri based on the author name (and potentially source url).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "locationUri": {
+      "description": "Find events that occurred at a particular geographic location. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggLocations) to get URI value for a given location name.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "keywordLoc": {
+      "description": "What data should be used when searching using the keywords provided by `keywords` parameter.",
+      "type": "string",
+      "default": "body",
+      "enum": [
+        "body",
+        "title",
+        "body,title"
+      ]
+    },
+    "keywordOper": {
+      "description": "If more keywords are provided with the `keyword` parameter, what should be the Boolean operator used. If 'and' (default) then all of the specified keywords have to be present in the article about an event; if 'or' then an event will be returned if it's articles mentions any of the provided keywords.",
+      "type": "string",
+      "default": "and",
+      "enum": [
+        "and",
+        "or"
+      ]
+    },
+    "conceptOper": {
+      "description": "If more concepts are provided with the `conceptUri` parameter, what should be the Boolean operator used. If 'and' (default) then all of the specified concepts have to be present in the event; if 'or' then an event will be returned if it mentions any of the provided concepts.",
+      "type": "string",
+      "default": "and",
+      "enum": [
+        "and",
+        "or"
+      ]
+    },
+    "categoryOper": {
+      "description": "If more categories are provided with the `categoryUri` parameter, what should be the Boolean operator used. If 'and' then all of the specified categories have to be present in the event; if 'or' then an event will be returned if it mentions any of the provided categories.",
+      "type": "string",
+      "default": "or",
+      "enum": [
+        "and",
+        "or"
+      ]
+    },
+    "lang": {
+      "description": "Find events that contain articles in the specified language(s).",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "eng",
+          "spa",
+          "deu",
+          "zho",
+          "slv",
+          "cat",
+          "por",
+          "ita",
+          "fra",
+          "rus",
+          "ara",
+          "tur",
+          "hrv",
+          "srp",
+          "ind",
+          "ces",
+          "slk",
+          "pol",
+          "eus",
+          "hun",
+          "nld",
+          "swe",
+          "fin",
+          "dan",
+          "ell",
+          "ron",
+          "bul",
+          "ukr",
+          "fas",
+          "hin",
+          "urd"
+        ]
+      }
+    },
+    "minArticlesInEvent": {
+      "description": "Find events that have been reported in at least `minArticlesInEvent` articles (regardless of language).",
+      "type": "integer"
+    },
+    "maxArticlesInEvent": {
+      "description": "Find events that have not been reported in more than `maxArticlesInEvent` articles (regardless of language)",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "apiKey"
+  ]
+}

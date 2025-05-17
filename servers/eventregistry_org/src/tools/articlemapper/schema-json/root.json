@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "articleUrl": {
+      "description": "Define the requested article URL.",
+      "type": "string"
+    },
+    "includeAllVersions": {
+      "description": "Set this parameter to true to include all versions of the article.",
+      "type": "boolean"
+    },
+    "deep": {
+      "description": "",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "apiKey",
+    "articleUrl"
+  ]
+}

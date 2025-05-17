@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "text": {
+      "description": "Text for which to find the most related event",
+      "type": "string"
+    },
+    "lang": {
+      "description": "The language in which the provided `text` is.",
+      "type": "string"
+    },
+    "resultType": {
+      "description": "Choose what kind of information about the events should be returned. Default value: info.",
+      "default": "info",
+      "type": "string",
+      "enum": [
+        "info",
+        "articles"
+      ]
+    }
+  },
+  "required": [
+    "apiKey",
+    "text",
+    "lang"
+  ]
+}

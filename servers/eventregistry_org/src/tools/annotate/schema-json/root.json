@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "text": {
+      "description": "Define a text that you'll like to see annotated.",
+      "type": "string"
+    },
+    "minLinkFrequency": {
+      "description": "The minimum number of times the phrase should appear in the link in order for use to use it as a candidate for the <a href=\"#\">annotation</a>.",
+      "type": "integer",
+      "default": 3
+    },
+    "minLinkRelFrequency": {
+      "description": "Consider the candidate only if the given text points to the candidate with probability above this value. Value between 0 and 1.",
+      "type": "number",
+      "format": "double",
+      "default": 0.01
+    },
+    "nWordsToIgnoreFromList": {
+      "description": "Use this setting to ignore common phrases. If a phrase consists entirely of very frequent words, it will be ignore. A word is considered frequent if it is one of the most frequent words (in terms of document frequency) in the Wikipedia of the corresponding language. If 0 it will disable this heuristic.",
+      "type": "integer",
+      "default": 200
+    },
+    "minPMentionGivenPhrase": {
+      "description": "'Probability that the given phrase, if found on Wikipedia, is annotated with the concept. If non-zero, it can help to remove the common words.'",
+      "type": "number",
+      "format": "double",
+      "default": 0.03
+    },
+    "pageRankSqThreshold": {
+      "description": "'Probability that the given phrase, if found on Wikipedia, is annotated with the concept. If non-zero, it can help to remove the common words.'",
+      "type": "number",
+      "format": "double",
+      "default": 0.95
+    },
+    "applyPageRankSqThreshold": {
+      "description": "'Apply pageRankSqThreshold to the requested response.'",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "apiKey",
+    "text"
+  ]
+}

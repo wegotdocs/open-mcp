@@ -1,0 +1,541 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "resultType": {
+      "description": "Define what kind of results of the search you would like to get. Default value: articles.",
+      "default": "articles",
+      "type": "string",
+      "enum": [
+        "articles",
+        "uriWgtList",
+        "langAggr",
+        "timeAggr",
+        "sourceAggr",
+        "sourceExAggr",
+        "authorAggr",
+        "keywordAggr",
+        "locAggr",
+        "conceptAggr",
+        "conceptGraph",
+        "categoryAggr",
+        "dateMentionAggr",
+        "sentimentAggr",
+        "recentActivityArticles"
+      ]
+    },
+    "articlesPage": {
+      "description": "Determines the page of the results to return (starting from 1). Relevant when `resultType = articles`.",
+      "type": "integer",
+      "default": 1,
+      "example": null
+    },
+    "articlesCount": {
+      "description": "Define how many articles (up to 100) will be returned. Relevant when `resultType = articles`.",
+      "default": 100,
+      "type": "integer"
+    },
+    "articlesSortBy": {
+      "description": "Choose the criteria for sorting the news articles. `rel` (relevance to the query), `date` (publishing date), `sourceImportance` (manually curated score of source importance - high value, high importance), `sourceImportanceRank` (reverse of sourceImportance), `sourceAlexaGlobalRank` (global rank of the news source), `sourceAlexaCountryRank` (country rank of the news source), `socialScore` (total shares on social media), `facebookShares` (shares on Facebook only). Relevant when `resultType = articles`.\n",
+      "default": "date",
+      "type": "string",
+      "enum": [
+        "date",
+        "rel",
+        "sourceImportance",
+        "sourceAlexaGlobalRank",
+        "sourceAlexaCountryRank",
+        "socialScore",
+        "facebookShares"
+      ]
+    },
+    "articlesSortByAsc": {
+      "description": "Should the results be ordered in ascending order or descending order (default). Relevant when `resultType = articles`.",
+      "default": "false",
+      "type": "boolean"
+    },
+    "articleBodyLen": {
+      "description": "Set the size of the article body that'll be returned in the response. Use -1 for full article body.",
+      "type": "integer",
+      "default": -1
+    },
+    "dataType": {
+      "description": "What data types should we search? news content (default, `news`), press releases (`pr`) or blogs (`blog`).",
+      "type": "array",
+      "default": "news",
+      "items": {
+        "type": "string"
+      },
+      "enum": [
+        "news",
+        "pr",
+        "blog"
+      ]
+    },
+    "query": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `query` to the tool, first call the tool `expandSchema` with \"/properties/query\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Query object with one or more search conditions. The `query` object should match the [Advanced Query Language](https://github.com/EventRegistry/event-registry-python/wiki/Searching-for-articles#advanced-query-language) format. If you specify the `query` parameter, then the query parameters specified directly (`keyword`, `conceptUri`, `sourceUri`, `categoryUri`, etc) will be ignored.</property-description>",
+      "additionalProperties": true
+    },
+    "keyword": {
+      "description": "Find articles that mention the specified keyword or a phrase. You can specify at most 60 keywords in a single search. If you specify multiple `keyword` parameters, then only articles that mention all of them will be returned, unless you specify `keywordOper` parameter and set it to 'or'.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conceptUri": {
+      "description": "Find articles that mention the concept with a concept uri. You can specify at most 50 concepts in a single search. If multiple `conceptUri` parameters are provided, then only articles that are about all specified concepts will be returned, unless you specify `conceptOper` parameter and set it to 'or'. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggConcepts) to get concept URI value for a specified concept label.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "categoryUri": {
+      "description": "Find articles that are assigned to a particular category. You can specify at most 20 categories in a single search. If multiple `categoryUri` parameters are provided, then articles that are about any of the specified categories will be returned, unless you specify `categoryOper` parameter and set it to 'and'. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggCategories) to get value for a specified category name.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceUri": {
+      "description": "Find articles that have been published by a news source. If you specify multiple `sourceUri` parameters, then articles from any of the specified sources will be returned. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggSources) to get value for a source name.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceLocationUri": {
+      "description": "Find articles that were published by news sources located at the given geographic location (city or country). If you specify multiple `sourceLocationUri` parameters, then articles from sources from any of the specified sources will be returned. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggLocations) to get value for a location name.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceGroupUri": {
+      "description": "Find articles that were published by news sources that are assigned to some predefined group of news sources. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggSourceGroups) to get value for a source group or find the uri.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorUri": {
+      "description": "Find articles that were written by a particular author. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggAuthors) to get value for author uri based on the author name (and potentially source url).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "locationUri": {
+      "description": "Find articles that describe something that occured at a particular location (based on the location mentioned in the dateline). Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggLocations) to get value for a location name.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lang": {
+      "description": "Find articles in the specific language(s). If not specified, all languages will be included. You can specify at most 5 languages in a single search.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "eng",
+          "spa",
+          "deu",
+          "zho",
+          "slv",
+          "cat",
+          "por",
+          "ita",
+          "fra",
+          "rus",
+          "ara",
+          "tur",
+          "hrv",
+          "srp",
+          "ind",
+          "ces",
+          "slk",
+          "pol",
+          "eus",
+          "hun",
+          "nld",
+          "swe",
+          "fin",
+          "dan",
+          "ell",
+          "ron",
+          "bul",
+          "ukr",
+          "fas",
+          "hin",
+          "urd",
+          "vie"
+        ]
+      }
+    },
+    "dateStart": {
+      "description": "The starting date on or after the articles of interest were published.",
+      "type": "string"
+    },
+    "dateEnd": {
+      "description": "The last date on which the articles of interest were published.",
+      "type": "string"
+    },
+    "dateMentionStart": {
+      "description": "Ignore events (that contain one or more articles) or articles that explicitly mention a date that is equal or greater than `dateMentionStart`.",
+      "type": "string"
+    },
+    "dateMentionEnd": {
+      "description": "Ignore events (that contain one or more articles) or articles that explicitly mention a date that is lower or equal to `dateMentionEnd`.",
+      "type": "string"
+    },
+    "keywordLoc": {
+      "description": "What data should be used when searching using the keywords provided by `keywords` parameter.",
+      "type": "string",
+      "default": "body",
+      "enum": [
+        "body",
+        "title",
+        "body,title"
+      ]
+    },
+    "keywordOper": {
+      "description": "If more keywords are provided with the `keyword` parameter, what should be the Boolean operator used. If 'and' (default) then all of the specified keywords have to be present in the article; if 'or' then an article will be returned if it mentions any of the provided keywords.",
+      "type": "string",
+      "default": "and",
+      "enum": [
+        "and",
+        "or"
+      ]
+    },
+    "conceptOper": {
+      "description": "If more concepts are provided with the `conceptUri` parameter, what should be the Boolean operator used. If 'and' (default) then all of the specified concepts have to be present in the article; if 'or' then an article will be returned if it mentions any of the provided concepts.",
+      "type": "string",
+      "default": "and",
+      "enum": [
+        "and",
+        "or"
+      ]
+    },
+    "categoryOper": {
+      "description": "If more categories are provided with the `categoryUri` parameter, what should be the Boolean operator used. If 'and' then all of the specified categories have to be present in the article; if 'or' then an article will be returned if it mentions any of the provided categories.",
+      "type": "string",
+      "default": "or",
+      "enum": [
+        "and",
+        "or"
+      ]
+    },
+    "ignoreKeyword": {
+      "description": "Ignore articles that mention the specified keyword or phrase. You can specify at most 60 keywords in a single search. If you specify multiple `ignoreKeyword` parameters, then articles that mention any of these keywords will be ignored.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignoreConceptUri": {
+      "description": "Ignore articles that mention the concept with concept uri. You can specify at most 50 concepts in a single search. If you specify multiple `ignoreConceptUri` parameters then articles that mention any of them will be ignored. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggConcepts) to get value for a specified concept label.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignoreCategoryUri": {
+      "description": "Ignore articles that are assigned into a particular category. You can specify at most 20 categories in a single search. If you specify multiple `ignoreCategoryUri` parameters then articles that mention any of them will be ignored. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggCategories) to get value for a specified category name.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignoreSourceUri": {
+      "description": "Ignore articles that have been published by a news source. If you specify multiple `ignoreSourceUri` parameters, then articles from any of the specified sources will be ignored. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggSources) to get value for a source name.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignoreSourceLocationUri": {
+      "description": "Ignore articles that were published by news sources located at the given geographic location (city or country). If you specify multiple `ignoreSourceLocationUri` parameters, then articles from sources from any of the specified sources will be ignored. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggLocations) to get value for a location name.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignoreSourceGroupUri": {
+      "description": "Ignore articles that were published by news sources that are assigned to some predefined group of news sources. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggSourceGroups) to get value for a source group or find the uri.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignoreLocationUri": {
+      "description": "Ignore articles that describe something that occured at a particular location (based on the location mentioned in the dateline). Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggLocations) to get value for a location name.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignoreAuthorUri": {
+      "description": "Ignore articles that were written by a particular author. Check [autosuggest methods](https://eventregistry.org/documentation?tab=suggAuthors) to get value for author uri based on the author name (and potentially source url).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignoreLang": {
+      "description": "Ignore articles in the specified language(s). You can specify at most 5 languages in a single search.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "eng",
+          "spa",
+          "deu",
+          "zho",
+          "slv",
+          "cat",
+          "por",
+          "ita",
+          "fra",
+          "rus",
+          "ara",
+          "tur",
+          "hrv",
+          "srp",
+          "ind",
+          "ces",
+          "slk",
+          "pol",
+          "eus",
+          "hun",
+          "nld",
+          "swe",
+          "fin",
+          "dan",
+          "ell",
+          "ron",
+          "bul",
+          "ukr",
+          "fas",
+          "hin",
+          "urd",
+          "vie"
+        ]
+      }
+    },
+    "ignoreKeywordLoc": {
+      "description": "What data should be used when searching using the keywords provided by `ignoreKeywords` parameter.",
+      "type": "string",
+      "enum": [
+        "body",
+        "title",
+        "body,title"
+      ]
+    },
+    "startSourceRankPercentile": {
+      "description": "starting [ranking percentile of the sources](https://github.com/EventRegistry/event-registry-python/wiki/Source-filtering#filtering-of-sources-based-on-their-ranking) to consider in the results (default: 0). Value should be in range 0-90 and divisible by 10.",
+      "type": "integer",
+      "default": "0"
+    },
+    "endSourceRankPercentile": {
+      "description": "ending [ranking percentile of the sources](https://github.com/EventRegistry/event-registry-python/wiki/Source-filtering#filtering-of-sources-based-on-their-ranking) to consider in the results (default: 100). Value should be in range 10-100 and divisible by 10.",
+      "type": "integer",
+      "default": "100"
+    },
+    "minSentimentArticle": {
+      "description": "the minimum value of the sentiment, the article should have. Valid value is any floating number between -1 (very negative) to 1 (very positive). 0 represents neutral sentiment. Note that setting the value will automatically reduce results to just English articles, since the sentiment can only be computed for English language.",
+      "type": "integer"
+    },
+    "maxSentimentArticle": {
+      "description": "the maximum value of the sentiment, the article should have. Valid value is any floating number between -1 (very negative) to 1 (very positive). 0 represents neutral sentiment. Note that setting the value will automatically reduce results to just English articles, since the sentiment can only be computed for English language.",
+      "type": "integer"
+    },
+    "isDuplicateFilter": {
+      "description": "Some articles can be duplicates of other articles. What should be done with them.",
+      "type": "string",
+      "default": "keepAll",
+      "enum": [
+        "skipDuplicates",
+        "keepOnlyDuplicates",
+        "keepAll"
+      ]
+    },
+    "hasDuplicateFilter": {
+      "description": "Some articles are later copied by others. What should be done with such articles.",
+      "type": "string",
+      "default": "keepAll",
+      "enum": [
+        "skipHasDuplicates",
+        "keepOnlyHasDuplicates",
+        "keepAll"
+      ]
+    },
+    "eventFilter": {
+      "description": "Some articles describe a known event and some don't. This filter allows you to filter the resulting articles based on this criteria.",
+      "type": "string",
+      "default": "keepAll",
+      "enum": [
+        "skipArticlesWithoutEvent",
+        "keepOnlyArticlesWithoutEvent",
+        "keepAll"
+      ]
+    },
+    "includeArticleTitle": {
+      "description": "Set this parameter to true to include the article title in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleBasicInfo": {
+      "description": "Set this parameter to true to include the core article information in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleBody": {
+      "description": "Set this parameter to true to include the article body in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleEventUri": {
+      "description": "Set this parameter to true to include the uri of the event (to which the article belongs) in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleSocialScore": {
+      "description": "Set this parameter to true to include the information about how many times the article was shared on different social media.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleSentiment": {
+      "description": "Set this parameter to true to include the article sentiment in the response (value will be non-null only for English articles).",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleConcepts": {
+      "description": "Set this parameter to true to include the article concepts in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleCategories": {
+      "description": "Set this parameter to true to include the article categories in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleLocation": {
+      "description": "Set this parameter to true to include the article location in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleImage": {
+      "description": "Set this parameter to true to include the article image in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleVideos": {
+      "description": "Set this parameter to true to include the article videos in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleLinks": {
+      "description": "Set this parameter to true to include the article links in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleExtractedDates": {
+      "description": "Set this parameter to true to include article extracted dates in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleDuplicateList": {
+      "description": "Set this parameter to true to include the list of duplicate articles in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleOriginalArticle": {
+      "description": "Set this parameter to true to include the original article in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeSourceTitle": {
+      "description": "Set this parameter to true to include the source title in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeSourceDescription": {
+      "description": "Set this parameter to true to include the source description in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeSourceLocation": {
+      "description": "Set this parameter to true to include the source location in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeSourceRanking": {
+      "description": "Set this parameter to true to include the source ranking in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeConceptLabel": {
+      "description": "Set this parameter to true to include the concept label in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeConceptImage": {
+      "description": "Set this parameter to true to include the concept image in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeConceptSynonyms": {
+      "description": "Set this parameter to true to include the concept synonyms in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeConceptTrendingScore": {
+      "description": "Set this parameter to true to include concept trending score in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "conceptLang": {
+      "description": "Define the language of the concept label.",
+      "type": "string",
+      "default": "eng"
+    },
+    "includeCategoryParentUri": {
+      "description": "Set this parameter to true to include category parent uri in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationGeoLocation": {
+      "description": "Set to true to include the geo location (latitude, longitude) for items that are locations",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationPopulation": {
+      "description": "Set to true to include the population size of the location",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationGeoNamesId": {
+      "description": "Set to true to include the GeoNames id of the location",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationCountryArea": {
+      "description": "Set to true to include the are of the location in squared km.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationCountryContinent": {
+      "description": "Set to true to get the continent of the country for location objects.",
+      "type": "boolean",
+      "default": "false"
+    }
+  },
+  "required": [
+    "apiKey"
+  ]
+}
