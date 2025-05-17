@@ -1,0 +1,30 @@
+{
+  "description": "Query object with one or more search conditions. The `query` object should match the [Advanced Query Language](https://github.com/EventRegistry/event-registry-python/wiki/Searching-for-articles#advanced-query-language) format. If you specify the `query` parameter, then the query parameters specified directly (`keyword`, `conceptUri`, `sourceUri`, `categoryUri`, etc) will be ignored.",
+  "type": "object",
+  "properties": {
+    "conceptUri": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceUri": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceLocationUri": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "locationUri": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

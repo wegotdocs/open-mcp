@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "text": {
+      "description": "The text that will be used to calculate sentiment.",
+      "type": "string"
+    },
+    "sentences": {
+      "description": "Number of sentences on which to compute the sentiment.",
+      "type": "integer",
+      "default": 10
+    }
+  },
+  "required": [
+    "apiKey",
+    "text"
+  ]
+}

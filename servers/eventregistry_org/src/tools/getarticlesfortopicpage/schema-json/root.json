@@ -1,0 +1,239 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "uri": {
+      "description": "URI of the topic page for which you wish to retrieve matching articles. Obtain the URI from the URL on the [monitoring page](https://eventregistry.org/monitoring) when the topic page is opened.",
+      "type": "string"
+    },
+    "resultType": {
+      "description": "Define what kind of results of the search you would like to get.",
+      "default": "articles",
+      "type": "string",
+      "enum": [
+        "articles",
+        "uriWgtList",
+        "langAggr",
+        "timeAggr",
+        "sourceAggr",
+        "sourceExAggr",
+        "authorAggr",
+        "keywordAggr",
+        "locAggr",
+        "conceptAggr",
+        "conceptGraph",
+        "categoryAggr",
+        "dateMentionAggr",
+        "sentimentAggr"
+      ]
+    },
+    "maxDaysBack": {
+      "description": "The returned articles should not be older than this number of days. If the value is not specified, then the value set in the topic definition will be used.",
+      "type": "integer"
+    },
+    "onlyAfterTm": {
+      "description": "Only include in the results articles that were found after the specified date-time. The parameter should be in the format `YYYY-MM-DDTHH:MM:SS`, where the value should be in the UTC timezone. The value is very handy if you want to repeatedly call the API endpoint and make sure that you don't receive the same articles multiple times.",
+      "type": "string"
+    },
+    "articlesPage": {
+      "description": "Determines the page of the results to return (starting from 1). Relevant when `resultType = articles`.",
+      "type": "integer",
+      "default": 1,
+      "example": null
+    },
+    "articlesCount": {
+      "description": "Define how many articles (up to 100) will be returned. Relevant when `resultType = articles`.",
+      "default": 100,
+      "type": "integer"
+    },
+    "articlesSortBy": {
+      "description": "Choose the criteria for sorting the news articles. `rel` (relevance to the query), `date` (publishing date), `sourceImportance` (manually curated score of source importance - high value, high importance), `sourceImportanceRank` (reverse of sourceImportance), `sourceAlexaGlobalRank` (global rank of the news source), `sourceAlexaCountryRank` (country rank of the news source), `socialScore` (total shares on social media), `facebookShares` (shares on Facebook only). Relevant when `resultType = articles`.",
+      "default": "rel",
+      "type": "string",
+      "enum": [
+        "date",
+        "rel",
+        "sourceImportance",
+        "sourceAlexaGlobalRank",
+        "sourceAlexaCountryRank",
+        "socialScore",
+        "facebookShares"
+      ]
+    },
+    "articlesSortByAsc": {
+      "description": "Should the results be ordered in ascending order or descending order (default). Relevant when `resultType = articles`.",
+      "default": "false",
+      "type": "boolean"
+    },
+    "dataType": {
+      "description": "What data types should we search? news content (default, `news`), press releases (`pr`) or blogs (`blog`).",
+      "type": "array",
+      "default": "news",
+      "items": {
+        "type": "string"
+      },
+      "enum": [
+        "news",
+        "pr",
+        "blog"
+      ]
+    },
+    "articleBodyLen": {
+      "description": "Set the size of the article body that'll be returned in the response. Use -1 for full article body.",
+      "type": "integer",
+      "default": -1
+    },
+    "includeArticleTitle": {
+      "description": "Set this parameter to true to include the article title in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleBasicInfo": {
+      "description": "Set this parameter to true to include the core article information in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleBody": {
+      "description": "Set this parameter to true to include the article body in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleEventUri": {
+      "description": "Set this parameter to true to include the uri of the event (to which the article belongs) in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleSocialScore": {
+      "description": "Set this parameter to true to include the information about how many times the article was shared on different social media.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleSentiment": {
+      "description": "Set this parameter to true to include the article sentiment in the response (value will be non-null only for English articles).",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleConcepts": {
+      "description": "Set this parameter to true to include the article concepts in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleCategories": {
+      "description": "Set this parameter to true to include the article categories in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleLocation": {
+      "description": "Set this parameter to true to include the article location in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleImage": {
+      "description": "Set this parameter to true to include the article image in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeArticleVideos": {
+      "description": "Set this parameter to true to include the article videos in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleLinks": {
+      "description": "Set this parameter to true to include the article links in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleExtractedDates": {
+      "description": "Set this parameter to true to include article extracted dates in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleDuplicateList": {
+      "description": "Set this parameter to true to include the list of duplicate articles in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeArticleOriginalArticle": {
+      "description": "Set this parameter to true to include the original article in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeSourceTitle": {
+      "description": "Set this parameter to true to include the source title in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeSourceDescription": {
+      "description": "Set this parameter to true to include the source description in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeSourceLocation": {
+      "description": "Set this parameter to true to include the source location in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeSourceRanking": {
+      "description": "Set this parameter to true to include the source ranking in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeConceptLabel": {
+      "description": "Set this parameter to true to include the concept label in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeConceptImage": {
+      "description": "Set this parameter to true to include the concept image in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeConceptSynonyms": {
+      "description": "Set this parameter to true to include the concept synonyms in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeConceptTrendingScore": {
+      "description": "Set this parameter to true to include concept trending score in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "conceptLang": {
+      "description": "Define the language of the concept label.",
+      "type": "string",
+      "default": "eng"
+    },
+    "includeCategoryParentUri": {
+      "description": "Set this parameter to true to include category parent uri in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationPopulation": {
+      "description": "Set to true to include the population size of the location",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationGeoNamesId": {
+      "description": "Set to true to include the GeoNames id of the location",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationCountryArea": {
+      "description": "Set to true to include the are of the location in squared km.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationCountryContinent": {
+      "description": "Set to true to get the continent of the country for location objects.",
+      "type": "boolean",
+      "default": "false"
+    }
+  },
+  "required": [
+    "apiKey",
+    "uri"
+  ]
+}

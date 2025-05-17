@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "action": {
+      "description": "string containing the content to search for. It can be a Twitter user account (using \"@\" prefix or user's Twitter url), a hash tag (using \"#\" prefix) or a regular keyword.",
+      "type": "string",
+      "enum": [
+        "createTopic",
+        "addDocument",
+        "finishTraining",
+        "getTrainedTopic"
+      ]
+    },
+    "name": {
+      "description": "name of the topic to create. Relevant for action `createTopic`.",
+      "type": "string"
+    },
+    "uri": {
+      "description": "uri of the topic to update or retrieve information about. Relevant for actions: `addDocument`, `finishTraining`, `getTrainedTopic`.",
+      "type": "string"
+    },
+    "text": {
+      "description": "the content of the document to use for updating the topic definition. The document will be annotated and categorized and the concepts and categories will be used to update the topic.",
+      "type": "string"
+    },
+    "maxConcepts": {
+      "description": "The maximum number of concepts to use in the final topic. Relevant for action `finishTraining`.",
+      "type": "integer",
+      "default": 20
+    },
+    "maxCategories": {
+      "description": "The maximum number of categories to use in the final topic. Relevant for action `finishTraining`.",
+      "type": "integer",
+      "default": 10
+    },
+    "idfNormalization": {
+      "description": "Should the concepts be normalized to punish the concepts that are more commonly mentioned in general news?",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "apiKey",
+    "action"
+  ]
+}

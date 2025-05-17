@@ -1,0 +1,178 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "breakingEventsCount": {
+      "description": "Number of breaking events to return (at most 100)",
+      "default": 100,
+      "type": "integer"
+    },
+    "breakingEventsPage": {
+      "description": "Page of the results to return",
+      "type": "integer",
+      "default": 1
+    },
+    "breakingEventsMinBreakingScore": {
+      "description": "Score of how much should event at least be \"breaking\" in order to return it. Minimum value is 0.",
+      "type": "number",
+      "format": "double",
+      "default": 0.2
+    },
+    "includeEventTitle": {
+      "description": "Set this parameter to true to include the event title in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeEventSummary": {
+      "description": "Set this parameter to true to include the event summary in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeEventSocialScore": {
+      "description": "Set this parameter to true to include the event social score in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeEventSentiment": {
+      "description": "Set this parameter to true to include the event sentiment in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeEventLocation": {
+      "description": "Set this parameter to true to include the event location in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeEventDate": {
+      "description": "Set this parameter to true to include the event date in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeEventArticleCounts": {
+      "description": "Set this parameter to true to include the article counts for events in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeEventConcepts": {
+      "description": "Set this parameter to true to include the event concepts in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeEventCategories": {
+      "description": "Set this parameter to true to include the event categories in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeEventCommonDates": {
+      "description": "Set this parameter to true to include the event commmon dates in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeEventStories": {
+      "description": "Set this parameter to true to include the event stories in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "eventImageCount": {
+      "description": "Define how many images you would like to have in the response.",
+      "type": "integer",
+      "default": "0"
+    },
+    "includeConceptLabel": {
+      "description": "Set this parameter to true to include the concept label in the response.",
+      "type": "boolean",
+      "default": "true"
+    },
+    "includeConceptImage": {
+      "description": "Set this parameter to true to include the concept image in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeConceptSynonyms": {
+      "description": "Set this parameter to true to include the concept synonyms in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "conceptLang": {
+      "description": "Define the language of the concept label.",
+      "type": "string",
+      "default": "eng"
+    },
+    "includeStoryBasicStats": {
+      "description": "Set this parameter to true to include story basic stats in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeStoryTitle": {
+      "description": "Set this parameter to true to include the story title in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeStoryLocation": {
+      "description": "Set this parameter to true to include the story location in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeStoryDate": {
+      "description": "Set this parameter to true to include the story date in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeStoryConcepts": {
+      "description": "Set this parameter to true to include the story concepts in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeStoryCategories": {
+      "description": "Set this parameter to true to include the story categories in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeStoryMedoidArticle": {
+      "description": "Set this parameter to true to include story medoid article in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeStoryCommonDates": {
+      "description": "Set this parameter to true to include story common dates in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "storyImageCount": {
+      "description": "Define how many images you would like to have in the response.",
+      "type": "integer",
+      "default": "false"
+    },
+    "includeCategoryParentUri": {
+      "description": "Set this parameter to true to include category parent uri in the response.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationPopulation": {
+      "description": "Set to true to include the population size of the location",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationGeoNamesId": {
+      "description": "Set to true to include the GeoNames id of the location",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationCountryArea": {
+      "description": "Set to true to include the are of the location in squared km.",
+      "type": "boolean",
+      "default": "false"
+    },
+    "includeLocationCountryContinent": {
+      "description": "Set to true to get the continent of the country for location objects.",
+      "type": "boolean",
+      "default": "false"
+    }
+  },
+  "required": [
+    "apiKey"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "description": "Your API key",
+      "type": "string"
+    },
+    "text": {
+      "description": "Define a text that you'll like to see categorized.",
+      "type": "string"
+    },
+    "taxonomy": {
+      "description": "Define the taxonomy in which you'll want to categorize the selected text",
+      "type": "string",
+      "enum": [
+        "dmoz",
+        "news"
+      ]
+    }
+  },
+  "required": [
+    "apiKey",
+    "text",
+    "taxonomy"
+  ]
+}
