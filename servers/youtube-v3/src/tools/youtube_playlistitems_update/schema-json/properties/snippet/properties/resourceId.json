@@ -1,0 +1,22 @@
+{
+  "description": "The id object contains information that can be used to uniquely identify the resource that is included in the playlist as the playlist item.",
+  "properties": {
+    "channelId": {
+      "description": "The ID that YouTube uses to uniquely identify the referred resource, if that resource is a channel. This property is only present if the resourceId.kind value is youtube#channel.",
+      "type": "string"
+    },
+    "kind": {
+      "description": "The type of the API resource.",
+      "type": "string"
+    },
+    "playlistId": {
+      "description": "The ID that YouTube uses to uniquely identify the referred resource, if that resource is a playlist. This property is only present if the resourceId.kind value is youtube#playlist.",
+      "type": "string"
+    },
+    "videoId": {
+      "description": "The ID that YouTube uses to uniquely identify the referred resource, if that resource is a video. This property is only present if the resourceId.kind value is youtube#video.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

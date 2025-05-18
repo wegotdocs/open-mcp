@@ -1,0 +1,21 @@
+{
+  "description": "The status object contains information about live stream's status.",
+  "properties": {
+    "healthStatus": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `healthStatus` to the tool, first call the tool `expandSchema` with \"/properties/status/properties/healthStatus\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The health status of the stream.</property-description>",
+      "additionalProperties": true
+    },
+    "streamStatus": {
+      "enum": [
+        "created",
+        "ready",
+        "active",
+        "inactive",
+        "error"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

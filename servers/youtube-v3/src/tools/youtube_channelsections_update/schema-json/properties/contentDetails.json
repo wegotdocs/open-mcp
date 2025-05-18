@@ -1,0 +1,20 @@
+{
+  "description": "The contentDetails object contains details about the channel section content, such as a list of playlists or channels featured in the section.",
+  "properties": {
+    "channels": {
+      "description": "The channel ids for type multiple_channels.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "playlists": {
+      "description": "The playlist ids for type single_playlist and multiple_playlists. For singlePlaylist, only one playlistId is allowed.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

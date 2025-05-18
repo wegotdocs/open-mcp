@@ -1,0 +1,81 @@
+{
+  "description": "The status object contains information about the video's uploading, processing, and privacy statuses.",
+  "properties": {
+    "embeddable": {
+      "description": "This value indicates if the video can be embedded on another website. @mutable youtube.videos.insert youtube.videos.update",
+      "type": "boolean"
+    },
+    "failureReason": {
+      "description": "This value explains why a video failed to upload. This property is only present if the uploadStatus property indicates that the upload failed.",
+      "enum": [
+        "conversion",
+        "invalidFile",
+        "emptyFile",
+        "tooSmall",
+        "codec",
+        "uploadAborted"
+      ],
+      "type": "string"
+    },
+    "license": {
+      "description": "The video's license. @mutable youtube.videos.insert youtube.videos.update",
+      "enum": [
+        "youtube",
+        "creativeCommon"
+      ],
+      "type": "string"
+    },
+    "madeForKids": {
+      "type": "boolean"
+    },
+    "privacyStatus": {
+      "description": "The video's privacy status.",
+      "enum": [
+        "public",
+        "unlisted",
+        "private"
+      ],
+      "type": "string"
+    },
+    "publicStatsViewable": {
+      "description": "This value indicates if the extended video statistics on the watch page can be viewed by everyone. Note that the view count, likes, etc will still be visible if this is disabled. @mutable youtube.videos.insert youtube.videos.update",
+      "type": "boolean"
+    },
+    "publishAt": {
+      "description": "The date and time when the video is scheduled to publish. It can be set only if the privacy status of the video is private..",
+      "format": "date-time",
+      "type": "string"
+    },
+    "rejectionReason": {
+      "description": "This value explains why YouTube rejected an uploaded video. This property is only present if the uploadStatus property indicates that the upload was rejected.",
+      "enum": [
+        "copyright",
+        "inappropriate",
+        "duplicate",
+        "termsOfUse",
+        "uploaderAccountSuspended",
+        "length",
+        "claim",
+        "uploaderAccountClosed",
+        "trademark",
+        "legal"
+      ],
+      "type": "string"
+    },
+    "selfDeclaredMadeForKids": {
+      "type": "boolean"
+    },
+    "uploadStatus": {
+      "description": "The status of the uploaded video.",
+      "enum": [
+        "uploaded",
+        "processed",
+        "failed",
+        "rejected",
+        "deleted"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,32 @@
+{
+  "description": "The snippet object contains basic details about the comment thread and also the top level comment.",
+  "properties": {
+    "canReply": {
+      "description": "Whether the current viewer of the thread can reply to it. This is viewer specific - other viewers may see a different value for this field.",
+      "type": "boolean"
+    },
+    "channelId": {
+      "description": "The YouTube channel the comments in the thread refer to or the channel with the video the comments refer to. If video_id isn't set the comments refer to the channel itself.",
+      "type": "string"
+    },
+    "isPublic": {
+      "description": "Whether the thread (and therefore all its comments) is visible to all YouTube users.",
+      "type": "boolean"
+    },
+    "topLevelComment": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `topLevelComment` to the tool, first call the tool `expandSchema` with \"/properties/snippet/properties/topLevelComment\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The top level comment of this thread.</property-description>",
+      "additionalProperties": true
+    },
+    "totalReplyCount": {
+      "description": "The total number of replies (not including the top level comment).",
+      "format": "uint32",
+      "type": "integer"
+    },
+    "videoId": {
+      "description": "The ID of the video the comments refer to, if any. No video_id implies a channel discussion comment.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

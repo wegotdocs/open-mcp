@@ -1,0 +1,19 @@
+{
+  "description": "The contentDetails object is included in the resource if the included item is a YouTube video. The object contains additional information about the video.",
+  "properties": {
+    "note": {
+      "description": "A user-generated note for this item.",
+      "type": "string"
+    },
+    "videoId": {
+      "description": "The ID that YouTube uses to uniquely identify a video. To retrieve the video resource, set the id query parameter to this value in your API request.",
+      "type": "string"
+    },
+    "videoPublishedAt": {
+      "description": "The date and time that the video was published to YouTube.",
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,61 @@
+{
+  "description": "The snippet object contains basic details about the channel section, such as its type, style and title.",
+  "properties": {
+    "channelId": {
+      "description": "The ID that YouTube uses to uniquely identify the channel that published the channel section.",
+      "type": "string"
+    },
+    "position": {
+      "description": "The position of the channel section in the channel.",
+      "format": "uint32",
+      "type": "integer"
+    },
+    "title": {
+      "description": "The channel section's title for multiple_playlists and multiple_channels.",
+      "type": "string"
+    },
+    "type": {
+      "description": "The type of the channel section.",
+      "enum": [
+        "channelsectionTypeUndefined",
+        "singlePlaylist",
+        "multiplePlaylists",
+        "popularUploads",
+        "recentUploads",
+        "likes",
+        "allPlaylists",
+        "likedPlaylists",
+        "recentPosts",
+        "recentActivity",
+        "liveEvents",
+        "upcomingEvents",
+        "completedEvents",
+        "multipleChannels",
+        "postedVideos",
+        "postedPlaylists",
+        "subscriptions"
+      ],
+      "type": "string",
+      "x-enumDeprecated": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false
+      ]
+    }
+  },
+  "type": "object"
+}

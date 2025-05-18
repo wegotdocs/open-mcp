@@ -1,0 +1,29 @@
+{
+  "description": "The `snippet` object contains basic details about the ban.",
+  "properties": {
+    "banDurationSeconds": {
+      "description": "The duration of a ban, only filled if the ban has type TEMPORARY.",
+      "format": "uint64",
+      "type": "string"
+    },
+    "bannedUserDetails": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `bannedUserDetails` to the tool, first call the tool `expandSchema` with \"/properties/snippet/properties/bannedUserDetails\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "liveChatId": {
+      "description": "The chat this ban is pertinent to.",
+      "type": "string"
+    },
+    "type": {
+      "description": "The type of ban.",
+      "enum": [
+        "liveChatBanTypeUnspecified",
+        "permanent",
+        "temporary"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

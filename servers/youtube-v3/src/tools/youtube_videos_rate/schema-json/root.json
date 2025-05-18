@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "rating": {
+      "enum": [
+        "none",
+        "like",
+        "dislike"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "rating"
+  ]
+}

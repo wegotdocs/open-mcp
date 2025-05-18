@@ -1,0 +1,17 @@
+{
+  "description": "The countryRestriction object contains information about the countries where a video is (or is not) viewable.",
+  "properties": {
+    "allowed": {
+      "description": "The value of allowed indicates whether the access to the policy is allowed or denied by default.",
+      "type": "boolean"
+    },
+    "exception": {
+      "description": "A list of region codes that identify countries where the default policy do not apply.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

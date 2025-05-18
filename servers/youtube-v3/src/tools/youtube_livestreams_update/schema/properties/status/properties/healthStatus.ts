@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "configurationIssues": z.array(z.object({ "description": z.string().describe("The long-form description of the issue and how to resolve it.").optional(), "reason": z.string().describe("The short-form reason for this issue.").optional(), "severity": z.enum(["info","warning","error"]).describe("How severe this issue is to the stream.").optional(), "type": z.enum(["gopSizeOver","gopSizeLong","gopSizeShort","openGop","badContainer","audioBitrateHigh","audioBitrateLow","audioSampleRate","bitrateHigh","bitrateLow","audioCodec","videoCodec","noAudioStream","noVideoStream","multipleVideoStreams","multipleAudioStreams","audioTooManyChannels","interlacedVideo","frameRateHigh","resolutionMismatch","videoCodecMismatch","videoInterlaceMismatch","videoProfileMismatch","videoBitrateMismatch","framerateMismatch","gopMismatch","audioSampleRateMismatch","audioStereoMismatch","audioCodecMismatch","audioBitrateMismatch","videoResolutionSuboptimal","videoResolutionUnsupported","videoIngestionStarved","videoIngestionFasterThanRealtime"]).describe("The kind of error happening.").optional() })).describe("The configurations issues on this stream").optional(),
+  "lastUpdateTimeSeconds": z.string().describe("The last time this status was updated (in seconds)").optional(),
+  "status": z.enum(["good","ok","bad","noData","revoked"]).describe("The status code of this stream").optional()
+}

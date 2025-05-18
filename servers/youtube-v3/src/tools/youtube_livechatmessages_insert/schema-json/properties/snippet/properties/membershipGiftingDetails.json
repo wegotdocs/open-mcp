@@ -1,0 +1,15 @@
+{
+  "description": "Details about the Membership Gifting event, this is only set if the type is 'membershipGiftingEvent'.",
+  "properties": {
+    "giftMembershipsCount": {
+      "description": "The number of gift memberships purchased by the user.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "giftMembershipsLevelName": {
+      "description": "The name of the level of the gift memberships purchased by the user. The Level names are defined by the YouTube channel offering the Membership. In some situations this field isn't filled.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

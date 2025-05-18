@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter specifies the thirdPartyLink resource parts that the API response will include. Supported values are linkingToken, status, and snippet.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "externalChannelId": {
+      "description": "Channel ID to which changes should be applied, for delegation.",
+      "type": "string"
+    },
+    "linkingToken": {
+      "description": "Get a third party link with the given linking token.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Get a third party link of the given type.",
+      "enum": [
+        "linkUnspecified",
+        "channelToStoreLink"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

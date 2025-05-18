@@ -1,0 +1,16 @@
+{
+  "description": "Information specific to billing (read-only).",
+  "properties": {
+    "billingStatus": {
+      "description": "The current billing profile status.",
+      "enum": [
+        "billingStatusUnspecified",
+        "billingStatusPending",
+        "billingStatusActive",
+        "billingStatusInactive"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

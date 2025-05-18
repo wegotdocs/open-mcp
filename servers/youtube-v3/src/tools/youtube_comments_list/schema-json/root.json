@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter specifies a comma-separated list of one or more comment resource properties that the API response will include.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "id": {
+      "description": "Returns the comments with the given IDs for One Platform.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "maxResults": {
+      "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.",
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "pageToken": {
+      "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.",
+      "type": "string"
+    },
+    "parentId": {
+      "description": "Returns replies to the specified comment. Note, currently YouTube features only one level of replies (ie replies to top level comments). However replies to replies may be supported in the future.",
+      "type": "string"
+    },
+    "textFormat": {
+      "description": "The requested text format for the returned comments.",
+      "enum": [
+        "textFormatUnspecified",
+        "html",
+        "plainText"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

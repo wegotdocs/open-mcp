@@ -1,0 +1,24 @@
+{
+  "description": "The top level comment of this thread.",
+  "properties": {
+    "etag": {
+      "description": "Etag of this resource.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID that YouTube uses to uniquely identify the comment.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "youtube#comment",
+      "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#comment\".",
+      "type": "string"
+    },
+    "snippet": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `snippet` to the tool, first call the tool `expandSchema` with \"/properties/snippet/properties/topLevelComment/properties/snippet\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The snippet object contains basic details about the comment.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

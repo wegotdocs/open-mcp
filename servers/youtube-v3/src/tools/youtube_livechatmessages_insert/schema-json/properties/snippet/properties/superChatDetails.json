@@ -1,0 +1,28 @@
+{
+  "description": "Details about the Super Chat event, this is only set if the type is 'superChatEvent'.",
+  "properties": {
+    "amountDisplayString": {
+      "description": "A rendered string that displays the fund amount and currency to the user.",
+      "type": "string"
+    },
+    "amountMicros": {
+      "description": "The amount purchased by the user, in micros (1,750,000 micros = 1.75).",
+      "format": "uint64",
+      "type": "string"
+    },
+    "currency": {
+      "description": "The currency in which the purchase was made.",
+      "type": "string"
+    },
+    "tier": {
+      "description": "The tier in which the amount belongs. Lower amounts belong to lower tiers. The lowest tier is 1.",
+      "format": "uint32",
+      "type": "integer"
+    },
+    "userComment": {
+      "description": "The comment added by the user to this Super Chat event.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

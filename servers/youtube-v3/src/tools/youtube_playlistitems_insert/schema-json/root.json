@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "onBehalfOfContentOwner": {
+      "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+      "type": "string"
+    },
+    "contentDetails": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `contentDetails` to the tool, first call the tool `expandSchema` with \"/properties/contentDetails\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The contentDetails object is included in the resource if the included item is a YouTube video. The object contains additional information about the video.</property-description>",
+      "additionalProperties": true
+    },
+    "etag": {
+      "description": "Etag of this resource.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID that YouTube uses to uniquely identify the playlist item.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "youtube#playlistItem",
+      "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#playlistItem\".",
+      "type": "string"
+    },
+    "snippet": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `snippet` to the tool, first call the tool `expandSchema` with \"/properties/snippet\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The snippet object contains basic details about the playlist item, such as its title and position in the playlist.</property-description>",
+      "additionalProperties": true
+    },
+    "status": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `status` to the tool, first call the tool `expandSchema` with \"/properties/status\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The status object contains information about the playlist item's privacy status.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "The snippet object contains basic details about the third- party account link.",
+  "properties": {
+    "channelToStoreLink": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `channelToStoreLink` to the tool, first call the tool `expandSchema` with \"/properties/snippet/properties/channelToStoreLink\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Information specific to a link between a channel and a store on a merchandising platform.</property-description>",
+      "additionalProperties": true
+    },
+    "type": {
+      "description": "Type of the link named after the entities that are being linked.",
+      "enum": [
+        "linkUnspecified",
+        "channelToStoreLink"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

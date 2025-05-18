@@ -1,0 +1,35 @@
+{
+  "description": "The status object encapsulates information about the privacy status of the channel.",
+  "properties": {
+    "isLinked": {
+      "description": "If true, then the user is linked to either a YouTube username or G+ account. Otherwise, the user doesn't have a public YouTube identity.",
+      "type": "boolean"
+    },
+    "longUploadsStatus": {
+      "description": "The long uploads status of this channel. See https://support.google.com/youtube/answer/71673 for more information.",
+      "enum": [
+        "longUploadsUnspecified",
+        "allowed",
+        "eligible",
+        "disallowed"
+      ],
+      "type": "string"
+    },
+    "madeForKids": {
+      "type": "boolean"
+    },
+    "privacyStatus": {
+      "description": "Privacy status of the channel.",
+      "enum": [
+        "public",
+        "unlisted",
+        "private"
+      ],
+      "type": "string"
+    },
+    "selfDeclaredMadeForKids": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

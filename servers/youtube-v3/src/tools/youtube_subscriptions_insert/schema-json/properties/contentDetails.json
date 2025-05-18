@@ -1,0 +1,25 @@
+{
+  "description": "The contentDetails object contains basic statistics about the subscription.",
+  "properties": {
+    "activityType": {
+      "description": "The type of activity this subscription is for (only uploads, everything).",
+      "enum": [
+        "subscriptionActivityTypeUnspecified",
+        "all",
+        "uploads"
+      ],
+      "type": "string"
+    },
+    "newItemCount": {
+      "description": "The number of new items in the subscription since its content was last read.",
+      "format": "uint32",
+      "type": "integer"
+    },
+    "totalItemCount": {
+      "description": "The approximate number of items that the subscription points to.",
+      "format": "uint32",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}
