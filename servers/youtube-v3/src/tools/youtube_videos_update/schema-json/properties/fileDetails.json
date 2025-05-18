@@ -1,0 +1,128 @@
+{
+  "description": "The fileDetails object encapsulates information about the video file that was uploaded to YouTube, including the file's resolution, duration, audio and video codecs, stream bitrates, and more. This data can only be retrieved by the video owner.",
+  "properties": {
+    "audioStreams": {
+      "description": "A list of audio streams contained in the uploaded video file. Each item in the list contains detailed metadata about an audio stream.",
+      "items": {
+        "description": "Information about an audio stream.",
+        "properties": {
+          "bitrateBps": {
+            "description": "The audio stream's bitrate, in bits per second.",
+            "format": "uint64",
+            "type": "string"
+          },
+          "channelCount": {
+            "description": "The number of audio channels that the stream contains.",
+            "format": "uint32",
+            "type": "integer"
+          },
+          "codec": {
+            "description": "The audio codec that the stream uses.",
+            "type": "string"
+          },
+          "vendor": {
+            "description": "A value that uniquely identifies a video vendor. Typically, the value is a four-letter vendor code.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "bitrateBps": {
+      "description": "The uploaded video file's combined (video and audio) bitrate in bits per second.",
+      "format": "uint64",
+      "type": "string"
+    },
+    "container": {
+      "description": "The uploaded video file's container format.",
+      "type": "string"
+    },
+    "creationTime": {
+      "description": "The date and time when the uploaded video file was created. The value is specified in ISO 8601 format. Currently, the following ISO 8601 formats are supported: - Date only: YYYY-MM-DD - Naive time: YYYY-MM-DDTHH:MM:SS - Time with timezone: YYYY-MM-DDTHH:MM:SS+HH:MM ",
+      "type": "string"
+    },
+    "durationMs": {
+      "description": "The length of the uploaded video in milliseconds.",
+      "format": "uint64",
+      "type": "string"
+    },
+    "fileName": {
+      "description": "The uploaded file's name. This field is present whether a video file or another type of file was uploaded.",
+      "type": "string"
+    },
+    "fileSize": {
+      "description": "The uploaded file's size in bytes. This field is present whether a video file or another type of file was uploaded.",
+      "format": "uint64",
+      "type": "string"
+    },
+    "fileType": {
+      "description": "The uploaded file's type as detected by YouTube's video processing engine. Currently, YouTube only processes video files, but this field is present whether a video file or another type of file was uploaded.",
+      "enum": [
+        "video",
+        "audio",
+        "image",
+        "archive",
+        "document",
+        "project",
+        "other"
+      ],
+      "type": "string"
+    },
+    "videoStreams": {
+      "description": "A list of video streams contained in the uploaded video file. Each item in the list contains detailed metadata about a video stream.",
+      "items": {
+        "description": "Information about a video stream.",
+        "properties": {
+          "aspectRatio": {
+            "description": "The video content's display aspect ratio, which specifies the aspect ratio in which the video should be displayed.",
+            "format": "double",
+            "type": "number"
+          },
+          "bitrateBps": {
+            "description": "The video stream's bitrate, in bits per second.",
+            "format": "uint64",
+            "type": "string"
+          },
+          "codec": {
+            "description": "The video codec that the stream uses.",
+            "type": "string"
+          },
+          "frameRateFps": {
+            "description": "The video stream's frame rate, in frames per second.",
+            "format": "double",
+            "type": "number"
+          },
+          "heightPixels": {
+            "description": "The encoded video content's height in pixels.",
+            "format": "uint32",
+            "type": "integer"
+          },
+          "rotation": {
+            "description": "The amount that YouTube needs to rotate the original source content to properly display the video.",
+            "enum": [
+              "none",
+              "clockwise",
+              "upsideDown",
+              "counterClockwise",
+              "other"
+            ],
+            "type": "string"
+          },
+          "vendor": {
+            "description": "A value that uniquely identifies a video vendor. Typically, the value is a four-letter vendor code.",
+            "type": "string"
+          },
+          "widthPixels": {
+            "description": "The encoded video content's width in pixels. You can calculate the video's encoding aspect ratio as width_pixels / height_pixels.",
+            "format": "uint32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

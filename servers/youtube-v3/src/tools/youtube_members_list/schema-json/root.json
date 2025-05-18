@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter specifies the member resource parts that the API response will include. Set the parameter value to snippet.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "filterByMemberChannelId": {
+      "description": "Comma separated list of channel IDs. Only data about members that are part of this list will be included in the response.",
+      "type": "string"
+    },
+    "hasAccessToLevel": {
+      "description": "Filter members in the results set to the ones that have access to a level.",
+      "type": "string"
+    },
+    "maxResults": {
+      "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.",
+      "maximum": 1000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "mode": {
+      "description": "Parameter that specifies which channel members to return.",
+      "enum": [
+        "listMembersModeUnknown",
+        "updates",
+        "all_current"
+      ],
+      "type": "string"
+    },
+    "pageToken": {
+      "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

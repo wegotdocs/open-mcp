@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter specifies a comma-separated list of one or more video resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a video resource, the snippet property contains the channelId, title, description, tags, and categoryId properties. As such, if you set *part=snippet*, the API response will contain all of those properties.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "chart": {
+      "description": "Return the videos that are in the specified chart.",
+      "enum": [
+        "chartUnspecified",
+        "mostPopular"
+      ],
+      "type": "string"
+    },
+    "hl": {
+      "description": "Stands for \"host language\". Specifies the localization language of the metadata to be filled into snippet.localized. The field is filled with the default metadata if there is no localization in the specified language. The parameter value must be a language code included in the list returned by the i18nLanguages.list method (e.g. en_US, es_MX).",
+      "type": "string"
+    },
+    "id": {
+      "description": "Return videos with the given ids.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "maxHeight": {
+      "maximum": 8192,
+      "minimum": 72,
+      "type": "integer"
+    },
+    "maxResults": {
+      "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. *Note:* This parameter is supported for use in conjunction with the myRating and chart parameters, but it is not supported for use in conjunction with the id parameter.",
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maxWidth": {
+      "description": "Return the player with maximum height specified in",
+      "maximum": 8192,
+      "minimum": 72,
+      "type": "integer"
+    },
+    "myRating": {
+      "description": "Return videos liked/disliked by the authenticated user. Does not support RateType.RATED_TYPE_NONE.",
+      "enum": [
+        "none",
+        "like",
+        "dislike"
+      ],
+      "type": "string"
+    },
+    "onBehalfOfContentOwner": {
+      "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+      "type": "string"
+    },
+    "pageToken": {
+      "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved. *Note:* This parameter is supported for use in conjunction with the myRating and chart parameters, but it is not supported for use in conjunction with the id parameter.",
+      "type": "string"
+    },
+    "regionCode": {
+      "description": "Use a chart that is specific to the specified region",
+      "type": "string"
+    },
+    "videoCategoryId": {
+      "description": "Use chart that is specific to the specified video category",
+      "type": "string"
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

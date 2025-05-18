@@ -1,0 +1,214 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "channelId": {
+      "description": "Filter on resources belonging to this channelId.",
+      "type": "string"
+    },
+    "channelType": {
+      "description": "Add a filter on the channel search.",
+      "enum": [
+        "channelTypeUnspecified",
+        "any",
+        "show"
+      ],
+      "type": "string"
+    },
+    "eventType": {
+      "description": "Filter on the livestream status of the videos.",
+      "enum": [
+        "none",
+        "upcoming",
+        "live",
+        "completed"
+      ],
+      "type": "string"
+    },
+    "forContentOwner": {
+      "description": "Search owned by a content owner.",
+      "type": "boolean"
+    },
+    "forDeveloper": {
+      "description": "Restrict the search to only retrieve videos uploaded using the project id of the authenticated user.",
+      "type": "boolean"
+    },
+    "forMine": {
+      "description": "Search for the private videos of the authenticated user.",
+      "type": "boolean"
+    },
+    "location": {
+      "description": "Filter on location of the video",
+      "type": "string"
+    },
+    "locationRadius": {
+      "description": "Filter on distance from the location (specified above).",
+      "type": "string"
+    },
+    "maxResults": {
+      "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.",
+      "maximum": 50,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "onBehalfOfContentOwner": {
+      "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+      "type": "string"
+    },
+    "order": {
+      "description": "Sort order of the results.",
+      "enum": [
+        "searchSortUnspecified",
+        "date",
+        "rating",
+        "viewCount",
+        "relevance",
+        "title",
+        "videoCount"
+      ],
+      "type": "string"
+    },
+    "pageToken": {
+      "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.",
+      "type": "string"
+    },
+    "publishedAfter": {
+      "description": "Filter on resources published after this date.",
+      "type": "string"
+    },
+    "publishedBefore": {
+      "description": "Filter on resources published before this date.",
+      "type": "string"
+    },
+    "q": {
+      "description": "Textual search terms to match.",
+      "type": "string"
+    },
+    "regionCode": {
+      "description": "Display the content as seen by viewers in this country.",
+      "type": "string"
+    },
+    "relevanceLanguage": {
+      "description": "Return results relevant to this language.",
+      "type": "string"
+    },
+    "safeSearch": {
+      "description": "Indicates whether the search results should include restricted content as well as standard content.",
+      "enum": [
+        "safeSearchSettingUnspecified",
+        "none",
+        "moderate",
+        "strict"
+      ],
+      "type": "string"
+    },
+    "topicId": {
+      "description": "Restrict results to a particular topic.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Restrict results to a particular set of resource types from One Platform.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "videoCaption": {
+      "description": "Filter on the presence of captions on the videos.",
+      "enum": [
+        "videoCaptionUnspecified",
+        "any",
+        "closedCaption",
+        "none"
+      ],
+      "type": "string"
+    },
+    "videoCategoryId": {
+      "description": "Filter on videos in a specific category.",
+      "type": "string"
+    },
+    "videoDefinition": {
+      "description": "Filter on the definition of the videos.",
+      "enum": [
+        "any",
+        "standard",
+        "high"
+      ],
+      "type": "string"
+    },
+    "videoDimension": {
+      "description": "Filter on 3d videos.",
+      "enum": [
+        "any",
+        "2d",
+        "3d"
+      ],
+      "type": "string"
+    },
+    "videoDuration": {
+      "description": "Filter on the duration of the videos.",
+      "enum": [
+        "videoDurationUnspecified",
+        "any",
+        "short",
+        "medium",
+        "long"
+      ],
+      "type": "string"
+    },
+    "videoEmbeddable": {
+      "description": "Filter on embeddable videos.",
+      "enum": [
+        "videoEmbeddableUnspecified",
+        "any",
+        "true"
+      ],
+      "type": "string"
+    },
+    "videoLicense": {
+      "description": "Filter on the license of the videos.",
+      "enum": [
+        "any",
+        "youtube",
+        "creativeCommon"
+      ],
+      "type": "string"
+    },
+    "videoPaidProductPlacement": {
+      "enum": [
+        "videoPaidProductPlacementUnspecified",
+        "any",
+        "true"
+      ],
+      "type": "string"
+    },
+    "videoSyndicated": {
+      "description": "Filter on syndicated videos.",
+      "enum": [
+        "videoSyndicatedUnspecified",
+        "any",
+        "true"
+      ],
+      "type": "string"
+    },
+    "videoType": {
+      "description": "Filter on videos of a specific type.",
+      "enum": [
+        "videoTypeUnspecified",
+        "any",
+        "movie",
+        "episode"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

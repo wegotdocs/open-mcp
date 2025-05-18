@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "liveChatId": {
+      "description": "The id of the live chat for which comments should be returned.",
+      "type": "string"
+    },
+    "part": {
+      "description": "The *part* parameter specifies the liveChatComment resource parts that the API response will include. Supported values are id and snippet.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "hl": {
+      "description": "Specifies the localization language in which the system messages should be returned.",
+      "type": "string"
+    },
+    "maxResults": {
+      "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.",
+      "maximum": 2000,
+      "minimum": 200,
+      "type": "integer"
+    },
+    "pageToken": {
+      "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identify other pages that could be retrieved.",
+      "type": "string"
+    },
+    "profileImageSize": {
+      "description": "Specifies the size of the profile image that should be returned for each user.",
+      "maximum": 720,
+      "minimum": 16,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "liveChatId",
+    "part"
+  ]
+}

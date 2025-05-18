@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "abuseTypes": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "description": {
+      "type": "string"
+    },
+    "relatedEntities": {
+      "items": {
+        "properties": {
+          "entity": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "typeId": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "subject": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `subject` to the tool, first call the tool `expandSchema` with \"/properties/subject\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter specifies a comma-separated list of one or more channel resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a channel resource, the contentDetails property contains other properties, such as the uploads properties. As such, if you set *part=contentDetails*, the API response will also contain all of those nested properties.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "categoryId": {
+      "description": "Return the channels within the specified guide category ID.",
+      "type": "string"
+    },
+    "forHandle": {
+      "description": "Return the channel associated with a YouTube handle.",
+      "type": "string"
+    },
+    "forUsername": {
+      "description": "Return the channel associated with a YouTube username.",
+      "type": "string"
+    },
+    "hl": {
+      "description": "Stands for \"host language\". Specifies the localization language of the metadata to be filled into snippet.localized. The field is filled with the default metadata if there is no localization in the specified language. The parameter value must be a language code included in the list returned by the i18nLanguages.list method (e.g. en_US, es_MX).",
+      "type": "string"
+    },
+    "id": {
+      "description": "Return the channels with the specified IDs.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "managedByMe": {
+      "description": "Return the channels managed by the authenticated user.",
+      "type": "boolean"
+    },
+    "maxResults": {
+      "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.",
+      "maximum": 50,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "mine": {
+      "description": "Return the ids of channels owned by the authenticated user.",
+      "type": "boolean"
+    },
+    "mySubscribers": {
+      "description": "Return the channels subscribed to the authenticated user",
+      "type": "boolean"
+    },
+    "onBehalfOfContentOwner": {
+      "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+      "type": "string"
+    },
+    "pageToken": {
+      "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

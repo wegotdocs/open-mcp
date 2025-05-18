@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. The part names that you can include in the parameter value are snippet and contentDetails.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "onBehalfOfContentOwner": {
+      "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+      "type": "string"
+    },
+    "contentDetails": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `contentDetails` to the tool, first call the tool `expandSchema` with \"/properties/contentDetails\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The contentDetails object contains details about the channel section content, such as a list of playlists or channels featured in the section.</property-description>",
+      "additionalProperties": true
+    },
+    "etag": {
+      "description": "Etag of this resource.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID that YouTube uses to uniquely identify the channel section.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "youtube#channelSection",
+      "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#channelSection\".",
+      "type": "string"
+    },
+    "snippet": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `snippet` to the tool, first call the tool `expandSchema` with \"/properties/snippet\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The snippet object contains basic details about the channel section, such as its type, style and title.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

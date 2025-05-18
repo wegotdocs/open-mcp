@@ -1,0 +1,45 @@
+{
+  "description": "The snippet object contains basic details about the playlist, such as its title and description.",
+  "properties": {
+    "channelId": {
+      "description": "The ID that YouTube uses to uniquely identify the channel that published the playlist.",
+      "type": "string"
+    },
+    "channelTitle": {
+      "description": "The channel title of the channel that the video belongs to.",
+      "type": "string"
+    },
+    "defaultLanguage": {
+      "description": "The language of the playlist's default title and description.",
+      "type": "string"
+    },
+    "description": {
+      "description": "The playlist's description.",
+      "type": "string"
+    },
+    "localized": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `localized` to the tool, first call the tool `expandSchema` with \"/properties/snippet/properties/localized\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Localized title and description, read-only.</property-description>",
+      "additionalProperties": true
+    },
+    "publishedAt": {
+      "description": "The date and time that the playlist was created.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "thumbnailVideoId": {
+      "description": "Note: if the playlist has a custom thumbnail, this field will not be populated. The video id selected by the user that will be used as the thumbnail of this playlist. This field defaults to the first publicly viewable video in the playlist, if: 1. The user has never selected a video to be the thumbnail of the playlist. 2. The user selects a video to be the thumbnail, and then removes that video from the playlist. 3. The user selects a non-owned video to be the thumbnail, but that video becomes private, or gets deleted.",
+      "type": "string"
+    },
+    "thumbnails": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `thumbnails` to the tool, first call the tool `expandSchema` with \"/properties/snippet/properties/thumbnails\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A map of thumbnail images associated with the playlist. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail.</property-description>",
+      "additionalProperties": true
+    },
+    "title": {
+      "description": "The playlist's title.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

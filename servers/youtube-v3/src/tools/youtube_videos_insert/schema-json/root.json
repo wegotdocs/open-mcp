@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Note that not all parts contain properties that can be set when inserting or updating a video. For example, the statistics object encapsulates statistics that YouTube calculates for a video and does not contain values that you can set or modify. If the parameter value specifies a part that does not contain mutable values, that part will still be included in the API response.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "autoLevels": {
+      "description": "Should auto-levels be applied to the upload.",
+      "type": "boolean"
+    },
+    "notifySubscribers": {
+      "description": "Notify the channel subscribers about the new video. As default, the notification is enabled.",
+      "type": "boolean"
+    },
+    "onBehalfOfContentOwner": {
+      "description": "*Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
+      "type": "string"
+    },
+    "onBehalfOfContentOwnerChannel": {
+      "description": "This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel.",
+      "type": "string"
+    },
+    "stabilize": {
+      "description": "Should stabilize be applied to the upload.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "etag": {
+      "description": "Etag of this resource.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID that YouTube assigns to uniquely identify the ban.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "youtube#liveChatBan",
+      "description": "Identifies what kind of resource this is. Value: the fixed string `\"youtube#liveChatBan\"`.",
+      "type": "string"
+    },
+    "snippet": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `snippet` to the tool, first call the tool `expandSchema` with \"/properties/snippet\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The `snippet` object contains basic details about the ban.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

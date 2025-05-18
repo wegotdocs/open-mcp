@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "etag": {
+      "description": "Etag of this resource.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID that YouTube uses to uniquely identify the comment thread.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "youtube#commentThread",
+      "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#commentThread\".",
+      "type": "string"
+    },
+    "replies": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `replies` to the tool, first call the tool `expandSchema` with \"/properties/replies\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The replies object contains a limited number of replies (if any) to the top level comment found in the snippet.</property-description>",
+      "additionalProperties": true
+    },
+    "snippet": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `snippet` to the tool, first call the tool `expandSchema` with \"/properties/snippet\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The snippet object contains basic details about the comment thread and also the top level comment.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

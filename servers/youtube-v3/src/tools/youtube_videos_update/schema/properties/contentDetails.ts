@@ -1,0 +1,13 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "caption": z.enum(["true","false"]).describe("The value of captions indicates whether the video has captions or not.").optional(),
+  "contentRating": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `contentRating` to the tool, first call the tool `expandSchema` with \"/properties/contentDetails/properties/contentRating\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Specifies the ratings that the video received under various rating schemes.</property-description>").optional(),
+  "countryRestriction": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `countryRestriction` to the tool, first call the tool `expandSchema` with \"/properties/contentDetails/properties/countryRestriction\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The countryRestriction object contains information about the countries where a video is (or is not) viewable.</property-description>").optional(),
+  "definition": z.enum(["sd","hd"]).describe("The value of definition indicates whether the video is available in high definition or only in standard definition.").optional(),
+  "dimension": z.string().describe("The value of dimension indicates whether the video is available in 3D or in 2D.").optional(),
+  "duration": z.string().describe("The length of the video. The tag value is an ISO 8601 duration in the format PT#M#S, in which the letters PT indicate that the value specifies a period of time, and the letters M and S refer to length in minutes and seconds, respectively. The # characters preceding the M and S letters are both integers that specify the number of minutes (or seconds) of the video. For example, a value of PT15M51S indicates that the video is 15 minutes and 51 seconds long.").optional(),
+  "hasCustomThumbnail": z.boolean().describe("Indicates whether the video uploader has provided a custom thumbnail image for the video. This property is only visible to the video uploader.").optional(),
+  "licensedContent": z.boolean().describe("The value of is_license_content indicates whether the video is licensed content.").optional(),
+  "projection": z.enum(["rectangular","360"]).describe("Specifies the projection format of the video.").optional()
+}

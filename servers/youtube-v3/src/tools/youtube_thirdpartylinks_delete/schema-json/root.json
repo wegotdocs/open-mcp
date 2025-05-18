@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "linkingToken": {
+      "description": "Delete the partner links with the given linking token.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Type of the link to be deleted.",
+      "enum": [
+        "linkUnspecified",
+        "channelToStoreLink"
+      ],
+      "type": "string"
+    },
+    "externalChannelId": {
+      "description": "Channel ID to which changes should be applied, for delegation.",
+      "type": "string"
+    },
+    "part": {
+      "description": "Do not use. Required for compatibility.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "linkingToken",
+    "type"
+  ]
+}

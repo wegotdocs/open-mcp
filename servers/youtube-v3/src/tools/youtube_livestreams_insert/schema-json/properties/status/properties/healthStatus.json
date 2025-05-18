@@ -1,0 +1,88 @@
+{
+  "description": "The health status of the stream.",
+  "properties": {
+    "configurationIssues": {
+      "description": "The configurations issues on this stream",
+      "items": {
+        "properties": {
+          "description": {
+            "description": "The long-form description of the issue and how to resolve it.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "The short-form reason for this issue.",
+            "type": "string"
+          },
+          "severity": {
+            "description": "How severe this issue is to the stream.",
+            "enum": [
+              "info",
+              "warning",
+              "error"
+            ],
+            "type": "string"
+          },
+          "type": {
+            "description": "The kind of error happening.",
+            "enum": [
+              "gopSizeOver",
+              "gopSizeLong",
+              "gopSizeShort",
+              "openGop",
+              "badContainer",
+              "audioBitrateHigh",
+              "audioBitrateLow",
+              "audioSampleRate",
+              "bitrateHigh",
+              "bitrateLow",
+              "audioCodec",
+              "videoCodec",
+              "noAudioStream",
+              "noVideoStream",
+              "multipleVideoStreams",
+              "multipleAudioStreams",
+              "audioTooManyChannels",
+              "interlacedVideo",
+              "frameRateHigh",
+              "resolutionMismatch",
+              "videoCodecMismatch",
+              "videoInterlaceMismatch",
+              "videoProfileMismatch",
+              "videoBitrateMismatch",
+              "framerateMismatch",
+              "gopMismatch",
+              "audioSampleRateMismatch",
+              "audioStereoMismatch",
+              "audioCodecMismatch",
+              "audioBitrateMismatch",
+              "videoResolutionSuboptimal",
+              "videoResolutionUnsupported",
+              "videoIngestionStarved",
+              "videoIngestionFasterThanRealtime"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "lastUpdateTimeSeconds": {
+      "description": "The last time this status was updated (in seconds)",
+      "format": "uint64",
+      "type": "string"
+    },
+    "status": {
+      "description": "The status code of this stream",
+      "enum": [
+        "good",
+        "ok",
+        "bad",
+        "noData",
+        "revoked"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

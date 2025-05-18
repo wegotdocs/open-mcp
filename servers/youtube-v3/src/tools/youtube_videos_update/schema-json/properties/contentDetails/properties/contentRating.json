@@ -1,0 +1,1020 @@
+{
+  "description": "Specifies the ratings that the video received under various rating schemes.",
+  "properties": {
+    "acbRating": {
+      "description": "The video's Australian Classification Board (ACB) or Australian Communications and Media Authority (ACMA) rating. ACMA ratings are used to classify children's television programming.",
+      "enum": [
+        "acbUnspecified",
+        "acbE",
+        "acbP",
+        "acbC",
+        "acbG",
+        "acbPg",
+        "acbM",
+        "acbMa15plus",
+        "acbR18plus",
+        "acbUnrated"
+      ],
+      "type": "string"
+    },
+    "agcomRating": {
+      "description": "The video's rating from Italy's Autorità per le Garanzie nelle Comunicazioni (AGCOM).",
+      "enum": [
+        "agcomUnspecified",
+        "agcomT",
+        "agcomVm14",
+        "agcomVm18",
+        "agcomUnrated"
+      ],
+      "type": "string"
+    },
+    "anatelRating": {
+      "description": "The video's Anatel (Asociación Nacional de Televisión) rating for Chilean television.",
+      "enum": [
+        "anatelUnspecified",
+        "anatelF",
+        "anatelI",
+        "anatelI7",
+        "anatelI10",
+        "anatelI12",
+        "anatelR",
+        "anatelA",
+        "anatelUnrated"
+      ],
+      "type": "string"
+    },
+    "bbfcRating": {
+      "description": "The video's British Board of Film Classification (BBFC) rating.",
+      "enum": [
+        "bbfcUnspecified",
+        "bbfcU",
+        "bbfcPg",
+        "bbfc12a",
+        "bbfc12",
+        "bbfc15",
+        "bbfc18",
+        "bbfcR18",
+        "bbfcUnrated"
+      ],
+      "type": "string"
+    },
+    "bfvcRating": {
+      "description": "The video's rating from Thailand's Board of Film and Video Censors.",
+      "enum": [
+        "bfvcUnspecified",
+        "bfvcG",
+        "bfvcE",
+        "bfvc13",
+        "bfvc15",
+        "bfvc18",
+        "bfvc20",
+        "bfvcB",
+        "bfvcUnrated"
+      ],
+      "type": "string"
+    },
+    "bmukkRating": {
+      "description": "The video's rating from the Austrian Board of Media Classification (Bundesministerium für Unterricht, Kunst und Kultur).",
+      "enum": [
+        "bmukkUnspecified",
+        "bmukkAa",
+        "bmukk6",
+        "bmukk8",
+        "bmukk10",
+        "bmukk12",
+        "bmukk14",
+        "bmukk16",
+        "bmukkUnrated"
+      ],
+      "type": "string"
+    },
+    "catvRating": {
+      "description": "Rating system for Canadian TV - Canadian TV Classification System The video's rating from the Canadian Radio-Television and Telecommunications Commission (CRTC) for Canadian English-language broadcasts. For more information, see the Canadian Broadcast Standards Council website.",
+      "enum": [
+        "catvUnspecified",
+        "catvC",
+        "catvC8",
+        "catvG",
+        "catvPg",
+        "catv14plus",
+        "catv18plus",
+        "catvUnrated",
+        "catvE"
+      ],
+      "type": "string"
+    },
+    "catvfrRating": {
+      "description": "The video's rating from the Canadian Radio-Television and Telecommunications Commission (CRTC) for Canadian French-language broadcasts. For more information, see the Canadian Broadcast Standards Council website.",
+      "enum": [
+        "catvfrUnspecified",
+        "catvfrG",
+        "catvfr8plus",
+        "catvfr13plus",
+        "catvfr16plus",
+        "catvfr18plus",
+        "catvfrUnrated",
+        "catvfrE"
+      ],
+      "type": "string"
+    },
+    "cbfcRating": {
+      "description": "The video's Central Board of Film Certification (CBFC - India) rating.",
+      "enum": [
+        "cbfcUnspecified",
+        "cbfcU",
+        "cbfcUA",
+        "cbfcUA7plus",
+        "cbfcUA13plus",
+        "cbfcUA16plus",
+        "cbfcA",
+        "cbfcS",
+        "cbfcUnrated"
+      ],
+      "type": "string"
+    },
+    "cccRating": {
+      "description": "The video's Consejo de Calificación Cinematográfica (Chile) rating.",
+      "enum": [
+        "cccUnspecified",
+        "cccTe",
+        "ccc6",
+        "ccc14",
+        "ccc18",
+        "ccc18v",
+        "ccc18s",
+        "cccUnrated"
+      ],
+      "type": "string"
+    },
+    "cceRating": {
+      "description": "The video's rating from Portugal's Comissão de Classificação de Espect´culos.",
+      "enum": [
+        "cceUnspecified",
+        "cceM4",
+        "cceM6",
+        "cceM12",
+        "cceM16",
+        "cceM18",
+        "cceUnrated",
+        "cceM14"
+      ],
+      "type": "string"
+    },
+    "chfilmRating": {
+      "description": "The video's rating in Switzerland.",
+      "enum": [
+        "chfilmUnspecified",
+        "chfilm0",
+        "chfilm6",
+        "chfilm12",
+        "chfilm16",
+        "chfilm18",
+        "chfilmUnrated"
+      ],
+      "type": "string"
+    },
+    "chvrsRating": {
+      "description": "The video's Canadian Home Video Rating System (CHVRS) rating.",
+      "enum": [
+        "chvrsUnspecified",
+        "chvrsG",
+        "chvrsPg",
+        "chvrs14a",
+        "chvrs18a",
+        "chvrsR",
+        "chvrsE",
+        "chvrsUnrated"
+      ],
+      "type": "string"
+    },
+    "cicfRating": {
+      "description": "The video's rating from the Commission de Contrôle des Films (Belgium).",
+      "enum": [
+        "cicfUnspecified",
+        "cicfE",
+        "cicfKtEa",
+        "cicfKntEna",
+        "cicfUnrated"
+      ],
+      "type": "string"
+    },
+    "cnaRating": {
+      "description": "The video's rating from Romania's CONSILIUL NATIONAL AL AUDIOVIZUALULUI (CNA).",
+      "enum": [
+        "cnaUnspecified",
+        "cnaAp",
+        "cna12",
+        "cna15",
+        "cna18",
+        "cna18plus",
+        "cnaUnrated"
+      ],
+      "type": "string"
+    },
+    "cncRating": {
+      "description": "Rating system in France - Commission de classification cinematographique",
+      "enum": [
+        "cncUnspecified",
+        "cncT",
+        "cnc10",
+        "cnc12",
+        "cnc16",
+        "cnc18",
+        "cncE",
+        "cncInterdiction",
+        "cncUnrated"
+      ],
+      "type": "string"
+    },
+    "csaRating": {
+      "description": "The video's rating from France's Conseil supérieur de l’audiovisuel, which rates broadcast content.",
+      "enum": [
+        "csaUnspecified",
+        "csaT",
+        "csa10",
+        "csa12",
+        "csa16",
+        "csa18",
+        "csaInterdiction",
+        "csaUnrated"
+      ],
+      "type": "string"
+    },
+    "cscfRating": {
+      "description": "The video's rating from Luxembourg's Commission de surveillance de la classification des films (CSCF).",
+      "enum": [
+        "cscfUnspecified",
+        "cscfAl",
+        "cscfA",
+        "cscf6",
+        "cscf9",
+        "cscf12",
+        "cscf16",
+        "cscf18",
+        "cscfUnrated"
+      ],
+      "type": "string"
+    },
+    "czfilmRating": {
+      "description": "The video's rating in the Czech Republic.",
+      "enum": [
+        "czfilmUnspecified",
+        "czfilmU",
+        "czfilm12",
+        "czfilm14",
+        "czfilm18",
+        "czfilmUnrated"
+      ],
+      "type": "string"
+    },
+    "djctqRating": {
+      "description": "The video's Departamento de Justiça, Classificação, Qualificação e Títulos (DJCQT - Brazil) rating.",
+      "enum": [
+        "djctqUnspecified",
+        "djctqL",
+        "djctq10",
+        "djctq12",
+        "djctq14",
+        "djctq16",
+        "djctq18",
+        "djctqEr",
+        "djctqL10",
+        "djctqL12",
+        "djctqL14",
+        "djctqL16",
+        "djctqL18",
+        "djctq1012",
+        "djctq1014",
+        "djctq1016",
+        "djctq1018",
+        "djctq1214",
+        "djctq1216",
+        "djctq1218",
+        "djctq1416",
+        "djctq1418",
+        "djctq1618",
+        "djctqUnrated"
+      ],
+      "type": "string"
+    },
+    "djctqRatingReasons": {
+      "description": "Reasons that explain why the video received its DJCQT (Brazil) rating.",
+      "items": {
+        "enum": [
+          "djctqRatingReasonUnspecified",
+          "djctqViolence",
+          "djctqExtremeViolence",
+          "djctqSexualContent",
+          "djctqNudity",
+          "djctqSex",
+          "djctqExplicitSex",
+          "djctqDrugs",
+          "djctqLegalDrugs",
+          "djctqIllegalDrugs",
+          "djctqInappropriateLanguage",
+          "djctqCriminalActs",
+          "djctqImpactingContent"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ecbmctRating": {
+      "description": "Rating system in Turkey - Evaluation and Classification Board of the Ministry of Culture and Tourism",
+      "enum": [
+        "ecbmctUnspecified",
+        "ecbmctG",
+        "ecbmct7a",
+        "ecbmct7plus",
+        "ecbmct13a",
+        "ecbmct13plus",
+        "ecbmct15a",
+        "ecbmct15plus",
+        "ecbmct18plus",
+        "ecbmctUnrated"
+      ],
+      "type": "string"
+    },
+    "eefilmRating": {
+      "description": "The video's rating in Estonia.",
+      "enum": [
+        "eefilmUnspecified",
+        "eefilmPere",
+        "eefilmL",
+        "eefilmMs6",
+        "eefilmK6",
+        "eefilmMs12",
+        "eefilmK12",
+        "eefilmK14",
+        "eefilmK16",
+        "eefilmUnrated"
+      ],
+      "type": "string"
+    },
+    "egfilmRating": {
+      "description": "The video's rating in Egypt.",
+      "enum": [
+        "egfilmUnspecified",
+        "egfilmGn",
+        "egfilm18",
+        "egfilmBn",
+        "egfilmUnrated"
+      ],
+      "type": "string"
+    },
+    "eirinRating": {
+      "description": "The video's Eirin (映倫) rating. Eirin is the Japanese rating system.",
+      "enum": [
+        "eirinUnspecified",
+        "eirinG",
+        "eirinPg12",
+        "eirinR15plus",
+        "eirinR18plus",
+        "eirinUnrated"
+      ],
+      "type": "string"
+    },
+    "fcbmRating": {
+      "description": "The video's rating from Malaysia's Film Censorship Board.",
+      "enum": [
+        "fcbmUnspecified",
+        "fcbmU",
+        "fcbmPg13",
+        "fcbmP13",
+        "fcbm18",
+        "fcbm18sx",
+        "fcbm18pa",
+        "fcbm18sg",
+        "fcbm18pl",
+        "fcbmUnrated"
+      ],
+      "type": "string"
+    },
+    "fcoRating": {
+      "description": "The video's rating from Hong Kong's Office for Film, Newspaper and Article Administration.",
+      "enum": [
+        "fcoUnspecified",
+        "fcoI",
+        "fcoIia",
+        "fcoIib",
+        "fcoIi",
+        "fcoIii",
+        "fcoUnrated"
+      ],
+      "type": "string"
+    },
+    "fpbRating": {
+      "description": "The video's rating from South Africa's Film and Publication Board.",
+      "enum": [
+        "fpbUnspecified",
+        "fpbA",
+        "fpbPg",
+        "fpb79Pg",
+        "fpb1012Pg",
+        "fpb13",
+        "fpb16",
+        "fpb18",
+        "fpbX18",
+        "fpbXx",
+        "fpbUnrated",
+        "fpb10"
+      ],
+      "type": "string"
+    },
+    "fpbRatingReasons": {
+      "description": "Reasons that explain why the video received its FPB (South Africa) rating.",
+      "items": {
+        "enum": [
+          "fpbRatingReasonUnspecified",
+          "fpbBlasphemy",
+          "fpbLanguage",
+          "fpbNudity",
+          "fpbPrejudice",
+          "fpbSex",
+          "fpbViolence",
+          "fpbDrugs",
+          "fpbSexualViolence",
+          "fpbHorror",
+          "fpbCriminalTechniques",
+          "fpbImitativeActsTechniques"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "fskRating": {
+      "description": "The video's Freiwillige Selbstkontrolle der Filmwirtschaft (FSK - Germany) rating.",
+      "enum": [
+        "fskUnspecified",
+        "fsk0",
+        "fsk6",
+        "fsk12",
+        "fsk16",
+        "fsk18",
+        "fskUnrated"
+      ],
+      "type": "string"
+    },
+    "grfilmRating": {
+      "description": "The video's rating in Greece.",
+      "enum": [
+        "grfilmUnspecified",
+        "grfilmK",
+        "grfilmE",
+        "grfilmK12",
+        "grfilmK13",
+        "grfilmK15",
+        "grfilmK17",
+        "grfilmK18",
+        "grfilmUnrated"
+      ],
+      "type": "string"
+    },
+    "icaaRating": {
+      "description": "The video's Instituto de la Cinematografía y de las Artes Audiovisuales (ICAA - Spain) rating.",
+      "enum": [
+        "icaaUnspecified",
+        "icaaApta",
+        "icaa7",
+        "icaa12",
+        "icaa13",
+        "icaa16",
+        "icaa18",
+        "icaaX",
+        "icaaUnrated"
+      ],
+      "type": "string"
+    },
+    "ifcoRating": {
+      "description": "The video's Irish Film Classification Office (IFCO - Ireland) rating. See the IFCO website for more information.",
+      "enum": [
+        "ifcoUnspecified",
+        "ifcoG",
+        "ifcoPg",
+        "ifco12",
+        "ifco12a",
+        "ifco15",
+        "ifco15a",
+        "ifco16",
+        "ifco18",
+        "ifcoUnrated"
+      ],
+      "type": "string"
+    },
+    "ilfilmRating": {
+      "description": "The video's rating in Israel.",
+      "enum": [
+        "ilfilmUnspecified",
+        "ilfilmAa",
+        "ilfilm12",
+        "ilfilm14",
+        "ilfilm16",
+        "ilfilm18",
+        "ilfilmUnrated"
+      ],
+      "type": "string"
+    },
+    "incaaRating": {
+      "description": "The video's INCAA (Instituto Nacional de Cine y Artes Audiovisuales - Argentina) rating.",
+      "enum": [
+        "incaaUnspecified",
+        "incaaAtp",
+        "incaaSam13",
+        "incaaSam16",
+        "incaaSam18",
+        "incaaC",
+        "incaaUnrated"
+      ],
+      "type": "string"
+    },
+    "kfcbRating": {
+      "description": "The video's rating from the Kenya Film Classification Board.",
+      "enum": [
+        "kfcbUnspecified",
+        "kfcbG",
+        "kfcbPg",
+        "kfcb16plus",
+        "kfcbR",
+        "kfcbUnrated"
+      ],
+      "type": "string"
+    },
+    "kijkwijzerRating": {
+      "description": "The video's NICAM/Kijkwijzer rating from the Nederlands Instituut voor de Classificatie van Audiovisuele Media (Netherlands).",
+      "enum": [
+        "kijkwijzerUnspecified",
+        "kijkwijzerAl",
+        "kijkwijzer6",
+        "kijkwijzer9",
+        "kijkwijzer12",
+        "kijkwijzer16",
+        "kijkwijzer18",
+        "kijkwijzerUnrated"
+      ],
+      "type": "string"
+    },
+    "kmrbRating": {
+      "description": "The video's Korea Media Rating Board (영상물등급위원회) rating. The KMRB rates videos in South Korea.",
+      "enum": [
+        "kmrbUnspecified",
+        "kmrbAll",
+        "kmrb12plus",
+        "kmrb15plus",
+        "kmrbTeenr",
+        "kmrbR",
+        "kmrbUnrated"
+      ],
+      "type": "string"
+    },
+    "lsfRating": {
+      "description": "The video's rating from Indonesia's Lembaga Sensor Film.",
+      "enum": [
+        "lsfUnspecified",
+        "lsfSu",
+        "lsfA",
+        "lsfBo",
+        "lsf13",
+        "lsfR",
+        "lsf17",
+        "lsfD",
+        "lsf21",
+        "lsfUnrated"
+      ],
+      "type": "string",
+      "x-enumDeprecated": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ]
+    },
+    "mccaaRating": {
+      "description": "The video's rating from Malta's Film Age-Classification Board.",
+      "enum": [
+        "mccaaUnspecified",
+        "mccaaU",
+        "mccaaPg",
+        "mccaa12a",
+        "mccaa12",
+        "mccaa14",
+        "mccaa15",
+        "mccaa16",
+        "mccaa18",
+        "mccaaUnrated"
+      ],
+      "type": "string"
+    },
+    "mccypRating": {
+      "description": "The video's rating from the Danish Film Institute's (Det Danske Filminstitut) Media Council for Children and Young People.",
+      "enum": [
+        "mccypUnspecified",
+        "mccypA",
+        "mccyp7",
+        "mccyp11",
+        "mccyp15",
+        "mccypUnrated"
+      ],
+      "type": "string"
+    },
+    "mcstRating": {
+      "description": "The video's rating system for Vietnam - MCST",
+      "enum": [
+        "mcstUnspecified",
+        "mcstP",
+        "mcst0",
+        "mcstC13",
+        "mcstC16",
+        "mcst16plus",
+        "mcstC18",
+        "mcstGPg",
+        "mcstUnrated"
+      ],
+      "type": "string"
+    },
+    "mdaRating": {
+      "description": "The video's rating from Singapore's Media Development Authority (MDA) and, specifically, it's Board of Film Censors (BFC).",
+      "enum": [
+        "mdaUnspecified",
+        "mdaG",
+        "mdaPg",
+        "mdaPg13",
+        "mdaNc16",
+        "mdaM18",
+        "mdaR21",
+        "mdaUnrated"
+      ],
+      "type": "string"
+    },
+    "medietilsynetRating": {
+      "description": "The video's rating from Medietilsynet, the Norwegian Media Authority.",
+      "enum": [
+        "medietilsynetUnspecified",
+        "medietilsynetA",
+        "medietilsynet6",
+        "medietilsynet7",
+        "medietilsynet9",
+        "medietilsynet11",
+        "medietilsynet12",
+        "medietilsynet15",
+        "medietilsynet18",
+        "medietilsynetUnrated"
+      ],
+      "type": "string"
+    },
+    "mekuRating": {
+      "description": "The video's rating from Finland's Kansallinen Audiovisuaalinen Instituutti (National Audiovisual Institute).",
+      "enum": [
+        "mekuUnspecified",
+        "mekuS",
+        "meku7",
+        "meku12",
+        "meku16",
+        "meku18",
+        "mekuUnrated"
+      ],
+      "type": "string"
+    },
+    "menaMpaaRating": {
+      "description": "The rating system for MENA countries, a clone of MPAA. It is needed to prevent titles go live w/o additional QC check, since some of them can be inappropriate for the countries at all. See b/33408548 for more details.",
+      "enum": [
+        "menaMpaaUnspecified",
+        "menaMpaaG",
+        "menaMpaaPg",
+        "menaMpaaPg13",
+        "menaMpaaR",
+        "menaMpaaUnrated"
+      ],
+      "type": "string"
+    },
+    "mibacRating": {
+      "description": "The video's rating from the Ministero dei Beni e delle Attività Culturali e del Turismo (Italy).",
+      "enum": [
+        "mibacUnspecified",
+        "mibacT",
+        "mibacVap",
+        "mibacVm6",
+        "mibacVm12",
+        "mibacVm14",
+        "mibacVm16",
+        "mibacVm18",
+        "mibacUnrated"
+      ],
+      "type": "string"
+    },
+    "mocRating": {
+      "description": "The video's Ministerio de Cultura (Colombia) rating.",
+      "enum": [
+        "mocUnspecified",
+        "mocE",
+        "mocT",
+        "moc7",
+        "moc12",
+        "moc15",
+        "moc18",
+        "mocX",
+        "mocBanned",
+        "mocUnrated"
+      ],
+      "type": "string"
+    },
+    "moctwRating": {
+      "description": "The video's rating from Taiwan's Ministry of Culture (文化部).",
+      "enum": [
+        "moctwUnspecified",
+        "moctwG",
+        "moctwP",
+        "moctwPg",
+        "moctwR",
+        "moctwUnrated",
+        "moctwR12",
+        "moctwR15"
+      ],
+      "type": "string"
+    },
+    "mpaaRating": {
+      "description": "The video's Motion Picture Association of America (MPAA) rating.",
+      "enum": [
+        "mpaaUnspecified",
+        "mpaaG",
+        "mpaaPg",
+        "mpaaPg13",
+        "mpaaR",
+        "mpaaNc17",
+        "mpaaX",
+        "mpaaUnrated"
+      ],
+      "type": "string"
+    },
+    "mpaatRating": {
+      "description": "The rating system for trailer, DVD, and Ad in the US. See http://movielabs.com/md/ratings/v2.3/html/US_MPAAT_Ratings.html.",
+      "enum": [
+        "mpaatUnspecified",
+        "mpaatGb",
+        "mpaatRb"
+      ],
+      "type": "string"
+    },
+    "mtrcbRating": {
+      "description": "The video's rating from the Movie and Television Review and Classification Board (Philippines).",
+      "enum": [
+        "mtrcbUnspecified",
+        "mtrcbG",
+        "mtrcbPg",
+        "mtrcbR13",
+        "mtrcbR16",
+        "mtrcbR18",
+        "mtrcbX",
+        "mtrcbUnrated"
+      ],
+      "type": "string"
+    },
+    "nbcRating": {
+      "description": "The video's rating from the Maldives National Bureau of Classification.",
+      "enum": [
+        "nbcUnspecified",
+        "nbcG",
+        "nbcPg",
+        "nbc12plus",
+        "nbc15plus",
+        "nbc18plus",
+        "nbc18plusr",
+        "nbcPu",
+        "nbcUnrated"
+      ],
+      "type": "string"
+    },
+    "nbcplRating": {
+      "description": "The video's rating in Poland.",
+      "enum": [
+        "nbcplUnspecified",
+        "nbcplI",
+        "nbcplIi",
+        "nbcplIii",
+        "nbcplIv",
+        "nbcpl18plus",
+        "nbcplUnrated"
+      ],
+      "type": "string"
+    },
+    "nfrcRating": {
+      "description": "The video's rating from the Bulgarian National Film Center.",
+      "enum": [
+        "nfrcUnspecified",
+        "nfrcA",
+        "nfrcB",
+        "nfrcC",
+        "nfrcD",
+        "nfrcX",
+        "nfrcUnrated"
+      ],
+      "type": "string"
+    },
+    "nfvcbRating": {
+      "description": "The video's rating from Nigeria's National Film and Video Censors Board.",
+      "enum": [
+        "nfvcbUnspecified",
+        "nfvcbG",
+        "nfvcbPg",
+        "nfvcb12",
+        "nfvcb12a",
+        "nfvcb15",
+        "nfvcb18",
+        "nfvcbRe",
+        "nfvcbUnrated"
+      ],
+      "type": "string"
+    },
+    "nkclvRating": {
+      "description": "The video's rating from the Nacionãlais Kino centrs (National Film Centre of Latvia).",
+      "enum": [
+        "nkclvUnspecified",
+        "nkclvU",
+        "nkclv7plus",
+        "nkclv12plus",
+        "nkclv16plus",
+        "nkclv18plus",
+        "nkclvUnrated"
+      ],
+      "type": "string"
+    },
+    "nmcRating": {
+      "description": "The National Media Council ratings system for United Arab Emirates.",
+      "enum": [
+        "nmcUnspecified",
+        "nmcG",
+        "nmcPg",
+        "nmcPg13",
+        "nmcPg15",
+        "nmc15plus",
+        "nmc18plus",
+        "nmc18tc",
+        "nmcUnrated"
+      ],
+      "type": "string"
+    },
+    "oflcRating": {
+      "description": "The video's Office of Film and Literature Classification (OFLC - New Zealand) rating.",
+      "enum": [
+        "oflcUnspecified",
+        "oflcG",
+        "oflcPg",
+        "oflcM",
+        "oflcR13",
+        "oflcR15",
+        "oflcR16",
+        "oflcR18",
+        "oflcUnrated",
+        "oflcRp13",
+        "oflcRp16",
+        "oflcRp18"
+      ],
+      "type": "string"
+    },
+    "pefilmRating": {
+      "description": "The video's rating in Peru.",
+      "enum": [
+        "pefilmUnspecified",
+        "pefilmPt",
+        "pefilmPg",
+        "pefilm14",
+        "pefilm18",
+        "pefilmUnrated"
+      ],
+      "type": "string"
+    },
+    "rcnofRating": {
+      "description": "The video's rating from the Hungarian Nemzeti Filmiroda, the Rating Committee of the National Office of Film.",
+      "enum": [
+        "rcnofUnspecified",
+        "rcnofI",
+        "rcnofIi",
+        "rcnofIii",
+        "rcnofIv",
+        "rcnofV",
+        "rcnofVi",
+        "rcnofUnrated"
+      ],
+      "type": "string"
+    },
+    "resorteviolenciaRating": {
+      "description": "The video's rating in Venezuela.",
+      "enum": [
+        "resorteviolenciaUnspecified",
+        "resorteviolenciaA",
+        "resorteviolenciaB",
+        "resorteviolenciaC",
+        "resorteviolenciaD",
+        "resorteviolenciaE",
+        "resorteviolenciaUnrated"
+      ],
+      "type": "string"
+    },
+    "rtcRating": {
+      "description": "The video's General Directorate of Radio, Television and Cinematography (Mexico) rating.",
+      "enum": [
+        "rtcUnspecified",
+        "rtcAa",
+        "rtcA",
+        "rtcB",
+        "rtcB15",
+        "rtcC",
+        "rtcD",
+        "rtcUnrated"
+      ],
+      "type": "string"
+    },
+    "rteRating": {
+      "description": "The video's rating from Ireland's Raidió Teilifís Éireann.",
+      "enum": [
+        "rteUnspecified",
+        "rteGa",
+        "rteCh",
+        "rtePs",
+        "rteMa",
+        "rteUnrated"
+      ],
+      "type": "string"
+    },
+    "russiaRating": {
+      "description": "The video's National Film Registry of the Russian Federation (MKRF - Russia) rating.",
+      "enum": [
+        "russiaUnspecified",
+        "russia0",
+        "russia6",
+        "russia12",
+        "russia16",
+        "russia18",
+        "russiaUnrated"
+      ],
+      "type": "string"
+    },
+    "skfilmRating": {
+      "description": "The video's rating in Slovakia.",
+      "enum": [
+        "skfilmUnspecified",
+        "skfilmG",
+        "skfilmP2",
+        "skfilmP5",
+        "skfilmP8",
+        "skfilmUnrated"
+      ],
+      "type": "string"
+    },
+    "smaisRating": {
+      "description": "The video's rating in Iceland.",
+      "enum": [
+        "smaisUnspecified",
+        "smaisL",
+        "smais7",
+        "smais12",
+        "smais14",
+        "smais16",
+        "smais18",
+        "smaisUnrated"
+      ],
+      "type": "string"
+    },
+    "smsaRating": {
+      "description": "The video's rating from Statens medieråd (Sweden's National Media Council).",
+      "enum": [
+        "smsaUnspecified",
+        "smsaA",
+        "smsa7",
+        "smsa11",
+        "smsa15",
+        "smsaUnrated"
+      ],
+      "type": "string"
+    },
+    "tvpgRating": {
+      "description": "The video's TV Parental Guidelines (TVPG) rating.",
+      "enum": [
+        "tvpgUnspecified",
+        "tvpgY",
+        "tvpgY7",
+        "tvpgY7Fv",
+        "tvpgG",
+        "tvpgPg",
+        "pg14",
+        "tvpgMa",
+        "tvpgUnrated"
+      ],
+      "type": "string"
+    },
+    "ytRating": {
+      "description": "A rating that YouTube uses to identify age-restricted content.",
+      "enum": [
+        "ytUnspecified",
+        "ytAgeRestricted"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

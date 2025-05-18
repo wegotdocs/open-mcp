@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "part": {
+      "description": "The *part* parameter specifies the videoCategory resource parts that the API response will include. Supported values are id and snippet.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "hl": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "part"
+  ]
+}

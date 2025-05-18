@@ -1,0 +1,13 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "channelId": z.string().describe("The ID that YouTube uses to uniquely identify the channel that published the playlist.").optional(),
+  "channelTitle": z.string().describe("The channel title of the channel that the video belongs to.").optional(),
+  "defaultLanguage": z.string().describe("The language of the playlist's default title and description.").optional(),
+  "description": z.string().describe("The playlist's description.").optional(),
+  "localized": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `localized` to the tool, first call the tool `expandSchema` with \"/properties/snippet/properties/localized\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Localized title and description, read-only.</property-description>").optional(),
+  "publishedAt": z.string().datetime({ offset: true }).describe("The date and time that the playlist was created.").optional(),
+  "thumbnailVideoId": z.string().describe("Note: if the playlist has a custom thumbnail, this field will not be populated. The video id selected by the user that will be used as the thumbnail of this playlist. This field defaults to the first publicly viewable video in the playlist, if: 1. The user has never selected a video to be the thumbnail of the playlist. 2. The user selects a video to be the thumbnail, and then removes that video from the playlist. 3. The user selects a non-owned video to be the thumbnail, but that video becomes private, or gets deleted.").optional(),
+  "thumbnails": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `thumbnails` to the tool, first call the tool `expandSchema` with \"/properties/snippet/properties/thumbnails\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>A map of thumbnail images associated with the playlist. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail.</property-description>").optional(),
+  "title": z.string().describe("The playlist's title.").optional()
+}

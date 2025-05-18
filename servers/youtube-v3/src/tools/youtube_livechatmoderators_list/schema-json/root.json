@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "liveChatId": {
+      "description": "The id of the live chat for which moderators should be returned.",
+      "type": "string"
+    },
+    "part": {
+      "description": "The *part* parameter specifies the liveChatModerator resource parts that the API response will include. Supported values are id and snippet.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "maxResults": {
+      "description": "The *maxResults* parameter specifies the maximum number of items that should be returned in the result set.",
+      "maximum": 50,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pageToken": {
+      "description": "The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "liveChatId",
+    "part"
+  ]
+}
