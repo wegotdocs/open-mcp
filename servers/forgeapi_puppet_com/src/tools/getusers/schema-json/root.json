@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "The numbers of items to return per page",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20
+    },
+    "offset": {
+      "description": "The number of items to skip before starting to collect the result set",
+      "type": "integer",
+      "minimum": 0,
+      "default": 0
+    },
+    "sort_by": {
+      "description": "Desired order in which to return results",
+      "type": "string",
+      "enum": [
+        "username",
+        "releases",
+        "downloads",
+        "latest_release"
+      ]
+    },
+    "with_html": {
+      "description": "Render markdown files (README, REFERENCE, etc.) to HTML before returning results",
+      "type": "boolean"
+    },
+    "include_fields": {
+      "description": "List of top level keys to include in response object, only applies to fields marked 'optional'",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclude_fields": {
+      "description": "List of top level keys to exclude from response object",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "If-Modified-Since": {
+      "description": "Only processes the request if the resource or list of resources has changed since the given time,\notherwise returns a `304 Not Modified` response\n",
+      "type": "string",
+      "format": "rfc2616 httpdate",
+      "example": "Mon, 19 Feb 2019 10:15:08 GMT"
+    }
+  },
+  "required": []
+}

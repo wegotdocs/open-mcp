@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "module_slug": {
+      "description": "Unique textual identifier (slug) of the Module resource to retrieve",
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9]+[-\\/][a-zA-Z][a-zA-Z0-9_]*$"
+    },
+    "reason": {
+      "description": "Reason for deletion",
+      "type": "string"
+    }
+  },
+  "required": [
+    "module_slug",
+    "reason"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "release_slug": {
+      "description": "Unique textual identifier (slug) of the module Release resource to retrieve",
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9]+[-\\/][a-z][a-z0-9_]*[-\\/][0-9]+\\.[0-9]+\\.[0-9]+(?:[\\-+].+)?$"
+    },
+    "plan_name": {
+      "description": "Full name of desired plan, including module name and namespaces",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:::[a-z][a-z0-9_]*)*$"
+    }
+  },
+  "required": [
+    "release_slug",
+    "plan_name"
+  ]
+}

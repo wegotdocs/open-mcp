@@ -1,0 +1,166 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "The numbers of items to return per page",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20
+    },
+    "offset": {
+      "description": "The number of items to skip before starting to collect the result set",
+      "type": "integer",
+      "minimum": 0,
+      "default": 0
+    },
+    "sort_by": {
+      "description": "Desired order in which to return results, note that `rank` is only available (and becomes the default) when\na value has been provided for the `query` param\n",
+      "type": "string",
+      "enum": [
+        "rank",
+        "downloads",
+        "latest_release"
+      ]
+    },
+    "query": {
+      "description": "Freeform textual search query",
+      "type": "string"
+    },
+    "tag": {
+      "description": "Constrain results to modules that have the given tag",
+      "type": "string"
+    },
+    "owner": {
+      "description": "Constrain results to modules owned by the given user",
+      "type": "string"
+    },
+    "with_tasks": {
+      "description": "Constrain results to modules that include\n[Bolt tasks](https://puppet.com/docs/bolt/latest/writing_tasks_and_plans.html)\n",
+      "type": "boolean"
+    },
+    "with_plans": {
+      "description": "Constrain results to modules that include\n[Bolt plans](https://puppet.com/docs/bolt/latest/writing_tasks_and_plans.html)\n",
+      "type": "boolean"
+    },
+    "with_pdk": {
+      "description": "Constrain results to modules created with\n[Puppet Development Kit](https://puppet.com/docs/pdk/latest/pdk.html)\n",
+      "type": "boolean"
+    },
+    "premium": {
+      "description": "Constrain results to modules that require payment to download (incompatible with the\n`exclude_premium` parameter)\n",
+      "type": "boolean"
+    },
+    "exclude_premium": {
+      "description": "Constrain results to modules that are free to download (incompatible with the\n`premium` parameter)\n",
+      "type": "boolean"
+    },
+    "endorsements": {
+      "description": "Constrain results to modules with at least one of the given endorsements",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "supported",
+          "approved",
+          "partner"
+        ]
+      }
+    },
+    "operatingsystem": {
+      "description": "Constrain results to modules that explicitly support the given operating system, see\n[metadata.json documentation](https://puppet.com/docs/puppet/latest/modules_metadata.html#specifying-operating-system-compatibility) for more information about possible values, see also the `only_latest` param\n",
+      "type": "string"
+    },
+    "operatingsystemrelease": {
+      "description": "Constrain results to modules that explicitly support the\ngiven release of the given operating system, see [metadata.json\ndocumentation](https://puppet.com/docs/puppet/latest/modules_metadata.html#specifying-operating-system-compatibility)\nfor more information about possible values. Requires `operatingsystem`.\n",
+      "type": "string"
+    },
+    "pe_requirement": {
+      "description": "Constrain results to modules that explicitly list a Puppet Enterprise version requirement in the given\n[semantic versioning range](https://puppet.com/docs/puppet/latest/modules_metadata.html#specifying-versions),\nsee also the `only_latest` param\n",
+      "type": "string",
+      "format": "semantic version range"
+    },
+    "puppet_requirement": {
+      "description": "Constrain results to modules that explicitly list a Puppet version requirement in the given\n[semantic versioning range](https://puppet.com/docs/puppet/latest/modules_metadata.html#specifying-versions),\nsee also the `only_latest` param\n",
+      "type": "string",
+      "format": "semantic version range"
+    },
+    "with_minimum_score": {
+      "description": "Constrain results to modules with at least one release that has a minimum validation_score greater\nthan or equal to the provided integer, see also the `only_latest` param\n",
+      "type": "integer"
+    },
+    "module_groups": {
+      "description": "Constrain results to modules in any of the given module groups unless requesting modules by their slugs. By default, when this parameter is not provided, only modules from the base module group are returned.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "base",
+          "pe_only"
+        ]
+      }
+    },
+    "show_deleted": {
+      "description": "Include modules where all released versions have been marked as deleted",
+      "type": "boolean"
+    },
+    "hide_deprecated": {
+      "description": "Exclude deprecated modules from the results. Treats any value as true.",
+      "type": "boolean"
+    },
+    "hide_contribution": {
+      "description": "Exclude modules seeking contribution from the results. Treats any value as true.",
+      "type": "boolean"
+    },
+    "only_latest": {
+      "description": "When checking modules against the `operatingsystem`, `operatingsystemrelease`,\n`pe_requirement`, or `puppet_requirement` filters, only consider the compatibility\ninformation for the latest release of the module, where \"latest\" means: the module release\nwith the highest precedence, non-pre-release version (see also:\n[semver.org](https://semver.org/#spec-item-11))\n",
+      "type": "boolean",
+      "default": false
+    },
+    "slugs": {
+      "description": "A comma-separated list of specific modules to retrieve. Module names should be\nspecified in the hyphenated \"slug\" format (`author_name-module_name`). If at least\none of the requested modules is not found, this endpoint returns a 404 error, with\nthe slugs of the missing module(s) in the body. This parameter is incompatible\nwith the `endorsements`, `module_groups`, `only_latest`, `operatingsystem`,\n`operatingsystemrelease`, `owner`, `pe_requirement`, `puppet_requirement`, `query`,\n`show_deleted`, `hide_deprecated`, `hide_contribution`, `tag`, `with_minimum_score`, `with_pdk`,\n`with_tasks`, and `with_plans` parameters. These will produce 400 errors when\nincluded. Note that any matching soft-deleted modules (modules with no associated\nreleases) will always be included in the results alongside modules with releases.\n",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "with_html": {
+      "description": "Render markdown files (README, REFERENCE, etc.) to HTML before returning results",
+      "type": "boolean"
+    },
+    "include_fields": {
+      "description": "List of top level keys to include in response object, only applies to fields marked 'optional'",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclude_fields": {
+      "description": "List of top level keys to exclude from response object",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "starts_with": {
+      "description": "Constrain results to modules whose slug begins with the provided prefix\n",
+      "type": "string"
+    },
+    "supported": {
+      "description": "Constrain results to [Supported modules](https://forge.puppet.com/supported), see \"endorsements\"\nparam instead\n",
+      "type": "boolean"
+    },
+    "with_release_since": {
+      "description": "Constrain results to modules that have had at least one release since the given ISO 8601 date\n",
+      "type": "string",
+      "example": "2020-02-22"
+    },
+    "If-Modified-Since": {
+      "description": "Only processes the request if the resource or list of resources has changed since the given time,\notherwise returns a `304 Not Modified` response\n",
+      "type": "string",
+      "format": "rfc2616 httpdate",
+      "example": "Mon, 19 Feb 2019 10:15:08 GMT"
+    }
+  },
+  "required": []
+}
