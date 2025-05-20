@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "nullable": true,
+  "properties": {
+    "reason": {
+      "type": "string",
+      "nullable": true,
+      "description": "Reason for deprecation",
+      "example": "No longer maintained"
+    },
+    "replacement_slug": {
+      "type": "string",
+      "nullable": true,
+      "description": "Slug identifying a replacement Module. Accepts legacy (case-sensitive) module naming.",
+      "example": "puppet-nginx",
+      "pattern": "^[a-zA-Z0-9]+[-\\/][a-zA-Z][a-zA-Z0-9_]*$"
+    }
+  }
+}

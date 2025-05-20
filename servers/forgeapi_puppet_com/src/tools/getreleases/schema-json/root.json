@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "The numbers of items to return per page",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20
+    },
+    "offset": {
+      "description": "The number of items to skip before starting to collect the result set",
+      "type": "integer",
+      "minimum": 0,
+      "default": 0
+    },
+    "sort_by": {
+      "description": "Desired order in which to return results\n",
+      "type": "string",
+      "enum": [
+        "downloads",
+        "release_date",
+        "module"
+      ]
+    },
+    "module": {
+      "description": "Constrain results to releases for a given module",
+      "type": "string"
+    },
+    "owner": {
+      "description": "Constrain results to releases for any modules owned by the given user",
+      "type": "string"
+    },
+    "with_pdk": {
+      "description": "Constrain results to module releases created with\n[Puppet Development Kit](https://puppet.com/docs/pdk/latest/pdk.html)\n",
+      "type": "boolean"
+    },
+    "operatingsystem": {
+      "description": "Constrain results to module releases that explicitly support the given operating system, see\n[metadata.json documentation](https://puppet.com/docs/puppet/latest/modules_metadata.html#specifying-operating-system-compatibility) for more information about possible values\n",
+      "type": "string"
+    },
+    "operatingsystemrelease": {
+      "description": "Constrain results to module releases that explicitly support the\ngiven release of the given operating system, see [metadata.json\ndocumentation](https://puppet.com/docs/puppet/latest/modules_metadata.html#specifying-operating-system-compatibility)\nfor more information about possible values. Requires `operatingsystem`.\n",
+      "type": "string"
+    },
+    "pe_requirement": {
+      "description": "Constrain results to module releases that explicitly list a Puppet Enterprise version requirement in the given\n[semantic versioning range](https://puppet.com/docs/puppet/latest/modules_metadata.html#specifying-versions)\n",
+      "type": "string",
+      "format": "semantic version range"
+    },
+    "puppet_requirement": {
+      "description": "Constrain results to module releases that explicitly list a Puppet version requirement in the given\n[semantic versioning range](https://puppet.com/docs/puppet/latest/modules_metadata.html#specifying-versions)\n",
+      "type": "string",
+      "format": "semantic version range"
+    },
+    "module_groups": {
+      "description": "Constrain results to releases for modules in any of the given module groups",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "base",
+          "pe_only"
+        ]
+      }
+    },
+    "show_deleted": {
+      "description": "Include releases marked as \"deleted\" in results",
+      "type": "boolean"
+    },
+    "hide_deprecated": {
+      "description": "Exclude releases of deprecated modules from the results. Treats any value as true.",
+      "type": "boolean"
+    },
+    "hide_contribution": {
+      "description": "Exclude releases of modules seeking contribution from the results. Treats any value as true.",
+      "type": "boolean"
+    },
+    "with_html": {
+      "description": "Render markdown files (README, REFERENCE, etc.) to HTML before returning results",
+      "type": "boolean"
+    },
+    "include_fields": {
+      "description": "List of top level keys to include in response object, only applies to fields marked 'optional'",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclude_fields": {
+      "description": "List of top level keys to exclude from response object",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supported": {
+      "description": "Constrain results to releases for [Supported modules](https://forge.puppet.com/supported)\n",
+      "type": "boolean"
+    },
+    "If-Modified-Since": {
+      "description": "Only processes the request if the resource or list of resources has changed since the given time,\notherwise returns a `304 Not Modified` response\n",
+      "type": "string",
+      "format": "rfc2616 httpdate",
+      "example": "Mon, 19 Feb 2019 10:15:08 GMT"
+    }
+  },
+  "required": []
+}
