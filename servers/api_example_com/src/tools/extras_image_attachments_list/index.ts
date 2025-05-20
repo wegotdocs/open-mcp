@@ -1,0 +1,95 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "extras_image_attachments_list",
+  "toolDescription": "Get a list of image attachment objects.",
+  "baseUrl": "https://api.example.com",
+  "path": "/api/extras/image-attachments/",
+  "method": "get",
+  "security": [
+    {
+      "key": "sessionid",
+      "value": "<mcp-env-var>SESSIONID</mcp-env-var>",
+      "in": "cookie",
+      "envVarName": "SESSIONID"
+    },
+    {
+      "key": "Authorization",
+      "value": "<mcp-env-var>AUTHORIZATION</mcp-env-var>",
+      "in": "header",
+      "envVarName": "AUTHORIZATION"
+    }
+  ],
+  "paramsMap": {
+    "query": {
+      "created": "created",
+      "created__empty": "created__empty",
+      "created__gt": "created__gt",
+      "created__gte": "created__gte",
+      "created__lt": "created__lt",
+      "created__lte": "created__lte",
+      "created__n": "created__n",
+      "created_by_request": "created_by_request",
+      "id": "id",
+      "id__empty": "id__empty",
+      "id__gt": "id__gt",
+      "id__gte": "id__gte",
+      "id__lt": "id__lt",
+      "id__lte": "id__lte",
+      "id__n": "id__n",
+      "image_height": "image_height",
+      "image_height__empty": "image_height__empty",
+      "image_height__gt": "image_height__gt",
+      "image_height__gte": "image_height__gte",
+      "image_height__lt": "image_height__lt",
+      "image_height__lte": "image_height__lte",
+      "image_height__n": "image_height__n",
+      "image_width": "image_width",
+      "image_width__empty": "image_width__empty",
+      "image_width__gt": "image_width__gt",
+      "image_width__gte": "image_width__gte",
+      "image_width__lt": "image_width__lt",
+      "image_width__lte": "image_width__lte",
+      "image_width__n": "image_width__n",
+      "last_updated": "last_updated",
+      "last_updated__empty": "last_updated__empty",
+      "last_updated__gt": "last_updated__gt",
+      "last_updated__gte": "last_updated__gte",
+      "last_updated__lt": "last_updated__lt",
+      "last_updated__lte": "last_updated__lte",
+      "last_updated__n": "last_updated__n",
+      "limit": "limit",
+      "modified_by_request": "modified_by_request",
+      "name": "name",
+      "name__empty": "name__empty",
+      "name__ic": "name__ic",
+      "name__ie": "name__ie",
+      "name__iew": "name__iew",
+      "name__isw": "name__isw",
+      "name__n": "name__n",
+      "name__nic": "name__nic",
+      "name__nie": "name__nie",
+      "name__niew": "name__niew",
+      "name__nisw": "name__nisw",
+      "object_id": "object_id",
+      "object_id__empty": "object_id__empty",
+      "object_id__gt": "object_id__gt",
+      "object_id__gte": "object_id__gte",
+      "object_id__lt": "object_id__lt",
+      "object_id__lte": "object_id__lte",
+      "object_id__n": "object_id__n",
+      "object_type": "object_type",
+      "object_type__n": "object_type__n",
+      "object_type_id": "object_type_id",
+      "object_type_id__n": "object_type_id__n",
+      "offset": "offset",
+      "ordering": "ordering",
+      "q": "q",
+      "updated_by_request": "updated_by_request"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

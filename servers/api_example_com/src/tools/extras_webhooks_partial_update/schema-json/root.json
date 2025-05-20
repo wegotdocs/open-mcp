@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this webhook.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 150
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "payload_url": {
+      "type": "string",
+      "minLength": 1,
+      "title": "URL",
+      "description": "This URL will be called using the HTTP method defined when the webhook is called. Jinja2 template processing is supported with the same context as the request body.",
+      "maxLength": 500
+    },
+    "http_method": {
+      "enum": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "type": "string",
+      "description": "* `GET` - GET\n* `POST` - POST\n* `PUT` - PUT\n* `PATCH` - PATCH\n* `DELETE` - DELETE",
+      "x-spec-enum-id": "a12018571a034921"
+    },
+    "http_content_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The complete list of official content types is available <a href=\"https://www.iana.org/assignments/media-types/media-types.xhtml\">here</a>.",
+      "maxLength": 100
+    },
+    "additional_headers": {
+      "type": "string",
+      "description": "User-supplied HTTP headers to be sent with the request in addition to the HTTP content type. Headers should be defined in the format <code>Name: Value</code>. Jinja2 template processing is supported with the same context as the request body (below)."
+    },
+    "body_template": {
+      "type": "string",
+      "description": "Jinja2 template for a custom request body. If blank, a JSON object representing the change will be included. Available context data includes: <code>event</code>, <code>model</code>, <code>timestamp</code>, <code>username</code>, <code>request_id</code>, and <code>data</code>."
+    },
+    "secret": {
+      "type": "string",
+      "description": "When provided, the request will include a <code>X-Hook-Signature</code> header containing a HMAC hex digest of the payload body using the secret as the key. The secret is not transmitted in the request.",
+      "maxLength": 255
+    },
+    "ssl_verification": {
+      "type": "boolean",
+      "description": "Enable SSL certificate verification. Disable with caution!"
+    },
+    "ca_file_path": {
+      "type": "string",
+      "nullable": true,
+      "description": "The specific CA certificate file to use for SSL verification. Leave blank to use the system defaults.",
+      "maxLength": 4096
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

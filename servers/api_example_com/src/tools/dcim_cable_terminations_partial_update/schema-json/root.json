@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this cable termination.",
+      "type": "integer"
+    },
+    "cable": {
+      "type": "integer"
+    },
+    "cable_end": {
+      "enum": [
+        "A",
+        "B"
+      ],
+      "type": "string",
+      "description": "* `A` - A\n* `B` - B",
+      "x-spec-enum-id": "1db84f9b93b261c8",
+      "title": "End"
+    },
+    "termination_type": {
+      "type": "string"
+    },
+    "termination_id": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": 0,
+      "format": "int64"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

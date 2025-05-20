@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this tag.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[-\\w]+$",
+      "maxLength": 100
+    },
+    "color": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-f]{6}$",
+      "maxLength": 6
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "weight": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 0
+    },
+    "object_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

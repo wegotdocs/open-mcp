@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this custom field choice set.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "base_choices": {
+      "enum": [
+        "IATA",
+        "ISO_3166",
+        "UN_LOCODE",
+        "",
+        null
+      ],
+      "type": "string",
+      "x-spec-enum-id": "cf0efb5195f85007",
+      "nullable": true,
+      "description": "Base set of predefined choices (optional)\n\n* `IATA` - IATA (Airport codes)\n* `ISO_3166` - ISO 3166 (Country codes)\n* `UN_LOCODE` - UN/LOCODE (Location codes)"
+    },
+    "extra_choices": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {},
+        "maxItems": 2,
+        "minItems": 2
+      }
+    },
+    "order_alphabetically": {
+      "type": "boolean",
+      "description": "Choices are automatically ordered alphabetically"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

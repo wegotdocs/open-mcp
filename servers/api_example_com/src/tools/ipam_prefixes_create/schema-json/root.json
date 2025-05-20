@@ -1,0 +1,114 @@
+{
+  "type": "object",
+  "properties": {
+    "prefix": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vrf": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "scope_type": {
+      "type": "string",
+      "nullable": true
+    },
+    "scope_id": {
+      "type": "integer",
+      "nullable": true
+    },
+    "tenant": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "vlan": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "container",
+        "active",
+        "reserved",
+        "deprecated"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "d38bee5f512701d9",
+      "description": "Operational status of this prefix\n\n* `container` - Container\n* `active` - Active\n* `reserved` - Reserved\n* `deprecated` - Deprecated"
+    },
+    "role": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "is_pool": {
+      "type": "boolean",
+      "title": "Is a pool",
+      "description": "All IP addresses within this prefix are considered usable"
+    },
+    "mark_utilized": {
+      "type": "boolean",
+      "description": "Treat as fully utilized"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "comments": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "prefix"
+  ]
+}

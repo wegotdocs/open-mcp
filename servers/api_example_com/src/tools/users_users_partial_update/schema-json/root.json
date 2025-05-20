@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this user.",
+      "type": "integer"
+    },
+    "username": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+      "pattern": "^[\\w.@+-]+$",
+      "maxLength": 150
+    },
+    "password": {
+      "type": "string",
+      "writeOnly": true,
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "first_name": {
+      "type": "string",
+      "maxLength": 150
+    },
+    "last_name": {
+      "type": "string",
+      "maxLength": 150
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email address",
+      "maxLength": 254
+    },
+    "is_staff": {
+      "type": "boolean",
+      "title": "Staff status",
+      "description": "Designates whether the user can log into this admin site."
+    },
+    "is_active": {
+      "type": "boolean",
+      "title": "Active",
+      "description": "Designates whether this user should be treated as active. Unselect this instead of deleting accounts."
+    },
+    "date_joined": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_login": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

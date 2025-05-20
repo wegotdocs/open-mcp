@@ -1,0 +1,96 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this config template.",
+      "type": "integer"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "json",
+        "txt"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "environment_params": {
+      "nullable": true,
+      "title": "Environment parameters",
+      "description": "Any <a href=\"https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment\">additional parameters</a> to pass when constructing the Jinja environment"
+    },
+    "template_code": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Jinja template code."
+    },
+    "mime_type": {
+      "type": "string",
+      "description": "Defaults to <code>text/plain; charset=utf-8</code>",
+      "maxLength": 50
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Filename to give to the rendered export file",
+      "maxLength": 200
+    },
+    "file_extension": {
+      "type": "string",
+      "description": "Extension to append to the rendered filename",
+      "maxLength": 15
+    },
+    "as_attachment": {
+      "type": "boolean",
+      "description": "Download file as attachment"
+    },
+    "data_source": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "template_code"
+  ]
+}

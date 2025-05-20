@@ -1,0 +1,191 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this rack type.",
+      "type": "integer"
+    },
+    "manufacturer": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[-a-zA-Z0-9_]+$"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "form_factor": {
+      "enum": [
+        "2-post-frame",
+        "4-post-frame",
+        "4-post-cabinet",
+        "wall-frame",
+        "wall-frame-vertical",
+        "wall-cabinet",
+        "wall-cabinet-vertical"
+      ],
+      "type": "string",
+      "description": "* `2-post-frame` - 2-post frame\n* `4-post-frame` - 4-post frame\n* `4-post-cabinet` - 4-post cabinet\n* `wall-frame` - Wall-mounted frame\n* `wall-frame-vertical` - Wall-mounted frame (vertical)\n* `wall-cabinet` - Wall-mounted cabinet\n* `wall-cabinet-vertical` - Wall-mounted cabinet (vertical)",
+      "x-spec-enum-id": "e32aaa89a223f2ea"
+    },
+    "width": {
+      "enum": [
+        10,
+        19,
+        21,
+        23
+      ],
+      "type": "integer",
+      "x-spec-enum-id": "9b322795f297a9c3",
+      "description": "Rail-to-rail width\n\n* `10` - 10 inches\n* `19` - 19 inches\n* `21` - 21 inches\n* `23` - 23 inches",
+      "minimum": 0,
+      "maximum": 32767
+    },
+    "u_height": {
+      "type": "integer",
+      "maximum": 100,
+      "minimum": 1,
+      "title": "Height (U)",
+      "description": "Height in rack units"
+    },
+    "starting_unit": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 1,
+      "description": "Starting unit for rack"
+    },
+    "desc_units": {
+      "type": "boolean",
+      "title": "Descending units",
+      "description": "Units are numbered top-to-bottom"
+    },
+    "outer_width": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 0,
+      "nullable": true,
+      "description": "Outer dimension of rack (width)"
+    },
+    "outer_height": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 0,
+      "nullable": true,
+      "description": "Outer dimension of rack (height)"
+    },
+    "outer_depth": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 0,
+      "nullable": true,
+      "description": "Outer dimension of rack (depth)"
+    },
+    "outer_unit": {
+      "enum": [
+        "mm",
+        "in",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `mm` - Millimeters\n* `in` - Inches",
+      "x-spec-enum-id": "86a846b6c40f495e",
+      "nullable": true
+    },
+    "weight": {
+      "type": "number",
+      "format": "double",
+      "maximum": 1000000,
+      "minimum": -1000000,
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "nullable": true
+    },
+    "max_weight": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": 0,
+      "nullable": true,
+      "description": "Maximum load capacity for the rack"
+    },
+    "weight_unit": {
+      "enum": [
+        "kg",
+        "g",
+        "lb",
+        "oz",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `kg` - Kilograms\n* `g` - Grams\n* `lb` - Pounds\n* `oz` - Ounces",
+      "x-spec-enum-id": "7c1876f422815884",
+      "nullable": true
+    },
+    "mounting_depth": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 0,
+      "nullable": true,
+      "description": "Maximum depth of a mounted device, in millimeters. For four-post racks, this is the distance between the front and rear rails."
+    },
+    "comments": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id",
+    "manufacturer",
+    "model",
+    "slug",
+    "form_factor"
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this interface template.",
+      "type": "integer"
+    },
+    "device_type": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "module_type": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "{module} is accepted as a substitution for the module bay position when attached to a module type.",
+      "maxLength": 64
+    },
+    "label": {
+      "type": "string",
+      "description": "Physical label",
+      "maxLength": 64
+    },
+    "type": {
+      "enum": [
+        "virtual",
+        "bridge",
+        "lag",
+        "100base-fx",
+        "100base-lfx",
+        "100base-tx",
+        "100base-t1",
+        "1000base-t",
+        "1000base-sx",
+        "1000base-lx",
+        "1000base-tx",
+        "2.5gbase-t",
+        "5gbase-t",
+        "10gbase-t",
+        "10gbase-cx4",
+        "100base-x-sfp",
+        "1000base-x-gbic",
+        "1000base-x-sfp",
+        "10gbase-x-sfpp",
+        "10gbase-x-xfp",
+        "10gbase-x-xenpak",
+        "10gbase-x-x2",
+        "25gbase-x-sfp28",
+        "50gbase-x-sfp56",
+        "40gbase-x-qsfpp",
+        "50gbase-x-sfp28",
+        "100gbase-x-cfp",
+        "100gbase-x-cfp2",
+        "200gbase-x-cfp2",
+        "400gbase-x-cfp2",
+        "100gbase-x-cfp4",
+        "100gbase-x-cxp",
+        "100gbase-x-cpak",
+        "100gbase-x-dsfp",
+        "100gbase-x-sfpdd",
+        "100gbase-x-qsfp28",
+        "100gbase-x-qsfpdd",
+        "200gbase-x-qsfp56",
+        "200gbase-x-qsfpdd",
+        "400gbase-x-qsfp112",
+        "400gbase-x-qsfpdd",
+        "400gbase-x-osfp",
+        "400gbase-x-osfp-rhs",
+        "400gbase-x-cdfp",
+        "400gbase-x-cfp8",
+        "800gbase-x-qsfpdd",
+        "800gbase-x-osfp",
+        "1000base-kx",
+        "2.5gbase-kx",
+        "5gbase-kr",
+        "10gbase-kr",
+        "10gbase-kx4",
+        "25gbase-kr",
+        "40gbase-kr4",
+        "50gbase-kr",
+        "100gbase-kp4",
+        "100gbase-kr2",
+        "100gbase-kr4",
+        "ieee802.11a",
+        "ieee802.11g",
+        "ieee802.11n",
+        "ieee802.11ac",
+        "ieee802.11ad",
+        "ieee802.11ax",
+        "ieee802.11ay",
+        "ieee802.11be",
+        "ieee802.15.1",
+        "ieee802.15.4",
+        "other-wireless",
+        "gsm",
+        "cdma",
+        "lte",
+        "4g",
+        "5g",
+        "sonet-oc3",
+        "sonet-oc12",
+        "sonet-oc48",
+        "sonet-oc192",
+        "sonet-oc768",
+        "sonet-oc1920",
+        "sonet-oc3840",
+        "1gfc-sfp",
+        "2gfc-sfp",
+        "4gfc-sfp",
+        "8gfc-sfpp",
+        "16gfc-sfpp",
+        "32gfc-sfp28",
+        "32gfc-sfpp",
+        "64gfc-qsfpp",
+        "64gfc-sfpdd",
+        "64gfc-sfpp",
+        "128gfc-qsfp28",
+        "infiniband-sdr",
+        "infiniband-ddr",
+        "infiniband-qdr",
+        "infiniband-fdr10",
+        "infiniband-fdr",
+        "infiniband-edr",
+        "infiniband-hdr",
+        "infiniband-ndr",
+        "infiniband-xdr",
+        "t1",
+        "e1",
+        "t3",
+        "e3",
+        "xdsl",
+        "docsis",
+        "moca",
+        "bpon",
+        "epon",
+        "10g-epon",
+        "gpon",
+        "xg-pon",
+        "xgs-pon",
+        "ng-pon2",
+        "25g-pon",
+        "50g-pon",
+        "cisco-stackwise",
+        "cisco-stackwise-plus",
+        "cisco-flexstack",
+        "cisco-flexstack-plus",
+        "cisco-stackwise-80",
+        "cisco-stackwise-160",
+        "cisco-stackwise-320",
+        "cisco-stackwise-480",
+        "cisco-stackwise-1t",
+        "juniper-vcp",
+        "extreme-summitstack",
+        "extreme-summitstack-128",
+        "extreme-summitstack-256",
+        "extreme-summitstack-512",
+        "other"
+      ],
+      "type": "string",
+      "description": "* `virtual` - Virtual\n* `bridge` - Bridge\n* `lag` - Link Aggregation Group (LAG)\n* `100base-fx` - 100BASE-FX (10/100ME FIBER)\n* `100base-lfx` - 100BASE-LFX (10/100ME FIBER)\n* `100base-tx` - 100BASE-TX (10/100ME)\n* `100base-t1` - 100BASE-T1 (10/100ME Single Pair)\n* `1000base-t` - 1000BASE-T (1GE)\n* `1000base-sx` - 1000BASE-SX (1GE)\n* `1000base-lx` - 1000BASE-LX (1GE)\n* `1000base-tx` - 1000BASE-TX (1GE)\n* `2.5gbase-t` - 2.5GBASE-T (2.5GE)\n* `5gbase-t` - 5GBASE-T (5GE)\n* `10gbase-t` - 10GBASE-T (10GE)\n* `10gbase-cx4` - 10GBASE-CX4 (10GE)\n* `100base-x-sfp` - SFP (100ME)\n* `1000base-x-gbic` - GBIC (1GE)\n* `1000base-x-sfp` - SFP (1GE)\n* `10gbase-x-sfpp` - SFP+ (10GE)\n* `10gbase-x-xfp` - XFP (10GE)\n* `10gbase-x-xenpak` - XENPAK (10GE)\n* `10gbase-x-x2` - X2 (10GE)\n* `25gbase-x-sfp28` - SFP28 (25GE)\n* `50gbase-x-sfp56` - SFP56 (50GE)\n* `40gbase-x-qsfpp` - QSFP+ (40GE)\n* `50gbase-x-sfp28` - QSFP28 (50GE)\n* `100gbase-x-cfp` - CFP (100GE)\n* `100gbase-x-cfp2` - CFP2 (100GE)\n* `200gbase-x-cfp2` - CFP2 (200GE)\n* `400gbase-x-cfp2` - CFP2 (400GE)\n* `100gbase-x-cfp4` - CFP4 (100GE)\n* `100gbase-x-cxp` - CXP (100GE)\n* `100gbase-x-cpak` - Cisco CPAK (100GE)\n* `100gbase-x-dsfp` - DSFP (100GE)\n* `100gbase-x-sfpdd` - SFP-DD (100GE)\n* `100gbase-x-qsfp28` - QSFP28 (100GE)\n* `100gbase-x-qsfpdd` - QSFP-DD (100GE)\n* `200gbase-x-qsfp56` - QSFP56 (200GE)\n* `200gbase-x-qsfpdd` - QSFP-DD (200GE)\n* `400gbase-x-qsfp112` - QSFP112 (400GE)\n* `400gbase-x-qsfpdd` - QSFP-DD (400GE)\n* `400gbase-x-osfp` - OSFP (400GE)\n* `400gbase-x-osfp-rhs` - OSFP-RHS (400GE)\n* `400gbase-x-cdfp` - CDFP (400GE)\n* `400gbase-x-cfp8` - CPF8 (400GE)\n* `800gbase-x-qsfpdd` - QSFP-DD (800GE)\n* `800gbase-x-osfp` - OSFP (800GE)\n* `1000base-kx` - 1000BASE-KX (1GE)\n* `2.5gbase-kx` - 2.5GBASE-KX (2.5GE)\n* `5gbase-kr` - 5GBASE-KR (5GE)\n* `10gbase-kr` - 10GBASE-KR (10GE)\n* `10gbase-kx4` - 10GBASE-KX4 (10GE)\n* `25gbase-kr` - 25GBASE-KR (25GE)\n* `40gbase-kr4` - 40GBASE-KR4 (40GE)\n* `50gbase-kr` - 50GBASE-KR (50GE)\n* `100gbase-kp4` - 100GBASE-KP4 (100GE)\n* `100gbase-kr2` - 100GBASE-KR2 (100GE)\n* `100gbase-kr4` - 100GBASE-KR4 (100GE)\n* `ieee802.11a` - IEEE 802.11a\n* `ieee802.11g` - IEEE 802.11b/g\n* `ieee802.11n` - IEEE 802.11n\n* `ieee802.11ac` - IEEE 802.11ac\n* `ieee802.11ad` - IEEE 802.11ad\n* `ieee802.11ax` - IEEE 802.11ax\n* `ieee802.11ay` - IEEE 802.11ay\n* `ieee802.11be` - IEEE 802.11be\n* `ieee802.15.1` - IEEE 802.15.1 (Bluetooth)\n* `ieee802.15.4` - IEEE 802.15.4 (LR-WPAN)\n* `other-wireless` - Other (Wireless)\n* `gsm` - GSM\n* `cdma` - CDMA\n* `lte` - LTE\n* `4g` - 4G\n* `5g` - 5G\n* `sonet-oc3` - OC-3/STM-1\n* `sonet-oc12` - OC-12/STM-4\n* `sonet-oc48` - OC-48/STM-16\n* `sonet-oc192` - OC-192/STM-64\n* `sonet-oc768` - OC-768/STM-256\n* `sonet-oc1920` - OC-1920/STM-640\n* `sonet-oc3840` - OC-3840/STM-1234\n* `1gfc-sfp` - SFP (1GFC)\n* `2gfc-sfp` - SFP (2GFC)\n* `4gfc-sfp` - SFP (4GFC)\n* `8gfc-sfpp` - SFP+ (8GFC)\n* `16gfc-sfpp` - SFP+ (16GFC)\n* `32gfc-sfp28` - SFP28 (32GFC)\n* `32gfc-sfpp` - SFP+ (32GFC)\n* `64gfc-qsfpp` - QSFP+ (64GFC)\n* `64gfc-sfpdd` - SFP-DD (64GFC)\n* `64gfc-sfpp` - SFP+ (64GFC)\n* `128gfc-qsfp28` - QSFP28 (128GFC)\n* `infiniband-sdr` - SDR (2 Gbps)\n* `infiniband-ddr` - DDR (4 Gbps)\n* `infiniband-qdr` - QDR (8 Gbps)\n* `infiniband-fdr10` - FDR10 (10 Gbps)\n* `infiniband-fdr` - FDR (13.5 Gbps)\n* `infiniband-edr` - EDR (25 Gbps)\n* `infiniband-hdr` - HDR (50 Gbps)\n* `infiniband-ndr` - NDR (100 Gbps)\n* `infiniband-xdr` - XDR (250 Gbps)\n* `t1` - T1 (1.544 Mbps)\n* `e1` - E1 (2.048 Mbps)\n* `t3` - T3 (45 Mbps)\n* `e3` - E3 (34 Mbps)\n* `xdsl` - xDSL\n* `docsis` - DOCSIS\n* `moca` - MoCA\n* `bpon` - BPON (622 Mbps / 155 Mbps)\n* `epon` - EPON (1 Gbps)\n* `10g-epon` - 10G-EPON (10 Gbps)\n* `gpon` - GPON (2.5 Gbps / 1.25 Gbps)\n* `xg-pon` - XG-PON (10 Gbps / 2.5 Gbps)\n* `xgs-pon` - XGS-PON (10 Gbps)\n* `ng-pon2` - NG-PON2 (TWDM-PON) (4x10 Gbps)\n* `25g-pon` - 25G-PON (25 Gbps)\n* `50g-pon` - 50G-PON (50 Gbps)\n* `cisco-stackwise` - Cisco StackWise\n* `cisco-stackwise-plus` - Cisco StackWise Plus\n* `cisco-flexstack` - Cisco FlexStack\n* `cisco-flexstack-plus` - Cisco FlexStack Plus\n* `cisco-stackwise-80` - Cisco StackWise-80\n* `cisco-stackwise-160` - Cisco StackWise-160\n* `cisco-stackwise-320` - Cisco StackWise-320\n* `cisco-stackwise-480` - Cisco StackWise-480\n* `cisco-stackwise-1t` - Cisco StackWise-1T\n* `juniper-vcp` - Juniper VCP\n* `extreme-summitstack` - Extreme SummitStack\n* `extreme-summitstack-128` - Extreme SummitStack-128\n* `extreme-summitstack-256` - Extreme SummitStack-256\n* `extreme-summitstack-512` - Extreme SummitStack-512\n* `other` - Other",
+      "x-spec-enum-id": "8c4c5e112f77a383"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "mgmt_only": {
+      "type": "boolean",
+      "title": "Management only"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "bridge": {
+      "type": "integer",
+      "nullable": true,
+      "title": "Bridge interface"
+    },
+    "poe_mode": {
+      "enum": [
+        "pd",
+        "pse",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `pd` - PD\n* `pse` - PSE",
+      "x-spec-enum-id": "2f2fe6dcdc7772bd",
+      "nullable": true
+    },
+    "poe_type": {
+      "enum": [
+        "type1-ieee802.3af",
+        "type2-ieee802.3at",
+        "type3-ieee802.3bt",
+        "type4-ieee802.3bt",
+        "passive-24v-2pair",
+        "passive-24v-4pair",
+        "passive-48v-2pair",
+        "passive-48v-4pair",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `type1-ieee802.3af` - 802.3af (Type 1)\n* `type2-ieee802.3at` - 802.3at (Type 2)\n* `type3-ieee802.3bt` - 802.3bt (Type 3)\n* `type4-ieee802.3bt` - 802.3bt (Type 4)\n* `passive-24v-2pair` - Passive 24V (2-pair)\n* `passive-24v-4pair` - Passive 24V (4-pair)\n* `passive-48v-2pair` - Passive 48V (2-pair)\n* `passive-48v-4pair` - Passive 48V (4-pair)",
+      "x-spec-enum-id": "74bd3be4012f6da9",
+      "nullable": true
+    },
+    "rf_role": {
+      "enum": [
+        "ap",
+        "station",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `ap` - Access point\n* `station` - Station",
+      "x-spec-enum-id": "d2772dbea88b0fb1",
+      "nullable": true,
+      "title": "Wireless role"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "type"
+  ]
+}

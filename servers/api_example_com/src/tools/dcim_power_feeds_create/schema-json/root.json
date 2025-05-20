@@ -1,0 +1,137 @@
+{
+  "type": "object",
+  "properties": {
+    "power_panel": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "rack": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "status": {
+      "enum": [
+        "offline",
+        "active",
+        "planned",
+        "failed"
+      ],
+      "type": "string",
+      "description": "* `offline` - Offline\n* `active` - Active\n* `planned` - Planned\n* `failed` - Failed",
+      "x-spec-enum-id": "b77fc919138c12f6"
+    },
+    "type": {
+      "enum": [
+        "primary",
+        "redundant"
+      ],
+      "type": "string",
+      "description": "* `primary` - Primary\n* `redundant` - Redundant",
+      "x-spec-enum-id": "093a164236819eb8"
+    },
+    "supply": {
+      "enum": [
+        "ac",
+        "dc"
+      ],
+      "type": "string",
+      "description": "* `ac` - AC\n* `dc` - DC",
+      "x-spec-enum-id": "1b6d99616ca6412b"
+    },
+    "phase": {
+      "enum": [
+        "single-phase",
+        "three-phase"
+      ],
+      "type": "string",
+      "description": "* `single-phase` - Single phase\n* `three-phase` - Three-phase",
+      "x-spec-enum-id": "994bc0696f4df57f"
+    },
+    "voltage": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": -32768
+    },
+    "amperage": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 1
+    },
+    "max_utilization": {
+      "type": "integer",
+      "maximum": 100,
+      "minimum": 1,
+      "description": "Maximum permissible draw (percentage)"
+    },
+    "mark_connected": {
+      "type": "boolean",
+      "description": "Treat as if a cable is connected"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "tenant": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "comments": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "power_panel",
+    "name"
+  ]
+}

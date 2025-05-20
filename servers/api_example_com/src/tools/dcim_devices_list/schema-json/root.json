@@ -1,0 +1,1850 @@
+{
+  "type": "object",
+  "properties": {
+    "airflow": {
+      "description": "* `front-to-rear` - Front to rear\n* `rear-to-front` - Rear to front\n* `left-to-right` - Left to right\n* `right-to-left` - Right to left\n* `side-to-rear` - Side to rear\n* `rear-to-side` - Rear to side\n* `bottom-to-top` - Bottom to top\n* `top-to-bottom` - Top to bottom\n* `passive` - Passive\n* `mixed` - Mixed",
+      "type": "string",
+      "x-spec-enum-id": "943288113dad6782",
+      "nullable": true,
+      "enum": [
+        "bottom-to-top",
+        "front-to-rear",
+        "left-to-right",
+        "mixed",
+        "passive",
+        "rear-to-front",
+        "rear-to-side",
+        "right-to-left",
+        "side-to-rear",
+        "top-to-bottom"
+      ]
+    },
+    "asset_tag": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_tag__empty": {
+      "type": "boolean"
+    },
+    "asset_tag__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_tag__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_tag__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_tag__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_tag__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_tag__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_tag__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_tag__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "asset_tag__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cluster_group": {
+      "description": "Cluster group (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cluster_group__n": {
+      "description": "Cluster group (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cluster_group_id": {
+      "description": "Cluster group (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "cluster_group_id__n": {
+      "description": "Cluster group (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "cluster_id": {
+      "description": "VM cluster (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "cluster_id__n": {
+      "description": "VM cluster (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "config_template_id": {
+      "description": "Config template (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "config_template_id__n": {
+      "description": "Config template (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "console_port_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_count__empty": {
+      "type": "boolean"
+    },
+    "console_port_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_ports": {
+      "description": "Has console ports",
+      "type": "boolean"
+    },
+    "console_server_port_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_count__empty": {
+      "type": "boolean"
+    },
+    "console_server_port_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_ports": {
+      "description": "Has console server ports",
+      "type": "boolean"
+    },
+    "contact": {
+      "description": "Contact",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "contact__n": {
+      "description": "Contact",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "contact_group": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contact_group__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contact_role": {
+      "description": "Contact Role",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "contact_role__n": {
+      "description": "Contact Role",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "created": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__empty": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__gt": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__gte": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__lt": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__lte": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__n": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created_by_request": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "description": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__empty": {
+      "type": "boolean"
+    },
+    "description__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "device_bay_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_count__empty": {
+      "type": "boolean"
+    },
+    "device_bay_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bays": {
+      "description": "Has device bays",
+      "type": "boolean"
+    },
+    "device_type": {
+      "description": "Device type (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "device_type__n": {
+      "description": "Device type (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "device_type_id": {
+      "description": "Device type (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "device_type_id__n": {
+      "description": "Device type (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "face": {
+      "description": "* `front` - Front\n* `rear` - Rear",
+      "type": "string",
+      "x-spec-enum-id": "d2fb9b3f75158b83",
+      "nullable": true,
+      "title": "Rack face",
+      "enum": [
+        "front",
+        "rear"
+      ]
+    },
+    "front_port_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_count__empty": {
+      "type": "boolean"
+    },
+    "front_port_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "has_oob_ip": {
+      "description": "Has an out-of-band IP",
+      "type": "boolean"
+    },
+    "has_primary_ip": {
+      "description": "Has a primary IP",
+      "type": "boolean"
+    },
+    "has_virtual_device_context": {
+      "description": "Has virtual device context",
+      "type": "boolean"
+    },
+    "id": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__empty": {
+      "type": "boolean"
+    },
+    "id__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_count__empty": {
+      "type": "boolean"
+    },
+    "interface_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interfaces": {
+      "description": "Has interfaces",
+      "type": "boolean"
+    },
+    "inventory_item_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_count__empty": {
+      "type": "boolean"
+    },
+    "inventory_item_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "is_full_depth": {
+      "description": "Is full depth",
+      "type": "boolean"
+    },
+    "last_updated": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__empty": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__gt": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__gte": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__lt": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__lte": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__n": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "latitude": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "latitude__empty": {
+      "type": "boolean"
+    },
+    "latitude__gt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "latitude__gte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "latitude__lt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "latitude__lte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "latitude__n": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "local_context_data": {
+      "description": "Has local config context data",
+      "type": "boolean"
+    },
+    "location": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "location__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "location_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "location_id__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "longitude": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "longitude__empty": {
+      "type": "boolean"
+    },
+    "longitude__gt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "longitude__gte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "longitude__lt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "longitude__lte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "longitude__n": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "mac_address": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac_address__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac_address__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac_address__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac_address__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac_address__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac_address__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac_address__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac_address__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac_address__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manufacturer": {
+      "description": "Manufacturer (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manufacturer__n": {
+      "description": "Manufacturer (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manufacturer_id": {
+      "description": "Manufacturer (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "manufacturer_id__n": {
+      "description": "Manufacturer (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "model": {
+      "description": "Device model (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__n": {
+      "description": "Device model (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "modified_by_request": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "module_bay_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_count__empty": {
+      "type": "boolean"
+    },
+    "module_bay_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bays": {
+      "description": "Has module bays",
+      "type": "boolean"
+    },
+    "name": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name__empty": {
+      "type": "boolean"
+    },
+    "name__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "oob_ip_id": {
+      "description": "OOB IP (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "oob_ip_id__n": {
+      "description": "OOB IP (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "parent_bay_id": {
+      "description": "Parent bay (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "parent_bay_id__n": {
+      "description": "Parent bay (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "parent_device_id": {
+      "description": "Parent Device (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "parent_device_id__n": {
+      "description": "Parent Device (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "pass_through_ports": {
+      "description": "Has pass-through ports",
+      "type": "boolean"
+    },
+    "platform": {
+      "description": "Platform (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "platform__n": {
+      "description": "Platform (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "platform_id": {
+      "description": "Platform (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "platform_id__n": {
+      "description": "Platform (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "position": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "position__empty": {
+      "type": "boolean"
+    },
+    "position__gt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "position__gte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "position__lt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "position__lte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "position__n": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "power_outlet_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_count__empty": {
+      "type": "boolean"
+    },
+    "power_outlet_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlets": {
+      "description": "Has power outlets",
+      "type": "boolean"
+    },
+    "power_port_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_count__empty": {
+      "type": "boolean"
+    },
+    "power_port_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_ports": {
+      "description": "Has power ports",
+      "type": "boolean"
+    },
+    "primary_ip4": {
+      "description": "Primary IPv4 (address)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "primary_ip4__n": {
+      "description": "Primary IPv4 (address)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "primary_ip4_id": {
+      "description": "Primary IPv4 (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "primary_ip4_id__n": {
+      "description": "Primary IPv4 (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "primary_ip6": {
+      "description": "Primary IPv6 (address)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "primary_ip6__n": {
+      "description": "Primary IPv6 (address)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "primary_ip6_id": {
+      "description": "Primary IPv6 (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "primary_ip6_id__n": {
+      "description": "Primary IPv6 (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "q": {
+      "description": "Search",
+      "type": "string"
+    },
+    "rack_id": {
+      "description": "Rack (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "rack_id__n": {
+      "description": "Rack (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "rear_port_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_count__empty": {
+      "type": "boolean"
+    },
+    "rear_port_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "region": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "region__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "region_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "region_id__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "role": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "role__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "role_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "role_id__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial__empty": {
+      "type": "boolean"
+    },
+    "serial__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "site": {
+      "description": "Site name (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "site__n": {
+      "description": "Site name (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "site_group": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "site_group__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "site_group_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "site_group_id__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "site_id": {
+      "description": "Site (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "site_id__n": {
+      "description": "Site (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "status": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "status__empty": {
+      "type": "boolean"
+    },
+    "status__ic": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "status__ie": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "status__iew": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "status__isw": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "status__n": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "status__nic": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "status__nie": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "status__niew": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "status__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-spec-enum-id": "8d8971779f16ee18"
+      }
+    },
+    "tag": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tag__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tag_id": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "tag_id__n": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "tenant": {
+      "description": "Tenant (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tenant__n": {
+      "description": "Tenant (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tenant_group": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tenant_group__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tenant_group_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tenant_group_id__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tenant_id": {
+      "description": "Tenant (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "tenant_id__n": {
+      "description": "Tenant (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "updated_by_request": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "vc_position": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_position__empty": {
+      "type": "boolean"
+    },
+    "vc_position__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_position__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_position__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_position__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_position__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_priority": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_priority__empty": {
+      "type": "boolean"
+    },
+    "vc_priority__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_priority__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_priority__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_priority__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "vc_priority__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "virtual_chassis_id": {
+      "description": "Virtual chassis (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "virtual_chassis_id__n": {
+      "description": "Virtual chassis (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "virtual_chassis_member": {
+      "description": "Is a virtual chassis member",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

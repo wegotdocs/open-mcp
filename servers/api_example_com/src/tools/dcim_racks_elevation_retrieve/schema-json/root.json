@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this rack.",
+      "type": "integer"
+    },
+    "exclude": {
+      "type": "integer"
+    },
+    "expand_devices": {
+      "type": "boolean",
+      "default": true
+    },
+    "face": {
+      "description": "* `front` - Front\n* `rear` - Rear",
+      "enum": [
+        "front",
+        "rear"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "d2fb9b3f75158b83",
+      "default": "front",
+      "minLength": 1
+    },
+    "include_images": {
+      "type": "boolean",
+      "default": true
+    },
+    "legend_width": {
+      "type": "integer",
+      "default": 30
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "margin_width": {
+      "type": "integer",
+      "default": 15
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "q": {
+      "type": "string",
+      "minLength": 1
+    },
+    "render": {
+      "description": "* `json` - json\n* `svg` - svg",
+      "enum": [
+        "json",
+        "svg"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "09901a5ff13ba07a",
+      "default": "json",
+      "minLength": 1
+    },
+    "unit_height": {
+      "type": "integer"
+    },
+    "unit_width": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

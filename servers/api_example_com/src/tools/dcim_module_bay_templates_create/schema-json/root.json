@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "device_type": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "module_type": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "{module} is accepted as a substitution for the module bay position when attached to a module type.",
+      "maxLength": 64
+    },
+    "label": {
+      "type": "string",
+      "description": "Physical label",
+      "maxLength": 64
+    },
+    "position": {
+      "type": "string",
+      "description": "Identifier to reference when renaming installed components",
+      "maxLength": 30
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

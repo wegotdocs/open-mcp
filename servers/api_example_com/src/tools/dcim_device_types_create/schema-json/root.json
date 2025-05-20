@@ -1,0 +1,166 @@
+{
+  "type": "object",
+  "properties": {
+    "manufacturer": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "default_platform": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[-a-zA-Z0-9_]+$"
+    },
+    "part_number": {
+      "type": "string",
+      "description": "Discrete part number (optional)",
+      "maxLength": 50
+    },
+    "u_height": {
+      "type": "number",
+      "format": "double",
+      "maximum": 1000,
+      "minimum": 0,
+      "exclusiveMaximum": true,
+      "default": 1,
+      "title": "Position (U)"
+    },
+    "exclude_from_utilization": {
+      "type": "boolean",
+      "description": "Devices of this type are excluded when calculating rack utilization."
+    },
+    "is_full_depth": {
+      "type": "boolean",
+      "description": "Device consumes both front and rear rack faces."
+    },
+    "subdevice_role": {
+      "enum": [
+        "parent",
+        "child",
+        "",
+        null
+      ],
+      "type": "string",
+      "x-spec-enum-id": "d10d91f690a856c2",
+      "nullable": true,
+      "title": "Parent/child status",
+      "description": "Parent devices house child devices in device bays. Leave blank if this device type is neither a parent nor a child.\n\n* `parent` - Parent\n* `child` - Child"
+    },
+    "airflow": {
+      "enum": [
+        "front-to-rear",
+        "rear-to-front",
+        "left-to-right",
+        "right-to-left",
+        "side-to-rear",
+        "rear-to-side",
+        "bottom-to-top",
+        "top-to-bottom",
+        "passive",
+        "mixed",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `front-to-rear` - Front to rear\n* `rear-to-front` - Rear to front\n* `left-to-right` - Left to right\n* `right-to-left` - Right to left\n* `side-to-rear` - Side to rear\n* `rear-to-side` - Rear to side\n* `bottom-to-top` - Bottom to top\n* `top-to-bottom` - Top to bottom\n* `passive` - Passive\n* `mixed` - Mixed",
+      "x-spec-enum-id": "943288113dad6782",
+      "nullable": true
+    },
+    "weight": {
+      "type": "number",
+      "format": "double",
+      "maximum": 1000000,
+      "minimum": -1000000,
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "nullable": true
+    },
+    "weight_unit": {
+      "enum": [
+        "kg",
+        "g",
+        "lb",
+        "oz",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `kg` - Kilograms\n* `g` - Grams\n* `lb` - Pounds\n* `oz` - Ounces",
+      "x-spec-enum-id": "7c1876f422815884",
+      "nullable": true
+    },
+    "front_image": {
+      "type": "string",
+      "format": "binary",
+      "nullable": true
+    },
+    "rear_image": {
+      "type": "string",
+      "format": "binary",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "comments": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "manufacturer",
+    "model",
+    "slug"
+  ]
+}

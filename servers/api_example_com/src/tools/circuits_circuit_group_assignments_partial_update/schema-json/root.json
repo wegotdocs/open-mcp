@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this Circuit group assignment.",
+      "type": "integer"
+    },
+    "group": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "member_type": {
+      "type": "string"
+    },
+    "member_id": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": 0,
+      "format": "int64"
+    },
+    "priority": {
+      "enum": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "inactive",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `primary` - Primary\n* `secondary` - Secondary\n* `tertiary` - Tertiary\n* `inactive` - Inactive",
+      "x-spec-enum-id": "ef3a31644cec7524",
+      "nullable": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

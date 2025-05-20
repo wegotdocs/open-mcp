@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this permission.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "object_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 30
+      },
+      "description": "The list of actions granted by this permission"
+    },
+    "constraints": {
+      "nullable": true,
+      "description": "Queryset filter matching the applicable objects of the selected type(s)"
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

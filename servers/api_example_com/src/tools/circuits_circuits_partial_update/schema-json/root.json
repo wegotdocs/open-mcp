@@ -1,0 +1,178 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this circuit.",
+      "type": "integer"
+    },
+    "cid": {
+      "type": "string",
+      "minLength": 1,
+      "title": "Circuit ID",
+      "description": "Unique circuit ID",
+      "maxLength": 100
+    },
+    "provider": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "provider_account": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "type": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "provisioning",
+        "active",
+        "offline",
+        "deprovisioning",
+        "decommissioned"
+      ],
+      "type": "string",
+      "description": "* `planned` - Planned\n* `provisioning` - Provisioning\n* `active` - Active\n* `offline` - Offline\n* `deprovisioning` - Deprovisioning\n* `decommissioned` - Decommissioned",
+      "x-spec-enum-id": "63c838134a022200"
+    },
+    "tenant": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "install_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "title": "Installed"
+    },
+    "termination_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "title": "Terminates"
+    },
+    "commit_rate": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": 0,
+      "nullable": true,
+      "title": "Commit rate (Kbps)",
+      "description": "Committed rate"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "distance": {
+      "type": "number",
+      "format": "double",
+      "maximum": 1000000,
+      "minimum": -1000000,
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "nullable": true
+    },
+    "distance_unit": {
+      "enum": [
+        "km",
+        "m",
+        "mi",
+        "ft",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `km` - Kilometers\n* `m` - Meters\n* `mi` - Miles\n* `ft` - Feet",
+      "x-spec-enum-id": "53542e7902f946af",
+      "nullable": true
+    },
+    "comments": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "assignments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Base serializer for group assignments under CircuitSerializer.",
+        "properties": {
+          "group": {
+            "anyOf": [
+              {
+                "type": "integer"
+              }
+            ]
+          },
+          "priority": {
+            "enum": [
+              "primary",
+              "secondary",
+              "tertiary",
+              "inactive",
+              ""
+            ],
+            "type": "string",
+            "description": "* `primary` - Primary\n* `secondary` - Secondary\n* `tertiary` - Tertiary\n* `inactive` - Inactive",
+            "x-spec-enum-id": "ef3a31644cec7524"
+          }
+        },
+        "required": [
+          "group"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

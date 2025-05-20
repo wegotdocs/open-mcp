@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "object_type": {
+      "type": "string"
+    },
+    "table": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "user": {
+      "type": "integer",
+      "nullable": true
+    },
+    "weight": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 0
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "shared": {
+      "type": "boolean"
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "ordering": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "nullable": true
+    }
+  },
+  "required": [
+    "object_type",
+    "table",
+    "name",
+    "columns"
+  ]
+}

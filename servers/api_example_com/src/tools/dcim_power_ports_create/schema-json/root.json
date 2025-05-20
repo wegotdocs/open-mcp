@@ -1,0 +1,205 @@
+{
+  "type": "object",
+  "properties": {
+    "device": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "module": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "label": {
+      "type": "string",
+      "description": "Physical label",
+      "maxLength": 64
+    },
+    "type": {
+      "enum": [
+        "iec-60320-c6",
+        "iec-60320-c8",
+        "iec-60320-c14",
+        "iec-60320-c16",
+        "iec-60320-c20",
+        "iec-60320-c22",
+        "iec-60309-p-n-e-4h",
+        "iec-60309-p-n-e-6h",
+        "iec-60309-p-n-e-9h",
+        "iec-60309-2p-e-4h",
+        "iec-60309-2p-e-6h",
+        "iec-60309-2p-e-9h",
+        "iec-60309-3p-e-4h",
+        "iec-60309-3p-e-6h",
+        "iec-60309-3p-e-9h",
+        "iec-60309-3p-n-e-4h",
+        "iec-60309-3p-n-e-6h",
+        "iec-60309-3p-n-e-9h",
+        "iec-60906-1",
+        "nbr-14136-10a",
+        "nbr-14136-20a",
+        "nema-1-15p",
+        "nema-5-15p",
+        "nema-5-20p",
+        "nema-5-30p",
+        "nema-5-50p",
+        "nema-6-15p",
+        "nema-6-20p",
+        "nema-6-30p",
+        "nema-6-50p",
+        "nema-10-30p",
+        "nema-10-50p",
+        "nema-14-20p",
+        "nema-14-30p",
+        "nema-14-50p",
+        "nema-14-60p",
+        "nema-15-15p",
+        "nema-15-20p",
+        "nema-15-30p",
+        "nema-15-50p",
+        "nema-15-60p",
+        "nema-l1-15p",
+        "nema-l5-15p",
+        "nema-l5-20p",
+        "nema-l5-30p",
+        "nema-l5-50p",
+        "nema-l6-15p",
+        "nema-l6-20p",
+        "nema-l6-30p",
+        "nema-l6-50p",
+        "nema-l10-30p",
+        "nema-l14-20p",
+        "nema-l14-30p",
+        "nema-l14-50p",
+        "nema-l14-60p",
+        "nema-l15-20p",
+        "nema-l15-30p",
+        "nema-l15-50p",
+        "nema-l15-60p",
+        "nema-l21-20p",
+        "nema-l21-30p",
+        "nema-l22-20p",
+        "nema-l22-30p",
+        "cs6361c",
+        "cs6365c",
+        "cs8165c",
+        "cs8265c",
+        "cs8365c",
+        "cs8465c",
+        "ita-c",
+        "ita-e",
+        "ita-f",
+        "ita-ef",
+        "ita-g",
+        "ita-h",
+        "ita-i",
+        "ita-j",
+        "ita-k",
+        "ita-l",
+        "ita-m",
+        "ita-n",
+        "ita-o",
+        "usb-a",
+        "usb-b",
+        "usb-c",
+        "usb-mini-a",
+        "usb-mini-b",
+        "usb-micro-a",
+        "usb-micro-b",
+        "usb-micro-ab",
+        "usb-3-b",
+        "usb-3-micro-b",
+        "molex-micro-fit-1x2",
+        "molex-micro-fit-2x2",
+        "molex-micro-fit-2x4",
+        "dc-terminal",
+        "saf-d-grid",
+        "neutrik-powercon-20",
+        "neutrik-powercon-32",
+        "neutrik-powercon-true1",
+        "neutrik-powercon-true1-top",
+        "ubiquiti-smartpower",
+        "hardwired",
+        "other",
+        "",
+        null
+      ],
+      "type": "string",
+      "x-spec-enum-id": "f1bd4aedff3a591b",
+      "nullable": true,
+      "description": "Physical port type\n\n* `iec-60320-c6` - C6\n* `iec-60320-c8` - C8\n* `iec-60320-c14` - C14\n* `iec-60320-c16` - C16\n* `iec-60320-c20` - C20\n* `iec-60320-c22` - C22\n* `iec-60309-p-n-e-4h` - P+N+E 4H\n* `iec-60309-p-n-e-6h` - P+N+E 6H\n* `iec-60309-p-n-e-9h` - P+N+E 9H\n* `iec-60309-2p-e-4h` - 2P+E 4H\n* `iec-60309-2p-e-6h` - 2P+E 6H\n* `iec-60309-2p-e-9h` - 2P+E 9H\n* `iec-60309-3p-e-4h` - 3P+E 4H\n* `iec-60309-3p-e-6h` - 3P+E 6H\n* `iec-60309-3p-e-9h` - 3P+E 9H\n* `iec-60309-3p-n-e-4h` - 3P+N+E 4H\n* `iec-60309-3p-n-e-6h` - 3P+N+E 6H\n* `iec-60309-3p-n-e-9h` - 3P+N+E 9H\n* `iec-60906-1` - IEC 60906-1\n* `nbr-14136-10a` - 2P+T 10A (NBR 14136)\n* `nbr-14136-20a` - 2P+T 20A (NBR 14136)\n* `nema-1-15p` - NEMA 1-15P\n* `nema-5-15p` - NEMA 5-15P\n* `nema-5-20p` - NEMA 5-20P\n* `nema-5-30p` - NEMA 5-30P\n* `nema-5-50p` - NEMA 5-50P\n* `nema-6-15p` - NEMA 6-15P\n* `nema-6-20p` - NEMA 6-20P\n* `nema-6-30p` - NEMA 6-30P\n* `nema-6-50p` - NEMA 6-50P\n* `nema-10-30p` - NEMA 10-30P\n* `nema-10-50p` - NEMA 10-50P\n* `nema-14-20p` - NEMA 14-20P\n* `nema-14-30p` - NEMA 14-30P\n* `nema-14-50p` - NEMA 14-50P\n* `nema-14-60p` - NEMA 14-60P\n* `nema-15-15p` - NEMA 15-15P\n* `nema-15-20p` - NEMA 15-20P\n* `nema-15-30p` - NEMA 15-30P\n* `nema-15-50p` - NEMA 15-50P\n* `nema-15-60p` - NEMA 15-60P\n* `nema-l1-15p` - NEMA L1-15P\n* `nema-l5-15p` - NEMA L5-15P\n* `nema-l5-20p` - NEMA L5-20P\n* `nema-l5-30p` - NEMA L5-30P\n* `nema-l5-50p` - NEMA L5-50P\n* `nema-l6-15p` - NEMA L6-15P\n* `nema-l6-20p` - NEMA L6-20P\n* `nema-l6-30p` - NEMA L6-30P\n* `nema-l6-50p` - NEMA L6-50P\n* `nema-l10-30p` - NEMA L10-30P\n* `nema-l14-20p` - NEMA L14-20P\n* `nema-l14-30p` - NEMA L14-30P\n* `nema-l14-50p` - NEMA L14-50P\n* `nema-l14-60p` - NEMA L14-60P\n* `nema-l15-20p` - NEMA L15-20P\n* `nema-l15-30p` - NEMA L15-30P\n* `nema-l15-50p` - NEMA L15-50P\n* `nema-l15-60p` - NEMA L15-60P\n* `nema-l21-20p` - NEMA L21-20P\n* `nema-l21-30p` - NEMA L21-30P\n* `nema-l22-20p` - NEMA L22-20P\n* `nema-l22-30p` - NEMA L22-30P\n* `cs6361c` - CS6361C\n* `cs6365c` - CS6365C\n* `cs8165c` - CS8165C\n* `cs8265c` - CS8265C\n* `cs8365c` - CS8365C\n* `cs8465c` - CS8465C\n* `ita-c` - ITA Type C (CEE 7/16)\n* `ita-e` - ITA Type E (CEE 7/6)\n* `ita-f` - ITA Type F (CEE 7/4)\n* `ita-ef` - ITA Type E/F (CEE 7/7)\n* `ita-g` - ITA Type G (BS 1363)\n* `ita-h` - ITA Type H\n* `ita-i` - ITA Type I\n* `ita-j` - ITA Type J\n* `ita-k` - ITA Type K\n* `ita-l` - ITA Type L (CEI 23-50)\n* `ita-m` - ITA Type M (BS 546)\n* `ita-n` - ITA Type N\n* `ita-o` - ITA Type O\n* `usb-a` - USB Type A\n* `usb-b` - USB Type B\n* `usb-c` - USB Type C\n* `usb-mini-a` - USB Mini A\n* `usb-mini-b` - USB Mini B\n* `usb-micro-a` - USB Micro A\n* `usb-micro-b` - USB Micro B\n* `usb-micro-ab` - USB Micro AB\n* `usb-3-b` - USB 3.0 Type B\n* `usb-3-micro-b` - USB 3.0 Micro B\n* `molex-micro-fit-1x2` - Molex Micro-Fit 1x2\n* `molex-micro-fit-2x2` - Molex Micro-Fit 2x2\n* `molex-micro-fit-2x4` - Molex Micro-Fit 2x4\n* `dc-terminal` - DC Terminal\n* `saf-d-grid` - Saf-D-Grid\n* `neutrik-powercon-20` - Neutrik powerCON (20A)\n* `neutrik-powercon-32` - Neutrik powerCON (32A)\n* `neutrik-powercon-true1` - Neutrik powerCON TRUE1\n* `neutrik-powercon-true1-top` - Neutrik powerCON TRUE1 TOP\n* `ubiquiti-smartpower` - Ubiquiti SmartPower\n* `hardwired` - Hardwired\n* `other` - Other"
+    },
+    "maximum_draw": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": 1,
+      "nullable": true,
+      "description": "Maximum power draw (watts)"
+    },
+    "allocated_draw": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": 1,
+      "nullable": true,
+      "description": "Allocated power draw (watts)"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "mark_connected": {
+      "type": "boolean",
+      "description": "Treat as if a cable is connected"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "device",
+    "name"
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "type": "object",
+  "properties": {
+    "action": {
+      "description": "* `create` - Created\n* `update` - Updated\n* `delete` - Deleted",
+      "type": "string",
+      "x-spec-enum-id": "544f9b3b28b7ce6a",
+      "enum": [
+        "create",
+        "delete",
+        "update"
+      ]
+    },
+    "changed_object_id": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "changed_object_id__empty": {
+      "type": "boolean"
+    },
+    "changed_object_id__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "changed_object_id__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "changed_object_id__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "changed_object_id__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "changed_object_id__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "changed_object_type": {
+      "type": "string"
+    },
+    "changed_object_type__n": {
+      "type": "string"
+    },
+    "changed_object_type_id": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "changed_object_type_id__n": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "id": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__empty": {
+      "type": "boolean"
+    },
+    "id__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "object_repr": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "object_repr__empty": {
+      "type": "boolean"
+    },
+    "object_repr__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "object_repr__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "object_repr__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "object_repr__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "object_repr__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "object_repr__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "object_repr__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "object_repr__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "object_repr__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "q": {
+      "description": "Search",
+      "type": "string"
+    },
+    "related_object_id": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "related_object_id__empty": {
+      "type": "boolean"
+    },
+    "related_object_id__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "related_object_id__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "related_object_id__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "related_object_id__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "related_object_id__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "related_object_type": {
+      "type": "integer"
+    },
+    "related_object_type__n": {
+      "type": "integer"
+    },
+    "request_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "time_after": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "time_before": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "user": {
+      "description": "User name",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user__n": {
+      "description": "User name",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_id": {
+      "description": "User (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "user_id__n": {
+      "description": "User (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "user_name": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_name__empty": {
+      "type": "boolean"
+    },
+    "user_name__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_name__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_name__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_name__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_name__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_name__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_name__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_name__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_name__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

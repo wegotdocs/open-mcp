@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this console port template.",
+      "type": "integer"
+    },
+    "device_type": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "module_type": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "{module} is accepted as a substitution for the module bay position when attached to a module type.",
+      "maxLength": 64
+    },
+    "label": {
+      "type": "string",
+      "description": "Physical label",
+      "maxLength": 64
+    },
+    "type": {
+      "enum": [
+        "de-9",
+        "db-25",
+        "rj-11",
+        "rj-12",
+        "rj-45",
+        "mini-din-8",
+        "usb-a",
+        "usb-b",
+        "usb-c",
+        "usb-mini-a",
+        "usb-mini-b",
+        "usb-micro-a",
+        "usb-micro-b",
+        "usb-micro-ab",
+        "other",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `de-9` - DE-9\n* `db-25` - DB-25\n* `rj-11` - RJ-11\n* `rj-12` - RJ-12\n* `rj-45` - RJ-45\n* `mini-din-8` - Mini-DIN 8\n* `usb-a` - USB Type A\n* `usb-b` - USB Type B\n* `usb-c` - USB Type C\n* `usb-mini-a` - USB Mini A\n* `usb-mini-b` - USB Mini B\n* `usb-micro-a` - USB Micro A\n* `usb-micro-b` - USB Micro B\n* `usb-micro-ab` - USB Micro AB\n* `other` - Other",
+      "x-spec-enum-id": "c5f7197b7211818a",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

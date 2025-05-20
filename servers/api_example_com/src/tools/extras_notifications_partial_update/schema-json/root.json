@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this notification.",
+      "type": "integer"
+    },
+    "object_type": {
+      "type": "string"
+    },
+    "object_id": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": 0,
+      "format": "int64"
+    },
+    "user": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "read": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "event_type": {
+      "enum": [
+        "object_created",
+        "object_updated",
+        "object_deleted",
+        "job_started",
+        "job_completed",
+        "job_failed",
+        "job_errored"
+      ],
+      "type": "string",
+      "description": "* `object_created` - Object created\n* `object_updated` - Object updated\n* `object_deleted` - Object deleted\n* `job_started` - Job started\n* `job_completed` - Job completed\n* `job_failed` - Job failed\n* `job_errored` - Job errored",
+      "x-spec-enum-id": "80d172232f4af424",
+      "title": "Event"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

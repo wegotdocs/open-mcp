@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 150
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

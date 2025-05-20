@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "device_type": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "{module} is accepted as a substitution for the module bay position when attached to a module type.",
+      "maxLength": 64
+    },
+    "label": {
+      "type": "string",
+      "description": "Physical label",
+      "maxLength": 64
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "device_type",
+    "name"
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": [
+        "cat3",
+        "cat5",
+        "cat5e",
+        "cat6",
+        "cat6a",
+        "cat7",
+        "cat7a",
+        "cat8",
+        "dac-active",
+        "dac-passive",
+        "mrj21-trunk",
+        "coaxial",
+        "mmf",
+        "mmf-om1",
+        "mmf-om2",
+        "mmf-om3",
+        "mmf-om4",
+        "mmf-om5",
+        "smf",
+        "smf-os1",
+        "smf-os2",
+        "aoc",
+        "usb",
+        "power",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `cat3` - CAT3\n* `cat5` - CAT5\n* `cat5e` - CAT5e\n* `cat6` - CAT6\n* `cat6a` - CAT6a\n* `cat7` - CAT7\n* `cat7a` - CAT7a\n* `cat8` - CAT8\n* `dac-active` - Direct Attach Copper (Active)\n* `dac-passive` - Direct Attach Copper (Passive)\n* `mrj21-trunk` - MRJ21 Trunk\n* `coaxial` - Coaxial\n* `mmf` - Multimode Fiber\n* `mmf-om1` - Multimode Fiber (OM1)\n* `mmf-om2` - Multimode Fiber (OM2)\n* `mmf-om3` - Multimode Fiber (OM3)\n* `mmf-om4` - Multimode Fiber (OM4)\n* `mmf-om5` - Multimode Fiber (OM5)\n* `smf` - Singlemode Fiber\n* `smf-os1` - Singlemode Fiber (OS1)\n* `smf-os2` - Singlemode Fiber (OS2)\n* `aoc` - Active Optical Cabling (AOC)\n* `usb` - USB\n* `power` - Power",
+      "x-spec-enum-id": "7b11d524b2b1a7ef",
+      "nullable": true
+    },
+    "a_terminations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Minimal representation of some generic object identified by ContentType and PK.",
+        "properties": {
+          "object_type": {
+            "type": "string"
+          },
+          "object_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "object_id",
+          "object_type"
+        ]
+      }
+    },
+    "b_terminations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Minimal representation of some generic object identified by ContentType and PK.",
+        "properties": {
+          "object_type": {
+            "type": "string"
+          },
+          "object_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "object_id",
+          "object_type"
+        ]
+      }
+    },
+    "status": {
+      "enum": [
+        "connected",
+        "planned",
+        "decommissioning"
+      ],
+      "type": "string",
+      "description": "* `connected` - Connected\n* `planned` - Planned\n* `decommissioning` - Decommissioning",
+      "x-spec-enum-id": "fbc2f302c08be50d"
+    },
+    "tenant": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "label": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{6}$",
+      "maxLength": 6
+    },
+    "length": {
+      "type": "number",
+      "format": "double",
+      "maximum": 1000000,
+      "minimum": -1000000,
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "nullable": true
+    },
+    "length_unit": {
+      "enum": [
+        "km",
+        "m",
+        "cm",
+        "mi",
+        "ft",
+        "in",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `km` - Kilometers\n* `m` - Meters\n* `cm` - Centimeters\n* `mi` - Miles\n* `ft` - Feet\n* `in` - Inches",
+      "x-spec-enum-id": "e64ce3a2c5997172",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "comments": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}
