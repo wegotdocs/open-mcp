@@ -1,0 +1,118 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this config context.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "weight": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 0
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "site_groups": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "sites": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "device_types": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "cluster_types": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "cluster_groups": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "clusters": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "tenant_groups": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "tenants": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "data_source": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "data": {}
+  },
+  "required": [
+    "id",
+    "name",
+    "data"
+  ]
+}

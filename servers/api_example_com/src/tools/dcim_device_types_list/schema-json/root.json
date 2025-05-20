@@ -1,0 +1,1142 @@
+{
+  "type": "object",
+  "properties": {
+    "airflow": {
+      "description": "* `front-to-rear` - Front to rear\n* `rear-to-front` - Rear to front\n* `left-to-right` - Left to right\n* `right-to-left` - Right to left\n* `side-to-rear` - Side to rear\n* `rear-to-side` - Rear to side\n* `bottom-to-top` - Bottom to top\n* `top-to-bottom` - Top to bottom\n* `passive` - Passive\n* `mixed` - Mixed",
+      "type": "string",
+      "x-spec-enum-id": "943288113dad6782",
+      "nullable": true,
+      "enum": [
+        "bottom-to-top",
+        "front-to-rear",
+        "left-to-right",
+        "mixed",
+        "passive",
+        "rear-to-front",
+        "rear-to-side",
+        "right-to-left",
+        "side-to-rear",
+        "top-to-bottom"
+      ]
+    },
+    "console_port_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_template_count__empty": {
+      "type": "boolean"
+    },
+    "console_port_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_port_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_ports": {
+      "description": "Has console ports",
+      "type": "boolean"
+    },
+    "console_server_port_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_template_count__empty": {
+      "type": "boolean"
+    },
+    "console_server_port_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_port_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "console_server_ports": {
+      "description": "Has console server ports",
+      "type": "boolean"
+    },
+    "created": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__empty": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__gt": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__gte": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__lt": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__lte": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created__n": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "created_by_request": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "default_platform": {
+      "description": "Default platform (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "default_platform__n": {
+      "description": "Default platform (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "default_platform_id": {
+      "description": "Default platform (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "default_platform_id__n": {
+      "description": "Default platform (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "description": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__empty": {
+      "type": "boolean"
+    },
+    "description__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "device_bay_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_template_count__empty": {
+      "type": "boolean"
+    },
+    "device_bay_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bay_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "device_bays": {
+      "description": "Has device bays",
+      "type": "boolean"
+    },
+    "exclude_from_utilization": {
+      "type": "boolean"
+    },
+    "front_port_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_template_count__empty": {
+      "type": "boolean"
+    },
+    "front_port_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "front_port_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "has_front_image": {
+      "description": "Has a front image",
+      "type": "boolean"
+    },
+    "has_rear_image": {
+      "description": "Has a rear image",
+      "type": "boolean"
+    },
+    "id": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__empty": {
+      "type": "boolean"
+    },
+    "id__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "id__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_template_count__empty": {
+      "type": "boolean"
+    },
+    "interface_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interface_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "interfaces": {
+      "description": "Has interfaces",
+      "type": "boolean"
+    },
+    "inventory_item_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_template_count__empty": {
+      "type": "boolean"
+    },
+    "inventory_item_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_item_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "inventory_items": {
+      "description": "Has inventory items",
+      "type": "boolean"
+    },
+    "is_full_depth": {
+      "type": "boolean"
+    },
+    "last_updated": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__empty": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__gt": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__gte": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__lt": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__lte": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "last_updated__n": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "manufacturer": {
+      "description": "Manufacturer (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manufacturer__n": {
+      "description": "Manufacturer (slug)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manufacturer_id": {
+      "description": "Manufacturer (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "manufacturer_id__n": {
+      "description": "Manufacturer (ID)",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "model": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__empty": {
+      "type": "boolean"
+    },
+    "model__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "modified_by_request": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "module_bay_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_template_count__empty": {
+      "type": "boolean"
+    },
+    "module_bay_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bay_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "module_bays": {
+      "description": "Has module bays",
+      "type": "boolean"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "part_number": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_number__empty": {
+      "type": "boolean"
+    },
+    "part_number__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_number__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_number__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_number__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_number__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_number__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_number__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_number__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_number__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pass_through_ports": {
+      "description": "Has pass-through ports",
+      "type": "boolean"
+    },
+    "power_outlet_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_template_count__empty": {
+      "type": "boolean"
+    },
+    "power_outlet_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlet_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_outlets": {
+      "description": "Has power outlets",
+      "type": "boolean"
+    },
+    "power_port_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_template_count__empty": {
+      "type": "boolean"
+    },
+    "power_port_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_port_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "power_ports": {
+      "description": "Has power ports",
+      "type": "boolean"
+    },
+    "q": {
+      "description": "Search",
+      "type": "string"
+    },
+    "rear_port_template_count": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_template_count__empty": {
+      "type": "boolean"
+    },
+    "rear_port_template_count__gt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_template_count__gte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_template_count__lt": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_template_count__lte": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "rear_port_template_count__n": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "slug": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slug__empty": {
+      "type": "boolean"
+    },
+    "slug__ic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slug__ie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slug__iew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slug__isw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slug__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slug__nic": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slug__nie": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slug__niew": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slug__nisw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subdevice_role": {
+      "description": "Parent devices house child devices in device bays. Leave blank if this device type is neither a parent nor a child.\n\n* `parent` - Parent\n* `child` - Child",
+      "type": "string",
+      "x-spec-enum-id": "d10d91f690a856c2",
+      "nullable": true,
+      "title": "Parent/child status",
+      "enum": [
+        "child",
+        "parent"
+      ]
+    },
+    "tag": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tag__n": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tag_id": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "tag_id__n": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "u_height": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "u_height__empty": {
+      "type": "boolean"
+    },
+    "u_height__gt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "u_height__gte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "u_height__lt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "u_height__lte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "u_height__n": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "updated_by_request": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "weight": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "weight__empty": {
+      "type": "boolean"
+    },
+    "weight__gt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "weight__gte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "weight__lt": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "weight__lte": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "weight__n": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "double"
+      }
+    },
+    "weight_unit": {
+      "description": "* `kg` - Kilograms\n* `g` - Grams\n* `lb` - Pounds\n* `oz` - Ounces",
+      "type": "string",
+      "x-spec-enum-id": "7c1876f422815884",
+      "nullable": true,
+      "enum": [
+        "g",
+        "kg",
+        "lb",
+        "oz"
+      ]
+    }
+  },
+  "required": []
+}

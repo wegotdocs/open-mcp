@@ -1,0 +1,95 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "core_jobs_list",
+  "toolDescription": "Retrieve a list of job results",
+  "baseUrl": "https://api.example.com",
+  "path": "/api/core/jobs/",
+  "method": "get",
+  "security": [
+    {
+      "key": "sessionid",
+      "value": "<mcp-env-var>SESSIONID</mcp-env-var>",
+      "in": "cookie",
+      "envVarName": "SESSIONID"
+    },
+    {
+      "key": "Authorization",
+      "value": "<mcp-env-var>AUTHORIZATION</mcp-env-var>",
+      "in": "header",
+      "envVarName": "AUTHORIZATION"
+    }
+  ],
+  "paramsMap": {
+    "query": {
+      "completed": "completed",
+      "completed__after": "completed__after",
+      "completed__before": "completed__before",
+      "created": "created",
+      "created__after": "created__after",
+      "created__before": "created__before",
+      "id": "id",
+      "id__empty": "id__empty",
+      "id__gt": "id__gt",
+      "id__gte": "id__gte",
+      "id__lt": "id__lt",
+      "id__lte": "id__lte",
+      "id__n": "id__n",
+      "interval": "interval",
+      "interval__empty": "interval__empty",
+      "interval__gt": "interval__gt",
+      "interval__gte": "interval__gte",
+      "interval__lt": "interval__lt",
+      "interval__lte": "interval__lte",
+      "interval__n": "interval__n",
+      "job_id": "job_id",
+      "limit": "limit",
+      "name": "name",
+      "name__empty": "name__empty",
+      "name__ic": "name__ic",
+      "name__ie": "name__ie",
+      "name__iew": "name__iew",
+      "name__isw": "name__isw",
+      "name__n": "name__n",
+      "name__nic": "name__nic",
+      "name__nie": "name__nie",
+      "name__niew": "name__niew",
+      "name__nisw": "name__nisw",
+      "object_id": "object_id",
+      "object_id__empty": "object_id__empty",
+      "object_id__gt": "object_id__gt",
+      "object_id__gte": "object_id__gte",
+      "object_id__lt": "object_id__lt",
+      "object_id__lte": "object_id__lte",
+      "object_id__n": "object_id__n",
+      "object_type": "object_type",
+      "object_type__n": "object_type__n",
+      "offset": "offset",
+      "ordering": "ordering",
+      "q": "q",
+      "scheduled": "scheduled",
+      "scheduled__after": "scheduled__after",
+      "scheduled__before": "scheduled__before",
+      "started": "started",
+      "started__after": "started__after",
+      "started__before": "started__before",
+      "status": "status",
+      "status__empty": "status__empty",
+      "status__ic": "status__ic",
+      "status__ie": "status__ie",
+      "status__iew": "status__iew",
+      "status__isw": "status__isw",
+      "status__n": "status__n",
+      "status__nic": "status__nic",
+      "status__nie": "status__nie",
+      "status__niew": "status__niew",
+      "status__nisw": "status__nisw",
+      "user": "user",
+      "user__n": "user__n"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

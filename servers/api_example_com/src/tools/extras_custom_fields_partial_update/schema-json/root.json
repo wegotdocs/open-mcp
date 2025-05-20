@@ -1,0 +1,161 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this custom field.",
+      "type": "integer"
+    },
+    "object_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "type": {
+      "enum": [
+        "text",
+        "longtext",
+        "integer",
+        "decimal",
+        "boolean",
+        "date",
+        "datetime",
+        "url",
+        "json",
+        "select",
+        "multiselect",
+        "object",
+        "multiobject"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "22e3a64138d10046",
+      "description": "The type of data this custom field holds\n\n* `text` - Text\n* `longtext` - Text (long)\n* `integer` - Integer\n* `decimal` - Decimal\n* `boolean` - Boolean (true/false)\n* `date` - Date\n* `datetime` - Date & time\n* `url` - URL\n* `json` - JSON\n* `select` - Selection\n* `multiselect` - Multiple selection\n* `object` - Object\n* `multiobject` - Multiple objects"
+    },
+    "related_object_type": {
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Internal field name",
+      "pattern": "^[a-z0-9_]+$",
+      "maxLength": 50
+    },
+    "label": {
+      "type": "string",
+      "description": "Name of the field as displayed to users (if not provided, 'the field's name will be used)",
+      "maxLength": 50
+    },
+    "group_name": {
+      "type": "string",
+      "description": "Custom fields within the same group will be displayed together",
+      "maxLength": 50
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "required": {
+      "type": "boolean",
+      "description": "This field is required when creating new objects or editing an existing object."
+    },
+    "unique": {
+      "type": "boolean",
+      "title": "Must be unique",
+      "description": "The value of this field must be unique for the assigned object"
+    },
+    "search_weight": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 0,
+      "description": "Weighting for search. Lower values are considered more important. Fields with a search weight of zero will be ignored."
+    },
+    "filter_logic": {
+      "enum": [
+        "disabled",
+        "loose",
+        "exact"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "a958350ae21c10ee",
+      "description": "Loose matches any instance of a given string; exact matches the entire field.\n\n* `disabled` - Disabled\n* `loose` - Loose\n* `exact` - Exact"
+    },
+    "ui_visible": {
+      "enum": [
+        "always",
+        "if-set",
+        "hidden"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "cd2cf94af56de747",
+      "description": "Specifies whether the custom field is displayed in the UI\n\n* `always` - Always\n* `if-set` - If set\n* `hidden` - Hidden"
+    },
+    "ui_editable": {
+      "enum": [
+        "yes",
+        "no",
+        "hidden"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "1065673147e26bb5",
+      "description": "Specifies whether the custom field value can be edited in the UI\n\n* `yes` - Yes\n* `no` - No\n* `hidden` - Hidden"
+    },
+    "is_cloneable": {
+      "type": "boolean",
+      "description": "Replicate this value when cloning objects"
+    },
+    "default": {
+      "nullable": true,
+      "description": "Default value for the field (must be a JSON value). Encapsulate strings with double quotes (e.g. \"Foo\")."
+    },
+    "related_object_filter": {
+      "nullable": true,
+      "description": "Filter the object selection choices using a query_params dict (must be a JSON value).Encapsulate strings with double quotes (e.g. \"Foo\")."
+    },
+    "weight": {
+      "type": "integer",
+      "maximum": 32767,
+      "minimum": 0,
+      "title": "Display weight",
+      "description": "Fields with higher weights appear lower in a form."
+    },
+    "validation_minimum": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": -9223372036854776000,
+      "format": "int64",
+      "nullable": true,
+      "title": "Minimum value",
+      "description": "Minimum allowed value (for numeric fields)"
+    },
+    "validation_maximum": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": -9223372036854776000,
+      "format": "int64",
+      "nullable": true,
+      "title": "Maximum value",
+      "description": "Maximum allowed value (for numeric fields)"
+    },
+    "validation_regex": {
+      "type": "string",
+      "description": "Regular expression to enforce on text field values. Use ^ and $ to force matching of entire string. For example, <code>^[A-Z]{3}$</code> will limit values to exactly three uppercase letters.",
+      "maxLength": 500
+    },
+    "choice_set": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "comments": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

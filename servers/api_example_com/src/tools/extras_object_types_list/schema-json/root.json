@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "app_label": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "model": {
+      "type": "string"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "q": {
+      "description": "Search",
+      "type": "string"
+    }
+  },
+  "required": []
+}

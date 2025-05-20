@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this inventory item template.",
+      "type": "integer"
+    },
+    "device_type": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "parent": {
+      "type": "integer",
+      "nullable": true
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "{module} is accepted as a substitution for the module bay position when attached to a module type.",
+      "maxLength": 64
+    },
+    "label": {
+      "type": "string",
+      "description": "Physical label",
+      "maxLength": 64
+    },
+    "role": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "manufacturer": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "part_id": {
+      "type": "string",
+      "description": "Manufacturer-assigned part identifier",
+      "maxLength": 50
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "component_type": {
+      "type": "string",
+      "nullable": true
+    },
+    "component_id": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": 0,
+      "format": "int64",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this subscription.",
+      "type": "integer"
+    },
+    "object_type": {
+      "type": "string"
+    },
+    "object_id": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": 0,
+      "format": "int64"
+    },
+    "user": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "object_type",
+    "object_id",
+    "user"
+  ]
+}

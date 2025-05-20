@@ -1,0 +1,18 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.number().int().describe("A unique integer value identifying this cable."),
+  "type": z.union([z.literal("cat3"), z.literal("cat5"), z.literal("cat5e"), z.literal("cat6"), z.literal("cat6a"), z.literal("cat7"), z.literal("cat7a"), z.literal("cat8"), z.literal("dac-active"), z.literal("dac-passive"), z.literal("mrj21-trunk"), z.literal("coaxial"), z.literal("mmf"), z.literal("mmf-om1"), z.literal("mmf-om2"), z.literal("mmf-om3"), z.literal("mmf-om4"), z.literal("mmf-om5"), z.literal("smf"), z.literal("smf-os1"), z.literal("smf-os2"), z.literal("aoc"), z.literal("usb"), z.literal("power"), z.literal(""), z.literal(null)]).nullable().describe("* `cat3` - CAT3\n* `cat5` - CAT5\n* `cat5e` - CAT5e\n* `cat6` - CAT6\n* `cat6a` - CAT6a\n* `cat7` - CAT7\n* `cat7a` - CAT7a\n* `cat8` - CAT8\n* `dac-active` - Direct Attach Copper (Active)\n* `dac-passive` - Direct Attach Copper (Passive)\n* `mrj21-trunk` - MRJ21 Trunk\n* `coaxial` - Coaxial\n* `mmf` - Multimode Fiber\n* `mmf-om1` - Multimode Fiber (OM1)\n* `mmf-om2` - Multimode Fiber (OM2)\n* `mmf-om3` - Multimode Fiber (OM3)\n* `mmf-om4` - Multimode Fiber (OM4)\n* `mmf-om5` - Multimode Fiber (OM5)\n* `smf` - Singlemode Fiber\n* `smf-os1` - Singlemode Fiber (OS1)\n* `smf-os2` - Singlemode Fiber (OS2)\n* `aoc` - Active Optical Cabling (AOC)\n* `usb` - USB\n* `power` - Power").optional(),
+  "a_terminations": z.array(z.object({ "object_type": z.string(), "object_id": z.number().int() }).describe("Minimal representation of some generic object identified by ContentType and PK.")).optional(),
+  "b_terminations": z.array(z.object({ "object_type": z.string(), "object_id": z.number().int() }).describe("Minimal representation of some generic object identified by ContentType and PK.")).optional(),
+  "status": z.enum(["connected","planned","decommissioning"]).describe("* `connected` - Connected\n* `planned` - Planned\n* `decommissioning` - Decommissioning").optional(),
+  "tenant": z.number().int().nullable().optional(),
+  "label": z.string().max(100).optional(),
+  "color": z.string().regex(new RegExp("^[0-9a-f]{6}$")).max(6).optional(),
+  "length": z.number().gt(-1000000).lt(1000000).nullable().optional(),
+  "length_unit": z.union([z.literal("km"), z.literal("m"), z.literal("cm"), z.literal("mi"), z.literal("ft"), z.literal("in"), z.literal(""), z.literal(null)]).nullable().describe("* `km` - Kilometers\n* `m` - Meters\n* `cm` - Centimeters\n* `mi` - Miles\n* `ft` - Feet\n* `in` - Inches").optional(),
+  "description": z.string().max(200).optional(),
+  "comments": z.string().optional(),
+  "tags": z.array(z.object({ "name": z.string().min(1).max(100), "slug": z.string().regex(new RegExp("^[-\\w]+$")).min(1).max(100), "color": z.string().regex(new RegExp("^[0-9a-f]{6}$")).min(1).max(6).optional() }).describe("Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.")).optional(),
+  "custom_fields": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>").optional()
+}

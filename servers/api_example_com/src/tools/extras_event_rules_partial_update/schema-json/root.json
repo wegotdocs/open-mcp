@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this event rule.",
+      "type": "integer"
+    },
+    "object_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 150
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "event_types": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "object_created",
+          "object_updated",
+          "object_deleted",
+          "job_started",
+          "job_completed",
+          "job_failed",
+          "job_errored"
+        ],
+        "type": "string",
+        "description": "* `object_created` - Object created\n* `object_updated` - Object updated\n* `object_deleted` - Object deleted\n* `job_started` - Job started\n* `job_completed` - Job completed\n* `job_failed` - Job failed\n* `job_errored` - Job errored",
+        "x-spec-enum-id": "80d172232f4af424"
+      },
+      "description": "The types of event which will trigger this rule."
+    },
+    "conditions": {
+      "nullable": true,
+      "description": "A set of conditions which determine whether the event will be generated."
+    },
+    "action_type": {
+      "enum": [
+        "webhook",
+        "script",
+        "notification"
+      ],
+      "type": "string",
+      "description": "* `webhook` - Webhook\n* `script` - Script\n* `notification` - Notification",
+      "x-spec-enum-id": "d07193c73ebc03c6"
+    },
+    "action_object_type": {
+      "type": "string"
+    },
+    "action_object_id": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": 0,
+      "format": "int64",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "user": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "expires": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "last_used": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "key": {
+      "type": "string",
+      "writeOnly": true,
+      "maxLength": 40,
+      "minLength": 40
+    },
+    "write_enabled": {
+      "type": "boolean",
+      "description": "Permit create/update/delete operations using this key"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "user"
+  ]
+}

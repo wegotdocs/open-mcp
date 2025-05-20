@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[^/]+$"
+    },
+    "data": {},
+    "commit": {
+      "type": "boolean"
+    },
+    "schedule_at": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "interval": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id",
+    "data",
+    "commit"
+  ]
+}

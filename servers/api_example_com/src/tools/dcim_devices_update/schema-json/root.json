@@ -1,0 +1,268 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this device.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 64
+    },
+    "device_type": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "role": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "tenant": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "platform": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "serial": {
+      "type": "string",
+      "title": "Serial number",
+      "description": "Chassis serial number, assigned by the manufacturer",
+      "maxLength": 50
+    },
+    "asset_tag": {
+      "type": "string",
+      "nullable": true,
+      "description": "A unique tag used to identify this device",
+      "maxLength": 50
+    },
+    "site": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "location": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "rack": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "position": {
+      "type": "number",
+      "format": "double",
+      "maximum": 1000,
+      "minimum": 0.5,
+      "exclusiveMaximum": true,
+      "nullable": true,
+      "title": "Position (U)"
+    },
+    "face": {
+      "enum": [
+        "front",
+        "rear",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `front` - Front\n* `rear` - Rear",
+      "x-spec-enum-id": "d2fb9b3f75158b83",
+      "nullable": true,
+      "title": "Rack face"
+    },
+    "latitude": {
+      "type": "number",
+      "format": "double",
+      "maximum": 100,
+      "minimum": -100,
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "nullable": true,
+      "description": "GPS coordinate in decimal format (xx.yyyyyy)"
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double",
+      "maximum": 1000,
+      "minimum": -1000,
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "nullable": true,
+      "description": "GPS coordinate in decimal format (xx.yyyyyy)"
+    },
+    "status": {
+      "enum": [
+        "offline",
+        "active",
+        "planned",
+        "staged",
+        "failed",
+        "inventory",
+        "decommissioning"
+      ],
+      "type": "string",
+      "description": "* `offline` - Offline\n* `active` - Active\n* `planned` - Planned\n* `staged` - Staged\n* `failed` - Failed\n* `inventory` - Inventory\n* `decommissioning` - Decommissioning",
+      "x-spec-enum-id": "8d8971779f16ee18"
+    },
+    "airflow": {
+      "enum": [
+        "front-to-rear",
+        "rear-to-front",
+        "left-to-right",
+        "right-to-left",
+        "side-to-rear",
+        "rear-to-side",
+        "bottom-to-top",
+        "top-to-bottom",
+        "passive",
+        "mixed",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `front-to-rear` - Front to rear\n* `rear-to-front` - Rear to front\n* `left-to-right` - Left to right\n* `right-to-left` - Right to left\n* `side-to-rear` - Side to rear\n* `rear-to-side` - Rear to side\n* `bottom-to-top` - Bottom to top\n* `top-to-bottom` - Top to bottom\n* `passive` - Passive\n* `mixed` - Mixed",
+      "x-spec-enum-id": "943288113dad6782",
+      "nullable": true
+    },
+    "primary_ip4": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "primary_ip6": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "oob_ip": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "cluster": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "virtual_chassis": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "vc_position": {
+      "type": "integer",
+      "maximum": 255,
+      "minimum": 0,
+      "nullable": true
+    },
+    "vc_priority": {
+      "type": "integer",
+      "maximum": 255,
+      "minimum": 0,
+      "nullable": true,
+      "description": "Virtual chassis master election priority"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "comments": {
+      "type": "string"
+    },
+    "config_template": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "local_context_data": {
+      "nullable": true,
+      "description": "Local config context data takes precedence over source contexts in the final rendered config context"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id",
+    "device_type",
+    "role",
+    "site"
+  ]
+}

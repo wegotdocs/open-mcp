@@ -1,0 +1,28 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "circuits_virtual_circuit_terminations_bulk_update",
+  "toolDescription": "Put a list of virtual circuit termination objects.",
+  "baseUrl": "https://api.example.com",
+  "path": "/api/circuits/virtual-circuit-terminations/",
+  "method": "put",
+  "security": [
+    {
+      "key": "sessionid",
+      "value": "<mcp-env-var>SESSIONID</mcp-env-var>",
+      "in": "cookie",
+      "envVarName": "SESSIONID"
+    },
+    {
+      "key": "Authorization",
+      "value": "<mcp-env-var>AUTHORIZATION</mcp-env-var>",
+      "in": "header",
+      "envVarName": "AUTHORIZATION"
+    }
+  ],
+  "paramsMap": {},
+  inputParamsSchema
+}
+
+export default tool

@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this export template.",
+      "type": "integer"
+    },
+    "object_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "environment_params": {
+      "nullable": true,
+      "title": "Environment parameters",
+      "description": "Any <a href=\"https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment\">additional parameters</a> to pass when constructing the Jinja environment"
+    },
+    "template_code": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Jinja template code."
+    },
+    "mime_type": {
+      "type": "string",
+      "description": "Defaults to <code>text/plain; charset=utf-8</code>",
+      "maxLength": 50
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Filename to give to the rendered export file",
+      "maxLength": 200
+    },
+    "file_extension": {
+      "type": "string",
+      "description": "Extension to append to the rendered filename",
+      "maxLength": 15
+    },
+    "as_attachment": {
+      "type": "boolean",
+      "description": "Download file as attachment"
+    },
+    "data_source": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "group": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "interface_type": {
+      "type": "string"
+    },
+    "interface_id": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": 0,
+      "format": "int64"
+    },
+    "priority": {
+      "type": "integer",
+      "maximum": 255,
+      "minimum": 0
+    }
+  },
+  "required": [
+    "group",
+    "interface_type",
+    "interface_id",
+    "priority"
+  ]
+}

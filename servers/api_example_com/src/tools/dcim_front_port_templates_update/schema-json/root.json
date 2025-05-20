@@ -1,0 +1,128 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this front port template.",
+      "type": "integer"
+    },
+    "device_type": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "module_type": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "{module} is accepted as a substitution for the module bay position when attached to a module type.",
+      "maxLength": 64
+    },
+    "label": {
+      "type": "string",
+      "description": "Physical label",
+      "maxLength": 64
+    },
+    "type": {
+      "enum": [
+        "8p8c",
+        "8p6c",
+        "8p4c",
+        "8p2c",
+        "6p6c",
+        "6p4c",
+        "6p2c",
+        "4p4c",
+        "4p2c",
+        "gg45",
+        "tera-4p",
+        "tera-2p",
+        "tera-1p",
+        "110-punch",
+        "bnc",
+        "f",
+        "n",
+        "mrj21",
+        "fc",
+        "fc-pc",
+        "fc-upc",
+        "fc-apc",
+        "lc",
+        "lc-pc",
+        "lc-upc",
+        "lc-apc",
+        "lsh",
+        "lsh-pc",
+        "lsh-upc",
+        "lsh-apc",
+        "lx5",
+        "lx5-pc",
+        "lx5-upc",
+        "lx5-apc",
+        "mpo",
+        "mtrj",
+        "sc",
+        "sc-pc",
+        "sc-upc",
+        "sc-apc",
+        "st",
+        "cs",
+        "sn",
+        "sma-905",
+        "sma-906",
+        "urm-p2",
+        "urm-p4",
+        "urm-p8",
+        "splice",
+        "usb-a",
+        "usb-b",
+        "usb-c",
+        "usb-mini-a",
+        "usb-mini-b",
+        "usb-micro-a",
+        "usb-micro-b",
+        "usb-micro-ab",
+        "other"
+      ],
+      "type": "string",
+      "description": "* `8p8c` - 8P8C\n* `8p6c` - 8P6C\n* `8p4c` - 8P4C\n* `8p2c` - 8P2C\n* `6p6c` - 6P6C\n* `6p4c` - 6P4C\n* `6p2c` - 6P2C\n* `4p4c` - 4P4C\n* `4p2c` - 4P2C\n* `gg45` - GG45\n* `tera-4p` - TERA 4P\n* `tera-2p` - TERA 2P\n* `tera-1p` - TERA 1P\n* `110-punch` - 110 Punch\n* `bnc` - BNC\n* `f` - F Connector\n* `n` - N Connector\n* `mrj21` - MRJ21\n* `fc` - FC\n* `fc-pc` - FC/PC\n* `fc-upc` - FC/UPC\n* `fc-apc` - FC/APC\n* `lc` - LC\n* `lc-pc` - LC/PC\n* `lc-upc` - LC/UPC\n* `lc-apc` - LC/APC\n* `lsh` - LSH\n* `lsh-pc` - LSH/PC\n* `lsh-upc` - LSH/UPC\n* `lsh-apc` - LSH/APC\n* `lx5` - LX.5\n* `lx5-pc` - LX.5/PC\n* `lx5-upc` - LX.5/UPC\n* `lx5-apc` - LX.5/APC\n* `mpo` - MPO\n* `mtrj` - MTRJ\n* `sc` - SC\n* `sc-pc` - SC/PC\n* `sc-upc` - SC/UPC\n* `sc-apc` - SC/APC\n* `st` - ST\n* `cs` - CS\n* `sn` - SN\n* `sma-905` - SMA 905\n* `sma-906` - SMA 906\n* `urm-p2` - URM-P2\n* `urm-p4` - URM-P4\n* `urm-p8` - URM-P8\n* `splice` - Splice\n* `usb-a` - USB Type A\n* `usb-b` - USB Type B\n* `usb-c` - USB Type C\n* `usb-mini-a` - USB Mini A\n* `usb-mini-b` - USB Mini B\n* `usb-micro-a` - USB Micro A\n* `usb-micro-b` - USB Micro B\n* `usb-micro-ab` - USB Micro AB\n* `other` - Other",
+      "x-spec-enum-id": "ea67ae8ba4602f8a"
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{6}$",
+      "maxLength": 6
+    },
+    "rear_port": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "rear_port_position": {
+      "type": "integer",
+      "maximum": 1024,
+      "minimum": 1
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "type",
+    "rear_port"
+  ]
+}

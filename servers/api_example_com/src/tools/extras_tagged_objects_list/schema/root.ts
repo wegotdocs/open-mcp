@@ -1,0 +1,30 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.array(z.number().int()).optional(),
+  "id__empty": z.boolean().optional(),
+  "id__gt": z.array(z.number().int()).optional(),
+  "id__gte": z.array(z.number().int()).optional(),
+  "id__lt": z.array(z.number().int()).optional(),
+  "id__lte": z.array(z.number().int()).optional(),
+  "id__n": z.array(z.number().int()).optional(),
+  "limit": z.number().int().describe("Number of results to return per page.").optional(),
+  "object_id": z.array(z.number().int()).optional(),
+  "object_id__empty": z.boolean().optional(),
+  "object_id__gt": z.array(z.number().int()).optional(),
+  "object_id__gte": z.array(z.number().int()).optional(),
+  "object_id__lt": z.array(z.number().int()).optional(),
+  "object_id__lte": z.array(z.number().int()).optional(),
+  "object_id__n": z.array(z.number().int()).optional(),
+  "object_type": z.string().optional(),
+  "object_type__n": z.string().optional(),
+  "object_type_id": z.array(z.number().int()).optional(),
+  "object_type_id__n": z.array(z.number().int()).optional(),
+  "offset": z.number().int().describe("The initial index from which to return the results.").optional(),
+  "ordering": z.string().describe("Which field to use when ordering the results.").optional(),
+  "q": z.string().describe("Search").optional(),
+  "tag": z.array(z.string()).optional(),
+  "tag__n": z.array(z.string()).optional(),
+  "tag_id": z.array(z.number().int()).optional(),
+  "tag_id__n": z.array(z.number().int()).optional()
+}

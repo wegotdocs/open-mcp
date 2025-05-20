@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "properties": {
+    "circuit": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "term_side": {
+      "enum": [
+        "A",
+        "Z"
+      ],
+      "type": "string",
+      "description": "* `A` - A\n* `Z` - Z",
+      "x-spec-enum-id": "95b8fcc737f355d0",
+      "title": "Termination side"
+    },
+    "termination_type": {
+      "type": "string",
+      "nullable": true
+    },
+    "termination_id": {
+      "type": "integer",
+      "nullable": true
+    },
+    "port_speed": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": 0,
+      "nullable": true,
+      "title": "Port speed (Kbps)",
+      "description": "Physical circuit speed"
+    },
+    "upstream_speed": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": 0,
+      "nullable": true,
+      "title": "Upstream speed (Kbps)",
+      "description": "Upstream speed, if different from port speed"
+    },
+    "xconnect_id": {
+      "type": "string",
+      "title": "Cross-connect ID",
+      "description": "ID of the local cross-connect",
+      "maxLength": 50
+    },
+    "pp_info": {
+      "type": "string",
+      "title": "Patch panel/port(s)",
+      "description": "Patch panel ID and port number(s)",
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "mark_connected": {
+      "type": "boolean",
+      "description": "Treat as if a cable is connected"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "circuit",
+    "term_side"
+  ]
+}

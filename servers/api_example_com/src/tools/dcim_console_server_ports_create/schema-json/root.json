@@ -1,0 +1,121 @@
+{
+  "type": "object",
+  "properties": {
+    "device": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "module": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "label": {
+      "type": "string",
+      "description": "Physical label",
+      "maxLength": 64
+    },
+    "type": {
+      "enum": [
+        "de-9",
+        "db-25",
+        "rj-11",
+        "rj-12",
+        "rj-45",
+        "mini-din-8",
+        "usb-a",
+        "usb-b",
+        "usb-c",
+        "usb-mini-a",
+        "usb-mini-b",
+        "usb-micro-a",
+        "usb-micro-b",
+        "usb-micro-ab",
+        "other",
+        "",
+        null
+      ],
+      "type": "string",
+      "x-spec-enum-id": "c5f7197b7211818a",
+      "nullable": true,
+      "description": "Physical port type\n\n* `de-9` - DE-9\n* `db-25` - DB-25\n* `rj-11` - RJ-11\n* `rj-12` - RJ-12\n* `rj-45` - RJ-45\n* `mini-din-8` - Mini-DIN 8\n* `usb-a` - USB Type A\n* `usb-b` - USB Type B\n* `usb-c` - USB Type C\n* `usb-mini-a` - USB Mini A\n* `usb-mini-b` - USB Mini B\n* `usb-micro-a` - USB Micro A\n* `usb-micro-b` - USB Micro B\n* `usb-micro-ab` - USB Micro AB\n* `other` - Other"
+    },
+    "speed": {
+      "enum": [
+        1200,
+        2400,
+        4800,
+        9600,
+        19200,
+        38400,
+        57600,
+        115200,
+        null
+      ],
+      "type": "integer",
+      "x-spec-enum-id": "ab6d9635c131a378",
+      "nullable": true,
+      "description": "Port speed in bits per second\n\n* `1200` - 1200 bps\n* `2400` - 2400 bps\n* `4800` - 4800 bps\n* `9600` - 9600 bps\n* `19200` - 19.2 kbps\n* `38400` - 38.4 kbps\n* `57600` - 57.6 kbps\n* `115200` - 115.2 kbps",
+      "minimum": 0,
+      "maximum": 2147483647
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "mark_connected": {
+      "type": "boolean",
+      "description": "Treat as if a cable is connected"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a\ndictionary of attributes which can be used to uniquely identify the related object. This class should be\nsubclassed to return a full representation of the related object on read.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[-\\w]+$",
+            "maxLength": 100
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]{6}$",
+            "maxLength": 6
+          }
+        },
+        "required": [
+          "name",
+          "slug"
+        ]
+      }
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "device",
+    "name"
+  ]
+}

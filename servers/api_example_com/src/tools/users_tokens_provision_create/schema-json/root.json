@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "expires": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "write_enabled": {
+      "type": "boolean",
+      "description": "Permit create/update/delete operations using this key"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "username": {
+      "type": "string",
+      "writeOnly": true,
+      "minLength": 1
+    },
+    "password": {
+      "type": "string",
+      "writeOnly": true,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "username",
+    "password"
+  ]
+}

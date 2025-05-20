@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this VLAN translation rule.",
+      "type": "integer"
+    },
+    "policy": {
+      "type": "integer"
+    },
+    "local_vid": {
+      "type": "integer",
+      "maximum": 4094,
+      "minimum": 1,
+      "title": "Local VLAN ID",
+      "description": "Numeric VLAN ID (1-4094)"
+    },
+    "remote_vid": {
+      "type": "integer",
+      "maximum": 4094,
+      "minimum": 1,
+      "title": "Remote VLAN ID",
+      "description": "Numeric VLAN ID (1-4094)"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "id",
+    "policy",
+    "local_vid",
+    "remote_vid"
+  ]
+}

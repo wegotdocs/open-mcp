@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this FHRP group assignment.",
+      "type": "integer"
+    },
+    "group": {
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "interface_type": {
+      "type": "string"
+    },
+    "interface_id": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": 0,
+      "format": "int64"
+    },
+    "priority": {
+      "type": "integer",
+      "maximum": 255,
+      "minimum": 0
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

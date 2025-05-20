@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this image attachment.",
+      "type": "integer"
+    },
+    "object_type": {
+      "type": "string"
+    },
+    "object_id": {
+      "type": "integer",
+      "maximum": 9223372036854776000,
+      "minimum": 0,
+      "format": "int64"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "image": {
+      "type": "string",
+      "format": "binary"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
