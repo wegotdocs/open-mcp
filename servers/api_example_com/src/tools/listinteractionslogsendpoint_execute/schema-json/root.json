@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "User ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000",
+      "type": "string"
+    },
+    "type": {
+      "description": "Interaction Type",
+      "example": "FEEDBACK",
+      "enum": [
+        "DENUNCIATION",
+        "FEEDBACK",
+        "FEELING",
+        "NEWS",
+        "SURVEY"
+      ],
+      "type": "string"
+    },
+    "createdDateString": {
+      "description": "Date in string format",
+      "example": "2023-12-31",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Limit of records to return",
+      "example": 10,
+      "type": "number"
+    }
+  },
+  "required": []
+}

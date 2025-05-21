@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "phrase": {
+      "type": "string",
+      "description": "The phrase to be scheduled",
+      "example": "This is a scheduled phrase."
+    },
+    "scheduleStringDate": {
+      "type": "string",
+      "description": "Scheduled date in string format",
+      "example": "2023-12-31T23:59:59Z"
+    },
+    "clientId": {
+      "type": "string",
+      "description": "Client ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "createdByUserId": {
+      "type": "string",
+      "description": "ID of the user who created the phrase",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "groupIds": {
+      "description": "List of group IDs associated with the phrase",
+      "example": [
+        1,
+        2,
+        3
+      ],
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "phrase",
+    "scheduleStringDate",
+    "clientId",
+    "createdByUserId",
+    "groupIds"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "description": "Client ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000",
+      "type": "string"
+    },
+    "createdByUserId": {
+      "description": "User ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000",
+      "type": "string"
+    },
+    "type": {
+      "description": "News type",
+      "example": "EVENT",
+      "enum": [
+        "NEWS",
+        "EVENT"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

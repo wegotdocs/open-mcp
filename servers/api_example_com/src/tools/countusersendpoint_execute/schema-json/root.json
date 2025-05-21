@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "description": "Client ID",
+      "example": "123e4567-e89b-12d3-a456-42661417400",
+      "type": "string"
+    },
+    "isAdmin": {
+      "description": "Is admin",
+      "example": "true",
+      "type": "string"
+    },
+    "adminType": {
+      "description": "Admin types",
+      "example": "GLOBAL,LOCAL",
+      "enum": [
+        "REPORT",
+        "LOCAL",
+        "GLOBAL",
+        "MONITOR"
+      ],
+      "type": "string"
+    },
+    "groupId": {
+      "description": "Group ID",
+      "example": 1,
+      "type": "number"
+    }
+  },
+  "required": []
+}

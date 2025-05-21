@@ -1,0 +1,100 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the survey",
+      "example": "Test Title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the survey",
+      "example": "Test Description"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of the survey",
+      "enum": [
+        "ONE_TIME",
+        "RECURRING",
+        "CONDITIONAL"
+      ],
+      "example": "ONE_TIME"
+    },
+    "condition": {
+      "type": "string",
+      "description": "Condition type of the survey",
+      "enum": [
+        "WORK_JOINED_DATE"
+      ],
+      "example": "WORK_JOINED_DATE"
+    },
+    "conditionData": {
+      "type": "string"
+    },
+    "recurringType": {
+      "type": "string",
+      "description": "Recurring type of the survey",
+      "enum": [
+        "MONTHLY",
+        "QUARTERLY",
+        "HALF_YEARLY",
+        "YEARLY"
+      ],
+      "example": "MONTHLY"
+    },
+    "scheduledDate": {
+      "format": "date-time",
+      "type": "string",
+      "description": "Scheduled date of the survey",
+      "example": "YYYY-MM-DD"
+    },
+    "surveyTarget": {
+      "type": "string"
+    },
+    "clientId": {
+      "type": "string",
+      "description": "Client ID",
+      "example": "123e4567-e89b-12d3-a456-426614174002"
+    },
+    "groupId": {
+      "type": "number",
+      "description": "Group ID",
+      "example": 1
+    },
+    "isActive": {
+      "type": "boolean",
+      "description": "Is the survey active",
+      "example": true
+    },
+    "isDraft": {
+      "type": "boolean",
+      "description": "Is the survey a draft",
+      "example": false
+    },
+    "createdByUserId": {
+      "type": "string",
+      "description": "Created by User ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "questions": {
+      "description": "Questions of the survey",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "type",
+    "surveyTarget",
+    "clientId",
+    "groupId",
+    "isActive",
+    "isDraft",
+    "createdByUserId",
+    "questions"
+  ]
+}

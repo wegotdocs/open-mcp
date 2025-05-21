@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the feedback subcategory",
+      "example": "Attendance Review"
+    },
+    "categoryId": {
+      "type": "number",
+      "description": "ID of the parent category",
+      "example": 1
+    },
+    "forEvaluation": {
+      "type": "boolean",
+      "description": "Is the subcategory for evaluation?",
+      "example": true
+    }
+  },
+  "required": [
+    "name",
+    "categoryId",
+    "forEvaluation"
+  ]
+}

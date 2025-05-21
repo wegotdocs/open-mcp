@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",
+      "description": "Username of the admin user",
+      "example": "admin123"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email of the admin user",
+      "example": "admin@example.com"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First name of the admin user",
+      "example": "John"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name of the admin user",
+      "example": "Doe"
+    },
+    "birthDate": {
+      "type": "string",
+      "description": "Birth date of the admin user",
+      "example": "1990-01-01"
+    },
+    "adminType": {
+      "type": "string",
+      "enum": [
+        "REPORT",
+        "LOCAL",
+        "GLOBAL",
+        "MONITOR"
+      ],
+      "description": "Admin type",
+      "example": "LOCAL"
+    },
+    "groupId": {
+      "type": "number",
+      "description": "Group ID",
+      "example": 1
+    },
+    "departmentId": {
+      "type": "number",
+      "description": "Department ID",
+      "example": 2
+    },
+    "clientId": {
+      "type": "string",
+      "description": "Client ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    }
+  },
+  "required": [
+    "username",
+    "email",
+    "firstName",
+    "lastName",
+    "adminType",
+    "groupId",
+    "departmentId",
+    "clientId"
+  ]
+}

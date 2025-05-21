@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Phrase ID",
+      "example": 1,
+      "type": "number"
+    },
+    "phrase": {
+      "type": "string",
+      "description": "The phrase to update",
+      "example": "This is the updated phrase."
+    },
+    "scheduleStringDate": {
+      "type": "string",
+      "description": "Scheduled date in string format",
+      "example": "2023-12-31T23:59:59Z"
+    },
+    "groupsIds": {
+      "description": "List of group IDs to update",
+      "example": [
+        1,
+        2,
+        3
+      ],
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
