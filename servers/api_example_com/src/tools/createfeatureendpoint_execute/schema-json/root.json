@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Feature name",
+      "example": "Feedback Module"
+    },
+    "code": {
+      "type": "string",
+      "enum": [
+        "ai-reports",
+        "denunciations",
+        "faqs",
+        "feedback",
+        "feelings",
+        "news",
+        "phrases",
+        "surveys"
+      ],
+      "description": "Feature code",
+      "example": "feedback"
+    }
+  },
+  "required": [
+    "name",
+    "code"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "surveyResultId": {
+      "type": "number",
+      "description": "Survey Result ID",
+      "example": 1
+    },
+    "userId": {
+      "type": "string",
+      "description": "User ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "surveyAnswers": {
+      "description": "Survey Answers Array",
+      "example": [
+        {
+          "surveyQuestionId": 1,
+          "answers": [
+            "Test"
+          ]
+        }
+      ],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "surveyResultId",
+    "userId",
+    "surveyAnswers"
+  ]
+}

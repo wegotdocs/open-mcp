@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "User ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "isAnonymous": {
+      "type": "boolean",
+      "description": "Is Anonymous",
+      "example": true
+    },
+    "comment": {
+      "type": "string",
+      "description": "Comment",
+      "example": "This is a comment"
+    },
+    "subcategoryId": {
+      "type": "number",
+      "description": "Subcategory ID",
+      "example": 1
+    }
+  },
+  "required": [
+    "userId",
+    "isAnonymous",
+    "comment",
+    "subcategoryId"
+  ]
+}

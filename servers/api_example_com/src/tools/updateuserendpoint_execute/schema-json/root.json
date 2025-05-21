@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "User ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000",
+      "type": "string"
+    },
+    "username": {
+      "type": "string",
+      "description": "Username of the user",
+      "example": "newUsername"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email of the user",
+      "example": "newEmail@example.com"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First name of the user",
+      "example": "John"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name of the user",
+      "example": "Doe"
+    },
+    "birthDate": {
+      "type": "string",
+      "description": "Birth date of the user",
+      "example": "1990-01-01"
+    },
+    "workJoinedDate": {
+      "type": "string",
+      "description": "Work joined date of the user",
+      "example": "2020-01-01"
+    },
+    "adminType": {
+      "type": "string",
+      "enum": [
+        "REPORT",
+        "LOCAL",
+        "GLOBAL",
+        "MONITOR"
+      ],
+      "description": "Admin type of the user",
+      "example": "GLOBAL"
+    },
+    "positionId": {
+      "type": "number",
+      "description": "Position ID of the user",
+      "example": 1
+    },
+    "groupId": {
+      "type": "number",
+      "description": "Group ID of the user",
+      "example": 1
+    },
+    "departmentId": {
+      "type": "number",
+      "description": "Department ID of the user",
+      "example": 1
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

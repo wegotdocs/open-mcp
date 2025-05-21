@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "User ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comments",
+      "example": "This is a comment"
+    },
+    "subcategoryId": {
+      "type": "number",
+      "description": "Subcategory ID",
+      "example": 1
+    },
+    "departmentId": {
+      "type": "number",
+      "description": "Department ID",
+      "example": 1
+    },
+    "score": {
+      "type": "number",
+      "description": "Score",
+      "example": 4
+    }
+  },
+  "required": [
+    "userId",
+    "subcategoryId",
+    "score"
+  ]
+}

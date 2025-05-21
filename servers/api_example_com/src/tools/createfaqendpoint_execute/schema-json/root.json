@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "question": {
+      "type": "string",
+      "description": "Question",
+      "example": "What is NestJS?"
+    },
+    "answer": {
+      "type": "string",
+      "description": "Answer",
+      "example": "NestJS is a progressive Node.js framework."
+    },
+    "order": {
+      "type": "number",
+      "description": "Order of FAQ",
+      "example": 1
+    },
+    "isDraft": {
+      "type": "boolean",
+      "description": "Is a draft?",
+      "example": true
+    },
+    "clientId": {
+      "type": "string",
+      "description": "Client ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    }
+  },
+  "required": [
+    "question",
+    "answer",
+    "order",
+    "isDraft",
+    "clientId"
+  ]
+}

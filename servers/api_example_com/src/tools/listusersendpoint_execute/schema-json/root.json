@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "description": "Client ID",
+      "example": "123e4567-e89b-12d3-a456-42661417400",
+      "type": "string"
+    },
+    "isAdmin": {
+      "description": "Is admin",
+      "example": "true",
+      "type": "string"
+    },
+    "isActive": {
+      "description": "Is active",
+      "example": "true",
+      "type": "string"
+    },
+    "isPasswordReset": {
+      "description": "Is password reset",
+      "example": "false",
+      "type": "string"
+    },
+    "adminType": {
+      "description": "Admin types",
+      "example": "GLOBAL,LOCAL",
+      "enum": [
+        "REPORT",
+        "LOCAL",
+        "GLOBAL",
+        "MONITOR"
+      ],
+      "type": "string"
+    },
+    "groupId": {
+      "description": "Group ID",
+      "example": 1,
+      "type": "number"
+    },
+    "deleted": {
+      "description": "Deleted status",
+      "example": false,
+      "type": "string"
+    }
+  },
+  "required": []
+}

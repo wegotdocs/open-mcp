@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "description": "Client ID",
+      "example": "123e4567-e89b-12d3-a456-42661417400",
+      "type": "string"
+    },
+    "status": {
+      "description": "Status",
+      "example": "true",
+      "type": "string"
+    },
+    "type": {
+      "description": "Survey type",
+      "example": "ONE_TIME",
+      "enum": [
+        "ONE_TIME",
+        "RECURRING",
+        "CONDITIONAL"
+      ],
+      "type": "string"
+    },
+    "groupId": {
+      "description": "Group ID",
+      "example": 1,
+      "type": "number"
+    }
+  },
+  "required": []
+}

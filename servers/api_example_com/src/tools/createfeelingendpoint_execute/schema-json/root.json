@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "User ID",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "typesIds": {
+      "description": "Types associated with the feeling",
+      "example": [
+        1,
+        2,
+        3
+      ],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comments",
+      "example": "This is a comment"
+    }
+  },
+  "required": [
+    "userId",
+    "typesIds"
+  ]
+}

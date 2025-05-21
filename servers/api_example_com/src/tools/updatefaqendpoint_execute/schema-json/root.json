@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "FAQ ID",
+      "example": 1,
+      "type": "number"
+    },
+    "question": {
+      "type": "string",
+      "description": "Question",
+      "example": "What is NestJS?"
+    },
+    "answer": {
+      "type": "string",
+      "description": "Answer",
+      "example": "NestJS is a progressive Node.js framework."
+    },
+    "order": {
+      "type": "number",
+      "description": "Order of FAQ",
+      "example": 1
+    },
+    "isDraft": {
+      "type": "boolean",
+      "description": "Is a draft?",
+      "example": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
