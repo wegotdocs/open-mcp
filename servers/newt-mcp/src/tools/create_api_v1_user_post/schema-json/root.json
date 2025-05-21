@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "title": "Enabled",
+      "default": false
+    },
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Name"
+    },
+    "password": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 10,
+          "format": "password",
+          "writeOnly": true
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Password"
+    },
+    "username": {
+      "type": "string",
+      "title": "Username"
+    }
+  },
+  "required": [
+    "username"
+  ]
+}

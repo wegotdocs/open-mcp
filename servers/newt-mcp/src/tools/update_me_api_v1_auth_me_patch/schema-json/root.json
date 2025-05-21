@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Name"
+    },
+    "password": {
+      "type": "string",
+      "minLength": 10,
+      "format": "password",
+      "title": "Password",
+      "writeOnly": true
+    }
+  },
+  "required": []
+}

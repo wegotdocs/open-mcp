@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "cases": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array",
+      "title": "Cases",
+      "description": "A list of case numbers to be shirted."
+    },
+    "queue": {
+      "description": "Specifies the queue to be shifted to.",
+      "type": "string",
+      "enum": [
+        "Billing",
+        "NumberAdmin"
+      ],
+      "title": "ShiftDestinationName"
+    }
+  },
+  "required": [
+    "cases",
+    "queue"
+  ]
+}

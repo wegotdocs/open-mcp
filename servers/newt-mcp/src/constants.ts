@@ -1,0 +1,35 @@
+export const OPENAPI_URL = "https://newt-probs.intelepeer-ops.com/openapi.json"
+export const SERVER_NAME = "newt-mcp"
+export const SERVER_VERSION = "0.0.1"
+export const OPERATION_FILES_RELATIVE = [
+  "./tools/login_api_v1_auth_azure_login_get/index.js",
+  "./tools/oauth2_redirect_api_v1_auth_azure_oauth2_redirect_get/index.js",
+  "./tools/login_api_v1_auth_login_post/index.js",
+  "./tools/logout_api_v1_auth_logout_get/index.js",
+  "./tools/read_me_api_v1_auth_me_get/index.js",
+  "./tools/update_me_api_v1_auth_me_patch/index.js",
+  "./tools/create_api_v1_role_post/index.js",
+  "./tools/search_api_v1_role_get/index.js",
+  "./tools/delete_api_v1_role_role_id_delete/index.js",
+  "./tools/read_api_v1_role_role_id_get/index.js",
+  "./tools/update_api_v1_role_role_id_patch/index.js",
+  "./tools/create_api_v1_user_post/index.js",
+  "./tools/search_api_v1_user_get/index.js",
+  "./tools/delete_api_v1_user_username_delete/index.js",
+  "./tools/read_api_v1_user_username_get/index.js",
+  "./tools/update_api_v1_user_username_patch/index.js",
+  "./tools/ops_alerts_api_v1_monitor_ops_alerts_get/index.js",
+  "./tools/sbc_health_api_v1_monitor_sbc_health_get/index.js",
+  "./tools/chat_api_v1_aihub_chat_post/index.js",
+  "./tools/cdr_lookup_api_v1_lookup_cdr_post/index.js",
+  "./tools/num_lookup_api_v1_lookup_num_get/index.js",
+  "./tools/trunk_lookup_api_v1_lookup_trunk_post/index.js",
+  "./tools/active_cases_api_v1_case_active_get/index.js",
+  "./tools/rep_lookup_api_v1_case_rep_get/index.js",
+  "./tools/shift_cases_api_v1_case_shift_post/index.js",
+  "./tools/case_summary_api_v1_case_summary_get/index.js",
+  "./tools/trunk_read_api_v1_trunk_get/index.js",
+  "./tools/trunk_create_api_v1_trunk_post/index.js",
+  "./tools/trunk_update_api_v1_trunk_patch/index.js",
+  "./tools/trunk_delete_api_v1_trunk_delete/index.js"
+]

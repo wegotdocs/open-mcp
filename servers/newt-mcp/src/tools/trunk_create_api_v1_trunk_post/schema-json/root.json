@@ -1,0 +1,196 @@
+{
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "CAC": {
+      "type": "integer",
+      "title": "Cac",
+      "default": 10
+    },
+    "CPS": {
+      "type": "integer",
+      "title": "Cps",
+      "default": 10
+    },
+    "IpSignalingProfile": {
+      "type": "string",
+      "title": "Ipsignalingprofile"
+    },
+    "PacketServiceProfile": {
+      "type": "string",
+      "title": "Packetserviceprofile"
+    },
+    "IngressIpPrefix": {
+      "items": {
+        "properties": {
+          "ipAddress": {
+            "type": "string",
+            "title": "Ipaddress"
+          },
+          "prefixLength": {
+            "type": "integer",
+            "title": "Prefixlength",
+            "default": 32
+          }
+        },
+        "type": "object",
+        "required": [
+          "ipAddress"
+        ],
+        "title": "IngressIpPrefix"
+      },
+      "type": "array",
+      "title": "Ingressipprefix"
+    },
+    "EgressIpPrefix": {
+      "items": {
+        "properties": {
+          "cmds": {
+            "anyOf": [
+              {
+                "properties": {
+                  "operations": {
+                    "additionalProperties": {
+                      "type": "string",
+                      "format": "path"
+                    },
+                    "type": "object",
+                    "title": "Operations"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "operations"
+                ],
+                "title": "Commands"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "operations": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string",
+                  "format": "path"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Operations"
+          },
+          "fqdn": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 63
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fqdn",
+            "description": "FQDN to use for sending egress calls/requests to the IP peer."
+          },
+          "fqdnPort": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 65535,
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fqdnport",
+            "description": "Port number for FQDN.",
+            "default": 0
+          },
+          "ipAddress": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "ipvanyaddress"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ipaddress",
+            "description": "IP address of the IP peer.",
+            "default": "0.0.0.0"
+          },
+          "ipPort": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 65535,
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ipport",
+            "description": "TCP/UDP port for the IP peer.",
+            "default": 0
+          },
+          "sequence": {
+            "type": "integer",
+            "maximum": 32000,
+            "minimum": 0,
+            "title": "Sequence",
+            "description": "Sequence."
+          },
+          "serviceStatus": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "inService",
+                  "outOfService"
+                ],
+                "title": "InServiceOrOutOfService"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Select In Service to use this Ip peer.",
+            "default": "outOfService"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "sequence"
+        ],
+        "title": "IpSignalingPeerGroupData",
+        "description": "Specifies the IP Signaling Peer Group configuration details."
+      },
+      "type": "array",
+      "title": "Egressipprefix"
+    },
+    "Zone": {
+      "type": "string",
+      "title": "Zone"
+    }
+  },
+  "required": [
+    "Name",
+    "IpSignalingProfile",
+    "PacketServiceProfile",
+    "IngressIpPrefix",
+    "EgressIpPrefix",
+    "Zone"
+  ]
+}
