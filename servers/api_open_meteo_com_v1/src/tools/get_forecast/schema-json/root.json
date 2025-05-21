@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "description": "Latitud geográfica",
+      "type": "number",
+      "example": 52.52
+    },
+    "longitude": {
+      "description": "Longitud geográfica",
+      "type": "number",
+      "example": 13.41
+    },
+    "current": {
+      "description": "Variables meteorológicas actuales a incluir",
+      "type": "string",
+      "example": "temperature_2m,wind_speed_10m"
+    },
+    "hourly": {
+      "description": "Variables meteorológicas por hora a incluir",
+      "type": "string",
+      "example": "temperature_2m,relative_humidity_2m,wind_speed_10m"
+    }
+  },
+  "required": [
+    "latitude",
+    "longitude"
+  ]
+}
