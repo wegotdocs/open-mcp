@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "default": ""
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "title": "Id"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

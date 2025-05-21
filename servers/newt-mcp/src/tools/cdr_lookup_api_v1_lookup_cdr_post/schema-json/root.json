@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "end-time": {
+      "type": "string",
+      "format": "date-time",
+      "title": "End-Time"
+    },
+    "limit": {
+      "type": "integer",
+      "maximum": 100,
+      "exclusiveMinimum": 0,
+      "title": "Limit",
+      "default": 25
+    },
+    "offset": {
+      "type": "integer",
+      "minimum": 0,
+      "title": "Offset",
+      "default": 0
+    },
+    "query": {
+      "type": "string",
+      "title": "Query"
+    },
+    "start-time": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Start-Time"
+    }
+  },
+  "required": [
+    "end-time",
+    "query",
+    "start-time"
+  ]
+}

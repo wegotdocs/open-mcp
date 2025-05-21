@@ -1,0 +1,440 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "cac": {
+      "anyOf": [
+        {
+          "properties": {
+            "callLimit": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ],
+              "title": "Calllimit"
+            },
+            "ingress": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "callLimit": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Calllimit"
+                    }
+                  },
+                  "type": "object",
+                  "title": "Ingress"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "egress": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "callLimit": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Calllimit"
+                    }
+                  },
+                  "type": "object",
+                  "title": "Egress"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": "object",
+          "title": "Cac"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "policy": {
+      "anyOf": [
+        {
+          "properties": {
+            "media": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "packetServiceProfile": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Packetserviceprofile"
+                    }
+                  },
+                  "type": "object",
+                  "title": "Media"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "signaling": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "ipSignalingProfile": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Ipsignalingprofile"
+                    }
+                  },
+                  "type": "object",
+                  "title": "Signaling"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": "object",
+          "title": "Policy"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "signaling": {
+      "anyOf": [
+        {
+          "properties": {
+            "transportPreference": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "preference1": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Preference1"
+                    },
+                    "preference2": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Preference2"
+                    },
+                    "preference3": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Preference3"
+                    },
+                    "preference4": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Preference4"
+                    }
+                  },
+                  "type": "object",
+                  "title": "TransportPreference"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": "object",
+          "title": "Signaling"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "services": {
+      "anyOf": [
+        {
+          "properties": {
+            "natTraversal": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "signalingNat": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Signalingnat"
+                    },
+                    "mediaNat": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "title": "Medianat"
+                    }
+                  },
+                  "type": "object",
+                  "title": "NatTraversal"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": "object",
+          "title": "Services"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "egressIpPrefix": {
+      "anyOf": [
+        {
+          "items": {
+            "properties": {
+              "cmds": {
+                "anyOf": [
+                  {
+                    "properties": {
+                      "operations": {
+                        "additionalProperties": {
+                          "type": "string",
+                          "format": "path"
+                        },
+                        "type": "object",
+                        "title": "Operations"
+                      }
+                    },
+                    "type": "object",
+                    "required": [
+                      "operations"
+                    ],
+                    "title": "Commands"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "operations": {
+                "anyOf": [
+                  {
+                    "additionalProperties": {
+                      "type": "string",
+                      "format": "path"
+                    },
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Operations"
+              },
+              "fqdn": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "maxLength": 63
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Fqdn",
+                "description": "FQDN to use for sending egress calls/requests to the IP peer."
+              },
+              "fqdnPort": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "maximum": 65535,
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Fqdnport",
+                "description": "Port number for FQDN.",
+                "default": 0
+              },
+              "ipAddress": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "ipvanyaddress"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Ipaddress",
+                "description": "IP address of the IP peer.",
+                "default": "0.0.0.0"
+              },
+              "ipPort": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "maximum": 65535,
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Ipport",
+                "description": "TCP/UDP port for the IP peer.",
+                "default": 0
+              },
+              "sequence": {
+                "type": "integer",
+                "maximum": 32000,
+                "minimum": 0,
+                "title": "Sequence",
+                "description": "Sequence."
+              },
+              "serviceStatus": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "inService",
+                      "outOfService"
+                    ],
+                    "title": "InServiceOrOutOfService"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Select In Service to use this Ip peer.",
+                "default": "outOfService"
+              }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "required": [
+              "sequence"
+            ],
+            "title": "IpSignalingPeerGroupData",
+            "description": "Specifies the IP Signaling Peer Group configuration details."
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Egressipprefix"
+    },
+    "ingressIpPrefix": {
+      "anyOf": [
+        {
+          "items": {
+            "properties": {
+              "ipAddress": {
+                "type": "string",
+                "title": "Ipaddress"
+              },
+              "prefixLength": {
+                "type": "integer",
+                "title": "Prefixlength",
+                "default": 32
+              }
+            },
+            "type": "object",
+            "required": [
+              "ipAddress"
+            ],
+            "title": "IngressIpPrefix"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ingressipprefix"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

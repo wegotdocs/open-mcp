@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",
+      "title": "Username"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Name"
+    },
+    "users": {
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "type": "array",
+      "title": "Users"
+    },
+    "scopes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Scopes"
+    }
+  },
+  "required": [
+    "username",
+    "users",
+    "scopes"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "type": "object",
+  "properties": {
+    "created_after": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Created After"
+    },
+    "created_before": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Created Before"
+    },
+    "enabled": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Enabled"
+    },
+    "limit": {
+      "type": "integer",
+      "maximum": 100,
+      "minimum": 1,
+      "default": 25,
+      "title": "Limit"
+    },
+    "name_contains": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Name Contains"
+    },
+    "offset": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "title": "Offset"
+    },
+    "updated_after": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Updated After"
+    },
+    "updated_before": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Updated Before"
+    },
+    "username_contains": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Username Contains"
+    }
+  },
+  "required": []
+}
