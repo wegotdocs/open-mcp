@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The operator's user id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "duty_status_reason": {
+      "description": "[single-line only]\n\nA description of this status.",
+      "nullable": true,
+      "type": "string"
+    },
+    "on_duty": {
+      "description": "True if this status message indicates an \"on-duty\" status.",
+      "nullable": true,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "on_duty"
+  ]
+}

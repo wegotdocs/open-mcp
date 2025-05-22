@@ -1,0 +1,33 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "numbers_list",
+  "toolDescription": "Dialpad Number -- List",
+  "baseUrl": "https://dialpad.com",
+  "path": "/api/v2/numbers",
+  "method": "get",
+  "security": [
+    {
+      "key": "apikey",
+      "value": "<mcp-env-var>APIKEY</mcp-env-var>",
+      "in": "query",
+      "envVarName": "APIKEY"
+    },
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "query": {
+      "cursor": "cursor",
+      "status": "status"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

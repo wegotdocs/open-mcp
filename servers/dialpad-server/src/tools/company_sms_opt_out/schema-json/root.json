@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the requested company. This is required and must be specified in the URL path. The value must match the id from the company linked to the API key.",
+      "type": "string"
+    },
+    "a2p_campaign_id": {
+      "description": "Optional company A2P campaign entity id to filter results by. Note, if set,\nthen the parameter 'opt_out_state' must be also set to the value 'opted_out'.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "cursor": {
+      "description": "Optional token used to return the next page of a previous request. Use the cursor provided in the previous response.",
+      "type": "string"
+    },
+    "opt_out_state": {
+      "description": "Required opt-out state to filter results by. Only results matching this state will be returned.",
+      "enum": [
+        "opted_back_in",
+        "opted_out"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "opt_out_state"
+  ]
+}

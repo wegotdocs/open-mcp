@@ -1,0 +1,26 @@
+{
+  "description": "The presence status can be seen when you hover your mouse over the presence state indicator.\n\nNOTE: this is only used for Highfive and will be deprecated soon.\n\nPresence status will be set to \"{provider}: {message}\" when both are provided. Otherwise,\npresence status will be set to \"{provider}\".\n\n\"type\" is optional and presence status will only include predefined templates when \"type\" is provided. Please refer to the \"type\" parameter to check the supported types.\n\nTo clear the presence status, make an api call with the \"presence_status\" param set to empty or null. ex: `\"presence_status\": {}` or `\"presence_status\": null`\n\nTranslations will be available for the text in predefined templates. Translations for others should be provided.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "message": {
+      "description": "The presence status message to be updated.",
+      "nullable": true,
+      "type": "string"
+    },
+    "provider": {
+      "description": "The provider requesting the presence status update.",
+      "nullable": true,
+      "type": "string"
+    },
+    "type": {
+      "description": "Predefined templates will be only used for the supported types.\n\nAccepts the following types:\n- `default` -- status message template: \"{provider}: {message}\"\n- `conference` -- status message template: \"On {provider}: in the {message} meeting\"\n\n`provider` and `message` should be chosen with the message template in mind.",
+      "enum": [
+        "conference",
+        "default"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  }
+}

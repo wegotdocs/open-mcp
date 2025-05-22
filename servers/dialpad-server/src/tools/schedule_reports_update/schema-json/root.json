@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The schedule reports subscription's ID.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "at": {
+      "description": "Hour of the day when the report will execute considering the frequency and timezones between 0 and 23  e.g. 10 will be 10:00 am.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "coaching_group": {
+      "default": false,
+      "description": "Whether the the statistics should be for trainees of the coach group with the given target_id.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "enabled": {
+      "default": true,
+      "description": "Whether or not this schedule reports event subscription is enabled.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "endpoint_id": {
+      "description": "The logging endpoint's ID, which is generated after creating a webhook or websocket successfully.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "frequency": {
+      "description": "How often the report will execute.",
+      "enum": [
+        "daily",
+        "monthly",
+        "weekly"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "name": {
+      "description": "[single-line only]\n\nThe name of the schedule reports.",
+      "nullable": true,
+      "type": "string"
+    },
+    "on_day": {
+      "description": "The day of the week or month when the report will execute considering the frequency. daily=0, weekly=0-6, monthly=0-30.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "report_type": {
+      "description": "The type of report that will be generated.",
+      "enum": [
+        "call_logs",
+        "daily_statistics",
+        "recordings",
+        "user_statistics",
+        "voicemails"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "target_id": {
+      "description": "The target's id.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "target_type": {
+      "description": "Target's type.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "timezone": {
+      "description": "Timezone using a tz database name.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "at",
+    "endpoint_id",
+    "frequency",
+    "name",
+    "on_day",
+    "report_type"
+  ]
+}

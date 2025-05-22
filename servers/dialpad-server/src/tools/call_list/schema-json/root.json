@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "cursor": {
+      "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.",
+      "type": "string"
+    },
+    "started_after": {
+      "description": "Only includes calls that started more recently than the specified timestamp.\n(UTC ms-since-epoch timestamp)",
+      "format": "int64",
+      "type": "integer"
+    },
+    "started_before": {
+      "description": "Only includes calls that started prior to the specified timestamp.\n(UTC ms-since-epoch timestamp)",
+      "format": "int64",
+      "type": "integer"
+    },
+    "target_id": {
+      "description": "The ID of a target to filter against.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "target_type": {
+      "description": "The target type associated with the target ID.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

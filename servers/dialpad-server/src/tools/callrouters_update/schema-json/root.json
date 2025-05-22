@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The API call router's ID",
+      "type": "string"
+    },
+    "default_target_id": {
+      "description": "The ID of the target that should be used as a fallback destination for calls if the call router is disabled or fails.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "default_target_type": {
+      "description": "The entity type of the default target.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "enabled": {
+      "description": "If set to False, the call router will skip the routing url and instead forward calls straight to the default target.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "name": {
+      "description": "[single-line only]\n\nA human-readable display name for the router.",
+      "nullable": true,
+      "type": "string"
+    },
+    "office_id": {
+      "description": "The ID of the office to which this router belongs.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "reset_error_count": {
+      "description": "Sets the auto-disablement routing error count back to zero.\n\nCall routers maintain a count of the number of errors that have occured within the past hour, and automatically become disabled when that count exceeds 10.\n\nSetting enabled to true via the API will not reset that count, which means that the router will likely become disabled again after one more error. In most cases, this will be useful for testing fixes in your routing API, but in some circumstances it may be desirable to reset that counter.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "routing_url": {
+      "description": "The URL that should be used to drive call routing decisions.",
+      "nullable": true,
+      "type": "string"
+    },
+    "secret": {
+      "description": "[single-line only]\n\nThe call router's signature secret. This is a plain text string that you should generate with a minimum length of 32 characters.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

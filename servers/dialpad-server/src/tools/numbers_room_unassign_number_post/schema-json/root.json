@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The room's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "number": {
+      "description": "A phone number to unassign. (e164-formatted)",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "number"
+  ]
+}

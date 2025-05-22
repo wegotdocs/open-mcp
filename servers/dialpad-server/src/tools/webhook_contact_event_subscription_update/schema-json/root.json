@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The event subscription's ID, which is generated after creating an event subscription successfully.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "contact_type": {
+      "description": "The contact type this event subscription subscribes to.",
+      "enum": [
+        "local",
+        "shared"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "enabled": {
+      "default": true,
+      "description": "Whether or not the contact event subscription is enabled.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "endpoint_id": {
+      "description": "The logging endpoint's ID, which is generated after creating a webhook or websocket successfully. If you plan to pair this event subscription with another logging endpoint,\nplease provide a valid webhook ID here.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "contact_type"
+  ]
+}

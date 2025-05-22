@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "auto_assign": {
+      "default": false,
+      "description": "If set to true, a number will be automatically assigned.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "email": {
+      "description": "The user's email.",
+      "nullable": true,
+      "type": "string"
+    },
+    "first_name": {
+      "description": "[single-line only]\n\nThe user's first name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "last_name": {
+      "description": "[single-line only]\n\nThe user's last name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "license": {
+      "default": "talk",
+      "description": "The user's license type. This affects billing for the user.",
+      "enum": [
+        "admins",
+        "agents",
+        "dpde_all",
+        "dpde_one",
+        "lite_lines",
+        "lite_support_agents",
+        "magenta_lines",
+        "talk"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "office_id": {
+      "description": "The user's office id.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "email",
+    "office_id"
+  ]
+}

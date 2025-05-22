@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "action": z.enum(["bridge_target","company_directory","department","directory","disabled","extension","menu","message","operator","person","scripted_ivr","voicemail"]).nullable().describe("The action that should be taken if no operators are available."),
+  "action_target_id": z.number().int().nullable().describe("The ID of the Target that inbound calls should be routed to.").optional(),
+  "action_target_type": z.enum(["callcenter","callrouter","channel","coachinggroup","contact","contactgroup","department","office","room","staffgroup","unknown","user"]).nullable().describe("The type of the Target that inbound calls should be routed to.").optional(),
+  "dtmf": z.array(z.object({ "input": z.string().nullable().describe("The DTMF key associated with this menu item. (0-9)").optional(), "options": z.object({ "action": z.enum(["bridge_target","company_directory","department","directory","disabled","extension","menu","message","operator","person","scripted_ivr","voicemail"]).nullable().describe("The routing action type.").optional(), "action_target_id": z.number().int().nullable().describe("The ID of the target that should be dialed.").optional(), "action_target_type": z.enum(["callcenter","callrouter","channel","coachinggroup","contact","contactgroup","department","office","room","staffgroup","unknown","user"]).nullable().describe("The type of the target that should be dialed.").optional() }).nullable().describe("The action that should be taken if the input key is pressed.").optional() })).nullable().describe("DTMF menu options.").optional(),
+  "operator_routing": z.enum(["fixedorder","longestidle","mostskilled","random","roundrobin","simultaneous"]).nullable().describe("The routing strategy that should be used when dialing operators.").optional(),
+  "try_dial_operators": z.boolean().nullable().describe("Whether operators should be dialed on inbound calls.")
+}

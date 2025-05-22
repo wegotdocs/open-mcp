@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The call's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "participant": {
+      "description": "New member of the call to add. Can be a number or a Target. In case of a target, it must have a primary number assigned.",
+      "nullable": true,
+      "anyOf": [
+        {
+          "properties": {
+            "number": {
+              "description": "The phone number which the call should be transferred to.",
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "required": [
+            "number"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "participant"
+  ]
+}

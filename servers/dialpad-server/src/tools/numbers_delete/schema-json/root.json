@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "number": {
+      "description": "A phone number (e164 format).",
+      "type": "string"
+    },
+    "release": {
+      "description": "Releases the number (does not return it to the company reserved pool).",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "number"
+  ]
+}

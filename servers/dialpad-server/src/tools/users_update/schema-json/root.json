@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The user's id. ('me' can be used if you are using a user level API key)",
+      "type": "string"
+    },
+    "admin_office_ids": {
+      "description": "The list of admin office IDs.\n\nThis is used to set the user as an office admin for the offices with the provided IDs.",
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "emails": {
+      "description": "The user's emails.\n\nThis can be used to add, remove, or re-order emails. The first email in the list is the user's primary email.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "extension": {
+      "description": "The user's new extension number.\n\nExtensions are optional in Dialpad and turned off by default. If you want extensions please contact support to enable them.",
+      "nullable": true,
+      "type": "string"
+    },
+    "first_name": {
+      "description": "[single-line only]\n\nThe user's first name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "forwarding_numbers": {
+      "description": "A list of phone numbers that should be dialed in addition to the user's Dialpad number(s)\nupon receiving a call.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "international_dialing_enabled": {
+      "description": "Whether or not the user is enabled to dial internationally.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "is_super_admin": {
+      "description": "Whether or not the user is a super admin. (company level administrator)",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "job_title": {
+      "description": "[single-line only]\n\nThe user's job title.",
+      "nullable": true,
+      "type": "string"
+    },
+    "keep_paid_numbers": {
+      "default": true,
+      "description": "Whether or not to keep phone numbers when switching to a support license.\n\nNote: Phone numbers require additional number licenses under a support license.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "last_name": {
+      "description": "[single-line only]\n\nThe user's last name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "license": {
+      "description": "The user's license type.\n\nChanging this affects billing for the user. For a Sell license, specify the type as `agents`. For a Support license, specify the type as `support`.",
+      "enum": [
+        "admins",
+        "agents",
+        "dpde_all",
+        "dpde_one",
+        "lite_lines",
+        "lite_support_agents",
+        "magenta_lines",
+        "talk"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "office_id": {
+      "description": "The user's office id.\n\nIf provided, the user will be moved to this office. For international offices, the user must not have phone numbers assigned. Once the transfer is complete, your admin can add the phone numbers via the user assign number API. Only supported on paid accounts and there must be enough licenses to transfer the user to the destination office.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "phone_numbers": {
+      "description": "A list of the phone number(s) assigned to this user.\n\nThis can be used to re-order or remove numbers. To assign a new number, use the assign number API instead.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "presence_status": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `presence_status` to the tool, first call the tool `expandSchema` with \"/properties/presence_status\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The presence status can be seen when you hover your mouse over the presence state indicator.\n\nNOTE: this is only used for Highfive and will be deprecated soon.\n\nPresence status will be set to \"{provider}: {message}\" when both are provided. Otherwise,\npresence status will be set to \"{provider}\".\n\n\"type\" is optional and presence status will only include predefined templates when \"type\" is provided. Please refer to the \"type\" parameter to check the supported types.\n\nTo clear the presence status, make an api call with the \"presence_status\" param set to empty or null. ex: `\"presence_status\": {}` or `\"presence_status\": null`\n\nTranslations will be available for the text in predefined templates. Translations for others should be provided.</property-description>",
+      "additionalProperties": true
+    },
+    "state": {
+      "description": "The user's state.\n\nThis is used to suspend or re-activate a user.",
+      "enum": [
+        "active",
+        "suspended"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

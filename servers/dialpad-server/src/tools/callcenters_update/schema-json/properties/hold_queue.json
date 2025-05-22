@@ -1,0 +1,61 @@
+{
+  "description": "Configure how the calls are sent to a hold queue when all operators are busy on other calls.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "allow_queue_callback": {
+      "description": "Whether or not to allow callers to request a callback. Default is False.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "announce_position": {
+      "description": "Whether or not to let callers know their place in the queue. This option is not available when a maximum queue wait time of less than 2 minutes is selected. Default is True.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "announcement_interval_seconds": {
+      "description": "Hold announcement interval wait time. Default is 2 min.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "max_hold_count": {
+      "description": "If all operators are busy on other calls, send callers to a hold queue. This is to specify your queue size. Choose from 1-1000. Default is 50.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "max_hold_seconds": {
+      "description": "Maximum queue wait time in seconds. Choose from 30s to 18000s (3 hours). Default is 900s (15 min).",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "queue_callback_dtmf": {
+      "description": "Allow callers to request a callback when the queue has more than queue_callback_threshold number of calls by pressing one of the followings: [0,1,2,3,4,5,6,7,8,9,*,#]. Default is 9.",
+      "nullable": true,
+      "type": "string"
+    },
+    "queue_callback_threshold": {
+      "description": "Allow callers to request a callback when the queue has more than this number of calls. Default is 5.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "queue_escape_dtmf": {
+      "description": "Allow callers to exit the hold queue to voicemail by pressing one of the followings:\n[0,1,2,3,4,5,6,7,8,9,*,#]. Default is *.",
+      "nullable": true,
+      "type": "string"
+    },
+    "stay_in_queue_after_closing": {
+      "description": "Whether or not to allow existing calls to stay in queue after the call center has closed. Default is False.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "unattended_queue": {
+      "description": "Whether or not to allow callers to be placed in your hold queue when no agents are available. Default is False.",
+      "nullable": true,
+      "type": "boolean"
+    }
+  }
+}

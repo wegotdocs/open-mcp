@@ -1,0 +1,22 @@
+{
+  "description": "Choose which calls to and from this call center get automatically recorded. Recordings are only available to administrators of this call center, which can be found in the Dialpad app and the Calls List.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "allow_pause_recording": {
+      "description": "Allow agents to stop/restart a recording during a call. Default is False.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "call_recording_inbound": {
+      "description": "Whether or not inbound calls to this call center get automatically recorded. Default is False.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "call_recording_outbound": {
+      "description": "Whether or not outbound calls from this call center get automatically recorded. Default is False.",
+      "nullable": true,
+      "type": "boolean"
+    }
+  }
+}

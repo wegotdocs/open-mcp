@@ -1,0 +1,141 @@
+{
+  "description": "Routing options to use during open hours.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "action": {
+      "description": "The action that should be taken if no operators are available.",
+      "enum": [
+        "bridge_target",
+        "company_directory",
+        "department",
+        "directory",
+        "disabled",
+        "extension",
+        "menu",
+        "message",
+        "operator",
+        "person",
+        "scripted_ivr",
+        "voicemail"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "action_target_id": {
+      "description": "The ID of the Target that inbound calls should be routed to.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "action_target_type": {
+      "description": "The type of the Target that inbound calls should be routed to.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "contact",
+        "contactgroup",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "dtmf": {
+      "description": "DTMF menu options.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "description": "The DTMF key associated with this menu item. (0-9)",
+            "nullable": true,
+            "type": "string"
+          },
+          "options": {
+            "description": "The action that should be taken if the input key is pressed.",
+            "nullable": true,
+            "type": "object",
+            "properties": {
+              "action": {
+                "description": "The routing action type.",
+                "enum": [
+                  "bridge_target",
+                  "company_directory",
+                  "department",
+                  "directory",
+                  "disabled",
+                  "extension",
+                  "menu",
+                  "message",
+                  "operator",
+                  "person",
+                  "scripted_ivr",
+                  "voicemail"
+                ],
+                "nullable": true,
+                "type": "string"
+              },
+              "action_target_id": {
+                "description": "The ID of the target that should be dialed.",
+                "format": "int64",
+                "nullable": true,
+                "type": "integer"
+              },
+              "action_target_type": {
+                "description": "The type of the target that should be dialed.",
+                "enum": [
+                  "callcenter",
+                  "callrouter",
+                  "channel",
+                  "coachinggroup",
+                  "contact",
+                  "contactgroup",
+                  "department",
+                  "office",
+                  "room",
+                  "staffgroup",
+                  "unknown",
+                  "user"
+                ],
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "title": "DTMF routing options."
+          }
+        }
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "operator_routing": {
+      "description": "The routing strategy that should be used when dialing operators.",
+      "enum": [
+        "fixedorder",
+        "longestidle",
+        "mostskilled",
+        "random",
+        "roundrobin",
+        "simultaneous"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "try_dial_operators": {
+      "description": "Whether operators should be dialed on inbound calls.",
+      "nullable": true,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "action",
+    "try_dial_operators"
+  ],
+  "title": "Group routing options for open or closed states."
+}

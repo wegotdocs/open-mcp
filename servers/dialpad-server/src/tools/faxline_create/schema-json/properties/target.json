@@ -1,0 +1,26 @@
+{
+  "description": "The target to assign the number to.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "target_id": {
+      "description": "The ID of the target to assign the fax line to.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "target_type": {
+      "description": "Type of the target to assign the fax line to.",
+      "enum": [
+        "department",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_id",
+    "target_type"
+  ]
+}

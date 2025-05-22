@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "custom_data": {
+      "description": "Extra data to associate with the call. This will be passed through to any subscribed call events.",
+      "nullable": true,
+      "type": "string"
+    },
+    "device_id": {
+      "description": "The device's id.",
+      "nullable": true,
+      "type": "string"
+    },
+    "group_id": {
+      "description": "The ID of a group that will be used to initiate the call.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "group_type": {
+      "description": "The type of a group that will be used to initiate the call.",
+      "enum": [
+        "callcenter",
+        "department",
+        "office"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "is_consult": {
+      "default": false,
+      "description": "Enables the creation of a second call. If there is an ongoing call, it puts it on hold.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "outbound_caller_id": {
+      "description": "The e164-formatted number shown to the call recipient (or \"blocked\").\n\nIf set to \"blocked\", the recipient will receive a call from \"unknown caller\". The number can be the caller's number, or the caller's group number if the group is provided, or the caller's company reserved number.",
+      "nullable": true,
+      "type": "string"
+    },
+    "phone_number": {
+      "description": "The e164-formatted number to call.",
+      "nullable": true,
+      "type": "string"
+    },
+    "user_id": {
+      "description": "The id of the user who should make the outbound call.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "phone_number",
+    "user_id"
+  ]
+}

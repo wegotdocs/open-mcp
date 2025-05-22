@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The department's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "operator_id": {
+      "description": "ID of the operator to add.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "operator_type": {
+      "description": "Type of the operator to add. (`user` or `room`)",
+      "enum": [
+        "room",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "role": {
+      "default": "operator",
+      "description": "The role of the new operator. (`operator` or `admin`)",
+      "enum": [
+        "admin",
+        "operator"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "operator_id",
+    "operator_type"
+  ]
+}

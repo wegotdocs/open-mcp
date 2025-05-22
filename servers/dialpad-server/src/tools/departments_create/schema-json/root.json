@@ -1,0 +1,112 @@
+{
+  "type": "object",
+  "properties": {
+    "auto_call_recording": {
+      "description": "Whether or not automatically record all calls of this department. Default is False.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "friday_hours": {
+      "description": "The Friday hours of operation. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "group_description": {
+      "description": "The description of the department. Max 256 characters.",
+      "nullable": true,
+      "type": "string"
+    },
+    "hold_queue": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `hold_queue` to the tool, first call the tool `expandSchema` with \"/properties/hold_queue\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configure how the calls are sent to a hold queue when all operators are busy on other calls.</property-description>",
+      "additionalProperties": true
+    },
+    "hours_on": {
+      "description": "The time frame when the department wants to receive calls. Default value is false, which means the call center will always take calls (24/7).",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "monday_hours": {
+      "description": "The Monday hours of operation. To specify when hours_on is set to True. e.g. [\"08:00\", \"12:00\", \"14:00\", \"18:00\"] => open from 8AM to Noon, and from 2PM to 6PM. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "name": {
+      "description": "[single-line only]\n\nThe name of the department. Max 100 characters.",
+      "nullable": true,
+      "type": "string"
+    },
+    "office_id": {
+      "description": "The id of the office to which the department belongs..",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "ring_seconds": {
+      "description": "The number of seconds to allow the group line to ring before going to voicemail. Choose from 10 seconds to 45 seconds. Default is 30 seconds.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "routing_options": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `routing_options` to the tool, first call the tool `expandSchema` with \"/properties/routing_options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Call routing options for this group.</property-description>",
+      "additionalProperties": true
+    },
+    "saturday_hours": {
+      "description": "The Saturday hours of operation. Default is empty array.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "sunday_hours": {
+      "description": "The Sunday hours of operation. Default is empty array.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "thursday_hours": {
+      "description": "The Thursday hours of operation. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "tuesday_hours": {
+      "description": "The Tuesday hours of operation. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "voice_intelligence": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voice_intelligence` to the tool, first call the tool `expandSchema` with \"/properties/voice_intelligence\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configure voice intelligence.</property-description>",
+      "additionalProperties": true
+    },
+    "wednesday_hours": {
+      "description": "The Wednesday hours of operation. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "office_id"
+  ]
+}

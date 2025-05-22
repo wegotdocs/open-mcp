@@ -1,0 +1,35 @@
+{
+  "description": "The target for swap number.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "target_id": {
+      "description": "The ID of the target to swap number.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "target_type": {
+      "description": "The type of the target.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_id",
+    "target_type"
+  ]
+}

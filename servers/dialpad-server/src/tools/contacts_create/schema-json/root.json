@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "description": "[single-line only]\n\nThe contact's company name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "emails": {
+      "description": "The contact's emails.\n\nThe first email in the list is the contact's primary email.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "extension": {
+      "description": "The contact's extension number.",
+      "nullable": true,
+      "type": "string"
+    },
+    "first_name": {
+      "description": "[single-line only]\n\nThe contact's first name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "job_title": {
+      "description": "[single-line only]\n\nThe contact's job title.",
+      "nullable": true,
+      "type": "string"
+    },
+    "last_name": {
+      "description": "[single-line only]\n\nThe contact's last name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "owner_id": {
+      "description": "The id of the user who will own this contact.\n\nIf provided, a local contact will be created for this user. Otherwise, the contact will be created as a shared contact in your company.",
+      "nullable": true,
+      "type": "string"
+    },
+    "phones": {
+      "description": "The contact's phone numbers.\n\nThe phone number must be in e164 format. The first number in the list is the contact's primary phone.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "trunk_group": {
+      "description": "[Deprecated]",
+      "nullable": true,
+      "type": "string"
+    },
+    "urls": {
+      "description": "A list of websites associated with or belonging to this contact.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The user's id. ('me' can be used if you are using a user level API key)",
+      "format": "int64",
+      "type": "integer"
+    },
+    "is_recording": {
+      "description": "Whether or not recording should be enabled.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "play_message": {
+      "default": true,
+      "description": "Whether or not to play a message to indicate the call is being recorded (or recording has stopped).",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "recording_type": {
+      "default": "user",
+      "description": "Whether or not to toggle recording for the operator call (personal recording),\nthe group call (department recording), or both.\n\nOnly applicable for group calls (call centers, departments, etc.)",
+      "enum": [
+        "all",
+        "group",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

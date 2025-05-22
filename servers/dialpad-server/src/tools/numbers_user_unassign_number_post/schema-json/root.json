@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The user's id. ('me' can be used if you are using a user level API key)",
+      "format": "int64",
+      "type": "integer"
+    },
+    "number": {
+      "description": "A phone number to unassign. (e164-formatted)",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "number"
+  ]
+}

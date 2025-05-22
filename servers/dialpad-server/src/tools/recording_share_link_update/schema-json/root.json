@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The recording share link's ID.",
+      "type": "string"
+    },
+    "privacy": {
+      "description": "The privacy state of the recording share link.",
+      "enum": [
+        "admin",
+        "company",
+        "owner",
+        "public"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "privacy"
+  ]
+}

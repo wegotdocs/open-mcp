@@ -1,0 +1,19 @@
+{
+  "description": "Set when alerts will be triggered.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "cc_service_level": {
+      "description": "Alert supervisors when the service level drops below how many percent. Default is 95%.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "cc_service_level_seconds": {
+      "description": "Inbound calls should be answered within how many seconds. Default is 60.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  }
+}

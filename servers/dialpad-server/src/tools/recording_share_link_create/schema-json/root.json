@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "privacy": {
+      "default": "owner",
+      "description": "The privacy state of the recording share link.",
+      "enum": [
+        "admin",
+        "company",
+        "owner",
+        "public"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "recording_id": {
+      "description": "The recording entity's ID.",
+      "nullable": true,
+      "type": "string"
+    },
+    "recording_type": {
+      "description": "The type of the recording entity shared via the link.",
+      "enum": [
+        "admincallrecording",
+        "callrecording",
+        "voicemail"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "recording_id",
+    "recording_type"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The room's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "name": {
+      "description": "[single-line only]\n\nThe name of the room.",
+      "nullable": true,
+      "type": "string"
+    },
+    "phone_numbers": {
+      "description": "A list of all phone numbers assigned to the room.\n\nNumbers can be re-ordered or removed from this list to unassign them.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

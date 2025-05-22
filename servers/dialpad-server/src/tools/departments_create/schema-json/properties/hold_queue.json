@@ -1,0 +1,24 @@
+{
+  "description": "Configure how the calls are sent to a hold queue when all operators are busy on other calls.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "allow_queuing": {
+      "description": "Whether or not send callers to a hold queue, if all operators are busy on other calls. Default is False.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "max_hold_count": {
+      "description": "If all operators are busy on other calls, send callers to a hold queue. This is to specify your queue size. Choose from 1-50. Default is 50.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "max_hold_seconds": {
+      "description": "Maximum queue wait time in seconds. Choose from 30s to 18000s (3 hours). Default is 900s (15 min).",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  }
+}
