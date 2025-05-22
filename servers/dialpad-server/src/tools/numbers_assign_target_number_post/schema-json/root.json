@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "area_code": {
+      "description": "An area code in which to find an available phone number for assignment.",
+      "nullable": true,
+      "type": "string"
+    },
+    "number": {
+      "description": "A phone number to assign. (e164-formatted)",
+      "nullable": true,
+      "type": "string"
+    },
+    "primary": {
+      "default": true,
+      "description": "A boolean indicating whether this should become the target's primary phone number.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "target_id": {
+      "description": "The ID of the target to reassign this number to.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "target_type": {
+      "description": "The type of the target.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_id",
+    "target_type"
+  ]
+}

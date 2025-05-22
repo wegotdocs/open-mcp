@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "swap_details": {
+      "description": "Type of number swap (area_code, auto, provided_number).",
+      "nullable": true,
+      "anyOf": [
+        {
+          "properties": {
+            "area_code": {
+              "description": "An area code in which to find an available phone number for assignment.",
+              "nullable": true,
+              "type": "string"
+            },
+            "type": {
+              "description": "Type of swap.",
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "title": "Swap number with a number in the specified area code.",
+          "type": "object"
+        }
+      ]
+    },
+    "target": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `target` to the tool, first call the tool `expandSchema` with \"/properties/target\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The target for swap number.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "target"
+  ]
+}

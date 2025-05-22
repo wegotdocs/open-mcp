@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The user's id. ('me' can be used if you are using a user level API key)",
+      "type": "string"
+    },
+    "do_not_disturb": {
+      "description": "Determines if DND is ON or OFF.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "group_id": {
+      "description": "The ID of the group which the user's DND status will be updated for.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "group_type": {
+      "description": "The type of the group which the user's DND status will be updated for.",
+      "enum": [
+        "callcenter",
+        "department",
+        "office"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "do_not_disturb"
+  ]
+}

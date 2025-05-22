@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The access control policy's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "target_id": {
+      "description": "Required if the policy is associated with a target (Office or Contact Center). Not required for a company level policy.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "target_type": {
+      "default": "company",
+      "description": "Policy permissions applied at this target level. Defaults to company target type.",
+      "enum": [
+        "callcenter",
+        "company",
+        "office"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "user_id": {
+      "description": "The user's id to be assigned to the policy.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "user_id"
+  ]
+}

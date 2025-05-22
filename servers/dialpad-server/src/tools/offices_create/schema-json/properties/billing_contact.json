@@ -1,0 +1,26 @@
+{
+  "description": "The billing contact information of this created office.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "email": {
+      "description": "The contact email.",
+      "nullable": true,
+      "type": "string"
+    },
+    "name": {
+      "description": "[single-line only]\n\nThe contact name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "phone": {
+      "description": "The contact phone number.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "email",
+    "name"
+  ]
+}

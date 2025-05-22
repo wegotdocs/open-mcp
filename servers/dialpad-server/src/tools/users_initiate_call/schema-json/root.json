@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The user's id. ('me' can be used if you are using a user level API key)",
+      "type": "string"
+    },
+    "custom_data": {
+      "description": "Extra data to associate with the call. This will be passed through to any subscribed call events.",
+      "nullable": true,
+      "type": "string"
+    },
+    "group_id": {
+      "description": "The ID of a group that will be used to initiate the call.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "group_type": {
+      "description": "The type of a group that will be used to initiate the call.",
+      "enum": [
+        "callcenter",
+        "department",
+        "office"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "outbound_caller_id": {
+      "description": "The e164-formatted number shown to the call recipient (or \"blocked\").\n\nIf set to \"blocked\", the recipient will receive a call from \"unknown caller\". The number can be the caller's number, or the caller's group number if the group is provided,\nor the caller's company reserved number.",
+      "nullable": true,
+      "type": "string"
+    },
+    "phone_number": {
+      "description": "The e164-formatted number to call.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "cursor": {
+      "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.",
+      "type": "string"
+    },
+    "state": {
+      "description": "Filter results by the specified user state (e.g. active, suspended, deleted)",
+      "enum": [
+        "active",
+        "all",
+        "cancelled",
+        "deleted",
+        "pending",
+        "suspended"
+      ],
+      "type": "string"
+    },
+    "company_admin": {
+      "description": "If provided, filter results by the specified value to return only company admins or only non-company admins.",
+      "type": "boolean"
+    },
+    "email": {
+      "description": "The user's email.",
+      "type": "string"
+    },
+    "number": {
+      "description": "The user's phone number.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

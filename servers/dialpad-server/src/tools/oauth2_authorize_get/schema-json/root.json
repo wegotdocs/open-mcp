@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "code_challenge_method": {
+      "description": "PKCE challenge method (hashing algorithm).",
+      "enum": [
+        "S256",
+        "plain"
+      ],
+      "type": "string"
+    },
+    "code_challenge": {
+      "description": "PKCE challenge value (hash commitment).",
+      "type": "string"
+    },
+    "scope": {
+      "description": "Space-separated list of additional scopes that should be granted to the vended token.",
+      "type": "string"
+    },
+    "response_type": {
+      "description": "The OAuth flow to perform. Must be 'code' (authorization code flow).",
+      "enum": [
+        "code"
+      ],
+      "type": "string"
+    },
+    "redirect_uri": {
+      "description": "The URI the user should be redirected back to after granting consent to the app.",
+      "type": "string"
+    },
+    "client_id": {
+      "description": "The client_id of the OAuth app.",
+      "type": "string"
+    },
+    "state": {
+      "description": "Unpredictable token to prevent CSRF.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "redirect_uri",
+    "client_id"
+  ]
+}

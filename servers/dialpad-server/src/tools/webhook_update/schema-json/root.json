@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The webhook's ID, which is generated after creating a webhook successfully.",
+      "type": "string"
+    },
+    "hook_url": {
+      "description": "The webhook's URL. Triggered events will be sent to the url provided here.",
+      "nullable": true,
+      "type": "string"
+    },
+    "secret": {
+      "description": "[single-line only]\n\nWebhook's signature secret that's used to confirm the validity of the request.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

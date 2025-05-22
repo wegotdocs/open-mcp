@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The call's id",
+      "format": "int64",
+      "type": "integer"
+    },
+    "labels": {
+      "description": "The list of labels to attach to the call",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

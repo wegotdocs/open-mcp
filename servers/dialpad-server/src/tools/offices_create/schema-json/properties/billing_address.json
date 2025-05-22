@@ -1,0 +1,45 @@
+{
+  "description": "The billing address of this created office.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "address_line_1": {
+      "description": "[single-line only]\n\nThe first line of the billing address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "address_line_2": {
+      "description": "[single-line only]\n\nThe second line of the billing address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "city": {
+      "description": "[single-line only]\n\nThe billing address city.",
+      "nullable": true,
+      "type": "string"
+    },
+    "country": {
+      "description": "The billing address country.",
+      "nullable": true,
+      "type": "string"
+    },
+    "postal_code": {
+      "description": "[single-line only]\n\nThe billing address postal code.",
+      "nullable": true,
+      "type": "string"
+    },
+    "region": {
+      "description": "[single-line only]\n\nThe billing address region.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "address_line_1",
+    "city",
+    "country",
+    "postal_code",
+    "region"
+  ],
+  "title": "Billing contact."
+}

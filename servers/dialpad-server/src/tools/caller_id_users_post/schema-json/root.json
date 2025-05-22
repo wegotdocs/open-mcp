@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The user's id. ('me' can be used if you are using a user level API key)",
+      "type": "string"
+    },
+    "caller_id": {
+      "description": "Phone number (e164 formatted) that will be defined as a Caller ID for the target. Use 'blocked' to block the Caller ID.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "caller_id"
+  ]
+}

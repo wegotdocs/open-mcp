@@ -1,0 +1,18 @@
+{
+  "description": "Configure advanced call center settings.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "auto_call_recording": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `auto_call_recording` to the tool, first call the tool `expandSchema` with \"/properties/advanced_settings/properties/auto_call_recording\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Choose which calls to and from this call center get automatically recorded. Recordings are only available to administrators of this call center, which can be found in the Dialpad app and the Calls List.</property-description>",
+      "additionalProperties": true
+    },
+    "max_wrap_up_seconds": {
+      "description": "Include a post-call wrap-up time before agents can receive their next call. Default is 0.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  }
+}

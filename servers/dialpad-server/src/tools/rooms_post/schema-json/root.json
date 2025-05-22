@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "[single-line only]\n\nThe name of the room.",
+      "nullable": true,
+      "type": "string"
+    },
+    "office_id": {
+      "description": "The office in which this room resides.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name",
+    "office_id"
+  ]
+}

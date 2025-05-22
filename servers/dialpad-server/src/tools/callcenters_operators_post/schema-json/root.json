@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The call center's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "keep_paid_numbers": {
+      "default": true,
+      "description": "Whether or not to keep phone numbers when switching to a support license.\n\nNote: Phone numbers require additional number licenses under a support license.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "license_type": {
+      "default": "agents",
+      "description": "The type of license to assign to the new operator if a license is required.\n(`agents` or `lite_support_agents`). Defaults to `agents`",
+      "enum": [
+        "agents",
+        "lite_support_agents"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "role": {
+      "default": "operator",
+      "description": "The role the user should assume.",
+      "enum": [
+        "admin",
+        "operator",
+        "supervisor"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "skill_level": {
+      "default": 100,
+      "description": "Skill level of the operator. Integer value in range 1 - 100. Default 100.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "user_id": {
+      "description": "The ID of the user.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "user_id"
+  ]
+}

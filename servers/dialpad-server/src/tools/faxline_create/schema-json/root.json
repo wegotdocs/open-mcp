@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "line": {
+      "description": "Line to assign.",
+      "nullable": true,
+      "anyOf": [
+        {
+          "properties": {
+            "number": {
+              "description": "A phone number to assign. (e164-formatted)",
+              "nullable": true,
+              "type": "string"
+            },
+            "type": {
+              "description": "Type of line.",
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "required": [
+            "number",
+            "type"
+          ],
+          "title": "Reserved number fax line assignment.",
+          "type": "object"
+        }
+      ]
+    },
+    "target": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `target` to the tool, first call the tool `expandSchema` with \"/properties/target\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The target to assign the number to.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "line",
+    "target"
+  ]
+}

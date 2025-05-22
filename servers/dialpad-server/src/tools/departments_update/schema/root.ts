@@ -1,0 +1,20 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.number().int().describe("The call center's id."),
+  "auto_call_recording": z.boolean().nullable().describe("Whether or not automatically record all calls of this department. Default is False.").optional(),
+  "friday_hours": z.array(z.string()).nullable().describe("The Friday hours of operation. Default value is [\"08:00\", \"18:00\"].").optional(),
+  "group_description": z.string().nullable().describe("The description of the department. Max 256 characters.").optional(),
+  "hold_queue": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `hold_queue` to the tool, first call the tool `expandSchema` with \"/properties/hold_queue\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configure how the calls are sent to a hold queue when all operators are busy on other calls.</property-description>").optional(),
+  "hours_on": z.boolean().nullable().describe("The time frame when the department wants to receive calls. Default value is false, which means the call center will always take calls (24/7).").optional(),
+  "monday_hours": z.array(z.string()).nullable().describe("The Monday hours of operation. To specify when hours_on is set to True. e.g. [\"08:00\", \"12:00\", \"14:00\", \"18:00\"] => open from 8AM to Noon, and from 2PM to 6PM. Default value is [\"08:00\", \"18:00\"].").optional(),
+  "name": z.string().nullable().describe("[single-line only]\n\nThe name of the department. Max 100 characters.").optional(),
+  "ring_seconds": z.number().int().nullable().describe("The number of seconds to allow the group line to ring before going to voicemail. Choose from 10 seconds to 45 seconds. Default is 30 seconds.").optional(),
+  "routing_options": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `routing_options` to the tool, first call the tool `expandSchema` with \"/properties/routing_options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Call routing options for this group.</property-description>").optional(),
+  "saturday_hours": z.array(z.string()).nullable().describe("The Saturday hours of operation. Default is empty array.").optional(),
+  "sunday_hours": z.array(z.string()).nullable().describe("The Sunday hours of operation. Default is empty array.").optional(),
+  "thursday_hours": z.array(z.string()).nullable().describe("The Thursday hours of operation. Default value is [\"08:00\", \"18:00\"].").optional(),
+  "tuesday_hours": z.array(z.string()).nullable().describe("The Tuesday hours of operation. Default value is [\"08:00\", \"18:00\"].").optional(),
+  "voice_intelligence": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voice_intelligence` to the tool, first call the tool `expandSchema` with \"/properties/voice_intelligence\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configure voice intelligence.</property-description>").optional(),
+  "wednesday_hours": z.array(z.string()).nullable().describe("The Wednesday hours of operation. Default value is [\"08:00\", \"18:00\"].").optional()
+}

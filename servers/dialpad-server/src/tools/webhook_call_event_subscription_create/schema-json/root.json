@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "properties": {
+    "call_states": {
+      "description": "The call event subscription's list of call states.",
+      "items": {
+        "enum": [
+          "admin",
+          "admin_recording",
+          "ai_playbook",
+          "all",
+          "barge",
+          "blocked",
+          "call_transcription",
+          "calling",
+          "connected",
+          "csat",
+          "dispositions",
+          "eavesdrop",
+          "hangup",
+          "hold",
+          "merged",
+          "missed",
+          "monitor",
+          "parked",
+          "pcsat",
+          "postcall",
+          "preanswer",
+          "queued",
+          "recap_action_items",
+          "recap_outcome",
+          "recap_purposes",
+          "recap_summary",
+          "recording",
+          "ringing",
+          "takeover",
+          "transcription",
+          "voicemail",
+          "voicemail_uploaded"
+        ],
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "enabled": {
+      "default": true,
+      "description": "Whether or not the call event subscription is enabled.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "endpoint_id": {
+      "description": "The logging endpoint's ID, which is generated after creating a webhook or websocket successfully.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "group_calls_only": {
+      "description": "Call event subscription for group calls only.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "target_id": {
+      "description": "The ID of the specific target for which events should be sent.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "target_type": {
+      "description": "The target type.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": []
+}

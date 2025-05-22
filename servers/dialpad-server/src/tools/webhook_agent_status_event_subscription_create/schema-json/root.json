@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "agent_type": {
+      "description": "The agent type this event subscription subscribes to.",
+      "enum": [
+        "callcenter"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "enabled": {
+      "default": true,
+      "description": "Whether or not the this agent status event subscription is enabled.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "endpoint_id": {
+      "description": "The logging endpoint's ID, which is generated after creating a webhook or websocket successfully.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "agent_type"
+  ]
+}

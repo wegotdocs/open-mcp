@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The channel's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "user_id": {
+      "description": "The user id.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "user_id"
+  ]
+}

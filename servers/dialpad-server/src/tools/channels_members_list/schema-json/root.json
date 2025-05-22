@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The channel id",
+      "format": "int64",
+      "type": "integer"
+    },
+    "cursor": {
+      "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

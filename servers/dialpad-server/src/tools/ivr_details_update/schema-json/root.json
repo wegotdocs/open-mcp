@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "ivr_id": {
+      "description": "The ID of the custom ivr to be updated.",
+      "type": "string"
+    },
+    "description": {
+      "description": "[single-line only]\n\nThe description of the IVR.",
+      "nullable": true,
+      "type": "string"
+    },
+    "name": {
+      "description": "[single-line only]\n\nThe name of this IVR.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "ivr_id"
+  ]
+}

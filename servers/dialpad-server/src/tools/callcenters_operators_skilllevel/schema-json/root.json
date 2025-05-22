@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "call_center_id": {
+      "description": "The call center's ID",
+      "format": "int64",
+      "type": "integer"
+    },
+    "user_id": {
+      "description": "The operator's ID",
+      "format": "int64",
+      "type": "integer"
+    },
+    "skill_level": {
+      "description": "New skill level to set the operator in the call center. It must be an integer value between 0 and 100.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "call_center_id",
+    "user_id",
+    "skill_level"
+  ]
+}

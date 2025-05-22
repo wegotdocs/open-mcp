@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "channel_hashtag": {
+      "description": "[single-line only]\n\nThe hashtag of the channel which should receive the SMS.",
+      "nullable": true,
+      "type": "string"
+    },
+    "from_number": {
+      "description": "The number of who sending the SMS. The number must be assigned to user or a user group. It will override user_id and sender_group_id.",
+      "nullable": true,
+      "type": "string"
+    },
+    "infer_country_code": {
+      "default": false,
+      "description": "If true, to_numbers will be assumed to be from the specified user's country, and the E164 format requirement will be relaxed.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "media": {
+      "description": "Base64-encoded media attachment (will cause the message to be sent as MMS).\n(Max 500 KiB raw file size)",
+      "format": "byte",
+      "nullable": true,
+      "type": "string"
+    },
+    "sender_group_id": {
+      "description": "The ID of an office, department, or call center that the User should send the message on behalf of.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "sender_group_type": {
+      "description": "The sender group's type (i.e. office, department, or callcenter).",
+      "enum": [
+        "callcenter",
+        "department",
+        "office"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "text": {
+      "default": "",
+      "description": "The contents of the message that should be sent.",
+      "nullable": true,
+      "type": "string"
+    },
+    "to_numbers": {
+      "description": "Up to 10 E164-formatted phone numbers who should receive the SMS.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "user_id": {
+      "description": "The ID of the user who should be the sender of the SMS.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": []
+}

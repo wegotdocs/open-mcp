@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The office's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "address": {
+      "description": "[single-line only]\n\nLine 1 of the new E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "address2": {
+      "default": "",
+      "description": "[single-line only]\n\nLine 2 of the new E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "city": {
+      "description": "[single-line only]\n\nCity of the new E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "country": {
+      "description": "Country of the new E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "state": {
+      "description": "[single-line only]\n\nState or Province of the new E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "update_all": {
+      "description": "Update E911 for all users in this office.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "use_validated_option": {
+      "description": "Whether to use the validated address option from our service.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "zip": {
+      "description": "[single-line only]\n\nZip code of the new E911 address.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "address",
+    "city",
+    "country",
+    "state",
+    "zip"
+  ]
+}

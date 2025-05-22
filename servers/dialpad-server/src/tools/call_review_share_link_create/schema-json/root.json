@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "call_id": {
+      "description": "The call's id.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "privacy": {
+      "default": "company",
+      "description": "The privacy state of the recording share link, 'company' will be set as default.",
+      "enum": [
+        "company",
+        "public"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": []
+}

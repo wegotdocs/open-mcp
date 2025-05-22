@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "coaching_group": {
+      "description": "Whether or not the the statistics should be for trainees of the coach group with the given target_id.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "coaching_team": {
+      "description": "Whether or not the the statistics should be for trainees of the coach team with the given target_id.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "days_ago_end": {
+      "default": 30,
+      "description": "End of the date range to get statistics for.\n\nThis is the number of days to look back relative to the current day. Used in conjunction with days_ago_start to specify a range.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "days_ago_start": {
+      "default": 1,
+      "description": "Start of the date range to get statistics for.\n\nThis is the number of days to look back relative to the current day. Used in conjunction with days_ago_end to specify a range.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "export_type": {
+      "description": "Whether to return aggregated statistics (stats), or individual rows for each record (records).\n\nNOTE: For stat_type \"csat\" or \"dispositions\", only \"records\" is supported.",
+      "enum": [
+        "records",
+        "stats"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "group_by": {
+      "description": "This param is only applicable when the stat_type is specified as call. For call stats, group calls by user per day (default), get total metrics by day, or break down by department and call center (office only).",
+      "enum": [
+        "date",
+        "group",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "is_today": {
+      "description": "Whether or not the statistics are for the current day.\n\nNOTE: days_ago_start and days_ago_end are ignored if this is passed in.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "office_id": {
+      "description": "ID of the office to get statistics for.\n\nIf a target_id and target_type are passed in this value is ignored and instead the target is used.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "stat_type": {
+      "description": "The type of statistics to be returned.\n\nNOTE: if the value is \"csat\" or \"dispositions\", target_id and target_type must be specified.",
+      "enum": [
+        "calls",
+        "csat",
+        "dispositions",
+        "onduty",
+        "recordings",
+        "screenshare",
+        "texts",
+        "voicemails"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "target_id": {
+      "description": "The target's id.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "target_type": {
+      "description": "Target's type.",
+      "enum": [
+        "callcenter",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "timezone": {
+      "default": "UTC",
+      "description": "Timezone using a tz database name.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "export_type",
+    "stat_type"
+  ]
+}

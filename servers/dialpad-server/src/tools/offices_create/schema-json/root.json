@@ -1,0 +1,301 @@
+{
+  "type": "object",
+  "properties": {
+    "annual_commit_monthly_billing": {
+      "description": "A flag indicating if the primary office's plan is categorized as annual commit monthly billing.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "auto_call_recording": {
+      "default": false,
+      "description": "Whether or not automatically record all calls of this office. Default is False.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "billing_address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `billing_address` to the tool, first call the tool `expandSchema` with \"/properties/billing_address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The billing address of this created office.</property-description>",
+      "additionalProperties": true
+    },
+    "billing_contact": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `billing_contact` to the tool, first call the tool `expandSchema` with \"/properties/billing_contact\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The billing contact information of this created office.</property-description>",
+      "additionalProperties": true
+    },
+    "country": {
+      "description": "The office country.",
+      "enum": [
+        "AR",
+        "AT",
+        "AU",
+        "BD",
+        "BE",
+        "BG",
+        "BH",
+        "BR",
+        "CA",
+        "CH",
+        "CI",
+        "CL",
+        "CN",
+        "CO",
+        "CR",
+        "CY",
+        "CZ",
+        "DE",
+        "DK",
+        "DO",
+        "DP",
+        "EC",
+        "EE",
+        "EG",
+        "ES",
+        "FI",
+        "FR",
+        "GB",
+        "GH",
+        "GR",
+        "GT",
+        "HK",
+        "HR",
+        "HU",
+        "ID",
+        "IE",
+        "IL",
+        "IN",
+        "IS",
+        "IT",
+        "JP",
+        "KE",
+        "KH",
+        "KR",
+        "KZ",
+        "LK",
+        "LT",
+        "LU",
+        "LV",
+        "MA",
+        "MD",
+        "MM",
+        "MT",
+        "MX",
+        "MY",
+        "NG",
+        "NL",
+        "NO",
+        "NZ",
+        "PA",
+        "PE",
+        "PH",
+        "PK",
+        "PL",
+        "PR",
+        "PT",
+        "PY",
+        "RO",
+        "RU",
+        "SA",
+        "SE",
+        "SG",
+        "SI",
+        "SK",
+        "SV",
+        "TH",
+        "TR",
+        "TW",
+        "UA",
+        "US",
+        "UY",
+        "VE",
+        "VN",
+        "ZA"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "currency": {
+      "description": "The office's billing currency.",
+      "enum": [
+        "AUD",
+        "CAD",
+        "EUR",
+        "GBP",
+        "JPY",
+        "NZD",
+        "USD"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "e911_address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `e911_address` to the tool, first call the tool `expandSchema` with \"/properties/e911_address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The emergency address of the created office.\n\nRequired for country codes of US, CA, AU, FR, GB, NZ.</property-description>",
+      "additionalProperties": true
+    },
+    "first_action": {
+      "description": "The desired action when the office receives a call.",
+      "enum": [
+        "menu",
+        "operators"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "friday_hours": {
+      "description": "The Friday hours of operation. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "group_description": {
+      "description": "The description of the office. Max 256 characters.",
+      "nullable": true,
+      "type": "string"
+    },
+    "hours_on": {
+      "default": false,
+      "description": "The time frame when the office wants to receive calls. Default value is false, which means the office will always take calls (24/7).",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "international_enabled": {
+      "description": "A flag indicating if the primary office is able to make international phone calls.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "invoiced": {
+      "description": "A flag indicating if the payment will be paid by invoice.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "mainline_number": {
+      "description": "The mainline of the office.",
+      "nullable": true,
+      "type": "string"
+    },
+    "monday_hours": {
+      "description": "The Monday hours of operation. To specify when hours_on is set to True. e.g. [\"08:00\", \"12:00\", \"14:00\", \"18:00\"] => open from 8AM to Noon, and from 2PM to 6PM. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "name": {
+      "description": "[single-line only]\n\nThe office name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "no_operators_action": {
+      "description": "The action to take if there is no one available to answer calls.",
+      "enum": [
+        "bridge_target",
+        "company_directory",
+        "department",
+        "directory",
+        "disabled",
+        "extension",
+        "menu",
+        "message",
+        "operator",
+        "person",
+        "scripted_ivr",
+        "voicemail"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "plan_period": {
+      "description": "The frequency at which the company will be billed.",
+      "enum": [
+        "monthly",
+        "yearly"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "ring_seconds": {
+      "description": "The number of seconds to allow the group line to ring before going to voicemail. Choose from 10 seconds to 45 seconds.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "routing_options": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `routing_options` to the tool, first call the tool `expandSchema` with \"/properties/routing_options\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Call routing options for this group.</property-description>",
+      "additionalProperties": true
+    },
+    "saturday_hours": {
+      "description": "The Saturday hours of operation. Default is empty array.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "sunday_hours": {
+      "description": "The Sunday hours of operation. Default is empty array.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "thursday_hours": {
+      "description": "The Thursday hours of operation. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "timezone": {
+      "description": "Timezone using a tz database name.",
+      "nullable": true,
+      "type": "string"
+    },
+    "tuesday_hours": {
+      "description": "The Tuesday hours of operation. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "unified_billing": {
+      "description": "A flag indicating if to send a unified invoice.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "use_same_address": {
+      "description": "A flag indicating if the billing address and the emergency address are the same.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "voice_intelligence": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `voice_intelligence` to the tool, first call the tool `expandSchema` with \"/properties/voice_intelligence\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configure voice intelligence.</property-description>",
+      "additionalProperties": true
+    },
+    "wednesday_hours": {
+      "description": "The Wednesday hours of operation. Default value is [\"08:00\", \"18:00\"].",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    }
+  },
+  "required": [
+    "annual_commit_monthly_billing",
+    "billing_address",
+    "country",
+    "currency",
+    "invoiced",
+    "name",
+    "plan_period",
+    "unified_billing"
+  ]
+}

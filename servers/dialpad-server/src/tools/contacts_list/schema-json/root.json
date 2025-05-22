@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "cursor": {
+      "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.",
+      "type": "string"
+    },
+    "include_local": {
+      "description": "If set to True company local contacts will be included. default False.",
+      "type": "boolean"
+    },
+    "owner_id": {
+      "description": "The id of the user who owns the contact.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "cursor": {
+      "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.",
+      "type": "string"
+    },
+    "office_id": {
+      "description": "filter departments by office.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "name_search": {
+      "description": "search departments by name or search by the substring of the name. If input example is 'Happy', output example can be a list of departments whose name contains the string Happy - ['Happy department 1', 'Happy department 2']",
+      "type": "string"
+    }
+  },
+  "required": []
+}

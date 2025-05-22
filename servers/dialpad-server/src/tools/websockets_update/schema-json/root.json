@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The websocket's ID, which is generated after creating a websocket successfully.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "secret": {
+      "description": "[single-line only]\n\nWebsocket's signature secret that's used to confirm the validity of the request.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

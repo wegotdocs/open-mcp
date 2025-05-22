@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "The description of the channel.",
+      "nullable": true,
+      "type": "string"
+    },
+    "name": {
+      "description": "[single-line only]\n\nThe name of the channel.",
+      "nullable": true,
+      "type": "string"
+    },
+    "privacy_type": {
+      "description": "The privacy type of the channel.",
+      "enum": [
+        "private",
+        "public"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "user_id": {
+      "description": "The ID of the user who owns the channel. Just for company level API key.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "description",
+    "name",
+    "privacy_type"
+  ]
+}

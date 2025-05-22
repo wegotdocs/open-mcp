@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "target_id": {
+      "description": "The target's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "target_type": {
+      "description": "The target's type.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The department's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "operator_id": {
+      "description": "ID of the operator to remove.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "operator_type": {
+      "description": "Type of the operator to remove (`user` or `room`).",
+      "enum": [
+        "room",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "operator_id",
+    "operator_type"
+  ]
+}

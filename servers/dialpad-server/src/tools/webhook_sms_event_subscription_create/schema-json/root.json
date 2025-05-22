@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "direction": {
+      "description": "The SMS direction this event subscription subscribes to.",
+      "enum": [
+        "all",
+        "inbound",
+        "outbound"
+      ],
+      "nullable": true,
+      "type": "string"
+    },
+    "enabled": {
+      "default": true,
+      "description": "Whether or not the SMS event subscription is enabled.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "endpoint_id": {
+      "description": "The logging endpoint's ID, which is generated after creating a webhook or websocket successfully.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "include_internal": {
+      "default": false,
+      "description": "Whether or not to trigger SMS events for SMS sent between two users from the same company.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "status": {
+      "default": false,
+      "description": "Whether or not to update on each SMS delivery status.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "target_id": {
+      "description": "The ID of the specific target for which events should be sent.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "target_type": {
+      "description": "The target's type.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "direction"
+  ]
+}

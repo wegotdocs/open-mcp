@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The call's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "custom_data": {
+      "description": "Extra data to associate with the call. This will be passed through to any subscribed call events.",
+      "nullable": true,
+      "type": "string"
+    },
+    "to": {
+      "description": "Destination of the call that will be transfer. It can be a single option between a number, \nan existing call or a target",
+      "nullable": true,
+      "anyOf": [
+        {
+          "properties": {
+            "call_id": {
+              "description": "The id of the ongoing call which the call should be transferred to.",
+              "format": "int64",
+              "nullable": true,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "call_id"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "transfer_state": {
+      "description": "The state which the call should take when it's transferred to.",
+      "enum": [
+        "hold",
+        "parked",
+        "preanswer",
+        "voicemail"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

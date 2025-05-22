@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "cursor": {
+      "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.",
+      "type": "string"
+    },
+    "target_type": {
+      "description": "Target's type.",
+      "enum": [
+        "callcenter",
+        "callrouter",
+        "channel",
+        "coachinggroup",
+        "coachingteam",
+        "department",
+        "office",
+        "room",
+        "staffgroup",
+        "unknown",
+        "user"
+      ],
+      "type": "string"
+    },
+    "target_id": {
+      "description": "The target's id.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

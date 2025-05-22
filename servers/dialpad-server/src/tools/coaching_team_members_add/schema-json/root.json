@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the coaching team",
+      "format": "int64",
+      "type": "integer"
+    },
+    "member_id": {
+      "description": "The id of the user added to the coaching team.",
+      "nullable": true,
+      "type": "string"
+    },
+    "role": {
+      "description": "The role of the user added.",
+      "enum": [
+        "coach",
+        "trainee"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "member_id",
+    "role"
+  ]
+}

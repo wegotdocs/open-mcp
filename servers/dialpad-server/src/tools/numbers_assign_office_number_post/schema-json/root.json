@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The office's id.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "area_code": {
+      "description": "An area code in which to find an available phone number for assignment.",
+      "nullable": true,
+      "type": "string"
+    },
+    "number": {
+      "description": "A phone number to assign. (e164-formatted)",
+      "nullable": true,
+      "type": "string"
+    },
+    "primary": {
+      "default": true,
+      "description": "A boolean indicating whether this should become the primary phone number.",
+      "nullable": true,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

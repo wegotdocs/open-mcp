@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "[single-line only]\n\nOptional description for the policy. Max 200 characters.",
+      "nullable": true,
+      "type": "string"
+    },
+    "name": {
+      "description": "[single-line only]\n\nA human-readable display name for the policy. Max 50 characters.",
+      "nullable": true,
+      "type": "string"
+    },
+    "owner_id": {
+      "description": "Owner for this policy i.e company admin.",
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "permission_sets": {
+      "description": "List of permission associated with this policy.",
+      "items": {
+        "enum": [
+          "agent_settings_write",
+          "agents_admins_manage_agents_settings_write",
+          "agents_admins_skill_level_write",
+          "auto_call_recording_and_transcription_settings_write",
+          "business_hours_write",
+          "call_blocking_spam_prevention_settings_write",
+          "call_dispositions_settings_write",
+          "call_routing_hours_settings_write",
+          "cc_call_settings_write",
+          "chrome_extension_compliance_settings_write",
+          "csat_surveys_write",
+          "dashboard_and_alerts_write",
+          "dialpad_ai_settings_write",
+          "holiday_hours_settings_write",
+          "integrations_settings_write",
+          "name_language_description_settings_write",
+          "number_settings_write",
+          "supervisor_settings_write"
+        ],
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "target_type": {
+      "default": "company",
+      "description": "Policy permissions applied at this target level. Defaults to company target type.",
+      "enum": [
+        "callcenter",
+        "company",
+        "office"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "owner_id",
+    "permission_sets"
+  ]
+}

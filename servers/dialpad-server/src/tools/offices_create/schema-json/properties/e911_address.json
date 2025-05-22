@@ -1,0 +1,45 @@
+{
+  "description": "The emergency address of the created office.\n\nRequired for country codes of US, CA, AU, FR, GB, NZ.",
+  "nullable": true,
+  "type": "object",
+  "properties": {
+    "address": {
+      "description": "[single-line only]\n\nLine 1 of the E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "address2": {
+      "description": "[single-line only]\n\nLine 2 of the E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "city": {
+      "description": "[single-line only]\n\nCity of the E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "country": {
+      "description": "Country of the E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "state": {
+      "description": "[single-line only]\n\nState or Province of the E911 address.",
+      "nullable": true,
+      "type": "string"
+    },
+    "zip": {
+      "description": "[single-line only]\n\nZip code of the E911 address.",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "address",
+    "city",
+    "country",
+    "state",
+    "zip"
+  ],
+  "title": "E911 address."
+}
