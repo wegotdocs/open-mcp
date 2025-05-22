@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "maxLength": 20,
+      "minLength": 5,
+      "pattern": "^[a-zA-Z0-9_-]{5,20}$",
+      "type": "string",
+      "description": "用户名称",
+      "example": "15100000000",
+      "x-pattern-message": "[用户名称]限制5-20位字母和数字",
+      "x-size-message": "[用户名称]5-20位"
+    },
+    "password": {
+      "maxLength": 20,
+      "minLength": 6,
+      "pattern": "^[a-zA-Z0-9_-]{6,32}$",
+      "type": "string",
+      "description": "密码",
+      "nullable": true,
+      "example": "a151000",
+      "x-pattern-message": "[密码]限制5-32位字母和数字",
+      "x-size-message": "[密码]限制6-32位"
+    },
+    "grantType": {
+      "minLength": 1,
+      "type": "string",
+      "description": "授权模式",
+      "example": "password",
+      "enum": [
+        "password",
+        "verify_code",
+        "refresh_token",
+        "wx_cp",
+        "wx_mp",
+        "wx_ma",
+        "wx_app"
+      ],
+      "x-size-message": "[grantType]不能为空"
+    }
+  },
+  "required": [
+    "username",
+    "password",
+    "grantType"
+  ]
+}

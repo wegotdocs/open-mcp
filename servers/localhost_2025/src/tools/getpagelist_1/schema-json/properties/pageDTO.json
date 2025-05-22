@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "唯一标识符[111111]",
+      "nullable": true,
+      "example": "1339468674200637453"
+    },
+    "userId": {
+      "type": "string",
+      "description": "用户ID[22222]",
+      "nullable": true,
+      "example": "1339468674200637453"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "description": "手机号码[17011112222]",
+      "nullable": true,
+      "example": "17011112222"
+    },
+    "name": {
+      "type": "string",
+      "description": "名字[张三丰]",
+      "nullable": true,
+      "example": "张三丰"
+    },
+    "contractAmount": {
+      "type": "number",
+      "description": "合同金额[1999]",
+      "nullable": true,
+      "example": 1
+    },
+    "approvalStatus": {
+      "type": "integer",
+      "description": "审核状态[1-待审核,2-审核通过,3-已驳回]",
+      "format": "int32",
+      "nullable": true,
+      "example": 1
+    }
+  }
+}
