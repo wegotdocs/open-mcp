@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "用户ID[22222]",
+      "nullable": true,
+      "example": "1339468674200637453"
+    },
+    "phoneNumber": {
+      "maxLength": 64,
+      "minLength": 2,
+      "pattern": "\\S*",
+      "type": "string",
+      "description": "手机号码[17011112222]",
+      "example": "17011112222",
+      "x-pattern-message": "[手机号码]不符合规则",
+      "x-size-message": "[手机号码]长度范围2-64"
+    },
+    "name": {
+      "maxLength": 64,
+      "minLength": 2,
+      "pattern": "\\S*",
+      "type": "string",
+      "description": "名字[张三丰]",
+      "example": "张三丰",
+      "x-pattern-message": "[名字]不符合规则",
+      "x-size-message": "[名字]长度范围2-64"
+    },
+    "contractAmount": {
+      "type": "number",
+      "description": "合同金额[1999]",
+      "nullable": true,
+      "example": 1
+    },
+    "approvalStatus": {
+      "type": "integer",
+      "description": "审核状态[1-待审核,2-审核通过,3-已驳回]",
+      "format": "int32",
+      "nullable": true,
+      "example": 1
+    }
+  },
+  "required": [
+    "userId",
+    "phoneNumber",
+    "name",
+    "contractAmount",
+    "approvalStatus"
+  ]
+}

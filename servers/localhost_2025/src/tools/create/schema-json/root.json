@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "用户ID[22222]",
+      "nullable": true,
+      "example": "1339468674200637453"
+    },
+    "title": {
+      "maxLength": 1024,
+      "minLength": 2,
+      "pattern": "\\S*",
+      "type": "string",
+      "description": "标题[成都冬瓜火锅]",
+      "example": "成都冬瓜火锅",
+      "x-pattern-message": "[标题]不符合规则",
+      "x-size-message": "[标题]长度范围2-64"
+    },
+    "content": {
+      "maxLength": 1024,
+      "minLength": 2,
+      "pattern": "\\S*",
+      "type": "string",
+      "description": "标题[成都冬瓜火锅]",
+      "example": "成都冬瓜火锅",
+      "x-pattern-message": "[标题]不符合规则",
+      "x-size-message": "[标题]长度范围2-64"
+    },
+    "url": {
+      "maxLength": 1024,
+      "minLength": 2,
+      "pattern": "\\S*",
+      "type": "string",
+      "description": "广告图片[https://picsum.photos/400/300?random=1]",
+      "example": "https://picsum.photos/400/300?random=1",
+      "x-pattern-message": "[广告图片]不符合规则",
+      "x-size-message": "[广告图片]长度范围2-1024"
+    },
+    "status": {
+      "type": "integer",
+      "description": "审核状态[1-待审核,2-审核通过,3-已驳回]",
+      "format": "int32",
+      "nullable": true,
+      "example": 1
+    },
+    "redirectType": {
+      "type": "integer",
+      "description": "跳转链接类型[1-站点,2-app]",
+      "format": "int32",
+      "nullable": true,
+      "example": 1
+    },
+    "redirectUrl": {
+      "maxLength": 1024,
+      "minLength": 2,
+      "pattern": "\\S*",
+      "type": "string",
+      "description": "链接[weixin://dl/business/?t=1641024000&appid=wx35eba38d6762427a&path=pages/index/index%3Fid%3D123&ENV_VERSION=develop]",
+      "example": "weixin://dl/business/?t=1641024000&appid=wx35eba38d6762427a&path=pages/index/index%3Fid%3D123&ENV_VERSION=develop",
+      "x-pattern-message": "[链接]不符合规则",
+      "x-size-message": "[链接]长度范围2-64"
+    }
+  },
+  "required": [
+    "userId",
+    "title",
+    "content",
+    "url",
+    "status",
+    "redirectType",
+    "redirectUrl"
+  ]
+}

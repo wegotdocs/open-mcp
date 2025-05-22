@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "model": {
+      "type": "string"
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "required": [
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "frequency_penalty": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "n": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "presence_penalty": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "stream": {
+      "type": "boolean"
+    },
+    "temperature": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "top_p": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "model",
+    "messages",
+    "frequency_penalty",
+    "n",
+    "presence_penalty",
+    "stream",
+    "temperature",
+    "top_p"
+  ]
+}

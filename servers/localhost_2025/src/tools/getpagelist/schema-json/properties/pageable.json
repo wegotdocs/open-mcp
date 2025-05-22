@@ -1,0 +1,51 @@
+{
+  "required": [
+    "page",
+    "size"
+  ],
+  "type": "object",
+  "properties": {
+    "page": {
+      "minimum": 0,
+      "exclusiveMinimum": true,
+      "required": [
+        "true"
+      ],
+      "type": "integer",
+      "description": "页码[1]",
+      "format": "int32",
+      "example": 1,
+      "default": 1,
+      "x-minimum-message": "[页码]必须大于1"
+    },
+    "size": {
+      "minimum": 0,
+      "exclusiveMinimum": true,
+      "required": [
+        "true"
+      ],
+      "type": "integer",
+      "description": "分页大小[20]",
+      "format": "int32",
+      "example": 20,
+      "default": 20,
+      "x-minimum-message": "[分页大小]必须大于2"
+    },
+    "sort": {
+      "required": [
+        "false"
+      ],
+      "type": "array",
+      "description": "id,DESC|id,ASC",
+      "example": "id,DESC",
+      "items": {
+        "required": [
+          "false"
+        ],
+        "type": "string",
+        "description": "id,DESC|id,ASC",
+        "example": "id,DESC"
+      }
+    }
+  }
+}
