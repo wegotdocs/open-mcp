@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "databaseId": {
+      "type": "string"
+    },
+    "recordIds": {
+      "description": "Records to delete",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "databaseId",
+    "recordIds"
+  ]
+}
