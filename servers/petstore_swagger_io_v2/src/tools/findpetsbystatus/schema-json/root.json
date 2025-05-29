@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "description": "Status values that need to be considered for filter",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "available",
+          "pending",
+          "sold"
+        ],
+        "default": "available"
+      }
+    }
+  },
+  "required": [
+    "status"
+  ]
+}
