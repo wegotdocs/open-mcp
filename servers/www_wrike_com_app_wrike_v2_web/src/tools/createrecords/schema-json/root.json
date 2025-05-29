@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "databaseId": {
+      "type": "string"
+    },
+    "fieldIds": {
+      "description": "Columns (properties) to be loaded in the result",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requestId": {
+      "type": "string",
+      "description": "Should be any unique value, e.g. UUID, current timestamp etc"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "required": [
+          "fieldValues",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "fieldValues": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "databaseId",
+    "requestId",
+    "data"
+  ]
+}

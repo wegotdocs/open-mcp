@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "type": "string",
+      "description": "Should  be any unique value, e.g. UUID, current timestamp etc"
+    },
+    "title": {
+      "type": "string"
+    },
+    "databaseRecordName": {
+      "type": "string"
+    },
+    "parentFolderId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "requestId",
+    "title",
+    "parentFolderId"
+  ]
+}

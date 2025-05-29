@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "databaseId": {
+      "type": "string"
+    },
+    "fieldIds": {
+      "description": "Columns (properties) to be loaded in the result",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "databaseId"
+  ]
+}

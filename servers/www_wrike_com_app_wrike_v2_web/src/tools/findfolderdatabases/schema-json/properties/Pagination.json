@@ -1,0 +1,16 @@
+{
+  "description": "Pagination parameter",
+  "type": "object",
+  "properties": {
+    "nextPageToken": {
+      "type": "string"
+    },
+    "limit": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32",
+      "default": 100
+    }
+  }
+}
