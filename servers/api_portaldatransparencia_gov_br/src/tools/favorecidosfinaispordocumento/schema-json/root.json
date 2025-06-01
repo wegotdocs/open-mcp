@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "codigoDocumento": {
+      "description": "Código do documento (Unidade Gestora + Gestão + Número do documento)",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "codigoDocumento",
+    "pagina"
+  ]
+}

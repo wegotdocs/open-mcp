@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "cnpjEmitente": {
+      "description": "CNPJ do emitente",
+      "type": "string"
+    },
+    "codigoOrgao": {
+      "description": "Código do Órgão (SIAFI)",
+      "type": "string"
+    },
+    "nomeProduto": {
+      "description": "Nome do produto",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

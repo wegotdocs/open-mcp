@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "numeroOriginal": {
+      "description": "Número original do convênio",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "numeroOriginal",
+    "pagina"
+  ]
+}

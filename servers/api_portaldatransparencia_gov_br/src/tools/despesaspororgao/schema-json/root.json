@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "ano": {
+      "description": "Ano da despesa (AAAA)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "orgaoSuperior": {
+      "description": "Órgão superior (código SIAFI)",
+      "type": "string"
+    },
+    "orgao": {
+      "description": "Órgão/Entidade vinculada (código SIAFI)",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "ano",
+    "pagina"
+  ]
+}

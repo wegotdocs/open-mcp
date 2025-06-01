@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "tipoServidor": {
+      "description": "Tipo do Servidor (Civil=1 ou Militar=2)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "situacaoServidor": {
+      "description": "Situação do Servidor (Ativo=1, Inativo=2 ou Pensionista=3)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "cpf": {
+      "description": "CPF do Servidor",
+      "type": "string"
+    },
+    "nome": {
+      "description": "Nome do Servidor",
+      "type": "string"
+    },
+    "codigoFuncaoCargo": {
+      "description": "<a href='/swagger-ui.html#!/Servidores32do32Poder32Executivo32Federal/listarFuncoesECargosUsingGET' >Código da Função ou Cargo de Confiança</a>",
+      "type": "string"
+    },
+    "orgaoServidorExercicio": {
+      "description": "<a href='/swagger-ui.html#!/211rg227os/orgaosSiapeUsingGET' >Código Órgão Exercício (SIAPE)</a>",
+      "type": "string"
+    },
+    "orgaoServidorLotacao": {
+      "description": "<a href='/swagger-ui.html#!/211rg227os/orgaosSiapeUsingGET' >Código Órgão Lotação (SIAPE)</a>",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

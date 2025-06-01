@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "cnpjSancionado": {
+      "description": "CNPJ do Sancionado",
+      "type": "string"
+    },
+    "nomeSancionado": {
+      "description": "Nome, nome fantasia ou razão social do Sancionado",
+      "type": "string"
+    },
+    "ufSancionado": {
+      "description": "UF do Sancionado (sigla)",
+      "type": "string"
+    },
+    "orgaoEntidade": {
+      "description": "Órgão/Entidade",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "processo": {
+      "description": "Número do processo",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "processo",
+    "pagina"
+  ]
+}

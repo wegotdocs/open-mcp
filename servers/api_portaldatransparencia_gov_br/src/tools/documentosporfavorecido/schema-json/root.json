@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "codigoPessoa": {
+      "description": "Código do Favorecido (CPF, CNPJ ou código do SIAFI)",
+      "type": "string"
+    },
+    "fase": {
+      "description": "Fase da despesa (1 - Empenho, 2 - Liquidação, 3 - Pagamento)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "ano": {
+      "description": "Ano de emissão do documento",
+      "type": "integer",
+      "format": "int32"
+    },
+    "ug": {
+      "description": "Código da unidade gestora emissora do documento",
+      "type": "string"
+    },
+    "gestao": {
+      "description": "Código da gestão do documento",
+      "type": "string"
+    },
+    "ordenacaoResultado": {
+      "description": "Ordenação de Resultado (1 - Valor Ascendente, 2 - Valor Descendente, 3 - Data Ascendente, 4 - Data Descendente)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "codigoPessoa",
+    "fase",
+    "ano",
+    "pagina"
+  ]
+}

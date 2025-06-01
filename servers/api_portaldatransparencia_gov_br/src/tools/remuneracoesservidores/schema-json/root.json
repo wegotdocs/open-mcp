@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "idServidorAposentadoPensionista",
+      "type": "integer",
+      "format": "int32"
+    },
+    "cpf": {
+      "description": "CPF do Servidor",
+      "type": "string"
+    },
+    "mesAno": {
+      "description": "Ano e mês de referência (AAAAMM)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "mesAno",
+    "pagina"
+  ]
+}

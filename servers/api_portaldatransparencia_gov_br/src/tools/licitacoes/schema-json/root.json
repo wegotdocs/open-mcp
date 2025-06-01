@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "dataInicial": {
+      "description": "Data de abertura inicial (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataFinal": {
+      "description": "Data de abertura final (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "codigoOrgao": {
+      "description": "<a href='/swagger-ui/index.html#/Órgãos/orgaosSiafi' target=\"_blank\">Código do Órgão (SIAFI)</a>",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "codigoOrgao",
+    "pagina"
+  ]
+}

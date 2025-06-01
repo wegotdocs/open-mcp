@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "mesAnoLancamento": {
+      "description": "Mês e Ano de lançamento (AAAAMM)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "funcao": {
+      "description": "Função (código SIAFI)",
+      "type": "string"
+    },
+    "subfuncao": {
+      "description": "Subfunção (código SIAFI)",
+      "type": "string"
+    },
+    "programa": {
+      "description": "Programa (código SIAFI)",
+      "type": "string"
+    },
+    "acao": {
+      "description": "Ação (código SIAFI)",
+      "type": "string"
+    },
+    "grupoDespesa": {
+      "description": "Grupo Despesa (código SIAFI)",
+      "type": "string"
+    },
+    "elementoDespesa": {
+      "description": "Elemento Despesa (código SIAFI)",
+      "type": "string"
+    },
+    "modalidadeAplicacao": {
+      "description": "Modalidade de Aplicação (código SIAFI)",
+      "type": "string"
+    },
+    "idPlanoOrcamentario": {
+      "description": "Id Plano orçamentário",
+      "type": "integer",
+      "format": "int32"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "mesAnoLancamento",
+    "pagina"
+  ]
+}

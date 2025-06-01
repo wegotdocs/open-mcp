@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "cnpjSancionado": {
+      "description": "CNPJ sancionado",
+      "type": "string"
+    },
+    "nomeSancionado": {
+      "description": "Nome, nome fantasia ou razão social do sancionado",
+      "type": "string"
+    },
+    "situacao": {
+      "description": "Situação do acordo",
+      "type": "string"
+    },
+    "dataInicialSancao": {
+      "description": "Data inicial da sanção (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataFinalSancao": {
+      "description": "Data final da sanção (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

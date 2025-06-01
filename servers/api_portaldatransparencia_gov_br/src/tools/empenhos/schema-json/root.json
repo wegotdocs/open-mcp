@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "codigoUG": {
+      "description": "<a href='/swagger-ui.html#!/Licita231245es32do32Poder32Executivo32Federal/ugsUsingGET' >Código da Unidade Gestora</a>",
+      "type": "string"
+    },
+    "numero": {
+      "description": "Número da Licitação (NNNNNAAAA)",
+      "type": "string"
+    },
+    "codigoModalidade": {
+      "description": "<a href='/swagger-ui.html#!/Licita231245es32do32Poder32Executivo32Federal/modalidadesUsingGET' >Código da Modalidade da Licitação</a>",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "codigoUG",
+    "numero",
+    "codigoModalidade",
+    "pagina"
+  ]
+}

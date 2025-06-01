@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "dataInicial": {
+      "description": "Data referência início (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataFinal": {
+      "description": "Data referência fim (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataUltimaLiberacaoInicial": {
+      "description": "Data da última liberação de recurso início (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataUltimaLiberacaoFinal": {
+      "description": "Data da última liberação de recurso fim (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataVigenciaInicial": {
+      "description": "Data de vigência início (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataVigenciaFinal": {
+      "description": "Data de vigência fim (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "convenente": {
+      "description": "Convenente",
+      "type": "string"
+    },
+    "tipoConvenente": {
+      "description": "Tipo de Convenente",
+      "type": "string"
+    },
+    "numero": {
+      "description": "Número do convênio",
+      "type": "string"
+    },
+    "numeroOriginal": {
+      "description": "Número original do convênio",
+      "type": "string"
+    },
+    "codigoOrgao": {
+      "description": "<a href='/swagger-ui/index.html#/Órgãos/orgaosSiafi' target=\"_blank\">Código do Órgão (SIAFI)</a>",
+      "type": "string"
+    },
+    "uf": {
+      "description": "Sigla UF",
+      "type": "string"
+    },
+    "codigoIBGE": {
+      "description": "Município (Código IBGE)",
+      "type": "string"
+    },
+    "situacao": {
+      "description": "Código Situação",
+      "type": "string"
+    },
+    "tipoInstrumento": {
+      "description": "Código Tipo de Instrumento",
+      "type": "string"
+    },
+    "funcao": {
+      "description": "Código Função",
+      "type": "string"
+    },
+    "subfuncao": {
+      "description": "Código Subfunção",
+      "type": "string"
+    },
+    "valorLiberadoDe": {
+      "description": "Valor liberado de (Formato: 1.000,00)",
+      "type": "string"
+    },
+    "valorLiberadoAte": {
+      "description": "Valor liberado até (Formato: 1.000,00)",
+      "type": "string"
+    },
+    "valorTotalDe": {
+      "description": "Valor total de (Formato: 1.000,00)",
+      "type": "string"
+    },
+    "valorTotalAte": {
+      "description": "Valor total até (Formato: 1.000,00)",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

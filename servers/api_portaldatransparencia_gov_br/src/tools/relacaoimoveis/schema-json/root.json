@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "codigoOrgaoSiafiResponsavelGestao": {
+      "description": "<a href='/swagger-ui/index.html#/Órgãos/orgaosSiafi' target=\"_blank\">Código do Órgão (SIAFI)</a>",
+      "type": "string"
+    },
+    "situacao": {
+      "description": "<a href='/swagger-ui.html#!/Im243veis32Funcionais/situacaoImovelUsingGET' >Situação Imóvel</a>",
+      "type": "string"
+    },
+    "regiao": {
+      "description": "Região",
+      "type": "string"
+    },
+    "cep": {
+      "description": "CEP",
+      "type": "string"
+    },
+    "endereco": {
+      "description": "Endereço",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

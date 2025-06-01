@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "mesAno": {
+      "description": "Mês e Ano (AAAAMM)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "codigoOrgao": {
+      "description": "Órgão (código SIAFI)",
+      "type": "string"
+    },
+    "tipoTransferencia": {
+      "description": "<a href='/swagger-ui.html#!/Despesas32P250blicas/listaTipoTransferenciaUsingGET' >ID do Tipo de Transferência</a>",
+      "type": "integer",
+      "format": "int32"
+    },
+    "uf": {
+      "description": "Sigla UF",
+      "type": "string"
+    },
+    "codigoIbge": {
+      "description": "Município",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "mesAno",
+    "pagina"
+  ]
+}

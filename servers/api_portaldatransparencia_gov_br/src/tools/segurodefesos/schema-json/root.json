@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "mesAno": {
+      "description": "Ano e mês de referência (AAAAMM)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "codigoIbge": {
+      "description": "Código IBGE",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "mesAno",
+    "codigoIbge",
+    "pagina"
+  ]
+}

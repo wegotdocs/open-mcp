@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "cpfSancionado": {
+      "description": "CPF do sancionado",
+      "type": "string"
+    },
+    "nomeSancionado": {
+      "description": "Nome do sancionado",
+      "type": "string"
+    },
+    "orgaoLotacao": {
+      "description": "Órgão de lotação",
+      "type": "string"
+    },
+    "dataPublicacaoInicio": {
+      "description": "Data publicação início (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataPublicacaoFim": {
+      "description": "Data publicação fim (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

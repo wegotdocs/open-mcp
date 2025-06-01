@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "codigoEmenda": {
+      "description": "Código da Emenda",
+      "type": "string"
+    },
+    "numeroEmenda": {
+      "description": "Número da emenda",
+      "type": "string"
+    },
+    "nomeAutor": {
+      "description": "Nome do Autor",
+      "type": "string"
+    },
+    "tipoEmenda": {
+      "description": "Tipo de emenda",
+      "type": "string"
+    },
+    "ano": {
+      "description": "Ano",
+      "type": "integer",
+      "format": "int32"
+    },
+    "codigoFuncao": {
+      "description": "Código da função",
+      "type": "string"
+    },
+    "codigoSubfuncao": {
+      "description": "Código da subfunção",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

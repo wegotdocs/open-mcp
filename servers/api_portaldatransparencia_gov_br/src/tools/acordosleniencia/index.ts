@@ -1,0 +1,31 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "acordosleniencia",
+  "toolDescription": "Consulta os registros de Acordos de Leniência por Nome ou CNPJ do Sancionado/Situação/Período",
+  "baseUrl": "https://api.portaldatransparencia.gov.br",
+  "path": "/api-de-dados/acordos-leniencia",
+  "method": "get",
+  "security": [
+    {
+      "key": "chave-api-dados",
+      "value": "<mcp-env-var>CHAVE_API_DADOS</mcp-env-var>",
+      "in": "header",
+      "envVarName": "CHAVE_API_DADOS"
+    }
+  ],
+  "paramsMap": {
+    "query": {
+      "cnpjSancionado": "cnpjSancionado",
+      "nomeSancionado": "nomeSancionado",
+      "situacao": "situacao",
+      "dataInicialSancao": "dataInicialSancao",
+      "dataFinalSancao": "dataFinalSancao",
+      "pagina": "pagina"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "unidadeGestora": {
+      "description": "Unidade gestora emitente (código SIAFI)",
+      "type": "string"
+    },
+    "gestao": {
+      "description": "Gestão (código SIAFI)",
+      "type": "string"
+    },
+    "dataEmissao": {
+      "description": "Data de emissão (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "fase": {
+      "description": "Fase da despesa (1 - Empenho, 2 - Liquidação, 3 - Pagamento)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "dataEmissao",
+    "fase",
+    "pagina"
+  ]
+}

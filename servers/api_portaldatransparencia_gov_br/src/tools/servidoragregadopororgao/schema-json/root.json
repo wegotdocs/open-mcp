@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "orgaoLotacao": {
+      "description": "<a href='/swagger-ui.html#!/211rg227os/orgaosSiapeUsingGET' >Código Órgão Lotação (SIAPE)</a>",
+      "type": "string"
+    },
+    "orgaoExercicio": {
+      "description": "<a href='/swagger-ui.html#!/211rg227os/orgaosSiapeUsingGET' >Código Órgão Exercício (SIAPE)</a>",
+      "type": "string"
+    },
+    "tipoServidor": {
+      "description": "Tipo servidor (Civil: 1; Militar: 2)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "tipoVinculo": {
+      "description": "Tipo vínculo (Função: 1; Cargo: 2; Outros: 3; Militares: 4",
+      "type": "integer",
+      "format": "int32"
+    },
+    "licenca": {
+      "description": "Licença (Sim: 1; Não: 0)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

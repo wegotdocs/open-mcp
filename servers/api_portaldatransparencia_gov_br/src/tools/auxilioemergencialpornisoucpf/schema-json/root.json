@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "codigoBeneficiario": {
+      "description": "CPF/NIS Beneficiário",
+      "type": "string"
+    },
+    "codigoResponsavelFamiliar": {
+      "description": "CPF/NIS Responsável Familiar",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}
