@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "cpf": {
+      "description": "CPF do Servidor",
+      "type": "string"
+    },
+    "nome": {
+      "description": "Nome do Servidor",
+      "type": "string"
+    },
+    "descricaoFuncao": {
+      "description": "Descrição da Função",
+      "type": "string"
+    },
+    "orgaoServidorLotacao": {
+      "description": "<a href='/swagger-ui.html#!/211rg227os/orgaosSiapeUsingGET' >Código Órgão Lotação (SIAPE)</a>",
+      "type": "string"
+    },
+    "dataInicioExercicioDe": {
+      "description": "Data início do exercício, período inicial (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "datInicioExercicioAte": {
+      "description": "Data início do exercício, período final (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataFimExercicioDe": {
+      "description": "Data fim do exercício, período inicial (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "datFimExercicioAte": {
+      "description": "Data fim do exercício, período final (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

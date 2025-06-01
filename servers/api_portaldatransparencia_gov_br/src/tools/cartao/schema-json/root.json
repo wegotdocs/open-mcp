@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "mesExtratoInicio": {
+      "description": "Mês extrato início (MM/AAAA)",
+      "type": "string"
+    },
+    "mesExtratoFim": {
+      "description": "Mês extrato fim (MM/AAAA)",
+      "type": "string"
+    },
+    "dataTransacaoInicio": {
+      "description": "Data transação início (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataTransacaoFim": {
+      "description": "Data transação fim (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "tipoCartao": {
+      "description": "Tipo de cartão (CPGF=1 ou CPCC=2 ou CPDC=3)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "codigoOrgao": {
+      "description": "Órgão/Entidade (Código SIAFI)",
+      "type": "string"
+    },
+    "cpfPortador": {
+      "description": "Portador (CPF)",
+      "type": "string"
+    },
+    "cpfCnpjFavorecido": {
+      "description": "Favorecido (CPF/CNPJ)",
+      "type": "string"
+    },
+    "valorDe": {
+      "description": "Valor de (####,##)",
+      "type": "string"
+    },
+    "valorAte": {
+      "description": "Valor até (####,##)",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

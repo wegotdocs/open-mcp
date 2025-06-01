@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "nomeSiglaUF": {
+      "description": "Nome ou Sigla UF",
+      "type": "string"
+    },
+    "codigoIbge": {
+      "description": "Código IBGE",
+      "type": "string"
+    },
+    "cnpj": {
+      "description": "CNPJ",
+      "type": "string"
+    },
+    "beneficiarioNomeFantasia": {
+      "description": "Beneficiário/Nome Fantasia",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

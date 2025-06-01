@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "codigoOrgaoResponsavelGestaoSiafi": {
+      "description": "<a href='/swagger-ui/index.html#/Órgãos/orgaosSiafi' target=\"_blank\">Código do Órgão Responsável pela Gestão(SIAFI)</a>",
+      "type": "string"
+    },
+    "descricaoOrgaoOcupante": {
+      "description": "Descrição do Órgão do Ocupante",
+      "type": "string"
+    },
+    "cpfOcupante": {
+      "description": "CPF Ocupante",
+      "type": "string"
+    },
+    "dataInicioOcupacao": {
+      "description": "Data início ocupação(DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataFimOcupacao": {
+      "description": "Data fim ocupação (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "pagina"
+  ]
+}

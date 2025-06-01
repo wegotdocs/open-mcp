@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "dataIdaDe": {
+      "description": "Data de ida a partir de (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataIdaAte": {
+      "description": "Data de ida até (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataRetornoDe": {
+      "description": "Data de retorno a partir de (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "dataRetornoAte": {
+      "description": "Data de retorno até (DD/MM/AAAA)",
+      "type": "string"
+    },
+    "codigoOrgao": {
+      "description": "<a href='/swagger-ui/index.html#/Órgãos/orgaosSiafi' target=\"_blank\">Código do Órgão (SIAFI)</a>",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "dataIdaDe",
+    "dataIdaAte",
+    "dataRetornoDe",
+    "dataRetornoAte",
+    "codigoOrgao",
+    "pagina"
+  ]
+}

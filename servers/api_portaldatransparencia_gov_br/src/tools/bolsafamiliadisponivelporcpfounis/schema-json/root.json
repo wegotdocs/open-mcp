@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "codigo": {
+      "description": "CPF/NIS (sem máscara, somente números)",
+      "type": "string"
+    },
+    "anoMesReferencia": {
+      "description": "Ano e mês de referência (AAAAMM)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "anoMesCompetencia": {
+      "description": "Ano e mês de competência (AAAAMM)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "codigo",
+    "pagina"
+  ]
+}

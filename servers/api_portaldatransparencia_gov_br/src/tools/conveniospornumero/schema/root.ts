@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "numero": z.string().describe("Número do convênio"),
+  "pagina": z.number().int().describe("Página consultada")
+}

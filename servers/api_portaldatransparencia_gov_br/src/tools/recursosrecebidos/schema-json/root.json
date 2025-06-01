@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "mesAnoInicio": {
+      "description": "Mês ano início (MM/AAAA)",
+      "type": "string"
+    },
+    "mesAnoFim": {
+      "description": "Mês ano fim (MM/AAAA)",
+      "type": "string"
+    },
+    "nomeFavorecido": {
+      "description": "Nome Favorecido",
+      "type": "string"
+    },
+    "codigoFavorecido": {
+      "description": "CNPJ / CPF / Código do favorecido",
+      "type": "string"
+    },
+    "tipoFavorecido": {
+      "description": "Tipo de favorecido",
+      "type": "string"
+    },
+    "uf": {
+      "description": "Sigla UF",
+      "type": "string"
+    },
+    "codigoIBGE": {
+      "description": "Município",
+      "type": "string"
+    },
+    "orgaoSuperior": {
+      "description": "Órgão superior (código SIAFI)",
+      "type": "string"
+    },
+    "orgao": {
+      "description": "Órgão/Entidade vinculada (código SIAFI)",
+      "type": "string"
+    },
+    "unidadeGestora": {
+      "description": "Unidade gestora (código SIAFI)",
+      "type": "string"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "mesAnoInicio",
+    "mesAnoFim",
+    "pagina"
+  ]
+}

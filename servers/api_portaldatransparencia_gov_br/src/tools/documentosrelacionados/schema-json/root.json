@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "codigoDocumento": {
+      "description": "Código do documento (Unidade Gestora + Gestão + Número do documento)",
+      "type": "string"
+    },
+    "fase": {
+      "description": "Fase da despesa (1 - Empenho, 2 - Liquidação, 3 - Pagamento)",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "codigoDocumento",
+    "fase"
+  ]
+}

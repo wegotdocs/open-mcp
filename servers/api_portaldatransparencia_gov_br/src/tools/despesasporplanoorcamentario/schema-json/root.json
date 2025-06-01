@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "codPlanoOrcamentario": {
+      "description": "Código Plano Orçamentária",
+      "type": "string"
+    },
+    "descPlanoOrcamentario": {
+      "description": "Descrição Plano Orçamentário",
+      "type": "string"
+    },
+    "codPOIdentfAcompanhamento": {
+      "description": "Identificado de acompanhamento",
+      "type": "string"
+    },
+    "ano": {
+      "description": "Ano",
+      "type": "integer",
+      "format": "int32"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "ano",
+    "pagina"
+  ]
+}

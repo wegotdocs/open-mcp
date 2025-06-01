@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "codigoDocumento": {
+      "description": "Código do empenho (Unidade Gestora + Gestão + Número do documento)",
+      "type": "string"
+    },
+    "sequencial": {
+      "description": "Número sequencial do item de empenho",
+      "type": "integer",
+      "format": "int32"
+    },
+    "pagina": {
+      "description": "Página consultada",
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    }
+  },
+  "required": [
+    "codigoDocumento",
+    "sequencial",
+    "pagina"
+  ]
+}
