@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "cep": {
+      "description": "Número do CEP",
+      "type": "string"
+    },
+    "x-cpf-usuario": {
+      "description": "CPF do usuário da requisição",
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": [
+    "cep",
+    "x-cpf-usuario"
+  ]
+}
