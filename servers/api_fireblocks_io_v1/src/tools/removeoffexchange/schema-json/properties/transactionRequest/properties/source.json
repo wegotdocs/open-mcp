@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "description": "The source of the transaction.",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "VAULT_ACCOUNT",
+        "EXCHANGE_ACCOUNT",
+        "INTERNAL_WALLET",
+        "EXTERNAL_WALLET",
+        "CONTRACT",
+        "NETWORK_CONNECTION",
+        "FIAT_ACCOUNT",
+        "COMPOUND",
+        "GAS_STATION",
+        "ONE_TIME_ADDRESS",
+        "UNKNOWN",
+        "END_USER_WALLET",
+        "PROGRAM_CALL",
+        "MULTI_DESTINATION"
+      ]
+    },
+    "subType": {
+      "type": "string",
+      "enum": [
+        "BINANCE",
+        "BINANCEUS",
+        "BITFINEX",
+        "BITHUMB",
+        "BITMEX",
+        "BITSO",
+        "BITSTAMP",
+        "BITTREX",
+        "BLINC",
+        "BYBIT",
+        "CIRCLE",
+        "COINBASEEXCHANGE",
+        "COINBASEPRO",
+        "COINMETRO",
+        "COINSPRO",
+        "CRYPTOCOM",
+        "DERIBIT",
+        "GEMINI",
+        "HITBTC",
+        "HUOBI",
+        "INDEPENDENTRESERVE",
+        "KORBIT",
+        "KRAKEN",
+        "KRAKENINTL",
+        "KUCOIN",
+        "LIQUID",
+        "OKCOIN",
+        "OKEX",
+        "PAXOS",
+        "POLONIEX",
+        "External",
+        "Internal"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "walletId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "isCollateral": {
+      "type": "boolean",
+      "example": true,
+      "description": "indicate if the source is collateral account"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

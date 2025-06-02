@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "webhookId": {
+      "description": "The ID of the webhook to fetch",
+      "type": "string"
+    },
+    "notificationId": {
+      "description": "The ID of the notification to fetch",
+      "type": "string"
+    },
+    "includeData": {
+      "description": "Include the data of the notification",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "webhookId",
+    "notificationId"
+  ]
+}

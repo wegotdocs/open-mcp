@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "txHash": {
+      "description": "The TxHash",
+      "type": "string"
+    },
+    "numOfConfirmations": {
+      "type": "number"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "txHash"
+  ]
+}

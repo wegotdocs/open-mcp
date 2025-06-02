@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "vaultAccountId": {
+      "type": "string",
+      "format": "numeric",
+      "x-fb-entity": "vault_account"
+    },
+    "assetId": {
+      "type": "string",
+      "x-fb-entity": "asset"
+    },
+    "change": {
+      "type": "number"
+    },
+    "addressIndex": {
+      "type": "number"
+    },
+    "compressed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "vaultAccountId",
+    "assetId",
+    "change",
+    "addressIndex"
+  ]
+}

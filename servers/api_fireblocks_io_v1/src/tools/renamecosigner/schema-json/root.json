@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "cosignerId": {
+      "description": "The unique identifier of the cosigner",
+      "format": "uuid",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "The new name of the cosigner",
+      "example": "My Cosigner 1"
+    }
+  },
+  "required": [
+    "cosignerId"
+  ]
+}

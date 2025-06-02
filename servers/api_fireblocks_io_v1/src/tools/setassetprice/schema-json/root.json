@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the asset",
+      "type": "string"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency (according to ISO 4217 currency codes)",
+      "example": "USD"
+    },
+    "price": {
+      "type": "number",
+      "description": "Price in currency",
+      "example": 3100
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "currency",
+    "price"
+  ]
+}

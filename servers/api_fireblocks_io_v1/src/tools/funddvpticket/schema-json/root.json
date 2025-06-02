@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "ticketId": {
+      "type": "string"
+    },
+    "fee": {
+      "type": "string",
+      "description": "Transaction fee",
+      "example": "0.001"
+    },
+    "feeLevel": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ],
+      "description": "Transaction fee level.",
+      "example": "MEDIUM"
+    },
+    "note": {
+      "type": "string",
+      "description": "Transaction note",
+      "example": "Transaction note"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ticketId"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "paymentAccount": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `paymentAccount` to the tool, first call the tool `expandSchema` with \"/properties/paymentAccount\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "instructionSet": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "payeeAccount": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "VAULT_ACCOUNT",
+                  "EXCHANGE_ACCOUNT",
+                  "INTERNAL_WALLET",
+                  "EXTERNAL_WALLET",
+                  "NETWORK_CONNECTION",
+                  "FIAT_ACCOUNT"
+                ],
+                "description": "- VAULT_ACCOUNT  \ta native Fireblocks vault account\n- EXCHANGE_ACCOUNT \ta third-party exchange account\n- INTERNAL_WALLET \ta whitelisted address marked as internal to the workspace/organization\n- EXTERNAL_WALLET\ta whitelisted address marked as external\n- NETWORK_CONNECTION\ta member of the Fireblocks network\n- FIAT_ACCOUNT\ta third-party account of a fiat bank (Signature, BCB, etc)\n"
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ]
+          },
+          "amount": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string"
+              },
+              "assetId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount",
+              "assetId"
+            ]
+          }
+        },
+        "required": [
+          "amount",
+          "payeeAccount"
+        ]
+      }
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "paymentAccount",
+    "instructionSet"
+  ]
+}

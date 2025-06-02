@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "walletId": {
+      "description": "The ID of the Non-Custodial wallet",
+      "type": "string",
+      "example": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "derivationPath": {
+      "description": "An array of integers (passed as JSON stringified array) representing the full BIP44 derivation path of the requested public key. \nThe first element must always be 44.\n",
+      "type": "string"
+    },
+    "algorithm": {
+      "description": "Elliptic Curve",
+      "type": "string",
+      "enum": [
+        "MPC_ECDSA_SECP256K1",
+        "MPC_ECDSA_SECP256R1",
+        "MPC_EDDSA_ED25519"
+      ]
+    },
+    "compressed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "walletId",
+    "derivationPath",
+    "algorithm"
+  ]
+}

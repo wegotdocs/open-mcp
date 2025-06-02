@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "tokenLinkId": {
+      "description": "The ID of the token link",
+      "type": "string"
+    },
+    "vaultAccountId": {
+      "type": "string",
+      "example": "0",
+      "description": "The id of the vault account that initiated the request to issue the token"
+    },
+    "chains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "ETH",
+        "POLYGON"
+      ],
+      "description": "The base asset identifiers of the blockchains you want to deploy to"
+    },
+    "useGasless": {
+      "type": "boolean",
+      "example": true,
+      "description": "Whether to use gasless deployment or not"
+    },
+    "fee": {
+      "type": "string",
+      "example": "2000",
+      "description": "Max fee amount for the deploy request. Interchangeable with the 'feeLevel' field"
+    },
+    "feeLevel": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ],
+      "example": "MEDIUM",
+      "description": "Fee level for the deploy request. Interchangeable with the 'fee' field"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tokenLinkId",
+    "vaultAccountId",
+    "chains"
+  ]
+}

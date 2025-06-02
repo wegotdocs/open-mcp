@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "contractId": {
+      "description": "The ID of the contract",
+      "type": "string"
+    },
+    "assetId": {
+      "description": "The ID of the asset to return",
+      "type": "string",
+      "x-fb-entity": "asset"
+    }
+  },
+  "required": [
+    "contractId",
+    "assetId"
+  ]
+}

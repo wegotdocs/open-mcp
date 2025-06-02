@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "vaultAccountId": {
+      "description": "Existing Vault account ID to add deposit addresses to",
+      "type": "integer",
+      "example": 5
+    },
+    "assetId": {
+      "description": "asset ID",
+      "type": "string",
+      "example": "ADA"
+    },
+    "count": {
+      "description": "Count of deposit addresses to issue",
+      "type": "integer",
+      "example": 10
+    },
+    "descriptions": {
+      "description": "Desctiptions of the newly created addresses",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "First address",
+        "Second address",
+        "df4c0987-30da-4976-8dcf-bc2dd41ae331"
+      ]
+    },
+    "vaultAccountToCopyDescFrom": {
+      "description": "Existing Vault Account ID to copy deposit addresses descriptions from in case no descriptions were provided",
+      "type": "integer",
+      "example": 0
+    },
+    "vaultAccountToCopyDescFromIndex": {
+      "description": "Existing length within the vault account to copy deposit addresses descriptions from",
+      "type": "integer",
+      "example": 1000
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "vaultAccountId",
+    "assetId",
+    "count"
+  ]
+}

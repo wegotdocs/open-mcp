@@ -1,0 +1,97 @@
+{
+  "type": "object",
+  "properties": {
+    "order": {
+      "description": "Field to order by",
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    "pageSize": {
+      "description": "Records per page",
+      "minimum": 100,
+      "maximum": 1000,
+      "default": 500,
+      "type": "number"
+    },
+    "fields": {
+      "description": "CSV of fields to return (all, \"blank\" or see list of all field names below)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "did",
+          "name",
+          "verificationStatus",
+          "addressLine1",
+          "addressLine2",
+          "city",
+          "country",
+          "emailDomains",
+          "website",
+          "logo",
+          "legalStructure",
+          "legalName",
+          "yearFounded",
+          "incorporationCountry",
+          "isRegulated",
+          "otherNames",
+          "identificationType",
+          "identificationCountry",
+          "businessNumber",
+          "regulatoryAuthorities",
+          "jurisdictions",
+          "street",
+          "number",
+          "unit",
+          "postCode",
+          "state",
+          "certificates",
+          "description",
+          "travelRule_OPENVASP",
+          "travelRule_SYGNA",
+          "travelRule_TRISA",
+          "travelRule_TRLIGHT",
+          "travelRule_EMAIL",
+          "travelRule_TRP",
+          "travelRule_SHYFT",
+          "travelRule_USTRAVELRULEWG",
+          "createdAt",
+          "createdBy",
+          "updatedAt",
+          "updatedBy",
+          "lastSentDate",
+          "lastReceivedDate",
+          "documents",
+          "hasAdmin",
+          "isNotifiable",
+          "issuers"
+        ]
+      },
+      "example": [
+        "name",
+        "country",
+        "website"
+      ]
+    },
+    "search": {
+      "description": "Search query",
+      "type": "string"
+    },
+    "reviewValue": {
+      "description": "Filter by the VASP's review status. Possible values include: \"TRUSTED\", \"BLOCKED\", \"MANUAL\", or \"NULL\". When provided, only VASPs that match the specified reviewValue will be returned (i.e., VASPs that have already been reviewed to this status).",
+      "enum": [
+        "TRUSTED",
+        "BLOCKED",
+        "MANUAL",
+        null
+      ]
+    },
+    "pageCursor": {
+      "description": "Cursor for pagination. When provided, the response will include the next page of results.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

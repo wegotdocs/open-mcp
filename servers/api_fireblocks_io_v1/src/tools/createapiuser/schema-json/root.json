@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "Users role"
+    },
+    "name": {
+      "type": "string",
+      "description": "Users name"
+    },
+    "csrPem": {
+      "type": "string",
+      "description": "CSR file that is used to verify API requests. read more https://developers.fireblocks.com/docs/quickstart",
+      "example": "-----BEGIN CERTIFICATE REQUEST-----aaa-----END CERTIFICATE REQUEST-----"
+    },
+    "coSignerSetupType": {
+      "type": "string",
+      "description": "Different environments allow for different setup options, field is required for management/signer role",
+      "example": "SGX_MACHINE"
+    },
+    "coSignerSetupIsFirstUser": {
+      "type": "boolean",
+      "description": "pass as true if this is the first user on the coSigner machine"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "role",
+    "name",
+    "csrPem"
+  ]
+}

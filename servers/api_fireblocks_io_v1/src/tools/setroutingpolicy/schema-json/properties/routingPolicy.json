@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "scheme": {
+            "description": "The network routing logic.",
+            "type": "string",
+            "enum": [
+              "CUSTOM"
+            ]
+          },
+          "dstType": {
+            "type": "string",
+            "description": "The account the funds are being sent to.",
+            "enum": [
+              "FIAT_ACCOUNT",
+              "VAULT",
+              "EXCHANGE"
+            ]
+          },
+          "dstId": {
+            "type": "string",
+            "description": "The ID of the account the funds are being sent to."
+          }
+        },
+        "required": [
+          "scheme",
+          "dstType",
+          "dstId"
+        ]
+      }
+    ]
+  },
+  "properties": {}
+}

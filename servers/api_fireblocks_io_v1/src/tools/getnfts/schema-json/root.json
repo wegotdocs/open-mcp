@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "ids": {
+      "description": "A comma separated list of NFT IDs. Up to 100 are allowed in a single request.",
+      "type": "string"
+    },
+    "pageCursor": {
+      "description": "Page cursor to fetch",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Items per page (max 100)",
+      "minimum": 1,
+      "maximum": 100,
+      "type": "number"
+    },
+    "sort": {
+      "description": "Sort by param, it can be one param or a list of params separated by comma",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "collection.name",
+          "name",
+          "blockchainDescriptor"
+        ]
+      }
+    },
+    "order": {
+      "description": "Order direction, it can be `ASC` for ascending or `DESC` for descending",
+      "default": "ASC",
+      "enum": [
+        "DESC",
+        "ASC"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ]
+}

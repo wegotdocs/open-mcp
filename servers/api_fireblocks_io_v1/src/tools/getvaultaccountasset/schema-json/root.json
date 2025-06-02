@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "vaultAccountId": {
+      "description": "The ID of the vault account to return",
+      "type": "string",
+      "format": "numeric",
+      "x-fb-entity": "vault_account"
+    },
+    "assetId": {
+      "description": "The ID of the asset",
+      "type": "string",
+      "x-fb-entity": "asset"
+    }
+  },
+  "required": [
+    "vaultAccountId",
+    "assetId"
+  ]
+}

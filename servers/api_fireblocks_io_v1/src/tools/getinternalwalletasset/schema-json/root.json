@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "walletId": {
+      "description": "The ID of the wallet",
+      "type": "string"
+    },
+    "assetId": {
+      "description": "The ID of the asset to return",
+      "type": "string",
+      "x-fb-entity": "asset"
+    }
+  },
+  "required": [
+    "walletId",
+    "assetId"
+  ]
+}

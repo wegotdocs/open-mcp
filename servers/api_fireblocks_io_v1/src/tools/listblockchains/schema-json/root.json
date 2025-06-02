@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "description": "Blockchain protocol",
+      "type": "string"
+    },
+    "deprecated": {
+      "description": "Is blockchain deprecated",
+      "type": "boolean"
+    },
+    "test": {
+      "description": "Is test blockchain",
+      "type": "boolean"
+    },
+    "ids": {
+      "description": "A list of blockchain IDs (max 100)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pageCursor": {
+      "description": "Page cursor to fetch",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Items per page (max 500)",
+      "minimum": 1,
+      "maximum": 500,
+      "default": 500,
+      "type": "number"
+    }
+  },
+  "required": []
+}

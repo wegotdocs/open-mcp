@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "order": {
+      "description": "ASC / DESC ordering (default DESC)",
+      "default": "DESC",
+      "example": "ASC",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "type": "string"
+    },
+    "pageCursor": {
+      "description": "Cursor of the required page",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Maximum number of items in the page",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 10,
+      "example": 10,
+      "type": "number"
+    }
+  },
+  "required": []
+}

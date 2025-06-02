@@ -1,0 +1,97 @@
+{
+  "type": "object",
+  "properties": {
+    "before": {
+      "description": "Unix timestamp in milliseconds. Returns only transactions created before the specified date",
+      "type": "string"
+    },
+    "after": {
+      "description": "Unix timestamp in milliseconds. Returns only transactions created after the specified date",
+      "type": "string"
+    },
+    "status": {
+      "description": "You can filter by one of the statuses.",
+      "type": "string"
+    },
+    "orderBy": {
+      "description": "The field to order the results by\n\n**Note**: Ordering by a field that is not createdAt may result with transactions that receive updates as you request the next or previous pages of results, resulting with missing those transactions.",
+      "type": "string",
+      "enum": [
+        "createdAt",
+        "lastUpdated"
+      ]
+    },
+    "sort": {
+      "description": "The direction to order the results by",
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    "limit": {
+      "description": "Limits the number of results. If not provided, a limit of 200 will be used. The maximum allowed limit is 500",
+      "type": "integer",
+      "minimum": 1,
+      "default": 200
+    },
+    "sourceType": {
+      "description": "The source type of the transaction",
+      "type": "string",
+      "enum": [
+        "VAULT_ACCOUNT",
+        "EXCHANGE_ACCOUNT",
+        "INTERNAL_WALLET",
+        "EXTERNAL_WALLET",
+        "CONTRACT",
+        "FIAT_ACCOUNT",
+        "NETWORK_CONNECTION",
+        "COMPOUND",
+        "UNKNOWN",
+        "GAS_STATION",
+        "END_USER_WALLET"
+      ]
+    },
+    "sourceId": {
+      "description": "The source ID of the transaction",
+      "type": "string"
+    },
+    "destType": {
+      "description": "The destination type of the transaction",
+      "type": "string",
+      "enum": [
+        "VAULT_ACCOUNT",
+        "EXCHANGE_ACCOUNT",
+        "INTERNAL_WALLET",
+        "EXTERNAL_WALLET",
+        "CONTRACT",
+        "FIAT_ACCOUNT",
+        "NETWORK_CONNECTION",
+        "COMPOUND",
+        "ONE_TIME_ADDRESS",
+        "END_USER_WALLET"
+      ]
+    },
+    "destId": {
+      "description": "The destination ID of the transaction",
+      "type": "string"
+    },
+    "assets": {
+      "description": "A list of assets to filter by, seperated by commas",
+      "type": "string"
+    },
+    "txHash": {
+      "description": "Returns only results with a specified txHash",
+      "type": "string"
+    },
+    "sourceWalletId": {
+      "description": "Returns only results where the source is a specific end user wallet",
+      "type": "string"
+    },
+    "destWalletId": {
+      "description": "Returns only results where the destination is a specific end user wallet",
+      "type": "string"
+    }
+  },
+  "required": []
+}

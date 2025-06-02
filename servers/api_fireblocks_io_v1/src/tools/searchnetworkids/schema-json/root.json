@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "search": {
+      "description": "Search string - displayName networkId. Optional",
+      "minLength": 1,
+      "type": "string"
+    },
+    "excludeSelf": {
+      "description": "Exclude your networkIds. Optional, default false",
+      "type": "boolean"
+    },
+    "onlySelf": {
+      "description": "Include just your networkIds. Optional, default false",
+      "type": "boolean"
+    },
+    "excludeConnected": {
+      "description": "Exclude connected networkIds. Optional, default false",
+      "type": "boolean"
+    },
+    "pageCursor": {
+      "description": "ID of the record after which to fetch $limit records",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Number of records to fetch. By default, it is 50",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 50,
+      "type": "number"
+    }
+  },
+  "required": []
+}

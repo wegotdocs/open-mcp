@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "keyId": {
+      "description": "The unique identifier for the signing key provided by Fireblocks",
+      "type": "string",
+      "example": "46a92767-5f93-4a46-9eed-f012196bb4fc"
+    },
+    "agentUserId": {
+      "type": "string",
+      "minLength": 36,
+      "maxLength": 36,
+      "example": "d18847b5-1df6-4c46-8f99-5cce47284529",
+      "description": "Id of user that represent agent servers which signs with the key"
+    }
+  },
+  "required": [
+    "keyId",
+    "agentUserId"
+  ]
+}
