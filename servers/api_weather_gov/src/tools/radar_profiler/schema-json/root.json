@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "time": {
+      "description": "A time interval in ISO 8601 format. This can be one of:\n\n    1. Start and end time\n    2. Start time and duration\n    3. Duration and end time\nThe string \"NOW\" can also be used in place of a start/end time.\n",
+      "oneOf": [
+        {
+          "pattern": "^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$",
+          "type": "string",
+          "example": "2007-03-01T13:00:00Z/2008-05-11T15:30:00Z"
+        },
+        {
+          "pattern": "^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)\\/P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$",
+          "type": "string",
+          "example": "2007-03-01T13:00:00Z/P1Y2M10DT2H30M"
+        },
+        {
+          "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?\\/(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(Z|[+-]\\d{2}:?\\d{2}?)|NOW)$",
+          "type": "string",
+          "example": "P1Y2M10DT2H30M/2008-05-11T15:30:00Z"
+        }
+      ]
+    },
+    "interval": {
+      "description": "A time duration in ISO 8601 format.",
+      "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$",
+      "type": "string",
+      "example": "P2DT12H"
+    }
+  },
+  "required": []
+}
