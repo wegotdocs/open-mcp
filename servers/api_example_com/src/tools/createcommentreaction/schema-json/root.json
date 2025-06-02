@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "postId": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "commentId": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "published_at": {
+      "description": "The point in time when the reaction was made (default: now). If specified, it has to be a time in the past.",
+      "format": "date-time",
+      "nullable": true,
+      "type": "string"
+    },
+    "reacting_user_id": {
+      "description": "The id of the user for whom the reaction is created (default: current actor). If a user other than the current actor is specified, the current actor needs the legacy permission `POST_COMMENTS_IMPERSONATE`.",
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "postId",
+    "commentId",
+    "type"
+  ]
+}

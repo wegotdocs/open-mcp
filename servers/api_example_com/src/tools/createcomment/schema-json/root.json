@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "post_id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "attachments": {
+      "description": "List of attachment ids that belong to the comment.",
+      "items": {
+        "properties": {
+          "attachment_id": {
+            "description": "id of the uploaded attachment.",
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10,
+      "nullable": true,
+      "type": "array"
+    },
+    "author_id": {
+      "description": "The user id of the author (default: current actor). If a user other than the current actor is specified, the current actor requires the legacy permission `POST_COMMENTS_IMPERSONATE`.",
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+    },
+    "body": {
+      "description": "The body of the comment.",
+      "type": "string"
+    },
+    "external_id": {
+      "description": "Can be used for customer side identification of a comment. Should be unique.",
+      "nullable": true,
+      "type": "string"
+    },
+    "language": {
+      "description": "Language of the comment body represented as string compliant with ISO 639-1 norm. In case the language is not supported, the field will be ignored.",
+      "nullable": true,
+      "type": "string"
+    },
+    "mentioned_user_ids": {
+      "description": "The list of user IDs of users mentioned in the comment.",
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "published_at": {
+      "description": "The timestamp of the publishing of the comment. If not provided, will be set to the time of the comment creation. The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.",
+      "format": "date-time",
+      "nullable": true,
+      "type": "string"
+    },
+    "quoted_comment_id": {
+      "description": "ID of the comment, that the newly created comment is responding to. If not provided, the comment will be a top level comment.",
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "post_id",
+    "body"
+  ]
+}
