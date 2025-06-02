@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "stationType": {
+      "description": "Limit results to a specific station type or types",
+      "type": "array",
+      "items": {
+        "pattern": "^[A-Za-z0-9-]+$",
+        "type": "string"
+      }
+    },
+    "reportingHost": {
+      "description": "Show RDA and latency info from specific reporting host",
+      "type": "string"
+    },
+    "host": {
+      "description": "Show latency info from specific LDM host",
+      "type": "string"
+    }
+  },
+  "required": []
+}
