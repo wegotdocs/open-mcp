@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "contractId": {
+      "description": "The ID of the contract",
+      "type": "string",
+      "example": "908a8cd0-d41b-4a11-b90c-3493a1060929"
+    },
+    "assetId": {
+      "description": "The ID of the asset to delete",
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "ETH"
+    }
+  },
+  "required": [
+    "contractId",
+    "assetId"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "cosignerId": {
+      "description": "The unique identifier of the cosigner",
+      "format": "uuid",
+      "type": "string"
+    },
+    "apiKeyId": {
+      "description": "The unique identifier of the API key",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cosignerId",
+    "apiKeyId"
+  ]
+}

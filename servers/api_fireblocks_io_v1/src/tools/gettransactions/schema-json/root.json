@@ -1,0 +1,125 @@
+{
+  "type": "object",
+  "properties": {
+    "before": {
+      "description": "Unix timestamp in milliseconds. Returns only transactions created before the specified date.\nProvides an explicit end time. If not provided, default value will be applied, and may change over time. \nThe current default value is the past 90 days.\n",
+      "type": "string",
+      "example": "1716735252121"
+    },
+    "after": {
+      "description": "Unix timestamp in milliseconds. Returns only transactions created after the specified date.\nProvides an explicit start time. If not provided, default value will be applied, and may change over time. \nThe current default value is the past 90 days.\n",
+      "type": "string",
+      "example": "1716735250121"
+    },
+    "status": {
+      "description": "The primary status of the transaction. \nFor details, see [Primary transaction statuses](https://developers.fireblocks.com/reference/primary-transaction-statuses)\n",
+      "type": "string",
+      "enum": [
+        "SUBMITTED",
+        "PENDING_AML_SCREENING",
+        "PENDING_ENRICHMENT",
+        "PENDING_AUTHORIZATION",
+        "QUEUED",
+        "PENDING_SIGNATURE",
+        "PENDING_3RD_PARTY_MANUAL_APPROVAL",
+        "PENDING_3RD_PARTY",
+        "BROADCASTING",
+        "COMPLETED",
+        "CONFIRMING",
+        "CANCELLING",
+        "CANCELLED",
+        "BLOCKED",
+        "REJECTED",
+        "FAILED"
+      ]
+    },
+    "orderBy": {
+      "description": "The field to order the results by\n\n**Note**: Ordering by a field that is not createdAt may result with transactions that receive updates as you request the next or previous pages of results, resulting with missing those transactions.",
+      "type": "string",
+      "enum": [
+        "createdAt",
+        "lastUpdated"
+      ]
+    },
+    "sort": {
+      "description": "The direction to order the results by",
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    "limit": {
+      "description": "Limits the number of results. If not provided, a limit of 200 will be used. The maximum allowed limit is 500",
+      "type": "integer",
+      "minimum": 1,
+      "default": 200,
+      "example": 50
+    },
+    "sourceType": {
+      "description": "The source type of the transaction",
+      "type": "string",
+      "enum": [
+        "VAULT_ACCOUNT",
+        "EXCHANGE_ACCOUNT",
+        "INTERNAL_WALLET",
+        "EXTERNAL_WALLET",
+        "CONTRACT",
+        "FIAT_ACCOUNT",
+        "NETWORK_CONNECTION",
+        "COMPOUND",
+        "UNKNOWN",
+        "GAS_STATION",
+        "END_USER_WALLET"
+      ]
+    },
+    "sourceId": {
+      "description": "The source ID of the transaction",
+      "type": "string",
+      "example": "0"
+    },
+    "destType": {
+      "description": "The destination type of the transaction",
+      "type": "string",
+      "enum": [
+        "VAULT_ACCOUNT",
+        "EXCHANGE_ACCOUNT",
+        "INTERNAL_WALLET",
+        "EXTERNAL_WALLET",
+        "CONTRACT",
+        "FIAT_ACCOUNT",
+        "NETWORK_CONNECTION",
+        "COMPOUND",
+        "ONE_TIME_ADDRESS",
+        "END_USER_WALLET",
+        "MULTI_DESTINATION"
+      ]
+    },
+    "destId": {
+      "description": "The destination ID of the transaction",
+      "type": "string",
+      "example": "2"
+    },
+    "assets": {
+      "description": "A list of assets to filter by, seperated by commas",
+      "type": "string",
+      "example": "ETH,BTC"
+    },
+    "txHash": {
+      "description": "Returns only results with a specified txHash",
+      "type": "string",
+      "example": "0x578b26ea55c018ab2ae595a4a2e2b05d39a3e455ddf36b2d6adc1cbc01bed4d1"
+    },
+    "sourceWalletId": {
+      "description": "Returns only results where the source is a specific end user wallet",
+      "type": "string",
+      "example": "f01d8d3c-b1a3-4b33-8515-d99137117ace"
+    },
+    "destWalletId": {
+      "description": "Returns only results where the destination is a specific end user wallet",
+      "type": "string",
+      "example": "bccab295-e1de-4768-85cc-a11fdb11218f"
+    }
+  },
+  "required": []
+}

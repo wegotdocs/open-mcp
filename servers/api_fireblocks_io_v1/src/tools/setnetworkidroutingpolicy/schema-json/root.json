@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "networkId": {
+      "description": "The ID of the network",
+      "type": "string",
+      "example": "ebde71be-30d6-4498-95c4-a151effdb377"
+    },
+    "routingPolicy": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `routingPolicy` to the tool, first call the tool `expandSchema` with \"/properties/routingPolicy\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "networkId",
+    "routingPolicy"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "ticketId": {
+      "type": "string",
+      "example": "118320d2-761f-46c7-96cf-65e71a370b36"
+    },
+    "termId": {
+      "type": "string",
+      "example": "88587a11-5a3e-4d90-8a63-5008d7a40fb4"
+    },
+    "asset": {
+      "type": "string",
+      "description": "Asset name",
+      "example": "BTC",
+      "x-fb-entity": "asset"
+    },
+    "amount": {
+      "type": "string",
+      "description": "Amount",
+      "example": "133.789161216184"
+    },
+    "networkConnectionId": {
+      "type": "string",
+      "description": "Id of the network connection used.",
+      "example": "0805153d-e77d-4f9b-8818-e507eeb2d122"
+    },
+    "srcId": {
+      "type": "string",
+      "description": "Id of the vault that is used as the source of the asset.",
+      "example": "2"
+    },
+    "srcType": {
+      "type": "string",
+      "description": "Source of the asset.",
+      "example": "VAULT_ACCOUNT"
+    },
+    "fee": {
+      "type": "string",
+      "description": "Transaction fee",
+      "example": "0.001"
+    },
+    "feeLevel": {
+      "type": "string",
+      "description": "Transaction fee level.",
+      "example": "MEDIUM"
+    },
+    "note": {
+      "type": "string",
+      "description": "Transaction note",
+      "example": "Transaction note"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "ticketId",
+    "termId",
+    "asset",
+    "amount",
+    "networkConnectionId",
+    "srcId",
+    "srcType"
+  ]
+}

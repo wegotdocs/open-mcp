@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "blockchainId": {
+      "type": "string",
+      "description": "Native asset of blockchain",
+      "example": "ETH"
+    },
+    "address": {
+      "type": "string",
+      "description": "Asset address.\n- EVM-based chains: token contract address\n- Stellar (XLM): issuer address\n- Algorand (ALGO): asset ID\n- TRON (TRX): token contract address\n- NEAR: token address\n- Solana: token's mint account address\n",
+      "example": "0xe7A9as1oa38bc4da0248s179E30aa94CcF453991"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Asset symbol",
+      "example": "TST3"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "blockchainId",
+    "address"
+  ]
+}

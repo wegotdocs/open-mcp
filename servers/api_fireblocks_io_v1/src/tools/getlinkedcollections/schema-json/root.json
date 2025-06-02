@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "pageCursor": {
+      "description": "Page cursor to get the next page, for example - \"MjAyMy0xMi0xMyAyMDozNjowOC4zMDI=:MTEwMA==\"",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Number of items per page (max 100), requesting more then 100 will return 100 items",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 100,
+      "type": "number"
+    },
+    "status": {
+      "description": "A comma separated list of statuses to filter. Default is \"COMPLETED\""
+    }
+  },
+  "required": []
+}

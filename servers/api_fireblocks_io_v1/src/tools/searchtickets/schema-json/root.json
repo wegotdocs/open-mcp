@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "properties": {
+    "q": {
+      "description": "Search string - counterparty name or asset or ticketId. Optional",
+      "minLength": 1,
+      "type": "string",
+      "example": "BTC"
+    },
+    "statuses": {
+      "description": "Ticket statuses for Smart Transfer tickets. Optional",
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "DRAFT",
+          "PENDING_APPROVAL",
+          "OPEN",
+          "IN_SETTLEMENT",
+          "FULFILLED",
+          "EXPIRED",
+          "CANCELED"
+        ]
+      }
+    },
+    "networkId": {
+      "description": "NetworkId that is used in the ticket\t. Optional",
+      "type": "string",
+      "example": "cf6c9e4b-916a-4dae-9421-8782b20a44ea"
+    },
+    "createdByMe": {
+      "description": "Filter created tickets by created by self or by others. Optional",
+      "type": "boolean"
+    },
+    "expiresAfter": {
+      "description": "Lower bound of search range. Optional",
+      "format": "date-time",
+      "type": "string",
+      "example": "2017-07-21T17:32:28Z"
+    },
+    "expiresBefore": {
+      "description": "Upper bound of search range. Optional",
+      "format": "date-time",
+      "type": "string",
+      "example": "2017-07-21T17:32:28Z"
+    },
+    "type": {
+      "description": "Type of transfer. ASYNC executes transfers as they are funded, ATOMIC executes all terms (legs) as one atomic transfer",
+      "enum": [
+        "ASYNC",
+        "DVP"
+      ],
+      "type": "string"
+    },
+    "externalRefId": {
+      "description": "External ref. ID that workspace can use to identify ticket outside of Fireblocks system.",
+      "minLength": 1,
+      "maxLength": 64,
+      "type": "string",
+      "example": "some-external-reference"
+    },
+    "after": {
+      "description": "ID of the record after which to fetch $limit records",
+      "type": "string",
+      "example": "aeda4201-7ec5-4276-a198-f0c62a5a8619"
+    },
+    "limit": {
+      "description": "Number of records to fetch. By default, it is 100",
+      "minimum": 1,
+      "type": "number",
+      "example": 20
+    }
+  },
+  "required": []
+}

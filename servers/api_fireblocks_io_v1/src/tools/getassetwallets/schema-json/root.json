@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "totalAmountLargerThan": {
+      "description": "When specified, only vault wallets with total balance greater than this amount are returned.",
+      "type": "number",
+      "example": 14
+    },
+    "assetId": {
+      "description": "When specified, only vault wallets with the specified ID are returned.",
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "ETH"
+    },
+    "orderBy": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "DESC"
+    },
+    "before": {
+      "description": "Fetches the next paginated response before this element. \nThis element is a cursor and is returned at the response of the previous page.\n",
+      "type": "string",
+      "example": "c3RhcnRpbmdWYXVsdElkeD04NTgzNzA2Mw"
+    },
+    "after": {
+      "description": "Fetches the next paginated response after this element. This element is a cursor and is returned at the response of the previous page.",
+      "type": "string",
+      "example": "c3RhcnRpbmdWYXVsdElkeD01NTM1NzUzNg"
+    },
+    "limit": {
+      "description": "The maximum number of vault wallets in a single response. \n\nThe default is 200 and the maximum is 1000.\n",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 1000,
+      "default": 200
+    }
+  },
+  "required": []
+}

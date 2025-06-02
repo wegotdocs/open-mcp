@@ -1,0 +1,14 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "name": z.string().describe("The name of the contract template"),
+  "description": z.string().describe("A short description of the contract template"),
+  "longDescription": z.string().describe("A full description of the contract template. May contain \n to break the lines").optional(),
+  "bytecode": z.string().describe("The compiled artifact of this smart contract. Used for deployment of this contract template"),
+  "sourcecode": z.string().describe("The source code of the contract. Optional.").optional(),
+  "type": z.enum(["FUNGIBLE_TOKEN","NON_FUNGIBLE_TOKEN","TOKEN_UTILITY"]).describe("The type of the contract template").optional(),
+  "docs": z.string().optional(),
+  "abi": z.array(z.array(z.object({ "name": z.string().describe("The name of the contract function as it appears in the ABI").optional(), "stateMutability": z.enum(["pure","view","nonpayable","payable"]).describe("The state mutability of the contract function as it appears in the ABI").optional(), "type": z.enum(["function","constructor"]).describe("The type if the function"), "inputs": z.array(z.object({ "name": z.string().describe("The name of the parameter as it appears in the ABI"), "description": z.string().describe("A description of the parameter, fetched from the devdoc of this contract").optional(), "internalType": z.string().describe("The internal type of the parameter as it appears in the ABI").optional(), "type": z.string().describe("The type of the parameter as it appears in the ABI"), "components": z.array(z.any()).describe("In case it’s a struct, it will hold the struct data").optional() })).describe("The parameters that this function/constructor posses"), "outputs": z.array(z.object({ "name": z.string().describe("The name of the parameter as it appears in the ABI"), "description": z.string().describe("A description of the parameter, fetched from the devdoc of this contract").optional(), "internalType": z.string().describe("The internal type of the parameter as it appears in the ABI").optional(), "type": z.string().describe("The type of the parameter as it appears in the ABI"), "components": z.array(z.any()).describe("In case it’s a struct, it will hold the struct data").optional() })).describe("The parameters that this 'read' function returns").optional(), "description": z.string().describe("The documentation of this function (if has any)").optional() })).describe("The abi of the contract template. Necessary for displaying and for after deployment encoding")),
+  "attributes": z.string().optional(),
+  "Idempotency-Key": z.string().describe("A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.").optional()
+}

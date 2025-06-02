@@ -1,0 +1,120 @@
+{
+  "type": "object",
+  "properties": {
+    "contractTemplateId": {
+      "description": "The Contract Template identifier",
+      "type": "string"
+    },
+    "assetId": {
+      "type": "string",
+      "example": "ETH_TEST5",
+      "description": "The base asset identifier of the blockchain you want to deploy to"
+    },
+    "vaultAccountId": {
+      "type": "string",
+      "example": "0",
+      "description": "The vault account id you wish to deploy from"
+    },
+    "constructorParameters": {
+      "description": "The constructor parameters of this contract",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Some Name",
+            "description": "The name of the parameter as it appears in the ABI"
+          },
+          "description": {
+            "type": "string",
+            "example": "The name of the token",
+            "description": "A description of the parameter, fetched from the devdoc of this contract"
+          },
+          "internalType": {
+            "type": "string",
+            "example": "string",
+            "description": "The  internal type of the parameter as it appears in the ABI"
+          },
+          "type": {
+            "type": "string",
+            "example": "string",
+            "description": "The type of the parameter as it appears in the ABI"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "_name",
+                  "description": "The name of the parameter as it appears in the ABI"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "The name of the token",
+                  "description": "A description of the parameter, fetched from the devdoc of this contract"
+                },
+                "internalType": {
+                  "type": "string",
+                  "example": "string",
+                  "description": "The internal type of the parameter as it appears in the ABI"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "string",
+                  "description": "The type of the parameter as it appears in the ABI"
+                },
+                "components": {
+                  "type": "array",
+                  "description": "In case it’s a struct, it will hold the struct data"
+                }
+              },
+              "required": [
+                "name",
+                "type"
+              ]
+            }
+          },
+          "value": {
+            "example": "true",
+            "description": "The value of the parameter. can also be ParameterWithValue",
+            "type": "string"
+          },
+          "functionValue": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      },
+      "example": [
+        {
+          "internalType": "string",
+          "name": "name_",
+          "type": "string",
+          "value": "TokenName"
+        },
+        {
+          "internalType": "string",
+          "name": "symbol_",
+          "type": "string",
+          "value": "TokenSymbol"
+        }
+      ],
+      "type": "array"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "contractTemplateId",
+    "assetId",
+    "vaultAccountId"
+  ]
+}

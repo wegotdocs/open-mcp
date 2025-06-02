@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "did": {
+      "type": "string",
+      "example": "did:ethr:0x44957e75d6ce4a5bf37aae117da86422c848f7c2",
+      "description": "The decentralized identifier of the VASP"
+    },
+    "pii_didkey": {
+      "type": "string",
+      "example": "did:key:z6Mks5CZRaiooKYhq5TwtXQC1gWhwiZnmiKfFrMnYY62MhYf",
+      "description": "The PII DID key of the VASP"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "did",
+    "pii_didkey"
+  ]
+}

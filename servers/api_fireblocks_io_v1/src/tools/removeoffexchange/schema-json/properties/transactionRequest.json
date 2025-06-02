@@ -1,0 +1,257 @@
+{
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string",
+      "default": "TRANSFER",
+      "enum": [
+        "TRANSFER",
+        "BURN",
+        "CONTRACT_CALL",
+        "MINT",
+        "RAW",
+        "TYPED_MESSAGE",
+        "PROGRAM_CALL"
+      ],
+      "description": "* `TRANSFER` - The default value for an operation. Transfers funds from one account to another. UTXO blockchains allow multi-input and multi-output transfers. All other blockchains allow transfers with one source address and one destination address.\n* `MINT` - Mints new tokens. Supported for Stellar, Ripple and EVM-based blockchains.\n* `BURN` - Burns tokens. Supported for Stellar, Ripple and EVM-based blockchains.\n* `CONTRACT_CALL` - Calls a smart contract method for web3 operations on any EVM blockchain. The Fireblocks [development libraries](https://developers.fireblocks.com/docs/ethereum-development#convenience-libraries) are recommended for building contract call transactions.\n* `PROGRAM_CALL` - Calls a smart contract for web3 operations on the Solana blockchain.\n  Read more in the [Solana Programs Interactions guide](https://developers.fireblocks.com/reference/interact-with-solana-programs).\n\n* `TYPED_MESSAGE` - An off-chain message in either Ethereum Personal Message or EIP712 format. Use it to sign specific readable messages that are not actual transactions. [Learn more about typed messages](https://developers.fireblocks.com/docs/typed-message-signing-1).\n* `RAW` - An off-chain message with no predefined format. Use it to sign any message with your private key, including protocols such as blockchains and custom transaction types that are not natively supported by Fireblocks. [Learn more about raw signing transactions.](https://developers.fireblocks.com/docs/raw-signing)\n"
+    },
+    "note": {
+      "type": "string",
+      "description": "Custom note, not sent to the blockchain, to describe the transaction at your Fireblocks workspace.",
+      "example": "Ticket 123"
+    },
+    "externalTxId": {
+      "type": "string",
+      "description": "An optional but highly recommended parameter. Fireblocks will reject future transactions with same ID. \nYou should set this to a unique ID representing the transaction, to avoid submitting the same transaction twice. This helps with cases where submitting the transaction responds with an error code due to Internet interruptions, but the transaction was actually sent and processed. To validate whether a transaction has been processed, [Find a specific transaction by external transaction ID](https://developers.fireblocks.com/reference/gettransactionbyexternalid).\nThere is no specific format required for this parameter.",
+      "example": "some_unique_external_tx_id"
+    },
+    "assetId": {
+      "type": "string",
+      "description": "The ID of the asset to transfer, for `TRANSFER`, `MINT` or `BURN` operations. [See the list of supported assets and their IDs on Fireblocks.](https://developers.fireblocks.com/reference/getsupportedassets-1)",
+      "x-fb-entity": "asset",
+      "example": "ETH"
+    },
+    "source": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `source` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/source\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The source of the transaction.</property-description>",
+      "additionalProperties": true
+    },
+    "destination": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `destination` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/destination\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The destination of the transaction.</property-description>",
+      "additionalProperties": true
+    },
+    "destinations": {
+      "type": "array",
+      "description": "For UTXO based blockchains, you can send a single transaction to multiple destinations.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string"
+          },
+          "destination": {
+            "type": "object",
+            "description": "The destination of the transaction.",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "VAULT_ACCOUNT",
+                  "EXCHANGE_ACCOUNT",
+                  "INTERNAL_WALLET",
+                  "EXTERNAL_WALLET",
+                  "CONTRACT",
+                  "NETWORK_CONNECTION",
+                  "FIAT_ACCOUNT",
+                  "COMPOUND",
+                  "GAS_STATION",
+                  "ONE_TIME_ADDRESS",
+                  "UNKNOWN",
+                  "END_USER_WALLET",
+                  "PROGRAM_CALL",
+                  "MULTI_DESTINATION"
+                ]
+              },
+              "subType": {
+                "type": "string",
+                "enum": [
+                  "BINANCE",
+                  "BINANCEUS",
+                  "BITFINEX",
+                  "BITHUMB",
+                  "BITMEX",
+                  "BITSO",
+                  "BITSTAMP",
+                  "BITTREX",
+                  "BLINC",
+                  "BULLISHEXCHANGE",
+                  "BYBIT",
+                  "CIRCLE",
+                  "COINBASEEXCHANGE",
+                  "COINBASEPRO",
+                  "COINMETRO",
+                  "COINSPRO",
+                  "CRYPTOCOM",
+                  "DERIBIT",
+                  "GEMINI",
+                  "HITBTC",
+                  "HUOBI",
+                  "INDEPENDENTRESERVE",
+                  "KORBIT",
+                  "KRAKEN",
+                  "KRAKENINTL",
+                  "KUCOIN",
+                  "LIQUID",
+                  "OKCOIN",
+                  "OKEX",
+                  "PAXOS",
+                  "POLONIEX",
+                  "External",
+                  "Internal"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "walletId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "oneTimeAddress": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "tag": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ]
+          }
+        }
+      }
+    },
+    "amount": {
+      "description": "For `TRANSFER` operations, the requested amount to transfer, in the asset’s unit. Fireblocks recommends using a numeric string for accurate precision. Although a number input exists, it is deprecated.",
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "Numeric string (recommended)",
+          "example": "0.02"
+        }
+      ]
+    },
+    "treatAsGrossAmount": {
+      "type": "boolean",
+      "description": "\"When set to `true`, the fee will be deducted from the requested amount.\"\n\n**Note**: This parameter can only be considered if a transaction’s asset is a base asset, such as ETH or MATIC. If the asset can’t be used for transaction fees, like USDC, this parameter is ignored and the fee is deducted from the relevant base asset wallet in the source account.",
+      "example": false
+    },
+    "forceSweep": {
+      "type": "boolean",
+      "description": "For Polkadot, TON, Kusama and Westend transactions only. When set to true, Fireblocks will empty the asset wallet.\n\n   **Note:** If set to true when the source account is exactly 1 DOT, the transaction will fail. Any amount more or less than 1 DOT succeeds. This is a Polkadot blockchain limitation.",
+      "example": false
+    },
+    "feeLevel": {
+      "type": "string",
+      "description": "For UTXO or EVM-based blockchains only. Defines the blockchain fee level which will be payed for the transaction. Alternatively, specific fee estimation parameters exist below.",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ],
+      "example": "MEDIUM"
+    },
+    "fee": {
+      "description": "For UTXO-based blockchains, the fee per bytes in the asset’s smallest unit (Satoshi, Latoshi, etc.).  For Ripple, the fee for the transaction. Fireblocks recommends using a numeric string for accurate precision. Although a number input exists, it is deprecated.",
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "Numeric string (recommended)"
+        }
+      ]
+    },
+    "priorityFee": {
+      "description": "For Ethereum-based blockchains only, the fee for EIP-1559 transaction pricing mechanism. Value is in Gwei.  Fireblocks recommends using a numeric string for accurate precision. Although a number input exists, it is deprecated.",
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "Numeric string (recommended)",
+          "example": "2"
+        }
+      ]
+    },
+    "failOnLowFee": {
+      "type": "boolean",
+      "description": "When set to `true`, in case the current `MEDIUM` fee level is higher than the one specified in the transaction, the transaction will fail to avoid getting stuck with no confirmations."
+    },
+    "maxFee": {
+      "description": "The maximum fee (gas price or fee per byte) that should be payed for the transaction.  In case the current value of the requested `feeLevel` is higher than this requested maximum fee.  Represented by a numeric string for accurate precision.",
+      "type": "string",
+      "example": "120"
+    },
+    "gasLimit": {
+      "description": "For EVM-based blockchains only. Units of gas required to process the transaction. Note: Only two of the three arguments can be specified in a single transaction: `gasLimit`, `gasPrice` and `networkFee`. Fireblocks recommends using a numeric string for accurate precision. Although a number input exists, it is deprecated.",
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "Numeric string (recommended)",
+          "example": "21000"
+        }
+      ]
+    },
+    "gasPrice": {
+      "description": "For non-EIP-1559, EVM-based transactions. Price per gas unit (in Ethereum this is specified in Gwei).  Note: Only two of the three arguments can be specified in a single transaction: `gasLimit`, `gasPrice` and `networkFee`. Fireblocks recommends using a numeric string for accurate precision.  Although a number input exists, it is deprecated.",
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "Numeric string (recommended)"
+        }
+      ]
+    },
+    "networkFee": {
+      "description": "For EVM-based blockchains only. The total transaction fee in the blockchain’s largest unit. Note: Only two of the three arguments can be specified in a single transaction: `gasLimit`, `gasPrice` and `networkFee`. Fireblocks recommends using a numeric string for accurate precision. Although a number input exists, it is deprecated. - The transaction blockchain fee.\n- For Ethereum, you can't pass gasPrice, gasLimit and networkFee all together.\n- A numeric value representation is required.",
+      "anyOf": [
+        {
+          "type": "string",
+          "description": "Numeric string (recommended)"
+        }
+      ]
+    },
+    "replaceTxByHash": {
+      "type": "string",
+      "description": "For EVM-based blockchains only. In case a transaction is stuck, specify the hash of the stuck transaction to replace it by this transaction with a higher fee, or to replace it with this transaction with a zero fee and drop it from the blockchain.",
+      "example": "00000000-0000-0000-0000-000000000000"
+    },
+    "extraParameters": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `extraParameters` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/extraParameters\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional protocol / operation specific key-value parameters:\n\nFor UTXO-based blockchain input selection, add the key `inputsSelection` with the value set the [input selection structure.](https://developers.fireblocks.com/reference/transaction-objects#inputsselection) The inputs can be retrieved from the [Retrieve Unspent Inputs endpoint.](https://developers.fireblocks.com/reference/get_vault-accounts-vaultaccountid-assetid-unspent-inputs)\n\nFor `RAW` operations, add the key `rawMessageData` with the value set to the [raw message data structure.](https://developers.fireblocks.com/reference/raw-signing-objects#rawmessagedata)\n\nFor `CONTRACT_CALL` operations, add the key `contractCallData` with the value set to the Ethereum smart contract Application Binary Interface (ABI) payload. The Fireblocks [development libraries](https://developers.fireblocks.com/docs/ethereum-development#convenience-libraries) are recommended for building contract call transactions.\n*Note: `rawMessageData`, `contractCallData`, and `inputsSelection` cannot be used together in the same call.\"\n</property-description>",
+      "additionalProperties": true
+    },
+    "customerRefId": {
+      "type": "string",
+      "description": "The ID for AML providers to associate the owner of funds with transactions.",
+      "example": "abcdef"
+    },
+    "travelRuleMessage": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `travelRuleMessage` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/travelRuleMessage\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "useGasless": {
+      "type": "boolean",
+      "description": "- Override the default gasless configuration by sending true\\false"
+    }
+  }
+}

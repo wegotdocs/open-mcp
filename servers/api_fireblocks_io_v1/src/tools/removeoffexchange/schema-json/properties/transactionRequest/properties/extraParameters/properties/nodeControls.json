@@ -1,0 +1,19 @@
+{
+  "description": "Configure special node requirements. \nFor routing transactions to a custom node please set the `type` to `NODE_ROUTER` and the `tag` to the pre-configured tag value.\nFor MEV protection, set only the `type` property to `MEV` (`tag` is not required at this stage)\n\n* Note: This is a premium feature that should be enabled in your workspace.\n  Please contract your Customer Success Manager/Fireblocks Support for more info.\n",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "`NODE_ROUTER` - used for transaction routing to a custom node\n`MEV` - used for transaction routing to a MEV protection provider\n",
+      "type": "string",
+      "enum": [
+        "MEV",
+        "NODE_ROUTER"
+      ]
+    },
+    "tag": {
+      "description": "Should be used when type is `NODE_ROUTER` only",
+      "type": "string",
+      "example": "some_node_tag"
+    }
+  }
+}

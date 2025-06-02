@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "description": "The requested job id",
+      "type": "string"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "jobId"
+  ]
+}

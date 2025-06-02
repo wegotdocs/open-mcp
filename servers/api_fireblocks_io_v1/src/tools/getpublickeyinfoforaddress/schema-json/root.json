@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "vaultAccountId": {
+      "type": "string",
+      "format": "numeric",
+      "x-fb-entity": "vault_account",
+      "example": "0"
+    },
+    "assetId": {
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "BTC"
+    },
+    "change": {
+      "description": "BIP44 derivation path - change value",
+      "type": "number",
+      "example": 0
+    },
+    "addressIndex": {
+      "description": "BIP44 derivation path - index value",
+      "type": "number",
+      "example": 0
+    },
+    "compressed": {
+      "description": "Compressed/Uncompressed public key format",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "vaultAccountId",
+    "assetId",
+    "change",
+    "addressIndex"
+  ]
+}

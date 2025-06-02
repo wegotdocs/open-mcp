@@ -1,0 +1,13 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "blockchainId": z.string().describe("The id of the blockchain the request was initiated on").optional(),
+  "assetId": z.string().describe("The base asset identifier of the blockchain you want to deploy to").optional(),
+  "vaultAccountId": z.string().describe("The id of the vault account that initiated the request to issue the token"),
+  "createParams": z.object({ "contractId": z.string().describe("The id of the contract template that will be used to create the token"), "constructorParams": z.array(z.array(z.object({ "name": z.string().describe("The name of the parameter as it appears in the ABI"), "description": z.string().describe("A description of the parameter, fetched from the devdoc of this contract").optional(), "internalType": z.string().describe("The  internal type of the parameter as it appears in the ABI").optional(), "type": z.string().describe("The type of the parameter as it appears in the ABI"), "components": z.array(z.object({ "name": z.string().describe("The name of the parameter as it appears in the ABI"), "description": z.string().describe("A description of the parameter, fetched from the devdoc of this contract").optional(), "internalType": z.string().describe("The internal type of the parameter as it appears in the ABI").optional(), "type": z.string().describe("The type of the parameter as it appears in the ABI"), "components": z.array(z.any()).describe("In case it’s a struct, it will hold the struct data").optional() })).optional(), "value": z.string().describe("The value of the parameter. can also be ParameterWithValue").optional(), "functionValue": z.string().optional() }))).describe("The constructor parameters and values of the contract template").optional() }),
+  "displayName": z.string().optional(),
+  "useGasless": z.boolean().describe("Indicates whether the token should be created in a gasless manner, utilizing the ERC-2771 standard. When set to true, the transaction will be relayed by a designated relayer. The workspace must be configured to use Fireblocks gasless relay.").optional(),
+  "fee": z.string().describe("Max fee amount for the write function transaction. interchangeable with the 'feeLevel' field").optional(),
+  "feeLevel": z.enum(["LOW","MEDIUM","HIGH"]).describe("Fee level for the write function transaction. interchangeable with the 'fee' field").optional(),
+  "Idempotency-Key": z.string().describe("A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.").optional()
+}

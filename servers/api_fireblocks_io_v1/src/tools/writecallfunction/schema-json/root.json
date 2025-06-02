@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "contractAddress": {
+      "description": "The contract's onchain address",
+      "type": "string"
+    },
+    "baseAssetId": {
+      "description": "The blockchain base assetId",
+      "type": "string"
+    },
+    "vaultAccountId": {
+      "type": "string",
+      "example": "0",
+      "description": "The vault account id this contract was deploy from"
+    },
+    "abiFunction": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `abiFunction` to the tool, first call the tool `expandSchema` with \"/properties/abiFunction\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "amount": {
+      "type": "string",
+      "description": "Amount in base asset. Being used in payable functions",
+      "example": "12.345"
+    },
+    "feeLevel": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ],
+      "type": "string",
+      "description": "Fee level for the write function transaction. interchangeable with the 'fee' field",
+      "example": "MEDIUM"
+    },
+    "fee": {
+      "type": "string",
+      "description": "Max fee amount for the write function transaction. interchangeable with the 'feeLevel' field",
+      "example": "2000"
+    },
+    "note": {
+      "type": "string",
+      "description": "Custom note, not sent to the blockchain, that describes the transaction at your Fireblocks workspace"
+    },
+    "useGasless": {
+      "type": "boolean",
+      "example": false,
+      "description": "Indicates whether the token should be created in a gasless manner, utilizing the ERC-2771 standard. When set to true, the transaction will be relayed by a designated relayer. The workspace must be configured to use Fireblocks gasless relay."
+    },
+    "externalId": {
+      "type": "string",
+      "description": "External id that can be used to identify the transaction in your system. The unique identifier of the transaction outside of Fireblocks with max length of 255 characters",
+      "example": "0192e4f5-924e-7bb9-8e5b-c748270feb38"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "contractAddress",
+    "baseAssetId",
+    "vaultAccountId",
+    "abiFunction"
+  ]
+}

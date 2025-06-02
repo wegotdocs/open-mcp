@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "configName": z.string().describe("Your configuration name"),
+  "preScreening": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `preScreening` to the tool, first call the tool `expandSchema` with \"/properties/preScreening\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Should the configured AML pre-screening policy be enabled or not</property-description>").optional(),
+  "configOperations": z.array(z.object({ "type": z.literal("CONVERSION").describe("Conversion Operation Type"), "params": z.object({ "amount": z.string().describe("The amount to convert").optional(), "accountId": z.string().describe("Source account ID").optional(), "srcAssetId": z.string().describe("The asset ID to convert").optional(), "destAssetId": z.string().describe("The asset ID to get as a result of the conversion"), "slippageBasisPoints": z.number().int().gte(0).lte(10000).describe("Slippage tolerance (basis points)").optional() }) }).describe("Conversion Operation object")),
+  "externalCorrelationData": z.record(z.string()).optional(),
+  "Idempotency-Key": z.string().describe("A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.").optional()
+}

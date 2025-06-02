@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "ticketId": {
+      "type": "string"
+    },
+    "externalRefId": {
+      "type": "string",
+      "example": "abcdefg",
+      "minLength": 5,
+      "maxLength": 64,
+      "description": "Each workspace can set their own external id they want to refer to this Ticket"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "ticketId",
+    "externalRefId"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "groupId": {
+      "description": "The ID of the user group",
+      "type": "string",
+      "example": "777d084b-e1d5-4040-8d73-38c8f8a321b2"
+    },
+    "groupName": {
+      "type": "string",
+      "description": "User Group Name",
+      "example": "My User Group"
+    },
+    "memberIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "1d8b04f3-f90b-406b-a4d8-71d5d16f6862",
+        "30e8a73a-6300-4b35-a11a-9c69341805fc"
+      ]
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "groupId"
+  ]
+}

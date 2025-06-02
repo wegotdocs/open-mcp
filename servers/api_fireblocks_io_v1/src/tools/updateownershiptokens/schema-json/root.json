@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "blockchainDescriptor": {
+      "description": "Blockchain descriptor filter",
+      "enum": [
+        "ETH",
+        "ETH_TEST5",
+        "ETH_TEST6",
+        "POLYGON",
+        "POLYGON_TEST_MUMBAI",
+        "AMOY_POLYGON_TEST",
+        "BASECHAIN_ETH",
+        "BASECHAIN_ETH_TEST5",
+        "ETHERLINK",
+        "ETHERLINK_TEST",
+        "MANTLE",
+        "MANTLE_TEST",
+        "GUN_GUNZILLA_TEST",
+        "ETH_SONEIUM",
+        "SONEIUM_MINATO_TEST",
+        "IOTX_IOTEX"
+      ],
+      "type": "string"
+    },
+    "vaultAccountId": {
+      "description": "Vault account filter",
+      "type": "string",
+      "example": "0"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "blockchainDescriptor",
+    "vaultAccountId"
+  ]
+}

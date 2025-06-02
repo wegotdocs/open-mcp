@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the API Key",
+      "enum": [
+        "ADMIN",
+        "SIGNER",
+        "COLLATERALS_SIGNER",
+        "EDITOR",
+        "APPROVER",
+        "VIEWER",
+        "NON_SIGNING_ADMIN",
+        "AUDITOR",
+        "NCW_ADMIN",
+        "NCW_SIGNER"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "User Name",
+      "example": "MyAPIEditor"
+    },
+    "csrPem": {
+      "type": "string",
+      "description": "API requests are authenticated by providing in each request:\n  a. API Key in the `X-API-Key` header\n  b. Auth header - `Authorization: Bearer <JWT>` while the JWT is signed with an RSA 4096 private key.\n\nWhen creating a new API Key, you need to generate an RSA 4096 private key and a CSR file. \nThe CSR file is uploaded to Fireblocks upon the user creation and used later on for signature validation (Auth JWT signature validation).\n\nFor more info read the following [article](https://developers.fireblocks.com/docs/manage-api-keys)\n",
+      "example": "-----BEGIN CERTIFICATE REQUEST-----aaa-----END CERTIFICATE REQUEST-----"
+    },
+    "coSignerSetupType": {
+      "type": "string",
+      "description": "Required for Signer/Admin API users that planned to be paired with an API Co-Signer Machine.\n\n- SGX_MACHINE: For SGX enabled servers\n- FIREBLOCKS_CCMT: Fireblocks Communal Co-Signer (for Testnet workspaces only)\n- NITRO_MACHINE: For AWS Nitro Enclave enabled servers\n\nFor more information about Fireblocks Co-Signer setup please read the following [article](https://support.fireblocks.io/hc/en-us/articles/12006018592156-API-Co-Signer-Overview).\n",
+      "enum": [
+        "SGX_MACHINE",
+        "FIREBLOCKS_CCMT",
+        "NITRO_MACHINE"
+      ]
+    },
+    "coSignerSetupIsFirstUser": {
+      "type": "boolean",
+      "description": "Pass as `true`` if this is the first user on the your Co-Signer machine"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "role",
+    "name",
+    "csrPem"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "namePrefix": {
+      "type": "string",
+      "example": "MyVaultPrefix"
+    },
+    "nameSuffix": {
+      "type": "string",
+      "example": "MyVaultSuffix"
+    },
+    "minAmountThreshold": {
+      "description": "Specifying minAmountThreshold will filter accounts with balances greater than this value, otherwise, it will return all accounts. The amount set in this parameter is the native asset amount and not its USD value.",
+      "type": "number",
+      "example": 10
+    },
+    "assetId": {
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "ETH"
+    },
+    "orderBy": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "DESC"
+    },
+    "before": {
+      "type": "string",
+      "example": "c3RhcnRpbmdWYXVsdElkeD04NTgzNzA2Mw=="
+    },
+    "after": {
+      "type": "string",
+      "example": "c3RhcnRpbmdWYXVsdElkeD01NTM1NzUzNg=="
+    },
+    "limit": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 500,
+      "default": 200
+    }
+  },
+  "required": []
+}

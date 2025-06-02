@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "baseAssetId": {
+      "type": "string",
+      "description": "The blockchain base assetId",
+      "example": "ETH"
+    },
+    "contractAddress": {
+      "type": "string",
+      "description": "The contract's onchain address",
+      "example": "0xC2c4e1Db41F0bB97996D0eD0542D2170d146FB66"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "baseAssetId",
+    "contractAddress"
+  ]
+}

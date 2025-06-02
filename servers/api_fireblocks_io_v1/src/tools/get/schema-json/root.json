@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "order": {
+      "description": "List order (ascending or descending)",
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "ASC"
+    },
+    "filter": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `filter` to the tool, first call the tool `expandSchema` with \"/properties/filter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Parsed filter object</property-description>",
+      "additionalProperties": true
+    },
+    "sort": {
+      "description": "Property to sort Web3 connections by.",
+      "type": "string",
+      "enum": [
+        "id",
+        "userId",
+        "vaultAccountId",
+        "createdAt",
+        "feeLevel",
+        "appUrl",
+        "appName"
+      ],
+      "default": "createdAt",
+      "example": "userId=5e7889fc-b5d6-5c6d-89cd-627ae94f1efd,appName=Uniswap"
+    },
+    "pageSize": {
+      "description": "Amount of results to return in the next page.",
+      "type": "number",
+      "default": 10,
+      "maximum": 50,
+      "example": 20
+    },
+    "next": {
+      "description": "Cursor to the next page",
+      "type": "string",
+      "example": "MjAyNC0wNC0xMSAyMDozOToxOC40Nzc=:ODZhOGI2M2M3MjVkYTY1OWNmNDAyMzNiYjc0NTViMTJlMDhiNjZiZmM4MjU3NGNhN2I2OWYxZjQ2N2E2ZjI3OA=="
+    }
+  },
+  "required": []
+}

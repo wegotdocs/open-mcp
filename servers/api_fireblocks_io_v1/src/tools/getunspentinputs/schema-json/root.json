@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "vaultAccountId": {
+      "description": "The ID of the vault account",
+      "type": "string",
+      "format": "numeric",
+      "x-fb-entity": "vault_account",
+      "example": "0"
+    },
+    "assetId": {
+      "description": "The ID of the asset",
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "BTC"
+    }
+  },
+  "required": [
+    "vaultAccountId",
+    "assetId"
+  ]
+}

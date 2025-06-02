@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "description": "An object containing proof of ownership for the signing key.",
+  "properties": {
+    "message": {
+      "description": "The message to be signed by the key as proof of ownership. 64 to 1024 bytes in hexadecimal format.",
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 2048
+    },
+    "signature": {
+      "description": "The signature of the message. 64 bytes in hexadecimal format.",
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "message",
+    "signature"
+  ]
+}

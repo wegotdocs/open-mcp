@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Vault Account name",
+      "type": "string",
+      "example": "MyVaultAccount"
+    },
+    "hiddenOnUI": {
+      "description": "Optional - if true, the created account and all related transactions will not be shown on Fireblocks console",
+      "type": "boolean"
+    },
+    "customerRefId": {
+      "description": "Optional - Sets a customer reference ID for AML integrations",
+      "type": "string",
+      "example": "some-reference"
+    },
+    "autoFuel": {
+      "description": "Optional - Sets the autoFuel property of the vault account for the Fireblocks Gas Station",
+      "type": "boolean"
+    },
+    "vaultType": {
+      "default": "MPC",
+      "description": "Type of vault account. The default type will be set to MPC.<br/>  If the workspace does not support the selected type, it will return an error.",
+      "type": "string",
+      "enum": [
+        "MPC",
+        "KEY_LINK"
+      ]
+    },
+    "autoAssign": {
+      "default": false,
+      "description": "Applicable only when the vault account type is KEY_LINK. For MPC, this parameter will be ignored.<br/> If set to true and there are available keys, random keys will be assigned to the newly created vault account.<br/> If set to true and there are no available keys to be assigned, it will return an error.<br/> If set to false, the vault account will be created without any keys.",
+      "type": "boolean"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": []
+}

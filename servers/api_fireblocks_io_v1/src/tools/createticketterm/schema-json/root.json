@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "ticketId": {
+      "type": "string",
+      "example": "900f04c3-83bc-428d-b681-aef682059637"
+    },
+    "asset": {
+      "type": "string",
+      "description": "Asset name",
+      "example": "BTC",
+      "x-fb-entity": "asset"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Amount",
+      "example": "133.789161216184"
+    },
+    "fromNetworkId": {
+      "type": "string",
+      "description": "Identifier of the origination Network Profile",
+      "example": "947c6115-1f5f-4fb4-9fd6-a1f9dee14670"
+    },
+    "toNetworkId": {
+      "type": "string",
+      "description": "Identifier of the destination Network Profile",
+      "example": "5d009697-c29b-48e0-aff8-1f4305d19dc2"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "ticketId",
+    "asset",
+    "amount",
+    "fromNetworkId",
+    "toNetworkId"
+  ]
+}
