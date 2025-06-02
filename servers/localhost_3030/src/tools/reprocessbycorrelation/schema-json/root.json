@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "correlations": {
+      "type": "array",
+      "description": "Lista de IDs de correlação para reprocessar",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "example": "550e8400-e29b-41d4-a716-446655440000"
+      },
+      "minItems": 1
+    },
+    "reprocessing_description": {
+      "type": "string",
+      "description": "Descrição do motivo do reprocessamento",
+      "maxLength": 150,
+      "example": "Reprocessamento por erro de validação"
+    }
+  },
+  "required": [
+    "correlations"
+  ]
+}

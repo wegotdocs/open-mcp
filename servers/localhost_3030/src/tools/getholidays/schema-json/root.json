@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "country": {
+      "type": "string",
+      "enum": [
+        "BRA",
+        "CHL",
+        "COL"
+      ],
+      "description": "Código do país (ISO 3166-1 alpha-3)",
+      "example": "BRA"
+    },
+    "year": {
+      "type": "string",
+      "description": "Ano para consulta (formato YYYY). Se não informado, usa o ano atual",
+      "pattern": "^[0-9]{4}$",
+      "example": "2023"
+    }
+  },
+  "required": [
+    "country"
+  ]
+}
