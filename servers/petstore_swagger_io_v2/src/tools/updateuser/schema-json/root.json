@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "description": "name that need to be updated",
+      "type": "string"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "b_username": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "userStatus": {
+      "type": "integer",
+      "format": "int32",
+      "description": "User Status"
+    }
+  },
+  "required": [
+    "username"
+  ]
+}
