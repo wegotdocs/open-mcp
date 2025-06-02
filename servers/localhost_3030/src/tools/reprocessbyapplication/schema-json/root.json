@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "reprocessing_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data para reprocessamento (formato YYYY-MM-DD)",
+      "example": "2023-12-01"
+    },
+    "application_id": {
+      "type": "string",
+      "description": "ID da aplicação no formato ULID",
+      "example": "01ARZ3NDEKTSV4RRFFQ69G5FAV"
+    },
+    "reprocessing_description": {
+      "type": "string",
+      "description": "Descrição do motivo do reprocessamento",
+      "example": "Reprocessamento por atualização de configuração"
+    }
+  },
+  "required": [
+    "reprocessing_date",
+    "application_id"
+  ]
+}

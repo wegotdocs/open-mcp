@@ -1,0 +1,225 @@
+{
+  "type": "object",
+  "properties": {
+    "chargeback": {
+      "type": "boolean",
+      "description": "Indica se é um chargeback",
+      "default": false
+    },
+    "company_id": {
+      "type": "string",
+      "description": "ID da empresa",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "workspace_id": {
+      "type": "string",
+      "description": "ID do workspace",
+      "example": "123e4567-e89b-12d3-a456-426614174001"
+    },
+    "application_id": {
+      "type": "string",
+      "description": "ID da aplicação",
+      "example": "123e4567-e89b-12d3-a456-426614174002"
+    },
+    "correlation_id": {
+      "type": "string",
+      "description": "ID de correlação",
+      "example": "123e4567-e89b-12d3-a456-426614174003"
+    },
+    "nsu": {
+      "type": "string",
+      "description": "Número Sequencial Único",
+      "example": "123456789"
+    },
+    "authorization_code": {
+      "type": "string",
+      "description": "Código de autorização",
+      "example": "AUTH123456"
+    },
+    "tid": {
+      "type": "string",
+      "description": "Terminal ID",
+      "example": "TID123456"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Bandeira do cartão",
+      "example": "visa"
+    },
+    "acquirer": {
+      "type": "string",
+      "description": "Adquirente",
+      "example": "cielo"
+    },
+    "payment_method": {
+      "type": "string",
+      "description": "Método de pagamento",
+      "enum": [
+        "credit",
+        "debit",
+        "pix",
+        "boleto"
+      ],
+      "example": "credit"
+    },
+    "installments": {
+      "type": "integer",
+      "description": "Número de parcelas",
+      "minimum": 1,
+      "example": 3
+    },
+    "current_installment": {
+      "type": "integer",
+      "description": "Parcela atual",
+      "minimum": 1,
+      "example": 1
+    },
+    "paid_amount": {
+      "type": "number",
+      "format": "double",
+      "description": "Valor pago da transação",
+      "example": 100.5
+    },
+    "total_invoice_amount": {
+      "type": "number",
+      "format": "double",
+      "description": "Valor total da fatura",
+      "example": 105
+    },
+    "interest_rate": {
+      "type": "number",
+      "format": "double",
+      "description": "Taxa de juros ao consumidor",
+      "example": 2.5
+    },
+    "transaction_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data da transação",
+      "example": "2023-12-01T10:30:00Z"
+    },
+    "original_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data original da transação",
+      "example": "2023-12-01T10:30:00Z"
+    },
+    "transaction_type": {
+      "type": "string",
+      "description": "Tipo da transação",
+      "example": "payment"
+    },
+    "reference_id": {
+      "type": "string",
+      "description": "ID de referência",
+      "example": "REF123456"
+    },
+    "receita_tarifa_servico_b2c": {
+      "type": "number",
+      "format": "double",
+      "description": "Receita de tarifa de serviço B2C",
+      "example": 5
+    },
+    "receita_taxa_parcelamento": {
+      "type": "number",
+      "format": "double",
+      "description": "Receita de taxa de parcelamento",
+      "example": 3.5
+    },
+    "receita_b2b": {
+      "type": "number",
+      "format": "double",
+      "description": "Receita B2B",
+      "example": 2
+    },
+    "receita_aluguel_pos": {
+      "type": "number",
+      "format": "double",
+      "description": "Receita de aluguel de POS",
+      "example": 10
+    },
+    "mdr": {
+      "type": "number",
+      "format": "double",
+      "description": "Taxa MDR (Merchant Discount Rate)",
+      "example": 3.2
+    },
+    "anticipation_expenses": {
+      "type": "number",
+      "format": "double",
+      "description": "Custos de antecipação",
+      "example": 1.5
+    },
+    "tax_expenses": {
+      "type": "number",
+      "format": "double",
+      "description": "Custos de impostos",
+      "example": 2.3
+    },
+    "transfer_date": {
+      "type": "string",
+      "description": "Data de transferência",
+      "example": "2023-12-03"
+    },
+    "liquid_final_amount": {
+      "type": "number",
+      "format": "double",
+      "description": "Valor líquido final",
+      "example": 95.2
+    },
+    "adjustment_origin": {
+      "type": "string",
+      "description": "Origem do ajuste",
+      "example": "manual"
+    },
+    "adjustment_detail": {
+      "type": "string",
+      "description": "Detalhes do ajuste",
+      "example": "Ajuste por diferença de cálculo"
+    },
+    "export_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data de exportação",
+      "example": "2023-12-01T15:00:00Z"
+    },
+    "nseq_pedido": {
+      "type": "string",
+      "description": "Número sequencial do pedido",
+      "example": "PED123456"
+    },
+    "entity_document": {
+      "type": "string",
+      "description": "Documento da entidade",
+      "example": "12345678901234"
+    },
+    "tipo_client_b2c": {
+      "type": "string",
+      "description": "Tipo de cliente B2C",
+      "example": "premium"
+    },
+    "invoice_count": {
+      "type": "integer",
+      "description": "Quantidade de faturas",
+      "example": 1
+    },
+    "capture_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data de captura",
+      "example": "2023-12-01T10:30:00Z"
+    }
+  },
+  "required": [
+    "company_id",
+    "workspace_id",
+    "application_id",
+    "brand",
+    "paid_amount",
+    "total_invoice_amount",
+    "transaction_date",
+    "liquid_final_amount",
+    "adjustment_detail",
+    "export_date"
+  ]
+}
