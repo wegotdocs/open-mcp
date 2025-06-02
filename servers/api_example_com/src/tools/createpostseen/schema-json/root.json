@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "postId": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "seen_at": {
+      "description": "The point in time when the user has viewed the post (default: now). If specified, it has to be a time in the past.",
+      "format": "date-time",
+      "nullable": true,
+      "type": "string"
+    },
+    "user_id": {
+      "description": "The id of the user for who the seen is created (default: current actor). If a user other than the current actor is specified, the current actor requires the legacy permission `POST_COMMENTS_IMPERSONATE`.",
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "postId"
+  ]
+}

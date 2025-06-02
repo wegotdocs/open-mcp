@@ -1,0 +1,83 @@
+{
+  "type": "object",
+  "properties": {
+    "post_id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "attachments": {
+      "description": "List of attachment ids that belong to the post.",
+      "items": {
+        "properties": {
+          "attachment_id": {
+            "description": "id of the uploaded attachment.",
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ],
+        "type": "object"
+      },
+      "maxItems": 50,
+      "nullable": true,
+      "type": "array"
+    },
+    "body": {
+      "description": "The body in HTML format. The maximum payload is 204800 bytes.",
+      "nullable": true,
+      "type": "string"
+    },
+    "comments_enabled": {
+      "description": "Determines if comments are enabled for this post. If not set, the default value of the group will be used.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "external_id": {
+      "description": "Can be used for customer side identification of a post. Should be unique.",
+      "nullable": true,
+      "type": "string"
+    },
+    "highlighted_until": {
+      "description": "The highlighted date indicates until when a post should be a highlighted post.\nIf no value is passed, the post will not be highlighted.\nThe timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.",
+      "format": "date-time",
+      "nullable": true,
+      "type": "string"
+    },
+    "mentioned_user_ids": {
+      "description": "List of user ids that are mentioned in the post.",
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "published_at": {
+      "description": "The published date indicates when the post was published.\nThe value can't be used if the value is in the future or the `scheduled_at` is set.\nThe timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.",
+      "format": "date-time",
+      "nullable": true,
+      "type": "string"
+    },
+    "reactions_enabled": {
+      "description": "Determines if reactions are enabled for this post. If not set, the default value of the group will be used.",
+      "nullable": true,
+      "type": "boolean"
+    },
+    "scheduled_at": {
+      "description": "The scheduled date indicates when the post is to be published.\nIf no value is passed, the post will be published immediately.\nA post that has already been published cannot be scheduled again.\"\nThe timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.",
+      "format": "date-time",
+      "nullable": true,
+      "type": "string"
+    },
+    "title": {
+      "description": "The title in plain text.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "post_id",
+    "title"
+  ]
+}

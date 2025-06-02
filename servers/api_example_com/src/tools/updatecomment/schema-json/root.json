@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "post_id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "comment_id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "attachments": {
+      "description": "List of attachment ids that belong to the comment.",
+      "items": {
+        "properties": {
+          "attachment_id": {
+            "description": "id of the uploaded attachment.",
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10,
+      "nullable": true,
+      "type": "array"
+    },
+    "body": {
+      "description": "The body of the comment.",
+      "type": "string"
+    },
+    "external_id": {
+      "description": "Can be used for customer side identification of a comment. Should be unique.",
+      "nullable": true,
+      "type": "string"
+    },
+    "language": {
+      "description": "Language of the comment body represented as string compliant with ISO 639-1 norm. In case the language is not supported, the field will be ignored.",
+      "nullable": true,
+      "type": "string"
+    },
+    "mentioned_user_ids": {
+      "description": "User IDs of mentioned users. If not provided, the mentioned users will be removed. Comment body must contain the mentioned user IDs in a properly formatted form. Use of this field requires the feature to be enabled.",
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    }
+  },
+  "required": [
+    "post_id",
+    "comment_id",
+    "body"
+  ]
+}
