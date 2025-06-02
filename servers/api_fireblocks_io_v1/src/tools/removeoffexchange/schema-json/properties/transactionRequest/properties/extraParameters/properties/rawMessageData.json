@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "properties": {
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "preHash": {
+            "type": "object",
+            "description": "The prehash object for ECDSA RAW signing requests. \nThe prehash object contains the content to sign (the actual message in hex representation) and the hashing algorithm to use before signing.\n",
+            "properties": {
+              "content": {
+                "type": "string",
+                "description": "The prehashed content to sign on in hex representation.",
+                "example": "48656c6c6f2046697265626c6f636b73210a"
+              },
+              "hashAlgorithm": {
+                "type": "string",
+                "description": "The hashing algorithm to use in order to hash the content before the signature process",
+                "enum": [
+                  "SHA256",
+                  "KECCAK256",
+                  "SHA3",
+                  "BLAKE2",
+                  "DOUBLE_SHA256"
+                ]
+              }
+            },
+            "required": [
+              "content",
+              "hashAlgorithm"
+            ]
+          },
+          "content": {
+            "description": "Content to sign on. \nShould be 32 bytes long for ECDSA (hash of the actual message to sign) or any length for EdDSA as prehashing is not required.\n",
+            "type": "string",
+            "example": "ababababababababababababababababababbababababababbababababababab"
+          },
+          "bip44addressIndex": {
+            "description": "BIP44 address index",
+            "type": "integer",
+            "example": 0
+          },
+          "bip44change": {
+            "description": "BIP44 change index",
+            "type": "number",
+            "example": 0
+          },
+          "derivationPath": {
+            "type": "array",
+            "description": "BIP44 full derivation path",
+            "items": {
+              "type": "number",
+              "example": [
+                44,
+                60,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "type": {
+            "type": "string",
+            "description": "Typed Message Signing - message type.\n\n- EIP191 & EIP712: for ETH and all EVM based assets typed message signing\n- TIP191: For Tron (TRX) typed message signing\n- BTC_MESSAGE: For Bitcoin (BTC) typed message signing\n",
+            "enum": [
+              "EIP191",
+              "EIP712",
+              "TIP191",
+              "BTC_MESSAGE"
+            ]
+          }
+        },
+        "required": [
+          "content"
+        ]
+      }
+    },
+    "algorithm": {
+      "type": "string",
+      "enum": [
+        "MPC_ECDSA_SECP256K1",
+        "MPC_ECDSA_SECP256R1",
+        "MPC_EDDSA_ED25519"
+      ]
+    }
+  },
+  "description": "Object containing messages for raw signing and the algorithm to be used."
+}

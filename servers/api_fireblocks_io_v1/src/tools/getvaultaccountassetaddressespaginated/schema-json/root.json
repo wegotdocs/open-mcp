@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "vaultAccountId": {
+      "description": "The ID of the vault account to return",
+      "type": "string",
+      "format": "numeric",
+      "x-fb-entity": "vault_account",
+      "example": "0"
+    },
+    "assetId": {
+      "description": "The ID of the asset",
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "BTC"
+    },
+    "limit": {
+      "description": "Limit the number of results per page",
+      "type": "number",
+      "example": 50
+    },
+    "before": {
+      "description": "Cursor string for the previous page",
+      "type": "string",
+      "example": "eyJhZGRyZXNzSWQiOiIzNjg4MzE5MiIsInZhdWx0QWNjb3VudElkIjoiMCIsImFzc2V0SWQiOiJCVEMifQ=="
+    },
+    "after": {
+      "description": "Cursor string for the next page",
+      "type": "string",
+      "example": "eyJhZGRyZXNzSWQiOiIzNDU3MDM4MSIsInZhdWx0QWNjb3VudElkIjoiMCIsImFzc2V0SWQiOiJCVEMifQ=="
+    }
+  },
+  "required": [
+    "vaultAccountId",
+    "assetId"
+  ]
+}

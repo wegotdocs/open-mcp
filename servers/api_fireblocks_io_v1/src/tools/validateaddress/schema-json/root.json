@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "assetId": {
+      "description": "The asset of the address",
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "XRP"
+    },
+    "address": {
+      "description": "The address to validate",
+      "type": "string",
+      "example": "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn"
+    }
+  },
+  "required": [
+    "assetId",
+    "address"
+  ]
+}

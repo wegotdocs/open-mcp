@@ -1,0 +1,30 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "notation": z.string().describe("Specifies the notation of the transaction. Possible values are\n- `notabene`: Uses Notabene notation (default behavior).\n- `fireblocks`: Uses Fireblocks notation, with automatic translation of asset tickers and amounts.\n- `<none>`: Defaults to `notabene` for backward compatibility.\n\n**Note:** The default value for the `notation` parameter will change from\n`notabene` to `fireblocks` Update your integrations accordingly.\n").optional(),
+  "originatorVASPdid": z.string().describe("The Decentralized Identifier (DID) of the exchange (VASP) that is sending the virtual assets. This identifier is unique to the exchange and is generated when the exchange's account is  created in the Notabene network.").optional(),
+  "beneficiaryVASPdid": z.string().describe("The Decentralized Identifier (DID) of the exchange (VASP) that is receiving the virtual assets. This identifier is unique to the exchange and is generated when the exchange's account is  created in the Notabene network.").optional(),
+  "transactionAsset": z.string().describe("Transaction asset symbol (e.g., BTC, ETH, USDC). \nBy using the `notation` query string, users can select the type of asset notation \n- `fireblocks`: Converts asset symbols to Fireblocks notation. \n- `notabene`: Retains the original Notabene asset symbol format.\n").optional(),
+  "transactionAmount": z.string().describe("Transaction amount in the transaction asset. For example, if the asset is BTC, the amount \nis the value in BTC units. \nBy using the `notation` query string, users can select the type of amount notation\n- `fireblocks`: Converts the amount to Fireblocks notation (e.g., adjusted for decimals).\n- `notabene`: Retains the original Notabene amount format.\n").optional(),
+  "originatorVASPname": z.string().describe("The name of the VASP acting as the transaction originator.").optional(),
+  "beneficiaryVASPname": z.string().describe("The name of the VASP acting as the transaction beneficiary.").optional(),
+  "transactionBlockchainInfo": z.string().optional(),
+  "originator": z.string(),
+  "beneficiary": z.string(),
+  "encrypted": z.string().describe("Encrypted data related to the transaction.").optional(),
+  "protocol": z.string().describe("The protocol used to perform the travel rule.").optional(),
+  "skipBeneficiaryDataValidation": z.boolean().describe("Whether to skip validation of beneficiary data.").optional(),
+  "travelRuleBehavior": z.boolean().describe("Whether to check if the transaction complies with the travel rule in the beneficiary VASP's jurisdiction.").optional(),
+  "originatorRef": z.string().describe("A reference ID related to the originator of the transaction.").optional(),
+  "beneficiaryRef": z.string().describe("A reference ID related to the beneficiary of the transaction.").optional(),
+  "travelRuleBehaviorRef": z.string().describe("A reference ID related to the travel rule behavior.").optional(),
+  "originatorProof": z.string().optional(),
+  "beneficiaryProof": z.string().optional(),
+  "beneficiaryDid": z.string().describe("The Decentralized Identifier (DID) of the person at the receiving exchange (VASP).  This identifier is generated when the customer is registered in the Notabene network,  or automatically created based on the `beneficiaryRef`.  - If neither `beneficiaryRef` nor `beneficiaryDid` is provided in the `txCreate` payload, \n  a new random DID is generated for every transaction.").optional(),
+  "originatorDid": z.string().describe("The Decentralized Identifier (DID) of the person at the exchange (VASP) who is requesting the withdrawal. This identifier is generated when the customer is registered in the Notabene network or automatically created based on the `originatorRef`.  - If neither `originatorRef` nor `originatorDid` is provided in the `txCreate` payload, \n  a new random DID is generated for every transaction.").optional(),
+  "isNonCustodial": z.boolean().describe("Indicates if the transaction involves a non-custodial wallet.").optional(),
+  "notificationEmail": z.string().describe("The email address where a notification should be sent upon completion of the travel rule").optional(),
+  "pii": z.string().optional(),
+  "pii_url": z.string().describe("The URL of the personal identifiable information related to the transaction").optional(),
+  "Idempotency-Key": z.string().describe("A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.").optional()
+}

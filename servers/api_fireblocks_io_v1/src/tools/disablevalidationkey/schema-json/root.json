@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "keyId": {
+      "description": "The unique identifier for the validation key provided by Fireblocks",
+      "type": "string",
+      "example": "46a92767-5f93-4a46-9eed-f012196bb4fc"
+    },
+    "enabled": {
+      "type": "boolean",
+      "example": false,
+      "description": "Disable validation key"
+    }
+  },
+  "required": [
+    "keyId",
+    "enabled"
+  ]
+}

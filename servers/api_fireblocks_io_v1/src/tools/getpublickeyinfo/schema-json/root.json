@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "derivationPath": {
+      "description": "An array of integers representing the full BIP44 derivation path of the requested public key. \nThe first element must always be 44.\n",
+      "type": "array",
+      "maxItems": 5,
+      "minItems": 5,
+      "items": {
+        "type": "integer"
+      }
+    },
+    "algorithm": {
+      "type": "string",
+      "enum": [
+        "MPC_ECDSA_SECP256K1",
+        "MPC_ECDSA_SECP256R1",
+        "MPC_EDDSA_ED25519"
+      ]
+    },
+    "compressed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "derivationPath",
+    "algorithm"
+  ]
+}

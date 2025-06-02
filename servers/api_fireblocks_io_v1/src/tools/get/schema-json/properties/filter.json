@@ -1,0 +1,47 @@
+{
+  "description": "Parsed filter object",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique connection ID",
+      "example": "44075fd3-6fc5-4855-bd7b-510e35f9e671"
+    },
+    "userId": {
+      "type": "string",
+      "description": "User ID that established the connection",
+      "example": "5e7889fc-b5d6-5c6d-89cd-627ae94f1efd"
+    },
+    "vaultAccountId": {
+      "type": "number",
+      "description": "Unique vault account identifier that the connection was established with",
+      "example": 0
+    },
+    "connectionMethod": {
+      "description": "The method that the connection was established with.\n\n- MOBILE: for connections that were established by scanning a WalletConnect QR code \n- DESKTOP: for connection that were established by WalletConnect desktop connections\n",
+      "type": "string",
+      "enum": [
+        "MOBILE",
+        "DESKTOP"
+      ]
+    },
+    "feeLevel": {
+      "type": "string",
+      "description": "The fee level for the transactions over the connection",
+      "enum": [
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "appUrl": {
+      "type": "string",
+      "description": "The dApp URL",
+      "example": "https://app.uniswap.org"
+    },
+    "appName": {
+      "type": "string",
+      "description": "dApps name",
+      "example": "Uniswap"
+    }
+  }
+}

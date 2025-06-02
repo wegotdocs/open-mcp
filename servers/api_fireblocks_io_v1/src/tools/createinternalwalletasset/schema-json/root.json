@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "walletId": {
+      "description": "The ID of the wallet",
+      "type": "string"
+    },
+    "assetId": {
+      "description": "The ID of the asset to add",
+      "type": "string",
+      "x-fb-entity": "asset"
+    },
+    "address": {
+      "type": "string",
+      "description": "The wallet's address or, for EOS wallets, the account name"
+    },
+    "tag": {
+      "type": "string",
+      "description": "for XRP wallets, the destination tag; for EOS, the memo; for the fiat providers (BLINC by BCB Group), the Bank Transfer Description"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "walletId",
+    "assetId",
+    "address"
+  ]
+}

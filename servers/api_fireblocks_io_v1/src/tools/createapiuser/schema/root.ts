@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "role": z.enum(["ADMIN","SIGNER","COLLATERALS_SIGNER","EDITOR","APPROVER","VIEWER","NON_SIGNING_ADMIN","AUDITOR","NCW_ADMIN","NCW_SIGNER"]).describe("The role of the API Key"),
+  "name": z.string().describe("User Name"),
+  "csrPem": z.string().describe("API requests are authenticated by providing in each request:\n  a. API Key in the `X-API-Key` header\n  b. Auth header - `Authorization: Bearer <JWT>` while the JWT is signed with an RSA 4096 private key.\n\nWhen creating a new API Key, you need to generate an RSA 4096 private key and a CSR file. \nThe CSR file is uploaded to Fireblocks upon the user creation and used later on for signature validation (Auth JWT signature validation).\n\nFor more info read the following [article](https://developers.fireblocks.com/docs/manage-api-keys)\n"),
+  "coSignerSetupType": z.enum(["SGX_MACHINE","FIREBLOCKS_CCMT","NITRO_MACHINE"]).describe("Required for Signer/Admin API users that planned to be paired with an API Co-Signer Machine.\n\n- SGX_MACHINE: For SGX enabled servers\n- FIREBLOCKS_CCMT: Fireblocks Communal Co-Signer (for Testnet workspaces only)\n- NITRO_MACHINE: For AWS Nitro Enclave enabled servers\n\nFor more information about Fireblocks Co-Signer setup please read the following [article](https://support.fireblocks.io/hc/en-us/articles/12006018592156-API-Co-Signer-Overview).\n").optional(),
+  "coSignerSetupIsFirstUser": z.boolean().describe("Pass as `true`` if this is the first user on the your Co-Signer machine").optional(),
+  "Idempotency-Key": z.string().describe("A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.").optional()
+}

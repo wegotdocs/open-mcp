@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "nodeControls": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `nodeControls` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/extraParameters/properties/nodeControls\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configure special node requirements. \nFor routing transactions to a custom node please set the `type` to `NODE_ROUTER` and the `tag` to the pre-configured tag value.\nFor MEV protection, set only the `type` property to `MEV` (`tag` is not required at this stage)\n\n* Note: This is a premium feature that should be enabled in your workspace.\n  Please contract your Customer Success Manager/Fireblocks Support for more info.\n</property-description>",
+      "additionalProperties": true
+    },
+    "rawMessageData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `rawMessageData` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/extraParameters/properties/rawMessageData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Object containing messages for raw signing and the algorithm to be used.</property-description>",
+      "additionalProperties": true
+    },
+    "contractCallData": {
+      "type": "string",
+      "description": "Hex encoded contract call data as a string.",
+      "example": "0xa9059cbb000000000000000000000000c7f14c1161a5427137b232c077ecdbd1f881c02900000000000000000000000000000000000000000000000000000000a05e0722"
+    },
+    "programCallData": {
+      "type": "string",
+      "description": "BASE64 encoded Solana unsigned serialized transaction object.",
+      "example": "\"AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAECnckDh7gOELSNx5pD92oS2ijhbUvjg0vuo/8tthsbvDi7gZJWA3XnqGrMfSlASBHSPx9i0WEmM065fw4GxrdeYpuUVNx1/Pp2gbwoJC0Pd60uzHOU3EJx13JWL6R34Jt4AQEAAA==\"\n"
+    },
+    "inputsSelection": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `inputsSelection` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/extraParameters/properties/inputsSelection\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>For UTXO based blockchains, selections of inputs for the transaction.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "description": "Additional protocol / operation specific key-value parameters:\n\nFor UTXO-based blockchain input selection, add the key `inputsSelection` with the value set the [input selection structure.](https://developers.fireblocks.com/reference/transaction-objects#inputsselection) The inputs can be retrieved from the [Retrieve Unspent Inputs endpoint.](https://developers.fireblocks.com/reference/get_vault-accounts-vaultaccountid-assetid-unspent-inputs)\n\nFor `RAW` operations, add the key `rawMessageData` with the value set to the [raw message data structure.](https://developers.fireblocks.com/reference/raw-signing-objects#rawmessagedata)\n\nFor `CONTRACT_CALL` operations, add the key `contractCallData` with the value set to the Ethereum smart contract Application Binary Interface (ABI) payload. The Fireblocks [development libraries](https://developers.fireblocks.com/docs/ethereum-development#convenience-libraries) are recommended for building contract call transactions.\n*Note: `rawMessageData`, `contractCallData`, and `inputsSelection` cannot be used together in the same call.\"\n"
+}

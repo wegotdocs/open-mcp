@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "inputs": z.array(z.object({ "name": z.string().describe("The name of the parameter as it appears in the ABI"), "description": z.string().describe("A description of the parameter, fetched from the devdoc of this contract").optional(), "internalType": z.string().describe("The  internal type of the parameter as it appears in the ABI").optional(), "type": z.string().describe("The type of the parameter as it appears in the ABI"), "components": z.array(z.object({ "name": z.string().describe("The name of the parameter as it appears in the ABI"), "description": z.string().describe("A description of the parameter, fetched from the devdoc of this contract").optional(), "internalType": z.string().describe("The internal type of the parameter as it appears in the ABI").optional(), "type": z.string().describe("The type of the parameter as it appears in the ABI"), "components": z.array(z.any()).describe("In case it’s a struct, it will hold the struct data").optional() })).optional(), "value": z.string().describe("The value of the parameter. can also be ParameterWithValue").optional(), "functionValue": z.string().optional() })),
+  "stateMutability": z.enum(["pure","view"]),
+  "type": z.string(),
+  "name": z.string().optional(),
+  "outputs": z.array(z.object({ "name": z.string().describe("The name of the parameter as it appears in the ABI"), "description": z.string().describe("A description of the parameter, fetched from the devdoc of this contract").optional(), "internalType": z.string().describe("The internal type of the parameter as it appears in the ABI").optional(), "type": z.string().describe("The type of the parameter as it appears in the ABI"), "components": z.array(z.any()).describe("In case it’s a struct, it will hold the struct data").optional() })).optional(),
+  "description": z.string().optional()
+}

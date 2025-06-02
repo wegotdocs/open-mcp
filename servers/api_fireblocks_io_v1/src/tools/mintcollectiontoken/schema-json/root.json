@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The collection link id",
+      "type": "string"
+    },
+    "vaultAccountId": {
+      "type": "string",
+      "description": "The id of the vault account that initiates the mint function.",
+      "example": "0"
+    },
+    "to": {
+      "type": "string",
+      "example": "0x5503766D27d1ED4525f5053222E18b29C38eDdB2",
+      "description": "The EVM address to mint to "
+    },
+    "tokenId": {
+      "type": "string",
+      "description": "The token id, recommended to have numerical format and in sequential order",
+      "example": "1"
+    },
+    "amount": {
+      "type": "string",
+      "description": "For ERC721, amount is optional or should always be 1 and for ERC1155, amount should be 1 or greater",
+      "example": "1"
+    },
+    "metadataURI": {
+      "type": "string",
+      "description": "URL of metadata uploaded, skip uploading to IPFS if this field is provided with any value",
+      "example": "ipfs://QmP4P6f7mDHzikhdwLBVSCxCPEgmjwcWSVBHbtSyfBYzBC"
+    },
+    "metadata": {
+      "type": "string"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "id",
+    "vaultAccountId",
+    "to",
+    "tokenId"
+  ]
+}

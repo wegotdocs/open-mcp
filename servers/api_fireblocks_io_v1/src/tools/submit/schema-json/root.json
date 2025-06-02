@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the initiated Web3 connection to approve.",
+      "type": "string",
+      "example": "44075fd3-6fc5-4855-bd7b-510e35f9e671"
+    },
+    "approve": {
+      "type": "boolean",
+      "description": "Approval of the initiated dApp connection.",
+      "example": true
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "id",
+    "approve"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "txId": {
+      "description": "The ID of the transaction",
+      "type": "string",
+      "example": "cfe5be48-9307-4aa3-8ead-b959fca35dd6"
+    },
+    "numOfConfirmations": {
+      "type": "number",
+      "example": 50
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "txId"
+  ]
+}

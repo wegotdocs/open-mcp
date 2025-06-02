@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "walletId": {
+      "description": "The ID of the internal wallet to return assets for",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Number of assets to return per page",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 50,
+      "type": "number"
+    },
+    "pageCursor": {
+      "description": "Cursor for pagination",
+      "type": "string"
+    }
+  },
+  "required": [
+    "walletId"
+  ]
+}

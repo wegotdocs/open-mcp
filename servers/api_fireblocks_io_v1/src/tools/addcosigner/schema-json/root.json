@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKeyId": {
+      "type": "string",
+      "description": "The id of the API key to be paired with the cosigner",
+      "example": "123e4567-e89b-12d3-a456-426614174000",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the cosigner",
+      "example": "My Cosigner 1",
+      "minLength": 1
+    },
+    "existingCosigner": {
+      "type": "boolean",
+      "description": "Whether the cosigner already exists in another workspace",
+      "default": false,
+      "example": false
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "apiKeyId",
+    "name"
+  ]
+}

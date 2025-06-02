@@ -1,0 +1,78 @@
+{
+  "type": "object",
+  "properties": {
+    "exchangeType": {
+      "description": "Exchange account's type",
+      "type": "string",
+      "enum": [
+        "INDEPENDENT_RESERVE",
+        "ENCLAVE_MARKETS",
+        "BIT",
+        "COINFLEX",
+        "KUCOIN",
+        "PXS",
+        "LIQUID",
+        "BITHUMB",
+        "BITFINEX",
+        "BITSO",
+        "BITSTAMP",
+        "KRAKEN",
+        "KRAKENINTL",
+        "BINANCE",
+        "BINANCEUS",
+        "CRYPTOCOM",
+        "BYBIT_V2",
+        "COINBASEPRO",
+        "COINBASEPRIME",
+        "COINBASEINTERNATIONAL",
+        "WHITEBIT",
+        "COINBASEEXCHANGE",
+        "KORBIT",
+        "HITBTC",
+        "GEMINIs",
+        "CIRCLE",
+        "BITMEX",
+        "HUOBI",
+        "DERIBIT",
+        "OKCOIN_V5",
+        "OKEX",
+        "COINMETRO",
+        "GATEIO",
+        "SCRYPT",
+        "COINHAKO",
+        "LIGHTBIT",
+        "BULLISH",
+        "CANVAS_CONNECT",
+        "BITGET",
+        "LUNO",
+        "BIT_GENERA",
+        "TRANSFERO"
+      ]
+    },
+    "name": {
+      "description": "Display name of the exchange account",
+      "type": "string"
+    },
+    "creds": {
+      "description": "Encrypted credentials",
+      "type": "string"
+    },
+    "key": {
+      "description": "Api key of the exchange",
+      "type": "string"
+    },
+    "mainAccountId": {
+      "description": "Optional - main account id of the exchange",
+      "type": "string"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "exchangeType",
+    "name"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "vaultAccountId": {
+      "description": "The ID of the vault account",
+      "type": "string",
+      "format": "numeric",
+      "x-fb-entity": "vault_account",
+      "example": "0"
+    },
+    "assetId": {
+      "description": "The ID of the asset",
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "BTC"
+    },
+    "addressId": {
+      "description": "The address for which to add a description. For XRP, use <address>:<tag>, for all other assets, use only the address",
+      "type": "string",
+      "example": "ltc1qt7d7pcaycq9r0n35d9k2tuff5sf8qdsl84aex6"
+    },
+    "customerRefId": {
+      "description": "Customer reference ID",
+      "type": "string",
+      "example": "customer_reference"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "vaultAccountId",
+    "assetId",
+    "addressId"
+  ]
+}

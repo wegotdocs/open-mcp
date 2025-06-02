@@ -1,0 +1,142 @@
+{
+  "type": "object",
+  "properties": {
+    "stateMutability": {
+      "type": "string",
+      "enum": [
+        "payable",
+        "nonpayable"
+      ],
+      "example": "nonpayable"
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "_name",
+            "description": "The name of the parameter as it appears in the ABI"
+          },
+          "description": {
+            "type": "string",
+            "example": "The name of the token",
+            "description": "A description of the parameter, fetched from the devdoc of this contract"
+          },
+          "internalType": {
+            "type": "string",
+            "example": "string",
+            "description": "The internal type of the parameter as it appears in the ABI"
+          },
+          "type": {
+            "type": "string",
+            "example": "string",
+            "description": "The type of the parameter as it appears in the ABI"
+          },
+          "components": {
+            "type": "array",
+            "description": "In case it’s a struct, it will hold the struct data"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "function"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Some Name",
+            "description": "The name of the parameter as it appears in the ABI"
+          },
+          "description": {
+            "type": "string",
+            "example": "The name of the token",
+            "description": "A description of the parameter, fetched from the devdoc of this contract"
+          },
+          "internalType": {
+            "type": "string",
+            "example": "string",
+            "description": "The  internal type of the parameter as it appears in the ABI"
+          },
+          "type": {
+            "type": "string",
+            "example": "string",
+            "description": "The type of the parameter as it appears in the ABI"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "_name",
+                  "description": "The name of the parameter as it appears in the ABI"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "The name of the token",
+                  "description": "A description of the parameter, fetched from the devdoc of this contract"
+                },
+                "internalType": {
+                  "type": "string",
+                  "example": "string",
+                  "description": "The internal type of the parameter as it appears in the ABI"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "string",
+                  "description": "The type of the parameter as it appears in the ABI"
+                },
+                "components": {
+                  "type": "array",
+                  "description": "In case it’s a struct, it will hold the struct data"
+                }
+              },
+              "required": [
+                "name",
+                "type"
+              ]
+            }
+          },
+          "value": {
+            "example": "true",
+            "description": "The value of the parameter. can also be ParameterWithValue",
+            "type": "string"
+          },
+          "functionValue": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      }
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "stateMutability",
+    "type",
+    "inputs"
+  ]
+}

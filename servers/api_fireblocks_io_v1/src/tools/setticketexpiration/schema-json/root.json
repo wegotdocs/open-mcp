@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "ticketId": {
+      "type": "string"
+    },
+    "expiresIn": {
+      "type": "number",
+      "description": "Sets ticket expiration time (in hours) after a ticket is submitted. If no funding source is set to any term, the ticket will automatically expire after given time.",
+      "minimum": 1,
+      "maximum": 48
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "ticketId",
+    "expiresIn"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "inputsToSpend": {
+      "type": "array",
+      "items": {
+        "description": "A representation of an Unspent Transaction Output (UTXO).\n",
+        "type": "object",
+        "properties": {
+          "txHash": {
+            "description": "Transaction Hash",
+            "type": "string",
+            "example": "6b21446af4a5e3ec588960d2338ab52428a3eb729038146ea09905199723061f"
+          },
+          "index": {
+            "description": "The UTXO index (vOut)",
+            "type": "number",
+            "example": 0
+          }
+        }
+      },
+      "description": "Inputs that should be used in the transaction."
+    },
+    "inputsToExclude": {
+      "type": "array",
+      "items": {
+        "description": "A representation of an Unspent Transaction Output (UTXO).\n",
+        "type": "object",
+        "properties": {
+          "txHash": {
+            "description": "Transaction Hash",
+            "type": "string",
+            "example": "6b21446af4a5e3ec588960d2338ab52428a3eb729038146ea09905199723061f"
+          },
+          "index": {
+            "description": "The UTXO index (vOut)",
+            "type": "number",
+            "example": 0
+          }
+        }
+      },
+      "description": "Inputs that shouldn't be used in the transaction."
+    }
+  },
+  "description": "For UTXO based blockchains, selections of inputs for the transaction."
+}

@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "User's first name",
+      "example": "Some First Name"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "User' last name",
+      "example": "Some Last Name"
+    },
+    "role": {
+      "type": "string",
+      "description": "The role of the user",
+      "enum": [
+        "OWNER",
+        "ADMIN",
+        "SIGNER",
+        "COLLATERALS_SIGNER",
+        "EDITOR",
+        "APPROVER",
+        "VIEWER",
+        "NON_SIGNING_ADMIN",
+        "AUDITOR",
+        "NCW_ADMIN",
+        "NCW_SIGNER"
+      ]
+    },
+    "email": {
+      "type": "string",
+      "description": "User's valid email address",
+      "example": "user@example.com"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName",
+    "role",
+    "email"
+  ]
+}

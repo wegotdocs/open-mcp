@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "assetId": {
+      "description": "The ID of the asset",
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "ETH"
+    },
+    "gasThreshold": {
+      "description": "The Gas Station will initiate a fueling transaction when the vault account's balance falls below the gasThreshold value",
+      "type": "string",
+      "default": "0.005",
+      "example": "0.005"
+    },
+    "gasCap": {
+      "description": "The Gas Station will top up the vault account with gas until the balance reaches the gasCap value",
+      "example": "0.01",
+      "default": "0.01",
+      "type": "string"
+    },
+    "maxGasPrice": {
+      "description": "Maximum gas price for the fueling transaction (in gwei)",
+      "nullable": true,
+      "example": "20",
+      "default": null,
+      "type": "string"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "assetId"
+  ]
+}

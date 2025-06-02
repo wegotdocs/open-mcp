@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "contractId": {
+      "description": "The ID of the contract",
+      "type": "string",
+      "example": "908a8cd0-d41b-4a11-b90c-3493a1060929"
+    },
+    "assetId": {
+      "description": "The ID of the asset to add",
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "ETH"
+    },
+    "address": {
+      "type": "string",
+      "description": "The contract's address (or xpub) of the wallet"
+    },
+    "tag": {
+      "type": "string",
+      "description": "The destination tag, for XRP wallets"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "contractId",
+    "assetId",
+    "address"
+  ]
+}

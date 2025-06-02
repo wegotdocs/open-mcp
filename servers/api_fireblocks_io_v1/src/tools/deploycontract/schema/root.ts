@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "contractTemplateId": z.string().describe("The Contract Template identifier"),
+  "assetId": z.string().describe("The base asset identifier of the blockchain you want to deploy to"),
+  "vaultAccountId": z.string().describe("The vault account id you wish to deploy from"),
+  "constructorParameters": z.array(z.object({ "name": z.string().describe("The name of the parameter as it appears in the ABI"), "description": z.string().describe("A description of the parameter, fetched from the devdoc of this contract").optional(), "internalType": z.string().describe("The  internal type of the parameter as it appears in the ABI").optional(), "type": z.string().describe("The type of the parameter as it appears in the ABI"), "components": z.array(z.object({ "name": z.string().describe("The name of the parameter as it appears in the ABI"), "description": z.string().describe("A description of the parameter, fetched from the devdoc of this contract").optional(), "internalType": z.string().describe("The internal type of the parameter as it appears in the ABI").optional(), "type": z.string().describe("The type of the parameter as it appears in the ABI"), "components": z.array(z.any()).describe("In case it’s a struct, it will hold the struct data").optional() })).optional(), "value": z.string().describe("The value of the parameter. can also be ParameterWithValue").optional(), "functionValue": z.string().optional() })).describe("The constructor parameters of this contract").optional(),
+  "Idempotency-Key": z.string().describe("A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.").optional()
+}

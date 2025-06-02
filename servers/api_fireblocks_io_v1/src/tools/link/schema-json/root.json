@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": [
+        "FUNGIBLE_TOKEN",
+        "NON_FUNGIBLE_TOKEN",
+        "TOKEN_UTILITY",
+        "TOKEN_EXTENSION"
+      ],
+      "type": "string",
+      "description": "The type of token being linked"
+    },
+    "refId": {
+      "type": "string",
+      "description": "The Fireblocks' token link reference id. For example, 'BQ5R_BDESC_ABC' if it's a fungible \n\t\t\t\t\tasset",
+      "example": "USDC_ETH_TEST5_1XF5"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The token display name",
+      "example": "My Simple ERC20 Token"
+    },
+    "baseAssetId": {
+      "type": "string",
+      "description": "The blockchain base assetId",
+      "example": "ETH_TEST5"
+    },
+    "contractAddress": {
+      "type": "string",
+      "description": "The contract's onchain address",
+      "example": "0xC2c4e1Db41F0bB97996D0eD0542D2170d146FB66"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

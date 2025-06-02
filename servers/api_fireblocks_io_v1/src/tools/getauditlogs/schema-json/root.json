@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "timePeriod": {
+      "description": "The last time period to fetch audit logs",
+      "type": "string",
+      "enum": [
+        "DAY",
+        "WEEK"
+      ]
+    },
+    "cursor": {
+      "description": "The next id to start fetch audit logs from",
+      "type": "string",
+      "example": "next_page_cursor"
+    }
+  },
+  "required": []
+}

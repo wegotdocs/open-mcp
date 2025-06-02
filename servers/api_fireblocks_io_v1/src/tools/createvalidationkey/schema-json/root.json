@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "publicKeyPem": {
+      "type": "string",
+      "example": "-----BEGIN PUBLIC KEY ...  END PUBLIC KEY-----",
+      "description": "The PEM encoded public key of the validation key being added"
+    },
+    "daysTillExpired": {
+      "type": "number",
+      "minimum": 1,
+      "example": 365,
+      "description": "The number of days from the date the validation key was added until it expires"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "publicKeyPem",
+    "daysTillExpired"
+  ]
+}

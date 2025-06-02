@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "webhookId": {
+      "description": "The ID of the webhook",
+      "type": "string"
+    },
+    "resourceId": {
+      "type": "string",
+      "description": "The resource id to resend notifications for",
+      "example": "44fcead0-7053-4831-a53a-df7fb90d440f",
+      "format": "uuid"
+    },
+    "excludeStatuses": {
+      "type": "array",
+      "description": "(optional) List of notification statuses to exclude from the resend operation\n    - Empty array means all statuses will be included\n    - If you want to exclude some statuses, you can use the following example: [ IN_PROGRESS, FAILED ]\n    - Default if missing, means all statuses other than \"COMPLETED\" will be included\n",
+      "example": [
+        "IN_PROGRESS",
+        "FAILED"
+      ],
+      "items": {
+        "type": "string",
+        "description": "The status of the Notification",
+        "example": "COMPLETED",
+        "enum": [
+          "COMPLETED",
+          "FAILED",
+          "IN_PROGRESS",
+          "ON_HOLD"
+        ]
+      }
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "webhookId",
+    "resourceId"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "properties": {
+    "configName": {
+      "description": "Your configuration name",
+      "type": "string",
+      "example": "my_config_name"
+    },
+    "preScreening": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `preScreening` to the tool, first call the tool `expandSchema` with \"/properties/preScreening\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Should the configured AML pre-screening policy be enabled or not</property-description>",
+      "additionalProperties": true
+    },
+    "configOperations": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "description": "Conversion Operation object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Conversion Operation Type",
+                "enum": [
+                  "CONVERSION"
+                ]
+              },
+              "params": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "description": "The amount to convert",
+                    "type": "string",
+                    "example": "10"
+                  },
+                  "accountId": {
+                    "description": "Source account ID",
+                    "example": "0",
+                    "type": "string"
+                  },
+                  "srcAssetId": {
+                    "description": "The asset ID to convert",
+                    "type": "string",
+                    "example": "ETH"
+                  },
+                  "destAssetId": {
+                    "description": "The asset ID to get as a result of the conversion",
+                    "type": "string",
+                    "example": "USDC"
+                  },
+                  "slippageBasisPoints": {
+                    "type": "integer",
+                    "description": "Slippage tolerance (basis points)",
+                    "minimum": 0,
+                    "maximum": 10000,
+                    "example": 100
+                  }
+                },
+                "required": [
+                  "destAssetId"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "params"
+            ]
+          }
+        ]
+      }
+    },
+    "externalCorrelationData": {
+      "x-internal": true,
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "configName",
+    "configOperations"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "order": {
+      "description": "Field to order by",
+      "type": "string"
+    },
+    "per_page": {
+      "description": "Records per page",
+      "type": "number"
+    },
+    "page": {
+      "description": "Page number",
+      "type": "number"
+    },
+    "fields": {
+      "description": "CSV of fields to return (all, \"blank\" or see list of all field names below)",
+      "type": "string"
+    },
+    "q": {
+      "description": "Search query",
+      "type": "string"
+    },
+    "reviewValue": {
+      "description": "Filter by the VASP's review status. Possible values include: \"TRUSTED\", \"BLOCKED\", \"MANUAL\", or \"NULL\". When provided, only VASPs that match the specified reviewValue will be returned (i.e., VASPs that have already been reviewed to this status).",
+      "type": "string"
+    }
+  },
+  "required": []
+}

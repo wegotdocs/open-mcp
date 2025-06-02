@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "keyId": {
+      "description": "The unique identifier for the signing key provided by Fireblocks",
+      "type": "string",
+      "example": "46a92767-5f93-4a46-9eed-f012196bb4fc"
+    },
+    "vaultAccountId": {
+      "type": "number",
+      "minimum": 1,
+      "example": 123
+    }
+  },
+  "required": [
+    "keyId",
+    "vaultAccountId"
+  ]
+}

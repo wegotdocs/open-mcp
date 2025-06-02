@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "VAULT_ACCOUNT",
+        "EXCHANGE_ACCOUNT",
+        "FIAT_ACCOUNT"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}

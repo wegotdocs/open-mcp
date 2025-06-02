@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "chainDescriptor": {
+      "description": "The protocol identifier (e.g. \"ETH\"/\"SOL\"/\"MATIC\") to use",
+      "type": "string",
+      "enum": [
+        "ETH",
+        "SOL",
+        "MATIC",
+        "ETH_TEST6",
+        "SOL_TEST"
+      ]
+    },
+    "vaultAccountId": {
+      "type": "string",
+      "example": "22",
+      "description": "The source vault account to stake from"
+    },
+    "providerId": {
+      "description": "The unique identifier of the staking provider",
+      "type": "string",
+      "example": "kiln",
+      "enum": [
+        "kiln",
+        "figment",
+        "lido",
+        "p2p"
+      ]
+    },
+    "stakeAmount": {
+      "type": "string",
+      "example": "32",
+      "description": "Amount of tokens to stake"
+    },
+    "txNote": {
+      "type": "string",
+      "example": "stake request id CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1 of 32ETH created on 02.04.23",
+      "description": "The note to associate with the stake transactions."
+    },
+    "fee": {
+      "type": "string",
+      "example": "7",
+      "description": "Represents the fee for a transaction, which can be specified as a percentage value. Only one of fee/feeLevel is required."
+    },
+    "feeLevel": {
+      "type": "string",
+      "example": "MEDIUM",
+      "description": "Represents the fee level for a transaction, which can be set as slow, medium, or fast. Only one of fee/feeLevel is required.",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string",
+      "example": "some-unique-id"
+    }
+  },
+  "required": [
+    "chainDescriptor",
+    "vaultAccountId",
+    "providerId",
+    "stakeAmount"
+  ]
+}
