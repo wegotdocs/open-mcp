@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "originatorVASPdid": {
+      "type": "string",
+      "description": "The Decentralized Identifier (DID) of the exchange (VASP) that is sending the virtual assets. This identifier is unique to the exchange and is generated when the exchange's account is  created in the Notabene network.",
+      "example": "did:ethr:0x44957e75d6ce4a5bf37aae117da86422c848f7c2"
+    },
+    "beneficiaryVASPdid": {
+      "type": "string",
+      "description": "The Decentralized Identifier (DID) of the exchange (VASP) that is receiving the virtual assets. This identifier is unique to the exchange and is generated when the exchange's account is  created in the Notabene network.",
+      "example": "did:ethr:0x17fe2dd11a2daa7f6c1fdf22532a4763f963aea6"
+    },
+    "originatorVASPname": {
+      "type": "string",
+      "description": "The name of the VASP acting as the transaction originator.",
+      "example": "Originator VASP Ltd."
+    },
+    "beneficiaryVASPname": {
+      "type": "string",
+      "description": "The name of the VASP acting as the transaction beneficiary.",
+      "example": "Beneficiary VASP Inc."
+    },
+    "beneficiaryVASPwebsite": {
+      "type": "string",
+      "description": "The website of the VASP acting as the transaction beneficiary.",
+      "example": "https://www.beneficiaryvasp.com"
+    },
+    "transactionBlockchainInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `transactionBlockchainInfo` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/travelRuleMessage/properties/transactionBlockchainInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Information about the blockchain transaction.</property-description>",
+      "additionalProperties": true
+    },
+    "originator": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `originator` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/travelRuleMessage/properties/originator\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Personal identifiable information related to the transaction</property-description>",
+      "additionalProperties": true
+    },
+    "beneficiary": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `beneficiary` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/travelRuleMessage/properties/beneficiary\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Personal identifiable information related to the transaction</property-description>",
+      "additionalProperties": true
+    },
+    "encrypted": {
+      "type": "string",
+      "description": "Encrypted data related to the transaction.",
+      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    },
+    "protocol": {
+      "type": "string",
+      "description": "The protocol used to perform the travel rule.",
+      "example": "IVMS101"
+    },
+    "skipBeneficiaryDataValidation": {
+      "type": "boolean",
+      "description": "Whether to skip validation of beneficiary data.",
+      "example": false
+    },
+    "travelRuleBehavior": {
+      "type": "boolean",
+      "description": "Whether to check if the transaction complies with the travel rule in the beneficiary VASP's jurisdiction.",
+      "example": true
+    },
+    "originatorRef": {
+      "type": "string",
+      "description": "A reference ID related to the originator of the transaction.",
+      "example": "ORG123456"
+    },
+    "beneficiaryRef": {
+      "type": "string",
+      "description": "A reference ID related to the beneficiary of the transaction.",
+      "example": "BEN654321"
+    },
+    "travelRuleBehaviorRef": {
+      "type": "string",
+      "description": "A reference ID related to the travel rule behavior.",
+      "example": "TRB987654"
+    },
+    "originatorProof": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `originatorProof` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/travelRuleMessage/properties/originatorProof\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Ownership proof related to the originator of the transaction.</property-description>",
+      "additionalProperties": true
+    },
+    "beneficiaryProof": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `beneficiaryProof` to the tool, first call the tool `expandSchema` with \"/properties/transactionRequest/properties/travelRuleMessage/properties/beneficiaryProof\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Ownership proof related to the originator of the transaction.</property-description>",
+      "additionalProperties": true
+    },
+    "beneficiaryDid": {
+      "type": "string",
+      "description": "The Decentralized Identifier (DID) of the person at the receiving exchange (VASP).  This identifier is generated when the customer is registered in the Notabene network,  or automatically created based on the `beneficiaryRef`.  - If neither `beneficiaryRef` nor `beneficiaryDid` is provided in the `txCreate` payload, \n  a new random DID is generated for every transaction.",
+      "example": "did:key:z6Mkf67890Zghijkl67890"
+    },
+    "originatorDid": {
+      "type": "string",
+      "description": "The Decentralized Identifier (DID) of the person at the exchange (VASP) who is requesting the withdrawal. This identifier is generated when the customer is registered in the Notabene network or automatically created based on the `originatorRef`.  - If neither `originatorRef` nor `originatorDid` is provided in the `txCreate` payload, \n  a new random DID is generated for every transaction.",
+      "example": "did:key:z6Mkf12345Zabcdef12345"
+    },
+    "isNonCustodial": {
+      "type": "boolean",
+      "description": "Indicates if the transaction involves a non-custodial wallet.",
+      "example": true
+    }
+  },
+  "required": [
+    "originator",
+    "beneficiary"
+  ]
+}

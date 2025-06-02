@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "txId": {
+      "description": "The ID of the transaction for webhooks",
+      "type": "string"
+    },
+    "resendCreated": {
+      "type": "boolean"
+    },
+    "resendStatusUpdated": {
+      "type": "boolean"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "txId"
+  ]
+}

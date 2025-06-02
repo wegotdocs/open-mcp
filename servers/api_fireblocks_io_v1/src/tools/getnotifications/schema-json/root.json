@@ -1,0 +1,96 @@
+{
+  "type": "object",
+  "properties": {
+    "webhookId": {
+      "format": "uuid",
+      "example": "44fcead0-7053-4831-a53a-df7fb90d440f",
+      "type": "string"
+    },
+    "order": {
+      "description": "ASC / DESC ordering (default DESC)",
+      "default": "DESC",
+      "example": "ASC",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "type": "string"
+    },
+    "pageCursor": {
+      "description": "Cursor of the required page",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Maximum number of items in the page",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 100,
+      "example": 10,
+      "type": "number"
+    },
+    "createdStartDate": {
+      "description": "sort by start date",
+      "example": "2024-09-24T09:14:38.356Z",
+      "type": "string"
+    },
+    "createdEndDate": {
+      "description": "sort by end date",
+      "example": "2024-09-24T09:14:38.356Z",
+      "type": "string"
+    },
+    "statuses": {
+      "description": "Filter by Notification statues",
+      "example": "COMPLETED",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "The status of the Notification",
+        "example": "COMPLETED",
+        "enum": [
+          "COMPLETED",
+          "FAILED",
+          "IN_PROGRESS",
+          "ON_HOLD"
+        ]
+      }
+    },
+    "eventTypes": {
+      "description": "Filter by Notification eventTypes",
+      "example": [
+        "transaction.created",
+        "transaction.status.updated"
+      ],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "transaction.created",
+          "transaction.status.updated",
+          "transaction.approval_status.updated",
+          "external_wallet.asset.added",
+          "external_wallet.asset.removed",
+          "internal_wallet.asset.added",
+          "internal_wallet.asset.removed",
+          "contract_wallet.asset.added",
+          "contract_wallet.asset.removed",
+          "vault_account.created",
+          "vault_account.asset.listed",
+          "vault_account.asset.balance_updated",
+          "embedded_wallet.status.updated",
+          "embedded_wallet.created",
+          "embedded_wallet.asset.balance_updated",
+          "embedded_wallet.asset.listed",
+          "embedded_wallet.account.created",
+          "embedded_wallet.device.added"
+        ]
+      }
+    },
+    "resourceId": {
+      "description": "Filter by resourceId",
+      "type": "string"
+    }
+  },
+  "required": [
+    "webhookId"
+  ]
+}

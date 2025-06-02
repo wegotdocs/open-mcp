@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "networkId": z.string().describe("The ID of the network"),
+  "name": z.string()
+}

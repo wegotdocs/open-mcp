@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "chainDescriptor": {
+      "description": "The protocol identifier (e.g. \"ETH\"/\"SOL\"/\"MATIC\") to use",
+      "type": "string",
+      "enum": [
+        "ETH",
+        "SOL",
+        "MATIC",
+        "ETH_TEST6",
+        "SOL_TEST"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "example": "b70701f4-d7b1-4795-a8ee-b09cdb5b850f",
+      "description": "id of position to withdraw"
+    },
+    "fee": {
+      "type": "string",
+      "example": "7",
+      "description": "Represents the fee for a transaction, which can be specified as a percentage value. Only one of fee/feeLevel is required."
+    },
+    "feeLevel": {
+      "type": "string",
+      "example": "MEDIUM",
+      "description": "Represents the fee level for a transaction, which can be set as slow, medium, or fast. Only one of fee/feeLevel is required.",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "txNote": {
+      "type": "string",
+      "example": "withdraw request id b70701f4-d7b1-4795-a8ee-b09cdb5b850d #ETH",
+      "description": "The note to associate with the transactions."
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "chainDescriptor",
+    "id"
+  ]
+}

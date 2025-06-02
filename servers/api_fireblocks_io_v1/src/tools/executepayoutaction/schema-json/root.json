@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "payoutId": {
+      "description": "the payout id received from the creation of the payout instruction set",
+      "type": "string"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "payoutId"
+  ]
+}

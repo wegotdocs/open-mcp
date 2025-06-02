@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "ticketId": {
+      "type": "string"
+    },
+    "termId": {
+      "type": "string"
+    },
+    "asset": {
+      "type": "string",
+      "description": "Asset name",
+      "example": "USDC",
+      "x-fb-entity": "asset"
+    },
+    "amount": {
+      "type": "string",
+      "description": "Amount",
+      "example": "133.789161216184"
+    },
+    "srcId": {
+      "type": "string",
+      "description": "Id of the vault that is used as the source of the asset.",
+      "example": "2"
+    },
+    "fee": {
+      "type": "string",
+      "description": "Transaction fee",
+      "example": "0.001"
+    },
+    "feeLevel": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ],
+      "description": "Transaction fee level.",
+      "example": "MEDIUM"
+    },
+    "note": {
+      "type": "string",
+      "description": "Transaction note",
+      "example": "Transaction note"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ticketId",
+    "termId",
+    "asset",
+    "amount",
+    "srcId"
+  ]
+}

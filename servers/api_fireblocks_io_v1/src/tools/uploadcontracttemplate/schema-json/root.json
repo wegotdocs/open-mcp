@@ -1,0 +1,633 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "My Contract",
+      "description": "The name of the contract template"
+    },
+    "description": {
+      "type": "string",
+      "example": "an ERC20 implementation",
+      "description": "A short description of the contract template"
+    },
+    "longDescription": {
+      "type": "string",
+      "example": "a full ERC20 implementation, containing the following:\n\n - mint\n - burn\n",
+      "description": "A full description of the contract template. May contain \n to break the lines"
+    },
+    "bytecode": {
+      "type": "string",
+      "description": "The compiled artifact of this smart contract. Used for deployment of this contract template"
+    },
+    "sourcecode": {
+      "type": "string",
+      "description": "The source code of the contract. Optional."
+    },
+    "type": {
+      "enum": [
+        "FUNGIBLE_TOKEN",
+        "NON_FUNGIBLE_TOKEN",
+        "NON_TOKEN",
+        "TOKEN_EXTENSION",
+        "TOKEN_UTILITY"
+      ],
+      "type": "string",
+      "example": "FUNGIBLE_TOKEN",
+      "description": "The type of the contract template"
+    },
+    "docs": {
+      "type": "string"
+    },
+    "abi": {
+      "type": "array",
+      "example": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "implementation",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_data",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "constructor"
+        }
+      ],
+      "description": "The abi of the contract template. Necessary for displaying and for after deployment encoding",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "mint",
+            "description": "The name of the contract function as it appears in the ABI"
+          },
+          "stateMutability": {
+            "type": "string",
+            "example": "pure",
+            "enum": [
+              "pure",
+              "view",
+              "nonpayable",
+              "payable"
+            ],
+            "description": "The state mutability of the contract function as it appears in the ABI"
+          },
+          "type": {
+            "type": "string",
+            "example": "constructor",
+            "description": "The type of the function",
+            "enum": [
+              "constructor",
+              "function",
+              "error",
+              "event",
+              "receive",
+              "fallback"
+            ]
+          },
+          "inputs": {
+            "description": "The parameters that this function/constructor posses",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "_name",
+                  "description": "The name of the parameter as it appears in the ABI"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "The name of the token",
+                  "description": "A description of the parameter, fetched from the devdoc of this contract"
+                },
+                "internalType": {
+                  "type": "string",
+                  "example": "string",
+                  "description": "The internal type of the parameter as it appears in the ABI"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "string",
+                  "description": "The type of the parameter as it appears in the ABI"
+                },
+                "components": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "_name",
+                        "description": "The name of the parameter as it appears in the ABI"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "The name of the token",
+                        "description": "A description of the parameter, fetched from the devdoc of this contract"
+                      },
+                      "internalType": {
+                        "type": "string",
+                        "example": "string",
+                        "description": "The internal type of the parameter as it appears in the ABI"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "string",
+                        "description": "The type of the parameter as it appears in the ABI"
+                      },
+                      "components": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "_name",
+                              "description": "The name of the parameter as it appears in the ABI"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "The name of the token",
+                              "description": "A description of the parameter, fetched from the devdoc of this contract"
+                            },
+                            "internalType": {
+                              "type": "string",
+                              "example": "string",
+                              "description": "The internal type of the parameter as it appears in the ABI"
+                            },
+                            "type": {
+                              "type": "string",
+                              "example": "string",
+                              "description": "The type of the parameter as it appears in the ABI"
+                            },
+                            "components": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string",
+                                    "example": "_name",
+                                    "description": "The name of the parameter as it appears in the ABI"
+                                  },
+                                  "description": {
+                                    "type": "string",
+                                    "example": "The name of the token",
+                                    "description": "A description of the parameter, fetched from the devdoc of this contract"
+                                  },
+                                  "internalType": {
+                                    "type": "string",
+                                    "example": "string",
+                                    "description": "The internal type of the parameter as it appears in the ABI"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "example": "string",
+                                    "description": "The type of the parameter as it appears in the ABI"
+                                  },
+                                  "components": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "string",
+                                          "example": "_name",
+                                          "description": "The name of the parameter as it appears in the ABI"
+                                        },
+                                        "description": {
+                                          "type": "string",
+                                          "example": "The name of the token",
+                                          "description": "A description of the parameter, fetched from the devdoc of this contract"
+                                        },
+                                        "internalType": {
+                                          "type": "string",
+                                          "example": "string",
+                                          "description": "The internal type of the parameter as it appears in the ABI"
+                                        },
+                                        "type": {
+                                          "type": "string",
+                                          "example": "string",
+                                          "description": "The type of the parameter as it appears in the ABI"
+                                        },
+                                        "components": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "name": {
+                                                "type": "string",
+                                                "example": "_name",
+                                                "description": "The name of the parameter as it appears in the ABI"
+                                              },
+                                              "description": {
+                                                "type": "string",
+                                                "example": "The name of the token",
+                                                "description": "A description of the parameter, fetched from the devdoc of this contract"
+                                              },
+                                              "internalType": {
+                                                "type": "string",
+                                                "example": "string",
+                                                "description": "The internal type of the parameter as it appears in the ABI"
+                                              },
+                                              "type": {
+                                                "type": "string",
+                                                "example": "string",
+                                                "description": "The type of the parameter as it appears in the ABI"
+                                              },
+                                              "components": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "name": {
+                                                      "type": "string",
+                                                      "example": "_name",
+                                                      "description": "The name of the parameter as it appears in the ABI"
+                                                    },
+                                                    "description": {
+                                                      "type": "string",
+                                                      "example": "The name of the token",
+                                                      "description": "A description of the parameter, fetched from the devdoc of this contract"
+                                                    },
+                                                    "internalType": {
+                                                      "type": "string",
+                                                      "example": "string",
+                                                      "description": "The internal type of the parameter as it appears in the ABI"
+                                                    },
+                                                    "type": {
+                                                      "type": "string",
+                                                      "example": "string",
+                                                      "description": "The type of the parameter as it appears in the ABI"
+                                                    },
+                                                    "components": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "name": {
+                                                            "type": "string"
+                                                          },
+                                                          "description": {
+                                                            "type": "string"
+                                                          },
+                                                          "internalType": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": {
+                                                            "type": "string"
+                                                          },
+                                                          "components": {
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "required": [
+                                                          "name",
+                                                          "type"
+                                                        ]
+                                                      }
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "name",
+                                                    "type"
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            "required": [
+                                              "name",
+                                              "type"
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "required": [
+                                        "name",
+                                        "type"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "name",
+                                  "type"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "type"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "type"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "type"
+              ]
+            },
+            "type": "array"
+          },
+          "outputs": {
+            "description": "The parameters that this 'read' function returns",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "_name",
+                  "description": "The name of the parameter as it appears in the ABI"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "The name of the token",
+                  "description": "A description of the parameter, fetched from the devdoc of this contract"
+                },
+                "internalType": {
+                  "type": "string",
+                  "example": "string",
+                  "description": "The internal type of the parameter as it appears in the ABI"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "string",
+                  "description": "The type of the parameter as it appears in the ABI"
+                },
+                "components": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "_name",
+                        "description": "The name of the parameter as it appears in the ABI"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "The name of the token",
+                        "description": "A description of the parameter, fetched from the devdoc of this contract"
+                      },
+                      "internalType": {
+                        "type": "string",
+                        "example": "string",
+                        "description": "The internal type of the parameter as it appears in the ABI"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "string",
+                        "description": "The type of the parameter as it appears in the ABI"
+                      },
+                      "components": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "_name",
+                              "description": "The name of the parameter as it appears in the ABI"
+                            },
+                            "description": {
+                              "type": "string",
+                              "example": "The name of the token",
+                              "description": "A description of the parameter, fetched from the devdoc of this contract"
+                            },
+                            "internalType": {
+                              "type": "string",
+                              "example": "string",
+                              "description": "The internal type of the parameter as it appears in the ABI"
+                            },
+                            "type": {
+                              "type": "string",
+                              "example": "string",
+                              "description": "The type of the parameter as it appears in the ABI"
+                            },
+                            "components": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string",
+                                    "example": "_name",
+                                    "description": "The name of the parameter as it appears in the ABI"
+                                  },
+                                  "description": {
+                                    "type": "string",
+                                    "example": "The name of the token",
+                                    "description": "A description of the parameter, fetched from the devdoc of this contract"
+                                  },
+                                  "internalType": {
+                                    "type": "string",
+                                    "example": "string",
+                                    "description": "The internal type of the parameter as it appears in the ABI"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "example": "string",
+                                    "description": "The type of the parameter as it appears in the ABI"
+                                  },
+                                  "components": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "string",
+                                          "example": "_name",
+                                          "description": "The name of the parameter as it appears in the ABI"
+                                        },
+                                        "description": {
+                                          "type": "string",
+                                          "example": "The name of the token",
+                                          "description": "A description of the parameter, fetched from the devdoc of this contract"
+                                        },
+                                        "internalType": {
+                                          "type": "string",
+                                          "example": "string",
+                                          "description": "The internal type of the parameter as it appears in the ABI"
+                                        },
+                                        "type": {
+                                          "type": "string",
+                                          "example": "string",
+                                          "description": "The type of the parameter as it appears in the ABI"
+                                        },
+                                        "components": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "name": {
+                                                "type": "string",
+                                                "example": "_name",
+                                                "description": "The name of the parameter as it appears in the ABI"
+                                              },
+                                              "description": {
+                                                "type": "string",
+                                                "example": "The name of the token",
+                                                "description": "A description of the parameter, fetched from the devdoc of this contract"
+                                              },
+                                              "internalType": {
+                                                "type": "string",
+                                                "example": "string",
+                                                "description": "The internal type of the parameter as it appears in the ABI"
+                                              },
+                                              "type": {
+                                                "type": "string",
+                                                "example": "string",
+                                                "description": "The type of the parameter as it appears in the ABI"
+                                              },
+                                              "components": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "name": {
+                                                      "type": "string",
+                                                      "example": "_name",
+                                                      "description": "The name of the parameter as it appears in the ABI"
+                                                    },
+                                                    "description": {
+                                                      "type": "string",
+                                                      "example": "The name of the token",
+                                                      "description": "A description of the parameter, fetched from the devdoc of this contract"
+                                                    },
+                                                    "internalType": {
+                                                      "type": "string",
+                                                      "example": "string",
+                                                      "description": "The internal type of the parameter as it appears in the ABI"
+                                                    },
+                                                    "type": {
+                                                      "type": "string",
+                                                      "example": "string",
+                                                      "description": "The type of the parameter as it appears in the ABI"
+                                                    },
+                                                    "components": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "name": {
+                                                            "type": "string"
+                                                          },
+                                                          "description": {
+                                                            "type": "string"
+                                                          },
+                                                          "internalType": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": {
+                                                            "type": "string"
+                                                          },
+                                                          "components": {
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "required": [
+                                                          "name",
+                                                          "type"
+                                                        ]
+                                                      }
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "name",
+                                                    "type"
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            "required": [
+                                              "name",
+                                              "type"
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "required": [
+                                        "name",
+                                        "type"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "name",
+                                  "type"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "type"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "type"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "type"
+              ]
+            },
+            "type": "array"
+          },
+          "description": {
+            "type": "string",
+            "description": "The documentation of this function (if has any)"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      }
+    },
+    "attributes": {
+      "type": "string"
+    },
+    "protocol": {
+      "type": "string",
+      "enum": [
+        "ETH",
+        "SOL"
+      ],
+      "example": "ETH",
+      "description": "The protocol that the template will be used for"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "bytecode",
+    "type",
+    "abi"
+  ]
+}

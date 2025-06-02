@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "baseAssetId": {
+      "type": "string",
+      "example": "ETH",
+      "description": "The blockchain base assetId"
+    },
+    "vaultAccountId": {
+      "type": "string",
+      "example": "0",
+      "description": "The id of the vault account that initiated the request to issue the token"
+    },
+    "type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "example": "DigitalArtTokens",
+      "description": "A string that represents the name of the collection"
+    },
+    "symbol": {
+      "type": "string",
+      "example": "DAT",
+      "description": "A string that represents the symbol of the collection"
+    },
+    "adminAddress": {
+      "type": "string",
+      "example": "0x5503766D27d1ED4525f5053222E18b29C38eDdB2",
+      "description": "The EVM address of the user that will be set as the admin user of the collection"
+    },
+    "displayName": {
+      "type": "string",
+      "example": "DigitalArtTokens",
+      "description": "A string to display as a name of the collection"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseAssetId",
+    "vaultAccountId",
+    "type",
+    "name",
+    "symbol",
+    "adminAddress"
+  ]
+}

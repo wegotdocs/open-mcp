@@ -1,0 +1,923 @@
+{
+  "type": "object",
+  "description": "Information about the originator of the transaction.",
+  "properties": {
+    "originatorPersons": {
+      "type": "array",
+      "description": "Information about the originator of the transaction",
+      "items": {
+        "type": "object",
+        "properties": {
+          "naturalPerson": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "nameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name",
+                            "example": "John"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name",
+                            "example": "Doe"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "Specifies the type of name for a natural person. Acceptable values are: - 'ALIA': Alias name, a name other than the legal name by which a natural person is also known. - 'BIRT': Name at birth, the name given to a natural person at birth. - 'MAID': Maiden name, the original name of a natural person who has changed their name after marriage. - 'LEGL': Legal name, the name that identifies a natural person for legal, official, or administrative purposes. - 'MISC': Unspecified, a name by which a natural person may be known but cannot otherwise be categorized.",
+                            "enum": [
+                              "ALIA",
+                              "BIRT",
+                              "MAID",
+                              "LEGL",
+                              "MISC"
+                            ],
+                            "example": "LEGL"
+                          }
+                        }
+                      }
+                    },
+                    "localNameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name",
+                            "example": "John"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name",
+                            "example": "Doe"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "Specifies the type of name for a natural person. Acceptable values are: - 'ALIA': Alias name, a name other than the legal name by which a natural person is also known. - 'BIRT': Name at birth, the name given to a natural person at birth. - 'MAID': Maiden name, the original name of a natural person who has changed their name after marriage. - 'LEGL': Legal name, the name that identifies a natural person for legal, official, or administrative purposes. - 'MISC': Unspecified, a name by which a natural person may be known but cannot otherwise be categorized.",
+                            "enum": [
+                              "ALIA",
+                              "BIRT",
+                              "MAID",
+                              "LEGL",
+                              "MISC"
+                            ],
+                            "example": "LEGL"
+                          }
+                        }
+                      }
+                    },
+                    "phoneticNameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name",
+                            "example": "John"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name",
+                            "example": "Doe"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "Specifies the type of name for a natural person. Acceptable values are: - 'ALIA': Alias name, a name other than the legal name by which a natural person is also known. - 'BIRT': Name at birth, the name given to a natural person at birth. - 'MAID': Maiden name, the original name of a natural person who has changed their name after marriage. - 'LEGL': Legal name, the name that identifies a natural person for legal, official, or administrative purposes. - 'MISC': Unspecified, a name by which a natural person may be known but cannot otherwise be categorized.",
+                            "enum": [
+                              "ALIA",
+                              "BIRT",
+                              "MAID",
+                              "LEGL",
+                              "MISC"
+                            ],
+                            "example": "LEGL"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "description": "An array of structured name identifiers for the natural person, referencing the TravelRuleNaturalPersonNameIdentifier schema."
+              },
+              "geographicAddress": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "streetName": {
+                      "type": "string",
+                      "description": "Name of a street or thoroughfare",
+                      "example": "123 Main St"
+                    },
+                    "townName": {
+                      "type": "string",
+                      "description": "Name of a built-up area, with defined boundaries, and a local government",
+                      "example": "New York"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Nation with its own government (ISO-3166 Alpha-2 country code)",
+                      "example": "US"
+                    },
+                    "buildingNumber": {
+                      "type": "string",
+                      "description": "Number that identifies the position of a building on a street",
+                      "example": 123
+                    },
+                    "postCode": {
+                      "type": "string",
+                      "description": "Identifier consisting of a group of letters and/or numbers added to a postal address to assist the sorting of mail",
+                      "example": 12345
+                    },
+                    "addressType": {
+                      "type": "string",
+                      "description": "Specifies the type of address. Acceptable values are: - 'HOME': Residential, the home address - 'BIZZ': Business, the business address - 'GEOG': Geographic, an unspecified physical (geographical) address",
+                      "enum": [
+                        "HOME",
+                        "BIZZ",
+                        "GEOG"
+                      ],
+                      "example": "HOME"
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": "Identification of a division of a large organisation or building",
+                      "example": "IT"
+                    },
+                    "subDepartment": {
+                      "type": "string",
+                      "description": "Identification of a sub-division of a large organisation or building",
+                      "example": "Security"
+                    },
+                    "buildingName": {
+                      "type": "string",
+                      "description": "Name of the building or house",
+                      "example": "Acme Building"
+                    },
+                    "floor": {
+                      "type": "string",
+                      "description": "Floor or storey within a building",
+                      "example": 1
+                    },
+                    "postBox": {
+                      "type": "string",
+                      "description": "Numbered box in a post office",
+                      "example": 123
+                    },
+                    "room": {
+                      "type": "string",
+                      "description": "Building room number",
+                      "example": 101
+                    },
+                    "townLocationName": {
+                      "type": "string",
+                      "description": "Specific location name within the town",
+                      "example": "Downtown"
+                    },
+                    "districtName": {
+                      "type": "string",
+                      "description": "Identifies a subdivision within a country subdivision",
+                      "example": "Manhattan"
+                    },
+                    "countrySubDivision": {
+                      "type": "string",
+                      "description": "Identifies a subdivision of a country such as state, region, or province",
+                      "example": "New York"
+                    },
+                    "addressLine": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Information that locates and identifies a specific address, presented in free format text",
+                      "example": [
+                        "123 Main St",
+                        "New York",
+                        "NY 12345"
+                      ]
+                    }
+                  }
+                },
+                "description": "An array of geographic addresses associated with the natural person, referencing the TravelRuleGeographicAddress schema."
+              },
+              "nationalIdentification": {
+                "type": "object",
+                "description": "Represents a national identifier for a person or entity",
+                "properties": {
+                  "countryOfIssue": {
+                    "type": "string",
+                    "description": "Country that issued the national identifier (ISO-3166 Alpha-2 country code)",
+                    "example": "US"
+                  },
+                  "nationalIdentifier": {
+                    "type": "string",
+                    "description": "National identifier (max 35 characters)",
+                    "maxLength": 35,
+                    "example": 123456789
+                  },
+                  "nationalIdentifierType": {
+                    "type": "string",
+                    "description": "Type of national identifier. Acceptable values include: - 'PASSPORT': Passport number - 'NATIONAL_ID': National identification number - 'TAX_ID': Tax identification number - 'SOCIAL_SECURITY': Social security number",
+                    "enum": [
+                      "PASSPORT",
+                      "NATIONAL_ID",
+                      "TAX_ID",
+                      "SOCIAL_SECURITY"
+                    ],
+                    "example": "NATIONAL_ID"
+                  },
+                  "registrationAuthority": {
+                    "type": "string",
+                    "description": "Registration authority (format -> RA followed by 6 digits)",
+                    "pattern": "^RA\\d{6}$",
+                    "example": "RA123456"
+                  }
+                }
+              },
+              "dateAndPlaceOfBirth": {
+                "type": "object",
+                "description": "Represents the date and place of birth for a natural person",
+                "properties": {
+                  "dateOfBirth": {
+                    "type": "string",
+                    "description": "Date of birth in ISO 8601 format (YYYY-MM-DD)",
+                    "example": "1990-01-01"
+                  },
+                  "placeOfBirth": {
+                    "type": "string",
+                    "description": "Place of birth",
+                    "example": "New York, USA"
+                  }
+                }
+              },
+              "customerIdentification": {
+                "type": "string",
+                "description": "A unique identifier for the customer within the organization's context.",
+                "example": "CUST123456"
+              },
+              "countryOfResidence": {
+                "type": "string",
+                "description": "The ISO-3166 Alpha-2 country code of the natural person's residence.",
+                "example": "US"
+              },
+              "customerNumber": {
+                "type": "string",
+                "description": "A distinct identifier that uniquely identifies the customer within the organization.",
+                "example": 123456789
+              }
+            }
+          },
+          "legalPerson": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "legalPersonName": {
+                    "type": "string",
+                    "description": "Name by which the legal person is known.",
+                    "maxLength": 100,
+                    "example": "Acme Corporation"
+                  },
+                  "legalPersonNameIdentifierType": {
+                    "type": "string",
+                    "description": "Specifies the type of name for a legal person. Acceptable values are: - 'REGISTERED': The official registered name. - 'TRADE': A trading name or DBA (Doing Business As) name. - 'OTHER': Any other type of name.",
+                    "enum": [
+                      "REGISTERED",
+                      "TRADE",
+                      "OTHER"
+                    ],
+                    "example": "REGISTERED"
+                  }
+                }
+              },
+              "geographicAddress": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "streetName": {
+                      "type": "string",
+                      "description": "Name of a street or thoroughfare",
+                      "example": "123 Main St"
+                    },
+                    "townName": {
+                      "type": "string",
+                      "description": "Name of a built-up area, with defined boundaries, and a local government",
+                      "example": "New York"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Nation with its own government (ISO-3166 Alpha-2 country code)",
+                      "example": "US"
+                    },
+                    "buildingNumber": {
+                      "type": "string",
+                      "description": "Number that identifies the position of a building on a street",
+                      "example": 123
+                    },
+                    "postCode": {
+                      "type": "string",
+                      "description": "Identifier consisting of a group of letters and/or numbers added to a postal address to assist the sorting of mail",
+                      "example": 12345
+                    },
+                    "addressType": {
+                      "type": "string",
+                      "description": "Specifies the type of address. Acceptable values are: - 'HOME': Residential, the home address - 'BIZZ': Business, the business address - 'GEOG': Geographic, an unspecified physical (geographical) address",
+                      "enum": [
+                        "HOME",
+                        "BIZZ",
+                        "GEOG"
+                      ],
+                      "example": "HOME"
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": "Identification of a division of a large organisation or building",
+                      "example": "IT"
+                    },
+                    "subDepartment": {
+                      "type": "string",
+                      "description": "Identification of a sub-division of a large organisation or building",
+                      "example": "Security"
+                    },
+                    "buildingName": {
+                      "type": "string",
+                      "description": "Name of the building or house",
+                      "example": "Acme Building"
+                    },
+                    "floor": {
+                      "type": "string",
+                      "description": "Floor or storey within a building",
+                      "example": 1
+                    },
+                    "postBox": {
+                      "type": "string",
+                      "description": "Numbered box in a post office",
+                      "example": 123
+                    },
+                    "room": {
+                      "type": "string",
+                      "description": "Building room number",
+                      "example": 101
+                    },
+                    "townLocationName": {
+                      "type": "string",
+                      "description": "Specific location name within the town",
+                      "example": "Downtown"
+                    },
+                    "districtName": {
+                      "type": "string",
+                      "description": "Identifies a subdivision within a country subdivision",
+                      "example": "Manhattan"
+                    },
+                    "countrySubDivision": {
+                      "type": "string",
+                      "description": "Identifies a subdivision of a country such as state, region, or province",
+                      "example": "New York"
+                    },
+                    "addressLine": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Information that locates and identifies a specific address, presented in free format text",
+                      "example": [
+                        "123 Main St",
+                        "New York",
+                        "NY 12345"
+                      ]
+                    }
+                  }
+                },
+                "description": "The array of geographic addresses associated with the legal person."
+              },
+              "nationalIdentification": {
+                "type": "object",
+                "description": "Represents a national identifier for a person or entity",
+                "properties": {
+                  "countryOfIssue": {
+                    "type": "string",
+                    "description": "Country that issued the national identifier (ISO-3166 Alpha-2 country code)",
+                    "example": "US"
+                  },
+                  "nationalIdentifier": {
+                    "type": "string",
+                    "description": "National identifier (max 35 characters)",
+                    "maxLength": 35,
+                    "example": 123456789
+                  },
+                  "nationalIdentifierType": {
+                    "type": "string",
+                    "description": "Type of national identifier. Acceptable values include: - 'PASSPORT': Passport number - 'NATIONAL_ID': National identification number - 'TAX_ID': Tax identification number - 'SOCIAL_SECURITY': Social security number",
+                    "enum": [
+                      "PASSPORT",
+                      "NATIONAL_ID",
+                      "TAX_ID",
+                      "SOCIAL_SECURITY"
+                    ],
+                    "example": "NATIONAL_ID"
+                  },
+                  "registrationAuthority": {
+                    "type": "string",
+                    "description": "Registration authority (format -> RA followed by 6 digits)",
+                    "pattern": "^RA\\d{6}$",
+                    "example": "RA123456"
+                  }
+                }
+              },
+              "customerIdentification": {
+                "type": "string",
+                "description": "A unique identifier that identifies the customer in the organization's context.",
+                "example": "CUST987654"
+              },
+              "customerNumber": {
+                "type": "string",
+                "description": "A distinct identifier that uniquely identifies the customer within the organization.",
+                "example": 123456789
+              },
+              "countryOfRegistration": {
+                "type": "string",
+                "description": "The ISO-3166 Alpha-2 country code where the legal person is registered.",
+                "example": "US"
+              }
+            }
+          }
+        }
+      }
+    },
+    "beneficiaryPersons": {
+      "type": "array",
+      "description": "Information about the beneficiary of the transaction",
+      "items": {
+        "type": "object",
+        "properties": {
+          "naturalPerson": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "nameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name",
+                            "example": "John"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name",
+                            "example": "Doe"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "Specifies the type of name for a natural person. Acceptable values are: - 'ALIA': Alias name, a name other than the legal name by which a natural person is also known. - 'BIRT': Name at birth, the name given to a natural person at birth. - 'MAID': Maiden name, the original name of a natural person who has changed their name after marriage. - 'LEGL': Legal name, the name that identifies a natural person for legal, official, or administrative purposes. - 'MISC': Unspecified, a name by which a natural person may be known but cannot otherwise be categorized.",
+                            "enum": [
+                              "ALIA",
+                              "BIRT",
+                              "MAID",
+                              "LEGL",
+                              "MISC"
+                            ],
+                            "example": "LEGL"
+                          }
+                        }
+                      }
+                    },
+                    "localNameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name",
+                            "example": "John"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name",
+                            "example": "Doe"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "Specifies the type of name for a natural person. Acceptable values are: - 'ALIA': Alias name, a name other than the legal name by which a natural person is also known. - 'BIRT': Name at birth, the name given to a natural person at birth. - 'MAID': Maiden name, the original name of a natural person who has changed their name after marriage. - 'LEGL': Legal name, the name that identifies a natural person for legal, official, or administrative purposes. - 'MISC': Unspecified, a name by which a natural person may be known but cannot otherwise be categorized.",
+                            "enum": [
+                              "ALIA",
+                              "BIRT",
+                              "MAID",
+                              "LEGL",
+                              "MISC"
+                            ],
+                            "example": "LEGL"
+                          }
+                        }
+                      }
+                    },
+                    "phoneticNameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name",
+                            "example": "John"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name",
+                            "example": "Doe"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "Specifies the type of name for a natural person. Acceptable values are: - 'ALIA': Alias name, a name other than the legal name by which a natural person is also known. - 'BIRT': Name at birth, the name given to a natural person at birth. - 'MAID': Maiden name, the original name of a natural person who has changed their name after marriage. - 'LEGL': Legal name, the name that identifies a natural person for legal, official, or administrative purposes. - 'MISC': Unspecified, a name by which a natural person may be known but cannot otherwise be categorized.",
+                            "enum": [
+                              "ALIA",
+                              "BIRT",
+                              "MAID",
+                              "LEGL",
+                              "MISC"
+                            ],
+                            "example": "LEGL"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "description": "An array of structured name identifiers for the natural person, referencing the TravelRuleNaturalPersonNameIdentifier schema."
+              },
+              "geographicAddress": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "streetName": {
+                      "type": "string",
+                      "description": "Name of a street or thoroughfare",
+                      "example": "123 Main St"
+                    },
+                    "townName": {
+                      "type": "string",
+                      "description": "Name of a built-up area, with defined boundaries, and a local government",
+                      "example": "New York"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Nation with its own government (ISO-3166 Alpha-2 country code)",
+                      "example": "US"
+                    },
+                    "buildingNumber": {
+                      "type": "string",
+                      "description": "Number that identifies the position of a building on a street",
+                      "example": 123
+                    },
+                    "postCode": {
+                      "type": "string",
+                      "description": "Identifier consisting of a group of letters and/or numbers added to a postal address to assist the sorting of mail",
+                      "example": 12345
+                    },
+                    "addressType": {
+                      "type": "string",
+                      "description": "Specifies the type of address. Acceptable values are: - 'HOME': Residential, the home address - 'BIZZ': Business, the business address - 'GEOG': Geographic, an unspecified physical (geographical) address",
+                      "enum": [
+                        "HOME",
+                        "BIZZ",
+                        "GEOG"
+                      ],
+                      "example": "HOME"
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": "Identification of a division of a large organisation or building",
+                      "example": "IT"
+                    },
+                    "subDepartment": {
+                      "type": "string",
+                      "description": "Identification of a sub-division of a large organisation or building",
+                      "example": "Security"
+                    },
+                    "buildingName": {
+                      "type": "string",
+                      "description": "Name of the building or house",
+                      "example": "Acme Building"
+                    },
+                    "floor": {
+                      "type": "string",
+                      "description": "Floor or storey within a building",
+                      "example": 1
+                    },
+                    "postBox": {
+                      "type": "string",
+                      "description": "Numbered box in a post office",
+                      "example": 123
+                    },
+                    "room": {
+                      "type": "string",
+                      "description": "Building room number",
+                      "example": 101
+                    },
+                    "townLocationName": {
+                      "type": "string",
+                      "description": "Specific location name within the town",
+                      "example": "Downtown"
+                    },
+                    "districtName": {
+                      "type": "string",
+                      "description": "Identifies a subdivision within a country subdivision",
+                      "example": "Manhattan"
+                    },
+                    "countrySubDivision": {
+                      "type": "string",
+                      "description": "Identifies a subdivision of a country such as state, region, or province",
+                      "example": "New York"
+                    },
+                    "addressLine": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Information that locates and identifies a specific address, presented in free format text",
+                      "example": [
+                        "123 Main St",
+                        "New York",
+                        "NY 12345"
+                      ]
+                    }
+                  }
+                },
+                "description": "An array of geographic addresses associated with the natural person, referencing the TravelRuleGeographicAddress schema."
+              },
+              "nationalIdentification": {
+                "type": "object",
+                "description": "Represents a national identifier for a person or entity",
+                "properties": {
+                  "countryOfIssue": {
+                    "type": "string",
+                    "description": "Country that issued the national identifier (ISO-3166 Alpha-2 country code)",
+                    "example": "US"
+                  },
+                  "nationalIdentifier": {
+                    "type": "string",
+                    "description": "National identifier (max 35 characters)",
+                    "maxLength": 35,
+                    "example": 123456789
+                  },
+                  "nationalIdentifierType": {
+                    "type": "string",
+                    "description": "Type of national identifier. Acceptable values include: - 'PASSPORT': Passport number - 'NATIONAL_ID': National identification number - 'TAX_ID': Tax identification number - 'SOCIAL_SECURITY': Social security number",
+                    "enum": [
+                      "PASSPORT",
+                      "NATIONAL_ID",
+                      "TAX_ID",
+                      "SOCIAL_SECURITY"
+                    ],
+                    "example": "NATIONAL_ID"
+                  },
+                  "registrationAuthority": {
+                    "type": "string",
+                    "description": "Registration authority (format -> RA followed by 6 digits)",
+                    "pattern": "^RA\\d{6}$",
+                    "example": "RA123456"
+                  }
+                }
+              },
+              "dateAndPlaceOfBirth": {
+                "type": "object",
+                "description": "Represents the date and place of birth for a natural person",
+                "properties": {
+                  "dateOfBirth": {
+                    "type": "string",
+                    "description": "Date of birth in ISO 8601 format (YYYY-MM-DD)",
+                    "example": "1990-01-01"
+                  },
+                  "placeOfBirth": {
+                    "type": "string",
+                    "description": "Place of birth",
+                    "example": "New York, USA"
+                  }
+                }
+              },
+              "customerIdentification": {
+                "type": "string",
+                "description": "A unique identifier for the customer within the organization's context.",
+                "example": "CUST123456"
+              },
+              "countryOfResidence": {
+                "type": "string",
+                "description": "The ISO-3166 Alpha-2 country code of the natural person's residence.",
+                "example": "US"
+              },
+              "customerNumber": {
+                "type": "string",
+                "description": "A distinct identifier that uniquely identifies the customer within the organization.",
+                "example": 123456789
+              }
+            }
+          },
+          "legalPerson": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "legalPersonName": {
+                    "type": "string",
+                    "description": "Name by which the legal person is known.",
+                    "maxLength": 100,
+                    "example": "Acme Corporation"
+                  },
+                  "legalPersonNameIdentifierType": {
+                    "type": "string",
+                    "description": "Specifies the type of name for a legal person. Acceptable values are: - 'REGISTERED': The official registered name. - 'TRADE': A trading name or DBA (Doing Business As) name. - 'OTHER': Any other type of name.",
+                    "enum": [
+                      "REGISTERED",
+                      "TRADE",
+                      "OTHER"
+                    ],
+                    "example": "REGISTERED"
+                  }
+                }
+              },
+              "geographicAddress": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "streetName": {
+                      "type": "string",
+                      "description": "Name of a street or thoroughfare",
+                      "example": "123 Main St"
+                    },
+                    "townName": {
+                      "type": "string",
+                      "description": "Name of a built-up area, with defined boundaries, and a local government",
+                      "example": "New York"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Nation with its own government (ISO-3166 Alpha-2 country code)",
+                      "example": "US"
+                    },
+                    "buildingNumber": {
+                      "type": "string",
+                      "description": "Number that identifies the position of a building on a street",
+                      "example": 123
+                    },
+                    "postCode": {
+                      "type": "string",
+                      "description": "Identifier consisting of a group of letters and/or numbers added to a postal address to assist the sorting of mail",
+                      "example": 12345
+                    },
+                    "addressType": {
+                      "type": "string",
+                      "description": "Specifies the type of address. Acceptable values are: - 'HOME': Residential, the home address - 'BIZZ': Business, the business address - 'GEOG': Geographic, an unspecified physical (geographical) address",
+                      "enum": [
+                        "HOME",
+                        "BIZZ",
+                        "GEOG"
+                      ],
+                      "example": "HOME"
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": "Identification of a division of a large organisation or building",
+                      "example": "IT"
+                    },
+                    "subDepartment": {
+                      "type": "string",
+                      "description": "Identification of a sub-division of a large organisation or building",
+                      "example": "Security"
+                    },
+                    "buildingName": {
+                      "type": "string",
+                      "description": "Name of the building or house",
+                      "example": "Acme Building"
+                    },
+                    "floor": {
+                      "type": "string",
+                      "description": "Floor or storey within a building",
+                      "example": 1
+                    },
+                    "postBox": {
+                      "type": "string",
+                      "description": "Numbered box in a post office",
+                      "example": 123
+                    },
+                    "room": {
+                      "type": "string",
+                      "description": "Building room number",
+                      "example": 101
+                    },
+                    "townLocationName": {
+                      "type": "string",
+                      "description": "Specific location name within the town",
+                      "example": "Downtown"
+                    },
+                    "districtName": {
+                      "type": "string",
+                      "description": "Identifies a subdivision within a country subdivision",
+                      "example": "Manhattan"
+                    },
+                    "countrySubDivision": {
+                      "type": "string",
+                      "description": "Identifies a subdivision of a country such as state, region, or province",
+                      "example": "New York"
+                    },
+                    "addressLine": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Information that locates and identifies a specific address, presented in free format text",
+                      "example": [
+                        "123 Main St",
+                        "New York",
+                        "NY 12345"
+                      ]
+                    }
+                  }
+                },
+                "description": "The array of geographic addresses associated with the legal person."
+              },
+              "nationalIdentification": {
+                "type": "object",
+                "description": "Represents a national identifier for a person or entity",
+                "properties": {
+                  "countryOfIssue": {
+                    "type": "string",
+                    "description": "Country that issued the national identifier (ISO-3166 Alpha-2 country code)",
+                    "example": "US"
+                  },
+                  "nationalIdentifier": {
+                    "type": "string",
+                    "description": "National identifier (max 35 characters)",
+                    "maxLength": 35,
+                    "example": 123456789
+                  },
+                  "nationalIdentifierType": {
+                    "type": "string",
+                    "description": "Type of national identifier. Acceptable values include: - 'PASSPORT': Passport number - 'NATIONAL_ID': National identification number - 'TAX_ID': Tax identification number - 'SOCIAL_SECURITY': Social security number",
+                    "enum": [
+                      "PASSPORT",
+                      "NATIONAL_ID",
+                      "TAX_ID",
+                      "SOCIAL_SECURITY"
+                    ],
+                    "example": "NATIONAL_ID"
+                  },
+                  "registrationAuthority": {
+                    "type": "string",
+                    "description": "Registration authority (format -> RA followed by 6 digits)",
+                    "pattern": "^RA\\d{6}$",
+                    "example": "RA123456"
+                  }
+                }
+              },
+              "customerIdentification": {
+                "type": "string",
+                "description": "A unique identifier that identifies the customer in the organization's context.",
+                "example": "CUST987654"
+              },
+              "customerNumber": {
+                "type": "string",
+                "description": "A distinct identifier that uniquely identifies the customer within the organization.",
+                "example": 123456789
+              },
+              "countryOfRegistration": {
+                "type": "string",
+                "description": "The ISO-3166 Alpha-2 country code where the legal person is registered.",
+                "example": "US"
+              }
+            }
+          }
+        }
+      }
+    },
+    "accountNumber": {
+      "type": "array",
+      "description": "Beneficiary account number",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

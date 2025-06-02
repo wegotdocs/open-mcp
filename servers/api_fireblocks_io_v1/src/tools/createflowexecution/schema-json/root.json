@@ -1,0 +1,232 @@
+{
+  "type": "object",
+  "properties": {
+    "configId": {
+      "type": "string"
+    },
+    "preScreening": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `preScreening` to the tool, first call the tool `expandSchema` with \"/properties/preScreening\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "params": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "configOperationId": {
+                "type": "string"
+              },
+              "executionParams": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "string"
+                  },
+                  "accountId": {
+                    "type": "string"
+                  },
+                  "srcAssetId": {
+                    "type": "string"
+                  },
+                  "destAssetId": {
+                    "type": "string"
+                  },
+                  "slippageBasisPoints": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10000
+                  }
+                }
+              }
+            },
+            "required": [
+              "configOperationId"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "configOperationId": {
+                "type": "string"
+              },
+              "executionParams": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "string"
+                  },
+                  "assetId": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "object",
+                    "properties": {
+                      "accountId": {
+                        "type": "string"
+                      },
+                      "accountType": {
+                        "type": "string",
+                        "enum": [
+                          "EXCHANGE_ACCOUNT",
+                          "UNMANAGED_WALLET",
+                          "VAULT_ACCOUNT",
+                          "NETWORK_CONNECTION",
+                          "FIAT_ACCOUNT"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "accountId",
+                      "accountType"
+                    ]
+                  },
+                  "destination": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "accountId": {
+                            "type": "string"
+                          },
+                          "accountType": {
+                            "type": "string",
+                            "enum": [
+                              "EXCHANGE_ACCOUNT",
+                              "UNMANAGED_WALLET",
+                              "VAULT_ACCOUNT",
+                              "NETWORK_CONNECTION",
+                              "FIAT_ACCOUNT"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "accountId",
+                          "accountType"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "required": [
+              "configOperationId"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "configOperationId": {
+                "type": "string"
+              },
+              "executionParams": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "string"
+                  },
+                  "paymentAccount": {
+                    "type": "object",
+                    "properties": {
+                      "accountId": {
+                        "type": "string"
+                      },
+                      "accountType": {
+                        "type": "string",
+                        "enum": [
+                          "EXCHANGE_ACCOUNT",
+                          "UNMANAGED_WALLET",
+                          "VAULT_ACCOUNT",
+                          "NETWORK_CONNECTION",
+                          "FIAT_ACCOUNT"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "accountId",
+                      "accountType"
+                    ]
+                  },
+                  "instructionSet": {
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "payeeAccount": {
+                              "anyOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "accountId": {
+                                      "type": "string"
+                                    },
+                                    "accountType": {
+                                      "type": "string",
+                                      "enum": [
+                                        "EXCHANGE_ACCOUNT",
+                                        "UNMANAGED_WALLET",
+                                        "VAULT_ACCOUNT",
+                                        "NETWORK_CONNECTION",
+                                        "FIAT_ACCOUNT"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "accountId",
+                                    "accountType"
+                                  ]
+                                }
+                              ]
+                            },
+                            "assetId": {
+                              "type": "string"
+                            },
+                            "amount": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "payeeAccount",
+                            "assetId",
+                            "amount"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "configOperationId"
+            ]
+          }
+        ]
+      }
+    },
+    "externalCorrelationData": {
+      "x-internal": true,
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "configId",
+    "params"
+  ]
+}

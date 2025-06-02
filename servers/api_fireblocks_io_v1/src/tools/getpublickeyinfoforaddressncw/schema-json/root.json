@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "walletId": {
+      "description": "The ID of the Non-Custodial wallet",
+      "type": "string",
+      "example": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "accountId": {
+      "description": "The ID of the account",
+      "type": "string",
+      "format": "numeric",
+      "example": "0"
+    },
+    "assetId": {
+      "description": "The ID of the asset",
+      "type": "string",
+      "x-fb-entity": "asset",
+      "example": "BTC"
+    },
+    "change": {
+      "description": "BIP44 derivation path - change value",
+      "type": "number",
+      "example": 0
+    },
+    "addressIndex": {
+      "description": "BIP44 derivation path - index value",
+      "type": "number",
+      "example": 0
+    },
+    "compressed": {
+      "description": "Compressed/Uncompressed public key format",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "walletId",
+    "accountId",
+    "assetId",
+    "change",
+    "addressIndex"
+  ]
+}

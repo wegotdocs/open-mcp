@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "vaultAccountId": {
+      "description": "The ID of the vault account, or 'default' for the default vault account",
+      "type": "string",
+      "format": "numeric",
+      "x-fb-entity": "vault_account"
+    },
+    "assetId": {
+      "description": "The ID of the asset",
+      "type": "string",
+      "x-fb-entity": "asset"
+    },
+    "manualSignging": {
+      "description": "False by default. The maximum number of inputs depends if the transaction will be signed by an automated co-signer server or on a mobile device.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "vaultAccountId",
+    "assetId"
+  ]
+}

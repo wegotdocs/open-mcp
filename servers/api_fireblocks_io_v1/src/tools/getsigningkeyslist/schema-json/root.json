@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "pageCursor": {
+      "description": "Cursor to the next page",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Amount of results to return in the next page",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 10,
+      "type": "number"
+    },
+    "sortBy": {
+      "description": "Field(s) to use for sorting",
+      "default": "createdAt",
+      "enum": [
+        "createdAt"
+      ],
+      "type": "string"
+    },
+    "order": {
+      "description": "Is the order ascending or descending",
+      "default": "ASC",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "type": "string"
+    },
+    "vaultAccountId": {
+      "description": "Return keys assigned to a specific vault",
+      "type": "number"
+    },
+    "agentUserId": {
+      "description": "Return keys associated with a specific agent user",
+      "type": "string"
+    },
+    "algorithm": {
+      "description": "Return only keys with a specific algorithm",
+      "enum": [
+        "ECDSA_SECP256K1",
+        "EDDSA_ED25519"
+      ],
+      "type": "string"
+    },
+    "enabled": {
+      "description": "Return keys that have been proof of ownership",
+      "type": "boolean"
+    },
+    "available": {
+      "description": "Return keys that are proof of ownership but not assigned. Available filter can be used only when vaultAccountId and enabled filters are not set",
+      "type": "boolean"
+    },
+    "isAssigned": {
+      "description": "Return keys that are assigned to a vault account",
+      "type": "boolean",
+      "nullable": true
+    }
+  },
+  "required": []
+}

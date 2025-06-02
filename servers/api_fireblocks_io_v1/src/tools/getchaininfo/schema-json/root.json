@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "chainDescriptor": {
+      "description": "The protocol identifier (e.g. \"ETH\"/\"SOL\"/\"MATIC\"/\"STETH_ETH\") to use",
+      "type": "string",
+      "enum": [
+        "ETH",
+        "SOL",
+        "MATIC",
+        "ETH_TEST6",
+        "SOL_TEST"
+      ]
+    }
+  },
+  "required": [
+    "chainDescriptor"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "The callback handler's URL",
+      "example": "https://example.com/callback-handler"
+    },
+    "publicKey": {
+      "type": "string",
+      "description": "The callback handler's public key",
+      "example": "-----BEGIN PUBLIC KEY-----\n... truncated ...-----END PUBLIC KEY-----"
+    },
+    "cert": {
+      "type": "string",
+      "description": "The callback handler's certificate",
+      "example": "-----BEGIN CERTIFICATE-----\n... truncated ...\n-----END CERTIFICATE-----"
+    }
+  },
+  "required": [
+    "url"
+  ]
+}

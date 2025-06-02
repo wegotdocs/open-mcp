@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the initiated Web3 connection to approve.",
+      "type": "string"
+    },
+    "approve": {
+      "type": "boolean",
+      "description": "Approval of the initiated Web3 connection.",
+      "example": true
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "approve"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "groupName": {
+      "type": "string"
+    },
+    "memberIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

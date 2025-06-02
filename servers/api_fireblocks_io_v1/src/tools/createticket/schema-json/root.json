@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "createdByNetworkId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ASYNC",
+        "DVP"
+      ]
+    },
+    "expiresIn": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 48,
+      "description": "Number of hours after which an OPEN ticket will expire if no term is funded."
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "asset": {
+            "type": "string",
+            "description": "Asset name",
+            "example": "BTC",
+            "x-fb-entity": "asset"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Amount",
+            "example": "133.789161216184"
+          },
+          "fromNetworkId": {
+            "type": "string",
+            "description": "Identifier of the origination Network Profile",
+            "example": "947c6115-1f5f-4fb4-9fd6-a1f9dee14670"
+          },
+          "toNetworkId": {
+            "type": "string",
+            "description": "Identifier of the destination Network Profile",
+            "example": "5d009697-c29b-48e0-aff8-1f4305d19dc2"
+          }
+        },
+        "required": [
+          "asset",
+          "amount",
+          "fromNetworkId",
+          "toNetworkId"
+        ]
+      }
+    },
+    "externalRefId": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 1024
+    },
+    "submit": {
+      "type": "boolean"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "createdByNetworkId",
+    "type"
+  ]
+}

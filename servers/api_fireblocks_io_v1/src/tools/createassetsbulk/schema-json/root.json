@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "assetId": {
+      "description": "The ID of the new asset",
+      "type": "string"
+    },
+    "vaultAccountIdFrom": {
+      "description": "The smallest vault account ID in the range",
+      "type": "string"
+    },
+    "vaultAccountIdTo": {
+      "description": "The largest vault account ID in the range",
+      "type": "string"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

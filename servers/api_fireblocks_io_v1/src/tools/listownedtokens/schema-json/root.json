@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "ncwId": {
+      "description": "Tenant's Non-Custodial Wallet ID",
+      "type": "string"
+    },
+    "walletType": {
+      "description": "Wallet type, it can be `VAULT_ACCOUNT` or `END_USER_WALLET`",
+      "default": "VAULT_ACCOUNT",
+      "enum": [
+        "VAULT_ACCOUNT",
+        "END_USER_WALLET"
+      ],
+      "type": "string"
+    },
+    "pageCursor": {
+      "description": "Page cursor to fetch",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Items per page (max 100)",
+      "minimum": 1,
+      "maximum": 100,
+      "type": "number"
+    },
+    "sort": {
+      "description": "Sort by param, it can be one param or a list of params separated by comma",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "name"
+        ]
+      }
+    },
+    "order": {
+      "description": "Order direction, it can be `ASC` for ascending or `DESC` for descending",
+      "default": "ASC",
+      "enum": [
+        "DESC",
+        "ASC"
+      ],
+      "type": "string"
+    },
+    "status": {
+      "description": "Token ownership status",
+      "default": "LISTED",
+      "enum": [
+        "LISTED",
+        "ARCHIVED"
+      ],
+      "type": "string"
+    },
+    "search": {
+      "description": "Search owned tokens by token name",
+      "maximum": 100,
+      "type": "string"
+    },
+    "spam": {
+      "description": "Token ownership spam status.",
+      "enum": [
+        "true",
+        "false",
+        "all"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

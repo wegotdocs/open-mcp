@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "pageCursor": {
+      "description": "Cursor to the next page",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Amount of results to return in the next page",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 10,
+      "type": "number"
+    },
+    "sortBy": {
+      "description": "Field(s) to use for sorting",
+      "default": "createdAt",
+      "enum": [
+        "createdAt"
+      ],
+      "type": "string"
+    },
+    "order": {
+      "description": "Is the order ascending or descending",
+      "default": "ASC",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

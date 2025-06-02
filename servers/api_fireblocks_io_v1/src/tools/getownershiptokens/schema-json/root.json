@@ -1,0 +1,121 @@
+{
+  "type": "object",
+  "properties": {
+    "blockchainDescriptor": {
+      "description": "Blockchain descriptor filter",
+      "enum": [
+        "ETH",
+        "ETH_TEST3",
+        "ETH_TEST5",
+        "ETH_TEST6",
+        "POLYGON",
+        "POLYGON_TEST_MUMBAI",
+        "AMOY_POLYGON_TEST",
+        "XTZ",
+        "XTZ_TEST",
+        "BASECHAIN_ETH",
+        "BASECHAIN_ETH_TEST3",
+        "BASECHAIN_ETH_TEST5",
+        "ETHERLINK",
+        "ETHERLINK_TEST",
+        "MANTLE",
+        "MANTLE_TEST",
+        "GUN_GUNZILLA",
+        "GUN_GUNZILLA_TEST",
+        "ETH_SONEIUM",
+        "SONEIUM_MINATO_TEST",
+        "IOTX_IOTEX",
+        "KLAY_KAIA",
+        "KLAY_KAIA_TEST",
+        "APECHAIN",
+        "APECHAIN_TEST"
+      ],
+      "type": "string"
+    },
+    "vaultAccountIds": {
+      "description": "A comma separated list of Vault Account IDs. Up to 100 are allowed in a single request.  This field will be ignored when walletType=END_USER_WALLET or ncwId is provided.",
+      "type": "string"
+    },
+    "ncwId": {
+      "description": "Tenant's Non-Custodial Wallet ID",
+      "type": "string"
+    },
+    "ncwAccountIds": {
+      "description": "A comma separated list of Non-Custodial account IDs. Up to 100 are allowed in a single request. This field will be ignored when walletType=VAULT_ACCOUNT or ncwId is not provided.",
+      "type": "string"
+    },
+    "walletType": {
+      "description": "Wallet type, it can be `VAULT_ACCOUNT` or `END_USER_WALLET`",
+      "default": "VAULT_ACCOUNT",
+      "enum": [
+        "VAULT_ACCOUNT",
+        "END_USER_WALLET"
+      ],
+      "type": "string"
+    },
+    "ids": {
+      "description": "A comma separated list of NFT IDs. Up to 100 are allowed in a single request.",
+      "type": "string"
+    },
+    "collectionIds": {
+      "description": "A comma separated list of collection IDs. Up to 100 are allowed in a single request.",
+      "type": "string"
+    },
+    "pageCursor": {
+      "description": "Page cursor to fetch",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Items per page (max 100)",
+      "minimum": 1,
+      "maximum": 100,
+      "type": "number"
+    },
+    "sort": {
+      "description": "Sort by param, it can be one param or a list of params separated by comma",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ownershipLastUpdateTime",
+          "name",
+          "collection.name",
+          "blockchainDescriptor"
+        ]
+      }
+    },
+    "order": {
+      "description": "Order direction, it can be `ASC` for ascending or `DESC` for descending",
+      "default": "ASC",
+      "enum": [
+        "DESC",
+        "ASC"
+      ],
+      "type": "string"
+    },
+    "status": {
+      "description": "Token ownership status",
+      "default": "LISTED",
+      "enum": [
+        "LISTED",
+        "ARCHIVED"
+      ],
+      "type": "string"
+    },
+    "search": {
+      "description": "Search owned tokens and their collections. Possible criteria for search:  token name and id within the contract/collection, collection name, blockchain descriptor and name.",
+      "maximum": 100,
+      "type": "string"
+    },
+    "spam": {
+      "description": "Token ownership spam status.",
+      "enum": [
+        "true",
+        "false",
+        "all"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}

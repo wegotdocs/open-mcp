@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "before": {
+      "type": "string"
+    },
+    "after": {
+      "type": "string"
+    },
+    "limit": {
+      "description": "number of exchanges per page",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "default": 3
+    }
+  },
+  "required": [
+    "limit"
+  ]
+}

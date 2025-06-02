@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "users firstName"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "users lastName"
+    },
+    "role": {
+      "type": "string",
+      "description": "users role"
+    },
+    "email": {
+      "type": "string",
+      "description": "valid email address"
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName",
+    "role",
+    "email"
+  ]
+}

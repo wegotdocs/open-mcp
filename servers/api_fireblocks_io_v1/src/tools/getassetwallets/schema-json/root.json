@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "totalAmountLargerThan": {
+      "description": "When specified, only asset wallets with total balance larger than this amount are returned.",
+      "type": "number"
+    },
+    "assetId": {
+      "description": "When specified, only asset wallets cross vault accounts that have this asset ID are returned.",
+      "type": "string",
+      "x-fb-entity": "asset"
+    },
+    "orderBy": {
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "default": "DESC"
+    },
+    "before": {
+      "description": "Fetches the next paginated response before this element. This element is a cursor and is returned at the response of the previous page.",
+      "type": "string"
+    },
+    "after": {
+      "description": "Fetches the next paginated response after this element. This element is a cursor and is returned at the response of the previous page.",
+      "type": "string"
+    },
+    "limit": {
+      "description": "The maximum number of asset wallets in a single response. The default is 200 and the maximum is 1000.",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 1000,
+      "default": 200
+    }
+  },
+  "required": []
+}

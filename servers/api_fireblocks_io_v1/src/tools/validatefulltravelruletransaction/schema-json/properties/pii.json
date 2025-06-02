@@ -1,0 +1,810 @@
+{
+  "type": "object",
+  "description": "Personal identifiable information related to the transaction",
+  "properties": {
+    "originatorPersons": {
+      "type": "array",
+      "description": "Information about the originator of the transaction",
+      "items": {
+        "type": "object",
+        "properties": {
+          "naturalPerson": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "nameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "The type of the name identifier. The value must be encrypted. The value must be one of the following: [LEGL, DBA, TRAD, NICK, ALIA, MAID, FORM, PREV, BORN, OTHR].",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          }
+                        }
+                      }
+                    },
+                    "localNameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "The type of the name identifier. The value must be encrypted. The value must be one of the following: [LEGL, DBA, TRAD, NICK, ALIA, MAID, FORM, PREV, BORN, OTHR].",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          }
+                        }
+                      }
+                    },
+                    "phoneticNameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "The type of the name identifier. The value must be encrypted. The value must be one of the following: [LEGL, DBA, TRAD, NICK, ALIA, MAID, FORM, PREV, BORN, OTHR].",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "description": "An array of structured name identifiers for the natural person, referencing the TravelRuleNaturalPersonNameIdentifier schema."
+              },
+              "geographicAddress": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "streetName": {
+                      "type": "string",
+                      "description": "Name of a street or thoroughfare. The value must be encrypted.",
+                      "example": "QmZGXXsKPk5iPS97LLjXB5e8Qs555ocdzcpbPMXvt84Ji9"
+                    },
+                    "townName": {
+                      "type": "string",
+                      "description": "Name of a built-up area, with defined boundaries, and a local government. The value must be encrypted.",
+                      "example": "QmNkEt9VdnhjefQMXo3ZaZAs765ugoWiazaqcY9skHMjCt"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Nation with its own government (ISO-3166 Alpha-2 country code). The value must be encrypted.",
+                      "example": "QmRGHdoxQfSi6tevyvaYGzs8BVStfqJqEyrMYqUfzXxkmm"
+                    },
+                    "buildingNumber": {
+                      "type": "string",
+                      "description": "Number that identifies the position of a building on a street. The value must be encrypted.",
+                      "example": "QmUFpNkxdsVtebDSUz5eP51kzoysXmqj2gBgeH11PD7SVP"
+                    },
+                    "postCode": {
+                      "type": "string",
+                      "description": "Identifier consisting of a group of letters and/or numbers added to a postal address to assist the sorting of mail. The value must be encrypted.",
+                      "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+                    },
+                    "addressType": {
+                      "type": "string",
+                      "description": "Specifies the type of address. Acceptable values are: - 'HOME': Residential, the home address - 'BIZZ': Business, the business address - 'GEOG': Geographic, an unspecified physical (geographical) address The value must be encrypted.",
+                      "example": "Qmdr9LcChZsoivS6uAhe7Qk7cGLDAx73wBZTVvq4WoU71H"
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": "Identification of a division of a large organisation or building. The value must be encrypted.",
+                      "example": "QmN7fb65x5MyA7RKyhbXaUKvJ7U4Y9eqpEZTmJYpNyEG8"
+                    },
+                    "subDepartment": {
+                      "type": "string",
+                      "description": "Identification of a sub-division of a large organisation or building. The value must be encrypted.",
+                      "example": "QmTkfyGh54tXNqFxyEGK9NyTJZYpQ6RZ9zpNykxykME8s"
+                    },
+                    "buildingName": {
+                      "type": "string",
+                      "description": "Name of the building or house. The value must be encrypted.",
+                      "example": "QmXJfGk85t6RKyhbXaEK9Nz4MEeMKypq6EY9zpJyC9nM9"
+                    },
+                    "floor": {
+                      "type": "string",
+                      "description": "Floor or storey within a building. The value must be encrypted.",
+                      "example": "QmZP5G7fhZpMyQxXnT9KyR6ybXaEM9zpJy4ME9MkTJGE1"
+                    },
+                    "postBox": {
+                      "type": "string",
+                      "description": "Numbered box in a post office. The value must be encrypted.",
+                      "example": "QmTkfYRGK54xFqXyJYNZyE9kY9zpMKytJnXy5z9EME9sJ"
+                    },
+                    "room": {
+                      "type": "string",
+                      "description": "Building room number. The value must be encrypted.",
+                      "example": "QmRYXnT9KyhbXaEMZpMyxMkZ9zpYNYTJ4ME5kCGE7fhMJ"
+                    },
+                    "townLocationName": {
+                      "type": "string",
+                      "description": "Specific location name within the town. The value must be encrypted.",
+                      "example": "QmNpZTyXJXnT9K6EYZpQxYNYMkC5p4kGEfhnkMJzpYT9Jm"
+                    },
+                    "districtName": {
+                      "type": "string",
+                      "description": "Identifies a subdivision within a country subdivision. The value must be encrypted.",
+                      "example": "QmT9p6ERKyNYXnTyhbpMYJ4zpYT9kMJZT9QmEMGZ5kMhCy"
+                    },
+                    "countrySubDivision": {
+                      "type": "string",
+                      "description": "Identifies a subdivision of a country such as state, region, or province. The value must be encrypted.",
+                      "example": "QmK9yTbXaZpMYJYTYp6NT9QmEMGZT9p9kMJfhyGE4Z7k5C"
+                    },
+                    "addressLine": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Information that locates and identifies a specific address, presented in free format text. Each item must be encrypted.",
+                      "example": [
+                        "QmNp9kMjfhGZ5kMJzpNYXZTy6NQmZYEMGZ4kZT9Y6pNYT"
+                      ]
+                    }
+                  }
+                },
+                "description": "An array of geographic addresses associated with the natural person, referencing the TravelRuleGeographicAddress schema."
+              },
+              "nationalIdentification": {
+                "type": "object",
+                "description": "Represents a national identifier for a person or entity",
+                "properties": {
+                  "countryOfIssue": {
+                    "type": "string",
+                    "description": "Country that issued the national identifier (ISO-3166 Alpha-2 country code). The value must be encrypted.",
+                    "example": "QmRGHdoxQfSi6tevyvaYGzs8BVStfqJqEyrMYqUfzXxkmm"
+                  },
+                  "nationalIdentifier": {
+                    "type": "string",
+                    "description": "National identifier (max 35 characters). The value must be encrypted.",
+                    "example": "QmdR6qLnZ7Kwf5cBaXG8QFQenEvRg9JNZeoPranVuGd63z"
+                  },
+                  "nationalIdentifierType": {
+                    "type": "string",
+                    "description": "Type of national identifier. Acceptable values include: - 'PASSPORT': Passport number - 'NATIONAL_ID': National identification number - 'TAX_ID': Tax identification number - 'SOCIAL_SECURITY': Social security number The value must be encrypted.",
+                    "example": "QmUKTg3aFJFhMz1o9gPqA3MgTRwd2LvDLwWTPHYUoMEYVi"
+                  },
+                  "registrationAuthority": {
+                    "type": "string",
+                    "description": "Registration authority (format -> RA followed by 6 digits). The value must be encrypted.",
+                    "example": "QmV9KJMyT9RJzpYfhME5xNCZ4G67fEkzTpRMyJzp9kTNYk"
+                  }
+                }
+              },
+              "dateAndPlaceOfBirth": {
+                "type": "object",
+                "description": "Represents the date and place of birth for a natural person",
+                "properties": {
+                  "dateOfBirth": {
+                    "type": "string",
+                    "description": "Date of birth. The value must be encrypted.",
+                    "example": "QmNkEt9VdnhjefQMXo3ZaZAs765ugoWiazaqcY9skHMjCt"
+                  },
+                  "placeOfBirth": {
+                    "type": "string",
+                    "description": "Place of birth. The value must be encrypted.",
+                    "example": "QmNkEt9VdnhjefQMXo3ZaZAs765ugoWiazaqcY9skHMjCt"
+                  }
+                }
+              },
+              "customerIdentification": {
+                "type": "string",
+                "description": "A unique identifier for the customer within the organization's context. The value must be encrypted.",
+                "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+              },
+              "countryOfResidence": {
+                "type": "string",
+                "description": "The ISO-3166 Alpha-2 country code of the natural person's residence. The value must be encrypted.",
+                "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+              },
+              "customerNumber": {
+                "type": "string",
+                "description": "A distinct identifier that uniquely identifies the customer within the organization. The value must be encrypted.",
+                "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+              }
+            }
+          },
+          "legalPerson": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "legalPersonName": {
+                    "type": "string",
+                    "description": "Name by which the legal person is known. The value must be encrypted.",
+                    "example": "QmVXXj5BJchhqQTU27uEkeghYMnxR6aVjZxJP9jS6uCg9Q"
+                  },
+                  "legalPersonNameIdentifierType": {
+                    "type": "string",
+                    "description": "Specifies the type of name for a legal person. Acceptable values are: - 'REGISTERED': The official registered name. - 'TRADE': A trading name or DBA (Doing Business As) name. - 'OTHER': Any other type of name. The value must be encrypted.",
+                    "example": "QmPevsa5xdkxf6Lgt7f9YweRBdgseeAkWVaYyssKF3Q86e"
+                  }
+                }
+              },
+              "geographicAddress": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "streetName": {
+                      "type": "string",
+                      "description": "Name of a street or thoroughfare. The value must be encrypted.",
+                      "example": "QmZGXXsKPk5iPS97LLjXB5e8Qs555ocdzcpbPMXvt84Ji9"
+                    },
+                    "townName": {
+                      "type": "string",
+                      "description": "Name of a built-up area, with defined boundaries, and a local government. The value must be encrypted.",
+                      "example": "QmNkEt9VdnhjefQMXo3ZaZAs765ugoWiazaqcY9skHMjCt"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Nation with its own government (ISO-3166 Alpha-2 country code). The value must be encrypted.",
+                      "example": "QmRGHdoxQfSi6tevyvaYGzs8BVStfqJqEyrMYqUfzXxkmm"
+                    },
+                    "buildingNumber": {
+                      "type": "string",
+                      "description": "Number that identifies the position of a building on a street. The value must be encrypted.",
+                      "example": "QmUFpNkxdsVtebDSUz5eP51kzoysXmqj2gBgeH11PD7SVP"
+                    },
+                    "postCode": {
+                      "type": "string",
+                      "description": "Identifier consisting of a group of letters and/or numbers added to a postal address to assist the sorting of mail. The value must be encrypted.",
+                      "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+                    },
+                    "addressType": {
+                      "type": "string",
+                      "description": "Specifies the type of address. Acceptable values are: - 'HOME': Residential, the home address - 'BIZZ': Business, the business address - 'GEOG': Geographic, an unspecified physical (geographical) address The value must be encrypted.",
+                      "example": "Qmdr9LcChZsoivS6uAhe7Qk7cGLDAx73wBZTVvq4WoU71H"
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": "Identification of a division of a large organisation or building. The value must be encrypted.",
+                      "example": "QmN7fb65x5MyA7RKyhbXaUKvJ7U4Y9eqpEZTmJYpNyEG8"
+                    },
+                    "subDepartment": {
+                      "type": "string",
+                      "description": "Identification of a sub-division of a large organisation or building. The value must be encrypted.",
+                      "example": "QmTkfyGh54tXNqFxyEGK9NyTJZYpQ6RZ9zpNykxykME8s"
+                    },
+                    "buildingName": {
+                      "type": "string",
+                      "description": "Name of the building or house. The value must be encrypted.",
+                      "example": "QmXJfGk85t6RKyhbXaEK9Nz4MEeMKypq6EY9zpJyC9nM9"
+                    },
+                    "floor": {
+                      "type": "string",
+                      "description": "Floor or storey within a building. The value must be encrypted.",
+                      "example": "QmZP5G7fhZpMyQxXnT9KyR6ybXaEM9zpJy4ME9MkTJGE1"
+                    },
+                    "postBox": {
+                      "type": "string",
+                      "description": "Numbered box in a post office. The value must be encrypted.",
+                      "example": "QmTkfYRGK54xFqXyJYNZyE9kY9zpMKytJnXy5z9EME9sJ"
+                    },
+                    "room": {
+                      "type": "string",
+                      "description": "Building room number. The value must be encrypted.",
+                      "example": "QmRYXnT9KyhbXaEMZpMyxMkZ9zpYNYTJ4ME5kCGE7fhMJ"
+                    },
+                    "townLocationName": {
+                      "type": "string",
+                      "description": "Specific location name within the town. The value must be encrypted.",
+                      "example": "QmNpZTyXJXnT9K6EYZpQxYNYMkC5p4kGEfhnkMJzpYT9Jm"
+                    },
+                    "districtName": {
+                      "type": "string",
+                      "description": "Identifies a subdivision within a country subdivision. The value must be encrypted.",
+                      "example": "QmT9p6ERKyNYXnTyhbpMYJ4zpYT9kMJZT9QmEMGZ5kMhCy"
+                    },
+                    "countrySubDivision": {
+                      "type": "string",
+                      "description": "Identifies a subdivision of a country such as state, region, or province. The value must be encrypted.",
+                      "example": "QmK9yTbXaZpMYJYTYp6NT9QmEMGZT9p9kMJfhyGE4Z7k5C"
+                    },
+                    "addressLine": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Information that locates and identifies a specific address, presented in free format text. Each item must be encrypted.",
+                      "example": [
+                        "QmNp9kMjfhGZ5kMJzpNYXZTy6NQmZYEMGZ4kZT9Y6pNYT"
+                      ]
+                    }
+                  }
+                },
+                "description": "The array of geographic addresses associated with the legal person."
+              },
+              "nationalIdentification": {
+                "type": "object",
+                "description": "Represents a national identifier for a person or entity",
+                "properties": {
+                  "countryOfIssue": {
+                    "type": "string",
+                    "description": "Country that issued the national identifier (ISO-3166 Alpha-2 country code). The value must be encrypted.",
+                    "example": "QmRGHdoxQfSi6tevyvaYGzs8BVStfqJqEyrMYqUfzXxkmm"
+                  },
+                  "nationalIdentifier": {
+                    "type": "string",
+                    "description": "National identifier (max 35 characters). The value must be encrypted.",
+                    "example": "QmdR6qLnZ7Kwf5cBaXG8QFQenEvRg9JNZeoPranVuGd63z"
+                  },
+                  "nationalIdentifierType": {
+                    "type": "string",
+                    "description": "Type of national identifier. Acceptable values include: - 'PASSPORT': Passport number - 'NATIONAL_ID': National identification number - 'TAX_ID': Tax identification number - 'SOCIAL_SECURITY': Social security number The value must be encrypted.",
+                    "example": "QmUKTg3aFJFhMz1o9gPqA3MgTRwd2LvDLwWTPHYUoMEYVi"
+                  },
+                  "registrationAuthority": {
+                    "type": "string",
+                    "description": "Registration authority (format -> RA followed by 6 digits). The value must be encrypted.",
+                    "example": "QmV9KJMyT9RJzpYfhME5xNCZ4G67fEkzTpRMyJzp9kTNYk"
+                  }
+                }
+              },
+              "customerIdentification": {
+                "type": "string",
+                "description": "A unique identifier that identifies the customer in the organization's context. The value must be encrypted.",
+                "example": "QmRY9AA4Uit2JRTxDzfzshrJdTK86Kf5HriA3dXDnihDmy"
+              },
+              "customerNumber": {
+                "type": "string",
+                "description": "A distinct identifier that uniquely identifies the customer within the organization. The value must be encrypted.",
+                "example": "QmXvyML3AJUFpBbJqL5NVp7Vn7xNkuedTsSMk93duLCNW8"
+              },
+              "countryOfRegistration": {
+                "type": "string",
+                "description": "The ISO-3166 Alpha-2 country code where the legal person is registered. The value must be encrypted.",
+                "example": "QmeoTk6UPruEAYNbJEAHdQYc53ap9BXmpnPMcuvs8wutdr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "beneficiaryPersons": {
+      "type": "array",
+      "description": "Information about the beneficiary of the transaction",
+      "items": {
+        "type": "object",
+        "properties": {
+          "naturalPerson": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "nameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "The type of the name identifier. The value must be encrypted. The value must be one of the following: [LEGL, DBA, TRAD, NICK, ALIA, MAID, FORM, PREV, BORN, OTHR].",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          }
+                        }
+                      }
+                    },
+                    "localNameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "The type of the name identifier. The value must be encrypted. The value must be one of the following: [LEGL, DBA, TRAD, NICK, ALIA, MAID, FORM, PREV, BORN, OTHR].",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          }
+                        }
+                      }
+                    },
+                    "phoneticNameIdentifier": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "primaryIdentifier": {
+                            "type": "string",
+                            "description": "The primary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "secondaryIdentifier": {
+                            "type": "string",
+                            "description": "The secondary identifier of the name. The value must be encrypted.",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          },
+                          "nameIdentifierType": {
+                            "type": "string",
+                            "description": "The type of the name identifier. The value must be encrypted. The value must be one of the following: [LEGL, DBA, TRAD, NICK, ALIA, MAID, FORM, PREV, BORN, OTHR].",
+                            "example": "QmP6wx8bx3SVNG3hd3SZKnS5pDjUan4y9H1VtyRqu7tsAv"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "description": "An array of structured name identifiers for the natural person, referencing the TravelRuleNaturalPersonNameIdentifier schema."
+              },
+              "geographicAddress": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "streetName": {
+                      "type": "string",
+                      "description": "Name of a street or thoroughfare. The value must be encrypted.",
+                      "example": "QmZGXXsKPk5iPS97LLjXB5e8Qs555ocdzcpbPMXvt84Ji9"
+                    },
+                    "townName": {
+                      "type": "string",
+                      "description": "Name of a built-up area, with defined boundaries, and a local government. The value must be encrypted.",
+                      "example": "QmNkEt9VdnhjefQMXo3ZaZAs765ugoWiazaqcY9skHMjCt"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Nation with its own government (ISO-3166 Alpha-2 country code). The value must be encrypted.",
+                      "example": "QmRGHdoxQfSi6tevyvaYGzs8BVStfqJqEyrMYqUfzXxkmm"
+                    },
+                    "buildingNumber": {
+                      "type": "string",
+                      "description": "Number that identifies the position of a building on a street. The value must be encrypted.",
+                      "example": "QmUFpNkxdsVtebDSUz5eP51kzoysXmqj2gBgeH11PD7SVP"
+                    },
+                    "postCode": {
+                      "type": "string",
+                      "description": "Identifier consisting of a group of letters and/or numbers added to a postal address to assist the sorting of mail. The value must be encrypted.",
+                      "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+                    },
+                    "addressType": {
+                      "type": "string",
+                      "description": "Specifies the type of address. Acceptable values are: - 'HOME': Residential, the home address - 'BIZZ': Business, the business address - 'GEOG': Geographic, an unspecified physical (geographical) address The value must be encrypted.",
+                      "example": "Qmdr9LcChZsoivS6uAhe7Qk7cGLDAx73wBZTVvq4WoU71H"
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": "Identification of a division of a large organisation or building. The value must be encrypted.",
+                      "example": "QmN7fb65x5MyA7RKyhbXaUKvJ7U4Y9eqpEZTmJYpNyEG8"
+                    },
+                    "subDepartment": {
+                      "type": "string",
+                      "description": "Identification of a sub-division of a large organisation or building. The value must be encrypted.",
+                      "example": "QmTkfyGh54tXNqFxyEGK9NyTJZYpQ6RZ9zpNykxykME8s"
+                    },
+                    "buildingName": {
+                      "type": "string",
+                      "description": "Name of the building or house. The value must be encrypted.",
+                      "example": "QmXJfGk85t6RKyhbXaEK9Nz4MEeMKypq6EY9zpJyC9nM9"
+                    },
+                    "floor": {
+                      "type": "string",
+                      "description": "Floor or storey within a building. The value must be encrypted.",
+                      "example": "QmZP5G7fhZpMyQxXnT9KyR6ybXaEM9zpJy4ME9MkTJGE1"
+                    },
+                    "postBox": {
+                      "type": "string",
+                      "description": "Numbered box in a post office. The value must be encrypted.",
+                      "example": "QmTkfYRGK54xFqXyJYNZyE9kY9zpMKytJnXy5z9EME9sJ"
+                    },
+                    "room": {
+                      "type": "string",
+                      "description": "Building room number. The value must be encrypted.",
+                      "example": "QmRYXnT9KyhbXaEMZpMyxMkZ9zpYNYTJ4ME5kCGE7fhMJ"
+                    },
+                    "townLocationName": {
+                      "type": "string",
+                      "description": "Specific location name within the town. The value must be encrypted.",
+                      "example": "QmNpZTyXJXnT9K6EYZpQxYNYMkC5p4kGEfhnkMJzpYT9Jm"
+                    },
+                    "districtName": {
+                      "type": "string",
+                      "description": "Identifies a subdivision within a country subdivision. The value must be encrypted.",
+                      "example": "QmT9p6ERKyNYXnTyhbpMYJ4zpYT9kMJZT9QmEMGZ5kMhCy"
+                    },
+                    "countrySubDivision": {
+                      "type": "string",
+                      "description": "Identifies a subdivision of a country such as state, region, or province. The value must be encrypted.",
+                      "example": "QmK9yTbXaZpMYJYTYp6NT9QmEMGZT9p9kMJfhyGE4Z7k5C"
+                    },
+                    "addressLine": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Information that locates and identifies a specific address, presented in free format text. Each item must be encrypted.",
+                      "example": [
+                        "QmNp9kMjfhGZ5kMJzpNYXZTy6NQmZYEMGZ4kZT9Y6pNYT"
+                      ]
+                    }
+                  }
+                },
+                "description": "An array of geographic addresses associated with the natural person, referencing the TravelRuleGeographicAddress schema."
+              },
+              "nationalIdentification": {
+                "type": "object",
+                "description": "Represents a national identifier for a person or entity",
+                "properties": {
+                  "countryOfIssue": {
+                    "type": "string",
+                    "description": "Country that issued the national identifier (ISO-3166 Alpha-2 country code). The value must be encrypted.",
+                    "example": "QmRGHdoxQfSi6tevyvaYGzs8BVStfqJqEyrMYqUfzXxkmm"
+                  },
+                  "nationalIdentifier": {
+                    "type": "string",
+                    "description": "National identifier (max 35 characters). The value must be encrypted.",
+                    "example": "QmdR6qLnZ7Kwf5cBaXG8QFQenEvRg9JNZeoPranVuGd63z"
+                  },
+                  "nationalIdentifierType": {
+                    "type": "string",
+                    "description": "Type of national identifier. Acceptable values include: - 'PASSPORT': Passport number - 'NATIONAL_ID': National identification number - 'TAX_ID': Tax identification number - 'SOCIAL_SECURITY': Social security number The value must be encrypted.",
+                    "example": "QmUKTg3aFJFhMz1o9gPqA3MgTRwd2LvDLwWTPHYUoMEYVi"
+                  },
+                  "registrationAuthority": {
+                    "type": "string",
+                    "description": "Registration authority (format -> RA followed by 6 digits). The value must be encrypted.",
+                    "example": "QmV9KJMyT9RJzpYfhME5xNCZ4G67fEkzTpRMyJzp9kTNYk"
+                  }
+                }
+              },
+              "dateAndPlaceOfBirth": {
+                "type": "object",
+                "description": "Represents the date and place of birth for a natural person",
+                "properties": {
+                  "dateOfBirth": {
+                    "type": "string",
+                    "description": "Date of birth. The value must be encrypted.",
+                    "example": "QmNkEt9VdnhjefQMXo3ZaZAs765ugoWiazaqcY9skHMjCt"
+                  },
+                  "placeOfBirth": {
+                    "type": "string",
+                    "description": "Place of birth. The value must be encrypted.",
+                    "example": "QmNkEt9VdnhjefQMXo3ZaZAs765ugoWiazaqcY9skHMjCt"
+                  }
+                }
+              },
+              "customerIdentification": {
+                "type": "string",
+                "description": "A unique identifier for the customer within the organization's context. The value must be encrypted.",
+                "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+              },
+              "countryOfResidence": {
+                "type": "string",
+                "description": "The ISO-3166 Alpha-2 country code of the natural person's residence. The value must be encrypted.",
+                "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+              },
+              "customerNumber": {
+                "type": "string",
+                "description": "A distinct identifier that uniquely identifies the customer within the organization. The value must be encrypted.",
+                "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+              }
+            }
+          },
+          "legalPerson": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "legalPersonName": {
+                    "type": "string",
+                    "description": "Name by which the legal person is known. The value must be encrypted.",
+                    "example": "QmVXXj5BJchhqQTU27uEkeghYMnxR6aVjZxJP9jS6uCg9Q"
+                  },
+                  "legalPersonNameIdentifierType": {
+                    "type": "string",
+                    "description": "Specifies the type of name for a legal person. Acceptable values are: - 'REGISTERED': The official registered name. - 'TRADE': A trading name or DBA (Doing Business As) name. - 'OTHER': Any other type of name. The value must be encrypted.",
+                    "example": "QmPevsa5xdkxf6Lgt7f9YweRBdgseeAkWVaYyssKF3Q86e"
+                  }
+                }
+              },
+              "geographicAddress": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "streetName": {
+                      "type": "string",
+                      "description": "Name of a street or thoroughfare. The value must be encrypted.",
+                      "example": "QmZGXXsKPk5iPS97LLjXB5e8Qs555ocdzcpbPMXvt84Ji9"
+                    },
+                    "townName": {
+                      "type": "string",
+                      "description": "Name of a built-up area, with defined boundaries, and a local government. The value must be encrypted.",
+                      "example": "QmNkEt9VdnhjefQMXo3ZaZAs765ugoWiazaqcY9skHMjCt"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Nation with its own government (ISO-3166 Alpha-2 country code). The value must be encrypted.",
+                      "example": "QmRGHdoxQfSi6tevyvaYGzs8BVStfqJqEyrMYqUfzXxkmm"
+                    },
+                    "buildingNumber": {
+                      "type": "string",
+                      "description": "Number that identifies the position of a building on a street. The value must be encrypted.",
+                      "example": "QmUFpNkxdsVtebDSUz5eP51kzoysXmqj2gBgeH11PD7SVP"
+                    },
+                    "postCode": {
+                      "type": "string",
+                      "description": "Identifier consisting of a group of letters and/or numbers added to a postal address to assist the sorting of mail. The value must be encrypted.",
+                      "example": "QmTJsK3sc3fPEVwvAp97UUiVoFhjzQhYX3sCda1JxuCnXj"
+                    },
+                    "addressType": {
+                      "type": "string",
+                      "description": "Specifies the type of address. Acceptable values are: - 'HOME': Residential, the home address - 'BIZZ': Business, the business address - 'GEOG': Geographic, an unspecified physical (geographical) address The value must be encrypted.",
+                      "example": "Qmdr9LcChZsoivS6uAhe7Qk7cGLDAx73wBZTVvq4WoU71H"
+                    },
+                    "department": {
+                      "type": "string",
+                      "description": "Identification of a division of a large organisation or building. The value must be encrypted.",
+                      "example": "QmN7fb65x5MyA7RKyhbXaUKvJ7U4Y9eqpEZTmJYpNyEG8"
+                    },
+                    "subDepartment": {
+                      "type": "string",
+                      "description": "Identification of a sub-division of a large organisation or building. The value must be encrypted.",
+                      "example": "QmTkfyGh54tXNqFxyEGK9NyTJZYpQ6RZ9zpNykxykME8s"
+                    },
+                    "buildingName": {
+                      "type": "string",
+                      "description": "Name of the building or house. The value must be encrypted.",
+                      "example": "QmXJfGk85t6RKyhbXaEK9Nz4MEeMKypq6EY9zpJyC9nM9"
+                    },
+                    "floor": {
+                      "type": "string",
+                      "description": "Floor or storey within a building. The value must be encrypted.",
+                      "example": "QmZP5G7fhZpMyQxXnT9KyR6ybXaEM9zpJy4ME9MkTJGE1"
+                    },
+                    "postBox": {
+                      "type": "string",
+                      "description": "Numbered box in a post office. The value must be encrypted.",
+                      "example": "QmTkfYRGK54xFqXyJYNZyE9kY9zpMKytJnXy5z9EME9sJ"
+                    },
+                    "room": {
+                      "type": "string",
+                      "description": "Building room number. The value must be encrypted.",
+                      "example": "QmRYXnT9KyhbXaEMZpMyxMkZ9zpYNYTJ4ME5kCGE7fhMJ"
+                    },
+                    "townLocationName": {
+                      "type": "string",
+                      "description": "Specific location name within the town. The value must be encrypted.",
+                      "example": "QmNpZTyXJXnT9K6EYZpQxYNYMkC5p4kGEfhnkMJzpYT9Jm"
+                    },
+                    "districtName": {
+                      "type": "string",
+                      "description": "Identifies a subdivision within a country subdivision. The value must be encrypted.",
+                      "example": "QmT9p6ERKyNYXnTyhbpMYJ4zpYT9kMJZT9QmEMGZ5kMhCy"
+                    },
+                    "countrySubDivision": {
+                      "type": "string",
+                      "description": "Identifies a subdivision of a country such as state, region, or province. The value must be encrypted.",
+                      "example": "QmK9yTbXaZpMYJYTYp6NT9QmEMGZT9p9kMJfhyGE4Z7k5C"
+                    },
+                    "addressLine": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Information that locates and identifies a specific address, presented in free format text. Each item must be encrypted.",
+                      "example": [
+                        "QmNp9kMjfhGZ5kMJzpNYXZTy6NQmZYEMGZ4kZT9Y6pNYT"
+                      ]
+                    }
+                  }
+                },
+                "description": "The array of geographic addresses associated with the legal person."
+              },
+              "nationalIdentification": {
+                "type": "object",
+                "description": "Represents a national identifier for a person or entity",
+                "properties": {
+                  "countryOfIssue": {
+                    "type": "string",
+                    "description": "Country that issued the national identifier (ISO-3166 Alpha-2 country code). The value must be encrypted.",
+                    "example": "QmRGHdoxQfSi6tevyvaYGzs8BVStfqJqEyrMYqUfzXxkmm"
+                  },
+                  "nationalIdentifier": {
+                    "type": "string",
+                    "description": "National identifier (max 35 characters). The value must be encrypted.",
+                    "example": "QmdR6qLnZ7Kwf5cBaXG8QFQenEvRg9JNZeoPranVuGd63z"
+                  },
+                  "nationalIdentifierType": {
+                    "type": "string",
+                    "description": "Type of national identifier. Acceptable values include: - 'PASSPORT': Passport number - 'NATIONAL_ID': National identification number - 'TAX_ID': Tax identification number - 'SOCIAL_SECURITY': Social security number The value must be encrypted.",
+                    "example": "QmUKTg3aFJFhMz1o9gPqA3MgTRwd2LvDLwWTPHYUoMEYVi"
+                  },
+                  "registrationAuthority": {
+                    "type": "string",
+                    "description": "Registration authority (format -> RA followed by 6 digits). The value must be encrypted.",
+                    "example": "QmV9KJMyT9RJzpYfhME5xNCZ4G67fEkzTpRMyJzp9kTNYk"
+                  }
+                }
+              },
+              "customerIdentification": {
+                "type": "string",
+                "description": "A unique identifier that identifies the customer in the organization's context. The value must be encrypted.",
+                "example": "QmRY9AA4Uit2JRTxDzfzshrJdTK86Kf5HriA3dXDnihDmy"
+              },
+              "customerNumber": {
+                "type": "string",
+                "description": "A distinct identifier that uniquely identifies the customer within the organization. The value must be encrypted.",
+                "example": "QmXvyML3AJUFpBbJqL5NVp7Vn7xNkuedTsSMk93duLCNW8"
+              },
+              "countryOfRegistration": {
+                "type": "string",
+                "description": "The ISO-3166 Alpha-2 country code where the legal person is registered. The value must be encrypted.",
+                "example": "QmeoTk6UPruEAYNbJEAHdQYc53ap9BXmpnPMcuvs8wutdr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "accountNumber": {
+      "type": "array",
+      "description": "Beneficiary account number. The value must be encrypted.",
+      "items": {
+        "type": "string",
+        "example": "QmNkEt9VdnhjefQMXo3ZaZAs765ugoWiazaqcY9skHMjCt"
+      }
+    }
+  }
+}

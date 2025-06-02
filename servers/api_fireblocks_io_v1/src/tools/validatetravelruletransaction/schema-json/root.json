@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "notation": {
+      "description": "Specifies the notation of the transaction. Possible values are: - `notabene`: Uses Notabene notation (default behavior). - `fireblocks`: Uses Fireblocks notation, with automatic translation of asset tickers and amounts. - `<none>`: Defaults to `notabene` for backward compatibility.\n**Note:** The default value for the `notation` parameter will change from `notabene` to `fireblocks` Update your integrations accordingly.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "fireblocks",
+          "notabene"
+        ]
+      }
+    },
+    "transactionAsset": {
+      "type": "string",
+      "example": "BTC",
+      "description": "Transaction asset symbol (BTC,ETH)"
+    },
+    "destination": {
+      "type": "string",
+      "example": "bc1qxy2kgdygjrsqtzq2n0yrf1234p83kkfjhx0wlh",
+      "description": "Transaction destination address"
+    },
+    "transactionAmount": {
+      "type": "string",
+      "example": "10",
+      "description": "Transaction amount in the transaction asset"
+    },
+    "transactionAssetDecimals": {
+      "type": "number",
+      "example": 8,
+      "description": "Number of decimals in the transaction asset. This is used to convert the transaction amount to the smallest unit of the asset"
+    },
+    "originatorVASPdid": {
+      "type": "string",
+      "example": "did:ethr:0x44957e75d6ce4a5bf37aae117da86422c848f7c2",
+      "description": "This is the identifier assigned to your VASP"
+    },
+    "originatorEqualsBeneficiary": {
+      "type": "boolean",
+      "example": false,
+      "description": "\"True\" if the originator and beneficiary is the same person and you therefore do not need to collect any information. \"False\" if it is a third-party transfer."
+    },
+    "travelRuleBehavior": {
+      "type": "boolean",
+      "example": true,
+      "description": "This will also check if the transaction is a TRAVEL_RULE in the beneficiary VASP's jurisdiction"
+    },
+    "beneficiaryVASPdid": {
+      "type": "string",
+      "example": "did:ethr:0x46a7ed5813ce735387df2bfb245bd7722e0de992",
+      "description": "This is the identifier assigned to the VASP the funds are being sent to"
+    },
+    "beneficiaryVASPname": {
+      "type": "string",
+      "example": "HelloCrypto",
+      "description": "Beneficiary VASP name"
+    },
+    "beneficiaryName": {
+      "type": "string",
+      "example": "John Doe",
+      "description": "Beneficiary  name"
+    },
+    "beneficiaryAccountNumber": {
+      "type": "string",
+      "example": "1234-1234-1234-12234",
+      "description": "Beneficiary  name"
+    },
+    "beneficiaryAddress": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `beneficiaryAddress` to the tool, first call the tool `expandSchema` with \"/properties/beneficiaryAddress\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "Idempotency-Key": {
+      "description": "A unique identifier for the request. If the request is sent multiple times with the same idempotency key, the server will return the same response as the first request. The idempotency key is valid for 24 hours.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "transactionAsset",
+    "destination",
+    "transactionAmount",
+    "originatorVASPdid",
+    "originatorEqualsBeneficiary"
+  ]
+}

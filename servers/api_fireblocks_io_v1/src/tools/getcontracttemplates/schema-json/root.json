@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "Items per page (max 100)",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 100,
+      "type": "number"
+    },
+    "offset": {
+      "description": "Paging offset",
+      "minimum": 0,
+      "default": 0,
+      "type": "number"
+    },
+    "pageCursor": {
+      "description": "Page cursor to get the next page",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Number of items per page, requesting more then max will return max items",
+      "minimum": 1,
+      "maximum": 100,
+      "type": "number"
+    },
+    "type": {
+      "description": "The type of the contract templates you wish to retrieve. Can accept one type, more or none",
+      "type": "string",
+      "enum": [
+        "FUNGIBLE_TOKEN",
+        "NON_FUNGIBLE_TOKEN",
+        "TOKEN_UTILITY"
+      ]
+    },
+    "initializationPhase": {
+      "enum": [
+        "ON_DEPLOYMENT",
+        "POST_DEPLOYMENT"
+      ],
+      "type": "string"
+    }
+  },
+  "required": []
+}
