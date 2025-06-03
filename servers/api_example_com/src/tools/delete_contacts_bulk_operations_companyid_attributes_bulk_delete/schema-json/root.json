@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "DeleteOperationsAttributesRequestSchema",
+        "required": [
+          "customId",
+          "attributesCustomIds"
+        ],
+        "type": "object",
+        "properties": {
+          "customId": {
+            "title": "Customid",
+            "type": "string"
+          },
+          "attributesCustomIds": {
+            "title": "Attributescustomids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

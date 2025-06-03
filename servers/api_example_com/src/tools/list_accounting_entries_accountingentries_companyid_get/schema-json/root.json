@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "reconciled": {
+      "title": "Reconciled",
+      "type": "boolean"
+    },
+    "accountingCode": {
+      "title": "Accountingcode",
+      "type": "string"
+    },
+    "startDate": {
+      "title": "Startdate",
+      "type": "string",
+      "format": "date"
+    },
+    "endDate": {
+      "title": "Enddate",
+      "type": "string",
+      "format": "date"
+    },
+    "startUpdatedAt": {
+      "title": "Startupdatedat",
+      "type": "string",
+      "format": "date-time"
+    },
+    "endUpdatedAt": {
+      "title": "Endupdatedat",
+      "type": "string",
+      "format": "date-time"
+    },
+    "limit": {
+      "description": "Param to limit the size of the list of objects of response. Default 500 and max value 2K",
+      "title": "Response length of objects limit",
+      "maximum": 2000,
+      "type": "integer",
+      "default": 500
+    },
+    "nextPageToken": {
+      "description": "Key to obtain the next N objects of your query based on the limit value. You can obtain nextPageToken from response to iterate over pages.",
+      "title": "Pagination token",
+      "type": "string"
+    }
+  },
+  "required": [
+    "companyId"
+  ]
+}

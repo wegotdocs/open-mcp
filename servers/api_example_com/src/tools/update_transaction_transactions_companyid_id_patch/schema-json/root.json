@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "additionalInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `additionalInfo` to the tool, first call the tool `expandSchema` with \"/properties/additionalInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "attributes": {
+      "title": "Attributes",
+      "type": "array",
+      "items": {
+        "title": "AttributeValueRequestSchema",
+        "required": [
+          "customId",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "customId": {
+            "title": "Customid",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          },
+          "valueCustomId": {
+            "title": "Valuecustomid",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sync": {
+      "title": "Sync",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "companyId"
+  ]
+}

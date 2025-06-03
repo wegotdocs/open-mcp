@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "AuxBulkPatchTransactionsRequestSchema",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "additionalInfo": {
+            "title": "Additionalinfo",
+            "type": "object",
+            "default": {}
+          },
+          "attributes": {
+            "title": "Attributes",
+            "type": "array",
+            "items": {
+              "title": "AttributeValueRequestSchema",
+              "required": [
+                "customId",
+                "value"
+              ],
+              "type": "object",
+              "properties": {
+                "customId": {
+                  "title": "Customid",
+                  "type": "string"
+                },
+                "value": {
+                  "title": "Value",
+                  "type": "string"
+                },
+                "valueCustomId": {
+                  "title": "Valuecustomid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "sync": {
+            "title": "Sync",
+            "type": "boolean"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Embat transaction ID"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

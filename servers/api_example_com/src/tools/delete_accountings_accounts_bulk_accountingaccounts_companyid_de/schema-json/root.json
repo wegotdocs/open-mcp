@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "DeleteAccountingsAccountsRequestSchema",
+        "required": [
+          "accountingCode"
+        ],
+        "type": "object",
+        "properties": {
+          "accountingCode": {
+            "title": "Accountingcode",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

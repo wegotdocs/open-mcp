@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "AuxBulkPatchPaymentsRequestSchema",
+        "required": [
+          "customId"
+        ],
+        "type": "object",
+        "properties": {
+          "sync": {
+            "title": "Sync",
+            "type": "boolean"
+          },
+          "additionalInfo": {
+            "title": "Additionalinfo",
+            "type": "object"
+          },
+          "error": {
+            "title": "Error",
+            "type": "string"
+          },
+          "registered": {
+            "title": "Registered",
+            "type": "boolean"
+          },
+          "customId": {
+            "title": "Customid",
+            "type": "string",
+            "description": "Embat custom/auto unique payment ID. You can use as your custom ERP payment id"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

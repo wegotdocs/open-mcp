@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "status": {
+      "description": "An enumeration.",
+      "title": "OperationStatusEnum",
+      "enum": [
+        "paymentOrder",
+        "cancel",
+        "paid",
+        "payment_in_progress",
+        "overdue",
+        "pending",
+        "shipped"
+      ],
+      "type": "string"
+    },
+    "sync": {
+      "description": "Boolean param to filter entities processed by integrations. Control flag",
+      "title": "Sync",
+      "type": "boolean"
+    },
+    "startIssuanceDate": {
+      "description": "YYYY-MM-DD format",
+      "title": "Startissuancedate",
+      "type": "string",
+      "format": "date"
+    },
+    "endIssuanceDate": {
+      "description": "YYYY-MM-DD format",
+      "title": "Endissuancedate",
+      "type": "string",
+      "format": "date"
+    },
+    "limit": {
+      "description": "Param to limit the size of the list of objects of response. Default 500 and max value 2K",
+      "title": "Response length of objects limit",
+      "maximum": 2000,
+      "type": "integer",
+      "default": 500
+    },
+    "nextPageToken": {
+      "description": "Key to obtain the next N objects of your query based on the limit value. You can obtain nextPageToken from response to iterate over pages.",
+      "title": "Pagination token",
+      "type": "string"
+    }
+  },
+  "required": [
+    "companyId"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "AuxBulkPatchForecastsRequestSchema",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "additionalInfo": {
+            "title": "Additionalinfo",
+            "type": "object",
+            "default": {}
+          },
+          "sync": {
+            "title": "Sync",
+            "type": "boolean"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Embat forecast ID"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

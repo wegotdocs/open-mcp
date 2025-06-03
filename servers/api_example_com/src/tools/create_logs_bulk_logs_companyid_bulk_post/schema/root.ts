@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "companyId": z.string(),
+  "data": z.array(z.object({ "erp": z.enum(["netsuite","sageX3","odoo","businessCentral","navision","libra","distritoK","fo","zoho","holded","dynamicsAx","a3","businessOne","openbravo","sage200","sage50","r3","ekon","m3Rosetta"]).describe("An enumeration."), "erpVersion": z.string(), "connectorVersion": z.string(), "level": z.enum(["INFO","ERROR","WARNING"]).describe("An enumeration."), "code": z.enum(["INFO","WARNING","ERROR","AUTHORIZATION_INFO","AUTHORIZATION_WARNING","AUTHORIZATION_ERROR","ACCOUNTINGS_ACCOUNTS_INFO","ACCOUNTINGS_ACCOUNTS_WARNING","ACCOUNTINGS_ACCOUNTS_ERROR","ACCOUNTINGS_ENTRIES_INFO","ACCOUNTINGS_ENTRIES_WARNING","ACCOUNTINGS_ENTRIES_ERROR","ATTRIBUTES_INFO","ATTRIBUTES_WARNING","ATTRIBUTES_ERROR","CONTACTS_INFO","CONTACTS_WARNING","CONTACTS_ERROR","OPERATIONS_INFO","OPERATIONS_WARNING","OPERATIONS_ERROR","PAYMENTS_INFO","PAYMENTS_WARNING","PAYMENTS_ERROR"]).describe("An enumeration."), "message": z.string() }))
+}

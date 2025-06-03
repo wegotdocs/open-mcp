@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "customId": {
+      "title": "Customid",
+      "type": "string"
+    },
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "AttributesRequestValuesSchema",
+        "required": [
+          "customId",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "customId": {
+            "title": "Customid",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "customId",
+    "companyId",
+    "data"
+  ]
+}

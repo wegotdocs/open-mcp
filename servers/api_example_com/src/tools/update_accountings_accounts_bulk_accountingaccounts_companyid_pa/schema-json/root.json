@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "AuxBulkPatchAccountingsAccountsRequestSchema",
+        "required": [
+          "accountingCode"
+        ],
+        "type": "object",
+        "properties": {
+          "active": {
+            "title": "Active",
+            "type": "boolean"
+          },
+          "type": {
+            "title": "AccountingTypeEnum",
+            "enum": [
+              "banks",
+              "analytics",
+              "accountings"
+            ],
+            "type": "string",
+            "description": "An enumeration."
+          },
+          "accountingName": {
+            "title": "Accountingname",
+            "type": "string"
+          },
+          "collective": {
+            "title": "Collective",
+            "type": "boolean",
+            "description": "collective accounting account"
+          },
+          "additionalInfo": {
+            "title": "Additionalinfo",
+            "type": "object"
+          },
+          "attributes": {
+            "title": "Attributes",
+            "type": "array",
+            "items": {
+              "title": "AttributeValueRequestACCOUNTSchema",
+              "type": "object",
+              "properties": {
+                "customId": {
+                  "title": "Customid",
+                  "type": "string"
+                },
+                "value": {
+                  "title": "Value",
+                  "type": "string"
+                },
+                "valueCustomId": {
+                  "title": "Valuecustomid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "accountingCode": {
+            "title": "Accountingcode",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}
