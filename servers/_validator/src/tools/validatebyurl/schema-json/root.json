@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "description": "A URL to the definition",
+      "type": "string"
+    },
+    "resolve": {
+      "description": "resolves the definition\nSee https://github.com/swagger-api/swagger-parser/blob/master/README.md#options\n",
+      "type": "boolean"
+    },
+    "resolveFully": {
+      "description": "fully resolves the definition\nSee https://github.com/swagger-api/swagger-parser/blob/master/README.md#options'\n",
+      "type": "boolean"
+    },
+    "validateInternalRefs": {
+      "description": "validate internal references",
+      "type": "boolean"
+    },
+    "validateExternalRefs": {
+      "description": "validate external references while resolving",
+      "type": "boolean"
+    },
+    "resolveRequestBody": {
+      "description": "bundle requestBody inline during resolving also with resolveFully set to false",
+      "type": "boolean"
+    },
+    "resolveCombinators": {
+      "description": "customizes behaviour related to `allOf/anyOf/oneOf` with resolveFully set to true. \nSee https://github.com/swagger-api/swagger-parser/blob/master/README.md#options'\n",
+      "type": "boolean"
+    },
+    "allowEmptyStrings": {
+      "description": "when set to true parses empty values as empty strings",
+      "type": "boolean"
+    },
+    "legacyYamlDeserialization": {
+      "description": "legacyYamlDeserialization",
+      "type": "boolean"
+    },
+    "inferSchemaType": {
+      "description": "infer schema type for item, default and schemas with additionalProperties",
+      "type": "boolean"
+    },
+    "jsonSchemaValidation": {
+      "description": "performs JSON Schema validation",
+      "type": "boolean"
+    },
+    "legacyJsonSchemaValidation": {
+      "description": "performs JSON Schema validation using legacy engine (fge)",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "url"
+  ]
+}
