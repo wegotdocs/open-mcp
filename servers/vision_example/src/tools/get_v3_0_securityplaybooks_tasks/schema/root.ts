@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "startDateTime": z.string().datetime({ offset: true }).describe("Timestamp in ISO 8601 format").optional(),
+  "endDateTime": z.string().datetime({ offset: true }).describe("Timestamp in ISO 8601 format").optional(),
+  "dateTimeTarget": z.literal("createdDateTime").describe("Parameter that allows you to filter the results.\n").optional(),
+  "top": z.union([z.literal(10), z.literal(20), z.literal(50), z.literal(100)]).describe("The number of items to return in the result set. Default is 10.").optional(),
+  "orderBy": z.string().max(100).describe("\nSpecifies the field by which the results are sorted.\n\nData is displayed in descending order by default.\n\nSupported fields and operators:\n* 'createdDateTime'\n* 'lastActionDateTime'\n* 'playbookName'\n* asc - Ascending order\n* desc - Descending order\n\nNote: You can use multiple fields, separated by commas, to sort the retrieved results.\n").optional(),
+  "TMV1-Filter": z.string().max(1024).describe("Filter for retrieving a subset of tasks.\n\nSupported fields:\n\n|Field|Description|Supported values|\n|-----|-----------|----------------|\n|`id`|The ID of task|Any value|\n|`playbookName`|The name of playbook|Any value|\n|`status`|The status of task|`succeeded`, `partiallySucceeded`, `failed`, `queued`, `running`, `pendingApproval`|\n\nSupported operators:\n\n|Operator|Description|Notes|\n|-----|-----------|----------------|\n|`eq`|Operator 'equal to'| - |\n|`and`|Operator 'and'| - |\n|`or`|Operator 'or'| - |\n|`not`|Operator 'not'| - |\n|`( )`|Symbols for grouping operands with their correct operator.| - |\n\nAdditional functions:\n\n|Function|Description|Notes|\n|-----|-----------|----------------|\n|`contains()`|Allows you to search for a specified string in a field|Only applicable to 'playbookName' and 'id'|\n\nNote: Include this parameter in every request that generates paginated output.\n").optional()
+}

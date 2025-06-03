@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "awsRegion": z.string().max(254).describe("The AWS region for template deployment\n\n> **Note**\n> - The default region is based on your Trend Vision One region.\n> - Some features and permissions have limited support for some AWS regions. For more information, see https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/CAMSupportedRegions\n").optional(),
+  "features": z.array(z.object({ "id": z.enum(["cloud-sentry","container-security"]).describe("The ID of the feature."), "regions": z.array(z.string().max(254)).describe("The regions where features are deployed.\n\nDefault: All regions that Cloud Account Management supports, depending on how the feature stack filters the regions.\n").optional() })).describe("The list of features you selected and the corresponding regions for deployment.\n").optional(),
+  "templateAccountType": z.enum(["single","organization"]).describe("The type of template generation for a single account scope or organization scope\n").optional(),
+  "awsAccountName": z.string().max(254).describe("The cloud account name assigned to the created account\n").optional(),
+  "awsAccountDescription": z.string().max(254).describe("The cloud account description assigned to the created account\n").optional(),
+  "connectedSecurityServices": z.array(z.object({ "name": z.literal("workload").describe("The name of the associated security service.\n\nThis value refers to specific security services connected to the system.\n\nAvailable values:\n* `workload` - Server & Workload Protection\n"), "instanceIds": z.array(z.string().max(254)).describe("The instance ID of the associated security service.\n") })).describe("The security service associated with the connected AWS account.\n").optional(),
+  "customTags": z.array(z.object({ "key": z.string().max(128).describe("The key of the custom tag"), "value": z.string().max(255).describe("The value of the custom tag") })).max(3).describe("The custom tags attached to the resources created by Trend Vision One\n").optional()
+}

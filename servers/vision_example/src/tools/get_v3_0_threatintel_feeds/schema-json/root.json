@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "startDateTime": {
+      "description": "The data retrieval timestamp in ISO 8601 format used to filter results. Only reports **created after** this time will be included. If not provided, the query will include all available reports from the earliest creation time.\n",
+      "allOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp in ISO 8601 format.",
+          "example": "2019-03-15T07:44:27Z"
+        }
+      ]
+    },
+    "endDateTime": {
+      "description": "The data retrieval timestamp in ISO 8601 format used to filter results. Only reports **created before or at** this time will be included. If not provided, the query will include all reports up to the time of the request.\n",
+      "allOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp in ISO 8601 format.",
+          "example": "2019-03-15T07:44:27Z"
+        }
+      ]
+    },
+    "topReport": {
+      "description": "The number of reports (maximum 20) returned by a query.\n",
+      "type": "integer",
+      "enum": [
+        5,
+        10,
+        20
+      ],
+      "default": 10
+    },
+    "responseObjectFormat": {
+      "description": "The preferred format for the query response. If the preferred format is unsupported, the default format is used.\n",
+      "type": "string",
+      "enum": [
+        "stixBundle",
+        "taxiiEnvelope"
+      ],
+      "default": "stixBundle",
+      "example": "stixBundle"
+    },
+    "TMV1-Contextual-Filter": {
+      "description": "Defines the criteria for retrieving specific subsets of intelligence objects from the Trend Threat Intelligence Feed by applying **contextual relationship-based filtering**.\nThis filter allows users to construct logical expressions based on metadata fields (e.g., `location`, `industry`) to identify **reports** that match the filter criteria. The response will include not only those directly matching reports, but also the **full set of STIX objects** that are directly or indirectly associated with them through STIX relationships (e.g., `object`, `attributed-to`).\n\n**Supported Fields:**\n|Field|Description|\n|-----------|---------|\n|`location` |Filters intelligence reports based on the associated location.<br>Available values can be retrieved via `GET /v3.0/threatintel/feeds/filterDefinition`.<br>Example values: `\"No specified locations\"`, `\"Albania\"`, `\"Brazil\"`, etc.|\n|`industry` |Filters intelligence reports based on the associated industry sector.<br>Available values can be retrieved via `GET /v3.0/threatintel/feeds/filterDefinition`.<br>Example values: `\"No specified industries\"`, `\"Finance\"`, `\"Government\"`, etc.|\n\n**Supported Operators:**\n- `eq`: Equals\n- `and`: Logical AND\n- `or`: Logical OR\n- `not`: Logical NOT\n- `in`: Matches any value in a list\n- `()` : Grouping expressions for precedence and lists of values\n\n**Example Correct Queries:**\n1. ***Single Condition*** - Retrieve objects related to Canada:<br>\n  `location eq 'Canada'`\n\n2. ***OR Condition*** - Retrieve objects related to the United States of America or Mexico:<br>\n   `location eq 'United States of America' or location eq 'Mexico'`\n\n3. **AND Condition** - Retrieve objects related to France and Technology:<br>\n   `location eq 'France' and industry eq 'Technology'`\n\n4. ***NOT Condition*** – Exclude objects related to Germany:<br>\n   `not (location eq 'Germany')`\n    \n5. ***IN Operator*** – Retrieve objects related to Financial Services, Insurance, or Healthcare:<br>\n   `industry in ('Financial Services', 'Insurance', 'Healthcare')`\n    \n6. ***Multiple Conditions*** – Retrieve objects where location is Australia and industry is either Mining or Energy:<br>\n   `location eq 'Australia' and (industry eq 'Mining' or industry eq 'Energy')`\n    \n7. ***Exclusion Condition*** – Exclude objects where industry is \"No specified industries\":<br>\n   `not (industry eq 'No specified industries')`\n    \n8. ***Nested Parentheses*** – Retrieve objects where the location is Brazil or Argentina, and the industry is Retail, Manufacturing, or \"No specified industries\":<br>\n   `(location eq 'Brazil' or location eq 'Argentina') and industry in ('Retail', 'Manufacturing')`\n    \n9. ***Complex Combination*** – Retrieve objects where location is Japan, Korea (the Republic of), or China, and industry is Telecommunications or not Automotive:<br>\n   `location in ('Japan', 'Korea (the Republic of)', 'China') and (industry eq 'Telecommunications' or not (industry eq 'Automotive'))`\n    \n10. ***Most Complex Combination*** – Retrieve objects where location is the UK or US, industry belongs to Aerospace or Defence, and location is not Russia:<br>\n    `not (location eq 'Russia') and (industry in ('Aerospace', 'Defence')) and (location eq 'United Kingdom of Great Britain and Northern Ireland' or location eq United States of America')`\n\n**Example Incorrect Queries:**\n1. **Missing Closing Parenthesis** - The closing parenthesis `)` is missing at the end of the expression.<br>\n   `location eq 'Canada' or (industry eq 'Technology' and location eq 'United States of America'`\n\n2. **Invalid Operator (= instead of eq)** - The `=` operator is not supported; use `eq` instead.<br>\n   `location = 'France'`\n\n3. **Incorrect List Syntax (Missing Brackets for in Operator)** - The `in` operator requires a list enclosed in parentheses `()`.<br>\n   `industry in 'Retail', 'Manufacturing'`\n\n4. **Unquoted String Literal** - String values must be enclosed in single quotes `'`.<br>\n   `location eq Brazil`\n\n5. **Using eq with a List Instead of a Single Value** - The `eq` operator only supports a single value, not a list.<br>\n   `location eq ('Canada', 'Mexico')`\n\n6. **Using in with a Single Value Instead of a List** - The `in` operator requires a list format.<br>\n   `industry in 'Technology'`\n\n7. **Extra or Missing Quotes in a String** - The closing quote for `'United States of America'` is missing.<br>\n   `location eq 'United States of America`\n\n8. **Consecutive Logical Operators Without an Operand** - The conditions \"and or\" used together without a valid operand in between.<br>\n   `location eq 'France' and or location eq 'Germany'`\n\n9. **Empty Parentheses** - Parentheses that do not contain a valid expression.<br>\n   `()`\n\n10. **Exceeding Maximum Parentheses Depth (MAX_DEPTH = 3)** - More than three levels of parentheses.<br>\n    `(((location in ('Japan', 'Korea (the Republic of)')))) and ((((industry eq 'Telecommunications'))))`\n\n11. **Using an Invalid Identifier** - Identifier must be either \"location\" or \"industry\", but \"region\" was provided.<br>\n    `region eq 'Asia'`\n\n12. **String Literal Exceeding Maximum Length (MAX_STRING_LENGTH = 55)** - String literal has more than 55 characters.<br>\n    `industry eq 'ThisIsAnExtremelyLongIndustryNameThatExceedsTheLimitLength'`\n\n13. **String Literal Containing Forbidden Characters (\\n, \\t, \\)** - String literal contains illegal characters (newline, tab, or backslash).<br>\n    `location eq 'United\\nStates of America'`\n",
+      "type": "string",
+      "maxLength": 4000
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,1729 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "(optional) A description of the policy. ",
+      "example": "(optional) a descriptive string",
+      "maxLength": 128
+    },
+    "default": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `default` to the tool, first call the tool `expandSchema` with \"/properties/default\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "namespaced": {
+      "description": "The definition of all the policies.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Descriptive name for the namespaced policy definition.",
+            "example": "example_ns_policy_definition",
+            "maxLength": 64,
+            "pattern": "^[a-zA-Z0-9._]+$"
+          },
+          "namespaces": {
+            "type": "array",
+            "description": "The namespaces that are associated with this policy definition.",
+            "items": {
+              "maxLength": 1024,
+              "type": "string"
+            },
+            "example": [
+              "dev",
+              "prod"
+            ]
+          },
+          "rules": {
+            "type": "array",
+            "description": "The set of policy rules. The rules are OR together.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "The type of the policy rule",
+                  "enum": [
+                    "podSecurityContext",
+                    "containerSecurityContext",
+                    "registry",
+                    "image",
+                    "tag",
+                    "imagePath",
+                    "vulnerabilities",
+                    "cvssAttackVector",
+                    "cvssAttackComplexity",
+                    "cvssAvailability",
+                    "checklists",
+                    "checklistProfile",
+                    "contents",
+                    "malware",
+                    "secrets",
+                    "unscannedImage",
+                    "unscannedImageMalware",
+                    "unscannedImageSecret",
+                    "podexec",
+                    "portforward",
+                    "capabilities"
+                  ]
+                },
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Enable the rule",
+                  "default": true
+                },
+                "action": {
+                  "type": "string",
+                  "description": "Action to take when the rule fails during the admission control phase. Action is ignored in exceptions. It returns none if there is no record. ",
+                  "default": "none",
+                  "enum": [
+                    "block",
+                    "log",
+                    "none"
+                  ]
+                },
+                "mitigation": {
+                  "type": "string",
+                  "description": "Mitigation to take when the rule fails during runtime. Mitigation is ignored in exceptions. It returns none if there is no record. ",
+                  "default": "none",
+                  "enum": [
+                    "log",
+                    "isolate",
+                    "terminate",
+                    "none"
+                  ]
+                },
+                "statement": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "description": "The security context rule used for Image related rules to determine the method used for matching the provided string value. ",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "Used for Image related rules to determine the method used for matching the provided string value. ",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "equals",
+                                  "not-equals",
+                                  "contains",
+                                  "not-contains",
+                                  "starts-with"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "maxLength": 1024
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "equals",
+                              "value": "gcr.io"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The maximum severity of scan finding that you want to allow. ",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "max-severity"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "critical",
+                                  "high",
+                                  "medium",
+                                  "low",
+                                  "negligible",
+                                  "unknown",
+                                  "none"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "max-severity",
+                              "value": "high"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The rule used for logging or blocking images with a number of malware or secrets beyond the set threshold.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "description": "The maximum number of malware or secrets that can be detected before an image is logged or blocked.",
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "count"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "0"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "count",
+                              "value": "0"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The security context rule to enforce.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The pod security context rule to enforce.",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "hostPID",
+                                  "hostIPC",
+                                  "hostNetwork"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "true",
+                                  "false"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "hostPID",
+                              "value": true
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The security context rule to enforce.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The container security context rule to enforce.",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "privileged",
+                                  "allowPrivilegeEscalation",
+                                  "runAsNonRoot",
+                                  "readOnlyRootFilesystem"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "true",
+                                  "false"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "privileged",
+                              "value": true
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "description": "The CVSS attack vector that you want to log/block and the corresponding vulnerability’s overall severity.",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The CVSS attack vector that you want to log/block.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "cvss-attack-vector"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "local/physical",
+                                      "adjacent",
+                                      "network"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "cvss-attack-vector",
+                                  "value": "network"
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "max-severity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "critical",
+                                      "high",
+                                      "medium",
+                                      "low",
+                                      "negligible",
+                                      "none"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "max-severity",
+                                  "value": "high"
+                                }
+                              }
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 2,
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ],
+                      "example": {
+                        "properties": [
+                          {
+                            "key": "cvss-attack-vector",
+                            "value": "network"
+                          },
+                          {
+                            "key": "max-severity",
+                            "value": "high"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "description": "The CVSS attack complexity that you want to log/block and the corresponding vulnerability's overall severity.",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The CVSS attack complexity that you want to log/block. ",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "cvss-attack-complexity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "low",
+                                      "high"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "cvss-attack-complexity",
+                                  "value": "high"
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "max-severity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "critical",
+                                      "high",
+                                      "medium",
+                                      "low",
+                                      "negligible",
+                                      "none"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "max-severity",
+                                  "value": "high"
+                                }
+                              }
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 2,
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ],
+                      "example": {
+                        "properties": [
+                          {
+                            "key": "cvss-attack-complexity",
+                            "value": "low"
+                          },
+                          {
+                            "key": "max-severity",
+                            "value": "high"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "description": "The CVSS availability impact that you want to log/block and the corresponding vulnerability’s overall severity",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The CVSS availability impact that you want to log/block. ",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "cvss-availability"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "low",
+                                      "high"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "cvss-availability",
+                                  "value": "low"
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "max-severity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "critical",
+                                      "high",
+                                      "medium",
+                                      "low",
+                                      "negligible",
+                                      "none"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "max-severity",
+                                  "value": "high"
+                                }
+                              }
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 2,
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ],
+                      "example": {
+                        "properties": [
+                          {
+                            "key": "cvss-availability",
+                            "value": "low"
+                          },
+                          {
+                            "key": "max-severity",
+                            "value": "high"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "description": "The checklist profile to get results from and the maximum severity of the results that you want to allow.",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The checklist profile to get results from.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "checklist-profile"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pci-dss",
+                                      "nist800190",
+                                      "hipaa"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "checklist-profile",
+                                  "value": "hipaa"
+                                }
+                              },
+                              {
+                                "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                                "type": "object",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "max-severity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "critical",
+                                      "high",
+                                      "medium",
+                                      "low",
+                                      "negligible",
+                                      "unknown",
+                                      "none"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "max-severity",
+                                  "value": "high"
+                                }
+                              }
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 2,
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ],
+                      "example": {
+                        "properties": [
+                          {
+                            "key": "checklist-profile",
+                            "value": "pci-dss"
+                          },
+                          {
+                            "key": "max-severity",
+                            "value": "high"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "description": "The kubernetes pod execution rule.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The pod execution rule to enforce. ",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "podExec"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "true",
+                                  "false"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "podExec",
+                              "value": true
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The kubernetes pod portforward rule.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The pod port forward rule to enforce.",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "podPortForward"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "true",
+                                  "false"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "podPortForward",
+                              "value": true
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The capability rule",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The rule for capabilities that you want to enforce\n- \"baseline\" restricts containers with the NET_RAW capability or any non-default capability\n- \"restricted\" restricts containers with any capability other than the NET_BIND_SERVICE capability\n- \"restrict-nondefaults\" restricts containers with any capability that are not already given by Docker by default\n- \"restrict-all\" restricts containers with any capability",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "capabilities-rule"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "baseline",
+                                  "restricted",
+                                  "restrict-nondefaults",
+                                  "restrict-all"
+                                ]
+                              }
+                            },
+                            "example": {
+                              "key": "capabilities-rule",
+                              "value": "restrict-all"
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The scan validation duration rule.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The number of days that a scan result is valid.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "days"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "pattern": "^(0?[1-9]|[12][0-9]|30)$"
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "days",
+                                  "value": "30"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ]
+            },
+            "example": [
+              {
+                "type": "podSecurityContext",
+                "enabled": true,
+                "action": "log",
+                "mitigation": "log",
+                "statement": {
+                  "properties": [
+                    {
+                      "key": "runAsNonRoot",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "cvssAttackVector",
+                "enabled": true,
+                "action": "log",
+                "mitigation": "log",
+                "statement": {
+                  "properties": [
+                    {
+                      "key": "cvss-attack-vector",
+                      "value": "network"
+                    },
+                    {
+                      "key": "max-severity",
+                      "value": "high"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "exceptions": {
+            "type": "array",
+            "description": "The set of policy rules. The rules are OR together.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "The type of the policy rule",
+                  "enum": [
+                    "podSecurityContext",
+                    "containerSecurityContext",
+                    "registry",
+                    "image",
+                    "tag",
+                    "imagePath",
+                    "vulnerabilities",
+                    "cvssAttackVector",
+                    "cvssAttackComplexity",
+                    "cvssAvailability",
+                    "checklists",
+                    "checklistProfile",
+                    "contents",
+                    "malware",
+                    "secrets",
+                    "unscannedImage",
+                    "unscannedImageMalware",
+                    "unscannedImageSecret",
+                    "podexec",
+                    "portforward",
+                    "capabilities"
+                  ]
+                },
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Enable the rule",
+                  "default": true
+                },
+                "action": {
+                  "type": "string",
+                  "description": "Action to take when the rule fails during the admission control phase. Action is ignored in exceptions. It returns none if there is no record. ",
+                  "default": "none",
+                  "enum": [
+                    "block",
+                    "log",
+                    "none"
+                  ]
+                },
+                "mitigation": {
+                  "type": "string",
+                  "description": "Mitigation to take when the rule fails during runtime. Mitigation is ignored in exceptions. It returns none if there is no record. ",
+                  "default": "none",
+                  "enum": [
+                    "log",
+                    "isolate",
+                    "terminate",
+                    "none"
+                  ]
+                },
+                "statement": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "description": "The security context rule used for Image related rules to determine the method used for matching the provided string value. ",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "Used for Image related rules to determine the method used for matching the provided string value. ",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "equals",
+                                  "not-equals",
+                                  "contains",
+                                  "not-contains",
+                                  "starts-with"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "maxLength": 1024
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "equals",
+                              "value": "gcr.io"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The maximum severity of scan finding that you want to allow. ",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "max-severity"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "critical",
+                                  "high",
+                                  "medium",
+                                  "low",
+                                  "negligible",
+                                  "unknown",
+                                  "none"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "max-severity",
+                              "value": "high"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The rule used for logging or blocking images with a number of malware or secrets beyond the set threshold.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "description": "The maximum number of malware or secrets that can be detected before an image is logged or blocked.",
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "count"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "0"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "count",
+                              "value": "0"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The security context rule to enforce.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The pod security context rule to enforce.",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "hostPID",
+                                  "hostIPC",
+                                  "hostNetwork"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "true",
+                                  "false"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "hostPID",
+                              "value": true
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The security context rule to enforce.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The container security context rule to enforce.",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "privileged",
+                                  "allowPrivilegeEscalation",
+                                  "runAsNonRoot",
+                                  "readOnlyRootFilesystem"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "true",
+                                  "false"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "privileged",
+                              "value": true
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "description": "The CVSS attack vector that you want to log/block and the corresponding vulnerability’s overall severity.",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The CVSS attack vector that you want to log/block.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "cvss-attack-vector"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "local/physical",
+                                      "adjacent",
+                                      "network"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "cvss-attack-vector",
+                                  "value": "network"
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "max-severity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "critical",
+                                      "high",
+                                      "medium",
+                                      "low",
+                                      "negligible",
+                                      "none"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "max-severity",
+                                  "value": "high"
+                                }
+                              }
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 2,
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ],
+                      "example": {
+                        "properties": [
+                          {
+                            "key": "cvss-attack-vector",
+                            "value": "network"
+                          },
+                          {
+                            "key": "max-severity",
+                            "value": "high"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "description": "The CVSS attack complexity that you want to log/block and the corresponding vulnerability's overall severity.",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The CVSS attack complexity that you want to log/block. ",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "cvss-attack-complexity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "low",
+                                      "high"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "cvss-attack-complexity",
+                                  "value": "high"
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "max-severity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "critical",
+                                      "high",
+                                      "medium",
+                                      "low",
+                                      "negligible",
+                                      "none"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "max-severity",
+                                  "value": "high"
+                                }
+                              }
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 2,
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ],
+                      "example": {
+                        "properties": [
+                          {
+                            "key": "cvss-attack-complexity",
+                            "value": "low"
+                          },
+                          {
+                            "key": "max-severity",
+                            "value": "high"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "description": "The CVSS availability impact that you want to log/block and the corresponding vulnerability’s overall severity",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The CVSS availability impact that you want to log/block. ",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "cvss-availability"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "low",
+                                      "high"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "cvss-availability",
+                                  "value": "low"
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "max-severity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "critical",
+                                      "high",
+                                      "medium",
+                                      "low",
+                                      "negligible",
+                                      "none"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "max-severity",
+                                  "value": "high"
+                                }
+                              }
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 2,
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ],
+                      "example": {
+                        "properties": [
+                          {
+                            "key": "cvss-availability",
+                            "value": "low"
+                          },
+                          {
+                            "key": "max-severity",
+                            "value": "high"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "description": "The checklist profile to get results from and the maximum severity of the results that you want to allow.",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The checklist profile to get results from.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "checklist-profile"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "pci-dss",
+                                      "nist800190",
+                                      "hipaa"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "checklist-profile",
+                                  "value": "hipaa"
+                                }
+                              },
+                              {
+                                "description": "The maximum severity of scan finding that you want to allow. For example: A max-severity of high would mean that critical and defcon1 level findings are blocked.",
+                                "type": "object",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "max-severity"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "enum": [
+                                      "critical",
+                                      "high",
+                                      "medium",
+                                      "low",
+                                      "negligible",
+                                      "unknown",
+                                      "none"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "max-severity",
+                                  "value": "high"
+                                }
+                              }
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 2,
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ],
+                      "example": {
+                        "properties": [
+                          {
+                            "key": "checklist-profile",
+                            "value": "pci-dss"
+                          },
+                          {
+                            "key": "max-severity",
+                            "value": "high"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "description": "The kubernetes pod execution rule.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The pod execution rule to enforce. ",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "podExec"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "true",
+                                  "false"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "podExec",
+                              "value": true
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The kubernetes pod portforward rule.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The pod port forward rule to enforce.",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "podPortForward"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "true",
+                                  "false"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ],
+                            "example": {
+                              "key": "podPortForward",
+                              "value": true
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The capability rule",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "type": "object",
+                            "description": "The rule for capabilities that you want to enforce\n- \"baseline\" restricts containers with the NET_RAW capability or any non-default capability\n- \"restricted\" restricts containers with any capability other than the NET_BIND_SERVICE capability\n- \"restrict-nondefaults\" restricts containers with any capability that are not already given by Docker by default\n- \"restrict-all\" restricts containers with any capability",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "enum": [
+                                  "capabilities-rule"
+                                ]
+                              },
+                              "value": {
+                                "type": "string",
+                                "enum": [
+                                  "baseline",
+                                  "restricted",
+                                  "restrict-nondefaults",
+                                  "restrict-all"
+                                ]
+                              }
+                            },
+                            "example": {
+                              "key": "capabilities-rule",
+                              "value": "restrict-all"
+                            },
+                            "required": [
+                              "key",
+                              "value"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "properties"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "The scan validation duration rule.",
+                      "properties": {
+                        "properties": {
+                          "type": "array",
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "description": "The number of days that a scan result is valid.",
+                                "properties": {
+                                  "key": {
+                                    "type": "string",
+                                    "enum": [
+                                      "days"
+                                    ]
+                                  },
+                                  "value": {
+                                    "type": "string",
+                                    "pattern": "^(0?[1-9]|[12][0-9]|30)$"
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "value"
+                                ],
+                                "example": {
+                                  "key": "days",
+                                  "value": "30"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ]
+            },
+            "example": [
+              {
+                "type": "registry",
+                "enabled": true,
+                "statement": {
+                  "properties": {
+                    "key": "equals",
+                    "value": "docker.io"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "namespaces",
+          "rules"
+        ]
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `runtime` to the tool, first call the tool `expandSchema` with \"/properties/runtime\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The runtime properties of this policy.</property-description>",
+      "additionalProperties": true
+    },
+    "xdrEnabled": {
+      "type": "boolean",
+      "description": "If true, enables XDR telemetry. \n\n> **Important**\n>\n> To use XDR telemetry, enable runtime security.\n"
+    },
+    "malwareScan": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `malwareScan` to the tool, first call the tool `expandSchema` with \"/properties/malwareScan\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The Runtime Malware Scanning configuration of this policy. </property-description>",
+      "additionalProperties": true
+    },
+    "secretScan": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `secretScan` to the tool, first call the tool `expandSchema` with \"/properties/secretScan\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The Runtime Secret Scanning configuration for the policy. </property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

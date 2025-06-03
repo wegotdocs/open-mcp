@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique alphanumeric string that identifies a data pipeline.\n",
+      "type": "string",
+      "example": "8746fc45-6b9d-4923-b476-931aec6e06eb"
+    },
+    "startDateTime": {
+      "description": "Timestamp in ISO 8601 format that indicates the start of the data retrieval time range. You can retrieve data that was saved no earlier than 7 days ago.\n\nIf no value is specified, 'startDateTime' defaults to 15 minutes before you make the request.\n\nTip: If you have requested data before, Trend Micro recommends using **latestPackageCreatedDateTime** as the value for **startDateTime** for subsequent requests.\n",
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-10-07T18:00:00Z",
+      "default": null
+    },
+    "endDateTime": {
+      "description": "Timestamp in ISO 8601 format that indicates the end of the data retrieval time range. If no value is specified, endDateTime defaults to the time you make the request.\n\nThe difference between 'startDateTime' and 'endDateTime' cannot be greater than 3600 seconds.\n\nNote: Due to processing time limitations, ensure \"endDateTime\" is set to at least 30 seconds before the request execution time.\n",
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-10-07T18:15:00Z"
+    },
+    "top": {
+      "description": "Number of records displayed on a page. If no value is specified, 'top' defaults to 500.\n",
+      "type": "integer",
+      "default": 500,
+      "enum": [
+        50,
+        100,
+        200,
+        500
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

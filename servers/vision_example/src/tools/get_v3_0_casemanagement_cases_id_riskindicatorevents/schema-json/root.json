@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the case on the Trend Vision One platform",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "top": {
+      "description": "The number of records displayed on a page. \n\nDefault: `100`\n",
+      "type": "integer",
+      "example": 100,
+      "default": 100,
+      "enum": [
+        10,
+        50,
+        100,
+        200,
+        500,
+        1000
+      ]
+    },
+    "orderBy": {
+      "description": "The field by which the results are sorted.\n\nTo display records in ascending or descending order, add the phrase `asc` or `desc` after the parameter name.\n\nAvailable values: \n* 'detectedDateTime'\n* `asc` - Ascending order\n* `desc` - Descending order\n\nDefault: `detectedDateTime desc`\n",
+      "type": "string",
+      "maxLength": 128,
+      "default": "detectedDateTime desc"
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the cloud asset information list.\n\nSupported fields:\n\n| Field            | Description                           | Supported values                                                        |\n|------------------|---------------------------------------|-------------------------------------------------------------------------|\n| id               | The ID of a risk event                | Any value                                                               |\n| riskLevel        | The risk level of the risk event      | `high`, `medium`, `low`                                                 |\n| riskFactor       | The risk factor of the risk event     | `Threat detection`, `Security configuration`, `System configuration`, `Vulnerability detection`, `Anomaly detection`, `Account compromise`, `Cloud app activity`, `XDR detection`|\n| status           | The status of the risk event          | `new`, `inProgress`, `remediated`, `dismissed`, `accepted`, `mitigated` |\n| detectedDateTime | The time the event was detected       | Any value                                                               |\n\nSupported operators:\n\n| Operator | Description                                               | Notes                                 |\n|----------|-----------------------------------------------------------|---------------------------------------|\n| `eq`     | Operator 'equal to'                                       | -                                     |\n| `and`    | Operator 'and'                                            | -                                     |\n| `or`     | Operator 'or'                                             | -                                     |\n| `not`    | Operator 'not'                                            | -                                     |\n| `()`     | Symbols for grouping operands with their correct operator | -                                     |\n| `gt`     | Operator 'greater than'                                   | Only applicable to `detectedDateTime` |\n| `ge`     | Operator 'greater than or equal'                          | Only applicable to `detectedDateTime` |\n| `le`     | Operator 'less than or equal'                             | Only applicable to `detectedDateTime` |\n| `lt`     | Operator 'less than'                                      | Only applicable to `detectedDateTime` |\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

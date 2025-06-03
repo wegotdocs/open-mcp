@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "startDateTime": {
+      "description": "Timestamp in ISO 8601 format",
+      "type": "string",
+      "format": "date-time",
+      "example": "2019-03-15T07:44:27Z",
+      "maxLength": 20
+    },
+    "endDateTime": {
+      "description": "Timestamp in ISO 8601 format",
+      "type": "string",
+      "format": "date-time",
+      "example": "2019-03-15T07:44:27Z",
+      "maxLength": 20
+    },
+    "dateTimeTarget": {
+      "description": "Parameter that allows you to filter the results.\n",
+      "type": "string",
+      "enum": [
+        "createdDateTime",
+        "lastActionDateTime"
+      ],
+      "default": "createdDateTime",
+      "example": "createdDateTime",
+      "maxLength": 20
+    },
+    "filter": {
+      "description": "Filter for retrieving a subset of the response task list.\n\nSupported fields:\n\n|Field|Description|Supported values|\n|---------|---------|---------|\n|id|The identifier of a response task|Any value|\n|status|The status of a command sent to the management server|`queued`, `running`, `succeeded`, `failed`, `canceled`, `pendingApproval`, `rejected`|\n|action|The command sent to a target|`isolate`, `isolateForMultiple`, `restoreIsolate`, `restoreIsolateForMultiple`, `collectFile`, `terminateProcess`, `block`, `restoreBlock`, `quarantineMessage`, `restoreMessage`, `deleteMessage`, `remoteShell`, `investigationKit`, `runCustomScript`, `runCustomScriptForMultiple`, `submitSandbox`, `dumpProcessMemory`, `disableAccount`, `enableAccount`, `forceSignOut`, `resetPassword`, `collectNetworkAnalysisPackage`, `collectEvidence`, `runOsquery`, `runYaraRules`, `isolateContainer`, `restoreContainer`, `terminateContainer`, `malwareScanForMultiple`|\n|account|The user that created the task|Any value|\n\nSupported operators:\n|Operator|Description|Notes|\n|-----|-----------|----------------|\n|`eq`|Operator 'equal to'| - |\n|`and`|Operator 'and'| - |\n|`or`|Operator 'or'| - |\n|`not`|Operator 'not'| - |\n|`()`|Symbols for grouping operands with their correct operator| - |\n",
+      "type": "string",
+      "maxLength": 2048,
+      "example": "id eq '00000001' or (status eq 'succeeded' and action eq 'isolate' and account eq 'xdr-test')\n"
+    },
+    "top": {
+      "description": "Number of records displayed on a page. If no value is specified, 'top' defaults to 50.",
+      "type": "integer",
+      "enum": [
+        50,
+        100,
+        200
+      ],
+      "default": 50,
+      "example": 100
+    }
+  },
+  "required": []
+}

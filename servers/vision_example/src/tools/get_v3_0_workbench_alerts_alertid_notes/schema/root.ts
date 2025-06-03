@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "alertId": z.string().describe("Unique alphanumeric string that identifies a Workbench alert."),
+  "startDateTime": z.string().datetime({ offset: true }).describe("Timestamp in ISO 8601 format that indicates the start of the data retrieval time range.\n\nNote: startDateTime cannot be earlier than \"1970-01-01T00:00:00Z\".\n").optional(),
+  "endDateTime": z.string().datetime({ offset: true }).describe("Timestamp in ISO 8601 format that indicates the end of the data retrieval time range.\n\nNote: endDateTime cannot be earlier than startDateTime\n").optional(),
+  "dateTimeTarget": z.enum(["createdDateTime","lastUpdatedDateTime"]).describe("Parameter that allows you to filter the retrieved Workbench alert notes.").optional(),
+  "orderBy": z.string().max(200).describe("Parameter to be used for sorting records. Records are returned in descending order by default. To return records in ascending order, add a phrase \"asc\" after the parameter name.\nSub-sorts can be specified by a comma-separated list of property names.\nSortable fields are as follows:\n* id\n* creatorMailAddress\n* creatorName\n* lastUpdatedBy\n* createdDateTime\n* lastUpdatedDateTime\n\nNote: You can use multiple fields, separated by commas, to sort the retrieved Workbench alert notes.\n").optional(),
+  "top": z.union([z.literal(50), z.literal(100), z.literal(200)]).describe("Number of records displayed on a page.").optional(),
+  "TMV1-Filter": z.string().max(5000).describe("Filter for retrieving a subset of Workbench alert notes. Supported fields and operators:\n\n* id - Numeric string that identifies a Workbench alert note\n* creatorMailAddress - Email address of the user that created a Workbench alert note\n* creatorName - User that created a Workbench alert note\n* lastUpdatedBy - Parameter that indicates the user who last modified a Workbench alert note\n* 'eq' - Abbreviation of the operator 'equal to'\n* 'and' - Operator 'and'\n* 'or' - Operator 'or'\n* 'not' - Operator 'not'\n* '( )' - Symbols for grouping operands with their correct operator.\n\nNote: Include this parameter in every request that generates paginated output.\n").optional()
+}

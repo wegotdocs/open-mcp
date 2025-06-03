@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "top": z.union([z.literal(10), z.literal(50), z.literal(100)]).describe("The number of cases retrieved. If no value is specified, the request retrieves records for the top 50 cases.").optional(),
+  "startDateTime": z.string().datetime({ offset: true }).describe("The date and time of the start of data retrieval in ISO 8601 format").optional(),
+  "endDateTime": z.string().datetime({ offset: true }).describe("The date and time of the end of data retrieval in ISO 8601 format retrieval time range.").optional(),
+  "dateTimeTarget": z.enum(["createdDateTime","updatedDateTime"]).describe("A parameter that allows you to sort by either created date or updated date").optional(),
+  "orderBy": z.string().max(32).describe("A parameter to be used for sorting records. Records are returned\nin descending order by default. To return records in ascending order, add\na phrase \"asc\" after the parameter name.\nSub-sorts can be specified by a comma-separated list of property names.\n\nSortable fields are as follows:\n* priority\n* createdDateTime\n\nSupported operators:\n* asc - Ascending order\n* desc - Descending order\n\nNote: You can use multiple fields, separated by commas, to sort the retrieved cases.\n").optional(),
+  "TMV1-Filter": z.string().max(270).describe("Filter for retrieving a subset of cases.\n\nSupported fields:\n|Field|Description|Possible values|\n|---|---|---|\n|type|Type of the case|`Workbench`, `Forensics`,`ManagedService`, `TPIServiceNow`, `Others`|\n|priority|Priority of the case|`P0`, `P1`, `P2`, `P3`|\n|status|Status of the case|`Open`, `In-progress`,`Closed`|\n\nSupported operators:\n* 'eq' - Abbreviation of the operator 'equal to'\n* 'and' - Logical operator 'and'\n* 'or' - Logical operator 'or'\n* 'not' - Logical operator 'not'\n* '( )' - Symbols for grouping operands with their correct operator.\n").optional()
+}

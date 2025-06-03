@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "startDateTime": {
+      "description": "The start of the data retrieval range in ISO 8601 format. Default:startDateTime defaults to 24 hours before the request is made.",
+      "type": "string",
+      "maxLength": 20,
+      "example": "2021-04-05T08:22:37Z"
+    },
+    "endDateTime": {
+      "description": "Timestamp in ISO 8601 format that indicates the end of the data retrieval time range. If no value is specified, 'endDateTime' defaults to the time the request is made.",
+      "type": "string",
+      "maxLength": 20,
+      "example": "2021-04-06T08:22:37Z"
+    },
+    "top": {
+      "description": "The number of records displayed on a page in default mode.",
+      "type": "integer",
+      "enum": [
+        50,
+        100,
+        500,
+        1000,
+        5000
+      ],
+      "default": 500,
+      "example": 500
+    },
+    "mode": {
+      "description": "The type of data returned by the query results (\"default\" displays all data returned by the query, \"countOnly\" displays the number of records returned, and \"performance\" limits the returned records to 500.):\n* 'default' - Displays the data returned by the query\n* 'countOnly' - Displays the number of records returned by the query\n* 'performance' - 'performance' - Displays the data in performance mode, but the \"top\" parameter does not work and there may be zero records returned even though progressRate has not reached 100. To display all records, call the API again via nextLink until progressRate has reached 100. Use count mode to avoid returning empty data.\n",
+      "type": "string",
+      "maxLength": 36,
+      "default": "default",
+      "enum": [
+        "default",
+        "countOnly",
+        "performance"
+      ]
+    },
+    "select": {
+      "description": "The list of fields included in search results (If no fields are specified, the query returns all supported fields.)",
+      "type": "string",
+      "maxLength": 2048,
+      "default": "empty"
+    },
+    "TMV1-Query": {
+      "description": "Statement that allows you to retrieve a subset of the collected secure access activity data. Supported fields:\n* 'tags' - Match type support: Partial match\n* 'productCode' - Match type support: Partial match\n* 'uuid' - Match type support: Partial match\n* 'filterRiskLevel' - Match type support: Partial match\n* 'endpointGuid' - Match type support: Partial match\n* 'endpointHostName' - Match type support: Partial match\n* 'endpointIp' - Match type support: Partial match\n* 'eventId' - Match type support: Full match\n* 'eventSubId' - Match type support: Full match\n* 'logonUser' - Match type support: Partial match\n* 'objectFileHashSha256' - Match type support: Partial match\n* 'objectFilePath' - Match type support: Partial match\n* 'pname' - Match type support: Partial match\n* 'request' - Match type support: Partial match\n* 'srcFileHashSha256' - Match type support: Partial match\n* 'srcFilePath' - Match type support: Partial match\n* 'endpointModel' - Match type support: Partial match\n* 'osName' - Match type support: Partial match\n* 'appLabel' - Match type support: Partial match\n* 'appPkgName' - Match type support: Partial match\n* 'appPublicKeySha1' - Match type support: Partial match\n* 'objectAppDexSha256' - Match type support: Partial match\n* 'objectAppLabel' - Match type support: Partial match\n* 'objectAppPackageName' - Match type support: Partial match\n* 'objectAppPublicKeySha1' - Match type support: Partial mat\nSupported operators:\n* ':' - Abbreviation of the operator \"equal to\"\n* 'and' - Operator \"and\"\n* 'or' - Operator \"or\"\n* 'not' - Operator \"not\"\n* '( )' - Symbols for grouping operands with their correct operator.\nNote: For more information about the query syntax and supported fields, see https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/DataMappingTables.\n",
+      "type": "string",
+      "maxLength": 2048
+    }
+  },
+  "required": [
+    "TMV1-Query"
+  ]
+}

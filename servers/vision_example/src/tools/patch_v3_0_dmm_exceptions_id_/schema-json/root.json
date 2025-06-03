@@ -1,0 +1,212 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier of the exception",
+      "type": "string",
+      "maxLength": 36,
+      "example": "20ff3c30-ae5d-4780-a6de-53cb3c8352d1"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the custom exception",
+      "maxLength": 256,
+      "example": "Example Rule"
+    },
+    "description": {
+      "type": "string",
+      "example": "A sentence to describe the rule",
+      "description": "Description of the custom exception",
+      "maxLength": 2048
+    },
+    "targetEntities": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `targetEntities` to the tool, first call the tool `expandSchema` with \"/properties/targetEntities\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The locations of the objects or events excluded from detections.\n\nYou can define up to 10 targets. If you specify multiple targets, the rule is triggered when all targets are matched.\n\nDefault: All targets\n</property-description>",
+      "additionalProperties": true
+    },
+    "event": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "category",
+            "id",
+            "subId"
+          ],
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Event type",
+              "enum": [
+                "ENDPOINT_ACTIVITY"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "description": "The unique identifier of an event type",
+              "enum": [
+                "TELEMETRY_PROCESS",
+                "TELEMETRY_FILE",
+                "TELEMETRY_CONNECTION",
+                "TELEMETRY_DNS",
+                "TELEMETRY_REGISTRY",
+                "TELEMETRY_ACCOUNT",
+                "TELEMETRY_INTERNET",
+                "TELEMETRY_MODIFIED_PROCESS",
+                "TELEMETRY_WINDOWS_HOOK",
+                "TELEMETRY_WINDOWS_EVENT",
+                "TELEMETRY_AMSI",
+                "TELEMETRY_WMI",
+                "TELEMETRY_MEMORY",
+                "TELEMETRY_BM",
+                "TELEMETRY_APP",
+                "TELEMETRY_SYSTEM_EVENT"
+              ]
+            },
+            "subId": {
+              "type": "array",
+              "description": "The secondary event identifier of an event type",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "TELEMETRY_PROCESS_OPEN",
+                  "TELEMETRY_PROCESS_CREATE",
+                  "TELEMETRY_PROCESS_TERMINATE",
+                  "TELEMETRY_PROCESS_LOAD_IMAGE",
+                  "TELEMETRY_PROCESS_EXECUTE",
+                  "TELEMETRY_PROCESS_CONNECT",
+                  "TELEMETRY_PROCESS_TRACME",
+                  "TELEMETRY_FILE_CREATE",
+                  "TELEMETRY_FILE_OPEN",
+                  "TELEMETRY_FILE_DELETE",
+                  "TELEMETRY_FILE_SET_SECURITY",
+                  "TELEMETRY_FILE_COPY",
+                  "TELEMETRY_FILE_MOVE",
+                  "TELEMETRY_FILE_CLOSE",
+                  "TELEMETRY_FILE_MODIFY_TIMESTAMP",
+                  "TELEMETRY_FILE_MODIFY",
+                  "TELEMETRY_FILE_SET_ATTRIBUTES",
+                  "TELEMETRY_FILE_ENUMERATE",
+                  "TELEMETRY_CONNECTION_CONNECT",
+                  "TELEMETRY_CONNECTION_LISTEN",
+                  "TELEMETRY_CONNECTION_CONNECT_INBOUND",
+                  "TELEMETRY_CONNECTION_CONNECT_OUTBOUND",
+                  "TELEMETRY_DNS_QUERY",
+                  "TELEMETRY_REGISTRY_CREATE",
+                  "TELEMETRY_REGISTRY_SET",
+                  "TELEMETRY_REGISTRY_DELETE",
+                  "TELEMETRY_REGISTRY_RENAME",
+                  "TELEMETRY_REGISTRY_ENUMERATE",
+                  "TELEMETRY_REGISTRY_ENUMERATEVALUE",
+                  "TELEMETRY_REGISTRY_QUERYVALUE",
+                  "TELEMETRY_REGISTRY_SAVE",
+                  "TELEMETRY_ACCOUNT_ADD",
+                  "TELEMETRY_ACCOUNT_DELETE",
+                  "TELEMETRY_ACCOUNT_IMPERSONATE",
+                  "TELEMETRY_ACCOUNT_MODIFY",
+                  "TELEMETRY_INTERNET_OPEN",
+                  "TELEMETRY_INTERNET_CONNECT",
+                  "TELEMETRY_INTERNET_DOWNLOAD",
+                  "TELEMETRY_MODIFIED_PROCESS_CREATE_REMOTETHREAD",
+                  "TELEMETRY_MODIFIED_PROCESS_WRITE_MEMORY",
+                  "TELEMETRY_MODIFIED_PROCESS_WRITE_PROCESS",
+                  "TELEMETRY_MODIFIED_PROCESS_READ_PROCESS",
+                  "TELEMETRY_MODIFIED_PROCESS_WRITE_PROCESS_NAME",
+                  "TELEMETRY_WINDOWS_HOOK_SET",
+                  "TELEMETRY_AMSI_EXECUTE",
+                  "TELEMETRY_MEMORY_MODIFY",
+                  "TELEMETRY_MEMORY_MODIFY_PERMISSION",
+                  "TELEMETRY_MEMORY_READ",
+                  "TELEMETRY_BM_INVOKE",
+                  "TELEMETRY_BM_INVOKE_API",
+                  "TELEMETRY_APP_START",
+                  "TELEMETRY_APP_STOP",
+                  "TELEMETRY_APP_INSTALL",
+                  "TELEMETRY_APP_UNINSTALL",
+                  "TELEMETRY_SYSTEM_EVENT_ENABLE",
+                  "TELEMETRY_SYSTEM_EVENT_DISABLE"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "criteria": {
+      "type": "array",
+      "description": "The objects or events excluded from detections.\n\nEach exception can have up to 10 criteria. If you specify multiple entries, the custom exception is triggered when all entries are matched.\n",
+      "maxItems": 10,
+      "items": {
+        "discriminator": {
+          "propertyName": "fieldType",
+          "mapping": {
+            "file_md5": "#/components/schemas/ars-criteria_file_md5",
+            "file_sha1": "#/components/schemas/ars-criteria_file_sha1",
+            "filename": "#/components/schemas/ars-criteria_filename",
+            "fullpath": "#/components/schemas/ars-criteria_fullpath",
+            "ip": "#/components/schemas/ars-criteria_ip",
+            "port": "#/components/schemas/ars-criteria_port",
+            "host": "#/components/schemas/ars-criteria_host",
+            "domain": "#/components/schemas/ars-criteria_domain",
+            "url": "#/components/schemas/ars-criteria_url",
+            "command_line": "#/components/schemas/ars-criteria_command_line",
+            "signer_validity": "#/components/schemas/ars-criteria_signer_validity",
+            "user_account": "#/components/schemas/ars-criteria_user_account",
+            "email_subject": "#/components/schemas/ars-criteria_email_subject",
+            "email_sender": "#/components/schemas/ars-criteria_email_sender",
+            "amsi_rawDataStr": "#/components/schemas/ars-criteria_amsi_rawDataStr",
+            "registry_value_data": "#/components/schemas/ars-criteria_registry_value_data",
+            "registry_key": "#/components/schemas/ars-criteria_registry_key",
+            "registry_value": "#/components/schemas/ars-criteria_registry_value",
+            "windows_event_log_id": "#/components/schemas/ars-criteria_windows_event_log_id",
+            "guid": "#/components/schemas/ars-criteria_guid"
+          }
+        },
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "fieldType",
+              "fieldName",
+              "fieldValues"
+            ],
+            "properties": {
+              "fieldType": {
+                "type": "string",
+                "description": "The type of match criteria",
+                "enum": [
+                  "file_md5"
+                ]
+              },
+              "fieldName": {
+                "type": "string",
+                "example": "parentFileHashMd5",
+                "description": "The field match criteria uses",
+                "enum": [
+                  "parentFileHashMd5",
+                  "processFileHashMd5",
+                  "objectFileHashMd5",
+                  "srcFileHashMd5",
+                  "processPayloadFileHashMd5",
+                  "parentPayloadFileHashMd5",
+                  "attachmentFileHashMd5"
+                ]
+              },
+              "fieldValues": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "d41d8cd98f00b204e9800998ecf8427e",
+                  "description": "The value of the field. \n\nYou can specify up to 20 values. Values cannot exceed 2048 characters.\n\nSupported values: MD5 hashes with the following format: `^[A-Fa-f0-9]{32}$`\n"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

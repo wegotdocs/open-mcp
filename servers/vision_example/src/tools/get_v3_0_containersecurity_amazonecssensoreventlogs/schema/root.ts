@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "startDateTime": z.string().datetime({ offset: true }).max(20).describe("The start of the data retrieval time range, in ISO 8601 format.\n\n`startDateTime` cannot be set to more than 30 days prior to the time you make the request.\n").optional(),
+  "endDateTime": z.string().datetime({ offset: true }).max(20).describe("The end of the data retrieval time range, in ISO 8601 format.\n\n`endDateTime` must be greater than than `startDateTime`.\n").optional(),
+  "TMV1-Filter": z.string().max(1024).describe("The Filter for retrieving a subset of the sensor events On Amazon ECS clusters. Include this parameter in every request that generates paginated output.\n\nSupported fields:\n|Field |Description |Allowed values |\n|------|------------|-----------------|\n|`clusterId`   |The ID of the cluster in Container Security |Any value |\n|`clusterName` |The name of the cluster |Any value |\n|`policyId`    |The ID of the policy for an event |Any value |\n|`policyName`  |The name of a policy for an event |Any value |\n|`mitigation`|The mitigation action to take when a rule fails during runtime. |Any value|\n|`ruleName`|The name of the rule that the event triggers|Any|\n|`ruleId`|The ID of the rule that the event triggers|Any|\n\nSupported operators:\n* `eq` - Operator \"equal to\"\n* `and` - Operator \"and\"\n* `or` - Operator \"or\"\n* `contains` - Operator that allows you to search for a specified string in a field\n* `not` - Operator \"not\"\n* `()` - Symbols for grouping operands\n").optional()
+}

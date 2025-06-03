@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique alphanumeric string that identifies a data pipeline.\n",
+      "type": "string",
+      "example": "8746fc45-6b9d-4923-b476-931aec6e06eb"
+    },
+    "type": {
+      "type": "string",
+      "description": "Data type\n",
+      "enum": [
+        "telemetry",
+        "detection"
+      ]
+    },
+    "subType": {
+      "type": "array",
+      "description": "Default: `\"all\"`\n\n(Optional) Allows you to specify the type of data to retrieve. If no value is specified, the pipeline retrieves all available data types.\n\nNote: Only applicable for the Telemetry data source.\n",
+      "items": {
+        "type": "string",
+        "enum": [
+          "endpointActivity",
+          "cloudActivity",
+          "emailActivity",
+          "mobileActivity",
+          "networkActivity",
+          "containerActivity",
+          "identityActivity",
+          "all"
+        ],
+        "example": "endpointActivity"
+      },
+      "default": [
+        "all"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Notes or comments about the pipeline.\n",
+      "example": "to siemhost1",
+      "maxLength": 4000
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

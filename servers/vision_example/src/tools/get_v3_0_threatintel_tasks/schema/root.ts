@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "orderBy": z.string().max(30).describe("The parameter that allows you to sort the retrieved search results in ascending or descending order. If no order is specified, the results are shown in ascending order.\n\nSupported fields and operators:\n\n* 'lastActionDateTime'\n* 'asc' - Ascending order\n* 'desc' - Descending order\n").optional(),
+  "filter": z.string().max(4000).describe("Filter for retrieving a subset of the sweeping task list. Supported fields and operators:\n* id - Unique alphanumeric string that identifies a sweeping task\n* sweepType - Type of sweeping task. Possible values: \"schedule\", \"manual\" and \"stixShifter\"\n* isHit - States whether indicators were matched during a sweeping task (boolean)\n* status - Status of a sweeping task. Possible values: \"notstarted\", \"running\", \"succeeded\", and \"failed\"\n\n* 'eq' - Abbreviation of the operator \"equal to\"\n* 'and' - Operator \"and\"\n* 'or' - Operator \"or\"\n* 'not' - Operator \"not\"\n* '( )' - Symbols for grouping operands with their correct operator.\n").optional(),
+  "startDateTime": z.string().datetime({ offset: true }).describe("The timestamp in ISO 8601 format.").describe("The timestamp in ISO 8601 format that indicates the start of the data retrieval time range. If no value is specified, 'startDateTime' defaults to the earliest available value for 'createdDateTime'.\n").optional(),
+  "endDateTime": z.string().datetime({ offset: true }).describe("The timestamp in ISO 8601 format.").describe("The timestamp in ISO 8601 format that indicates the end of the data retrieval time range. If no value is specified, 'endDateTime' defaults to the time the request is made.\n").optional(),
+  "top": z.union([z.literal(50), z.literal(100), z.literal(200)]).describe("The number of records displayed on a page").optional()
+}

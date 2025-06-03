@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "If you provided a description for the ruleset, it is returned here. ",
+      "example": "My ruleset description",
+      "maxLength": 128
+    },
+    "labels": {
+      "description": "The key and value of the container object",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The key of the container object label",
+            "example": "app",
+            "maxLength": 32
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the container object label",
+            "example": "nginx",
+            "maxLength": 32
+          }
+        },
+        "required": [
+          "key",
+          "value"
+        ]
+      },
+      "type": "array"
+    },
+    "rules": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 20,
+            "description": "The unique ID assigned to the rule.",
+            "example": "TM-00000001"
+          },
+          "mitigation": {
+            "example": "log",
+            "default": "log",
+            "type": "string",
+            "enum": [
+              "log",
+              "isolate",
+              "terminate"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "uniqueItems": true,
+      "maxItems": 100
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "top": z.union([z.literal(25), z.literal(50), z.literal(100), z.literal(500), z.literal(1000), z.literal(5000)]).describe("The number of records displayed on a page.\n").optional(),
+  "TMV1-Filter": z.string().max(254).describe("The filter for retrieving a list of a subset of connected AWS accounts.\n\nSupported fields:\n|Field  |Description |Supported values|\n|---------|---------|---------|\n|name|The name of the AWS account.|Any value|\n|state|The state of the AWS account.|`managed`, `outdated`, `failed`|\n|featureId|The features enabled for the AWS account.|`container-security`, `cloud-response`|\n|id|The ID of the AWS account.|Any value|\n\nSupported operators:\n|Operator  |Description  |\n|---------|---------|\n|`eq`|Operator 'equal to'|\n|`and`|Operator 'and'|\n|`or`|Operator 'or'|\n|`not`|Operator 'not'|\n|`( )`|Symbols for grouping operands with their correct operator.|\n|`contains`|Operator that allows you to search for a specified string in a field|\n\nNote: Include this parameter in every request that generates paginated output.\n").optional()
+}

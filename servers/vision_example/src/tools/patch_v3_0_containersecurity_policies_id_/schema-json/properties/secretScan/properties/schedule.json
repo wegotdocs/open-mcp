@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the Runtime Secret Scan is enabled. If true and a new schedule is not configured, the previously configured schedule is applied. If no schedule has been configured, an error is returned."
+    },
+    "skipIfRuleNotChanged": {
+      "type": "boolean",
+      "description": "Whether scheduled Runtime Secret Scans will be skipped. If true, scheduled Runtime Secret Scans of the container image are skipped when the rule has not changed."
+    },
+    "cron": {
+      "type": "string",
+      "maxLength": 23,
+      "description": "The cron expression for the scheduled scan based on UTC. Only daily and weekly schedules are currently supported.  ",
+      "example": "0 0 * * *",
+      "pattern": "^([0-5]?\\d)\\s([01]?\\d|2[0-3])\\s\\*\\s\\*\\s(\\*|([0-6](,[0-6])*)?)$"
+    }
+  }
+}

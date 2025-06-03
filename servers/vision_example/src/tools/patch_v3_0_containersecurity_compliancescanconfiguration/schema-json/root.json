@@ -1,0 +1,162 @@
+{
+  "type": "object",
+  "properties": {
+    "scheduleScanEnabled": {
+      "type": "boolean",
+      "description": "Whether the scheduled compliance scan is enabled or disabled",
+      "example": true
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "benchmarkVersion",
+          "parameters"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The benchmark type of the exception",
+            "enum": [
+              "Kubernetes",
+              "Amazon EKS",
+              "Google GKE",
+              "NSA"
+            ]
+          },
+          "benchmarkVersion": {
+            "type": "string",
+            "maxLength": 128,
+            "description": "The benchmark version of the exception",
+            "example": "1.9.0"
+          },
+          "parameters": {
+            "type": "array",
+            "description": "The categories of the exception.\n\nDifferent benchmark versions might have different exception categories. To get the list of supported exception categories for a specific benchmark version, make a GET request to the `/complianceScanConfiguration` endpoint.\n\nSupported values for Kubernetes benchmark version 1.9.0: \n- `cluster_admin_role`\n- `secrets_access`\n- `role_wildcards`\n- `pods_creation_access`\n- `restrict_default_service_accounts`\n- `allow_service_acc_token_mount`\n",
+            "example": [
+              {
+                "id": "cluster_admin_role",
+                "value": "elm-traefik-crd,helm-traefik,system:masters"
+              },
+              {
+                "id": "secrets_access",
+                "value": "system:kube-controller-manager,expand-controller,persistent-volume-binder,traefik,keda-operator,bootstrap-signer,token-cleaner"
+              },
+              {
+                "id": "role_wildcards",
+                "value": "helm-traefik,kube-apiserver,system:kube-controller-manager,disruption-controller,generic-garbage-collector,horizontal-pod-autoscaler,namespace-controller,resourcequota-controller,k3s-cloud-controller-manager,local-path-provisioner-service-account,keda-operator"
+              },
+              {
+                "id": "pods_creation_access",
+                "value": "daemon-set-controller,job-controller,persistent-volume-binder,replicaset-controller,replication-controller,statefulset-controller"
+              },
+              {
+                "id": "restrict_default_service_accounts",
+                "value": "helm-traefik-crd,helm-traefik,keda-operator,keda-operator-metrics-apiserver-b5c97bbd8-2qmwb,keda-operator-6664786d49-vtsm9,keda-admission-webhooks-b7cc9c84b-52q5d,svclb-traefik-89b5b6fa-ksnsb"
+              },
+              {
+                "id": "allow_service_acc_token_mount",
+                "value": "helm-traefik-crd,helm-traefik,keda-operator,keda-operator-metrics-apiserver-b5c97bbd8-2qmwb,keda-operator-6664786d49-vtsm9,keda-admission-webhooks-b7cc9c84b-52q5d"
+              }
+            ],
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "value"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "maxLength": 128,
+                  "description": "The ID of the exception category of the compliance scan"
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 2048,
+                  "description": "A list of the compliance scan exceptions"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "benchmarkVersions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "The settings of the request\n\nDefault: The latest supported versions of the benchmark\n",
+        "required": [
+          "type",
+          "activated"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of the benchmark",
+            "enum": [
+              "Kubernetes",
+              "Amazon EKS",
+              "OpenShift",
+              "Google GKE",
+              "NSA"
+            ]
+          },
+          "activated": {
+            "type": "string",
+            "maxLength": 128,
+            "description": "The active benchmark version of the compliance scan.\n\n> **Tip**\n>\n> Get the available benchmark versions for a type by making a GET request to the `/v3.0/containerSecurity/complianceScanVersions` endpoint."
+          }
+        },
+        "example": {
+          "type": "Kubernetes",
+          "activated": "1.9.0"
+        }
+      }
+    },
+    "frameworks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "activationStatus"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The framework type of the compliance scans\n\nCIS supports Kubernetes clusters by platform. NSA supports universal Kubernetes clusters regardless of the platform.\n",
+            "enum": [
+              "CIS",
+              "NSA"
+            ]
+          },
+          "activationStatus": {
+            "type": "string",
+            "description": "The activation status of compliance scan frameworks used to run scans\n",
+            "enum": [
+              "activated",
+              "deactivated"
+            ],
+            "default": "deactivated"
+          }
+        }
+      },
+      "example": [
+        {
+          "name": "CIS",
+          "activationStatus": "activated"
+        },
+        {
+          "name": "NSA",
+          "activationStatus": "deactivated"
+        }
+      ]
+    }
+  },
+  "required": []
+}

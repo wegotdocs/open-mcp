@@ -1,0 +1,27 @@
+{
+  "description": "The runtime properties of this policy.",
+  "type": "object",
+  "properties": {
+    "rulesets": {
+      "description": "The list of runtime rulesets associated to this policy",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "description": "The ID of the ruleset",
+            "example": "ruleset1-1u8aTLsht8qh2M0d7cPXqxnBfDG"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  },
+  "required": [
+    "rulesets"
+  ]
+}

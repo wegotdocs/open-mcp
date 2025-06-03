@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "top": {
+      "description": "The number of records displayed on a page.",
+      "type": "integer",
+      "enum": [
+        25,
+        50,
+        100
+      ],
+      "example": 25,
+      "default": 25
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the ECS Images Occurrences List. Include this parameter in every request that generates paginated output\n\nSupported fields:\n  * `imageId` - The  The ID of the container image\n\nSupported operators:\n* `eq` - Operator \"equal to\"\n* `not` - Operator \"not\"\n* `or` - Operator \"or\"\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

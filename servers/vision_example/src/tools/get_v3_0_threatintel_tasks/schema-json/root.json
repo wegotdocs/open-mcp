@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "orderBy": {
+      "description": "The parameter that allows you to sort the retrieved search results in ascending or descending order. If no order is specified, the results are shown in ascending order.\n\nSupported fields and operators:\n\n* 'lastActionDateTime'\n* 'asc' - Ascending order\n* 'desc' - Descending order\n",
+      "type": "string",
+      "default": "lastActionDateTime desc",
+      "maxLength": 30
+    },
+    "filter": {
+      "description": "Filter for retrieving a subset of the sweeping task list. Supported fields and operators:\n* id - Unique alphanumeric string that identifies a sweeping task\n* sweepType - Type of sweeping task. Possible values: \"schedule\", \"manual\" and \"stixShifter\"\n* isHit - States whether indicators were matched during a sweeping task (boolean)\n* status - Status of a sweeping task. Possible values: \"notstarted\", \"running\", \"succeeded\", and \"failed\"\n\n* 'eq' - Abbreviation of the operator \"equal to\"\n* 'and' - Operator \"and\"\n* 'or' - Operator \"or\"\n* 'not' - Operator \"not\"\n* '( )' - Symbols for grouping operands with their correct operator.\n",
+      "type": "string",
+      "maxLength": 4000
+    },
+    "startDateTime": {
+      "description": "The timestamp in ISO 8601 format that indicates the start of the data retrieval time range. If no value is specified, 'startDateTime' defaults to the earliest available value for 'createdDateTime'.\n",
+      "allOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp in ISO 8601 format.",
+          "example": "2019-03-15T07:44:27Z"
+        }
+      ]
+    },
+    "endDateTime": {
+      "description": "The timestamp in ISO 8601 format that indicates the end of the data retrieval time range. If no value is specified, 'endDateTime' defaults to the time the request is made.\n",
+      "allOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp in ISO 8601 format.",
+          "example": "2019-03-15T07:44:27Z"
+        }
+      ]
+    },
+    "top": {
+      "description": "The number of records displayed on a page",
+      "type": "integer",
+      "enum": [
+        50,
+        100,
+        200
+      ],
+      "default": 100
+    }
+  },
+  "required": []
+}

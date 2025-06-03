@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "awsRegion": z.string().max(254).describe("The AWS region for template deployment.\n\nNotes:\n- The default region is based on your Trend Vision One region.\n- Some features and permissions have limited support for some AWS regions. For more information, see https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/CAMSupportedRegions\n").optional(),
+  "features": z.array(z.object({ "id": z.enum(["cloud-sentry","container-security"]).describe("The ID of the feature."), "regions": z.array(z.string().max(254)).describe("The regions where features are deployed.\n\nDefault: All regions that Cloud Account Management supports, depending on how the feature stack filters the regions.\n").optional() })).describe("The list of features you selected and the corresponding regions for deployment.\n").optional(),
+  "awsAccountName": z.string().max(254).describe("The cloud account name that will be assigned to the account created.").optional(),
+  "awsAccountDescription": z.string().max(254).describe("The cloud account description that will be assigned to the account created.").optional(),
+  "connectedSecurityServices": z.array(z.object({ "name": z.literal("workload").describe("The name of the associated security service.\n\nThis value refers to specific security services connected to the system.\n\nAvailable values:\n* `workload` - Server & Workload Protection\n"), "instanceIds": z.array(z.string().max(254)).describe("The instance ID of the associated security service.\n") })).describe("The security service associated with the connected AWS account.\n").optional()
+}

@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "top": {
+      "description": "The number of records displayed on a page.",
+      "type": "integer",
+      "enum": [
+        25,
+        50,
+        100
+      ],
+      "example": 25,
+      "default": 25
+    },
+    "orderBy": {
+      "description": "The fields by which the results are sorted. You can indicate multiple fields separated by commas (`,`).\n\nTo return records in descending order, add the keyword `desc` after the parameter name.\n\nAvailable fields:\n* `createdDateTime`\n* `updatedDateTime`\n",
+      "type": "string",
+      "maxLength": 64,
+      "default": "createdDateTime desc"
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the policies list. Include this parameter in every request that generates paginated output.\n\nSupported fields:\n* `name` -  The name of the policy\n* `xdrEnabled` - Whether XDR telemetry is enabled\n* `type` - The type of the policy. Supported values:  `userManaged`, `clusterManaged`\n\nSupported operators:\n* `eq` - Operator \"equal to\"\n* `and` - Operator \"and\"\n* `or` - Operator \"or\"\n* `not` - Operator \"not\"\n* `contains` - Operator that allows you to search for a specified string in a field\n* `()` - Symbols for grouping operands\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

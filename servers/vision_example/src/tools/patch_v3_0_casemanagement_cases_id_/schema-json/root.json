@@ -1,0 +1,100 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The case ID",
+      "type": "string"
+    },
+    "associatedItemIds": {
+      "description": "A list of alert IDs and incident IDs associated with the case",
+      "example": [
+        "WB-11542-20230914-00041"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "description": {
+      "description": "The user-defined description of the case",
+      "example": "This is the description of the case.",
+      "maxLength": 1048576,
+      "type": "string"
+    },
+    "findings": {
+      "description": "The investigation findings of the case",
+      "enum": [
+        "NoFindings",
+        "Noteworthy",
+        "TruePositive",
+        "FalsePositive",
+        "BenignTruePositive"
+      ],
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the case",
+      "example": "Possible Ransomware Attack",
+      "maxLength": 512,
+      "type": "string"
+    },
+    "priority": {
+      "description": "The priority level of the case",
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "type": "string"
+    },
+    "relatedCaseIds": {
+      "description": "A list of the IDs for related cases",
+      "example": [
+        "CL-00005-20230918-00027"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "status": {
+      "description": "The status of the case\nThe \"Deleted\" status is used by Case Management to signify that the case was deleted in the third-party ticketing system and syncing has stopped. Case Management does not delete the case.",
+      "enum": [
+        "Open",
+        "In-progress",
+        "Closed",
+        "Deleted"
+      ],
+      "type": "string"
+    },
+    "holder": {
+      "description": "The current role of the owner of the case.",
+      "enum": [
+        "Customer",
+        "Analyst"
+      ],
+      "example": "Customer",
+      "type": "string"
+    },
+    "externalTicketId": {
+      "description": "The ID of the case in the external ticketing system.",
+      "example": "TM-00221952",
+      "type": "string"
+    },
+    "externalTicketUpdatedDateTime": {
+      "description": "The date the external ticket was last updated in ISO 8601 format.",
+      "example": "2023-10-07T09:49:21Z",
+      "type": "string"
+    },
+    "If-Match": {
+      "description": "Provide the ETag of the resource to be updated",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

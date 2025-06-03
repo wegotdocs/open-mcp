@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "startDateTime": {
+      "description": "The start of the data retrieval range in ISO 8601 format. Default:startDateTime defaults to 24 hours before the request is made.",
+      "type": "string",
+      "maxLength": 20,
+      "example": "2021-04-05T08:22:37Z"
+    },
+    "endDateTime": {
+      "description": "Timestamp in ISO 8601 format that indicates the end of the data retrieval time range. If no value is specified, 'endDateTime' defaults to the time the request is made.",
+      "type": "string",
+      "maxLength": 20,
+      "example": "2021-04-06T08:22:37Z"
+    },
+    "top": {
+      "description": "The number of records displayed on a page in default mode.",
+      "type": "integer",
+      "enum": [
+        50,
+        100,
+        500,
+        1000,
+        5000
+      ],
+      "default": 500,
+      "example": 500
+    },
+    "mode": {
+      "description": "The type of data returned by the query results (\"default\" displays all data returned by the query, \"countOnly\" displays the number of records returned, and \"performance\" limits the returned records to 500.):\n* 'default' - Displays the data returned by the query\n* 'countOnly' - Displays the number of records returned by the query\n* 'performance' - 'performance' - Displays the data in performance mode, but the \"top\" parameter does not work and there may be zero records returned even though progressRate has not reached 100. To display all records, call the API again via nextLink until progressRate has reached 100. Use count mode to avoid returning empty data.\n",
+      "type": "string",
+      "maxLength": 36,
+      "default": "default",
+      "enum": [
+        "default",
+        "countOnly",
+        "performance"
+      ]
+    },
+    "select": {
+      "description": "The list of fields included in search results (If no fields are specified, the query returns all supported fields.)",
+      "type": "string",
+      "maxLength": 2048,
+      "default": "empty"
+    },
+    "TMV1-Query": {
+      "description": "Statement that allows you to retrieve a subset of the collected secure access activity data. \n\nSupported fields:\n\n| Field                       | Match support |\n|-----------------------------|---------------|\n| 'tags'                      | Partial match |\n| 'productCode'               | Partial match |\n| 'uuid'                      | Partial match |\n| 'osName'                    | Partial match |\n| 'filterRiskLevel'           | Partial match |\n| 'endpointHostName'          | Partial match |\n| 'dst'                       | Partial match |\n| 'src'                       | Partial match |\n| 'endpointGuid'              | Partial match |\n| 'principalName'             | Partial match |\n| 'request'                   | Partial match |\n| 'application'               | Partial match |\n| 'ruleName'                  | Partial match |\n| 'clientIp'                  | Partial match |\n| 'requestBase'               | Partial match |\n| 'eventSubName'              | Partial match |\n| 'fileHash'                  | Partial match |\n| 'fileHashSha256'            | Partial match |\n| 'fileName'                  | Partial match |\n| 'dpt'                       | Full match    |\n| 'fileName'                  | Partial match |\n| 'act'                       | Partial match |\n| 'eventName'                 | Partial match |\n| 'malName'                   | Partial match |\n| 'detectionType'             | Partial match |\n| 'profile'                   | Partial match |\n| 'deviceGUID'                | Partial match |\n| 'flowId'                    | Partial match |\n| 'serverIp'                  | Partial match |\n| 'clientPort'                | Full match    |\n| 'serverPort'                | Full match    |\n| 'app'                       | Partial match |\n| 'requestMethod'             | Partial match |\n| 'respMethod'                | Partial match |\n| 'requestClientApplication'  | Partial match |\n| 'httpReferer'               | Partial match |\n| 'httpXForwardedForIp'       | Partial match |\n| 'resolvedUrlIp'             | Partial match |\n| 'resolvedUrlPort'           | Full match    |\n| 'respCode'                  | Partial match |\n| 'httpLocation'              | Partial match |\n| 'userDomain'                | Partial match |\n| 'suid'                      | Partial match |\n| 'hostName'                  | Partial match |\n| 'msgId'                     | Partial match |\n| 'mailMsgSubject'            | Partial match |\n| 'suser'                     | Partial match |\n| 'duser'                     | Partial match |\n| 'requests'                  | Partial match |\n| 'fileType'                  | Partial match |\n| 'respFileHash'              | Partial match |\n| 'respFileHashSha256'        | Partial match |\n| 'respFileType'              | Partial match |\n| 'sslCertCommonName'         | Partial match |\n| 'sslCertSerialNumber'       | Partial match |\n| 'sslCertSANs'               | Partial match |\n| 'sslCertFingerprint'        | Partial match |\n| 'ja3Hash'                   | Partial match |\n| 'ja3sHash'                  | Partial match |\n\nSupported operators:\n* ':' - Abbreviation of the operator \"equal to\"\n* 'and' - Operator \"and\"\n* 'or' - Operator \"or\"\n* 'not' - Operator \"not\"\n* '( )' - Symbols for grouping operands with their correct operator.\n\nNote: For more information about the query syntax and supported fields, see https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/DataMappingTables.\n",
+      "type": "string",
+      "maxLength": 2048
+    }
+  },
+  "required": [
+    "TMV1-Query"
+  ]
+}

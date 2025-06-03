@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier of a Workbench alert",
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of a case or investigation.",
+      "enum": [
+        "Open",
+        "In Progress",
+        "Closed"
+      ]
+    },
+    "investigationResult": {
+      "type": "string",
+      "description": "The findings of a case or investigation.",
+      "enum": [
+        "No Findings",
+        "Noteworthy",
+        "True Positive",
+        "False Positive",
+        "Benign True Positive",
+        "Other Findings"
+      ]
+    },
+    "If-Match": {
+      "description": "The ETag of the resource you want to update.\n\nNote: The resource is updated only if the provided value matches the ETag of the resource.\n",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "type": "object",
+  "properties": {
+    "associatedItemIds": {
+      "description": "A list of the alert IDs and incident IDs associated with the case",
+      "example": [
+        "WB-11542-20230914-00041"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "description": {
+      "description": "The user-defined description of the case",
+      "example": "This is the description of the case.",
+      "maxLength": 1048576,
+      "type": "string"
+    },
+    "externalTicketAlias": {
+      "description": "The human-readable ID of the case in the 3rd-party ticketing system",
+      "example": "CAS0010152",
+      "maxLength": 128,
+      "type": "string"
+    },
+    "externalTicketId": {
+      "description": "The unique ID of the case in the 3rd-party ticketing system",
+      "example": "732e224f871df910fddc415d0ebb35c9",
+      "maxLength": 128,
+      "type": "string"
+    },
+    "findings": {
+      "description": "The investigation findings of the case",
+      "enum": [
+        "NoFindings",
+        "Noteworthy",
+        "TruePositive",
+        "FalsePositive",
+        "BenignTruePositive"
+      ],
+      "type": "string"
+    },
+    "name": {
+      "description": "The user-defined name of the case",
+      "example": "Possible Ransomware Attack",
+      "maxLength": 512,
+      "type": "string"
+    },
+    "priority": {
+      "description": "The priority level of the case",
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "type": "string"
+    },
+    "relatedCaseIds": {
+      "description": "A list of the IDs for related cases",
+      "example": [
+        "CL-00005-20230918-00027"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "status": {
+      "description": "The status of the case",
+      "enum": [
+        "Open",
+        "In-progress",
+        "Closed"
+      ],
+      "type": "string"
+    },
+    "holder": {
+      "description": "The current role of the owner of the case.",
+      "enum": [
+        "Customer",
+        "Analyst"
+      ],
+      "example": "Customer",
+      "type": "string"
+    },
+    "externalTicketCreatedDateTime": {
+      "description": "The date the external ticket was created in ISO 8601 format.",
+      "example": "2023-10-07T09:49:21Z",
+      "type": "string"
+    }
+  },
+  "required": [
+    "externalTicketAlias",
+    "externalTicketId",
+    "name",
+    "priority",
+    "status"
+  ]
+}

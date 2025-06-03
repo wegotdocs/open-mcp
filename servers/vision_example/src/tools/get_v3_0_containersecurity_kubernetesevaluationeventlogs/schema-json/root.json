@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "startDateTime": {
+      "description": "The start of the data retrieval time range, in ISO 8601 format.\n\n`startDateTime` cannot be set to more than 30 days prior to the time you make the request.\n",
+      "type": "string",
+      "format": "date-time",
+      "default": "now() - 30 days",
+      "maxLength": 20
+    },
+    "endDateTime": {
+      "description": "The end of the data retrieval time range, in ISO 8601 format.\n\n`endDateTime` must be greater than than `startDateTime`.\n",
+      "type": "string",
+      "format": "date-time",
+      "default": "Current date time",
+      "maxLength": 20,
+      "example": "2020-06-15T12:00:00Z"
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the evaluation events of your Kubernetes clusters. Include this parameter in every request that generates paginated output.\n\nSupported fields:\n\n|Field |Description |Allowed values |\n|------|------------|-----------------|\n|`action`      |The policy action for the event|`allow`, `block`, `log` |\n|`clusterId`   |The ID of the cluster in Container Security |Any value |\n|`clusterName` |The name of the cluster |Any value |\n|`decision`    |The evaluation decision for the event |`allow`, `deny` |\n|`mitigation`  |The policy mitigation action for the event |`log`, `isolate`, `terminate` |\n|`policyId`    |The ID of the policy for an event |Any value |\n|`policyName`  |The name of a policy for an event |Any value |\n|`namespace`|The cluster namespace of the event|Any value |\n|`operation`|The operation of the evaluation event|Any value |\n\nSupported operators:\n* `eq` - Operator \"equal to\"\n* `and` - Operator \"and\" \n* `or` - Operator \"or\"\n* `contains` - Operator that allows you to search for a specified string in a field\n* `not` - Operator \"not\"\n* `()` - Symbols for grouping operands         \n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

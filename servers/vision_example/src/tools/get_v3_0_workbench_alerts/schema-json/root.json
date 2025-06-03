@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "startDateTime": {
+      "description": "Datetime in ISO 8601 format (yyyy-MM-ddThh:mm:ssZ in UTC) that indicates the start of the data retrieval time range. The available oldest value is \"1970-01-01T00:00:00Z\"",
+      "type": "string",
+      "format": "date-time"
+    },
+    "endDateTime": {
+      "description": "Datetime in ISO 8601 format (yyyy-MM-ddThh:mm:ssZ in UTC) that indicates the end of the data retrieval time range. Ensure that \"endDateTime\" is not earlier than \"startDateTime\".",
+      "type": "string",
+      "format": "date-time"
+    },
+    "dateTimeTarget": {
+      "description": "The timestamp to be used for retrieving Workbench alert data.",
+      "type": "string",
+      "enum": [
+        "createdDateTime",
+        "updatedDateTime",
+        "firstInvestigatedDateTime"
+      ],
+      "default": "createdDateTime"
+    },
+    "orderBy": {
+      "description": "Specifies the field by which the results are sorted. \n\nRecords are returned in descending order by default. To return records in ascending order, add the phrase `asc` after the parameter name.\n\nYou can specify multiple fields separated by commas.\n\nAvailable values:\n* id\n* caseId\n* name\n* investigationStatus (deprecated)\n* status\n* investigationResult\n* modelId\n* model\n* score\n* severity\n* createdDateTime\n* updatedDateTime\n* firstInvestigatedDateTime\n",
+      "type": "string",
+      "default": "createdDateTime desc",
+      "maxLength": 200
+    },
+    "TMV1-Filter": {
+      "description": "Filter for retrieving a subset of the alert list.\n\nSupported fields:\n|Field    |Description |Possible values|\n|---------|------------|--------------|\n|id |The unique identifier of an alert |Any value|\n|investigationStatus **(Deprecated)** |The current status of the Workbench alert or investigation |`New`, `In Progress`, `True Positive`, `False Positive`, `Benign True Positive`, `Closed`|\n|status |The status of the case or investigation |`Open`, `In Progress`, `Closed`|\n|investigationResult |The findings of the case or investigation |`No Findings`, `Noteworthy`, `True Positive`, `False Positive`, `Benign True Positive`, `Other Findings`|\n|alertProvider |Source of a Workbench alert |`SAE`, `TI`|\n|modelId |ID of the detection model that triggered the alert |Any value|\n|model |The detection model that triggered the alert |Any value|\n|modelType |The type of detection model that triggered the alert |`preset`, `custom`|\n|severity |The severity assigned to a model that triggered the alert |`critical`, `high`, `medium`, `low`|\n|impactScopeEntityValue |Entities affected within the company network |Any value|\n|indicatorValue |Objects found using root cause analysis or sweeping |Any value|\n|incidentId |The unique identifier of an incident |Any value|\n\nSupported operators:\n|Operator |Description |\n|---------|------------|\n|`eq`|Operator 'equal to'|\n|`and`|Operator 'and'|\n|`or`|Operator 'or'|\n|`not`|Operator 'not'|\n|`( )`|Symbols for grouping operands with their correct operator.|\n|`contains`|Operator that allows you to search for a specified string in a field|\n\nNote: Include this parameter in every request that generates paginated output.\n",
+      "type": "string",
+      "maxLength": 5000
+    }
+  },
+  "required": []
+}

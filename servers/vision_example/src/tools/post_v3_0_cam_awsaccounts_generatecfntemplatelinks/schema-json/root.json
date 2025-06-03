@@ -1,0 +1,155 @@
+{
+  "type": "object",
+  "properties": {
+    "awsRegion": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The AWS region for template deployment\n\n> **Note**\n> - The default region is based on your Trend Vision One region.\n> - Some features and permissions have limited support for some AWS regions. For more information, see https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/CAMSupportedRegions\n",
+      "example": "us-east-1"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 254,
+            "enum": [
+              "cloud-sentry",
+              "container-security"
+            ],
+            "description": "The ID of the feature.",
+            "example": "container-security"
+          },
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 254
+            },
+            "description": "The regions where features are deployed.\n\nDefault: All regions that Cloud Account Management supports, depending on how the feature stack filters the regions.\n",
+            "example": [
+              "us-east-1",
+              "us-east-2"
+            ]
+          }
+        }
+      },
+      "description": "The list of features you selected and the corresponding regions for deployment.\n",
+      "example": [
+        {
+          "id": "container-security",
+          "regions": [
+            "us-east-1",
+            "us-east-2"
+          ]
+        },
+        {
+          "id": "cloud-sentry"
+        }
+      ]
+    },
+    "templateAccountType": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The type of template generation for a single account scope or organization scope\n",
+      "enum": [
+        "single",
+        "organization"
+      ],
+      "example": "organization"
+    },
+    "awsAccountName": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The cloud account name assigned to the created account\n"
+    },
+    "awsAccountDescription": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The cloud account description assigned to the created account\n"
+    },
+    "connectedSecurityServices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "instanceIds"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 254,
+            "enum": [
+              "workload"
+            ],
+            "description": "The name of the associated security service.\n\nThis value refers to specific security services connected to the system.\n\nAvailable values:\n* `workload` - Server & Workload Protection\n",
+            "example": "workload"
+          },
+          "instanceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 254
+            },
+            "description": "The instance ID of the associated security service.\n",
+            "example": [
+              "00000000-aaaa-bbbb-cccc-ffffffffffff"
+            ]
+          }
+        }
+      },
+      "description": "The security service associated with the connected AWS account.\n",
+      "example": [
+        {
+          "name": "workload",
+          "instanceIds": [
+            "00000000-aaaa-bbbb-cccc-ffffffffffff"
+          ]
+        }
+      ]
+    },
+    "customTags": {
+      "description": "The custom tags attached to the resources created by Trend Vision One\n",
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "value"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The key of the custom tag",
+            "maxLength": 128,
+            "example": "key"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the custom tag",
+            "maxLength": 255,
+            "example": "value"
+          }
+        }
+      },
+      "example": [
+        {
+          "key": "key1",
+          "value": "value1"
+        },
+        {
+          "key": "key2",
+          "value": "value2"
+        }
+      ]
+    }
+  },
+  "required": []
+}

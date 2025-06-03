@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The GCP project number Cloud Account Management uses for managing the connected GCP project.",
+      "type": "string",
+      "maxLength": 30
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The name of the Google Cloud project to be used in Cloud Accounts.",
+      "example": "production account"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The description of the Google Cloud project.\nIf there is no description, the field is empty.\n",
+      "example": "Corp ABC production account"
+    },
+    "If-Match": {
+      "description": "Entity tag in MD5 format to perform version control on the resource to be updated. This is returned in response header `ETag` of the v3 GET method.",
+      "type": "string",
+      "maxLength": 254
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

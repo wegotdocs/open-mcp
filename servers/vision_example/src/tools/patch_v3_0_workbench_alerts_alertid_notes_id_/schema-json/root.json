@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "alertId": {
+      "description": "Unique alphanumeric string that identifies a Workbench alert.",
+      "type": "string"
+    },
+    "id": {
+      "description": "Numeric string that identifies a Workbench alert note.",
+      "type": "integer"
+    },
+    "content": {
+      "type": "string",
+      "maxLength": 500000
+    },
+    "If-Match": {
+      "description": "Parameter that allows you to specify the version of the resource to be updated.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "alertId",
+    "id",
+    "content"
+  ]
+}

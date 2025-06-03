@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "cloudAccountName": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The name of the Alibaba Cloud account.\n\nUse this value as the 'name' field in the 'POST /v3.0/cam/alibabaAccounts' API.\n",
+      "example": "production account"
+    },
+    "cloudAccountDescription": {
+      "type": "string",
+      "maxLength": 254,
+      "default": "",
+      "description": "The description of the Alibaba Cloud account.\n\nUse this value as the 'description' field in the 'POST /v3.0/cam/alibabaAccounts' API.\n",
+      "example": "Corp ABC production account"
+    },
+    "alibabaRegion": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The region of Terraform backend where the state files are stored.\n\n> **Important** > > The default region is based on your Trend Vision One region.\n",
+      "example": "us-east-1"
+    },
+    "connectedSecurityServices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "instanceIds"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "workload"
+            ],
+            "description": "The name of the security services connected to the system.\n\nAvailable values:\n* `workload` - Server & Workload Protection\n",
+            "example": "workload"
+          },
+          "instanceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 254
+            },
+            "description": "The instance ID of the associated security service.\n",
+            "example": [
+              "00000000-aaaa-bbbb-cccc-ffffffffffff"
+            ]
+          }
+        }
+      },
+      "description": "The security service associated with the connected Alibaba Cloud account.\n",
+      "example": [
+        {
+          "name": "workload",
+          "instanceIds": [
+            "00000000-aaaa-bbbb-cccc-ffffffffffff"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "cloudAccountName",
+    "alibabaRegion"
+  ]
+}

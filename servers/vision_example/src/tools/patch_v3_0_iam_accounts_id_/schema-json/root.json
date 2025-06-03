@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier of a user in your corporate account identity provider solution.",
+      "type": "string",
+      "maxLength": 256,
+      "example": "4d5d11b1-84d3-403f-8bfd-85af78933c7a"
+    },
+    "role": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "The role assigned to a user",
+      "example": "full-access"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "enabled",
+        "disabled"
+      ],
+      "description": "The status of an account. Available values: `enabled`, `disabled`\n",
+      "example": "disabled"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "A brief note or identifier for the user account.",
+      "example": "update"
+    },
+    "If-Match": {
+      "description": "Allows you to update an existing resource.\n\nNote: To get an ETag, send a GET request to the API\n",
+      "type": "string",
+      "maxLength": 256,
+      "example": "0x8D9AB4B0CA9D336"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "top": z.union([z.literal(25), z.literal(50), z.literal(100)]).describe("The number of records displayed on a page.").optional(),
+  "orderBy": z.string().max(64).describe("The field by which the results are sorted. \n\nSupported fields:\n\n* `riskLevel` - The risk level of the vulnerability. Allowed values: `high`, `medium`, `low`\n* `firstDetectedDatetime` - The date and time when the vulnerability was first detected\n* `lastDetectedDatetime` - The date and time when the vulnerability was last detected\n\nAvailable keywords\n\n* `desc` - Descending order              \n").optional(),
+  "firstDetectedStartDateTime": z.string().datetime({ offset: true }).max(20).describe("The start of the data retrieval time range, in ISO 8601 format.\n\n Note: firstDetectedStartDateTime time cannot exceed the previous 30 days.\n").optional(),
+  "firstDetectedEndDateTime": z.string().datetime({ offset: true }).max(20).describe("The end of the data retrieval time range, in ISO 8601 format.\n\n Note: firstDetectedEndDateTime cannot be earlier than firstDetectedStartDateTime\n").optional(),
+  "lastDetectedStartDateTime": z.string().datetime({ offset: true }).max(20).describe("The start of the data retrieval time range, in ISO 8601 format.\n\n Note: lastDetectedStartDateTime time cannot exceed the previous 30 days.\n").optional(),
+  "lastDetectedEndDateTime": z.string().datetime({ offset: true }).max(20).describe("The end of the data retrieval time range, in ISO 8601 format.\n\n Note: lastDetectedEndDateTime cannot be earlier than lastDetectedStartDateTime\n").optional(),
+  "TMV1-Filter": z.string().max(1024).describe("The filter for retrieving a subset of the image vulnerabilities list. Include this header in every request that generates paginated output.\n\nSupported fields and operators:      \n\n|Field |Description |Allowed values |\n|------|------------|-----------------|\n|`clusterType` |The type of cluster|`kubernetes`, `amazonecs`|\n|`name`   |The name of the vulnerability |Any value |\n|`clusterId` |The ID of the cluster |Any value |\n|`imageId` |The  The ID of the container image |Any value |\n|`riskLevel` |The risk level of the vulnerability |`high`, `medium`, `low` |\n\nSupported operators:\n* `eq` - Operator \"equal to\"\n* `and` - Operator \"and\"").optional()
+}

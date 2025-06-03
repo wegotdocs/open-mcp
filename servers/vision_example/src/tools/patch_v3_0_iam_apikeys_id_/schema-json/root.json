@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier of the API key",
+      "type": "string",
+      "maxLength": 36
+    },
+    "role": {
+      "type": "string",
+      "maxLength": 128,
+      "example": "Master Administrator",
+      "description": "The user role assigned to the API key"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "The unique name of the API key",
+      "example": "test2"
+    },
+    "status": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "The status of an API key.\nAvailable values:\n* `enabled`\n* `disabled`\n",
+      "enum": [
+        "enabled",
+        "disabled"
+      ],
+      "example": "enabled"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 2048,
+      "example": "this a test apikey"
+    },
+    "If-Match": {
+      "description": "The ETag of the resource you want to update. Note: The resource is updated only if the provided value matches the ETag of the resource.",
+      "type": "string",
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

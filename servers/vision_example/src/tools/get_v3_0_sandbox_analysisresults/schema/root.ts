@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "startDateTime": z.string().datetime({ offset: true }).describe("Timestamp in ISO 8601 format that indicates the start of the data retrieval time range.\nIf no value is specified, 'startDateTime' defaults to 180 days before the time the request is made.\n").optional(),
+  "endDateTime": z.string().datetime({ offset: true }).describe("Timestamp in ISO 8601 format that indicates the end of the data retrieval time range. \nIf no value is specified, 'endDateTime' defaults to the time the request is made.\n").optional(),
+  "orderBy": z.string().max(2048).describe("Parameter that allows you to sort the retrieved elements in ascending or descending order. If no order is specified, the elements are shown in ascending order. Supported fields and operators: \n* analysisCompletionDateTime\n* riskLevel\n").optional(),
+  "filter": z.string().max(2048).describe("Filter for retrieving a subset of the analysis results list. Supported fields and operators: \n* 'sha1' - SHA-1 hash value of an object \n* 'sha256' - SHA-256 hash value of an object \n* 'md5' - MD5 hash value of an object \n* 'riskLevel' - The risk level assigned to the object by the sandbox. Possible values: 'high', 'medium', 'low', 'noRisk'\n* 'type' - Object type. Possible values: 'file', 'url'\n* 'id' - Unique alphanumeric string that identifies the analysis results of a submission\n* 'eq' - Abbreviation of the operator 'equal to' \n* 'and' - Operator 'and' \n* 'or' - Operator 'or' \n* 'not' - Operator 'not' \n* '( )' - Symbols for grouping operands with their correct operator.\n").optional(),
+  "top": z.union([z.literal(50), z.literal(100), z.literal(200)]).describe("Number of records displayed on a page.").optional()
+}

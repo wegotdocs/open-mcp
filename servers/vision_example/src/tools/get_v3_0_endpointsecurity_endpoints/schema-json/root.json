@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "orderBy": {
+      "description": "The field by which the results are sorted. \n\nData is displayed in ascending order by default. To specify an order, add the operators `asc` or `desc` after a field name.\n\nSupported fields and operators\n\n* agentGuid\n* edrSensorLastConnectedDateTime\n* eppAgentLastConnectedDateTime\n* eppAgentLastScannedDateTime\n* `asc` - Ascending order\n* `desc` - Descending order\n",
+      "type": "string",
+      "maxLength": 128,
+      "default": "agentGuid"
+    },
+    "top": {
+      "description": "Number of records displayed on a page. \n\nDefault: `100`\n",
+      "type": "integer",
+      "example": 100,
+      "enum": [
+        10,
+        50,
+        100,
+        200,
+        500,
+        1000
+      ],
+      "default": 100
+    },
+    "select": {
+      "description": "The endpoint information to include in the response.\n\nYou can indicate multiple fields separated by commas.\n\nDefault: All fields\n",
+      "type": "string",
+      "example": "endpointName,agentGuid",
+      "maxLength": 128,
+      "enum": [
+        "endpointName",
+        "osName",
+        "type",
+        "ipAddresses",
+        "isolationStatus",
+        "osPlatform",
+        "osVersion",
+        "osKernelVersion",
+        "osArchitecture",
+        "cpuArchitecture",
+        "displayName",
+        "agentGuid",
+        "lastLoggedOnUser",
+        "lastUsedIp",
+        "serviceGatewayOrProxy",
+        "serialNumber",
+        "versionControlPolicy",
+        "agentUpdatePolicy",
+        "agentUpdateStatus",
+        "creditAllocatedLicenses",
+        "securityPolicy",
+        "securityPolicyOverriddenStatus",
+        "eppAgentComponentVersion",
+        "eppAgentComponentUpdatePolicy",
+        "eppAgentComponentUpdateStatus",
+        "eppAgentProtectionManager",
+        "eppAgentEndpointGroup",
+        "eppAgentStatus",
+        "eppAgentPolicyName",
+        "eppAgentVersion",
+        "eppAgentLastConnectedDateTime",
+        "eppAgentLastScannedDateTime",
+        "eppAgentInstalledComponentIds",
+        "eppAgentPatterns",
+        "edrSensorEndpointGroup",
+        "edrSensorVersion",
+        "edrSensorComponentUpdatePolicy",
+        "edrSensorComponentUpdateStatus",
+        "edrSensorConnectivity",
+        "edrSensorLastConnectedDateTime",
+        "edrSensorStatus",
+        "edrSensorAdvancedRiskTelemetryStatus",
+        "edrSensorPatterns"
+      ]
+    },
+    "TMV1-Filter": {
+      "description": "Filter for retrieving a subset of the endpoint information list.\n\nSupported fields:\n\n<table>\n  <tr>\n    <th><p>Field</p></th>\n    <th><p>Description</p></th>\n    <th><p>Supported values</p></th>\n  </tr>\n  <tr>\n    <td><p><code>endpointName</code></p></td>\n    <td><p>The name of the endpoint.</p></td>\n    <td><p>Any value</p></td>\n  </tr>\n  <tr>\n    <td><p><code>agentGuid</code></p></td>\n    <td><p>The ID of the endpoint on the Trend Vision One platform.</p></td>\n    <td><p>Any value</p></td>\n  </tr>\n  <tr>\n    <td><p><code>type</code></p></td>\n    <td><p>The type of endpoint.</p></td>\n    <td><p><code>desktop</code>,<code>server</code></p></td>\n  <tr>\n    <td><p><code>edrSensorAdvancedRiskTelemetryStatus</code></p></td>\n    <td><p>The status of the advanced risk telemetry on the endpoint.</p></td>\n    <td><p><code>enabled</code>,<code>disabled</code>,<code>enabling</code>,<code>disabling</code>,<code>unknown</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>edrSensorConnectivity</code></p></td>\n    <td><p>The connectivity of the sensor installed on the endpoint.</p></td>\n    <td><p><code>connected</code>,<code>disconnected</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>eppAgentProtectionManager</code></p></td>\n    <td><p>The name of your protection manager.</p></td>\n    <td><p>Any value</p></td>\n  </tr>\n  <tr>\n    <td><p><code>eppAgentEndpointGroup</code></p></td>\n    <td><p>The name of the endpoint group.</p></td>\n    <td><p>Any value</p></td>\n  </tr>\n  <tr>\n    <td><p><code>osName</code></p></td>\n    <td><p>The operating system of the endpoint.</p></td>\n    <td><p>Any value</p></td>\n  </tr>\n  <tr>\n    <td><p><code>osPlatform</code></p></td>\n    <td><p>The platform of the operating system of the endpoint.</p></td>\n    <td><p><code>windows</code>,<code>mac</code>,<code>linux</code>,<code>unix</code>,<code>unknown</code></p></td>\n  <tr>\n    <td><p><code>serviceGatewayOrProxy</code></p></td>\n    <td><p>The endpoints routed through a Service Gateway or Proxy</p></td>\n    <td><p>Any value that follows the format described in the `serviceGatewayOrProxy` field</p></td>\n  </tr>\n  <tr>\n    <td><p><code>osArchitecture</code></p></td>\n    <td><p>The type of operating system running on the endpoint.</p></td>\n    <td><p><code>x86</code>,<code>x86_64</code>,<code>ppc64le</code>,<code>sparc</code>,<code>powerpc</code>,<code>aarch64</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>versionControlPolicy</code></p></td>\n    <td><p>The name of the version control policy.</p></td>\n    <td><p>Any value</p></td>\n  </tr>\n  <tr>\n    <td><p><code>agentUpdateStatus</code></p></td>\n    <td><p>The status of the agent update policy.</p></td>\n    <td><p><code>onSchedule</code>,<code>pause</code>,<code>disable</code>,<code>notSupported</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>agentUpdatePolicy</code></p></td>\n    <td><p>The agent update policy version used for version control policy APIs.</p></td>\n    <td><p>Any value</p></td>\n  </tr>\n  <tr>\n    <td><p><code>creditAllocatedLicenses</code></p></td>\n    <td><p>The features enabled on the endpoint</p></td>\n    <td><p><code>Endpoint sensor detection and response</code>,<code>Advanced Endpoint Security</code>,<code>Advanced Server & Workload Protection</code>,<code>SAP Scanner for Trend Vision One - Endpoint Security (Pro)</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>securityPolicy</code></p></td>\n    <td><p>The name of the security policy applied to the endpoint</p></td>\n    <td><p>Any value</p></td>\n  </tr>\n  <tr>\n    <td><p><code>securityPolicyOverriddenStatus</code></p></td>\n    <td><p>Whether the endpoint security policy was overridden</p></td>\n    <td><p><code>enabled</code>,<code>disabled</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>edrSensorStatus</code></p></td>\n    <td><p>The status of the endpoint sensor detection and response.</p></td>\n    <td><p><code>enabled</code>,<code>disabled</code>,<code>enabling</code>,<code>disabling</code>,<code>unknown</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>edrSensorComponentUpdatePolicy</code></p></td>\n    <td><p>The version control update policy for the module/pattern of the sensor installed on the endpoint.</p></td>\n    <td><p><code>n</code>represents the latest version.<code>n - x</code>represents x snapshots prior (Example:<code>n - 2</code>).</p></td>\n  </tr>\n  <tr>\n    <td><p><code>edrSensorComponentUpdateStatus</code></p></td>\n    <td><p>The status of the module/pattern updates of the sensor installed on the endpoint.</p></td>\n    <td><p><code>pause</code>,<code>onSchedule</code>,<code>notSupported</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>eppAgentStatus</code></p></td>\n    <td><p>The connectivity status of the endpoint protection agent.</p></td>\n    <td><p><code>on</code>,<code>off</code>,<code>unknown</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>eppAgentPolicyName</code></p></td>\n    <td><p>The name of a policy from your protection manager.</p></td>\n    <td><p>Any value</p></td>\n  </tr>\n  <tr>\n    <td><p><code>isolationStatus</code></p></td>\n    <td><p>Indicates if an endpoint is isolated.</p></td>\n    <td><p><code>on</code>,<code>off</code>,<code>unknown</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>eppAgentComponentVersion</code></p></td>\n    <td><p>The agent component version.</p></td>\n    <td><p><code>outdatedVersion</code>,<code>latestVersion</code>,<code>unknownVersions</code>,<code>controlledLatestVersion</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>eppAgentComponentUpdatePolicy</code></p></td>\n    <td><p>The update policy for the module/pattern of the agent installed on the endpoint.</p></td>\n    <td><p><code>n</code>represents the latest version.<code>n - x</code>represents x snapshots prior (Example:<code>n - 2</code>).</p></td>\n  </tr>\n  <tr>\n    <td><p><code>eppAgentComponentUpdateStatus</code></p></td>\n    <td><p>The status of the module/pattern updates of the agent installed on the endpoint.</p></td>\n    <td><p><code>pause</code>,<code>onSchedule</code>,<code>notSupported</code></p></td>\n  </tr>\n  <tr>\n    <td><ul>\n      <li><p><code>eppAgentAntiMalwareScans</code></p></li>\n      <li><p><code>eppAgentBehaviorMonitoring</code></p></li>\n      <li><p><code>eppAgentPredictiveMachineLearning</code></p></li>\n      <li><p><code>eppAgentWebReputation</code></p></li>\n      <li><p><code>eppAgentSuspiciousConnectionSettings</code></p></li>\n      <li><p><code>eppAgentVulnerabilityProtection</code></p></li>\n      <li><p><code>eppAgentDeviceControl</code></p></li>\n      <li><p><code>eppAgentApplicationControl</code></p></li>\n      <li><p><code>eppAgentFirewall</code></p></li>\n      <li><p><code>eppAgentIntegratedEndpointSensor</code></p></li>\n      <li><p><code>eppAgentDataLossPrevention</code></p></li>\n      <li><p><code>eppAgentSmartFeedback</code></p></li>\n      <li><p><code>eppAgentAntiMalware</code></p></li>\n      <li><p><code>eppAgentActivityMonitoring</code></p></li>\n      <li><p><code>eppAgentIntrusionPreventionSystem</code></p></li>\n      <li><p><code>eppAgentLogInspection</code></p></li>\n      <li><p><code>eppAgentIntegrityMonitoring</code></p></li>\n      <li><p><code>eppAgentAgentSelfProtection</code></p></li>\n      <li><p><code>eppAgentSAPScanner</code></p></li>\n      <li><p><code>eppAgentSecurityAgentPasswordUnlock</code></p></li>\n    </ul></td>\n    <td><p>The status of the features supported by the endpoint protection agent.</p></td>\n    <td><p><code>enabled</code>,<code>disabled</code>,<code>notSupported</code></p></td>\n  </tr>\n  <tr>\n    <td><p><code>availableActions</code></p></td>\n    <td><p>Allows you to select the discoverable endpoints that may require attention.</p></td>\n    <td><ul>\n      <li><p><code>immediateActionRequired</code>: An issue occurred on the endpoint that requires user intervention.</p></li>\n      <li><p><code>unmanaged</code>: The endpoints are discoverable on your network but do not have any available protection or sensor agent program installed.</p></li>\n      <li><p><code>sensorUpdateRequired</code>: The endpoint has an older version of the Endpoint Sensor component installed (including Activity Monitoring and Apex One Endpoint Sensor) and should update to the latest Trend Vision One version.</p></li>\n      <li><p><code>sepMaintenanceRecommended</code>: The Standard Endpoint Protection endpoint does not have XDR Endpoint Sensor. The Detection and Response feature is off.</p></li>\n      <li><p><code>a1MaintenanceRecommended</code>: The Apex One endpoint does not have XDR Endpoint Sensor. The Detection and Response feature is off.</p></li>\n      <li><p><code>swpMaintenanceRecommended</code>: The Server & Workload Protection endpoint does not have XDR Endpoint Sensor. The Detection and Response feature is off.</p></li>\n      <li><p><code>c1MaintenanceRecommended</code>: The Cloud One endpoint does not have XDR Endpoint Sensor. The Detection and Response feature is off.</p></li>\n      <li><p><code>sensorDisabled</code>: The Managed Endpoint and Detection and Response features are off. The endpoint has XDR Endpoint Sensor.</p></li>\n    </ul></td>\n  </tr>\n  <tr>\n    <td><p><code>securityDeployment</code></p></td>\n    <td><p>Allows you to select the endpoints that have a protection or sensor agent installed.</p></td>\n    <td><ul>\n      <li><p><code>managed</code>: All endpoints on your network that have a protection or sensor agent installed</p></li>\n      <li><p><code>userProtection</code>: All endpoints that have the Standard Endpoint Protection agent installed (includes endpoints that also have the Endpoint sensor detection and response feature enabled)</p></li>\n      <li><p><code>workloadProtection</code>: All endpoints that have the Server &amp; Workload agent installed (includes endpoints that also have the Endpoint sensor detection and response feature enabled)</p></li>\n      <li><p><code>sensorOnly</code>: All endpoints that only have the Sensor agent installed (endpoints that are not protected by a Standard Endpoint Protection or Server &amp; Workload Protection agent)</p></li>\n      <li><p><code>connectedEndpointProtection</code>: All endpoints that have protection or sensor agent installed from a connected product.</p></li>\n    </ul></td>\n  </tr>\n</table>\n\nSupported operators:\n| Operator | Description                   |\n|----------|-------------------------------|\n| `eq`     | Operator 'equal to'           |\n| `and`    | Operator 'and'                |\n| `or`     | Operator 'or'                 |\n| `not`    | Operator 'not'                |\n| `()`     | Symbols for grouping operands |\n\nAdditional functions:\n| Function    | Description                           | Notes                                        |\n|-------------|---------------------------------------|----------------------------------------------|\n| hassubset() | Checks if the array contains a subset | Applicable to `creditAllocatedLicenses` only |\n\nNote:\n- for `edrSensorStatus` and `edrSensorAdvancedRiskTelemetryStatus`, When filtering for all `xxabled` endpoionts as the same as the UI, you can filter by status eq `xxabled` or status eq `xxabling`.\n- `immediateActionRequired` is mutually exclusive with other filters.\n- You can't use `availableActions` and `securityDeployment` together.\n- If a query contains both `eppAgent<FeatureName>` and `eppComponentVersion`, only one value of `eppComponentVersion` is included in the results.\n- `availableActions` and `securityDeployment` are not returned in response.\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}
