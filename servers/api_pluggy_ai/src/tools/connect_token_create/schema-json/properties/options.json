@@ -1,0 +1,22 @@
+{
+  "description": "Item options available to send through connect tokens",
+  "properties": {
+    "clientUserId": {
+      "type": "string",
+      "description": "Client's external identifier for the user, it can be a ID, UUID or even an email. This is free for clients to use."
+    },
+    "webhookUrl": {
+      "type": "string",
+      "description": "Url to be notified of this specific item changes"
+    },
+    "oauthRedirectUri": {
+      "type": "string",
+      "description": "Url to redirect the user after the connect flow"
+    },
+    "avoidDuplicates": {
+      "type": "boolean",
+      "description": "Avoids creating a new item if there is already one with the same credentials"
+    }
+  },
+  "type": "object"
+}

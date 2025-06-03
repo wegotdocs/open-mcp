@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": ""
+    },
+    "event": {
+      "enum": [
+        "all",
+        "item/created",
+        "item/updated",
+        "item/error",
+        "item/deleted",
+        "item/waiting_user_input",
+        "item/waiting_user_action",
+        "item/login_succeeded",
+        "connector/status_updated",
+        "transactions/created",
+        "transactions/updated",
+        "transactions/deleted",
+        "payment_intent/created",
+        "payment_intent/completed",
+        "payment_intent/waiting_payer_authorization",
+        "payment_intent/error",
+        "scheduled_payment/created",
+        "scheduled_payment/completed",
+        "scheduled_payment/error",
+        "scheduled_payment/canceled",
+        "scheduled_payment/all_completed",
+        "payment_refund/completed",
+        "payment_refund/error",
+        "boleto/updated"
+      ],
+      "type": "string",
+      "description": ""
+    },
+    "headers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `headers` to the tool, first call the tool `expandSchema` with \"/properties/headers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>HTTP headers that will be included in the webhook notifications (useful for things like authorization)</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "url",
+    "event"
+  ]
+}

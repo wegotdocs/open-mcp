@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "description": "Fine information for late payment",
+  "properties": {
+    "value": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Fine value"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "PERCENTAGE",
+        "FIXED"
+      ],
+      "description": "Type of fine calculation"
+    }
+  },
+  "required": [
+    "value",
+    "type"
+  ]
+}

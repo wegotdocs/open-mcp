@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "pageSize": {
+      "description": "Page size for the paging request, default: 20",
+      "type": "number",
+      "format": "double"
+    },
+    "page": {
+      "description": "Page number for the paging request, default: 1",
+      "type": "number",
+      "format": "double"
+    },
+    "isDefault": {
+      "description": "Filter connectors by the `isDefault` attribute. If not sent, it won't filter.",
+      "type": "boolean"
+    },
+    "pixKey": {
+      "description": "Filter payment recipient by Pix key",
+      "type": "string"
+    },
+    "name": {
+      "description": "Filter payment recipient by name",
+      "type": "string"
+    }
+  },
+  "required": []
+}

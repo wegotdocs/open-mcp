@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "taxNumber": {
+      "type": "string",
+      "description": "Payer tax number (CPF/CNPJ)",
+      "example": "41.679.495/0001-00"
+    },
+    "name": {
+      "type": "string",
+      "description": "Payer name",
+      "example": "NOME LEGAL EMPRESA"
+    },
+    "addressStreet": {
+      "type": "string",
+      "description": "Payer street address"
+    },
+    "addressCity": {
+      "type": "string",
+      "description": "Payer city"
+    },
+    "addressState": {
+      "type": "string",
+      "description": "Payer state"
+    },
+    "addressZipCode": {
+      "type": "string",
+      "description": "Payer ZIP code"
+    }
+  },
+  "required": [
+    "taxNumber",
+    "name",
+    "addressState",
+    "addressZipCode"
+  ]
+}

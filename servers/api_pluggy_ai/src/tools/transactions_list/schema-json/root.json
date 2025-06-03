@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "description": "Account primary identifier",
+      "type": "string",
+      "format": "uuid"
+    },
+    "ids": {
+      "description": "Array of transaction identifiers. If defined, 'from' and 'to' parameters will be discarded",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "from": {
+      "description": "Filter greater than date. Format (yyyy-mm-dd)",
+      "type": "string",
+      "format": "date-time"
+    },
+    "to": {
+      "description": "Filter lower than date. Format (yyyy-mm-dd)",
+      "type": "string",
+      "format": "date-time"
+    },
+    "pageSize": {
+      "description": "Page size for the paging request, default: 20",
+      "type": "number",
+      "format": "double",
+      "minimum": 1,
+      "maximum": 500
+    },
+    "page": {
+      "description": "Page number for the paging request, default: 1",
+      "type": "number",
+      "format": "double"
+    },
+    "billId": {
+      "description": "Credit Card Bill's primary identifier, if account is a credit card.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "createdAtFrom": {
+      "description": "Filter greater than createdAt. Format (yyyy-mm-ddThh:mm:ss.000Z)",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "accountId"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Investment primary identifier",
+      "type": "string",
+      "format": "uuid"
+    },
+    "pageSize": {
+      "description": "Page size for the paging request, default: 20",
+      "type": "number",
+      "format": "double"
+    },
+    "page": {
+      "description": "Page number for the paging request, default: 1",
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

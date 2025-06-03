@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Payment customer primary identifier",
+      "type": "string",
+      "format": "uuid"
+    },
+    "b_id": {
+      "type": "string",
+      "description": "Primary identifier"
+    },
+    "type": {
+      "enum": [
+        "INDIVIDUAL",
+        "BUSINESS"
+      ],
+      "type": "string",
+      "description": "Customer type"
+    },
+    "name": {
+      "type": "string",
+      "description": "Customer name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Customer email"
+    },
+    "cpf": {
+      "type": "string",
+      "description": "Customer CPF"
+    },
+    "cnpj": {
+      "type": "string",
+      "description": "Customer CNPJ, if type is `BUSINESS`"
+    }
+  },
+  "required": [
+    "id",
+    "b_id",
+    "type",
+    "name"
+  ]
+}

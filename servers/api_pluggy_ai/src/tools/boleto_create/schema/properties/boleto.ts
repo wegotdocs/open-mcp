@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "seuNumero": z.string().max(10).describe("Your identifier for this boleto"),
+  "amount": z.number().gte(2.5).describe("Boleto amount"),
+  "dueDate": z.string().datetime({ offset: true }).describe("Due date for the boleto. Must be today or in the future."),
+  "payer": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payer` to the tool, first call the tool `expandSchema` with \"/properties/boleto/properties/payer\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "fine": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fine` to the tool, first call the tool `expandSchema` with \"/properties/boleto/properties/fine\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Fine information for late payment</property-description>").optional(),
+  "interest": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `interest` to the tool, first call the tool `expandSchema` with \"/properties/boleto/properties/interest\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Interest information for late payment</property-description>").optional()
+}

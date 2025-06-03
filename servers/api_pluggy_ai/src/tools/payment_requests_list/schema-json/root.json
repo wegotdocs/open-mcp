@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "pageSize": {
+      "description": "Page size for the paging request, default: 20",
+      "type": "number",
+      "format": "double"
+    },
+    "page": {
+      "description": "Page number for the paging request, default: 1",
+      "type": "number",
+      "format": "double"
+    },
+    "from": {
+      "description": "Filter payment requests by start date. Returns only requests created **on or after** this date.",
+      "type": "string",
+      "format": "date"
+    },
+    "to": {
+      "description": "Filter payment requests by end date. Returns only requests created **on or before** this date.",
+      "type": "string",
+      "format": "date"
+    },
+    "customer": {
+      "description": "Filter payment requests with one customer attribute (name, email, CPF or CNPJ)",
+      "type": "string"
+    },
+    "pixKey": {
+      "description": "Filter payment requests by Pix Key",
+      "type": "string"
+    }
+  },
+  "required": []
+}

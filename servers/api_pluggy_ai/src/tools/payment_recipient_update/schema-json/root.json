@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Payment recipient primary identifier",
+      "type": "string",
+      "format": "uuid"
+    },
+    "taxNumber": {
+      "type": "string",
+      "description": "Account owner tax number. Can be CPF or CNPJ (only numbers). Send only if the recipient doesn't have a pixKey."
+    },
+    "name": {
+      "type": "string",
+      "description": "Account owner name. Send only if the recipient doesn't have a pixKey."
+    },
+    "paymentInstitutionId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Primary identifier of the institution associated to the payment recipient. Send only if the recipient doesn't have a pixKey."
+    },
+    "account": {
+      "type": "string"
+    },
+    "pixKey": {
+      "type": "string",
+      "description": "Pix key associated with the payment recipient"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

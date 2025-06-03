@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "seuNumero": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Your identifier for this boleto"
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 2.5,
+      "description": "Boleto amount"
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Due date for the boleto. Must be today or in the future."
+    },
+    "payer": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payer` to the tool, first call the tool `expandSchema` with \"/properties/boleto/properties/payer\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "fine": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fine` to the tool, first call the tool `expandSchema` with \"/properties/boleto/properties/fine\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Fine information for late payment</property-description>",
+      "additionalProperties": true
+    },
+    "interest": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `interest` to the tool, first call the tool `expandSchema` with \"/properties/boleto/properties/interest\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Interest information for late payment</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "seuNumero",
+    "amount",
+    "dueDate",
+    "payer"
+  ]
+}
