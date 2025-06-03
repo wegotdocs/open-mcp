@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "text": z.string(),
+  "media": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `media` to the tool, first call the tool `expandSchema` with \"/properties/message/properties/media\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>"),
+  "custom": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom` to the tool, first call the tool `expandSchema` with \"/properties/message/properties/custom\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>")
+}
