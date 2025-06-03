@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "default": "me",
+      "type": "string"
+    },
+    "includeSpamTrash": {
+      "description": "Include drafts from `SPAM` and `TRASH` in the results.",
+      "default": false,
+      "type": "boolean"
+    },
+    "maxResults": {
+      "description": "Maximum number of drafts to return. This field defaults to 100. The maximum allowed value for this field is 500.",
+      "default": 100,
+      "type": "integer"
+    },
+    "pageToken": {
+      "description": "Page token to retrieve a specific page of results in the list.",
+      "type": "string"
+    },
+    "q": {
+      "description": "Only return draft messages matching the specified query. Supports the same query format as the Gmail search box. For example, `\"from:someuser@example.com rfc822msgid: is:unread\"`.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

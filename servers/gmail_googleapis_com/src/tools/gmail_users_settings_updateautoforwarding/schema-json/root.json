@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+      "default": "me",
+      "type": "string"
+    },
+    "disposition": {
+      "description": "The state that a message should be left in after it has been forwarded.",
+      "enum": [
+        "dispositionUnspecified",
+        "leaveInInbox",
+        "archive",
+        "trash",
+        "markRead"
+      ],
+      "type": "string"
+    },
+    "emailAddress": {
+      "description": "Email address to which all incoming messages are forwarded. This email address must be a verified member of the forwarding addresses.",
+      "type": "string"
+    },
+    "enabled": {
+      "description": "Whether all incoming mail is automatically forwarded to another address.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}
