@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "alertName": {
+      "type": "string"
+    },
+    "groupName": {
+      "type": "string"
+    },
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "Authorization": {
+      "description": "Accepts technical credentials and api gateway access.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "alertName",
+    "groupName",
+    "instanceId",
+    "projectId",
+    "Authorization"
+  ]
+}

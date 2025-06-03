@@ -1,0 +1,55 @@
+{
+  "description": "Global config. If nothing passed the default argus config will be used.",
+  "properties": {
+    "opsgenieApiKey": {
+      "description": "Opsgenie api key\n`Additional Validators:`\n* should only include the characters: a-zA-Z0-9-",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "opsgenieApiUrl": {
+      "description": "Opsgenie api url\n`Additional Validators:`\n* must be a syntactically valid url address",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolveTimeout": {
+      "default": "5m",
+      "description": "ResolveTimeout is the default value used by alertmanager if the alert does not include EndsAt, after this time passes it can declare the alert as resolved if it has not been updated. This has no impact on alerts from Prometheus, as they always include EndsAt. \n`Additional Validators:`\n* must be a valid time format",
+      "maxLength": 8,
+      "minLength": 2,
+      "type": "string"
+    },
+    "smtpAuthIdentity": {
+      "description": "Auth identity.\n`Additional Validators:`\n* must be a syntactically valid email address",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "smtpAuthPassword": {
+      "description": "SMTP Auth using LOGIN and PLAIN.",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "smtpAuthUsername": {
+      "description": "SMTP Auth using CRAM-MD5, LOGIN and PLAIN. If empty, Alertmanager doesn't authenticate to the SMTP server.",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "smtpFrom": {
+      "description": "The default SMTP From header field. \n`Additional Validators:`\n* must be a syntactically valid email address",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "smtpSmarthost": {
+      "description": "The default SMTP smarthost used for sending emails, including port number. Port number usually is 25, or 587 for SMTP over TLS (sometimes referred to as STARTTLS). Example: smtp.example.org:587 \n`Additional Validators:`\n* should only include the characters: a-zA-Z0-9_./@&?:-",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

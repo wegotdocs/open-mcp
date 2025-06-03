@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "jobName": {
+      "description": "Name of the jobs that should be deleted",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Authorization": {
+      "description": "Accepts technical credentials and api gateway access.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "instanceId",
+    "projectId",
+    "jobName",
+    "Authorization"
+  ]
+}

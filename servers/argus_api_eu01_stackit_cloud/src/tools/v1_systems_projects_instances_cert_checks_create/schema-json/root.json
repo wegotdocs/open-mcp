@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "source": {
+      "description": "cert to check",
+      "maxLength": 200,
+      "type": "string"
+    },
+    "Authorization": {
+      "description": "Accepts api gateway access.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "instanceId",
+    "projectId",
+    "source",
+    "Authorization"
+  ]
+}

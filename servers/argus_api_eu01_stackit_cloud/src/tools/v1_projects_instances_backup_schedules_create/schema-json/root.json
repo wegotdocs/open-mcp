@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "backupTarget": {
+      "description": "List of backup targets",
+      "items": {
+        "enum": [
+          "alertConfig",
+          "alertRules",
+          "scrapeConfig",
+          "grafana"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schedule": {
+      "description": "The schedule for how often to create a backup.\n`Additional Validators:`\n* must be a valid cronjob format\n* must run less than hourly",
+      "maxLength": 100,
+      "type": "string"
+    },
+    "Authorization": {
+      "description": "Accepts technical credentials and api gateway access.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "instanceId",
+    "projectId",
+    "schedule",
+    "Authorization"
+  ]
+}

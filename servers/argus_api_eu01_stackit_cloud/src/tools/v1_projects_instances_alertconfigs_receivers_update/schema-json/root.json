@@ -1,0 +1,143 @@
+{
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "receiver": {
+      "type": "string"
+    },
+    "emailConfigs": {
+      "description": "Email configurations",
+      "items": {
+        "properties": {
+          "authIdentity": {
+            "description": "SMTP authentication information.\n`Additional Validators:`\n* must be a syntactically valid email address",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "authPassword": {
+            "description": "SMTP authentication information.",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "authUsername": {
+            "description": "SMTP authentication information.",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "from": {
+            "description": "The sender address.\n`Additional Validators:`\n* must be a syntactically valid email address",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "sendResolved": {
+            "default": false,
+            "description": "Whether to notify about resolved alerts.",
+            "type": "boolean"
+          },
+          "smarthost": {
+            "description": "The SMTP host through which emails are sent.\n`Additional Validators:`\n* should only include the characters: a-zA-Z0-9_./@&?:-",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "to": {
+            "description": "The email address to send notifications to.\n`Additional Validators:`\n* must be a syntactically valid email address",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "`Additional Validators:`\n* must be unique\n* should only include the characters: a-zA-Z0-9-",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "opsgenieConfigs": {
+      "description": "Configuration for ops genie.",
+      "items": {
+        "properties": {
+          "apiKey": {
+            "description": "The API key to use when talking to the OpsGenie API.\n`Additional Validators:`\n* should only include the characters: a-zA-Z0-9-",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "apiUrl": {
+            "description": "The host to send OpsGenie API requests to.\n`Additional Validators:`\n* must be a syntactically valid url address",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "priority": {
+            "description": "Priority level of alert. Possible values are P1, P2, P3, P4, and P5.",
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string"
+          },
+          "sendResolved": {
+            "default": true,
+            "description": "Whether to notify about resolved alerts.",
+            "type": "boolean"
+          },
+          "tags": {
+            "description": "Comma separated list of tags attached to the notifications.",
+            "maxLength": 400,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "webHookConfigs": {
+      "items": {
+        "properties": {
+          "msTeams": {
+            "default": false,
+            "description": "Microsoft Teams webhooks require special handling. If you set this property to true, it is treated as such",
+            "type": "boolean"
+          },
+          "sendResolved": {
+            "default": true,
+            "description": "Whether to notify about resolved alerts.",
+            "type": "boolean"
+          },
+          "url": {
+            "description": "The endpoint to send HTTP POST requests to.\n`Additional Validators:`\n* must be a syntactically valid url address",
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "Authorization": {
+      "description": "Accepts technical credentials and api gateway access.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "instanceId",
+    "projectId",
+    "receiver",
+    "name",
+    "Authorization"
+  ]
+}

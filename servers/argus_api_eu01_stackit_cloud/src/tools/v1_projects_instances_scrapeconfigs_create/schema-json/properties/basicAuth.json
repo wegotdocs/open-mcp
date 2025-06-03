@@ -1,0 +1,18 @@
+{
+  "description": "Sets the 'Authorization' header on every scrape request with the configured username and password.\n`Additional Validators:`\n* if basicAuth is in the body no other authentication method should be in the body",
+  "properties": {
+    "password": {
+      "description": "password",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "username": {
+      "description": "username",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

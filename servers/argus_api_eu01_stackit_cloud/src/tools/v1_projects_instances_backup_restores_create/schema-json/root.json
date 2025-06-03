@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "backupDate": {
+      "type": "string"
+    },
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "restoreTarget": {
+      "description": "List of restore targets",
+      "enum": [
+        "alertConfig",
+        "alertRules",
+        "scrapeConfig",
+        "grafana"
+      ],
+      "type": "string"
+    },
+    "Authorization": {
+      "description": "Accepts technical credentials and api gateway access.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "backupDate",
+    "instanceId",
+    "projectId",
+    "restoreTarget",
+    "Authorization"
+  ]
+}

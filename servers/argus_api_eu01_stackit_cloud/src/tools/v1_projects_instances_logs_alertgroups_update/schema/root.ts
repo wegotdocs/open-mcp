@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "groupName": z.string(),
+  "instanceId": z.string(),
+  "projectId": z.string(),
+  "interval": z.string().min(2).max(8).describe("How often rules in the group are evaluated.\n`Additional Validators:`\n* must be a valid time string\n* should be >=60s").optional(),
+  "rules": z.array(z.object({ "alert": z.string().min(1).max(200).describe("The name of the alert.\n`Additional Validators:`\n* is the identifier and so unique in the group\n* should only include the characters: a-zA-Z0-9-"), "annotations": z.record(z.any()).describe("map of key:value. Annotations to add to each alert.\n`Additional Validators:`\n* should not contain more than 5 keys\n* each key and value should not be longer than 200 characters").optional(), "expr": z.string().min(1).max(600).describe("The PromQL expression to evaluate. Every evaluation cycle this is evaluated at the current time, and all resultant time series become pending/firing alerts."), "for": z.string().min(2).max(8).describe("Alerts are considered firing once they have been returned for this long. Alerts which have not yet fired for long enough are considered pending.\n`Additional Validators:`\n* must be a valid time string"), "labels": z.record(z.any()).describe("map of key:value. Labels to add or overwrite for each alert.\n`Additional Validators:`\n* should not contain more than 10 keys\n* each key and value should not be longer than 200 characters").optional() }).describe("Alert rule.\n`Additional Validators:`\n* total config (all alert groups/rules) should not be bigger than 500000 characters as string since this the limitation of prometheus.")).describe("rules for the alert group"),
+  "Authorization": z.string().describe("Accepts technical credentials and api gateway access.")
+}
