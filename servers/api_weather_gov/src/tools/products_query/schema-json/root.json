@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "location": {
+      "description": "Location id",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "start": {
+      "description": "Start time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end": {
+      "description": "End time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "office": {
+      "description": "Issuing office",
+      "type": "array",
+      "items": {
+        "pattern": "^[A-Z]{4}$",
+        "type": "string"
+      }
+    },
+    "wmoid": {
+      "description": "WMO id code",
+      "type": "array",
+      "items": {
+        "pattern": "^[A-Z]{4}\\d{2}$",
+        "type": "string"
+      }
+    },
+    "type": {
+      "description": "Product code",
+      "type": "array",
+      "items": {
+        "pattern": "^\\w{3}$",
+        "type": "string"
+      }
+    },
+    "limit": {
+      "description": "Limit",
+      "maximum": 500,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": []
+}
