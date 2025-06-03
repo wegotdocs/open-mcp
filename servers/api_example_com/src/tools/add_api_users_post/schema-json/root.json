@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "title": "First Name"
+    },
+    "last_name": {
+      "type": "string",
+      "title": "Last Name"
+    },
+    "login": {
+      "type": "string",
+      "title": "Login"
+    },
+    "phone_number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Phone Number"
+    },
+    "is_mobile": {
+      "type": "boolean",
+      "title": "Is Mobile"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ADMIN",
+        "DEALER",
+        "SERVICE",
+        "USER"
+      ],
+      "title": "RoleEnum"
+    },
+    "organization_id": {
+      "type": "integer",
+      "title": "Organization Id"
+    },
+    "password": {
+      "type": "string",
+      "title": "Password"
+    },
+    "repeat_password": {
+      "type": "string",
+      "title": "Repeat Password"
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name",
+    "login",
+    "is_mobile",
+    "organization_id",
+    "password",
+    "repeat_password"
+  ]
+}

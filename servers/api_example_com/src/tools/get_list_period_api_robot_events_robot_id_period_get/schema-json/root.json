@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "robot_id": {
+      "type": "integer",
+      "title": "Robot Id"
+    },
+    "from_date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "From Date"
+    },
+    "to_date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "To Date"
+    }
+  },
+  "required": [
+    "robot_id",
+    "from_date",
+    "to_date"
+  ]
+}

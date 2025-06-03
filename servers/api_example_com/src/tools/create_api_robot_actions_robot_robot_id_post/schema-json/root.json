@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "robot_id": {
+      "type": "integer",
+      "title": "Robot Id"
+    },
+    "action": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Action"
+    },
+    "time": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Time"
+    }
+  },
+  "required": [
+    "robot_id"
+  ]
+}

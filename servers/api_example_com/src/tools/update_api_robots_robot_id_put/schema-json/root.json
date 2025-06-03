@@ -1,0 +1,99 @@
+{
+  "type": "object",
+  "properties": {
+    "robot_id": {
+      "type": "integer",
+      "title": "Robot Id"
+    },
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Name"
+    },
+    "serial_number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Serial Number"
+    },
+    "robot_type": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "LIZARD",
+            "QUBE"
+          ],
+          "title": "RobotTypeEnum"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "organization_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Organization Id"
+    },
+    "dealers_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Dealers Ids"
+    },
+    "users_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Users Ids"
+    },
+    "software_version": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Software Version"
+    }
+  },
+  "required": [
+    "robot_id"
+  ]
+}

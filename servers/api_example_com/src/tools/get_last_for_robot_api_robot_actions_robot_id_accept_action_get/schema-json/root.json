@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "robot_id": {
+      "type": "integer",
+      "title": "Robot Id"
+    },
+    "status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Status"
+    }
+  },
+  "required": [
+    "robot_id"
+  ]
+}

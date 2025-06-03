@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "robot_id": {
+      "description": "The ID of the robot",
+      "type": "integer",
+      "title": "Robot Id"
+    },
+    "page": {
+      "description": "Page number",
+      "type": "integer",
+      "default": 1,
+      "title": "Page"
+    },
+    "page_size": {
+      "description": "Number of items per page",
+      "type": "integer",
+      "default": 10,
+      "title": "Page Size"
+    }
+  },
+  "required": [
+    "robot_id"
+  ]
+}
