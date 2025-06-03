@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "start": {
+      "description": "Start time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end": {
+      "description": "End time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "limit": {
+      "description": "Limit",
+      "maximum": 500,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": []
+}
