@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "default": "me",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the message to retrieve. This ID is usually retrieved using `messages.list`. The ID is also contained in the result when a message is inserted (`messages.insert`) or imported (`messages.import`).",
+      "type": "string"
+    },
+    "format": {
+      "description": "The format to return the message in.",
+      "default": "full",
+      "enum": [
+        "minimal",
+        "full",
+        "raw",
+        "metadata"
+      ],
+      "type": "string"
+    },
+    "metadataHeaders": {
+      "description": "When given and format is `METADATA`, only include headers specified.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "userId",
+    "id"
+  ]
+}
