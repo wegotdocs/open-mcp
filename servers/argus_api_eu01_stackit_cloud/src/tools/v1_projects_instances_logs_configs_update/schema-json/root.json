@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "retention": {
+      "description": "How long to keep the logs\n`Additional Validators:`\n* Should be a valid time string\n* Should not be longer than 30 days",
+      "maxLength": 8,
+      "minLength": 2,
+      "type": "string"
+    },
+    "Authorization": {
+      "description": "Accepts technical credentials and api gateway access.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "instanceId",
+    "projectId",
+    "retention",
+    "Authorization"
+  ]
+}

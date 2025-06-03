@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "remoteWriteMaxLimit": {
+      "description": "Remote write metric sample limit for credential to push in a single minute.",
+      "type": "number"
+    },
+    "Authorization": {
+      "description": "Accepts system permissions.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "instanceId",
+    "projectId",
+    "Authorization"
+  ]
+}

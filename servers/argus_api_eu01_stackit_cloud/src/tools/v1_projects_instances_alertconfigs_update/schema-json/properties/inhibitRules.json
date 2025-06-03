@@ -1,0 +1,35 @@
+{
+  "description": "A list of inhibition rules.",
+  "properties": {
+    "equal": {
+      "description": "Labels that must have an equal value in the source and target alert for the inhibition to take effect.\n`Additional Validators:`\n* should only include the characters: a-zA-Z0-9_./@&?:-",
+      "items": {
+        "maxLength": 200,
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "sourceMatch": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sourceMatch` to the tool, first call the tool `expandSchema` with \"/properties/inhibitRules/properties/sourceMatch\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>map of key:value. Matchers for which one or more alerts have to exist for the inhibition to take effect.\n`Additional Validators:`\n* should not contain more than 5 keys\n* each key and value should not have more than 200 characters\n* each key and value should only include the characters: a-zA-Z0-9_./@&?:-</property-description>",
+      "additionalProperties": true
+    },
+    "sourceMatchRe": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sourceMatchRe` to the tool, first call the tool `expandSchema` with \"/properties/inhibitRules/properties/sourceMatchRe\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>map of key:value. Regex match\n`Additional Validators:`\n* should not contain more than 5 keys\n* each key and value should not have more than 200 characters</property-description>",
+      "additionalProperties": true
+    },
+    "targetMatch": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `targetMatch` to the tool, first call the tool `expandSchema` with \"/properties/inhibitRules/properties/targetMatch\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>map of key:value. Matchers that have to be fulfilled in the alerts to be muted.\n`Additional Validators:`\n* should not contain more than 5 keys\n* each key and value should not have more than 200 characters\n* each key and value should only include the characters: a-zA-Z0-9_./@&?:-</property-description>",
+      "additionalProperties": true
+    },
+    "targetMatchRe": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `targetMatchRe` to the tool, first call the tool `expandSchema` with \"/properties/inhibitRules/properties/targetMatchRe\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>map of key:value. Matchers that have to be fulfilled in the alerts to be muted. Regex.\n`Additional Validators:`\n* should not contain more than 5 keys\n* each key and value should not have more than 200 characters</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,43 @@
+{
+  "description": "OAuth 2.0 authentication using the client credentials grant type. Prometheus fetches an access token from the specified endpoint with the given client access and secret keys.\n`Additional Validators:`\n* if oauth2 is in the body no other authentication method should be in the body",
+  "properties": {
+    "clientId": {
+      "description": "clientId",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "clientSecret": {
+      "description": "clientSecret",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "scopes": {
+      "description": "The URL to fetch the token from.",
+      "items": {
+        "maxLength": 200,
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "tlsConfig": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `tlsConfig` to the tool, first call the tool `expandSchema` with \"/properties/oauth2/properties/tlsConfig\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configures the scrape request's TLS settings.</property-description>",
+      "additionalProperties": true
+    },
+    "tokenUrl": {
+      "description": "The URL to fetch the token from.",
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "clientId",
+    "clientSecret",
+    "tokenUrl"
+  ],
+  "type": "object"
+}

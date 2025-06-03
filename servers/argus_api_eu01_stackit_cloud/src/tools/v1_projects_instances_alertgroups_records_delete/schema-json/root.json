@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "groupName": {
+      "type": "string"
+    },
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "alertRecord": {
+      "description": "Name of the records that should be deleted",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Authorization": {
+      "description": "Accepts technical credentials and api gateway access.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "groupName",
+    "instanceId",
+    "projectId",
+    "alertRecord",
+    "Authorization"
+  ]
+}

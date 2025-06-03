@@ -1,0 +1,60 @@
+{
+  "properties": {
+    "apiUrl": {
+      "description": "Set api_url to the resource that returns OpenID UserInfo compatible information.",
+      "type": "string"
+    },
+    "authUrl": {
+      "description": "Authentication endpoint of idp.",
+      "type": "string"
+    },
+    "enabled": {
+      "description": "enable or disable generic oauth login",
+      "type": "boolean"
+    },
+    "name": {
+      "description": "Display name for the oAuth provider",
+      "type": "string"
+    },
+    "oauthClientId": {
+      "description": "Oauth client id for auth endpoint.",
+      "type": "string"
+    },
+    "oauthClientSecret": {
+      "description": "Oauth client secret for auth endpoint.",
+      "type": "string"
+    },
+    "roleAttributePath": {
+      "description": "Grafana checks for the presence of a role using the JMESPath specified via the role_attribute_path configuration option. The JMESPath is applied to the id_token first. If there is no match, then the UserInfo endpoint specified via the api_url configuration option is tried next. The result after evaluation of the role_attribute_path JMESPath expression should be a valid Grafana role, for example, Viewer, Editor or Admin\nFor example: contains(roles[\\*], 'grafana-admin') && 'Admin' || contains(roles[\\*], 'grafana-editor') && 'Editor' || contains(roles[\\*], 'grafana-viewer') && 'Viewer'",
+      "type": "string"
+    },
+    "roleAttributeStrict": {
+      "default": true,
+      "description": "If  therole_attribute_path property does not return a role, then the user is assigned the Viewer role by default. You can disable the role assignment by setting role_attribute_strict = true. It denies user access if no role or an invalid role is returned.",
+      "type": "boolean"
+    },
+    "scopes": {
+      "default": "openid profile email",
+      "description": "Space seperated list of scopes of the token",
+      "type": "string"
+    },
+    "tokenUrl": {
+      "description": "Token endpoint of the idp.",
+      "type": "string"
+    },
+    "usePkce": {
+      "description": "enable or disable Proof Key for Code Exchange",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "apiUrl",
+    "authUrl",
+    "enabled",
+    "oauthClientId",
+    "oauthClientSecret",
+    "roleAttributePath",
+    "tokenUrl"
+  ],
+  "type": "object"
+}

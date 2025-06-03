@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "acl": {
+      "description": "list of cidr",
+      "items": {
+        "description": "cidr correct format",
+        "maxLength": 100,
+        "type": "string"
+      },
+      "maxLength": 20,
+      "type": "array"
+    },
+    "Authorization": {
+      "description": "Accepts technical credentials and api gateway access.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "instanceId",
+    "projectId",
+    "acl",
+    "Authorization"
+  ]
+}
