@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "Feature-Flags": {
+      "description": "Enable future and experimental features (see documentation for more info):\n* obs_station_provider: Include the data provider in the metadata about observation stations\n",
+      "type": "array",
+      "items": {
+        "enum": [
+          "obs_station_provider"
+        ],
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

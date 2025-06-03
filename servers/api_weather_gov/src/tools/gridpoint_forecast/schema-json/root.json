@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "units": {
+      "description": "Denotes the units used in the textual portions of the forecast.",
+      "enum": [
+        "us",
+        "si"
+      ],
+      "type": "string",
+      "default": "us"
+    },
+    "Feature-Flags": {
+      "description": "Enable future and experimental features (see documentation for more info):\n* forecast_temperature_qv: Represent temperature as QuantitativeValue\n* forecast_wind_speed_qv: Represent wind speed as QuantitativeValue\n",
+      "type": "array",
+      "items": {
+        "enum": [
+          "forecast_temperature_qv",
+          "forecast_wind_speed_qv"
+        ],
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}
