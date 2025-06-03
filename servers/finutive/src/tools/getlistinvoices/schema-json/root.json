@@ -1,0 +1,123 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "start": {
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "length": {
+      "type": "integer",
+      "format": "int32",
+      "default": 10
+    },
+    "order_column": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "order_dir": {
+      "type": "string",
+      "default": "desc"
+    },
+    "status": {
+      "type": "string"
+    },
+    "status_payment": {
+      "type": "string"
+    },
+    "recurrency": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "query": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_registration_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_registration_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "uploaded_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "uploaded_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tax_regime": {
+      "type": "string"
+    },
+    "serie": {
+      "type": "string"
+    },
+    "serie_out": {
+      "type": "string"
+    },
+    "stakeholder": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "activity_line": {
+      "type": "string"
+    },
+    "accounting_account": {
+      "type": "string"
+    },
+    "irpf": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "amount_min": {
+      "type": "number"
+    },
+    "amount_max": {
+      "type": "number"
+    },
+    "get_remittance_data": {
+      "type": "boolean"
+    },
+    "sage": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "special_free_treatment": {
+      "type": "boolean"
+    },
+    "back": {
+      "type": "boolean"
+    },
+    "select_all": {
+      "type": "boolean"
+    },
+    "get_finutive_client_status": {
+      "type": "boolean"
+    },
+    "ids": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "businessId",
+    "order_column"
+  ]
+}

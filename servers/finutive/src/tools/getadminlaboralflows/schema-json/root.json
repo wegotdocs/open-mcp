@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "size": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "offset": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "flow": {
+      "type": "string"
+    },
+    "search": {
+      "type": "string"
+    },
+    "step": {
+      "type": "string"
+    },
+    "responsible": {
+      "type": "string"
+    },
+    "business_responsible": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string"
+    },
+    "date_type": {
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "business": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "size",
+    "offset"
+  ]
+}

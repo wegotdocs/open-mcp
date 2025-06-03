@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "b_business_id": {
+      "type": "string"
+    },
+    "line_activities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

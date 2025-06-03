@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "search": {
+      "type": "string",
+      "default": ""
+    },
+    "pageable": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `pageable` to the tool, first call the tool `expandSchema` with \"/properties/pageable\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Pagination information</property-description>",
+      "additionalProperties": true
+    },
+    "managers_ids": {
+      "description": "List of manager IDs to filter by",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "services_ids": {
+      "description": "List of service IDs to filter by",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    }
+  },
+  "required": [
+    "pageable"
+  ]
+}

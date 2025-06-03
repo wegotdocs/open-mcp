@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "Start date filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "description": "End date filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_amount": {
+      "description": "Minimum amount",
+      "type": "integer",
+      "format": "int64"
+    },
+    "end_amount": {
+      "description": "Maximum amount",
+      "type": "integer",
+      "format": "int64"
+    },
+    "accounts": {
+      "description": "Account IDs to filter",
+      "type": "string"
+    },
+    "size": {
+      "description": "Number of items to return",
+      "type": "integer",
+      "format": "int32"
+    },
+    "offset": {
+      "description": "Number of items to skip",
+      "type": "integer",
+      "format": "int32"
+    },
+    "select_all": {
+      "description": "Select all flag",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

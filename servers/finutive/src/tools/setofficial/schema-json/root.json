@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "invoiceId": {
+      "type": "string"
+    },
+    "is_official": {
+      "type": "string",
+      "enum": [
+        "TICKET",
+        "OFFICIAL",
+        "SIMPLE"
+      ]
+    }
+  },
+  "required": [
+    "businessId",
+    "invoiceId"
+  ]
+}

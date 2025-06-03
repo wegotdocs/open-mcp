@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "Start date for tax prevision",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "description": "End date for tax prevision",
+      "type": "string",
+      "format": "date-time"
+    },
+    "period": {
+      "description": "Period type (monthly, quarterly, yearly)",
+      "type": "string",
+      "default": "monthly"
+    },
+    "account": {
+      "description": "Account filter (all or specific account)",
+      "type": "string",
+      "default": "all"
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "button_text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "expires": {
+      "type": "boolean"
+    },
+    "active_until": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "visible_since": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "all_businesses": {
+      "type": "boolean"
+    },
+    "businesses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "business_id": z.string(),
+  "flow_id": z.string(),
+  "step_id": z.string().optional()
+}

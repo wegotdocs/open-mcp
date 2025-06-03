@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string",
+      "enum": [
+        "OPENED_PERIOD",
+        "CLOSED_PERIOD"
+      ]
+    }
+  },
+  "required": [
+    "business_id",
+    "period",
+    "value"
+  ]
+}

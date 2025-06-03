@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Email of the manager to be invited",
+      "example": "pablo.torres+manager@globalincubator.com"
+    },
+    "firstname": {
+      "type": "string",
+      "description": "First name of the manager to be invited",
+      "example": "Pablo"
+    },
+    "lastname": {
+      "type": "string",
+      "description": "Last name of the manager to be invited",
+      "example": "Torres"
+    },
+    "role": {
+      "type": "string",
+      "description": "Role of the manager to be invited",
+      "example": "ADMIN",
+      "enum": [
+        "MANAGER",
+        "ADMIN"
+      ]
+    }
+  },
+  "required": [
+    "email",
+    "firstname",
+    "lastname",
+    "role"
+  ]
+}

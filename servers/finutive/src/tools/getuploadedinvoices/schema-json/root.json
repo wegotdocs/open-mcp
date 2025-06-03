@@ -1,0 +1,134 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "query": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "ticket_type": {
+      "type": "string"
+    },
+    "stakeholder": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "status_out": {
+      "type": "string"
+    },
+    "uploaded_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "uploaded_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_registration_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_registration_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "order_column": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "order_dir": {
+      "type": "string"
+    },
+    "amount_min": {
+      "type": "number"
+    },
+    "amount_max": {
+      "type": "number"
+    },
+    "invoice_recurrence": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "invoice_status": {
+      "type": "string"
+    },
+    "invoice_type": {
+      "type": "string"
+    },
+    "expense_accounts": {
+      "type": "string"
+    },
+    "line_activities": {
+      "type": "string"
+    },
+    "taxes": {
+      "type": "string"
+    },
+    "irpf": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "tax_regime": {
+      "type": "string"
+    },
+    "payment_status": {
+      "type": "string"
+    },
+    "payment_status_out": {
+      "type": "string"
+    },
+    "serie": {
+      "type": "string"
+    },
+    "serie_out": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "size": {
+      "type": "integer",
+      "format": "int32",
+      "default": 10
+    },
+    "offset": {
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "app_type_platform": {
+      "type": "string"
+    },
+    "review_tickets_not_processed": {
+      "type": "boolean"
+    },
+    "select_all": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "ids": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "businessId",
+    "order_column"
+  ]
+}

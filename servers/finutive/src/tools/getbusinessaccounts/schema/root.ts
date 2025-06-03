@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "business_id": z.string().describe("Business ID"),
+  "requestDto": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `requestDto` to the tool, first call the tool `expandSchema` with \"/properties/requestDto\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Account filters</property-description>")
+}

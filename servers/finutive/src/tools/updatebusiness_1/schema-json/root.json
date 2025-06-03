@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "internal_billing_payment_day": {
+      "maximum": 31,
+      "minimum": 1,
+      "type": "integer",
+      "description": "Internal billing payment day of the month (1-31)",
+      "format": "int32",
+      "example": 15
+    }
+  },
+  "required": [
+    "businessId"
+  ]
+}

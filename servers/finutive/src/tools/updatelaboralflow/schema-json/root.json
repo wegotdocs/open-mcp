@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string"
+    },
+    "flow_id": {
+      "type": "string"
+    },
+    "actual_step": {
+      "type": "string"
+    },
+    "next_step": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "toggles": {
+      "type": "string"
+    },
+    "manager_tips": {
+      "type": "string"
+    },
+    "no_send_notification": {
+      "type": "boolean"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "linked_file": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "business_id",
+    "flow_id"
+  ]
+}

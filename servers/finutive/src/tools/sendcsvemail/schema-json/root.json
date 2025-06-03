@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "content": {
+      "type": "string",
+      "description": "Email content/body text",
+      "example": "Please find attached the census statement for the current period."
+    },
+    "csv_id": {
+      "type": "string",
+      "description": "ID of the CSV file to be sent",
+      "example": "csv_12345abcde"
+    },
+    "period": {
+      "type": "string",
+      "description": "Period of the census statement (e.g., '2025m8', '2025m7')",
+      "example": "2025m8"
+    }
+  },
+  "required": [
+    "business_id",
+    "content"
+  ]
+}

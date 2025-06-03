@@ -1,0 +1,22 @@
+{
+  "description": "Request to update the contract status and optionally upload a manual contract document",
+  "required": [
+    "status"
+  ],
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "New contract status",
+      "enum": [
+        "NOT_SIGNED",
+        "SIGNED",
+        "SIGNED_OUTSIDE_PLATFORM"
+      ]
+    },
+    "file": {
+      "type": "string",
+      "format": "binary"
+    }
+  }
+}

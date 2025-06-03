@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "Start date for the balance period",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "description": "End date for the balance period",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

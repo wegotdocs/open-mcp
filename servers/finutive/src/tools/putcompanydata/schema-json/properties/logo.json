@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "VIDEO",
+        "IMAGE",
+        "AUDIO",
+        "DOCUMENT",
+        "OTHER"
+      ]
+    }
+  }
+}

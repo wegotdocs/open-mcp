@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "service_id": {
+      "description": "Service identifier",
+      "type": "string"
+    },
+    "manager_id": {
+      "description": "Manager identifier",
+      "type": "string"
+    },
+    "max_clients": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "is_responsible": {
+      "type": "boolean"
+    },
+    "responsible_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "service_id",
+    "manager_id"
+  ]
+}

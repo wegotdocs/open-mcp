@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "partner_id": {
+      "description": "Partner ID",
+      "type": "string"
+    },
+    "is_autonomous": {
+      "description": "Autonomous status (0 or 1). It is not currently used, we only validate the value",
+      "type": "integer",
+      "format": "int32"
+    },
+    "contribution_base": {
+      "description": "Contribution base type: MINIMAL, MAXIMAL, OTHER, CURRENT_FEE for business or CURRENT, MINIMUM, MAXIMUM, OTHER for partner. It is not currently used, we only validate the value",
+      "type": "string"
+    }
+  },
+  "required": [
+    "business_id",
+    "partner_id"
+  ]
+}

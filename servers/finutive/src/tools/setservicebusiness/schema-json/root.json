@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "REJECTED",
+        "OPPORTUNITY",
+        "REQUESTED",
+        "BUDGET_SENT",
+        "CLIENT",
+        "ENABLED",
+        "DISABLED"
+      ]
+    },
+    "service_id": {
+      "type": "string"
+    },
+    "manager_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "business_id",
+    "service_id"
+  ]
+}

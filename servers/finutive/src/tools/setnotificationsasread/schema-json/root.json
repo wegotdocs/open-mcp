@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "ids": {
+      "type": "array",
+      "description": "List of notification IDs to mark as read",
+      "example": [
+        "957624",
+        "957625"
+      ],
+      "items": {
+        "type": "string",
+        "description": "List of notification IDs to mark as read",
+        "example": "[\"957624\",\"957625\"]"
+      }
+    },
+    "all": {
+      "type": "boolean",
+      "description": "Flag to mark all notifications as read",
+      "example": true
+    }
+  },
+  "required": []
+}

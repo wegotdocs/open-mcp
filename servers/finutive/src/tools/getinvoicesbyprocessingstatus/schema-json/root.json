@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "processingStatus": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "PROFORMA",
+        "PLANNED_ISSUANCE",
+        "ISSUED"
+      ]
+    },
+    "invoiceType": {
+      "type": "string",
+      "enum": [
+        "CLIENT",
+        "PROVIDER",
+        "TPV"
+      ]
+    }
+  },
+  "required": [
+    "processingStatus",
+    "invoiceType"
+  ]
+}

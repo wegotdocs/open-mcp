@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "deal_label_ids": {
+      "uniqueItems": true,
+      "type": "array",
+      "description": "Set of deal label IDs to associate with the business",
+      "items": {
+        "type": "string",
+        "description": "Set of deal label IDs to associate with the business"
+      }
+    },
+    "gclid": {
+      "type": "string",
+      "description": "Google Click ID for tracking purposes",
+      "example": "EAIaIQobChMIivSC7fj"
+    },
+    "one_off": {
+      "type": "integer",
+      "description": "One-off value for the business deal",
+      "format": "int32",
+      "example": 1000
+    },
+    "monthly_value": {
+      "type": "integer",
+      "description": "Monthly recurring value for the business deal",
+      "format": "int32",
+      "example": 100
+    }
+  },
+  "required": [
+    "business_id",
+    "deal_label_ids"
+  ]
+}

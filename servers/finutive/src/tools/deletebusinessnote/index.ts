@@ -1,0 +1,27 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "deletebusinessnote",
+  "toolDescription": "Delete business note",
+  "baseUrl": "https://agepyme.finutive.com/api/",
+  "path": "/businesses/{business_id}/notes/{note_id}",
+  "method": "delete",
+  "security": [
+    {
+      "key": "wzu",
+      "value": "<mcp-env-var>WZU</mcp-env-var>",
+      "in": "cookie",
+      "envVarName": "WZU"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "business_id": "business_id",
+      "note_id": "note_id"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

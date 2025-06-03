@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "invoice_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stakeholder_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "businessId",
+    "invoice_ids"
+  ]
+}

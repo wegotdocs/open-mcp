@@ -1,0 +1,113 @@
+{
+  "type": "object",
+  "properties": {
+    "search_string": {
+      "description": "Search string to filter businesses by name or other text fields",
+      "type": "string"
+    },
+    "business_type": {
+      "description": "Type of business to filter by",
+      "type": "string",
+      "enum": [
+        "SOCIETY",
+        "UNSUPPORTED",
+        "AUTONOMOUS"
+      ]
+    },
+    "startup_certificate": {
+      "description": "Filter by startup certificate status (1 for yes, 0 for no)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "invite_start_date": {
+      "description": "Start date for invitation period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "invite_end_date": {
+      "description": "End date for invitation period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "services_id": {
+      "description": "List of service IDs to filter by",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deal_labels_id": {
+      "description": "List of deal label IDs to filter by",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "all_businesses": {
+      "description": "Flag to include all businesses",
+      "type": "boolean"
+    },
+    "accounting_responsibles_id": {
+      "description": "List of accounting responsible IDs to filter by",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "min_accounting_service_months": {
+      "description": "Minimum number of accounting service months",
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_accounting_service_months": {
+      "description": "Maximum number of accounting service months",
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_tickets_to_process": {
+      "description": "Minimum number of tickets to process",
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_tickets_to_process": {
+      "description": "Maximum number of tickets to process",
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_global_rating": {
+      "description": "Minimum global rating",
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_global_rating": {
+      "description": "Maximum global rating",
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_engagement": {
+      "description": "Minimum engagement level",
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_engagement": {
+      "description": "Maximum engagement level",
+      "type": "integer",
+      "format": "int32"
+    },
+    "business_categories_id": {
+      "description": "List of business category IDs to filter by",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "request": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `request` to the tool, first call the tool `expandSchema` with \"/properties/request\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional filtering criteria</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "request"
+  ]
+}

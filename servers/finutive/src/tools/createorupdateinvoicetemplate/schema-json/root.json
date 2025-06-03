@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "business_id": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "stakeholder_id": {
+      "type": "string"
+    },
+    "payment_type": {
+      "type": "string"
+    },
+    "bank_account_invoice_id": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "has_irpf": {
+      "type": "boolean"
+    },
+    "irpf_id": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "activity_type": {
+      "type": "string"
+    },
+    "price_definition": {
+      "type": "string"
+    },
+    "products_data": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expense_account": {
+      "type": "string"
+    },
+    "activity_line": {
+      "type": "string"
+    },
+    "taxes_name": {
+      "type": "string"
+    },
+    "tax_regime": {
+      "type": "string"
+    },
+    "pdf_template": {
+      "type": "string"
+    },
+    "mail_template": {
+      "type": "string"
+    },
+    "enable_mail_template": {
+      "type": "boolean"
+    },
+    "serie": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "valid_vats": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    }
+  },
+  "required": [
+    "businessId"
+  ]
+}

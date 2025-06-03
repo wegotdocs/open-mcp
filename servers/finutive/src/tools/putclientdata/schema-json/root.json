@@ -1,0 +1,110 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "cif": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "business_name": {
+      "type": "string"
+    },
+    "tel": {
+      "type": "string"
+    },
+    "type": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "CLIENT",
+          "PROVIDER",
+          "TPV"
+        ]
+      }
+    },
+    "category": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "eu_country": {
+      "type": "string"
+    },
+    "roi": {
+      "type": "boolean"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "accounting_account": {
+      "type": "string"
+    },
+    "expense_account": {
+      "type": "string"
+    },
+    "line_activity": {
+      "type": "string"
+    },
+    "irpf": {
+      "type": "string"
+    },
+    "tax_regime": {
+      "type": "string"
+    },
+    "email_extra": {
+      "type": "string"
+    },
+    "iban": {
+      "type": "string"
+    },
+    "sepa_file": {
+      "type": "string"
+    },
+    "expense_account_client": {
+      "type": "string"
+    },
+    "expense_account_provider": {
+      "type": "string"
+    },
+    "include_country": {
+      "type": "boolean"
+    },
+    "activity_type": {
+      "type": "string"
+    },
+    "allow_provider_auto_processing": {
+      "type": "boolean"
+    },
+    "provider_max_quantity_auto_processing": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "provider_default_currency_auto_processing": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "businessId"
+  ]
+}

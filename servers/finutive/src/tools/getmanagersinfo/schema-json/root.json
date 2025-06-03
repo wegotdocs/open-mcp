@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "search": {
+      "description": "Search by fullname or email",
+      "type": "ManagerRoleEnum"
+    },
+    "role": {
+      "description": "Search by manager role",
+      "type": "string"
+    },
+    "select_all": {
+      "description": "If true, returns all results without pagination",
+      "type": "boolean",
+      "default": false
+    },
+    "offset": {
+      "description": "Page number (zero-based)",
+      "type": "integer",
+      "default": 0
+    },
+    "size": {
+      "description": "Number of items per page",
+      "type": "integer",
+      "default": 10
+    },
+    "sort_field": {
+      "description": "Field to sort by (fullname, email, business_amount, business_services_amount, cost_hour, rating)",
+      "type": "string",
+      "enum": [
+        "fullname",
+        "email",
+        "business_amount",
+        "business_services_amount",
+        "cost_hour",
+        "rating"
+      ]
+    },
+    "sort_dir": {
+      "description": "Sort direction (ASC or DESC)",
+      "type": "string",
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    }
+  },
+  "required": []
+}

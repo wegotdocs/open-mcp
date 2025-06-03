@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "starting_page": {
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "page_size": {
+      "type": "integer",
+      "format": "int32",
+      "default": 1000
+    },
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "thread": {
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    },
+    "batch": {
+      "type": "boolean",
+      "default": false
+    },
+    "instanceIdOverwritten": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": []
+}

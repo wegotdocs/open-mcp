@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the deal label (required for updates, ignored for creation)",
+      "example": "d1234567-89ab-cdef-0123-456789abcdef"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the deal label",
+      "example": "Premium Contract"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of the deal label (DEALS, CHANNEL, MEDIA, COMERCIAL, TYPOLOGY, SERVICE)",
+      "example": "DEALS",
+      "enum": [
+        "DEAL",
+        "CHANNEL",
+        "WAY",
+        "COMMERCIAL",
+        "TYPOLOGY",
+        "SERVICE"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "type"
+  ]
+}

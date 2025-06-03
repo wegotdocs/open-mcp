@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "hash": {
+      "description": "Hash identifier of the document",
+      "type": "string"
+    },
+    "inline": {
+      "description": "Whether the document should be displayed inline in the browser or downloaded as an attachment",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "hash"
+  ]
+}

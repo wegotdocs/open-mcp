@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "Page number (zero-based)",
+      "type": "integer",
+      "default": 0
+    },
+    "size": {
+      "description": "Number of items per page",
+      "type": "integer",
+      "default": 10
+    },
+    "read": {
+      "description": "Filter by read status (true/false). If not provided, returns all notifications",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

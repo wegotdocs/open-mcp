@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "search": {
+      "type": "string"
+    },
+    "business_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "opened_period": {
+      "type": "boolean",
+      "default": false
+    },
+    "closed_period": {
+      "type": "boolean",
+      "default": false
+    },
+    "in_process_csv": {
+      "type": "boolean",
+      "default": false
+    },
+    "completed_csv": {
+      "type": "boolean",
+      "default": false
+    },
+    "pending_csv": {
+      "type": "boolean",
+      "default": false
+    },
+    "with_requirements": {
+      "type": "boolean",
+      "default": false
+    },
+    "with_positive_values": {
+      "type": "boolean",
+      "default": false
+    },
+    "business_type": {
+      "type": "string",
+      "enum": [
+        "SOCIETY",
+        "UNSUPPORTED",
+        "AUTONOMOUS"
+      ]
+    },
+    "min_tickets": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_tickets": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "in_sage": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "with_laboral_service": {
+      "type": "boolean",
+      "default": false
+    },
+    "with_start_company_date": {
+      "type": "boolean",
+      "default": false
+    },
+    "min_csv_return": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_csv_return": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "model_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

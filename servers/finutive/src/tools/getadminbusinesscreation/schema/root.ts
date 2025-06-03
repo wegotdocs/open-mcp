@@ -1,0 +1,33 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "start": z.number().int().describe("Start index for pagination").optional(),
+  "length": z.number().int().describe("Number of elements per page").optional(),
+  "query": z.string().describe("Search text").optional(),
+  "start_date": z.string().datetime({ offset: true }).describe("Start date filter").optional(),
+  "end_date": z.string().datetime({ offset: true }).describe("End date filter").optional(),
+  "start_date_activity": z.string().datetime({ offset: true }).describe("Activity start date").optional(),
+  "end_date_activity": z.string().datetime({ offset: true }).describe("Activity end date").optional(),
+  "start_recurrent_date": z.string().datetime({ offset: true }).describe("Recurrent start date").optional(),
+  "end_recurrent_date": z.string().datetime({ offset: true }).describe("Recurrent end date").optional(),
+  "status": z.string().describe("Business creation status").optional(),
+  "paid": z.string().describe("Payment status").optional(),
+  "responsible": z.string().describe("Assigned responsible").optional(),
+  "business_type": z.string().describe("Business type").optional(),
+  "language": z.string().describe("Business language").optional(),
+  "blocked": z.number().int().describe("Blocked status (1 for blocked, 0 for not blocked)").optional(),
+  "recurrent": z.number().int().describe("Recurrent status (1 for recurrent, 0 for not recurrent)").optional(),
+  "tags_filter_mode": z.number().int().describe("Tags filter mode").optional(),
+  "contribution_types": z.string().describe("Contribution types").optional(),
+  "start_activation_date": z.string().datetime({ offset: true }).describe("Activation start date").optional(),
+  "end_activation_date": z.string().datetime({ offset: true }).describe("Activation end date").optional(),
+  "start_date_company_constitution": z.string().datetime({ offset: true }).describe("Company constitution start date").optional(),
+  "end_date_company_constitution": z.string().datetime({ offset: true }).describe("Company constitution end date").optional(),
+  "start_paid_date": z.string().datetime({ offset: true }).describe("Payment start date").optional(),
+  "end_paid_date": z.string().datetime({ offset: true }).describe("Payment end date").optional(),
+  "deal_labels": z.string().describe("Deal labels").optional(),
+  "ids": z.string().describe("Specific IDs to query").optional(),
+  "order_column": z.number().int().describe("Column to order by").optional(),
+  "order_dir": z.string().describe("Ordering direction (asc/desc)").optional(),
+  "select_all": z.number().int().describe("Select all flag (1 for yes, 0 for no)").optional()
+}

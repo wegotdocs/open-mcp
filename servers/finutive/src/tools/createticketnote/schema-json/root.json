@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "ticketId": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "docs": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "ticketId"
+  ]
+}

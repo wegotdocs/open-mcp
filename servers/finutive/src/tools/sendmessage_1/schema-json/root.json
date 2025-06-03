@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the message",
+      "example": "Important update about your account"
+    },
+    "message": {
+      "type": "string",
+      "description": "Content of the message",
+      "example": "We are writing to inform you about changes to our services..."
+    },
+    "responsible": {
+      "type": "string",
+      "description": "ID of the responsible person sending the message",
+      "example": "user-123"
+    },
+    "destinataries": {
+      "type": "array",
+      "description": "List of business recipients with their service IDs",
+      "items": {
+        "required": [
+          "business_id",
+          "service_id"
+        ],
+        "type": "object",
+        "properties": {
+          "business_id": {
+            "type": "string",
+            "description": "ID of the business to send the message to",
+            "example": "business-123"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "ID of the service associated with the business",
+            "example": "service-456"
+          }
+        },
+        "description": "Business recipient for administrative messages"
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "description": "List of attachment file IDs",
+      "example": [
+        "attachment-123",
+        "attachment-456"
+      ],
+      "items": {
+        "type": "string",
+        "description": "List of attachment file IDs",
+        "example": "[\"attachment-123\",\"attachment-456\"]"
+      }
+    },
+    "is_closed": {
+      "type": "boolean",
+      "description": "Whether the conversation should be closed after sending the message",
+      "example": false
+    }
+  },
+  "required": [
+    "title",
+    "message",
+    "responsible",
+    "destinataries"
+  ]
+}

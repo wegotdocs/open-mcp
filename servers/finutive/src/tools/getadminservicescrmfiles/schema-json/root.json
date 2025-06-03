@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "service_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "search": {
+      "type": "string"
+    },
+    "size": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "from": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "responsible_id": {
+      "type": "string"
+    },
+    "deal_labels": {
+      "type": "string"
+    },
+    "deal_labels_out": {
+      "type": "string"
+    },
+    "service_tags": {
+      "type": "string"
+    },
+    "service_tags_out": {
+      "type": "string"
+    },
+    "files": {
+      "type": "string"
+    },
+    "start_date_last_change": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date_last_change": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "service_id",
+    "size",
+    "from"
+  ]
+}

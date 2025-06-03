@@ -1,0 +1,207 @@
+{
+  "type": "object",
+  "properties": {
+    "search_string": {
+      "description": "Search string to filter businesses by name or other text fields",
+      "type": "string"
+    },
+    "business_type": {
+      "description": "Type of business to filter by",
+      "type": "string",
+      "enum": [
+        "SOCIETY",
+        "UNSUPPORTED",
+        "AUTONOMOUS"
+      ]
+    },
+    "order_direction": {
+      "description": "Sort direction for results",
+      "type": "string"
+    },
+    "startup_certificate": {
+      "description": "Filter by startup certificate status (1 for yes, 0 for no)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "invite_start_date": {
+      "description": "Start date for invitation period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "invite_end_date": {
+      "description": "End date for invitation period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "services": {
+      "description": "List of service IDs to filter by",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deal_labels_id": {
+      "description": "List of deal label IDs to filter by",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "census": {
+      "description": "List of census IDs to filter by",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "opportunity_start_date": {
+      "description": "Start date for opportunity period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "opportunity_end_date": {
+      "description": "End date for opportunity period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "paid_start_date": {
+      "description": "Start date for paid period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "paid_end_date": {
+      "description": "End date for paid period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "discarded_start_date": {
+      "description": "Start date for discarded period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "discarded_end_date": {
+      "description": "End date for discarded period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_start_date": {
+      "description": "Start date for updated period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_end_date": {
+      "description": "End date for updated period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "recurrent_start_date": {
+      "description": "Start date for recurrent period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "recurrent_end_date": {
+      "description": "End date for recurrent period filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "products": {
+      "description": "List of product IDs to include",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "products_out_id": {
+      "description": "List of product IDs to exclude",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "services_out_id": {
+      "description": "List of service IDs to exclude",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_blocked": {
+      "description": "Filter for non-blocked businesses",
+      "type": "boolean"
+    },
+    "with_products": {
+      "description": "Filter for businesses with products",
+      "type": "boolean"
+    },
+    "has_assigned_client": {
+      "description": "Filter for businesses with assigned client",
+      "type": "boolean"
+    },
+    "with_recurrency": {
+      "description": "Filter for businesses with recurrency",
+      "type": "boolean"
+    },
+    "with_bank_account": {
+      "description": "Filter for businesses with bank account",
+      "type": "boolean"
+    },
+    "with_fiscal_documents": {
+      "description": "Filter for businesses with fiscal documents",
+      "type": "boolean"
+    },
+    "gocardless_active": {
+      "description": "Filter for businesses with active GoCardless",
+      "type": "boolean"
+    },
+    "sage_active": {
+      "description": "Filter for businesses with active Sage",
+      "type": "boolean"
+    },
+    "zip_code": {
+      "description": "Filter by ZIP code",
+      "type": "string"
+    },
+    "min_invoices_last_6_months_incomes": {
+      "description": "Minimum amount of incomes from invoices in last 6 months",
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_invoices_last_6_months_incomes": {
+      "description": "Maximum amount of incomes from invoices in last 6 months",
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_transactions_last_6_months_incomes": {
+      "description": "Minimum amount of incomes from transactions in last 6 months",
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_transactions_last_6_months_incomes": {
+      "description": "Maximum amount of incomes from transactions in last 6 months",
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_annual_budget": {
+      "description": "Minimum annual budget",
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_annual_budget": {
+      "description": "Maximum annual budget",
+      "type": "integer",
+      "format": "int32"
+    },
+    "special_free_treatment": {
+      "description": "Has promotional products",
+      "type": "boolean"
+    },
+    "request": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `request` to the tool, first call the tool `expandSchema` with \"/properties/request\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional filtering criteria</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "request"
+  ]
+}

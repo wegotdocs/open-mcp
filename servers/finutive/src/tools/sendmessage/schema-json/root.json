@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "ID of the business",
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the message",
+      "example": "Project Update"
+    },
+    "message": {
+      "type": "string",
+      "description": "Content of the message",
+      "example": "Here's the latest update on the project..."
+    },
+    "responsible": {
+      "type": "string",
+      "description": "ID of the responsible person sending the message",
+      "example": "user-123"
+    },
+    "destinataries": {
+      "type": "array",
+      "description": "List of recipients for the message",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": "List of recipients for the message"
+      }
+    },
+    "element_type": {
+      "type": "string",
+      "description": "Type of element this message is related to",
+      "example": "invoice"
+    },
+    "element_id": {
+      "type": "string",
+      "description": "ID of the element this message is related to",
+      "example": "invoice-123"
+    },
+    "attachments": {
+      "type": "array",
+      "description": "List of attachment file IDs",
+      "example": [
+        "attachment-123",
+        "attachment-456"
+      ],
+      "items": {
+        "type": "string",
+        "description": "List of attachment file IDs",
+        "example": "[\"attachment-123\",\"attachment-456\"]"
+      }
+    },
+    "conversation_id": {
+      "type": "string",
+      "description": "ID of the conversation this message belongs to (if it's part of an existing conversation)",
+      "example": "conversation-123"
+    },
+    "is_public": {
+      "type": "boolean",
+      "description": "Whether the message is public or private",
+      "example": true
+    },
+    "is_closed": {
+      "type": "boolean",
+      "description": "Whether the conversation should be closed after sending the message",
+      "example": false
+    },
+    "users_cc": {
+      "type": "array",
+      "description": "List of user IDs to copy on the message",
+      "example": [
+        "user-123",
+        "user-456"
+      ],
+      "items": {
+        "type": "string",
+        "description": "List of user IDs to copy on the message",
+        "example": "[\"user-123\",\"user-456\"]"
+      }
+    }
+  },
+  "required": [
+    "business_id",
+    "title",
+    "message",
+    "responsible",
+    "destinataries"
+  ]
+}
