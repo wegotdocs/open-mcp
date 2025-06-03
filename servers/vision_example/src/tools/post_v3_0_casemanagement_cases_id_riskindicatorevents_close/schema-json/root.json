@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the case",
+      "type": "string",
+      "maxLength": 128,
+      "example": "CL-00005-20231007-00005"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "remediated",
+        "dismissed",
+        "accepted"
+      ],
+      "description": "The new status of the case",
+      "example": "remediated"
+    }
+  },
+  "required": [
+    "id",
+    "status"
+  ]
+}

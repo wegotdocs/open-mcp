@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "top": {
+      "description": "The number of email domains returned on each page. Supported range: 10-1000\n",
+      "type": "integer",
+      "default": 100,
+      "minimum": 10,
+      "maximum": 1000
+    },
+    "TMV1-Filter": {
+      "description": "The filter used to retrieve a subset of email domains from a generated paginated list.\n\n| Field | Description | Supported values |\n|-----|-----|-----|\n| inboundConfigurationStatus | The domain's inbound configuration status. | 'Completed', 'Configuration required', 'Disabled' |\n| outboundConfigurationStatus | The domain's outbound configuration status. | 'Completed', 'Configuration required', 'Disabled' |\n\n| Operator | Description | Notes |\n|-----|-----|-----|\n| `eq` | Operator \"equal to\" | - |\n| `and` | Operator \"and\" | - |\n\nOnly support `eq`, `and` operators.\n",
+      "type": "string",
+      "maxLength": 512
+    }
+  },
+  "required": []
+}

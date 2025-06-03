@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "startDateTime": z.string().datetime({ offset: true }).max(20).describe("The start of the data retrieval range, in ISO 8601 format.\n\nDefault: The oldest available record.\n").optional(),
+  "endDateTime": z.string().datetime({ offset: true }).max(20).describe("The end of the data retrieval range, in ISO 8601 format.\n\nDefault: The time you make the request.\n").optional(),
+  "orderBy": z.string().max(2048).describe("The field by which the results are sorted.\n\nData is displayed in ascending order by default.\n\n\nSupported fields:\n* 'lastUpdatedDateTime'\n* 'riskLevel'\n\nSupported operators:\n* asc - Ascending order\n* desc - Descending order\n").optional(),
+  "filter": z.string().max(20480).describe("Filter for retrieving a subset of the detection model list.\n\nSupported fields:\n\n|Field|Description|Supported values|\n|---------|---------|---------|\n|riskLevel| The severity assigned to the model |`Critical`, `High`, `Medium`, `Low`|\n|enabled| The status of the model |`true`,`false`|\n|modelType| The type of the model |`sae`, `ti`|\n|requiredProducts| The products that use the detection model | Any value |\n\nSupported operators:\n| Operator | Description | Notes |\n|----------|-----------|---------|\n|`eq`|Operator 'equal to' | - |\n|`and`|Operator 'and' | - |\n|`or`|Operator 'or' | - |\n|`not`|Operator 'not' | - |\n|`()`|Symbols for grouping operands with their correct operator | - |\n| `hassubset`| Filter for arrays |hassubset(requiredProducts,['xes']) |\n").optional(),
+  "top": z.union([z.literal(50), z.literal(100), z.literal(200)]).describe("Number of records displayed on a page.\n\nDefault: 50\n").optional()
+}

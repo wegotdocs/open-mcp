@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the local application on the Trend Vision One platform",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "top": {
+      "description": "The number of records displayed on a page\n\nDefault: `100`\n",
+      "type": "integer",
+      "example": 100,
+      "default": 100,
+      "enum": [
+        10,
+        50,
+        100,
+        200,
+        500,
+        1000
+      ]
+    },
+    "orderBy": {
+      "description": "The field by which the results are sorted.\n\nTo display records in ascending or descending order, add the phrase `asc` or `desc` after the parameter name.\n\nAvailable fields: \n* `latestRiskScore`\n\nAvailable modifiers:\n* `asc` - Displays the results in ascending order\n* `desc` - Displays the results in descending order\n\nDefault: `latestRiskScore desc`\n",
+      "type": "string",
+      "maxLength": 128,
+      "default": "latestRiskScore desc"
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the device information list.\n\nSupported fields:\n\n| Field           | Description                              | Supported values |\n|-----------------|------------------------------------------|------------------|\n| id              | The ID of the device                     | Any value        |\n| name            | The name of the device                   | Any value        |\n| latestRiskScore | The most recent Risk Score of the device | Any value        |\n\nSupported operators:\n\n| Operator | Description                                               | Notes                                |\n|----------|-----------------------------------------------------------|--------------------------------------|\n| `eq`     | Operator 'equal to'                                       | -                                    |\n| `and`    | Operator 'and'                                            | -                                    |\n| `or`     | Operator 'or'                                             | -                                    |\n| `not`    | Operator 'not'                                            | -                                    |\n| `()`     | Symbols for grouping operands with their correct operator | -                                    |\n| `gt`     | Operator 'greater than'                                   | Only applicable to `latestRiskScore` |\n| `ge`     | Operator 'greater than or equal'                          | Only applicable to `latestRiskScore` |\n| `le`     | Operator 'less than or equal'                             | Only applicable to `latestRiskScore` |\n| `lt`     | Operator 'less than'                                      | Only applicable to `latestRiskScore` |\n\nAdditional functions:\n\n| Function   | Description                                       | Notes                       |\n|------------|---------------------------------------------------|-----------------------------|\n| contains() | Checks if the string contains the specified value | Applicable to `name` only  |\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the Alibaba Cloud account.",
+      "type": "string",
+      "maxLength": 16
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The name of the Alibaba Cloud account to be used in Cloud Account Management.",
+      "example": "production account"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The description of the Alibaba Cloud account.\nThe default value is an empty string if the field is omitted.\n",
+      "example": "Corp ABC production account"
+    },
+    "If-Match": {
+      "description": "Entity tag in MD5 format to perform version control on the resource to be updated. This is returned in response header `ETag` of the v3 GET method.",
+      "type": "string",
+      "maxLength": 254
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

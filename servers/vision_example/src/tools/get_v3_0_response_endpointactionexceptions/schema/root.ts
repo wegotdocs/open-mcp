@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "TMV1-Filter": z.string().max(2048).describe("Filter for retrieving a subset of the endpoint response action exclusion list.\n\nSupported fields:\n\n|Field            |Description             |Supported values                                                                                 |\n|-----------------|------------------------|-------------------------------------------------------------------------------------------------|\n|action           |The response action name.|`isolate`, `runCustomScript`, `remoteShell`, `collectFile`, `dumpProcessMemory`|\n|endpointName     |The endpoint host name.  |Any valid host name                                                                              |\n|endpointAgentGuid|The endpoint GUID.       |Any valid GUID                                                                                   |\n\n\nSupported operators:\n\n|Operator|Description|\n|-----|-----------|\n|`eq` |Operator 'equal to'|\n|`and`|Operator 'and'|\n|`or` |Operator 'or'|\n|`not`|Operator 'not'|\n|`()` |Symbols for grouping operands with their correct operator|\n").optional()
+}

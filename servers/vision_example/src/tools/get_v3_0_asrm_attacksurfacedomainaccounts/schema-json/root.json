@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "orderBy": {
+      "description": "The field by which the results are sorted.\n\nTo display records in ascending or descending order, add the phrase `asc` or `desc` after the parameter name.\n\nAvailable values: \n* `latestRiskScore`\n* `userAccount`\n* `asc` - Ascending order\n* `desc` - Descending order\n\nDefault: `latestRiskScore desc`\n",
+      "type": "string",
+      "maxLength": 128,
+      "default": "latestRiskScore desc"
+    },
+    "top": {
+      "description": "The number of records displayed on a page. \n\nDefault: `100`\n",
+      "type": "integer",
+      "example": 100,
+      "default": 100,
+      "enum": [
+        10,
+        50,
+        100,
+        200,
+        500,
+        1000
+      ]
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the domain accounts list.\n\nSupported fields:\n\n| Field           | Description                                                                        | Supported values                                                       |\n| --------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |\n| name            | The name of the domain account                                                     | Any value                                                              |\n| id              | The ID of the asset on the Trend Vision One platform.                              | Any value                                                              |\n| type            | Whether a account can be assessed. You can only include one account type per query | Any value                                                              |\n| latestRiskScore | The most recent Risk Score of the account                                          | Any value                                                              |\n| criticality     | The criticality of the account                                                     | `high`, `medium`, `low`                                                |\n| location        | The location of the account                                                        | Any value                                                              |\n| jobTitle        | The job title of the user                                                          | Any value                                                              |\n| discoveredBy    | The data sources that discovered the account                                       | The values in the `discoveredBy` field when the request is successful. |\n\nSupported operators:\n\n| Operator | Description                      | Notes                                                                            |\n| -------- | -------------------------------- | -------------------------------------------------------------------------------- |\n| `eq`     | Operator 'equal to'              | Not applicable to `discoveredBy`                                                 |\n| `and`    | Operator 'and'                   | -                                                                                |\n| `or`     | Operator 'or'                    | -                                                                                |\n| `not`    | Operator 'not'                   | -                                                                                |\n| `()`     | Symbols for grouping operands    | -                                                                                |\n| `gt`     | Operator 'greater than'          | Only applicable to: 'latestRiskScore','firstSeenDateTime','lastDetectedDateTime' |\n| `ge`     | Operator 'greater than or equal' | Only applicable to: 'latestRiskScore''firstSeenDateTime','lastDetectedDateTime'  |\n| `le`     | Operator 'less than or equal'    | Only applicable to: 'latestRiskScore','firstSeenDateTime','lastDetectedDateTime' |\n| `lt`     | Operator 'less than'             | Only applicable to: 'latestRiskScore','firstSeenDateTime','lastDetectedDateTime' |\n\nAdditional functions:\n\n| Function     | Description                                                             | Notes                             |\n| ------------ | ----------------------------------------------------------------------- | --------------------------------- |\n| startswith() | Determines if the specified string begins with the specified characters | Only applicable to `name`         |\n| hassubset()  | Checks if the array contains a subset                                   | Only applicable to `discoveredBy` |\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

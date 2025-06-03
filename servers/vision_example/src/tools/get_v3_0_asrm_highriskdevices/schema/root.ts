@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "orderBy": z.string().max(128).describe("The field by which the results are sorted.\n\nTo display records in ascending or descending order, add the phrase `asc` or `desc` after the parameter name.\n\nAvailable values: \n* `riskScore`\n* `deviceName`\n* `asc` - Ascending order\n* `desc` - Descending order\n\nDefault: `riskScore desc`\n").optional(),
+  "top": z.union([z.literal(10), z.literal(50), z.literal(100), z.literal(200), z.literal(1000)]).describe("The number of records displayed on a page. \n\nDefault: `100`\n").optional(),
+  "TMV1-Filter": z.string().max(1024).describe("Filter for retrieving a subset of the at-risk devices list.\n\nSupported fields:\n\n|Field |Description |\n|---------|---------|\n|`id` |The ID of the device on the Trend Vision One platform. |\n|`deviceName` |The name of the device |\n|`ip` |The IP addresses of the device. |\n|`os` |The operating system of the device.|\n|`riskScore` |The risk score of a user.|\n|`lastLogonUser` |The user who last signed into the device.|\n\nSupported operators:\n\n|Operator  |Description |\n|---------|---------|\n|`eq`  |Operator 'equal to'. |\n|`and` |Operator 'and'. |\n|`or`  |Operator 'or'. |\n|`not` |Operator 'not'. |\n|`( )` |Symbols for grouping operands. |\n|`gt`  |Operator 'greater than'. |\n|`ge`  |Operator 'greater than or equal'. |\n|`le`  |Operator 'less than or equal'. |\n|`lt`  |Operator 'less than'. |\n").optional()
+}

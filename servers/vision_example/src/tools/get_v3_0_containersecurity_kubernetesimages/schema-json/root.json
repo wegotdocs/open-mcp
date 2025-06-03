@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "orderBy": {
+      "description": "The fields by which the results are sorted. You can indicate multiple fields separated by commas (`,`).\n\nTo return records in descending order, add the keyword `desc` after the parameter name.\n\nAvailable fields:\n* `id`\n",
+      "type": "string",
+      "maxLength": 64,
+      "default": "id desc"
+    },
+    "top": {
+      "description": "The number of records displayed on a page.",
+      "type": "integer",
+      "enum": [
+        25,
+        50,
+        100
+      ],
+      "example": 25,
+      "default": 25
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the Kubernetes image list. Include this parameter in every request that generates paginated output\n\nSupported fields:\n| Field        | Description                           |\n| ------------ | ------------------------------------- |\n| `id`         | The ID of the Kubernetes image        |\n| `clusterid`  | The ID of the Kubernetes cluster      |\n| `digest`     | The container image digest            |\n| `repository` | The repository of the container image |\n| `registry`   | The registry of the container image   |\n\nSupported operators:\n* `eq` - Operator \"equal to\"\n* `and` - Operator \"and\"\n* `or` - Operator \"or\"\n* `not` - Operator \"not\"\n* `()` - Symbols for grouping operands\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

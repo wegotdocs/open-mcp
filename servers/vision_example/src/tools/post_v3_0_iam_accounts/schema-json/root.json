@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "The email address of a user",
+      "example": "test@example.com"
+    },
+    "role": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "The role assigned to a user",
+      "example": "full-access"
+    },
+    "authType": {
+      "type": "string",
+      "enum": [
+        "local",
+        "saml",
+        "samlGroup"
+      ],
+      "description": "The type of the user account. Available values: `local`, `saml`, `samlGroup`\n",
+      "example": "saml"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 256,
+      "description": "A brief note or identifier for the user account.",
+      "example": "add user"
+    }
+  },
+  "required": [
+    "email",
+    "role",
+    "authType"
+  ]
+}

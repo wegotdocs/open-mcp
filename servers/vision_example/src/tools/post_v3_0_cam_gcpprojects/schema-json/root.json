@@ -1,0 +1,122 @@
+{
+  "type": "object",
+  "properties": {
+    "workloadIdentityPoolId": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The ID of the Google Cloud workload identity pool.",
+      "example": "gcp-random-uuid-string"
+    },
+    "oidcProviderId": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The ID of the Google Cloud OpenID Connect (OIDC) provider.",
+      "example": "oidc-random-uuid-string"
+    },
+    "serviceAccountId": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The ID of the Google Cloud service account.",
+      "example": "service-account-random-uuid-string"
+    },
+    "projectNumber": {
+      "type": "string",
+      "maxLength": 30,
+      "description": "The GCP project number.",
+      "example": "project-number"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The name of the Google Cloud project to be used in Cloud Accounts.",
+      "example": "production account"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The description of the Google Cloud project.\nIf there is no description, the field is empty.\n",
+      "example": "Corp ABC production account"
+    },
+    "gcpRegion": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The region where Cloud Accounts is deployed.",
+      "example": "us-west1",
+      "enum": [
+        "us-west1",
+        "us-west2",
+        "us-west3",
+        "us-west4",
+        "us-central1",
+        "us-east1",
+        "us-east4",
+        "northamerica-northeast1",
+        "southamerica-east1",
+        "europe-west1",
+        "europe-west2",
+        "europe-west3",
+        "europe-west6",
+        "europe-central2",
+        "asia-south1",
+        "asia-southeast1",
+        "asia-southeast2",
+        "asia-east1",
+        "asia-east",
+        "asia-northeast1",
+        "asia-northeast2",
+        "asia-northeast3",
+        "australia-southeast1"
+      ]
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 254,
+            "enum": [
+              "cloud-sentry"
+            ],
+            "description": "The ID of the feature.",
+            "example": "cloud-sentry"
+          },
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 254
+            },
+            "description": "The regions where the features are deployed.\n\nDefault: All Cloud Accounts supported regions, depending on how the feature stack filters the regions.\n",
+            "example": [
+              "us-west1",
+              "us-east2"
+            ]
+          }
+        }
+      },
+      "description": "The list of selected features and the corresponding regions for deployment.\n",
+      "example": [
+        {
+          "id": "cloud-sentry",
+          "regions": [
+            "us-west1",
+            "us-east2"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "workloadIdentityPoolId",
+    "oidcProviderId",
+    "serviceAccountId",
+    "projectNumber",
+    "name",
+    "gcpRegion"
+  ]
+}

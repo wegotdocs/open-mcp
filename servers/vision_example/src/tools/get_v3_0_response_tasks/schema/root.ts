@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "startDateTime": z.string().datetime({ offset: true }).max(20).describe("Timestamp in ISO 8601 format").optional(),
+  "endDateTime": z.string().datetime({ offset: true }).max(20).describe("Timestamp in ISO 8601 format").optional(),
+  "dateTimeTarget": z.enum(["createdDateTime","lastActionDateTime"]).describe("Parameter that allows you to filter the results.\n").optional(),
+  "filter": z.string().max(2048).describe("Filter for retrieving a subset of the response task list.\n\nSupported fields:\n\n|Field|Description|Supported values|\n|---------|---------|---------|\n|id|The identifier of a response task|Any value|\n|status|The status of a command sent to the management server|`queued`, `running`, `succeeded`, `failed`, `canceled`, `pendingApproval`, `rejected`|\n|action|The command sent to a target|`isolate`, `isolateForMultiple`, `restoreIsolate`, `restoreIsolateForMultiple`, `collectFile`, `terminateProcess`, `block`, `restoreBlock`, `quarantineMessage`, `restoreMessage`, `deleteMessage`, `remoteShell`, `investigationKit`, `runCustomScript`, `runCustomScriptForMultiple`, `submitSandbox`, `dumpProcessMemory`, `disableAccount`, `enableAccount`, `forceSignOut`, `resetPassword`, `collectNetworkAnalysisPackage`, `collectEvidence`, `runOsquery`, `runYaraRules`, `isolateContainer`, `restoreContainer`, `terminateContainer`, `malwareScanForMultiple`|\n|account|The user that created the task|Any value|\n\nSupported operators:\n|Operator|Description|Notes|\n|-----|-----------|----------------|\n|`eq`|Operator 'equal to'| - |\n|`and`|Operator 'and'| - |\n|`or`|Operator 'or'| - |\n|`not`|Operator 'not'| - |\n|`()`|Symbols for grouping operands with their correct operator| - |\n").optional(),
+  "top": z.union([z.literal(50), z.literal(100), z.literal(200)]).describe("Number of records displayed on a page. If no value is specified, 'top' defaults to 50.").optional()
+}

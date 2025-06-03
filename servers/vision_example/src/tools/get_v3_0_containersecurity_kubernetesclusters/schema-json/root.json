@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "top": {
+      "description": "The number of records displayed on a page.",
+      "type": "integer",
+      "enum": [
+        25,
+        50,
+        100
+      ],
+      "example": 25,
+      "default": 25
+    },
+    "orderBy": {
+      "description": "The fields by which the results are sorted. You can indicate multiple fields separated by commas (`,`).\n\nTo return records in descending order, add the keyword `desc` after the parameter name.\n\nAvailable fields:\n* `createdDateTime`\n* `updatedDateTime`\n",
+      "type": "string",
+      "maxLength": 64,
+      "default": "createdDateTime desc"
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the Kubernetes cluster list, which is included in every request that generates paginated output.\n\nSupported fields:\n* `launchType` - The launch type of the cluster. Support values: [ EC2, FARGATE, NODEPOOL, VIRTUALNODE, STANDARD, AUTOPILOT, MANAGED ]\n* `name` -  The name of the Kubernetes cluster\n* `orchestrator` - The orchestrator of the Cluster. Support values: [ Self-managed, Amazon EKS, Microsoft AKS, Google GKE, Alibaba Cloud ACK ]\n* `policyId` - The ID of the policy associated with the cluster\n* `protectionStatus` - The protection status of the cluster. Supported values: [ UNKNOWN, HEALTHY, UNHEALTHY, WARNING ]\n* `runtimeSecurityEnabled` - Whether Runtime Security is enabled for the cluster. Supported values: [ true, false ]\n* `vulnerabilityScanEnabled` - Whether Runtime Vulnerability Scanning is enabled for the cluster. Supported values: [ true, false ]\n* `malwareScanEnabled` - Whether Runtime Malware Scanning is enabled for the cluster. Supported values: [ true, false ]\n* `groupId` - The ID of the group associated with the cluster.\n* `secretScanEnabled` - Whether Runtime Secret Scanning is enabled for the cluster. Supported values: [ true, false ]\n\nSupported operators:\n* `eq` - Operator \"equal to\"\n* `not` - Operator \"not\"\n* `or` - Operator \"or\"\n* `()` - Symbols for grouping operands\n\nSupported functions:\n* `contains` - The string partially matches\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

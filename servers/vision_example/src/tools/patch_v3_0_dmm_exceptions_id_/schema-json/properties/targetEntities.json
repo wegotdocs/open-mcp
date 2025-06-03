@@ -1,0 +1,127 @@
+{
+  "description": "The locations of the objects or events excluded from detections.\n\nYou can define up to 10 targets. If you specify multiple targets, the rule is triggered when all targets are matched.\n\nDefault: All targets\n",
+  "default": {},
+  "type": "object",
+  "properties": {
+    "endpointGUID": {
+      "description": "GUID of the agent which reported the detection",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      },
+      "example": [
+        "ded6977f-fc12-4faa-bdd2-e34c5d25baa8"
+      ]
+    },
+    "endpointHostName": {
+      "description": "Device name of the endpoint",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      },
+      "example": [
+        "Hostname"
+      ]
+    },
+    "endpointIp": {
+      "description": "IP address of the endpoint",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      },
+      "example": [
+        "10.1.2.3",
+        "10.0.0.0/8",
+        "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+        "2001:0db8:85a3:0000:0000:0000:0000:0000/64"
+      ]
+    },
+    "src": {
+      "description": "Source IP address",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      },
+      "example": [
+        "10.1.2.3",
+        "10.0.0.0/8",
+        "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+        "2001:0db8:85a3:0000:0000:0000:0000:0000/64"
+      ]
+    },
+    "dst": {
+      "description": "Destination IP address",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      },
+      "example": [
+        "10.1.2.3",
+        "10.0.0.0/8",
+        "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+        "2001:0db8:85a3:0000:0000:0000:0000:0000/64"
+      ]
+    },
+    "suser": {
+      "description": "Email sender",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 128,
+        "format": "email"
+      },
+      "example": [
+        "someone@example.com"
+      ]
+    },
+    "mailFromAddress": {
+      "description": "Sender address",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 128,
+        "format": "email"
+      },
+      "example": [
+        "someone@example.com"
+      ]
+    },
+    "mailbox": {
+      "description": "The mailbox where the email is located",
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 128,
+        "format": "email"
+      },
+      "example": [
+        "someone@example.com"
+      ]
+    },
+    "samUser": {
+      "type": "array",
+      "description": "Security Account Manager user name",
+      "maxItems": 50,
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      },
+      "example": [
+        "someone"
+      ]
+    }
+  }
+}

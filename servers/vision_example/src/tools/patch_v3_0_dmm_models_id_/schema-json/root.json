@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "ti-0001",
+      "maxLength": 2048
+    },
+    "enabled": {
+      "description": "The status of a detection model.",
+      "type": "boolean",
+      "example": true
+    }
+  },
+  "required": [
+    "id",
+    "enabled"
+  ]
+}

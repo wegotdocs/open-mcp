@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "orderBy": z.string().max(1024).describe("Specifies the field by which the results are sorted.\n\nData is displayed in descending order by default. To display records in ascending order, prepend the phrase `asc` before the parameter name.\n\nYou can specify multiple fields separated by commas.\n\nAvailable values:\n* `lastUsedDateTime`\n* `expiredDateTime`\n* `lastModifiedDateTime`\n* `createdDateTime`\n* `asc` - Ascending order\n* `desc` - Descending order\n").optional(),
+  "top": z.union([z.literal(50), z.literal(100), z.literal(200)]).describe("Number of records displayed on a page.").optional(),
+  "TMV1-Filter": z.string().max(1024).describe("Filter for retrieving a subset of the API keys list.\n\nSupported fields:\n|Field|Description|\n|-----|-----------|\n|id|The unique identifier of the API key|\n|name|The unique name of an API key|\n|role|The user role assigned to the API key|\n|status|The status of an API key  |\n\nSupported operators:\n|Operator|Description|\n|-----|-----------|\n|`eq`|Operator 'equal to'|\n|`and`|Operator 'and'|\n|`or`|Operator 'or'|\n|`not`|Operator 'not'|\n|`()`|Symbols for grouping operands with their correct operator.|\n\nNote: Include this parameter in every request that generates paginated output.\n").optional()
+}

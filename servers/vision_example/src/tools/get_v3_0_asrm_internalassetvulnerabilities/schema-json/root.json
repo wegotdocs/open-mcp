@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "orderBy": {
+      "description": "The field by which the results are sorted.\n\nTo display records in ascending or descending order, add the phrase `asc` or `desc` after the parameter name.\n\nAvailable values: \n* `cveRiskLevel`\n",
+      "type": "string",
+      "default": "cveRiskLevel desc",
+      "enum": [
+        "cveRiskLevel desc",
+        "cveRiskLevel asc"
+      ]
+    },
+    "top": {
+      "description": "The number of records displayed on a page.\n",
+      "type": "integer",
+      "example": 100,
+      "default": 100,
+      "enum": [
+        10,
+        50,
+        100,
+        200
+      ]
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the highly-exploitable CVEs detected in your internal assets.\n\nSupported fields:\n\n| Field                        | Description                                                  | Supported values        |\n| ---------------------------- | ------------------------------------------------------------ | ----------------------- |\n| `cveId`                      | The Common Vulnerabilities and Exposures identifier (CVE ID) | Any value               |\n| `cveRiskLevel`               | The risk level of the risk event triggered by the CVE        | `high`, `medium`, `low` |\n| `globalExploitActivityLevel` | Indicates how often attackers are exploiting a vulnerability | `high`, `medium`, `low` |\n| `firstSeenDateTime`          | The date the CVE was first detected in your environment      | Any value               |\n| `publishedDateTime`          | The date MITRE published the CVE                             | Any value               |\n\nSupported operators:\n\n| Operator | Description                       | Notes                                                          |\n| -------- | --------------------------------- | -------------------------------------------------------------- |\n| `eq`     | Operator `equal to`.              | -                                                              |\n| `gt`     | Operator `greater than`.          | Only applicable to `firstSeenDateTime` and `publishedDateTime` |\n| `ge`     | Operator `greater than or equal`. | Only applicable to `firstSeenDateTime` and `publishedDateTime` |\n| `le`     | Operator `less than or equal`.    | Only applicable to `firstSeenDateTime` and `publishedDateTime` |\n| `lt`     | Operator `less than`.             | Only applicable to `firstSeenDateTime` and `publishedDateTime` |\n| `and`    | Operator `and`.                   | -                                                              |\n| `or`     | Operator `or`.                    | -                                                              |\n| `not`    | Operator `not`.                   | -                                                              |\n| `( )`    | Symbols for grouping operands.    | -                                                              |\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

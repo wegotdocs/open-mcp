@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the device on the Trend Vision One platform",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "riskyEventScore": {
+      "description": "The minimum risk score of the risk events this API endpoint returns.\n\nDefault: `70`\n",
+      "type": "integer",
+      "default": 70,
+      "minimum": 0,
+      "exclusiveMinimum": true,
+      "maximum": 100
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

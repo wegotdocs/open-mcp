@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "top": {
+      "description": "The number of records displayed on a page.",
+      "type": "integer",
+      "enum": [
+        25,
+        50,
+        100
+      ],
+      "example": 25,
+      "default": 25
+    },
+    "orderBy": {
+      "description": "The field by which the results are sorted. \n\nSupported fields:\n\n* `riskLevel` - The risk level of the vulnerability. Allowed values: `high`, `medium`, `low`\n* `firstDetectedDatetime` - The date and time when the vulnerability was first detected\n* `lastDetectedDatetime` - The date and time when the vulnerability was last detected\n\nAvailable keywords\n\n* `desc` - Descending order              \n",
+      "type": "string",
+      "maxLength": 64,
+      "default": "riskLevel desc"
+    },
+    "firstDetectedStartDateTime": {
+      "description": "The start of the data retrieval time range, in ISO 8601 format.\n\n Note: firstDetectedStartDateTime time cannot exceed the previous 30 days.\n",
+      "type": "string",
+      "format": "date-time",
+      "default": "now() - 30 days",
+      "maxLength": 20
+    },
+    "firstDetectedEndDateTime": {
+      "description": "The end of the data retrieval time range, in ISO 8601 format.\n\n Note: firstDetectedEndDateTime cannot be earlier than firstDetectedStartDateTime\n",
+      "type": "string",
+      "format": "date-time",
+      "default": "Current date time",
+      "example": "2020-06-15T12:00:00Z",
+      "maxLength": 20
+    },
+    "lastDetectedStartDateTime": {
+      "description": "The start of the data retrieval time range, in ISO 8601 format.\n\n Note: lastDetectedStartDateTime time cannot exceed the previous 30 days.\n",
+      "type": "string",
+      "format": "date-time",
+      "default": "now() - 30 days",
+      "maxLength": 20
+    },
+    "lastDetectedEndDateTime": {
+      "description": "The end of the data retrieval time range, in ISO 8601 format.\n\n Note: lastDetectedEndDateTime cannot be earlier than lastDetectedStartDateTime\n",
+      "type": "string",
+      "format": "date-time",
+      "default": "Current date time",
+      "maxLength": 20,
+      "example": "2020-06-15T12:00:00Z"
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the image vulnerabilities list. Include this header in every request that generates paginated output.\n\nSupported fields and operators:      \n\n|Field |Description |Allowed values |\n|------|------------|-----------------|\n|`clusterType` |The type of cluster|`kubernetes`, `amazonecs`|\n|`name`   |The name of the vulnerability |Any value |\n|`clusterId` |The ID of the cluster |Any value |\n|`imageId` |The  The ID of the container image |Any value |\n|`riskLevel` |The risk level of the vulnerability |`high`, `medium`, `low` |\n\nSupported operators:\n* `eq` - Operator \"equal to\"\n* `and` - Operator \"and\"",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

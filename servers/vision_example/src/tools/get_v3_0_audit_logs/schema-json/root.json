@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "startDateTime": {
+      "description": "Timestamp in ISO 8601 format that indicates the start of the data retrieval range. You can retrieve data for response tasks that were created no later than 180 days ago.\n\nIf no value is specified, 'startDateTime' defaults to the start of the beginning of the retention period of 180 days.\n",
+      "type": "string",
+      "format": "date-time",
+      "maxLength": 256
+    },
+    "endDateTime": {
+      "description": "Timestamp in ISO 8601 format that indicates the end of the data retrieval range.\n\nIf no value is specified, 'endDateTime' defaults to the time the request is made.\n",
+      "type": "string",
+      "format": "date-time",
+      "maxLength": 256
+    },
+    "dateTimeTarget": {
+      "description": "The timestamp to be used for retrieving the target audit log. \n\nAvailable values : loggedDateTime, ingestedDateTime \n\nDefault value : loggedDateTime\n",
+      "type": "string",
+      "enum": [
+        "loggedDateTime",
+        "ingestedDateTime"
+      ],
+      "default": "loggedDateTime"
+    },
+    "orderBy": {
+      "description": "Parameter that allows you to sort the retrieved search results in ascending or descending order. If no order is specified, the results are shown in ascending order. Supported fields and operators:\n* 'loggedDateTime'\n* 'accessType'\n* 'ingestedDateTime'\n* asc - Ascending order\n* desc - Descending order\n",
+      "type": "string",
+      "default": "loggedDateTime desc",
+      "maxLength": 256
+    },
+    "top": {
+      "description": "Number of records displayed on a page.",
+      "type": "integer",
+      "enum": [
+        50,
+        100,
+        200
+      ],
+      "default": 50
+    },
+    "labels": {
+      "description": "Parameter that allows you to retrieve the specified elements from the \"details\" field. Possible values:\n* 'none' - Retrieves no elements.\n* 'matched' - Retrieves the specified elements in the \"details\" object.\n* 'all\" - Retrieves all available elements.\n",
+      "type": "string",
+      "enum": [
+        "none",
+        "matched",
+        "all"
+      ],
+      "default": "matched"
+    },
+    "Accept": {
+      "type": "string",
+      "enum": [
+        "application/json",
+        "text/csv"
+      ],
+      "default": "application/json"
+    },
+    "TMV1-Filter": {
+      "description": "Filter for retrieving a subset of the Audit Logs list. Supported fields and operators:\n\n* 'loggedUser '- The account that was used to perform the activity.\n* 'loggedRole' - Role of the account\n* 'accessType' - Source of the activity. Possible values: 'Console', 'API'.\n* 'category' - Category of the activity. Possible values: _See Response Code 200 description_.\n* 'activity' - The activity that was performed. The 'category' needs to be determined to set this parameter. Possible values: _See Response Code 200 description_.\n* 'result' - Outcome of the activity. Possible values: 'Successful', 'Unsuccessful'.\n* 'eq' - Abbreviation of the operator \"equal to\"\n* 'and' - Operator \"and\"\n* 'or' - Operator \"or\"\n* 'not' - Operator \"not\"\n* '( )' - Symbols for grouping operands with their correct operator.\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

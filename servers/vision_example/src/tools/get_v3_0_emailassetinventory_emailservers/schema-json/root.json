@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "top": {
+      "description": "The number of email servers returned on each page. Supported range: 10-1000\n",
+      "type": "integer",
+      "default": 100,
+      "minimum": 10,
+      "maximum": 1000
+    },
+    "TMV1-Filter": {
+      "description": "The filter used to retrieve a subset of email servers from a generated paginated list.\n\nSupported fields:\n| Field | Description | Supported values |\n|-----|-----|-----|\n| `onPremisesProtectionSolution` | The domain's inbound configuration status. | 'ScanMail for Microsoft Exchange', 'Deep Discovery Email Inspector', 'InterScan Messaging Security Virtual Appliance' |\n\nSupported operators:\n| Operator | Description | Notes |\n|-----|-----|-----|\n| `eq` | Operator \"equal to\" | - |\n\nOnly support `eq` operator.\n",
+      "type": "string",
+      "maxLength": 512
+    }
+  },
+  "required": []
+}

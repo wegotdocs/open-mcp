@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique alphanumeric string that identifies a data pipeline.",
+      "type": "string"
+    },
+    "riskLevels": {
+      "type": "array",
+      "description": "The severity levels to include in the results. \n\nRequests must include at least one severity level.\n",
+      "items": {
+        "type": "string",
+        "enum": [
+          "info",
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ]
+      },
+      "example": [
+        "critical",
+        "high"
+      ]
+    },
+    "hasDetail": {
+      "type": "boolean",
+      "description": "Parameter that allows you to retrieve detailed logs from the Observed Attack Techniques data pipeline.",
+      "example": false
+    },
+    "description": {
+      "type": "string",
+      "description": "Notes or comments about the pipeline",
+      "example": "siemhost1",
+      "maxLength": 4000
+    },
+    "If-Match": {
+      "description": "Parameter that allows you to update an existing resource.\n\nNote: To get an ETag, send a GET request to the API\n",
+      "type": "string",
+      "example": "0x8D9AB4B0CA9D336"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

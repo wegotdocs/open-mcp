@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "properties": {
+    "alibabaRegion": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The region of the Terraform backend where the state files are stored.\n> **Important** > > - The default region is based on your Trend Vision One region.\n",
+      "example": "us-east-1"
+    },
+    "roleArn": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The Alibaba Cloud resource name (ARN) of the user role for Trend Vision One.",
+      "example": "acs:ram::012345678910:role/role-name"
+    },
+    "oidcProviderId": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The ID of the Alibaba Cloud OpenID Connect (OIDC) provider.",
+      "example": "oidc-random-uuid-string"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The name of the Alibaba Cloud account to be used in Cloud Account Management.",
+      "example": "production account"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 254,
+      "description": "The description of the Alibaba Cloud account.\n",
+      "example": "Corp ABC production account"
+    },
+    "connectedSecurityServices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "instanceIds"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "workload"
+            ],
+            "description": "The name of the security services connected to the system.\n\nAvailable values:\n* `workload` - Server & Workload Protection\n",
+            "example": "workload"
+          },
+          "instanceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 254
+            },
+            "description": "The instance ID of the associated security service.\n",
+            "example": [
+              "00000000-aaaa-bbbb-cccc-ffffffffffff"
+            ]
+          }
+        }
+      },
+      "description": "The security service associated with the connected Alibaba Cloud account.\n",
+      "example": [
+        {
+          "name": "workload",
+          "instanceIds": [
+            "00000000-aaaa-bbbb-cccc-ffffffffffff"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "alibabaRegion",
+    "roleArn",
+    "oidcProviderId",
+    "name"
+  ]
+}

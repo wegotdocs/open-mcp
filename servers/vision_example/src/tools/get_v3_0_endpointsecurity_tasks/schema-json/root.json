@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "startDateTime": {
+      "description": "The start of the data retrieval range, in ISO 8601 format.\n\nYou can retrieve data for tasks that were created no later than 180 days prior to the day you make the request.\n\nDefault: The beginning of the retention period of 180 days.\n",
+      "type": "string",
+      "maxLength": 128,
+      "example": "2022-03-15T07:44:27Z"
+    },
+    "endDateTime": {
+      "description": "The end of the data retrieval range, in ISO 8601 format.\n\nDefault: The time you make the request\n",
+      "type": "string",
+      "maxLength": 128,
+      "example": "2022-03-15T07:44:27Z"
+    },
+    "dateTimeTarget": {
+      "description": "The filter of the results",
+      "type": "string",
+      "enum": [
+        "createdDateTime",
+        "lastActionDateTime"
+      ],
+      "default": "createdDateTime"
+    },
+    "top": {
+      "description": "The number of records displayed on a page. \n\nDefault: `100`\n",
+      "type": "integer",
+      "enum": [
+        10,
+        50,
+        100,
+        200,
+        1000
+      ],
+      "default": 100
+    },
+    "orderBy": {
+      "description": "The field by which the results are sorted. \n\nTo display records in ascending or descending order, add the phrase `asc` or `desc` after the field name.\n\nAvailable fields:\n * `createdDateTime`\n * `lastActionDateTime`\n",
+      "type": "string",
+      "maxLength": 128,
+      "default": "createdDateTime desc"
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the task list.\n\nSupported fields:\n\n|Field|Description|Supported values|\n|-----|-----------|----------------|\n|id|The ID of the task|Any value|\n|agentGuid|The ID of the endpoint on the Trend Vision One platform|Any value|\n|status|The status of the task|`running`,`succeeded`,`failed`|\n|action|The type of the task|`export`,`delete`|\n\nSupported operators:\n|Operator|Description|\n|-----|-----------|\n|`eq`|Operator 'equal to'|\n|`and`|Operator 'and'|\n|`or`|Operator 'or'|\n|`not`|Operator 'not'|\n|`()`|Symbols for grouping operands|\n",
+      "type": "string",
+      "maxLength": 1024,
+      "example": "status eq 'succeeded'"
+    }
+  },
+  "required": []
+}

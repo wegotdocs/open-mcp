@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "top": {
+      "description": "The number of records displayed on a page.",
+      "type": "integer",
+      "enum": [
+        25,
+        50,
+        100
+      ],
+      "example": 25,
+      "default": 25
+    },
+    "TMV1-Filter": {
+      "description": "The filter for retrieving a subset of the Kubernetes image occurences list. Include this parameter in every request that generates paginated output\n\nSupported fields:\n| Field        | Description                           |\n| ------------ | ------------------------------------- |\n| `clusterid`  | The ID of the Kubernetes cluster      |\n| `imageid`    | The  The ID of the container image         |\n\nSupported operators:\n* `eq` - Operator \"equal to\"\n* `and` - Operator \"and\"\n* `or` - Operator \"or\"\n* `not` - Operator \"not\"\n* `()` - Symbols for grouping operands\n",
+      "type": "string",
+      "maxLength": 1024
+    }
+  },
+  "required": []
+}

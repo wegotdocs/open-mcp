@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The case ID",
+      "type": "string"
+    },
+    "contentId": {
+      "description": "The content ID",
+      "type": "string"
+    },
+    "attachmentIds": {
+      "description": "A list of updated attachment IDs from case notes. Case Management supports up to 5 attachments per note. Each attachment should only be associated with one note.",
+      "example": [
+        "dc294b2b-f671-4868-a8fd-1cd547e420af"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "comment": {
+      "description": "The new comment added to the case",
+      "example": "This is a new comment.",
+      "maxLength": 1048576,
+      "type": "string"
+    },
+    "If-Match": {
+      "description": "Provide the ETag of the resource to be updated",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "contentId"
+  ]
+}

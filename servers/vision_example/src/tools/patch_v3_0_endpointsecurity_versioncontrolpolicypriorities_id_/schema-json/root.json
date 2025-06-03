@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the policy priority",
+      "type": "string",
+      "maxLength": 1024,
+      "minLength": 1,
+      "example": "53cd53d0-6798-4547-ab07-9386cc2c891e"
+    },
+    "agentUpdateStatus": {
+      "type": "string",
+      "enum": [
+        "onSchedule",
+        "disable"
+      ],
+      "description": "The status of agent updates.\n\nIf the status is `onSchedule`, the agent updates automatically according to the policies\n"
+    },
+    "agentUpdatePolicy": {
+      "type": "string",
+      "example": "202408",
+      "description": "The version the agent or sensor will update to\n\n> **Tip**\n> \n> Get the available versions by sending a request to the `/v3.0/endpointSecurity/versionControlPolicies/agentUpdatePolicies` endpoint.\n"
+    },
+    "componentUpdatePolicy": {
+      "type": "string",
+      "enum": [
+        "n",
+        "n-1",
+        "n-2",
+        "n-3",
+        "n-4",
+        "n-5",
+        "n-6",
+        "n-7",
+        "n-8"
+      ],
+      "example": "n-1",
+      "description": "The version that component will update to'.\n\n> **Tip**\n>\n> `n` indicates the latest version, `n-x` represents x snapshots prior.\n> Example: `n-2` represents 2 snapshots prior\n"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

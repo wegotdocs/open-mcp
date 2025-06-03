@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "riskLevels": {
+      "type": "array",
+      "description": "The list of severity levels to include in the results.\n\nRequests must include at least one severity level.\n",
+      "items": {
+        "type": "string",
+        "enum": [
+          "info",
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ]
+      },
+      "example": [
+        "critical",
+        "high",
+        "info",
+        "medium",
+        "low"
+      ]
+    },
+    "hasDetail": {
+      "type": "boolean",
+      "description": "Parameter that allows you to retrieve detailed logs from the Observed Attack Techniques data pipeline.",
+      "example": false
+    },
+    "description": {
+      "type": "string",
+      "description": "(Optional) Notes or comments about the pipeline",
+      "default": null,
+      "example": "siemhost1",
+      "maxLength": 4000
+    }
+  },
+  "required": [
+    "riskLevels",
+    "hasDetail"
+  ]
+}

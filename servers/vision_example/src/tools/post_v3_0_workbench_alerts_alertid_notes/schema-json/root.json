@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "alertId": {
+      "description": "Unique alphanumeric string that identifies a Workbench alert.",
+      "type": "string"
+    },
+    "content": {
+      "type": "string",
+      "description": "Unique alphanumeric string that identifies a Workbench alert.",
+      "example": "It is a note.",
+      "maxLength": 500000
+    }
+  },
+  "required": [
+    "alertId",
+    "content"
+  ]
+}
