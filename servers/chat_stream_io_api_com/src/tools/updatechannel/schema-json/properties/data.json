@@ -1,0 +1,863 @@
+{
+  "x-stream-index": "013.001",
+  "properties": {
+    "auto_translation_enabled": {
+      "description": "Enable or disable auto translation",
+      "title": "Auto translation",
+      "type": "boolean",
+      "x-stream-index": "005"
+    },
+    "auto_translation_language": {
+      "description": "Switch auto translation language",
+      "title": "Auto translation language",
+      "type": "string",
+      "x-stream-index": "006"
+    },
+    "config_overrides": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `config_overrides` to the tool, first call the tool `expandSchema` with \"/properties/data/properties/config_overrides\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Channel configuration overrides</property-description>",
+      "additionalProperties": true
+    },
+    "created_by": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `created_by` to the tool, first call the tool `expandSchema` with \"/properties/data/properties/created_by\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "created_by_id": {
+      "type": "string",
+      "x-stream-index": "008"
+    },
+    "custom": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom` to the tool, first call the tool `expandSchema` with \"/properties/data/properties/custom\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "disabled": {
+      "type": "boolean",
+      "x-stream-index": "014"
+    },
+    "frozen": {
+      "description": "Freeze or unfreeze the channel",
+      "title": "Frozen",
+      "type": "boolean",
+      "x-stream-index": "013"
+    },
+    "invites": {
+      "items": {
+        "nullable": true,
+        "properties": {
+          "archived_at": {
+            "format": "date-time",
+            "type": "string",
+            "x-stream-index": "015"
+          },
+          "ban_expires": {
+            "description": "Expiration date of the ban",
+            "format": "date-time",
+            "title": "Ban expires",
+            "type": "string",
+            "x-stream-index": "013"
+          },
+          "banned": {
+            "description": "Whether member is banned this channel or not",
+            "title": "Banned",
+            "type": "boolean",
+            "x-stream-index": "012"
+          },
+          "channel_role": {
+            "description": "Role of the member in the channel",
+            "title": "Channel Role",
+            "type": "string",
+            "x-stream-index": "018"
+          },
+          "created_at": {
+            "description": "Date/time of creation",
+            "format": "date-time",
+            "title": "Created at",
+            "type": "string",
+            "x-stream-index": "009"
+          },
+          "custom": {
+            "additionalProperties": {},
+            "type": "object",
+            "x-stream-index": "004"
+          },
+          "deleted_at": {
+            "format": "date-time",
+            "type": "string",
+            "x-stream-index": "011"
+          },
+          "invite_accepted_at": {
+            "description": "Date when invite was accepted",
+            "format": "date-time",
+            "title": "Invited accepted at",
+            "type": "string",
+            "x-stream-index": "006"
+          },
+          "invite_rejected_at": {
+            "description": "Date when invite was rejected",
+            "format": "date-time",
+            "title": "Invited rejected at",
+            "type": "string",
+            "x-stream-index": "007"
+          },
+          "invited": {
+            "description": "Whether member was invited or not",
+            "title": "Invited",
+            "type": "boolean",
+            "x-stream-index": "005"
+          },
+          "is_moderator": {
+            "description": "Whether member is channel moderator or not",
+            "title": "Is moderator",
+            "type": "boolean",
+            "x-stream-index": "003"
+          },
+          "notifications_muted": {
+            "type": "boolean",
+            "x-stream-index": "019"
+          },
+          "pinned_at": {
+            "format": "date-time",
+            "type": "string",
+            "x-stream-index": "016"
+          },
+          "role": {
+            "description": "Permission level of the member in the channel (DEPRECATED: use channel_role instead)",
+            "enum": [
+              "member",
+              "moderator",
+              "admin",
+              "owner"
+            ],
+            "title": "Role",
+            "type": "string",
+            "x-stream-index": "017"
+          },
+          "shadow_banned": {
+            "description": "Whether member is shadow banned in this channel or not",
+            "title": "Shadow banned",
+            "type": "boolean",
+            "x-stream-index": "014"
+          },
+          "status": {
+            "type": "string",
+            "x-stream-index": "008"
+          },
+          "updated_at": {
+            "description": "Date/time of the last update",
+            "format": "date-time",
+            "title": "Updated at",
+            "type": "string",
+            "x-stream-index": "010"
+          },
+          "user": {
+            "x-stream-index": "002",
+            "description": "User response object",
+            "properties": {
+              "ban_expires": {
+                "description": "Date when ban expires",
+                "format": "date-time",
+                "title": "Ban expires",
+                "type": "string",
+                "x-stream-index": "003"
+              },
+              "banned": {
+                "description": "Whether a user is banned or not",
+                "title": "Banned",
+                "type": "boolean",
+                "x-stream-index": "001.012"
+              },
+              "blocked_user_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "x-stream-index": "001.017"
+              },
+              "created_at": {
+                "description": "Date/time of creation",
+                "format": "date-time",
+                "title": "Created at",
+                "type": "string",
+                "x-stream-index": "001.009"
+              },
+              "custom": {
+                "additionalProperties": {},
+                "description": "Custom data for this object",
+                "title": "Custom data",
+                "type": "object",
+                "x-stream-index": "001.004"
+              },
+              "deactivated_at": {
+                "description": "Date of deactivation",
+                "format": "date-time",
+                "title": "Deactivated at",
+                "type": "string",
+                "x-stream-index": "001.016"
+              },
+              "deleted_at": {
+                "description": "Date/time of deletion",
+                "format": "date-time",
+                "title": "Deleted at",
+                "type": "string",
+                "x-stream-index": "001.011"
+              },
+              "devices": {
+                "description": "List of devices user is using",
+                "items": {
+                  "description": "Response for Device",
+                  "nullable": true,
+                  "properties": {
+                    "created_at": {
+                      "description": "Date/time of creation",
+                      "format": "date-time",
+                      "title": "Created at",
+                      "type": "string",
+                      "x-stream-index": "004"
+                    },
+                    "disabled": {
+                      "description": "Whether device is disabled or not",
+                      "title": "Disabled",
+                      "type": "boolean",
+                      "x-stream-index": "005"
+                    },
+                    "disabled_reason": {
+                      "description": "Reason explaining why device had been disabled",
+                      "title": "Reason",
+                      "type": "string",
+                      "x-stream-index": "006"
+                    },
+                    "id": {
+                      "description": "Device ID",
+                      "title": "ID",
+                      "type": "string",
+                      "x-stream-index": "003"
+                    },
+                    "push_provider": {
+                      "description": "Push provider",
+                      "title": "PushProvider",
+                      "type": "string",
+                      "x-stream-index": "001"
+                    },
+                    "push_provider_name": {
+                      "description": "Push provider name",
+                      "title": "PushProviderName",
+                      "type": "string",
+                      "x-stream-index": "002"
+                    },
+                    "user_id": {
+                      "description": "User ID",
+                      "title": "UserID",
+                      "type": "string",
+                      "x-stream-index": "008"
+                    },
+                    "voip": {
+                      "description": "When true the token is for Apple VoIP push notifications",
+                      "title": "Voip",
+                      "type": "boolean",
+                      "x-stream-index": "007"
+                    }
+                  },
+                  "required": [
+                    "push_provider",
+                    "id",
+                    "created_at",
+                    "user_id"
+                  ],
+                  "title": "DeviceResponse",
+                  "type": "object"
+                },
+                "title": "Devices",
+                "type": "array",
+                "x-stream-index": "006"
+              },
+              "id": {
+                "description": "Unique user identifier",
+                "title": "ID",
+                "type": "string",
+                "x-stream-index": "001.001"
+              },
+              "image": {
+                "title": "Image",
+                "type": "string",
+                "x-stream-index": "001.003"
+              },
+              "invisible": {
+                "type": "boolean",
+                "x-stream-index": "007"
+              },
+              "language": {
+                "description": "Preferred language of a user",
+                "title": "Language",
+                "type": "string",
+                "x-stream-index": "001.005"
+              },
+              "last_active": {
+                "description": "Date of last activity",
+                "format": "date-time",
+                "title": "Last active",
+                "type": "string",
+                "x-stream-index": "001.014"
+              },
+              "name": {
+                "description": "Optional name of user",
+                "title": "Name",
+                "type": "string",
+                "x-stream-index": "001.002"
+              },
+              "online": {
+                "description": "Whether a user online or not",
+                "title": "Online",
+                "type": "boolean",
+                "x-stream-index": "001.013"
+              },
+              "privacy_settings": {
+                "description": "User privacy settings",
+                "title": "Privacy settings",
+                "x-stream-index": "005",
+                "properties": {
+                  "read_receipts": {
+                    "x-stream-index": "002",
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean",
+                        "x-stream-index": "001"
+                      }
+                    },
+                    "required": [
+                      "enabled"
+                    ],
+                    "type": "object"
+                  },
+                  "typing_indicators": {
+                    "x-stream-index": "001",
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean",
+                        "x-stream-index": "001"
+                      }
+                    },
+                    "required": [
+                      "enabled"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "push_notifications": {
+                "description": "User push notification settings",
+                "title": "Push notifications",
+                "x-stream-index": "004",
+                "properties": {
+                  "disabled": {
+                    "type": "boolean",
+                    "x-stream-index": "001"
+                  },
+                  "disabled_until": {
+                    "format": "date-time",
+                    "type": "string",
+                    "x-stream-index": "002"
+                  }
+                },
+                "type": "object"
+              },
+              "revoke_tokens_issued_before": {
+                "description": "Revocation date for tokens",
+                "format": "date-time",
+                "title": "Revoke tokens issued before",
+                "type": "string",
+                "x-stream-index": "001.015"
+              },
+              "role": {
+                "description": "Determines the set of user permissions",
+                "title": "Role",
+                "type": "string",
+                "x-stream-index": "001.006"
+              },
+              "shadow_banned": {
+                "description": "Whether a user is shadow banned",
+                "title": "Shadow banned",
+                "type": "boolean",
+                "x-stream-index": "002"
+              },
+              "teams": {
+                "description": "List of teams user is a part of",
+                "items": {
+                  "type": "string"
+                },
+                "title": "Teams",
+                "type": "array",
+                "x-stream-index": "001.007"
+              },
+              "teams_role": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object",
+                "x-stream-index": "001.008"
+              },
+              "updated_at": {
+                "description": "Date/time of the last update",
+                "format": "date-time",
+                "title": "Updated at",
+                "type": "string",
+                "x-stream-index": "001.010"
+              }
+            },
+            "required": [
+              "id",
+              "custom",
+              "language",
+              "role",
+              "teams",
+              "created_at",
+              "updated_at",
+              "banned",
+              "online",
+              "blocked_user_ids",
+              "shadow_banned",
+              "invisible"
+            ],
+            "title": "UserResponse",
+            "type": "object"
+          },
+          "user_id": {
+            "title": "User ID",
+            "type": "string",
+            "x-stream-index": "001"
+          }
+        },
+        "required": [
+          "custom",
+          "created_at",
+          "updated_at",
+          "banned",
+          "shadow_banned",
+          "channel_role",
+          "notifications_muted"
+        ],
+        "title": "Channel member",
+        "type": "object"
+      },
+      "maximum": 100,
+      "type": "array",
+      "x-stream-index": "016"
+    },
+    "members": {
+      "items": {
+        "nullable": true,
+        "properties": {
+          "archived_at": {
+            "format": "date-time",
+            "type": "string",
+            "x-stream-index": "015"
+          },
+          "ban_expires": {
+            "description": "Expiration date of the ban",
+            "format": "date-time",
+            "title": "Ban expires",
+            "type": "string",
+            "x-stream-index": "013"
+          },
+          "banned": {
+            "description": "Whether member is banned this channel or not",
+            "title": "Banned",
+            "type": "boolean",
+            "x-stream-index": "012"
+          },
+          "channel_role": {
+            "description": "Role of the member in the channel",
+            "title": "Channel Role",
+            "type": "string",
+            "x-stream-index": "018"
+          },
+          "created_at": {
+            "description": "Date/time of creation",
+            "format": "date-time",
+            "title": "Created at",
+            "type": "string",
+            "x-stream-index": "009"
+          },
+          "custom": {
+            "additionalProperties": {},
+            "type": "object",
+            "x-stream-index": "004"
+          },
+          "deleted_at": {
+            "format": "date-time",
+            "type": "string",
+            "x-stream-index": "011"
+          },
+          "invite_accepted_at": {
+            "description": "Date when invite was accepted",
+            "format": "date-time",
+            "title": "Invited accepted at",
+            "type": "string",
+            "x-stream-index": "006"
+          },
+          "invite_rejected_at": {
+            "description": "Date when invite was rejected",
+            "format": "date-time",
+            "title": "Invited rejected at",
+            "type": "string",
+            "x-stream-index": "007"
+          },
+          "invited": {
+            "description": "Whether member was invited or not",
+            "title": "Invited",
+            "type": "boolean",
+            "x-stream-index": "005"
+          },
+          "is_moderator": {
+            "description": "Whether member is channel moderator or not",
+            "title": "Is moderator",
+            "type": "boolean",
+            "x-stream-index": "003"
+          },
+          "notifications_muted": {
+            "type": "boolean",
+            "x-stream-index": "019"
+          },
+          "pinned_at": {
+            "format": "date-time",
+            "type": "string",
+            "x-stream-index": "016"
+          },
+          "role": {
+            "description": "Permission level of the member in the channel (DEPRECATED: use channel_role instead)",
+            "enum": [
+              "member",
+              "moderator",
+              "admin",
+              "owner"
+            ],
+            "title": "Role",
+            "type": "string",
+            "x-stream-index": "017"
+          },
+          "shadow_banned": {
+            "description": "Whether member is shadow banned in this channel or not",
+            "title": "Shadow banned",
+            "type": "boolean",
+            "x-stream-index": "014"
+          },
+          "status": {
+            "type": "string",
+            "x-stream-index": "008"
+          },
+          "updated_at": {
+            "description": "Date/time of the last update",
+            "format": "date-time",
+            "title": "Updated at",
+            "type": "string",
+            "x-stream-index": "010"
+          },
+          "user": {
+            "x-stream-index": "002",
+            "description": "User response object",
+            "properties": {
+              "ban_expires": {
+                "description": "Date when ban expires",
+                "format": "date-time",
+                "title": "Ban expires",
+                "type": "string",
+                "x-stream-index": "003"
+              },
+              "banned": {
+                "description": "Whether a user is banned or not",
+                "title": "Banned",
+                "type": "boolean",
+                "x-stream-index": "001.012"
+              },
+              "blocked_user_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "x-stream-index": "001.017"
+              },
+              "created_at": {
+                "description": "Date/time of creation",
+                "format": "date-time",
+                "title": "Created at",
+                "type": "string",
+                "x-stream-index": "001.009"
+              },
+              "custom": {
+                "additionalProperties": {},
+                "description": "Custom data for this object",
+                "title": "Custom data",
+                "type": "object",
+                "x-stream-index": "001.004"
+              },
+              "deactivated_at": {
+                "description": "Date of deactivation",
+                "format": "date-time",
+                "title": "Deactivated at",
+                "type": "string",
+                "x-stream-index": "001.016"
+              },
+              "deleted_at": {
+                "description": "Date/time of deletion",
+                "format": "date-time",
+                "title": "Deleted at",
+                "type": "string",
+                "x-stream-index": "001.011"
+              },
+              "devices": {
+                "description": "List of devices user is using",
+                "items": {
+                  "description": "Response for Device",
+                  "nullable": true,
+                  "properties": {
+                    "created_at": {
+                      "description": "Date/time of creation",
+                      "format": "date-time",
+                      "title": "Created at",
+                      "type": "string",
+                      "x-stream-index": "004"
+                    },
+                    "disabled": {
+                      "description": "Whether device is disabled or not",
+                      "title": "Disabled",
+                      "type": "boolean",
+                      "x-stream-index": "005"
+                    },
+                    "disabled_reason": {
+                      "description": "Reason explaining why device had been disabled",
+                      "title": "Reason",
+                      "type": "string",
+                      "x-stream-index": "006"
+                    },
+                    "id": {
+                      "description": "Device ID",
+                      "title": "ID",
+                      "type": "string",
+                      "x-stream-index": "003"
+                    },
+                    "push_provider": {
+                      "description": "Push provider",
+                      "title": "PushProvider",
+                      "type": "string",
+                      "x-stream-index": "001"
+                    },
+                    "push_provider_name": {
+                      "description": "Push provider name",
+                      "title": "PushProviderName",
+                      "type": "string",
+                      "x-stream-index": "002"
+                    },
+                    "user_id": {
+                      "description": "User ID",
+                      "title": "UserID",
+                      "type": "string",
+                      "x-stream-index": "008"
+                    },
+                    "voip": {
+                      "description": "When true the token is for Apple VoIP push notifications",
+                      "title": "Voip",
+                      "type": "boolean",
+                      "x-stream-index": "007"
+                    }
+                  },
+                  "required": [
+                    "push_provider",
+                    "id",
+                    "created_at",
+                    "user_id"
+                  ],
+                  "title": "DeviceResponse",
+                  "type": "object"
+                },
+                "title": "Devices",
+                "type": "array",
+                "x-stream-index": "006"
+              },
+              "id": {
+                "description": "Unique user identifier",
+                "title": "ID",
+                "type": "string",
+                "x-stream-index": "001.001"
+              },
+              "image": {
+                "title": "Image",
+                "type": "string",
+                "x-stream-index": "001.003"
+              },
+              "invisible": {
+                "type": "boolean",
+                "x-stream-index": "007"
+              },
+              "language": {
+                "description": "Preferred language of a user",
+                "title": "Language",
+                "type": "string",
+                "x-stream-index": "001.005"
+              },
+              "last_active": {
+                "description": "Date of last activity",
+                "format": "date-time",
+                "title": "Last active",
+                "type": "string",
+                "x-stream-index": "001.014"
+              },
+              "name": {
+                "description": "Optional name of user",
+                "title": "Name",
+                "type": "string",
+                "x-stream-index": "001.002"
+              },
+              "online": {
+                "description": "Whether a user online or not",
+                "title": "Online",
+                "type": "boolean",
+                "x-stream-index": "001.013"
+              },
+              "privacy_settings": {
+                "description": "User privacy settings",
+                "title": "Privacy settings",
+                "x-stream-index": "005",
+                "properties": {
+                  "read_receipts": {
+                    "x-stream-index": "002",
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean",
+                        "x-stream-index": "001"
+                      }
+                    },
+                    "required": [
+                      "enabled"
+                    ],
+                    "type": "object"
+                  },
+                  "typing_indicators": {
+                    "x-stream-index": "001",
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean",
+                        "x-stream-index": "001"
+                      }
+                    },
+                    "required": [
+                      "enabled"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "push_notifications": {
+                "description": "User push notification settings",
+                "title": "Push notifications",
+                "x-stream-index": "004",
+                "properties": {
+                  "disabled": {
+                    "type": "boolean",
+                    "x-stream-index": "001"
+                  },
+                  "disabled_until": {
+                    "format": "date-time",
+                    "type": "string",
+                    "x-stream-index": "002"
+                  }
+                },
+                "type": "object"
+              },
+              "revoke_tokens_issued_before": {
+                "description": "Revocation date for tokens",
+                "format": "date-time",
+                "title": "Revoke tokens issued before",
+                "type": "string",
+                "x-stream-index": "001.015"
+              },
+              "role": {
+                "description": "Determines the set of user permissions",
+                "title": "Role",
+                "type": "string",
+                "x-stream-index": "001.006"
+              },
+              "shadow_banned": {
+                "description": "Whether a user is shadow banned",
+                "title": "Shadow banned",
+                "type": "boolean",
+                "x-stream-index": "002"
+              },
+              "teams": {
+                "description": "List of teams user is a part of",
+                "items": {
+                  "type": "string"
+                },
+                "title": "Teams",
+                "type": "array",
+                "x-stream-index": "001.007"
+              },
+              "teams_role": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object",
+                "x-stream-index": "001.008"
+              },
+              "updated_at": {
+                "description": "Date/time of the last update",
+                "format": "date-time",
+                "title": "Updated at",
+                "type": "string",
+                "x-stream-index": "001.010"
+              }
+            },
+            "required": [
+              "id",
+              "custom",
+              "language",
+              "role",
+              "teams",
+              "created_at",
+              "updated_at",
+              "banned",
+              "online",
+              "blocked_user_ids",
+              "shadow_banned",
+              "invisible"
+            ],
+            "title": "UserResponse",
+            "type": "object"
+          },
+          "user_id": {
+            "title": "User ID",
+            "type": "string",
+            "x-stream-index": "001"
+          }
+        },
+        "required": [
+          "custom",
+          "created_at",
+          "updated_at",
+          "banned",
+          "shadow_banned",
+          "channel_role",
+          "notifications_muted"
+        ],
+        "title": "Channel member",
+        "type": "object"
+      },
+      "maximum": 100,
+      "type": "array",
+      "x-stream-index": "018"
+    },
+    "team": {
+      "description": "Team the channel belongs to (if multi-tenant mode is enabled)",
+      "title": "Team",
+      "type": "string",
+      "x-stream-index": "004"
+    },
+    "truncated_by_id": {
+      "type": "string",
+      "x-stream-index": "010"
+    }
+  },
+  "type": "object"
+}

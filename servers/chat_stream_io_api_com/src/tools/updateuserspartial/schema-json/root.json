@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "users": {
+      "items": {
+        "properties": {
+          "id": {
+            "description": "User ID to update",
+            "title": "ID",
+            "type": "string",
+            "x-stream-index": "001"
+          },
+          "set": {
+            "additionalProperties": {},
+            "type": "object",
+            "x-stream-index": "002.001"
+          },
+          "unset": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "x-stream-index": "002.002"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "maximum": 100,
+      "type": "array",
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "users"
+  ]
+}

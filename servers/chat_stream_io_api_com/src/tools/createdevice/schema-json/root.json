@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device ID",
+      "maxLength": 255,
+      "minLength": 1,
+      "title": "ID",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "push_provider": {
+      "description": "Push provider",
+      "enum": [
+        "firebase",
+        "apn",
+        "huawei",
+        "xiaomi"
+      ],
+      "title": "PushProvider",
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "push_provider_name": {
+      "description": "Push provider name",
+      "title": "PushProviderName",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "description": "**Server-side only**. User ID which server acts upon",
+      "title": "User ID",
+      "type": "string",
+      "x-stream-index": "005.001"
+    },
+    "voip_token": {
+      "description": "When true the token is for Apple VoIP push notifications",
+      "title": "VoipToken",
+      "type": "boolean",
+      "x-stream-index": "004"
+    }
+  },
+  "required": [
+    "id",
+    "push_provider"
+  ]
+}

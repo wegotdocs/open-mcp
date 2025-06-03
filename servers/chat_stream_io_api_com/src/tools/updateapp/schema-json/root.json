@@ -1,0 +1,226 @@
+{
+  "type": "object",
+  "properties": {
+    "allowed_flag_reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "001.017"
+    },
+    "apn_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `apn_config` to the tool, first call the tool `expandSchema` with \"/properties/apn_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "async_moderation_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `async_moderation_config` to the tool, first call the tool `expandSchema` with \"/properties/async_moderation_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "async_url_enrich_enabled": {
+      "type": "boolean",
+      "x-stream-index": "001.019"
+    },
+    "auto_translation_enabled": {
+      "type": "boolean",
+      "x-stream-index": "001.018"
+    },
+    "before_message_send_hook_url": {
+      "type": "string",
+      "x-stream-index": "001.020"
+    },
+    "cdn_expiration_seconds": {
+      "format": "int32",
+      "maximum": 1209600,
+      "minimum": 14400,
+      "type": "integer",
+      "x-stream-index": "001.038"
+    },
+    "channel_hide_members_only": {
+      "type": "boolean",
+      "x-stream-index": "001.033"
+    },
+    "custom_action_handler_url": {
+      "type": "string",
+      "x-stream-index": "001.021"
+    },
+    "datadog_info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `datadog_info` to the tool, first call the tool `expandSchema` with \"/properties/datadog_info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "disable_auth_checks": {
+      "type": "boolean",
+      "x-stream-index": "001.001"
+    },
+    "disable_permissions_checks": {
+      "type": "boolean",
+      "x-stream-index": "001.002"
+    },
+    "enforce_unique_usernames": {
+      "enum": [
+        "no",
+        "app",
+        "team"
+      ],
+      "type": "string",
+      "x-stream-index": "001.022"
+    },
+    "feeds_moderation_enabled": {
+      "type": "boolean",
+      "x-stream-index": "001.042"
+    },
+    "feeds_v2_region": {
+      "type": "string",
+      "x-stream-index": "001.041"
+    },
+    "file_upload_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `file_upload_config` to the tool, first call the tool `expandSchema` with \"/properties/file_upload_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "firebase_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `firebase_config` to the tool, first call the tool `expandSchema` with \"/properties/firebase_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "grants": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `grants` to the tool, first call the tool `expandSchema` with \"/properties/grants\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "guest_user_creation_disabled": {
+      "type": "boolean",
+      "x-stream-index": "001.043"
+    },
+    "huawei_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `huawei_config` to the tool, first call the tool `expandSchema` with \"/properties/huawei_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "image_moderation_block_labels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "001.015"
+    },
+    "image_moderation_enabled": {
+      "type": "boolean",
+      "x-stream-index": "001.016"
+    },
+    "image_moderation_labels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "001.014"
+    },
+    "image_upload_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `image_upload_config` to the tool, first call the tool `expandSchema` with \"/properties/image_upload_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "migrate_permissions_to_v2": {
+      "type": "boolean",
+      "x-stream-index": "001.035"
+    },
+    "moderation_dashboard_preferences": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `moderation_dashboard_preferences` to the tool, first call the tool `expandSchema` with \"/properties/moderation_dashboard_preferences\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "moderation_enabled": {
+      "type": "boolean",
+      "x-stream-index": "001.009"
+    },
+    "moderation_webhook_url": {
+      "type": "string",
+      "x-stream-index": "001.010"
+    },
+    "multi_tenant_enabled": {
+      "type": "boolean",
+      "x-stream-index": "001.013"
+    },
+    "permission_version": {
+      "enum": [
+        "v1",
+        "v2"
+      ],
+      "type": "string",
+      "x-stream-index": "001.011"
+    },
+    "push_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `push_config` to the tool, first call the tool `expandSchema` with \"/properties/push_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "reminders_interval": {
+      "format": "int32",
+      "maximum": 86400,
+      "minimum": 60,
+      "type": "integer",
+      "x-stream-index": "001.036"
+    },
+    "reminders_max_members": {
+      "format": "int32",
+      "minimum": 2,
+      "type": "integer",
+      "x-stream-index": "001.037"
+    },
+    "revoke_tokens_issued_before": {
+      "format": "date-time",
+      "type": "string",
+      "x-stream-index": "001.031"
+    },
+    "sns_key": {
+      "type": "string",
+      "x-stream-index": "001.027"
+    },
+    "sns_secret": {
+      "type": "string",
+      "x-stream-index": "001.028"
+    },
+    "sns_topic_arn": {
+      "type": "string",
+      "x-stream-index": "001.026"
+    },
+    "sqs_key": {
+      "type": "string",
+      "x-stream-index": "001.024"
+    },
+    "sqs_secret": {
+      "type": "string",
+      "x-stream-index": "001.025"
+    },
+    "sqs_url": {
+      "type": "string",
+      "x-stream-index": "001.023"
+    },
+    "user_search_disallowed_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "001.012"
+    },
+    "webhook_events": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "001.032"
+    },
+    "webhook_url": {
+      "type": "string",
+      "x-stream-index": "001.008"
+    },
+    "xiaomi_config": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `xiaomi_config` to the tool, first call the tool `expandSchema` with \"/properties/xiaomi_config\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

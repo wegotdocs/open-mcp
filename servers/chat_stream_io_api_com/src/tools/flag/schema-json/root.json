@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "custom": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom` to the tool, first call the tool `expandSchema` with \"/properties/custom\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "reason": {
+      "maxLength": 255,
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "target_message_id": {
+      "description": "ID of the message when reporting a message",
+      "title": "Target Message ID",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "target_user_id": {
+      "description": "ID of the user when reporting a user",
+      "title": "Target User ID",
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "005.001"
+    }
+  },
+  "required": []
+}

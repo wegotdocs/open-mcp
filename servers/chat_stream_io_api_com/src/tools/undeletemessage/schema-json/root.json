@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Message ID",
+      "title": "ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "004.001"
+    },
+    "message": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `message` to the tool, first call the tool `expandSchema` with \"/properties/message\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Message</property-description>",
+      "additionalProperties": true
+    },
+    "skip_enrich_url": {
+      "description": "Skip enrich URL",
+      "title": "boolean",
+      "type": "boolean",
+      "x-stream-index": "003"
+    },
+    "skip_push": {
+      "type": "boolean",
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "id",
+    "message"
+  ]
+}

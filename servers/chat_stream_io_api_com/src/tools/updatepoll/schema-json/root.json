@@ -1,0 +1,114 @@
+{
+  "type": "object",
+  "properties": {
+    "Custom": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `Custom` to the tool, first call the tool `expandSchema` with \"/properties/Custom\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "allow_answers": {
+      "description": "Allow answers",
+      "title": "boolean",
+      "type": "boolean",
+      "x-stream-index": "009"
+    },
+    "allow_user_suggested_options": {
+      "description": "Allow user suggested options",
+      "title": "boolean",
+      "type": "boolean",
+      "x-stream-index": "008"
+    },
+    "description": {
+      "description": "Poll description",
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "enforce_unique_vote": {
+      "description": "Enforce unique vote",
+      "title": "boolean",
+      "type": "boolean",
+      "x-stream-index": "005"
+    },
+    "id": {
+      "description": "Poll ID",
+      "maxLength": 255,
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "is_closed": {
+      "description": "Is closed",
+      "title": "boolean",
+      "type": "boolean",
+      "x-stream-index": "010"
+    },
+    "max_votes_allowed": {
+      "description": "Max votes allowed",
+      "format": "int32",
+      "maximum": 10,
+      "title": "integer",
+      "type": "integer",
+      "x-stream-index": "007"
+    },
+    "name": {
+      "description": "Poll name",
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "options": {
+      "description": "Poll options",
+      "items": {
+        "nullable": true,
+        "properties": {
+          "custom": {
+            "additionalProperties": {},
+            "type": "object",
+            "x-stream-index": "003"
+          },
+          "id": {
+            "maxLength": 255,
+            "type": "string",
+            "x-stream-index": "001"
+          },
+          "text": {
+            "type": "string",
+            "x-stream-index": "002"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "maximum": 100,
+      "title": "PollOptions",
+      "type": "array",
+      "x-stream-index": "004"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "012.001"
+    },
+    "voting_visibility": {
+      "description": "Voting visibility",
+      "enum": [
+        "anonymous",
+        "public"
+      ],
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "006"
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ]
+}

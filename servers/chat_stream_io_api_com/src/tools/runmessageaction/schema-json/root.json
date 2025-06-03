@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Message ID",
+      "title": "ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "form_data": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `form_data` to the tool, first call the tool `expandSchema` with \"/properties/form_data\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>ReadOnlyData to execute command with</property-description>",
+      "additionalProperties": true
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "003.001"
+    }
+  },
+  "required": [
+    "id",
+    "form_data"
+  ]
+}

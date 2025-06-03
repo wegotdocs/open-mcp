@@ -1,0 +1,109 @@
+{
+  "additionalProperties": {
+    "description": "User request object",
+    "properties": {
+      "custom": {
+        "additionalProperties": {},
+        "description": "Custom user data",
+        "title": "Custom",
+        "type": "object",
+        "x-stream-index": "004"
+      },
+      "id": {
+        "description": "User ID",
+        "title": "ID",
+        "type": "string",
+        "x-stream-index": "001"
+      },
+      "image": {
+        "description": "User's profile image URL",
+        "title": "Image",
+        "type": "string",
+        "x-stream-index": "003"
+      },
+      "invisible": {
+        "type": "boolean",
+        "x-stream-index": "006"
+      },
+      "language": {
+        "type": "string",
+        "x-stream-index": "005"
+      },
+      "name": {
+        "description": "Optional name of user",
+        "title": "Name",
+        "type": "string",
+        "x-stream-index": "002"
+      },
+      "privacy_settings": {
+        "x-stream-index": "007",
+        "properties": {
+          "read_receipts": {
+            "x-stream-index": "002",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "x-stream-index": "001"
+              }
+            },
+            "required": [
+              "enabled"
+            ],
+            "type": "object"
+          },
+          "typing_indicators": {
+            "x-stream-index": "001",
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "x-stream-index": "001"
+              }
+            },
+            "required": [
+              "enabled"
+            ],
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "role": {
+        "description": "User's global role",
+        "title": "Role",
+        "type": "string",
+        "x-stream-index": "008"
+      },
+      "teams": {
+        "description": "List of teams the user belongs to",
+        "items": {
+          "type": "string"
+        },
+        "title": "Teams",
+        "type": "array",
+        "x-stream-index": "010"
+      },
+      "teams_role": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Map of team-specific roles for the user",
+        "title": "TeamsRole",
+        "type": "object",
+        "x-stream-index": "009"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "title": "UserRequest",
+    "type": "object"
+  },
+  "description": "Object containing users",
+  "title": "Users",
+  "type": "object",
+  "x-stream-index": "001",
+  "x-stream-map": {
+    "key": "user_id"
+  },
+  "properties": {}
+}

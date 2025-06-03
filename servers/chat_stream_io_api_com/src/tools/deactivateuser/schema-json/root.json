@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "title": "User ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "created_by_id": {
+      "description": "ID of the user who deactivated the user",
+      "title": "Created by ID",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "mark_messages_deleted": {
+      "description": "Makes messages appear to be deleted",
+      "title": "Mark messages deleted",
+      "type": "boolean",
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "user_id"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "description": "Vote data",
+  "title": "VoteData",
+  "x-stream-index": "003",
+  "properties": {
+    "Option": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `Option` to the tool, first call the tool `expandSchema` with \"/properties/vote/properties/Option\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "answer_text": {
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "option_id": {
+      "maxLength": 255,
+      "type": "string",
+      "x-stream-index": "001"
+    }
+  },
+  "type": "object"
+}

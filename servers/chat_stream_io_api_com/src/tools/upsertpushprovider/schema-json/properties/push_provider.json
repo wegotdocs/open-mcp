@@ -1,0 +1,166 @@
+{
+  "x-stream-index": "001",
+  "nullable": true,
+  "properties": {
+    "apn_auth_key": {
+      "type": "string",
+      "x-stream-index": "012"
+    },
+    "apn_auth_type": {
+      "type": "string",
+      "x-stream-index": "017"
+    },
+    "apn_development": {
+      "type": "boolean",
+      "x-stream-index": "018"
+    },
+    "apn_host": {
+      "type": "string",
+      "x-stream-index": "019"
+    },
+    "apn_key_id": {
+      "type": "string",
+      "x-stream-index": "013"
+    },
+    "apn_notification_template": {
+      "type": "string",
+      "x-stream-index": "020"
+    },
+    "apn_p12_cert": {
+      "type": "string",
+      "x-stream-index": "014"
+    },
+    "apn_team_id": {
+      "type": "string",
+      "x-stream-index": "015"
+    },
+    "apn_topic": {
+      "type": "string",
+      "x-stream-index": "016"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string",
+      "x-stream-index": "008"
+    },
+    "description": {
+      "maxLength": 128,
+      "type": "string",
+      "x-stream-index": "007"
+    },
+    "disabled_at": {
+      "format": "date-time",
+      "type": "string",
+      "x-stream-index": "010"
+    },
+    "disabled_reason": {
+      "maxLength": 255,
+      "type": "string",
+      "x-stream-index": "011"
+    },
+    "firebase_apn_template": {
+      "type": "string",
+      "x-stream-index": "025"
+    },
+    "firebase_credentials": {
+      "type": "string",
+      "x-stream-index": "022"
+    },
+    "firebase_data_template": {
+      "type": "string",
+      "x-stream-index": "023"
+    },
+    "firebase_host": {
+      "type": "string",
+      "x-stream-index": "026"
+    },
+    "firebase_notification_template": {
+      "type": "string",
+      "x-stream-index": "024"
+    },
+    "firebase_server_key": {
+      "type": "string",
+      "x-stream-index": "021"
+    },
+    "huawei_app_id": {
+      "type": "string",
+      "x-stream-index": "027"
+    },
+    "huawei_app_secret": {
+      "type": "string",
+      "x-stream-index": "028"
+    },
+    "name": {
+      "maxLength": 36,
+      "minLength": 1,
+      "type": "string",
+      "x-stream-index": "005"
+    },
+    "push_templates": {
+      "items": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "type": "string",
+            "x-stream-index": "007"
+          },
+          "enable_push": {
+            "type": "boolean",
+            "x-stream-index": "003"
+          },
+          "event_type": {
+            "enum": [
+              "message.new",
+              "message.updated",
+              "reaction.new"
+            ],
+            "type": "string",
+            "x-stream-index": "005"
+          },
+          "template": {
+            "type": "string",
+            "x-stream-index": "006"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "type": "string",
+            "x-stream-index": "008"
+          }
+        },
+        "required": [
+          "enable_push",
+          "event_type",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "x-stream-index": "031"
+    },
+    "type": {
+      "type": "string",
+      "x-stream-index": "006"
+    },
+    "updated_at": {
+      "format": "date-time",
+      "type": "string",
+      "x-stream-index": "009"
+    },
+    "xiaomi_app_secret": {
+      "type": "string",
+      "x-stream-index": "030"
+    },
+    "xiaomi_package_name": {
+      "type": "string",
+      "x-stream-index": "029"
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "created_at",
+    "updated_at"
+  ],
+  "type": "object"
+}

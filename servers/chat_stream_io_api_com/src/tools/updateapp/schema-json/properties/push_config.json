@@ -1,0 +1,22 @@
+{
+  "x-stream-index": "001.007",
+  "properties": {
+    "offline_only": {
+      "type": "boolean",
+      "x-stream-index": "002"
+    },
+    "version": {
+      "enum": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "type": "string",
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "version"
+  ],
+  "type": "object"
+}

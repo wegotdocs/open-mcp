@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "channels": {
+      "description": "Export options for channels",
+      "items": {
+        "properties": {
+          "cid": {
+            "type": "string",
+            "x-stream-index": "003"
+          },
+          "id": {
+            "description": "Channel ID",
+            "title": "ID",
+            "type": "string",
+            "x-stream-index": "002"
+          },
+          "messages_since": {
+            "description": "Date to export messages since",
+            "format": "date-time",
+            "title": "Messages since",
+            "type": "string",
+            "x-stream-index": "004"
+          },
+          "messages_until": {
+            "description": "Date to export messages until",
+            "format": "date-time",
+            "title": "Messages until",
+            "type": "string",
+            "x-stream-index": "005"
+          },
+          "type": {
+            "description": "Channel type",
+            "title": "Type",
+            "type": "string",
+            "x-stream-index": "001"
+          }
+        },
+        "title": "Channel Export",
+        "type": "object"
+      },
+      "maximum": 100,
+      "minimum": 1,
+      "title": "Channels",
+      "type": "array",
+      "x-stream-index": "002.001"
+    },
+    "clear_deleted_message_text": {
+      "description": "Set if deleted message text should be cleared",
+      "title": "Clear deleted message text",
+      "type": "boolean",
+      "x-stream-index": "002.002"
+    },
+    "export_users": {
+      "type": "boolean",
+      "x-stream-index": "002.005"
+    },
+    "include_soft_deleted_channels": {
+      "description": "Set if you want to include deleted channels",
+      "title": "Include soft deleted channels",
+      "type": "boolean",
+      "x-stream-index": "002.004"
+    },
+    "include_truncated_messages": {
+      "description": "Set if you want to include truncated messages",
+      "title": "Include truncated messages",
+      "type": "boolean",
+      "x-stream-index": "002.003"
+    },
+    "version": {
+      "description": "Export version",
+      "title": "Version",
+      "type": "string",
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "channels"
+  ]
+}

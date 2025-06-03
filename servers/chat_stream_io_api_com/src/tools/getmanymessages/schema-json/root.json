@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002.001"
+    },
+    "id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002.002"
+    },
+    "ids": {
+      "description": "List of comma-separated IDs",
+      "items": {
+        "type": "string"
+      },
+      "maximum": 50,
+      "minimum": 1,
+      "title": "IDs",
+      "type": "array",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "ids"
+  ]
+}

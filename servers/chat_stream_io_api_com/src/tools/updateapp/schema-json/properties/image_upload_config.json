@@ -1,0 +1,44 @@
+{
+  "x-stream-index": "001.029",
+  "properties": {
+    "allowed_file_extensions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "001"
+    },
+    "allowed_mime_types": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "003"
+    },
+    "blocked_file_extensions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "002"
+    },
+    "blocked_mime_types": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "004"
+    },
+    "size_limit": {
+      "format": "int32",
+      "maximum": 104857600,
+      "minimum": 0,
+      "type": "integer",
+      "x-stream-index": "005"
+    }
+  },
+  "required": [
+    "size_limit"
+  ],
+  "type": "object"
+}

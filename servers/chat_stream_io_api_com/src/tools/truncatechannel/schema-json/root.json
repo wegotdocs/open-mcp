@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001.001"
+    },
+    "id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001.002"
+    },
+    "hard_delete": {
+      "description": "Permanently delete channel data (messages, reactions, etc.)",
+      "title": "Hard delete",
+      "type": "boolean",
+      "x-stream-index": "002"
+    },
+    "member_ids": {
+      "description": "List of member IDs to hide message history for. If empty, truncates the channel for all members",
+      "items": {
+        "type": "string"
+      },
+      "maximum": 100,
+      "title": "Member IDs",
+      "type": "array",
+      "x-stream-index": "007"
+    },
+    "message": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `message` to the tool, first call the tool `expandSchema` with \"/properties/message\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "skip_push": {
+      "description": "When `message` is set disables all push notifications for it",
+      "title": "Skip push",
+      "type": "boolean",
+      "x-stream-index": "005"
+    },
+    "truncated_at": {
+      "description": "Truncate channel data up to `truncated_at`. The system message (if provided) creation time is always greater than `truncated_at`",
+      "format": "date-time",
+      "title": "Truncated at",
+      "type": "string",
+      "x-stream-index": "006"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "008.001"
+    }
+  },
+  "required": [
+    "type",
+    "id"
+  ]
+}

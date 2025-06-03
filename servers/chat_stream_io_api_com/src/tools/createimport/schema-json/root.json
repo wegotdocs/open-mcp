@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "mode": {
+      "enum": [
+        "insert",
+        "upsert"
+      ],
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "path": {
+      "type": "string",
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "mode",
+    "path"
+  ]
+}

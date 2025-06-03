@@ -1,0 +1,67 @@
+{
+  "x-stream-index": "006.002",
+  "description": "User request object",
+  "properties": {
+    "custom": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom` to the tool, first call the tool `expandSchema` with \"/properties/reaction/properties/user/properties/custom\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom user data</property-description>",
+      "additionalProperties": true
+    },
+    "id": {
+      "description": "User ID",
+      "title": "ID",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "image": {
+      "description": "User's profile image URL",
+      "title": "Image",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "invisible": {
+      "type": "boolean",
+      "x-stream-index": "006"
+    },
+    "language": {
+      "type": "string",
+      "x-stream-index": "005"
+    },
+    "name": {
+      "description": "Optional name of user",
+      "title": "Name",
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "privacy_settings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `privacy_settings` to the tool, first call the tool `expandSchema` with \"/properties/reaction/properties/user/properties/privacy_settings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "role": {
+      "description": "User's global role",
+      "title": "Role",
+      "type": "string",
+      "x-stream-index": "008"
+    },
+    "teams": {
+      "description": "List of teams the user belongs to",
+      "items": {
+        "type": "string"
+      },
+      "title": "Teams",
+      "type": "array",
+      "x-stream-index": "010"
+    },
+    "teams_role": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `teams_role` to the tool, first call the tool `expandSchema` with \"/properties/reaction/properties/user/properties/teams_role\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Map of team-specific roles for the user</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "title": "UserRequest",
+  "type": "object"
+}

@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Channel type to interact with",
+      "title": "Channel type",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001.001"
+    },
+    "id": {
+      "description": "Channel ID to interact with",
+      "title": "Channel ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001.002"
+    },
+    "set": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `set` to the tool, first call the tool `expandSchema` with \"/properties/set\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "unset": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "002.002"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "003.001"
+    }
+  },
+  "required": [
+    "type",
+    "id"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Message ID",
+      "title": "ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "limit": {
+      "description": "Number of records to return",
+      "format": "int32",
+      "title": "Limit",
+      "type": "integer",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    },
+    "offset": {
+      "description": "Number of records to offset",
+      "format": "int32",
+      "title": "Offset",
+      "type": "integer",
+      "writeOnly": true,
+      "x-stream-index": "003"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

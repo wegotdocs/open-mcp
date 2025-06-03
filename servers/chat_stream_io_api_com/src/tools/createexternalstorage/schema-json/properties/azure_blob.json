@@ -1,0 +1,38 @@
+{
+  "description": "Only required if you want to create an Azure Blob Storage",
+  "title": "AzureBlob",
+  "x-stream-index": "003.006",
+  "properties": {
+    "abs_account_name": {
+      "description": "The account name",
+      "title": "AccountName",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "abs_client_id": {
+      "description": "The client id",
+      "title": "ClientID",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "abs_client_secret": {
+      "description": "The client secret",
+      "title": "ClientSecret",
+      "type": "string",
+      "x-stream-index": "004"
+    },
+    "abs_tenant_id": {
+      "description": "The tenant id",
+      "title": "TenantID",
+      "type": "string",
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "abs_account_name",
+    "abs_tenant_id",
+    "abs_client_id",
+    "abs_client_secret"
+  ],
+  "type": "object"
+}

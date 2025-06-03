@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "push_provider_name": {
+      "description": "Push provider name to filter templates",
+      "title": "string",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    },
+    "push_provider_type": {
+      "description": "Push provider type (firebase, apn) to filter templates",
+      "enum": [
+        "firebase",
+        "apn"
+      ],
+      "title": "string",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "003"
+    }
+  },
+  "required": [
+    "push_provider_type"
+  ]
+}

@@ -1,0 +1,523 @@
+{
+  "x-stream-index": "004",
+  "properties": {
+    "attachments": {
+      "items": {
+        "description": "An attachment is a message object that represents a file uploaded by a user.",
+        "nullable": true,
+        "properties": {
+          "actions": {
+            "items": {
+              "nullable": true,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "x-stream-index": "001"
+                },
+                "style": {
+                  "type": "string",
+                  "x-stream-index": "003"
+                },
+                "text": {
+                  "type": "string",
+                  "x-stream-index": "002"
+                },
+                "type": {
+                  "type": "string",
+                  "x-stream-index": "004"
+                },
+                "value": {
+                  "type": "string",
+                  "x-stream-index": "005"
+                }
+              },
+              "required": [
+                "name",
+                "text",
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array",
+            "x-stream-index": "015"
+          },
+          "asset_url": {
+            "type": "string",
+            "x-stream-index": "017"
+          },
+          "author_icon": {
+            "type": "string",
+            "x-stream-index": "007"
+          },
+          "author_link": {
+            "type": "string",
+            "x-stream-index": "006"
+          },
+          "author_name": {
+            "type": "string",
+            "x-stream-index": "005"
+          },
+          "color": {
+            "type": "string",
+            "x-stream-index": "003"
+          },
+          "custom": {
+            "additionalProperties": {},
+            "type": "object",
+            "x-stream-index": "021"
+          },
+          "fallback": {
+            "type": "string",
+            "x-stream-index": "002"
+          },
+          "fields": {
+            "items": {
+              "nullable": true,
+              "properties": {
+                "short": {
+                  "type": "boolean",
+                  "x-stream-index": "003"
+                },
+                "title": {
+                  "type": "string",
+                  "x-stream-index": "001"
+                },
+                "value": {
+                  "type": "string",
+                  "x-stream-index": "002"
+                }
+              },
+              "required": [
+                "title",
+                "value",
+                "short"
+              ],
+              "type": "object"
+            },
+            "type": "array",
+            "x-stream-index": "016"
+          },
+          "footer": {
+            "type": "string",
+            "x-stream-index": "013"
+          },
+          "footer_icon": {
+            "type": "string",
+            "x-stream-index": "014"
+          },
+          "giphy": {
+            "x-stream-index": "022",
+            "properties": {
+              "fixed_height": {
+                "x-stream-index": "002",
+                "properties": {
+                  "frames": {
+                    "type": "string",
+                    "x-stream-index": "005"
+                  },
+                  "height": {
+                    "type": "string",
+                    "x-stream-index": "003"
+                  },
+                  "size": {
+                    "type": "string",
+                    "x-stream-index": "004"
+                  },
+                  "url": {
+                    "type": "string",
+                    "x-stream-index": "001"
+                  },
+                  "width": {
+                    "type": "string",
+                    "x-stream-index": "002"
+                  }
+                },
+                "required": [
+                  "url",
+                  "width",
+                  "height",
+                  "size",
+                  "frames"
+                ],
+                "type": "object"
+              },
+              "fixed_height_downsampled": {
+                "x-stream-index": "004",
+                "properties": {
+                  "frames": {
+                    "type": "string",
+                    "x-stream-index": "005"
+                  },
+                  "height": {
+                    "type": "string",
+                    "x-stream-index": "003"
+                  },
+                  "size": {
+                    "type": "string",
+                    "x-stream-index": "004"
+                  },
+                  "url": {
+                    "type": "string",
+                    "x-stream-index": "001"
+                  },
+                  "width": {
+                    "type": "string",
+                    "x-stream-index": "002"
+                  }
+                },
+                "required": [
+                  "url",
+                  "width",
+                  "height",
+                  "size",
+                  "frames"
+                ],
+                "type": "object"
+              },
+              "fixed_height_still": {
+                "x-stream-index": "003",
+                "properties": {
+                  "frames": {
+                    "type": "string",
+                    "x-stream-index": "005"
+                  },
+                  "height": {
+                    "type": "string",
+                    "x-stream-index": "003"
+                  },
+                  "size": {
+                    "type": "string",
+                    "x-stream-index": "004"
+                  },
+                  "url": {
+                    "type": "string",
+                    "x-stream-index": "001"
+                  },
+                  "width": {
+                    "type": "string",
+                    "x-stream-index": "002"
+                  }
+                },
+                "required": [
+                  "url",
+                  "width",
+                  "height",
+                  "size",
+                  "frames"
+                ],
+                "type": "object"
+              },
+              "fixed_width": {
+                "x-stream-index": "005",
+                "properties": {
+                  "frames": {
+                    "type": "string",
+                    "x-stream-index": "005"
+                  },
+                  "height": {
+                    "type": "string",
+                    "x-stream-index": "003"
+                  },
+                  "size": {
+                    "type": "string",
+                    "x-stream-index": "004"
+                  },
+                  "url": {
+                    "type": "string",
+                    "x-stream-index": "001"
+                  },
+                  "width": {
+                    "type": "string",
+                    "x-stream-index": "002"
+                  }
+                },
+                "required": [
+                  "url",
+                  "width",
+                  "height",
+                  "size",
+                  "frames"
+                ],
+                "type": "object"
+              },
+              "fixed_width_downsampled": {
+                "x-stream-index": "007",
+                "properties": {
+                  "frames": {
+                    "type": "string",
+                    "x-stream-index": "005"
+                  },
+                  "height": {
+                    "type": "string",
+                    "x-stream-index": "003"
+                  },
+                  "size": {
+                    "type": "string",
+                    "x-stream-index": "004"
+                  },
+                  "url": {
+                    "type": "string",
+                    "x-stream-index": "001"
+                  },
+                  "width": {
+                    "type": "string",
+                    "x-stream-index": "002"
+                  }
+                },
+                "required": [
+                  "url",
+                  "width",
+                  "height",
+                  "size",
+                  "frames"
+                ],
+                "type": "object"
+              },
+              "fixed_width_still": {
+                "x-stream-index": "006",
+                "properties": {
+                  "frames": {
+                    "type": "string",
+                    "x-stream-index": "005"
+                  },
+                  "height": {
+                    "type": "string",
+                    "x-stream-index": "003"
+                  },
+                  "size": {
+                    "type": "string",
+                    "x-stream-index": "004"
+                  },
+                  "url": {
+                    "type": "string",
+                    "x-stream-index": "001"
+                  },
+                  "width": {
+                    "type": "string",
+                    "x-stream-index": "002"
+                  }
+                },
+                "required": [
+                  "url",
+                  "width",
+                  "height",
+                  "size",
+                  "frames"
+                ],
+                "type": "object"
+              },
+              "original": {
+                "x-stream-index": "001",
+                "properties": {
+                  "frames": {
+                    "type": "string",
+                    "x-stream-index": "005"
+                  },
+                  "height": {
+                    "type": "string",
+                    "x-stream-index": "003"
+                  },
+                  "size": {
+                    "type": "string",
+                    "x-stream-index": "004"
+                  },
+                  "url": {
+                    "type": "string",
+                    "x-stream-index": "001"
+                  },
+                  "width": {
+                    "type": "string",
+                    "x-stream-index": "002"
+                  }
+                },
+                "required": [
+                  "url",
+                  "width",
+                  "height",
+                  "size",
+                  "frames"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "original",
+              "fixed_height",
+              "fixed_height_still",
+              "fixed_height_downsampled",
+              "fixed_width",
+              "fixed_width_still",
+              "fixed_width_downsampled"
+            ],
+            "type": "object"
+          },
+          "image_url": {
+            "type": "string",
+            "x-stream-index": "011"
+          },
+          "latitude": {
+            "description": "The latitude of the location",
+            "format": "float",
+            "title": "Latitude",
+            "type": "number",
+            "x-stream-index": "018"
+          },
+          "longitude": {
+            "description": "The longitude of the location",
+            "format": "float",
+            "title": "Longitude",
+            "type": "number",
+            "x-stream-index": "019"
+          },
+          "og_scrape_url": {
+            "type": "string",
+            "x-stream-index": "023"
+          },
+          "original_height": {
+            "format": "int32",
+            "type": "integer",
+            "x-stream-index": "025"
+          },
+          "original_width": {
+            "format": "int32",
+            "type": "integer",
+            "x-stream-index": "024"
+          },
+          "pretext": {
+            "type": "string",
+            "x-stream-index": "004"
+          },
+          "stopped_sharing": {
+            "description": "If the user has stopped sharing their location",
+            "title": "Stopped Sharing",
+            "type": "boolean",
+            "x-stream-index": "020"
+          },
+          "text": {
+            "type": "string",
+            "x-stream-index": "010"
+          },
+          "thumb_url": {
+            "type": "string",
+            "x-stream-index": "012"
+          },
+          "title": {
+            "type": "string",
+            "x-stream-index": "008"
+          },
+          "title_link": {
+            "type": "string",
+            "x-stream-index": "009"
+          },
+          "type": {
+            "description": "Attachment type (e.g. image, video, url)",
+            "title": "Type",
+            "type": "string",
+            "x-stream-index": "001"
+          }
+        },
+        "required": [
+          "custom"
+        ],
+        "title": "Attachment",
+        "type": "object",
+        "x-stream-docs-page-id": "file_uploads"
+      },
+      "maximum": 30,
+      "type": "array",
+      "x-stream-index": "004"
+    },
+    "custom": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom` to the tool, first call the tool `expandSchema` with \"/properties/message/properties/custom\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "html": {
+      "type": "string",
+      "x-stream-index": "010"
+    },
+    "id": {
+      "maxLength": 255,
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "mentioned_users": {
+      "items": {
+        "type": "string"
+      },
+      "maximum": 100,
+      "type": "array",
+      "x-stream-index": "008"
+    },
+    "mml": {
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "parent_id": {
+      "type": "string",
+      "x-stream-index": "005"
+    },
+    "pin_expires": {
+      "format": "date-time",
+      "type": "string",
+      "x-stream-index": "015"
+    },
+    "pinned": {
+      "type": "boolean",
+      "x-stream-index": "013"
+    },
+    "pinned_at": {
+      "format": "date-time",
+      "nullable": true,
+      "type": "string",
+      "x-stream-index": "014"
+    },
+    "poll_id": {
+      "type": "string",
+      "x-stream-index": "039"
+    },
+    "quoted_message_id": {
+      "type": "string",
+      "x-stream-index": "009"
+    },
+    "restricted_visibility": {
+      "items": {
+        "type": "string"
+      },
+      "maximum": 10,
+      "type": "array",
+      "x-stream-index": "016"
+    },
+    "show_in_channel": {
+      "type": "boolean",
+      "x-stream-index": "006"
+    },
+    "silent": {
+      "type": "boolean",
+      "x-stream-index": "012"
+    },
+    "text": {
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "type": {
+      "enum": [
+        "''",
+        "regular",
+        "system"
+      ],
+      "type": "string",
+      "x-stream-index": "011"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/message/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "021.001"
+    }
+  },
+  "type": "object"
+}

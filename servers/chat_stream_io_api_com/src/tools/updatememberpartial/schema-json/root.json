@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "003.001"
+    },
+    "id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "003.002"
+    },
+    "user_id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "005.001"
+    },
+    "set": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `set` to the tool, first call the tool `expandSchema` with \"/properties/set\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "unset": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "002.002"
+    }
+  },
+  "required": [
+    "type",
+    "id"
+  ]
+}

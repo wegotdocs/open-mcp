@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "poll_id": {
+      "description": "Poll ID",
+      "maxLength": 255,
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "Custom": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `Custom` to the tool, first call the tool `expandSchema` with \"/properties/Custom\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "position": {
+      "format": "int32",
+      "type": "integer",
+      "x-stream-index": "003"
+    },
+    "text": {
+      "description": "Option text",
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "005.001"
+    }
+  },
+  "required": [
+    "poll_id",
+    "text"
+  ]
+}

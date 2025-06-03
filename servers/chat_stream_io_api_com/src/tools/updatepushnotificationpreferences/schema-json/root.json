@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "preferences": {
+      "description": "A list of push preferences for channels, calls, or the user.",
+      "items": {
+        "nullable": true,
+        "properties": {
+          "channel_cid": {
+            "description": "Set the push preferences for a specific channel. If empty it sets the default for the user",
+            "type": "string",
+            "x-stream-index": "002"
+          },
+          "chat_level": {
+            "description": "Set the level of push notifications for the user. One of all, mentions, none, default",
+            "enum": [
+              "all",
+              "mentions",
+              "none",
+              "default"
+            ],
+            "type": "string",
+            "x-stream-index": "003"
+          },
+          "disabled_until": {
+            "description": "Disable push notifications till a certain time",
+            "format": "date-time",
+            "type": "string",
+            "x-stream-index": "004"
+          },
+          "remove_disable": {
+            "description": "Remove the disabled until time. (IE stop snoozing notifications)",
+            "type": "boolean",
+            "x-stream-index": "005"
+          },
+          "user_id": {
+            "description": "The user id for which to set the push preferences. Required when using server side auths, defaults to current user with client side auth.",
+            "type": "string",
+            "x-stream-index": "001"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "preferences"
+  ]
+}

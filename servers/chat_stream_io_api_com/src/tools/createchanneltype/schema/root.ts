@@ -1,0 +1,31 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "automod": z.enum(["disabled","simple","AI"]).describe("Automod"),
+  "automod_behavior": z.enum(["flag","block"]).describe("Automod behavior"),
+  "blocklist": z.string().describe("Blocklist").optional(),
+  "blocklist_behavior": z.enum(["flag","block","shadow_block"]).describe("Blocklist behavior").optional(),
+  "blocklists": z.array(z.object({ "behavior": z.enum(["flag","block","shadow_block"]).describe("Blocklist behavior"), "blocklist": z.string().describe("Blocklist name") })).describe("Blocklists").optional(),
+  "commands": z.array(z.string()).describe("List of commands that channel supports").optional(),
+  "connect_events": z.boolean().describe("Connect events").optional(),
+  "custom_events": z.boolean().describe("Custom events").optional(),
+  "grants": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `grants` to the tool, first call the tool `expandSchema` with \"/properties/grants\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>List of grants for the channel type</property-description>").optional(),
+  "mark_messages_pending": z.boolean().describe("Mark messages pending").optional(),
+  "max_message_length": z.number().int().describe("Max message length"),
+  "message_retention": z.enum(["infinite","numeric"]).describe("Message retention").optional(),
+  "mutes": z.boolean().describe("Mutes").optional(),
+  "name": z.string().describe("Channel type name"),
+  "partition_size": z.number().int().gte(10).describe("Partition size").optional(),
+  "partition_ttl": z.string().duration().nullable().describe("Partition TTL").optional(),
+  "permissions": z.array(z.object({ "action": z.enum(["Deny","Allow"]), "name": z.string().describe("User-friendly policy name"), "owner": z.boolean().describe("Whether policy applies to resource owner or not"), "priority": z.number().int().gte(1).lte(999).describe("Policy priority"), "resources": z.array(z.string()).describe("List of resources to apply policy to"), "roles": z.array(z.string()).describe("List of roles to apply policy to") }).describe("Policy request")).describe("List of permissions for the channel type").optional(),
+  "polls": z.boolean().describe("Polls").optional(),
+  "push_notifications": z.boolean().describe("Push notifications").optional(),
+  "reactions": z.boolean().describe("Reactions").optional(),
+  "read_events": z.boolean().describe("Read events").optional(),
+  "replies": z.boolean().describe("Replies").optional(),
+  "search": z.boolean().describe("Search").optional(),
+  "skip_last_msg_update_for_system_msgs": z.boolean().optional(),
+  "typing_events": z.boolean().describe("Typing events").optional(),
+  "uploads": z.boolean().describe("Uploads").optional(),
+  "url_enrichment": z.boolean().describe("URL enrichment").optional()
+}

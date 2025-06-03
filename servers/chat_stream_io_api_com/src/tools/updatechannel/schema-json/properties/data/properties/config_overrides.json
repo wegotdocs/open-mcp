@@ -1,0 +1,77 @@
+{
+  "x-stream-index": "024",
+  "description": "Channel configuration overrides",
+  "properties": {
+    "blocklist": {
+      "type": "string",
+      "x-stream-index": "008"
+    },
+    "blocklist_behavior": {
+      "enum": [
+        "flag",
+        "block"
+      ],
+      "type": "string",
+      "x-stream-index": "009"
+    },
+    "commands": {
+      "description": "List of commands that channel supports",
+      "items": {
+        "type": "string"
+      },
+      "title": "Commands",
+      "type": "array",
+      "x-stream-index": "011"
+    },
+    "grants": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `grants` to the tool, first call the tool `expandSchema` with \"/properties/data/properties/config_overrides/properties/grants\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "max_message_length": {
+      "description": "Overrides max message length",
+      "format": "int32",
+      "maximum": 20000,
+      "title": "Max Message Length",
+      "type": "integer",
+      "x-stream-index": "007"
+    },
+    "quotes": {
+      "description": "Enables message quotes",
+      "title": "Quotes",
+      "type": "boolean",
+      "x-stream-index": "004"
+    },
+    "reactions": {
+      "description": "Enables or disables reactions",
+      "title": "Reactions",
+      "type": "boolean",
+      "x-stream-index": "002"
+    },
+    "replies": {
+      "description": "Enables message replies (threads)",
+      "title": "Replies",
+      "type": "boolean",
+      "x-stream-index": "003"
+    },
+    "typing_events": {
+      "description": "Enables or disables typing events",
+      "title": "Typing events",
+      "type": "boolean",
+      "x-stream-index": "001"
+    },
+    "uploads": {
+      "description": "Enables or disables file uploads",
+      "title": "Uploads",
+      "type": "boolean",
+      "x-stream-index": "005"
+    },
+    "url_enrichment": {
+      "description": "Enables or disables URL enrichment",
+      "title": "URL Enrichment",
+      "type": "boolean",
+      "x-stream-index": "006"
+    }
+  },
+  "type": "object"
+}

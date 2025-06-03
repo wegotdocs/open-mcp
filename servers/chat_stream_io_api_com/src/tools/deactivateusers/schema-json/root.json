@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "created_by_id": {
+      "description": "ID of the user who deactivated the users",
+      "title": "Created by ID",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "mark_channels_deleted": {
+      "type": "boolean",
+      "x-stream-index": "004"
+    },
+    "mark_messages_deleted": {
+      "description": "Makes messages appear to be deleted",
+      "title": "Mark messages deleted",
+      "type": "boolean",
+      "x-stream-index": "002"
+    },
+    "user_ids": {
+      "description": "User IDs to deactivate",
+      "items": {
+        "type": "string"
+      },
+      "maximum": 100,
+      "minimum": 1,
+      "title": "User IDs",
+      "type": "array",
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "user_ids"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "cids": {
+      "description": "All channels that should be deleted",
+      "items": {
+        "type": "string"
+      },
+      "maximum": 100,
+      "minimum": 1,
+      "title": "Channels CID",
+      "type": "array",
+      "x-stream-index": "001"
+    },
+    "hard_delete": {
+      "description": "Specify if channels and all ressources should be hard deleted",
+      "title": "Hard delete",
+      "type": "boolean",
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "cids"
+  ]
+}

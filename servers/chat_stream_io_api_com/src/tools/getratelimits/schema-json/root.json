@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "server_side": {
+      "description": "Whether to include server-side platform limits or not",
+      "title": "Server-side",
+      "type": "boolean",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "android": {
+      "description": "Whether to include Android platform limits or not",
+      "title": "Android",
+      "type": "boolean",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    },
+    "ios": {
+      "description": "Whether to include iOS platform limits or not",
+      "title": "iOS",
+      "type": "boolean",
+      "writeOnly": true,
+      "x-stream-index": "003"
+    },
+    "web": {
+      "description": "Whether to include web platform limits or not",
+      "title": "Web",
+      "type": "boolean",
+      "writeOnly": true,
+      "x-stream-index": "004"
+    },
+    "endpoints": {
+      "description": "Specific endpoints to show limits for, as a comma-separated list of values",
+      "title": "Endpoints",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "005"
+    }
+  },
+  "required": []
+}

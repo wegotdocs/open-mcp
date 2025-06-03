@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Channel type to interact with",
+      "title": "Channel type",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001.001"
+    },
+    "id": {
+      "description": "Channel ID to interact with",
+      "title": "Channel ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001.002"
+    },
+    "hard_delete": {
+      "type": "boolean",
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "type",
+    "id"
+  ]
+}

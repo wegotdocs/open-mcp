@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "apn_template": {
+      "description": "Push message template for APN",
+      "title": "APN template",
+      "type": "string",
+      "x-stream-docs-page-id": "push_template",
+      "x-stream-index": "002"
+    },
+    "firebase_data_template": {
+      "description": "Push message data template for Firebase",
+      "title": "Firebase data template",
+      "type": "string",
+      "x-stream-docs-page-id": "push_template",
+      "x-stream-index": "004"
+    },
+    "firebase_template": {
+      "description": "Push message template for Firebase",
+      "title": "Firebase template",
+      "type": "string",
+      "x-stream-docs-page-id": "push_template",
+      "x-stream-index": "003"
+    },
+    "message_id": {
+      "description": "Message ID to send push notification for",
+      "title": "Message ID",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "push_provider_name": {
+      "description": "Name of push provider",
+      "title": "Name of push provider",
+      "type": "string",
+      "x-stream-index": "007"
+    },
+    "push_provider_type": {
+      "description": "Push provider type",
+      "enum": [
+        "firebase",
+        "apn",
+        "huawei",
+        "xiaomi"
+      ],
+      "title": "Type of push provider",
+      "type": "string",
+      "x-stream-index": "006"
+    },
+    "skip_devices": {
+      "description": "Don't require existing devices to render templates",
+      "title": "Skip devices",
+      "type": "boolean",
+      "x-stream-index": "005"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "008.001"
+    }
+  },
+  "required": []
+}

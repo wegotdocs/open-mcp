@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Message ID to delete",
+      "title": "ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "hard": {
+      "description": "Delete all message reactions and replies as well",
+      "title": "Hard",
+      "type": "boolean",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    },
+    "deleted_by": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "003"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Block list name",
+      "title": "Name",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "team": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

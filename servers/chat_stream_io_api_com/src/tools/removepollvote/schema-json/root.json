@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "message_id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    },
+    "poll_id": {
+      "description": "Poll ID",
+      "maxLength": 255,
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "vote_id": {
+      "description": "Vote ID",
+      "maxLength": 255,
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "004"
+    },
+    "user_id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "message_id",
+    "poll_id",
+    "vote_id"
+  ]
+}

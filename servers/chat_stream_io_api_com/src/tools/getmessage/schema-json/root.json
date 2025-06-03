@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the message",
+      "title": "ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "show_deleted_message": {
+      "description": "Whether to show deleted message",
+      "title": "Show deleted message",
+      "type": "boolean",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "type": "object",
+  "properties": {
+    "automod": {
+      "description": "Automod",
+      "enum": [
+        "disabled",
+        "simple",
+        "AI"
+      ],
+      "title": "Automod",
+      "type": "string",
+      "x-stream-index": "017"
+    },
+    "automod_behavior": {
+      "description": "Automod behavior",
+      "enum": [
+        "flag",
+        "block"
+      ],
+      "title": "Automod behavior",
+      "type": "string",
+      "x-stream-index": "018"
+    },
+    "blocklist": {
+      "description": "Blocklist",
+      "title": "Blocklist",
+      "type": "string",
+      "x-stream-index": "022"
+    },
+    "blocklist_behavior": {
+      "description": "Blocklist behavior",
+      "enum": [
+        "flag",
+        "block",
+        "shadow_block"
+      ],
+      "title": "Blocklist behavior",
+      "type": "string",
+      "x-stream-index": "023"
+    },
+    "blocklists": {
+      "description": "Blocklists",
+      "items": {
+        "properties": {
+          "behavior": {
+            "description": "Blocklist behavior",
+            "enum": [
+              "flag",
+              "block",
+              "shadow_block"
+            ],
+            "title": "Behavior",
+            "type": "string",
+            "x-stream-index": "002"
+          },
+          "blocklist": {
+            "description": "Blocklist name",
+            "title": "Blocklist",
+            "type": "string",
+            "x-stream-index": "001"
+          }
+        },
+        "required": [
+          "blocklist",
+          "behavior"
+        ],
+        "type": "object"
+      },
+      "title": "Blocklists",
+      "type": "array",
+      "x-stream-index": "024"
+    },
+    "commands": {
+      "description": "List of commands that channel supports",
+      "items": {
+        "type": "string"
+      },
+      "title": "Commands",
+      "type": "array",
+      "x-stream-index": "019"
+    },
+    "connect_events": {
+      "description": "Connect events",
+      "title": "Connect events",
+      "type": "boolean",
+      "x-stream-index": "004"
+    },
+    "custom_events": {
+      "description": "Custom events",
+      "title": "Custom events",
+      "type": "boolean",
+      "x-stream-index": "011"
+    },
+    "grants": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `grants` to the tool, first call the tool `expandSchema` with \"/properties/grants\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>List of grants for the channel type</property-description>",
+      "additionalProperties": true
+    },
+    "mark_messages_pending": {
+      "description": "Mark messages pending",
+      "title": "Mark messages pending",
+      "type": "boolean",
+      "x-stream-index": "013"
+    },
+    "max_message_length": {
+      "description": "Max message length",
+      "format": "int32",
+      "title": "Max message length",
+      "type": "integer",
+      "x-stream-index": "016"
+    },
+    "message_retention": {
+      "description": "Message retention",
+      "enum": [
+        "infinite",
+        "numeric"
+      ],
+      "title": "Message retention",
+      "type": "string",
+      "x-stream-index": "015"
+    },
+    "mutes": {
+      "description": "Mutes",
+      "title": "Mutes",
+      "type": "boolean",
+      "x-stream-index": "008"
+    },
+    "name": {
+      "description": "Channel type name",
+      "title": "Name",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "partition_size": {
+      "description": "Partition size",
+      "format": "int32",
+      "minimum": 10,
+      "title": "Partition size",
+      "type": "integer",
+      "x-stream-index": "025"
+    },
+    "partition_ttl": {
+      "description": "Partition TTL",
+      "example": "24h",
+      "format": "duration",
+      "nullable": true,
+      "title": "Partition TTL",
+      "type": "string",
+      "x-stream-index": "026"
+    },
+    "permissions": {
+      "description": "List of permissions for the channel type",
+      "items": {
+        "description": "Policy request",
+        "properties": {
+          "action": {
+            "enum": [
+              "Deny",
+              "Allow"
+            ],
+            "title": "Action",
+            "type": "string",
+            "x-stream-index": "001"
+          },
+          "name": {
+            "description": "User-friendly policy name",
+            "title": "Name",
+            "type": "string",
+            "x-stream-index": "002"
+          },
+          "owner": {
+            "description": "Whether policy applies to resource owner or not",
+            "title": "Owner",
+            "type": "boolean",
+            "x-stream-index": "005"
+          },
+          "priority": {
+            "description": "Policy priority",
+            "format": "int32",
+            "maximum": 999,
+            "minimum": 1,
+            "title": "Priority",
+            "type": "integer",
+            "x-stream-index": "006"
+          },
+          "resources": {
+            "description": "List of resources to apply policy to",
+            "items": {
+              "type": "string"
+            },
+            "minimum": 1,
+            "title": "Resources",
+            "type": "array",
+            "x-stream-index": "003"
+          },
+          "roles": {
+            "description": "List of roles to apply policy to",
+            "items": {
+              "type": "string"
+            },
+            "title": "Roles",
+            "type": "array",
+            "x-stream-index": "004"
+          }
+        },
+        "required": [
+          "action",
+          "name",
+          "resources",
+          "roles",
+          "owner",
+          "priority"
+        ],
+        "title": "PolicyRequest",
+        "type": "object"
+      },
+      "title": "Permissions",
+      "type": "array",
+      "x-stream-index": "020"
+    },
+    "polls": {
+      "description": "Polls",
+      "title": "Polls",
+      "type": "boolean",
+      "x-stream-index": "014"
+    },
+    "push_notifications": {
+      "description": "Push notifications",
+      "title": "Push notifications",
+      "type": "boolean",
+      "x-stream-index": "012"
+    },
+    "reactions": {
+      "description": "Reactions",
+      "title": "Reactions",
+      "type": "boolean",
+      "x-stream-index": "005"
+    },
+    "read_events": {
+      "description": "Read events",
+      "title": "Read events",
+      "type": "boolean",
+      "x-stream-index": "003"
+    },
+    "replies": {
+      "description": "Replies",
+      "title": "Replies",
+      "type": "boolean",
+      "x-stream-index": "006"
+    },
+    "search": {
+      "description": "Search",
+      "title": "Search",
+      "type": "boolean",
+      "x-stream-index": "007"
+    },
+    "skip_last_msg_update_for_system_msgs": {
+      "type": "boolean",
+      "x-stream-index": "027"
+    },
+    "typing_events": {
+      "description": "Typing events",
+      "title": "Typing events",
+      "type": "boolean",
+      "x-stream-index": "002"
+    },
+    "uploads": {
+      "description": "Uploads",
+      "title": "Uploads",
+      "type": "boolean",
+      "x-stream-index": "009"
+    },
+    "url_enrichment": {
+      "description": "URL enrichment",
+      "title": "URL enrichment",
+      "type": "boolean",
+      "x-stream-index": "010"
+    }
+  },
+  "required": [
+    "automod",
+    "automod_behavior",
+    "max_message_length",
+    "name"
+  ]
+}
