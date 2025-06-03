@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "message_id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "set": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `set` to the tool, first call the tool `expandSchema` with \"/properties/set\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Sets new field values</property-description>",
+      "additionalProperties": true
+    },
+    "unset": {
+      "description": "Array of field names to unset",
+      "items": {
+        "type": "string"
+      },
+      "title": "Unset",
+      "type": "array",
+      "x-stream-index": "004.002"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "003.001"
+    }
+  },
+  "required": [
+    "message_id"
+  ]
+}

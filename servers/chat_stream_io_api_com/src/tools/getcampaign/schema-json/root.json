@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the campaign (uuid)",
+      "maxLength": 255,
+      "title": "Campaign ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "prev": {
+      "description": "Token for the previous page of campaign users",
+      "title": "Previous Users Page",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002.001"
+    },
+    "next": {
+      "description": "Token for the next page of campaign users",
+      "title": "Next Users Page",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002.002"
+    },
+    "limit": {
+      "description": "Maximum number of campaign users to return in a single request (max: 1000)",
+      "format": "int32",
+      "maximum": 1000,
+      "minimum": 0,
+      "title": "Users Limit",
+      "type": "integer",
+      "writeOnly": true,
+      "x-stream-index": "002.003"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

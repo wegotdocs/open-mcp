@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "banned_by": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `banned_by` to the tool, first call the tool `expandSchema` with \"/properties/banned_by\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User who issued a ban</property-description>",
+      "additionalProperties": true
+    },
+    "banned_by_id": {
+      "description": "User ID who issued a ban",
+      "title": "Banned by ID",
+      "type": "string",
+      "x-stream-index": "009"
+    },
+    "channel_cid": {
+      "description": "Channel CID to ban user in eg. messaging:123",
+      "title": "Channel CID",
+      "type": "string",
+      "x-stream-index": "006"
+    },
+    "delete_messages": {
+      "enum": [
+        "soft",
+        "pruning",
+        "hard"
+      ],
+      "type": "string",
+      "x-stream-index": "011"
+    },
+    "ip_ban": {
+      "description": "Whether to perform IP ban or not",
+      "title": "IP ban",
+      "type": "boolean",
+      "x-stream-index": "008"
+    },
+    "reason": {
+      "description": "Ban reason",
+      "title": "Reason",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "shadow": {
+      "description": "Whether to perform shadow ban or not",
+      "title": "Shadow",
+      "type": "boolean",
+      "x-stream-index": "007"
+    },
+    "target_user_id": {
+      "description": "ID of user to ban",
+      "title": "Target user ID",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "timeout": {
+      "description": "Timeout of ban in minutes. User will be unbanned after this period of time",
+      "title": "Timeout",
+      "type": "integer",
+      "x-stream-index": "002"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "012.001"
+    }
+  },
+  "required": [
+    "target_user_id"
+  ]
+}

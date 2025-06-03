@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "maxLength": 255,
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "target_ids": {
+      "description": "Target IDs",
+      "items": {
+        "type": "string"
+      },
+      "maximum": 100,
+      "minimum": 1,
+      "title": "[]string",
+      "type": "array",
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "id",
+    "target_ids"
+  ]
+}

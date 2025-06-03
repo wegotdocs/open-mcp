@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "args": {
+      "description": "Arguments help text, shown in commands auto-completion",
+      "maxLength": 255,
+      "title": "Arguments",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "description": {
+      "description": "Description, shown in commands auto-completion",
+      "maxLength": 255,
+      "title": "Description",
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "name": {
+      "description": "Unique command name",
+      "maxLength": 255,
+      "minLength": 1,
+      "title": "Name",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "set": {
+      "description": "Set name used for grouping commands",
+      "maxLength": 255,
+      "title": "Set",
+      "type": "string",
+      "x-stream-index": "004"
+    }
+  },
+  "required": [
+    "description",
+    "name"
+  ]
+}

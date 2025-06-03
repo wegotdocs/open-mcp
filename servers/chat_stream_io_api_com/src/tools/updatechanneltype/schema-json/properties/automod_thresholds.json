@@ -1,0 +1,23 @@
+{
+  "x-stream-index": "009.001.025",
+  "description": "Sets thresholds for AI moderation",
+  "properties": {
+    "explicit": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `explicit` to the tool, first call the tool `expandSchema` with \"/properties/automod_thresholds/properties/explicit\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Thresholds for explicit messages</property-description>",
+      "additionalProperties": true
+    },
+    "spam": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `spam` to the tool, first call the tool `expandSchema` with \"/properties/automod_thresholds/properties/spam\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Thresholds for spam</property-description>",
+      "additionalProperties": true
+    },
+    "toxic": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `toxic` to the tool, first call the tool `expandSchema` with \"/properties/automod_thresholds/properties/toxic\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Thresholds for toxic messages</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "title": "Auto moderation thresholds",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "title": "User ID",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "created_by_id": {
+      "description": "ID of the user who's reactivating the user",
+      "title": "Created by ID",
+      "type": "string",
+      "x-stream-index": "004"
+    },
+    "name": {
+      "description": "Set this field to put new name for the user",
+      "title": "Name",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "restore_messages": {
+      "description": "Restore previously deleted messages",
+      "title": "Restore messages",
+      "type": "boolean",
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "user_id"
+  ]
+}

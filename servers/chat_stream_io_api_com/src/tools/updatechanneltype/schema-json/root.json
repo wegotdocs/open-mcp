@@ -1,0 +1,254 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "allowed_flag_reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-stream-index": "009.001.024"
+    },
+    "automod": {
+      "enum": [
+        "disabled",
+        "simple",
+        "AI"
+      ],
+      "type": "string",
+      "x-stream-index": "009.001.019"
+    },
+    "automod_behavior": {
+      "enum": [
+        "flag",
+        "block",
+        "shadow_block"
+      ],
+      "type": "string",
+      "x-stream-index": "009.001.020"
+    },
+    "automod_thresholds": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `automod_thresholds` to the tool, first call the tool `expandSchema` with \"/properties/automod_thresholds\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Sets thresholds for AI moderation</property-description>",
+      "additionalProperties": true
+    },
+    "blocklist": {
+      "type": "string",
+      "x-stream-index": "009.001.021"
+    },
+    "blocklist_behavior": {
+      "enum": [
+        "flag",
+        "block",
+        "shadow_block"
+      ],
+      "type": "string",
+      "x-stream-index": "009.001.022"
+    },
+    "blocklists": {
+      "items": {
+        "properties": {
+          "behavior": {
+            "description": "Blocklist behavior",
+            "enum": [
+              "flag",
+              "block",
+              "shadow_block"
+            ],
+            "title": "Behavior",
+            "type": "string",
+            "x-stream-index": "002"
+          },
+          "blocklist": {
+            "description": "Blocklist name",
+            "title": "Blocklist",
+            "type": "string",
+            "x-stream-index": "001"
+          }
+        },
+        "required": [
+          "blocklist",
+          "behavior"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "x-stream-index": "009.001.023"
+    },
+    "commands": {
+      "description": "List of commands that channel supports",
+      "items": {
+        "type": "string"
+      },
+      "title": "Commands",
+      "type": "array",
+      "x-stream-index": "009.003"
+    },
+    "connect_events": {
+      "type": "boolean",
+      "x-stream-index": "009.001.004"
+    },
+    "custom_events": {
+      "type": "boolean",
+      "x-stream-index": "009.001.012"
+    },
+    "grants": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `grants` to the tool, first call the tool `expandSchema` with \"/properties/grants\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "mark_messages_pending": {
+      "type": "boolean",
+      "x-stream-index": "009.001.015"
+    },
+    "max_message_length": {
+      "format": "int32",
+      "maximum": 20000,
+      "type": "integer",
+      "x-stream-index": "009.001.018"
+    },
+    "mutes": {
+      "type": "boolean",
+      "x-stream-index": "009.001.009"
+    },
+    "partition_size": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer",
+      "x-stream-index": "007"
+    },
+    "partition_ttl": {
+      "example": "24h",
+      "format": "duration",
+      "nullable": true,
+      "type": "string",
+      "x-stream-index": "008"
+    },
+    "permissions": {
+      "items": {
+        "description": "Policy request",
+        "properties": {
+          "action": {
+            "enum": [
+              "Deny",
+              "Allow"
+            ],
+            "title": "Action",
+            "type": "string",
+            "x-stream-index": "001"
+          },
+          "name": {
+            "description": "User-friendly policy name",
+            "title": "Name",
+            "type": "string",
+            "x-stream-index": "002"
+          },
+          "owner": {
+            "description": "Whether policy applies to resource owner or not",
+            "title": "Owner",
+            "type": "boolean",
+            "x-stream-index": "005"
+          },
+          "priority": {
+            "description": "Policy priority",
+            "format": "int32",
+            "maximum": 999,
+            "minimum": 1,
+            "title": "Priority",
+            "type": "integer",
+            "x-stream-index": "006"
+          },
+          "resources": {
+            "description": "List of resources to apply policy to",
+            "items": {
+              "type": "string"
+            },
+            "minimum": 1,
+            "title": "Resources",
+            "type": "array",
+            "x-stream-index": "003"
+          },
+          "roles": {
+            "description": "List of roles to apply policy to",
+            "items": {
+              "type": "string"
+            },
+            "title": "Roles",
+            "type": "array",
+            "x-stream-index": "004"
+          }
+        },
+        "required": [
+          "action",
+          "name",
+          "resources",
+          "roles",
+          "owner",
+          "priority"
+        ],
+        "title": "PolicyRequest",
+        "type": "object"
+      },
+      "type": "array",
+      "x-stream-index": "003"
+    },
+    "polls": {
+      "type": "boolean",
+      "x-stream-index": "009.001.016"
+    },
+    "push_notifications": {
+      "type": "boolean",
+      "x-stream-index": "009.001.013"
+    },
+    "quotes": {
+      "type": "boolean",
+      "x-stream-index": "009.001.008"
+    },
+    "reactions": {
+      "type": "boolean",
+      "x-stream-index": "009.001.006"
+    },
+    "read_events": {
+      "type": "boolean",
+      "x-stream-index": "009.001.003"
+    },
+    "reminders": {
+      "type": "boolean",
+      "x-stream-index": "009.001.014"
+    },
+    "replies": {
+      "type": "boolean",
+      "x-stream-index": "009.001.007"
+    },
+    "search": {
+      "type": "boolean",
+      "x-stream-index": "009.001.005"
+    },
+    "skip_last_msg_update_for_system_msgs": {
+      "type": "boolean",
+      "x-stream-index": "009.001.028"
+    },
+    "typing_events": {
+      "type": "boolean",
+      "x-stream-index": "009.001.002"
+    },
+    "uploads": {
+      "type": "boolean",
+      "x-stream-index": "009.001.010"
+    },
+    "url_enrichment": {
+      "type": "boolean",
+      "x-stream-index": "009.001.011"
+    }
+  },
+  "required": [
+    "name",
+    "automod",
+    "automod_behavior",
+    "max_message_length"
+  ]
+}

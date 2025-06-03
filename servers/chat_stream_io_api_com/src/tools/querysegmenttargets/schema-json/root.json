@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "maxLength": 255,
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "Filter": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `Filter` to the tool, first call the tool `expandSchema` with \"/properties/Filter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "Sort": {
+      "items": {
+        "nullable": true,
+        "properties": {
+          "direction": {
+            "description": "Direction of sorting, 1 for Ascending, -1 for Descending, default is 1",
+            "format": "int32",
+            "title": "Direction",
+            "type": "integer",
+            "x-stream-index": "002"
+          },
+          "field": {
+            "description": "Name of field to sort by",
+            "title": "Field",
+            "type": "string",
+            "x-stream-index": "001"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "writeOnly": true,
+      "x-stream-index": "006"
+    },
+    "limit": {
+      "description": "Limit",
+      "format": "int32",
+      "maximum": 10000,
+      "minimum": 0,
+      "title": "int",
+      "type": "integer",
+      "x-stream-index": "002"
+    },
+    "next": {
+      "description": "Next",
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "prev": {
+      "description": "Prev",
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "004"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

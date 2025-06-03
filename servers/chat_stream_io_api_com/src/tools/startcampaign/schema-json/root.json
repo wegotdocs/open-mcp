@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "maxLength": 255,
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "scheduled_for": {
+      "format": "date-time",
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "stop_at": {
+      "format": "date-time",
+      "type": "string",
+      "x-stream-index": "003"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

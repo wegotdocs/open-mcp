@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "aws_s3": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `aws_s3` to the tool, first call the tool `expandSchema` with \"/properties/aws_s3\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Only required if you want to create an Amazon S3 storage</property-description>",
+      "additionalProperties": true
+    },
+    "azure_blob": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `azure_blob` to the tool, first call the tool `expandSchema` with \"/properties/azure_blob\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Only required if you want to create an Azure Blob Storage</property-description>",
+      "additionalProperties": true
+    },
+    "bucket": {
+      "description": "The name of the bucket on the service provider",
+      "title": "Bucket",
+      "type": "string",
+      "x-stream-index": "003.002"
+    },
+    "gcs_credentials": {
+      "type": "string",
+      "x-stream-index": "003.005"
+    },
+    "path": {
+      "description": "The path prefix to use for storing files",
+      "title": "Path",
+      "type": "string",
+      "x-stream-index": "003.003"
+    },
+    "storage_type": {
+      "description": "The type of storage to use",
+      "enum": [
+        "s3",
+        "gcs",
+        "abs"
+      ],
+      "title": "StorageType",
+      "type": "string",
+      "x-stream-index": "003.001"
+    }
+  },
+  "required": [
+    "name",
+    "bucket",
+    "storage_type"
+  ]
+}

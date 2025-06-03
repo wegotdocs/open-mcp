@@ -1,0 +1,31 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "apn_auth_key": z.string().optional(),
+  "apn_auth_type": z.string().optional(),
+  "apn_development": z.boolean().optional(),
+  "apn_host": z.string().optional(),
+  "apn_key_id": z.string().optional(),
+  "apn_notification_template": z.string().optional(),
+  "apn_p12_cert": z.string().optional(),
+  "apn_team_id": z.string().optional(),
+  "apn_topic": z.string().optional(),
+  "created_at": z.string().datetime({ offset: true }),
+  "description": z.string().max(128).optional(),
+  "disabled_at": z.string().datetime({ offset: true }).optional(),
+  "disabled_reason": z.string().max(255).optional(),
+  "firebase_apn_template": z.string().optional(),
+  "firebase_credentials": z.string().optional(),
+  "firebase_data_template": z.string().optional(),
+  "firebase_host": z.string().optional(),
+  "firebase_notification_template": z.string().optional(),
+  "firebase_server_key": z.string().optional(),
+  "huawei_app_id": z.string().optional(),
+  "huawei_app_secret": z.string().optional(),
+  "name": z.string().min(1).max(36),
+  "push_templates": z.array(z.object({ "created_at": z.string().datetime({ offset: true }), "enable_push": z.boolean(), "event_type": z.enum(["message.new","message.updated","reaction.new"]), "template": z.string().optional(), "updated_at": z.string().datetime({ offset: true }) })).optional(),
+  "type": z.string(),
+  "updated_at": z.string().datetime({ offset: true }),
+  "xiaomi_app_secret": z.string().optional(),
+  "xiaomi_package_name": z.string().optional()
+}

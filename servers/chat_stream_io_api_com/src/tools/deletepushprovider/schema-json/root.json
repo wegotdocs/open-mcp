@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": [
+        "apn",
+        "firebase",
+        "huawei",
+        "xiaomi"
+      ],
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "name": {
+      "maxLength": 36,
+      "minLength": 1,
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "type",
+    "name"
+  ]
+}

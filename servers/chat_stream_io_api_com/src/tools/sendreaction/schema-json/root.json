@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Message ID to send reaction for",
+      "title": "ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "enforce_unique": {
+      "description": "Whether to replace all existing user reactions",
+      "title": "Enforce unique",
+      "type": "boolean",
+      "x-stream-index": "003"
+    },
+    "reaction": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `reaction` to the tool, first call the tool `expandSchema` with \"/properties/reaction\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Represents user reaction to a message</property-description>",
+      "additionalProperties": true
+    },
+    "skip_push": {
+      "description": "Skips any mobile push notifications",
+      "title": "Skip push",
+      "type": "boolean",
+      "x-stream-index": "004"
+    }
+  },
+  "required": [
+    "id",
+    "reaction"
+  ]
+}

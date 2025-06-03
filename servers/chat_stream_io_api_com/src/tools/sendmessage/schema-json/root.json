@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Channel type to interact with",
+      "title": "Channel type",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "009.001"
+    },
+    "id": {
+      "description": "Channel ID to interact with",
+      "title": "Channel ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "009.002"
+    },
+    "force_moderation": {
+      "type": "boolean",
+      "x-stream-index": "007"
+    },
+    "keep_channel_hidden": {
+      "type": "boolean",
+      "x-stream-index": "008"
+    },
+    "message": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `message` to the tool, first call the tool `expandSchema` with \"/properties/message\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "pending": {
+      "type": "boolean",
+      "x-stream-index": "006"
+    },
+    "pending_message_metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `pending_message_metadata` to the tool, first call the tool `expandSchema` with \"/properties/pending_message_metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "skip_enrich_url": {
+      "type": "boolean",
+      "x-stream-index": "003"
+    },
+    "skip_push": {
+      "type": "boolean",
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "message"
+  ]
+}

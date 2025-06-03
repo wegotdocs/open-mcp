@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Channel type to interact with",
+      "title": "Channel type",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002.001"
+    },
+    "id": {
+      "description": "Channel ID to interact with",
+      "title": "Channel ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002.002"
+    },
+    "event": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `event` to the tool, first call the tool `expandSchema` with \"/properties/event\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "event"
+  ]
+}

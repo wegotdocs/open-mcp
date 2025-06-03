@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "message_id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "reply_limit": {
+      "description": "Limit the number of replies returned",
+      "format": "int32",
+      "minimum": 0,
+      "title": "Reply limit",
+      "type": "integer",
+      "writeOnly": true,
+      "x-stream-index": "004"
+    },
+    "participant_limit": {
+      "description": "Limit the number of participants returned",
+      "format": "int32",
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Participant limit",
+      "type": "integer",
+      "writeOnly": true,
+      "x-stream-index": "005"
+    },
+    "member_limit": {
+      "description": "Limit the number of members returned per thread channel",
+      "format": "int32",
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Member limit",
+      "type": "integer",
+      "writeOnly": true,
+      "x-stream-index": "006"
+    }
+  },
+  "required": [
+    "message_id"
+  ]
+}

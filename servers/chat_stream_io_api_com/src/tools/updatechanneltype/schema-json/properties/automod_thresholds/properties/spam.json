@@ -1,0 +1,26 @@
+{
+  "description": "Thresholds for spam",
+  "title": "LabelThresholds",
+  "x-stream-index": "002",
+  "properties": {
+    "block": {
+      "description": "Threshold for automatic message block",
+      "format": "float",
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Block",
+      "type": "number",
+      "x-stream-index": "002"
+    },
+    "flag": {
+      "description": "Threshold for automatic message flag",
+      "format": "float",
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Flag",
+      "type": "number",
+      "x-stream-index": "001"
+    }
+  },
+  "type": "object"
+}

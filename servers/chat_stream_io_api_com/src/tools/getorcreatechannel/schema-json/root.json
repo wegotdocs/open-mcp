@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Channel type",
+      "maxLength": 64,
+      "title": "Type",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "id": {
+      "description": "Channel ID (maximum length of 64 characters)",
+      "title": "ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    },
+    "data": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `data` to the tool, first call the tool `expandSchema` with \"/properties/data\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "hide_for_creator": {
+      "description": "Whether this channel will be hidden for the user who created the channel or not",
+      "title": "Hide for creator",
+      "type": "boolean",
+      "x-stream-index": "007"
+    },
+    "members": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `members` to the tool, first call the tool `expandSchema` with \"/properties/members\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "messages": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `messages` to the tool, first call the tool `expandSchema` with \"/properties/messages\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "state": {
+      "description": "Refresh channel state",
+      "title": "State",
+      "type": "boolean",
+      "x-stream-index": "005"
+    },
+    "thread_unread_counts": {
+      "type": "boolean",
+      "x-stream-index": "008"
+    },
+    "watchers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `watchers` to the tool, first call the tool `expandSchema` with \"/properties/watchers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "type",
+    "id"
+  ]
+}

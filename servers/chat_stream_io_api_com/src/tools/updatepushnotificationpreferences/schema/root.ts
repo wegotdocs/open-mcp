@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "preferences": z.array(z.object({ "channel_cid": z.string().describe("Set the push preferences for a specific channel. If empty it sets the default for the user").optional(), "chat_level": z.enum(["all","mentions","none","default"]).describe("Set the level of push notifications for the user. One of all, mentions, none, default").optional(), "disabled_until": z.string().datetime({ offset: true }).describe("Disable push notifications till a certain time").optional(), "remove_disable": z.boolean().describe("Remove the disabled until time. (IE stop snoozing notifications)").optional(), "user_id": z.string().describe("The user id for which to set the push preferences. Required when using server side auths, defaults to current user with client side auth.").optional() }).nullable()).describe("A list of push preferences for channels, calls, or the user.")
+}

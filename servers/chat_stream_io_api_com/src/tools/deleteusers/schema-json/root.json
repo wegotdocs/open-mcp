@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "calls": {
+      "description": "Calls delete mode.\nAffected calls are those that include exactly two members, one of whom is the user being deleted.\n\n* null or empty string - doesn't delete any calls\n* soft - marks user's calls and their related data as deleted (soft-delete)\n* hard - deletes user's calls and their data completely (hard-delete)\n",
+      "enum": [
+        "soft",
+        "hard"
+      ],
+      "title": "Delete User's calls",
+      "type": "string",
+      "x-stream-index": "001.002.004"
+    },
+    "conversations": {
+      "description": "Conversation channels delete mode.\nConversation channel is any channel which only has two members one of which is the user being deleted.\n\n* null or empty string - doesn't delete any conversation channels\n* soft - marks all conversation channels as deleted (same effect as Delete Channels with 'hard' option disabled)\n* hard - deletes channel and all its data completely including messages (same effect as Delete Channels with 'hard' option enabled)\n",
+      "enum": [
+        "soft",
+        "hard"
+      ],
+      "title": "Delete Conversations",
+      "type": "string",
+      "x-stream-index": "001.002.003"
+    },
+    "messages": {
+      "description": "Message delete mode.\n\n* null or empty string - doesn't delete user messages\n* soft - marks all user messages as deleted without removing any related message data\n* pruning - marks all user messages as deleted, nullifies message information and removes some message data such as reactions and flags\n* hard - deletes messages completely with all related information\n",
+      "enum": [
+        "soft",
+        "pruning",
+        "hard"
+      ],
+      "title": "Delete Messages",
+      "type": "string",
+      "x-stream-index": "001.002.002"
+    },
+    "new_call_owner_id": {
+      "type": "string",
+      "x-stream-index": "001.002.006"
+    },
+    "new_channel_owner_id": {
+      "type": "string",
+      "x-stream-index": "001.002.005"
+    },
+    "user": {
+      "description": "User delete mode.\n\n* soft - marks user as deleted and retains all user data\n* pruning - marks user as deleted and nullifies user information\n* hard - deletes user completely. Requires 'hard' option for messages and conversations as well\n",
+      "enum": [
+        "soft",
+        "pruning",
+        "hard"
+      ],
+      "title": "Delete User",
+      "type": "string",
+      "x-stream-index": "001.002.001"
+    },
+    "user_ids": {
+      "description": "IDs of users to delete",
+      "items": {
+        "type": "string"
+      },
+      "maximum": 100,
+      "minimum": 1,
+      "title": "User IDs",
+      "type": "array",
+      "x-stream-index": "001.001"
+    }
+  },
+  "required": [
+    "user_ids"
+  ]
+}

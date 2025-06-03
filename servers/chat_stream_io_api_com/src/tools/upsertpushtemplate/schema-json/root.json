@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "enable_push": {
+      "description": "Whether to send push notification for this event",
+      "title": "boolean",
+      "type": "boolean",
+      "x-stream-index": "002"
+    },
+    "event_type": {
+      "description": "Event type (message.new, message.updated, reaction.new)",
+      "enum": [
+        "message.new",
+        "message.updated",
+        "reaction.new"
+      ],
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "push_provider_name": {
+      "description": "Push provider name",
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "004"
+    },
+    "push_provider_type": {
+      "description": "Push provider type (firebase, apn)",
+      "enum": [
+        "firebase",
+        "apn"
+      ],
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "005"
+    },
+    "template": {
+      "description": "Push template",
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "006"
+    }
+  },
+  "required": [
+    "event_type",
+    "push_provider_type"
+  ]
+}

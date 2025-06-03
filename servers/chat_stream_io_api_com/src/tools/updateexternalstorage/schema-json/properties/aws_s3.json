@@ -1,0 +1,35 @@
+{
+  "description": "Only required if you want to create an Amazon S3 storage",
+  "title": "AwsS3",
+  "x-stream-index": "003.004",
+  "properties": {
+    "s3_api_key": {
+      "description": "The AWS API key. To use Amazon S3 as your storage provider, you have two authentication options: IAM role or API key. If you do not specify the `s3_api_key` parameter, Stream will use IAM role authentication. In that case make sure to have the correct IAM role configured for your application.",
+      "title": "S3ApiKey",
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "s3_custom_endpoint_url": {
+      "description": "The custom endpoint for S3. If you want to use a custom endpoint, you must also provide the `s3_api_key` and `s3_secret` parameters.",
+      "title": "S3CustomEndpointURL",
+      "type": "string",
+      "x-stream-index": "004"
+    },
+    "s3_region": {
+      "description": "The AWS region where the bucket is hosted",
+      "title": "S3Region",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "s3_secret": {
+      "description": "The AWS API Secret",
+      "title": "S3Secret",
+      "type": "string",
+      "x-stream-index": "003"
+    }
+  },
+  "required": [
+    "s3_region"
+  ],
+  "type": "object"
+}

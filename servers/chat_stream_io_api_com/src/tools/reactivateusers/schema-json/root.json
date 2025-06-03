@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "created_by_id": {
+      "description": "ID of the user who's reactivating the users",
+      "title": "Created by ID",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "restore_channels": {
+      "type": "boolean",
+      "x-stream-index": "004"
+    },
+    "restore_messages": {
+      "description": "Restore previously deleted messages",
+      "title": "Restore messages",
+      "type": "boolean",
+      "x-stream-index": "002"
+    },
+    "user_ids": {
+      "description": "User IDs to reactivate",
+      "items": {
+        "type": "string"
+      },
+      "maximum": 100,
+      "minimum": 1,
+      "title": "User IDs",
+      "type": "array",
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "user_ids"
+  ]
+}

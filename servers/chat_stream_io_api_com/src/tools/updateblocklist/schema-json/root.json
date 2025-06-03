@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Block list name",
+      "title": "Name",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "team": {
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "words": {
+      "description": "List of words to block",
+      "items": {
+        "type": "string"
+      },
+      "minimum": 1,
+      "title": "Words",
+      "type": "array",
+      "x-stream-index": "003"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

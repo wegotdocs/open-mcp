@@ -1,0 +1,51 @@
+{
+  "x-stream-index": "001.003",
+  "properties": {
+    "Disabled": {
+      "type": "boolean",
+      "writeOnly": true,
+      "x-stream-index": "005"
+    },
+    "auth_key": {
+      "type": "string",
+      "x-stream-index": "006.001"
+    },
+    "auth_type": {
+      "enum": [
+        "certificate",
+        "token"
+      ],
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "bundle_id": {
+      "type": "string",
+      "x-stream-index": "004"
+    },
+    "development": {
+      "type": "boolean",
+      "x-stream-index": "002"
+    },
+    "host": {
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "key_id": {
+      "type": "string",
+      "x-stream-index": "006.002"
+    },
+    "notification_template": {
+      "type": "string",
+      "x-stream-index": "008"
+    },
+    "p12_cert": {
+      "type": "string",
+      "x-stream-index": "007.001"
+    },
+    "team_id": {
+      "type": "string",
+      "x-stream-index": "006.003"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device ID to delete",
+      "title": "ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "user_id": {
+      "description": "**Server-side only**. User ID which server acts upon",
+      "title": "User ID",
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002.001"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

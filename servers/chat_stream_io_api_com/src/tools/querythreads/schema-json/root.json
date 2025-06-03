@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "filter": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `filter` to the tool, first call the tool `expandSchema` with \"/properties/filter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Filter conditions to apply to threads</property-description>",
+      "additionalProperties": true
+    },
+    "limit": {
+      "format": "int32",
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer",
+      "x-stream-index": "008.001"
+    },
+    "member_limit": {
+      "format": "int32",
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer",
+      "x-stream-index": "005"
+    },
+    "next": {
+      "type": "string",
+      "x-stream-index": "008.002"
+    },
+    "participant_limit": {
+      "description": "Limit the number of participants returned per each thread",
+      "format": "int32",
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Participant limit",
+      "type": "integer",
+      "x-stream-index": "004"
+    },
+    "prev": {
+      "type": "string",
+      "x-stream-index": "008.003"
+    },
+    "reply_limit": {
+      "description": "Limit the number of replies returned per each thread",
+      "format": "int32",
+      "maximum": 10,
+      "minimum": 0,
+      "title": "Reply limit",
+      "type": "integer",
+      "x-stream-index": "003"
+    },
+    "sort": {
+      "description": "Sort conditions to apply to threads",
+      "items": {
+        "nullable": true,
+        "properties": {
+          "direction": {
+            "description": "Direction of sorting, 1 for Ascending, -1 for Descending, default is 1",
+            "format": "int32",
+            "title": "Direction",
+            "type": "integer",
+            "x-stream-index": "002"
+          },
+          "field": {
+            "description": "Name of field to sort by",
+            "title": "Field",
+            "type": "string",
+            "x-stream-index": "001"
+          }
+        },
+        "type": "object"
+      },
+      "maximum": 5,
+      "title": "Sort",
+      "type": "array",
+      "x-stream-index": "007"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "010.001"
+    }
+  },
+  "required": []
+}

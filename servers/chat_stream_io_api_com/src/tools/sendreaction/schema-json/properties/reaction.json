@@ -1,0 +1,54 @@
+{
+  "x-stream-index": "002",
+  "description": "Represents user reaction to a message",
+  "properties": {
+    "created_at": {
+      "description": "Date/time of creation",
+      "format": "date-time",
+      "title": "Created at",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "custom": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom` to the tool, first call the tool `expandSchema` with \"/properties/reaction/properties/custom\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "score": {
+      "description": "Reaction score. If not specified reaction has score of 1",
+      "format": "int32",
+      "title": "Score",
+      "type": "integer",
+      "x-stream-index": "002"
+    },
+    "type": {
+      "description": "The type of reaction (e.g. 'like', 'laugh', 'wow')",
+      "maxLength": 30,
+      "title": "Type",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "updated_at": {
+      "description": "Date/time of the last update",
+      "format": "date-time",
+      "title": "Updated at",
+      "type": "string",
+      "x-stream-index": "004"
+    },
+    "user": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `user` to the tool, first call the tool `expandSchema` with \"/properties/reaction/properties/user\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User request object</property-description>",
+      "additionalProperties": true
+    },
+    "user_id": {
+      "type": "string",
+      "x-stream-index": "006.001"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "title": "Reaction",
+  "type": "object",
+  "x-stream-docs-page-id": "send_reaction"
+}

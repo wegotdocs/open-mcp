@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "user_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maximum": 100,
+      "minimum": 1,
+      "type": "array",
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "user_ids"
+  ]
+}

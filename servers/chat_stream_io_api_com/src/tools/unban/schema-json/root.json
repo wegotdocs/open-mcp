@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "target_user_id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    },
+    "channel_cid": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "002"
+    },
+    "created_by": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "005"
+    }
+  },
+  "required": [
+    "target_user_id"
+  ]
+}

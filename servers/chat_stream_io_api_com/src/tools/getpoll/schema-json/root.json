@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "poll_id": {
+      "description": "Poll ID",
+      "maxLength": 255,
+      "title": "string",
+      "type": "string",
+      "x-stream-index": "002"
+    },
+    "user_id": {
+      "type": "string",
+      "writeOnly": true,
+      "x-stream-index": "001"
+    }
+  },
+  "required": [
+    "poll_id"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Block list name",
+      "maxLength": 255,
+      "title": "Name",
+      "type": "string",
+      "x-stream-index": "001"
+    },
+    "team": {
+      "type": "string",
+      "x-stream-index": "004"
+    },
+    "type": {
+      "description": "Block list type.",
+      "enum": [
+        "regex",
+        "domain",
+        "domain_allowlist",
+        "email",
+        "word"
+      ],
+      "title": "Type",
+      "type": "string",
+      "x-stream-index": "003"
+    },
+    "words": {
+      "description": "List of words to block",
+      "items": {
+        "type": "string"
+      },
+      "minimum": 1,
+      "title": "Words",
+      "type": "array",
+      "x-stream-index": "002"
+    }
+  },
+  "required": [
+    "name",
+    "words"
+  ]
+}
