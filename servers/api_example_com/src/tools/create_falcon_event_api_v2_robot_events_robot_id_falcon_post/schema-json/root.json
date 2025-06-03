@@ -1,0 +1,877 @@
+{
+  "type": "object",
+  "properties": {
+    "robot_id": {
+      "description": "The ID of the robot",
+      "type": "integer",
+      "title": "Robot Id"
+    },
+    "supply_voltage": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Supply Voltage",
+      "description": "Napięcie zasilania"
+    },
+    "supply_current": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Supply Current",
+      "description": "Prąd zasilania"
+    },
+    "grid_power": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Grid Power",
+      "description": "Moc z sieci"
+    },
+    "battery_voltage": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Battery Voltage",
+      "description": "Napięcie Akumulatora"
+    },
+    "battery_current": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Battery Current",
+      "description": "Prąd z akumulatora"
+    },
+    "battery_power": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Battery Power",
+      "description": "Moc z akumulatora"
+    },
+    "remaining_dc_current": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Remaining Dc Current",
+      "description": "Prąd na pozostałe DC"
+    },
+    "charge_state": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Charge State",
+      "description": "Stan naładowania"
+    },
+    "left_wheel_current": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Left Wheel Current",
+      "description": "Prąd koła Lewego"
+    },
+    "right_wheel_current": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Right Wheel Current",
+      "description": "Prąd koła Prawego"
+    },
+    "belt_current": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Belt Current",
+      "description": "Prąd taśmy"
+    },
+    "left_wheel_speed": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Left Wheel Speed",
+      "description": "Prękdość koła Lewego"
+    },
+    "right_wheel_speed": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Right Wheel Speed",
+      "description": "Prędkość koła Prawego"
+    },
+    "belt_speed": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Belt Speed",
+      "description": "Prekosć taśmy"
+    },
+    "left_wheel_distance": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Left Wheel Distance",
+      "description": "Dystans koła Lewgo"
+    },
+    "right_wheel_distance": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Right Wheel Distance",
+      "description": "Dystans koła Prawego"
+    },
+    "cutter_speed": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Cutter Speed",
+      "description": "Predkość Freza"
+    },
+    "mixer_speed": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mixer Speed",
+      "description": "Prędkosć Mieszadła"
+    },
+    "cutter_torque": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Cutter Torque",
+      "description": "Moment Freza"
+    },
+    "mixer_torque": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mixer Torque",
+      "description": "Moment Mieszadała"
+    },
+    "pump_speed": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pump Speed",
+      "description": "Prędkość Pompy"
+    },
+    "pump_torque": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pump Torque",
+      "description": "Moment Pompy"
+    },
+    "left_weight_sensor": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Left Weight Sensor",
+      "description": "Waga Sensor Lewey"
+    },
+    "right_weight_sensor": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Right Weight Sensor",
+      "description": "Waga Sensor Prawy"
+    },
+    "rear_weight_sensor": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rear Weight Sensor",
+      "description": "Waga Sensor Tył"
+    },
+    "total_weight": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Total Weight",
+      "description": "Waga Suma"
+    },
+    "cutter_position": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Cutter Position",
+      "description": "Pozycja Frezu"
+    },
+    "pump_pressure": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pump Pressure",
+      "description": "Ciśnienie Pompa"
+    },
+    "current_antenna_position": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Current Antenna Position",
+      "description": "Aktualnie śledzona pozycja anteny"
+    },
+    "current_loop": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Current Loop",
+      "description": "Aktualnie wybrana pętla"
+    },
+    "front_loop_position": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Front Loop Position",
+      "description": "Aktualnie wykryta pozycja pętli Przód"
+    },
+    "rear_loop_position": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rear Loop Position",
+      "description": "Aktualnie wykryta pozycja pętli Przód"
+    },
+    "front_loop_power": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Front Loop Power",
+      "description": "Moc prętli przód"
+    },
+    "rear_loop_power": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rear Loop Power",
+      "description": "Moc pętli tył"
+    },
+    "weight_to_dispense": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Weight To Dispense",
+      "description": "Waga do wydania/pobrania"
+    },
+    "current_route": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Current Route",
+      "description": "Aktualna trasa"
+    },
+    "current_action": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Current Action",
+      "description": "Aktualna akcja"
+    },
+    "cutter_energy": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Cutter Energy",
+      "description": "Energia pobrana przez Frez"
+    },
+    "mixer_energy": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mixer Energy",
+      "description": "Energia pobrana przez Mieszanie"
+    },
+    "pump_energy": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pump Energy",
+      "description": "Energia pobrana przez Pompę"
+    },
+    "drive_wheels_energy": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Drive Wheels Energy",
+      "description": "Energia pobrana przez koła jazdy"
+    },
+    "belt_energy": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Belt Energy",
+      "description": "Energia pobrana przez teśmę"
+    },
+    "other_devices_energy": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Other Devices Energy",
+      "description": "Energia pobrana przez postałe urządzenia"
+    },
+    "grid_energy_for_operations": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Grid Energy For Operations",
+      "description": "Energia pobrana z sieci na Mieszanie, Frez, Pompę"
+    },
+    "grid_energy_for_charging": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Grid Energy For Charging",
+      "description": "Energia pobrana z sieci do ładowania akumulatrora"
+    },
+    "battery_energy_for_operations": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Battery Energy For Operations",
+      "description": "Energia pobrana z akumulatora do Mieszania, Frezu i Pompy"
+    },
+    "drive_wheels_temp": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Drive Wheels Temp",
+      "description": "Temperatura kół jazdy"
+    },
+    "cutter_motor_temp": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Cutter Motor Temp",
+      "description": "Temperatura silnika Frezu"
+    },
+    "mixer_motor_temp": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mixer Motor Temp",
+      "description": "Temperatira silnika Mieszania"
+    },
+    "hydraulic_pump_temp": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Hydraulic Pump Temp",
+      "description": "Temperatura pompy hydraulicznej"
+    },
+    "battery_temp": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Battery Temp",
+      "description": "Temperatura Akumulatorów"
+    },
+    "converter_chamber_temp": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Converter Chamber Temp",
+      "description": "Temperatura komory przewtwornic"
+    },
+    "control_cabinet_temp": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Control Cabinet Temp",
+      "description": "Temperatura szafy sterowniczej"
+    },
+    "mbdv_controllers_temp": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mbdv Controllers Temp",
+      "description": "Temperatura sterowników MBDV"
+    },
+    "acs_inverters_temp": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Acs Inverters Temp",
+      "description": "Temperatura Faloników ACS"
+    },
+    "automaton_status": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Automaton Status",
+      "description": "Status Automatu"
+    },
+    "power_status": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Power Status",
+      "description": "Status Zasilania"
+    },
+    "machine_status": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Machine Status",
+      "description": "Status Maszyny"
+    },
+    "sensor_status": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Sensor Status",
+      "description": "Status Czujników"
+    },
+    "input_status": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Input Status",
+      "description": "Status wejść"
+    },
+    "output_status": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Output Status",
+      "description": "Status wyjść"
+    },
+    "status_1": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Status 1",
+      "description": "Status 1"
+    },
+    "status_2": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Status 2",
+      "description": "Status 2"
+    },
+    "status_3": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Status 3",
+      "description": "Status 3"
+    },
+    "ultrasonic_front_left": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ultrasonic Front Left",
+      "description": "Ultradzięk Pwód Lewy"
+    },
+    "ultrasonic_front_right": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ultrasonic Front Right",
+      "description": "Ultradzięk Pwód PRawy"
+    },
+    "ultrasonic_rear_left": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ultrasonic Rear Left",
+      "description": "Ultradzięk Tył Lewy"
+    },
+    "ultrasonic_rear_right": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ultrasonic Rear Right",
+      "description": "Ultradzięk Tył PRawy"
+    },
+    "ultrasonic_side_front_left": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ultrasonic Side Front Left",
+      "description": "Ultradzięk Bok Lewy Pwód"
+    },
+    "ultrasonic_side_front_right": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ultrasonic Side Front Right",
+      "description": "Ultradzięk Bok PRawy Pwód"
+    },
+    "ultrasonic_side_rear_left": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ultrasonic Side Rear Left",
+      "description": "Ultradzięk Bok Lewy Tył"
+    },
+    "ultrasonic_side_rear_right": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ultrasonic Side Rear Right",
+      "description": "Ultradzięk Bok PRawy Tył"
+    }
+  },
+  "required": [
+    "robot_id"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "serial_number": {
+      "type": "string",
+      "title": "Serial Number"
+    },
+    "robot_type": {
+      "type": "string",
+      "enum": [
+        "LIZARD",
+        "QUBE"
+      ],
+      "title": "RobotTypeEnum"
+    },
+    "organization_id": {
+      "type": "integer",
+      "title": "Organization Id"
+    },
+    "dealers_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Dealers Ids"
+    },
+    "users_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Users Ids"
+    },
+    "software_version": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Software Version"
+    }
+  },
+  "required": [
+    "name",
+    "serial_number",
+    "robot_type",
+    "organization_id"
+  ]
+}

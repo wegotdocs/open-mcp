@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "robot_id": {
+      "description": "The ID of the robot",
+      "type": "integer",
+      "title": "Robot Id"
+    },
+    "from_date": {
+      "description": "Start date for the query",
+      "type": "string",
+      "format": "date-time",
+      "title": "From Date"
+    },
+    "to_date": {
+      "description": "End date for the query",
+      "type": "string",
+      "format": "date-time",
+      "title": "To Date"
+    }
+  },
+  "required": [
+    "robot_id",
+    "from_date",
+    "to_date"
+  ]
+}

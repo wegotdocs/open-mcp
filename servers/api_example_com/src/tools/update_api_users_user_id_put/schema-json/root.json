@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "integer",
+      "title": "User Id"
+    },
+    "first_name": {
+      "type": "string",
+      "title": "First Name"
+    },
+    "last_name": {
+      "type": "string",
+      "title": "Last Name"
+    },
+    "login": {
+      "type": "string",
+      "title": "Login"
+    },
+    "is_mobile": {
+      "type": "boolean",
+      "title": "Is Mobile"
+    },
+    "phone_number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Phone Number"
+    },
+    "type": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "ADMIN",
+            "DEALER",
+            "SERVICE",
+            "USER"
+          ],
+          "title": "RoleEnum"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "organization_id": {
+      "type": "integer",
+      "title": "Organization Id"
+    }
+  },
+  "required": [
+    "user_id",
+    "first_name",
+    "last_name",
+    "login",
+    "is_mobile",
+    "organization_id"
+  ]
+}

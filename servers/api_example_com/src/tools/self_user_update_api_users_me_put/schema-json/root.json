@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "title": "First Name"
+    },
+    "last_name": {
+      "type": "string",
+      "title": "Last Name"
+    },
+    "login": {
+      "type": "string",
+      "title": "Login"
+    },
+    "phone_number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Phone Number"
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name",
+    "login"
+  ]
+}
