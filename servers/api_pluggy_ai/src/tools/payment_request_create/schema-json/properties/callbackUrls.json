@@ -1,0 +1,19 @@
+{
+  "description": "Redirect urls after the payment was completed or ended in error status",
+  "properties": {
+    "success": {
+      "type": "string",
+      "description": "Url to be redirected after the payment was completed"
+    },
+    "pending": {
+      "type": "string",
+      "description": "Url to be redirected when the payment is pending (for example, when it has status WAITING_PAYER_AUTHORIZATION"
+    },
+    "error": {
+      "type": "string",
+      "description": "Url to be redirected after the payment ended in error status"
+    }
+  },
+  "type": "object",
+  "example": {}
+}

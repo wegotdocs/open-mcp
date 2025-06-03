@@ -1,0 +1,21 @@
+{
+  "description": "Credentials neccesary to create a payment intent",
+  "properties": {
+    "cpf": {
+      "type": "string",
+      "description": "CPF of the payer"
+    },
+    "cnpj": {
+      "type": "string",
+      "description": "CNPJ of the payer"
+    }
+  },
+  "type": "object",
+  "example": {
+    "cpf": "416.799.495-00",
+    "cnpj": "41.679.495/0001-00"
+  },
+  "required": [
+    "cpf"
+  ]
+}

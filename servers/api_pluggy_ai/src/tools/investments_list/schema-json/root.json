@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "itemId": {
+      "description": "Item's primary identifier",
+      "type": "string",
+      "format": "uuid"
+    },
+    "type": {
+      "description": "Investment's type to filter",
+      "type": "string",
+      "enum": [
+        "COE",
+        "EQUITY",
+        "ETF",
+        "FIXED_INCOME",
+        "MUTUAL_FUND",
+        "SECURITY",
+        "OTHER"
+      ]
+    },
+    "pageSize": {
+      "description": "Page size for the paging request, default: 500",
+      "type": "number",
+      "format": "double"
+    },
+    "page": {
+      "description": "Page number for the paging request, default: 1",
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "required": [
+    "itemId"
+  ]
+}

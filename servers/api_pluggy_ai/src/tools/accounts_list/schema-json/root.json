@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "itemId": {
+      "description": "Item primary identifier",
+      "type": "string",
+      "format": "uuid"
+    },
+    "type": {
+      "description": "Parameter to filter between bank accounts and credit accounts",
+      "type": "string",
+      "enum": [
+        "BANK",
+        "CREDIT"
+      ]
+    }
+  },
+  "required": [
+    "itemId"
+  ]
+}

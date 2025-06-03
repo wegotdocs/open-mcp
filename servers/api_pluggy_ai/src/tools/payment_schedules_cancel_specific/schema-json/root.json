@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Payment request primary identifier",
+      "type": "string",
+      "format": "uuid"
+    },
+    "scheduleId": {
+      "description": "Payment schedule primary identifier",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "id",
+    "scheduleId"
+  ]
+}

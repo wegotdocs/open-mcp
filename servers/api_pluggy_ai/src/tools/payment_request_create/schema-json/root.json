@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "number",
+      "description": "Requested amount"
+    },
+    "description": {
+      "type": "string",
+      "description": "Payment description"
+    },
+    "callbackUrls": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `callbackUrls` to the tool, first call the tool `expandSchema` with \"/properties/callbackUrls\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Redirect urls after the payment was completed or ended in error status</property-description>",
+      "additionalProperties": true
+    },
+    "recipientId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Payment receiver identifier"
+    },
+    "customerId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Customer identifier associated to the payment"
+    },
+    "clientPaymentId": {
+      "type": "string",
+      "description": "Your payment identifier"
+    },
+    "schedule": {
+      "nullable": true,
+      "default": null,
+      "discriminator": {
+        "propertyName": "type"
+      },
+      "anyOf": [
+        {
+          "title": "One time option",
+          "description": "Schedule atribute to generate one payment in the future",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Scheduled type",
+              "enum": [
+                "SINGLE"
+              ],
+              "example": "SINGLE"
+            },
+            "date": {
+              "type": "string",
+              "format": "date",
+              "example": "2024-06-11"
+            }
+          },
+          "type": "object",
+          "required": [
+            "type",
+            "date"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "amount"
+  ]
+}

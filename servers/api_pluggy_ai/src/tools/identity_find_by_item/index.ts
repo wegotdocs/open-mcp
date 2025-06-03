@@ -1,0 +1,26 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "identity_find_by_item",
+  "toolDescription": "Find by item",
+  "baseUrl": "https://api.pluggy.ai",
+  "path": "/identity",
+  "method": "get",
+  "security": [
+    {
+      "key": "X-API-KEY",
+      "value": "<mcp-env-var>X_API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "X_API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "query": {
+      "itemId": "itemId"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

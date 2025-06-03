@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "countries": {
+      "description": "A list of countries of connectors to filter.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "BR"
+        ]
+      }
+    },
+    "types": {
+      "description": "A list of types of connectors to filter.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "PERSONAL_BANK",
+          "BUSINESS_BANK",
+          "INVESTMENT",
+          "INVOICE",
+          "TELECOMMUNICATION",
+          "OTHER"
+        ]
+      }
+    },
+    "name": {
+      "description": "Name alike look up of the connector",
+      "type": "string"
+    },
+    "sandbox": {
+      "description": "Include sandbox connectors if set to true (default: false).",
+      "type": "boolean"
+    },
+    "healthDetails": {
+      "description": "Include health details about latest connections and percentage of errors (connection rate)",
+      "type": "boolean"
+    },
+    "isOpenFinance": {
+      "description": "Filter connectors by the `isOpenFinance` attribute. If not sent, it won't filter.",
+      "type": "boolean"
+    },
+    "supportsPaymentInitiation": {
+      "description": "Filter connectors by the `supportsPaymentInitiation` attribute. If not sent, it won't filter.",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

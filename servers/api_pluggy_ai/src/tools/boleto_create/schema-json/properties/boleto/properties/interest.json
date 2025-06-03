@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "description": "Interest information for late payment",
+  "properties": {
+    "value": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Interest value"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "PERCENTAGE"
+      ],
+      "description": "Type of interest calculation"
+    }
+  },
+  "required": [
+    "value",
+    "type"
+  ]
+}

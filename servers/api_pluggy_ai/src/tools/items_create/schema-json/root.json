@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "connectorId": {
+      "type": "number",
+      "description": "Primary identifier of the connector"
+    },
+    "parameters": {
+      "properties": {},
+      "description": "Connector's credentials that are required to execute on a Key-Value object or a string if they are encrypted",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "anyOf": [
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "webhookUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Url to be notified of item changes"
+    },
+    "clientUserId": {
+      "type": "string",
+      "description": "Client's external identifier for the user, it can be a ID, UUID or even an email. This is free for clients to use."
+    },
+    "oauthRedirectUri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Redirect URI required for the Oauth flow"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ACCOUNTS",
+          "CREDIT_CARDS",
+          "TRANSACTIONS",
+          "PAYMENT_DATA",
+          "INVESTMENTS",
+          "INVESTMENTS_TRANSACTIONS",
+          "IDENTITY",
+          "BROKERAGE_NOTE",
+          "MOVE_SECURITY",
+          "LOANS"
+        ]
+      },
+      "description": "Products to be collected in the connection"
+    },
+    "avoidDuplicates": {
+      "type": "boolean",
+      "description": "Avoids creating a new item if there is already one with the same credentials"
+    }
+  },
+  "required": [
+    "connectorId",
+    "parameters"
+  ]
+}

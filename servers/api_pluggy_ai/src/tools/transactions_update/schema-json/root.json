@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "transaction primary identifier",
+      "type": "string",
+      "format": "uuid"
+    },
+    "categoryId": {
+      "type": "string",
+      "description": "Identifier of the category"
+    }
+  },
+  "required": [
+    "id",
+    "categoryId"
+  ]
+}

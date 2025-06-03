@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Description of the transaction rule."
+    },
+    "categoryId": {
+      "type": "string",
+      "description": "Identifier of the category"
+    },
+    "transactionType": {
+      "type": "string",
+      "description": "Transaction type (DEBIT/CREDIT)"
+    },
+    "accountType": {
+      "type": "string",
+      "description": "Account type (CHECKING_ACCOUNT/CREDIT_CARD)"
+    },
+    "matchType": {
+      "type": "string",
+      "description": "Type of match used to identify the rule (exact/contains/startsWith/endsWith), if not provided, defaults to 'exact'"
+    }
+  },
+  "required": [
+    "description",
+    "categoryId"
+  ]
+}
