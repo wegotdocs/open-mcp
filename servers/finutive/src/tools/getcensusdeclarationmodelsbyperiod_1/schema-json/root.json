@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string",
+      "enum": [
+        "QUARTERLY",
+        "ANNUAL"
+      ]
+    },
+    "period_name": {
+      "type": "string"
+    },
+    "exclude_asociated_models": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "businessId",
+    "period",
+    "period_name"
+  ]
+}

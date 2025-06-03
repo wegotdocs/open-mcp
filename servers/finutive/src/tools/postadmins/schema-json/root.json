@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "admins_data": {
+      "type": "array",
+      "items": {
+        "required": [
+          "name",
+          "nif",
+          "surnames"
+        ],
+        "type": "object",
+        "properties": {
+          "admin_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "surnames": {
+            "type": "string"
+          },
+          "nif": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "zip_code": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "is_admin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "is_partner": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partner_perc": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "businessId"
+  ]
+}

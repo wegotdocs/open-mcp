@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "conversation_ids": {
+      "type": "array",
+      "description": "List of conversation IDs to mark as saved",
+      "example": [
+        "conversation-123",
+        "conversation-456"
+      ],
+      "items": {
+        "type": "string",
+        "description": "List of conversation IDs to mark as saved",
+        "example": "[\"conversation-123\",\"conversation-456\"]"
+      }
+    }
+  },
+  "required": [
+    "conversation_ids"
+  ]
+}

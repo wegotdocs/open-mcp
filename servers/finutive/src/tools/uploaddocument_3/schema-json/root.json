@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "CLIENT",
+        "PROVIDER"
+      ]
+    },
+    "force": {
+      "type": "boolean"
+    },
+    "client_id": {
+      "type": "string"
+    },
+    "client_cif": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "businessId",
+    "type",
+    "force"
+  ]
+}

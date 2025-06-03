@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "invoiceId": {
+      "type": "string"
+    },
+    "stakeholder_name": {
+      "type": "string"
+    },
+    "stakeholder_id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "total_vat": {
+      "type": "number"
+    },
+    "total_amount": {
+      "type": "number"
+    },
+    "type": {
+      "type": "string"
+    },
+    "accounting_account": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "invoiceId"
+  ]
+}

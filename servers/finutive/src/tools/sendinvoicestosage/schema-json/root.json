@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "invoice_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "force": {
+      "type": "boolean"
+    },
+    "complement": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "businessId",
+    "invoice_ids"
+  ]
+}

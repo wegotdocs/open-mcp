@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "statement_id": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string",
+      "enum": [
+        "MONTHLY",
+        "QUARTERLY"
+      ]
+    }
+  },
+  "required": [
+    "businessId",
+    "statement_id",
+    "period"
+  ]
+}

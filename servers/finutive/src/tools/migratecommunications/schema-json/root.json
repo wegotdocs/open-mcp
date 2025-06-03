@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "starting_page": {
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "page_size": {
+      "type": "integer",
+      "format": "int32",
+      "default": 100
+    },
+    "thread": {
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    },
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

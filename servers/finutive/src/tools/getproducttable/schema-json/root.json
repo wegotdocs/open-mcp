@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "search": {
+      "type": "string"
+    },
+    "length": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "start": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "readAll": {
+      "type": "boolean"
+    },
+    "orderColumn": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "order_dir": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "businessId",
+    "readAll",
+    "orderColumn",
+    "order_dir"
+  ]
+}

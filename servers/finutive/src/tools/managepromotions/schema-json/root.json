@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business identifier",
+      "type": "string"
+    },
+    "type": {
+      "description": "Type of promotion to manage",
+      "type": "string",
+      "enum": [
+        "MGM",
+        "FUNNEL_ONBOARDING"
+      ]
+    }
+  },
+  "required": [
+    "business_id",
+    "type"
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "checksum": {
+      "type": "string"
+    },
+    "checksum512": {
+      "type": "string"
+    },
+    "notificationType": {
+      "type": "string",
+      "enum": [
+        "PAYMENT",
+        "DEBT_CASE",
+        "RECURENT_PAYMENT",
+        "MERGE_PAYMENT",
+        "MERCHANT"
+      ]
+    },
+    "receiptNumber": {
+      "type": "string"
+    },
+    "transactionCode": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "statusCode": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ]
+    },
+    "statusDescription": {
+      "type": "string"
+    },
+    "subStatusCode": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "subStatusDescription": {
+      "type": "string"
+    },
+    "partnerReference1": {
+      "type": "string"
+    },
+    "partnerReference2": {
+      "type": "string"
+    },
+    "uniqueNotificationId": {
+      "type": "string"
+    },
+    "recurrentPaymentId": {
+      "type": "string"
+    },
+    "debtCaseId": {
+      "type": "string"
+    },
+    "errorCode": {
+      "type": "string"
+    },
+    "errorDescription": {
+      "type": "string"
+    },
+    "paymentMethod": {
+      "type": "string"
+    },
+    "partnerId": {
+      "type": "string"
+    },
+    "customField1": {
+      "type": "string"
+    },
+    "customField2": {
+      "type": "string"
+    },
+    "customField3": {
+      "type": "string"
+    },
+    "customField4": {
+      "type": "string"
+    },
+    "customField5": {
+      "type": "string"
+    },
+    "customField6": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

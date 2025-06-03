@@ -1,0 +1,245 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string"
+    },
+    "invoice_id": {
+      "type": "string"
+    },
+    "invoice_number": {
+      "type": "string"
+    },
+    "company_name": {
+      "type": "string"
+    },
+    "company_cif": {
+      "type": "string"
+    },
+    "company_address": {
+      "type": "string"
+    },
+    "company_city": {
+      "type": "string"
+    },
+    "company_zip": {
+      "type": "string"
+    },
+    "client_id": {
+      "type": "string"
+    },
+    "client_name": {
+      "type": "string"
+    },
+    "client_cif": {
+      "type": "string"
+    },
+    "client_address": {
+      "type": "string"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "detail_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "concept": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "iva": {
+            "type": "number"
+          },
+          "discount_type": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "has_supplies_expenses": {
+            "type": "boolean"
+          },
+          "accounting_account_id": {
+            "type": "string"
+          },
+          "tax_regime": {
+            "type": "string"
+          },
+          "activity_type": {
+            "type": "string"
+          },
+          "activity_line": {
+            "type": "string"
+          },
+          "amount_in_original_currency": {
+            "type": "number"
+          },
+          "discount_in_original_currency": {
+            "type": "number"
+          },
+          "special_free_treatment": {
+            "type": "boolean"
+          },
+          "special_free_treatment_data": {
+            "type": "object",
+            "properties": {
+              "price": {
+                "type": "number",
+                "format": "float"
+              },
+              "vat": {
+                "type": "number",
+                "format": "float"
+              },
+              "active_from": {
+                "type": "string"
+              },
+              "active_to": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "issuanceDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string"
+    },
+    "payment_method": {
+      "type": "string"
+    },
+    "bank_account": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "apply_irpf": {
+      "type": "boolean"
+    },
+    "irpf": {
+      "type": "string"
+    },
+    "equivalence_surcharge": {
+      "type": "number",
+      "format": "float"
+    },
+    "recurrency": {
+      "type": "boolean"
+    },
+    "taxes_title": {
+      "type": "string"
+    },
+    "withholdings_title": {
+      "type": "string"
+    },
+    "account_name": {
+      "type": "string"
+    },
+    "account_iban": {
+      "type": "string"
+    },
+    "transaction_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "client_zip": {
+      "type": "string"
+    },
+    "client_city": {
+      "type": "string"
+    },
+    "prefix_id": {
+      "type": "string"
+    },
+    "start_of_period": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "accounting_account": {
+      "type": "string"
+    },
+    "tax_regime": {
+      "type": "string"
+    },
+    "type_activity": {
+      "type": "string"
+    },
+    "price_definition": {
+      "type": "string"
+    },
+    "line_activities": {
+      "type": "string"
+    },
+    "comment_sii": {
+      "type": "string"
+    },
+    "irpf_select": {
+      "type": "string"
+    },
+    "send_by_email": {
+      "type": "boolean"
+    },
+    "email_template_id": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    },
+    "document": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `document` to the tool, first call the tool `expandSchema` with \"/properties/document\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "generate_document": {
+      "type": "boolean"
+    },
+    "exchange_rate": {
+      "type": "number",
+      "format": "float"
+    },
+    "invoice_tags_ids": {
+      "type": "string"
+    },
+    "operations_by_product": {
+      "type": "boolean"
+    },
+    "special_free_treatment": {
+      "type": "boolean"
+    },
+    "special_free_treatment_data": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `special_free_treatment_data` to the tool, first call the tool `expandSchema` with \"/properties/special_free_treatment_data\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "businessId"
+  ]
+}

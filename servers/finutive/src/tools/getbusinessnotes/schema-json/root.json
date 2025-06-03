@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "type": {
+      "description": "Note type filter",
+      "type": "string",
+      "enum": [
+        "CREDENTIALS_RP",
+        "CREDENTIALS_BANK",
+        "NOT_PRIVATE"
+      ]
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

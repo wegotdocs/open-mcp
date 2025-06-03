@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Filter by business ID",
+      "type": "string",
+      "default": ""
+    },
+    "responsible_id": {
+      "description": "Filter by responsible person ID",
+      "type": "string",
+      "default": ""
+    },
+    "service_id": {
+      "description": "Filter by service ID",
+      "type": "string",
+      "default": ""
+    },
+    "status": {
+      "description": "Filter by conversation status",
+      "type": "string",
+      "enum": [
+        "OPEN",
+        "PENDING",
+        "UNREAD",
+        "READ",
+        "CLOSED"
+      ]
+    },
+    "saved": {
+      "description": "Filter by saved conversations",
+      "type": "boolean"
+    },
+    "proactive": {
+      "description": "Filter by proactive conversations",
+      "type": "boolean"
+    },
+    "element_type": {
+      "description": "Filter by element type",
+      "type": "string",
+      "default": ""
+    },
+    "element_id": {
+      "description": "Filter by element ID",
+      "type": "string",
+      "default": ""
+    },
+    "start_date": {
+      "description": "Filter by start date (format: yyyy-MM-dd)",
+      "type": "string",
+      "default": ""
+    },
+    "end_date": {
+      "description": "Filter by end date (format: yyyy-MM-dd)",
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": []
+}

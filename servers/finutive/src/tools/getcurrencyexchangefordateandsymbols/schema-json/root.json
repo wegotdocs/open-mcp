@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "date": {
+      "description": "Date for which exchange rates are required (ISO format: YYYY-MM-DD)",
+      "type": "string",
+      "format": "date"
+    },
+    "base_currency": {
+      "description": "ISO code of the base currency",
+      "type": "string"
+    },
+    "currencies": {
+      "description": "List of ISO currency codes for which exchange rates are required",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "date",
+    "base_currency",
+    "currencies"
+  ]
+}

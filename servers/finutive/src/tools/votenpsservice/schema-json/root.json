@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "services": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "vote": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

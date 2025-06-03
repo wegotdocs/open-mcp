@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string",
+      "enum": [
+        "IN_PROCESS",
+        "COMPLETE",
+        "PENDING"
+      ]
+    }
+  },
+  "required": [
+    "business_id",
+    "period",
+    "value"
+  ]
+}

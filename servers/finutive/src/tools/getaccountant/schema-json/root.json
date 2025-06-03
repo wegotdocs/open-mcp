@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "line_activities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "invoice_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "clients": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "providers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "businessId",
+    "start_date",
+    "end_date"
+  ]
+}

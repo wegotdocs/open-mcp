@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "search": {
+      "description": "Search term for filtering subcategories",
+      "type": "string"
+    },
+    "offset": {
+      "description": "Number of items to skip",
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "size": {
+      "description": "Number of items to return",
+      "type": "integer",
+      "format": "int32",
+      "default": 20
+    }
+  },
+  "required": []
+}

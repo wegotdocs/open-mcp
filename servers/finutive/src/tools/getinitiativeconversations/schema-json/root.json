@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "ID of the business",
+      "type": "string"
+    },
+    "pageable": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `pageable` to the tool, first call the tool `expandSchema` with \"/properties/pageable\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Pagination parameters</property-description>",
+      "additionalProperties": true
+    },
+    "responsible": {
+      "description": "Filter by responsible person ID",
+      "type": "string",
+      "default": ""
+    },
+    "service": {
+      "description": "Filter by service ID",
+      "type": "string",
+      "default": ""
+    },
+    "status": {
+      "description": "Filter by conversation status",
+      "type": "string",
+      "enum": [
+        "OPEN",
+        "PENDING",
+        "UNREAD",
+        "READ",
+        "CLOSED"
+      ]
+    },
+    "saved": {
+      "description": "Filter by saved state",
+      "type": "boolean"
+    },
+    "element_type": {
+      "description": "Filter by element type",
+      "type": "string",
+      "default": ""
+    },
+    "element_id": {
+      "description": "Filter by element ID",
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": [
+    "business_id",
+    "pageable"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "manager_id": {
+      "description": "Manager ID",
+      "type": "string"
+    },
+    "rating": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "comments": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "business_id",
+    "manager_id",
+    "rating"
+  ]
+}

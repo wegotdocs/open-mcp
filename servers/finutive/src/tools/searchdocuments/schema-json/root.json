@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string"
+    },
+    "folder_id": {
+      "description": "folder id",
+      "type": "string"
+    },
+    "search": {
+      "description": "Search term to filter documents by name",
+      "type": "string"
+    },
+    "page": {
+      "description": "Zero-based page index (0..N)",
+      "minimum": 0,
+      "type": "integer",
+      "default": 0
+    },
+    "size": {
+      "description": "The size of the page to be returned",
+      "minimum": 1,
+      "type": "integer",
+      "default": 20
+    },
+    "sort": {
+      "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

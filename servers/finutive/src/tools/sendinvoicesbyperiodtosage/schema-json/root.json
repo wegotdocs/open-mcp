@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "period_id": {
+      "type": "string"
+    },
+    "invoice_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "businessId",
+    "period_id"
+  ]
+}

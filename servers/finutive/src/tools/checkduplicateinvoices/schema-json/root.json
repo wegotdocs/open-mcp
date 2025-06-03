@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "startDate": {
+      "description": "Start date for duplicate check",
+      "type": "string",
+      "format": "date-time"
+    },
+    "endDate": {
+      "description": "End date for duplicate check",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "startDate",
+    "endDate"
+  ]
+}

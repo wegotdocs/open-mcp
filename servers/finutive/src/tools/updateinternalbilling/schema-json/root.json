@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string"
+    },
+    "internal_billing_id": {
+      "type": "string"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "WANNME",
+        "GOCARDLESS",
+        "CASH",
+        "BANK_TRANSFER",
+        "TPV",
+        "QONTO",
+        "TO_PAY"
+      ]
+    },
+    "price": {
+      "type": "number"
+    },
+    "discount_type": {
+      "type": "string",
+      "enum": [
+        "PERCENTAGE",
+        "FIXED",
+        "PROMOTIONAL",
+        "NA",
+        "PAUSED"
+      ]
+    },
+    "discount": {
+      "type": "number"
+    },
+    "responsable_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "business_id",
+    "internal_billing_id"
+  ]
+}

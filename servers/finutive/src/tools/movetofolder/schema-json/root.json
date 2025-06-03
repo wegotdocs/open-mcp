@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "folder",
+              "document"
+            ]
+          }
+        }
+      }
+    },
+    "folder_id": {
+      "type": "string"
+    },
+    "folder_special_type": {
+      "type": "string",
+      "enum": [
+        "TRASH",
+        "TEMP"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "CLIENT",
+        "PROVIDER"
+      ]
+    }
+  },
+  "required": [
+    "business_id",
+    "items"
+  ]
+}

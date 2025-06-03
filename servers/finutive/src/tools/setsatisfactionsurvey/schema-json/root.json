@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "question1": {
+      "type": "string",
+      "example": "SPECIFIC_SERVICE",
+      "enum": [
+        "FINTUIVE_SERVICE",
+        "SPECIFIC_SERVICE"
+      ]
+    },
+    "question2": {
+      "type": "string",
+      "example": "Respuesta ejemplo"
+    },
+    "question_services": {
+      "type": "string",
+      "example": "true,true,false,false,false"
+    },
+    "other_services": {
+      "type": "string",
+      "example": "Respuesta ejemplo"
+    },
+    "question_not_satisfied": {
+      "type": "string",
+      "example": "true,true,false,false,false,true"
+    },
+    "other_not_satisfied": {
+      "type": "string",
+      "example": "Respuesta ejemplo"
+    },
+    "question_anything_else": {
+      "type": "string",
+      "example": "Respuesta ejemplo"
+    },
+    "question_videocall": {
+      "type": "boolean",
+      "example": true
+    },
+    "vote": {
+      "type": "integer",
+      "format": "int32",
+      "example": 9
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

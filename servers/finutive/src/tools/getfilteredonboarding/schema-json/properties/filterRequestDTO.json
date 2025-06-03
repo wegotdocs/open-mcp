@@ -1,0 +1,187 @@
+{
+  "type": "object",
+  "properties": {
+    "search_string": {
+      "type": "string"
+    },
+    "order": {
+      "type": "string"
+    },
+    "order_direction": {
+      "type": "string"
+    },
+    "invitation_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "invitation_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "opportunity_start_date": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "opportunity_end_date": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "paid_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "paid_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "discarded_start_date": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "discarded_end_date": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "updated_start_date": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "updated_end_date": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "recurrent_start_date": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "recurrent_end_date": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "products_out": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "services_out": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_blocked": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "connected": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "discarded": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "opportunity": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "paid": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "recurrent": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "has_products": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "has_services": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "assigned_client": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "signed": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "with_recurrency": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "with_bank_account": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "with_fiscal_documents": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "gocardless_active": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "sage_active": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "onboarding_completed": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "opportunity_labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "label_filter_mode": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "province": {
+      "type": "string"
+    },
+    "business_type": {
+      "type": "string"
+    },
+    "min_anual_budget": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_anual_budget": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "startup_certified": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "message_language": {
+      "type": "string"
+    },
+    "has_offer": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

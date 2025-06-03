@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "service_id": {
+      "description": "Service ID",
+      "type": "string"
+    },
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "file_id": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "service_id",
+    "business_id"
+  ]
+}

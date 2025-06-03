@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "example": "ACCESS",
+      "enum": [
+        "ACCESS_DAY",
+        "ACCESS",
+        "CREATE_INVOICE",
+        "UPLOAD_DOCUMENT",
+        "SEND_MESSAGE",
+        "CREATE_LABORAL_FLOW",
+        "CONCILIATE_TRANSACTION",
+        "CREATE_MESSAGE",
+        "CALENDLY",
+        "OCR_MAIL",
+        "UPLOAD_SALES",
+        "UPLOAD_EXPENSE"
+      ]
+    },
+    "extra_data": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `extra_data` to the tool, first call the tool `expandSchema` with \"/properties/extra_data\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "business_id": {
+      "type": "string",
+      "example": "bu_dev_01jexz8bkpv54njvdd8thntce3"
+    },
+    "user_id": {
+      "type": "string",
+      "example": "d8526f0f-d340-4a1c-8aca-49f70b597d56"
+    }
+  },
+  "required": [
+    "type",
+    "extra_data",
+    "business_id",
+    "user_id"
+  ]
+}

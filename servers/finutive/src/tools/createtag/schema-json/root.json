@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "description": "Initiative ID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string",
+      "enum": [
+        "WHITE",
+        "RED",
+        "BLUE",
+        "GREEN",
+        "YELLOW",
+        "ORANGE",
+        "PURPLE",
+        "AQUA"
+      ]
+    }
+  },
+  "required": [
+    "businessId",
+    "name",
+    "color"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "gocardless": {
+      "maximum": 2,
+      "minimum": -1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "SPANISH",
+        "ENGLISH",
+        "GERMAN",
+        "ARABIC",
+        "CATALAN",
+        "CHINESE",
+        "BASQUE",
+        "FRENCH",
+        "GALICIAN",
+        "GREEK",
+        "HINDI",
+        "ITALIAN",
+        "PORTUGUESE",
+        "RUSSIAN",
+        "SWAHILI",
+        "SWEDISH"
+      ]
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "is_discarded": {
+      "type": "boolean"
+    },
+    "is_recurrent": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sage": {
+      "maximum": 4,
+      "minimum": -1,
+      "type": "integer",
+      "format": "int32"
+    },
+    "opportunity": {
+      "type": "boolean"
+    },
+    "document_id": {
+      "type": "string"
+    },
+    "organization_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "businessId"
+  ]
+}

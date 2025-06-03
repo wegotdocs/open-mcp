@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name to display in the signature",
+      "example": "John Doe"
+    },
+    "role": {
+      "type": "string",
+      "description": "Professional role or position",
+      "example": "Account Manager"
+    },
+    "calendly": {
+      "type": "string",
+      "description": "Calendly meeting booking link",
+      "example": "https://calendly.com/johndoe"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone number",
+      "example": "+34612345678"
+    },
+    "service": {
+      "type": "string",
+      "description": "Service or department name",
+      "example": "Customer Support"
+    }
+  },
+  "required": [
+    "name",
+    "role"
+  ]
+}

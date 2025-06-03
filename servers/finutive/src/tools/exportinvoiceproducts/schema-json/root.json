@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "only_promotions": {
+      "type": "boolean",
+      "default": false
+    },
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "businessId",
+    "ids"
+  ]
+}

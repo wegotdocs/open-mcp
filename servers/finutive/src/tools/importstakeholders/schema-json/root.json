@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "CLIENT",
+        "PROVIDER",
+        "TPV"
+      ]
+    }
+  },
+  "required": [
+    "businessId",
+    "type"
+  ]
+}

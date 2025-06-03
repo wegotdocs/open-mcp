@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "conversationId": {
+      "description": "ID of the conversation to add users to",
+      "type": "string"
+    },
+    "users": {
+      "type": "array",
+      "description": "List of user IDs to add to the conversation",
+      "example": [
+        "user-123",
+        "user-456"
+      ],
+      "items": {
+        "type": "string",
+        "description": "List of user IDs to add to the conversation",
+        "example": "[\"user-123\",\"user-456\"]"
+      }
+    }
+  },
+  "required": [
+    "conversationId",
+    "users"
+  ]
+}

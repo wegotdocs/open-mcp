@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "cif": {
+      "type": "string"
+    },
+    "size": {
+      "type": "integer",
+      "format": "int32",
+      "default": 10
+    },
+    "offset": {
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "searchInGlobal": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "businessId"
+  ]
+}

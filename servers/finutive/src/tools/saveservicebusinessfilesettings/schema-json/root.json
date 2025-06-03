@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "service_id": {
+      "description": "Service ID",
+      "type": "string"
+    },
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "phase_id": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "responsible_id": {
+            "type": "string"
+          },
+          "file_type": {
+            "type": "string"
+          },
+          "file_color": {
+            "type": "string"
+          },
+          "file_name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "service_id",
+    "business_id"
+  ]
+}

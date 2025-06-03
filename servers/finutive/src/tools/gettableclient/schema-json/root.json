@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "search": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "CLIENT",
+        "PROVIDER",
+        "TPV"
+      ]
+    },
+    "length": {
+      "type": "integer",
+      "format": "int32",
+      "default": 10
+    },
+    "start": {
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "readAll": {
+      "type": "boolean",
+      "default": false
+    },
+    "order_column": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "order_dir": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "activity_line": {
+      "type": "string"
+    },
+    "accounting_account": {
+      "type": "string"
+    },
+    "sage_accounting_account": {
+      "type": "string"
+    },
+    "tax_regime": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "businessId",
+    "type",
+    "order_column",
+    "order_dir"
+  ]
+}

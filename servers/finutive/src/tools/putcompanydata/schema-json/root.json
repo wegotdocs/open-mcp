@@ -1,0 +1,578 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "cif": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "web": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "AFGHANISTAN",
+        "AKROTIRI",
+        "ALBANIA",
+        "GERMANY",
+        "ANDORRA",
+        "ANGOLA",
+        "ANGUILLA",
+        "ANTARCTICA",
+        "ANTIGUA_AND_BARBUDA",
+        "SAUDI_ARABIA",
+        "ARCTIC_OCEAN",
+        "ALGERIA",
+        "ARGENTINA",
+        "ARMENIA",
+        "ARUBA",
+        "ASHMORE_AND_CARTIER_ISLANDS",
+        "ATLANTIC_OCEAN",
+        "AUSTRALIA",
+        "AUSTRIA",
+        "AZERBAIJAN",
+        "BAHAMAS",
+        "BAHRAIN",
+        "BANGLADESH",
+        "BARBADOS",
+        "BELGIUM",
+        "BELIZE",
+        "BENIN",
+        "BERMUDA",
+        "BELARUS",
+        "BURMA_MYANMAR",
+        "BOLIVIA",
+        "BOSNIA_AND_HERZEGOVINA",
+        "BOTSWANA",
+        "BRAZIL",
+        "BRUNEI",
+        "BULGARIA",
+        "BURKINA_FASO",
+        "BURUNDI",
+        "BHUTAN",
+        "CAPE_VERDE",
+        "CAMBODIA",
+        "CAMEROON",
+        "CANADA",
+        "CHAD",
+        "CHILE",
+        "CHINA",
+        "CYPRUS",
+        "CLIPPERTON_ISLAND",
+        "COLOMBIA",
+        "COMOROS",
+        "CONGO",
+        "CORAL_SEA_ISLANDS",
+        "NORTH_KOREA",
+        "SOUTH_KOREA",
+        "IVORY_COAST",
+        "COSTA_RICA",
+        "CROATIA",
+        "CUBA",
+        "CURACAO",
+        "DHEKELIA",
+        "DENMARK",
+        "DOMINICA",
+        "ECUADOR",
+        "EGYPT",
+        "EL_SALVADOR",
+        "VATICAN_CITY",
+        "UNITED_ARAB_EMIRATES",
+        "ERITREA",
+        "SLOVAKIA",
+        "SLOVENIA",
+        "SPAIN",
+        "UNITED_STATES",
+        "ESTONIA",
+        "ETHIOPIA",
+        "PHILIPPINES",
+        "FINLAND",
+        "FIJI",
+        "FRANCE",
+        "GABON",
+        "GAMBIA",
+        "GAZA_STRIP",
+        "GEORGIA",
+        "GHANA",
+        "GIBRALTAR",
+        "GRENADA",
+        "GREECE",
+        "GREENLAND",
+        "GUAM",
+        "GUATEMALA",
+        "GUERNSEY",
+        "GUINEA",
+        "EQUATORIAL_GUINEA",
+        "GUINEA_BISSAU",
+        "GUYANA",
+        "HAITI",
+        "HONDURAS",
+        "HONG_KONG",
+        "HUNGARY",
+        "INDIA",
+        "INDIAN_OCEAN",
+        "INDONESIA",
+        "IRAN",
+        "IRAQ",
+        "IRELAND",
+        "BOUVET_ISLAND",
+        "CHRISTMAS_ISLAND",
+        "NORFOLK_ISLAND",
+        "ICELAND",
+        "CAYMAN_ISLANDS",
+        "COCOS_ISLANDS",
+        "COOK_ISLANDS",
+        "FAROE_ISLANDS",
+        "SOUTH_GEORGIA_AND_SOUTH_SANDWICH_ISLANDS",
+        "HEARD_ISLAND_AND_MCDONALD_ISLANDS",
+        "FALKLAND_ISLANDS",
+        "NORTHERN_MARIANA_ISLANDS",
+        "MARSHALL_ISLANDS",
+        "PITCAIRN_ISLANDS",
+        "SOLOMON_ISLANDS",
+        "TURKS_AND_CAICOS_ISLANDS",
+        "AMERICAN_VIRGIN_ISLANDS",
+        "BRITISH_VIRGIN_ISLANDS",
+        "ISRAEL",
+        "ITALY",
+        "JAMAICA",
+        "JAN_MAYEN",
+        "JAPAN",
+        "JERSEY",
+        "JORDAN",
+        "KAZAKHSTAN",
+        "KENYA",
+        "KYRGYZSTAN",
+        "KIRIBATI",
+        "KOSOVO",
+        "KUWAIT",
+        "LAOS",
+        "LESOTHO",
+        "LATVIA",
+        "LEBANON",
+        "LIBERIA",
+        "LIBYA",
+        "LIECHTENSTEIN",
+        "LITHUANIA",
+        "LUXEMBOURG",
+        "MACAU",
+        "MACEDONIA",
+        "MADAGASCAR",
+        "MALAYSIA",
+        "MALAWI",
+        "MALDIVES",
+        "MALI",
+        "MALTA",
+        "ISLE_OF_MAN",
+        "MOROCCO",
+        "MAURICIO",
+        "MAURITANIA",
+        "MEXICO",
+        "MICRONESIA",
+        "MOLDOVA",
+        "MONACO",
+        "MONGOLIA",
+        "MONTENEGRO",
+        "MONTSERRAT",
+        "MOZAMBIQUE",
+        "WORLD",
+        "NAMIBIA",
+        "NAURU",
+        "NAVASSA_ISLAND",
+        "NEPAL",
+        "NICARAGUA",
+        "NIGER",
+        "NIGERIA",
+        "NIUE",
+        "NORWAY",
+        "NEW_CALEDONIA",
+        "NEW_ZEALAND",
+        "OMAN",
+        "PACIFIC_OCEAN",
+        "NETHERLANDS",
+        "PAKISTAN",
+        "PALAU",
+        "PANAMA",
+        "PAPUA_NEW_GUINEA",
+        "PARACEL_ISLANDS",
+        "PARAGUAY",
+        "PERU",
+        "FRENCH_POLYNESIA",
+        "POLAND",
+        "PORTUGAL",
+        "PUERTO_RICO",
+        "QATAR",
+        "UNITED_KINGDOM",
+        "CENTRAL_AFRICAN_REPUBLIC",
+        "CZECH_REPUBLIC",
+        "DEMOCRATIC_REPUBLIC_OF_THE_CONGO",
+        "DOMINICAN_REPUBLIC",
+        "RWANDA",
+        "ROMANIA",
+        "RUSSIA",
+        "WESTERN_SAHARA",
+        "SAMOA",
+        "AMERICAN_SAMOA",
+        "SAINT_BARTHELEMY",
+        "SAINT_KITTS_AND_NEVIS",
+        "SAN_MARINO",
+        "SAINT_MARTIN",
+        "SAINT_PIERRE_AND_MIQUELON",
+        "SAINT_VINCENT_AND_THE_GRENADINES",
+        "SAINT_HELENA",
+        "SAINT_LUCIA",
+        "SAO_TOME_AND_PRINCIPE",
+        "SENEGAL",
+        "SERBIA",
+        "SEYCHELLES",
+        "SIERRA_LEONE",
+        "SINGAPORE",
+        "SINT_MAARTEN",
+        "SYRIA",
+        "SOMALIA",
+        "SOUTHERN_OCEAN",
+        "SPRATLY_ISLANDS",
+        "SRI_LANKA",
+        "SWAZILAND",
+        "SOUTH_AFRICA",
+        "SUDAN",
+        "SOUTH_SUDAN",
+        "SWEDEN",
+        "SWITZERLAND",
+        "SURINAME",
+        "SVALBARD_AND_JAN_MAYEN",
+        "THAILAND",
+        "TAIWAN",
+        "TANZANIA",
+        "TAJIKISTAN",
+        "BRITISH_INDIAN_OCEAN_TERRITORY",
+        "FRENCH_SOUTHERN_AND_ANTARCTIC_LANDS",
+        "EAST_TIMOR",
+        "TOGO",
+        "TOKELAU",
+        "TONGA",
+        "TRINIDAD_AND_TOBAGO",
+        "TUNISIA",
+        "TURKMENISTAN",
+        "TURKEY",
+        "TUVALU",
+        "UKRAINE",
+        "UGANDA",
+        "EUROPEAN_UNION",
+        "URUGUAY",
+        "UZBEKISTAN",
+        "VANUATU",
+        "VENEZUELA",
+        "VIETNAM",
+        "WAKE_ISLAND",
+        "WALLIS_AND_FUTUNA",
+        "WEST_BANK",
+        "YEMEN",
+        "DJIBOUTI",
+        "ZAMBIA",
+        "ZIMBABWE"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "tel": {
+      "type": "string"
+    },
+    "signature_hash": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "email_extra": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "send_to_email_extra": {
+      "type": "boolean"
+    },
+    "default_account_tax_payment": {
+      "type": "string"
+    },
+    "manager_use_accounts": {
+      "type": "string",
+      "enum": [
+        "MANAGER_HAS_FREEDOM_TO_CHOOSE_ACCOUNT",
+        "ALWAYS_USE_DEFAULT_ACCOUNT"
+      ]
+    },
+    "roi": {
+      "type": "boolean"
+    },
+    "business_current_activity": {
+      "type": "string",
+      "enum": [
+        "START_ACTIVITY",
+        "END_ACTIVITY"
+      ]
+    },
+    "no_taxable_activity": {
+      "type": "boolean"
+    },
+    "business_type": {
+      "type": "string",
+      "enum": [
+        "SOCIETY",
+        "UNSUPPORTED",
+        "AUTONOMOUS"
+      ]
+    },
+    "cnae": {
+      "type": "string"
+    },
+    "address_affectation": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "start_company_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "company_constitution_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "documents": {
+      "type": "string"
+    },
+    "payment_taxes_not_postponed": {
+      "type": "string",
+      "enum": [
+        "DIRECT_DEBIT_BANK_ACCOUNT",
+        "BANK_PAYMENT"
+      ]
+    },
+    "payment_taxes_postponed": {
+      "type": "string",
+      "enum": [
+        "POSTPONEMENT",
+        "DIRECT_DEBIT_BANK_ACCOUNT",
+        "BANK_PAYMENT"
+      ]
+    },
+    "accounting_period": {
+      "type": "string",
+      "enum": [
+        "QUARTERLY",
+        "MONTHLY"
+      ]
+    },
+    "send_automatic_taxes": {
+      "type": "boolean"
+    },
+    "company_regimen_taxes": {
+      "type": "string",
+      "enum": [
+        "PENINSULA_AND_BALEARES",
+        "CANARIAS",
+        "CEUTA_MELILLA"
+      ]
+    },
+    "startup_certificate": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "currency_id": {
+      "type": "string",
+      "enum": [
+        "SKK",
+        "DZD",
+        "ARS",
+        "AUD",
+        "BHD",
+        "BOB",
+        "BWP",
+        "BRL",
+        "GBP",
+        "BND",
+        "BGN",
+        "CAD",
+        "KYD",
+        "XOF",
+        "CLP",
+        "CNY",
+        "COP",
+        "CRC",
+        "HRK",
+        "CZK",
+        "DKK",
+        "DOP",
+        "EGP",
+        "EEK",
+        "EUR",
+        "FJD",
+        "HNL",
+        "HKD",
+        "HUF",
+        "INR",
+        "IDR",
+        "ILS",
+        "JMD",
+        "JPY",
+        "JOD",
+        "KZT",
+        "KES",
+        "KWD",
+        "LVL",
+        "LBP",
+        "LTL",
+        "MKD",
+        "MYR",
+        "MUR",
+        "MXN",
+        "MDL",
+        "MAD",
+        "NAD",
+        "NPR",
+        "ANG",
+        "TWD",
+        "NZD",
+        "NIO",
+        "NGN",
+        "NOK",
+        "OMR",
+        "PKR",
+        "PGK",
+        "PYG",
+        "PEN",
+        "PHP",
+        "PLN",
+        "QAR",
+        "RON",
+        "RUB",
+        "SVC",
+        "SAR",
+        "RSD",
+        "SCR",
+        "SLL",
+        "SGD",
+        "ZAR",
+        "KRW",
+        "LKR",
+        "SEK",
+        "CHF",
+        "TZS",
+        "THB",
+        "TTD",
+        "TND",
+        "TRY",
+        "UGX",
+        "UAH",
+        "AED",
+        "UYU",
+        "UZS",
+        "VEF",
+        "VND",
+        "YER",
+        "ZMK",
+        "USD",
+        "BDT"
+      ]
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "issueDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "selected_account": {
+      "type": "string"
+    },
+    "exact_percentage_petrol_deductible": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "deductible_petrol": {
+      "type": "string",
+      "enum": [
+        "DEDUCTIBLE_50",
+        "DEDUCTIBLE_PLUS_50"
+      ]
+    },
+    "deductible_daily_subsistance": {
+      "type": "string",
+      "enum": [
+        "NOT_DAILY_SUBSISTANCE_ALLOWANCE",
+        "ONLY_DAILY_SUBSISTANCE_ALLOWANCE",
+        "ONLY_EXPENSES",
+        "BOTH_DAILY_SUBSISTANCE_ALLOWANCE_AND_EXPENSES"
+      ]
+    },
+    "sage_start_period": {
+      "type": "string"
+    },
+    "accounting_software": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "sage_type_provider": {
+      "type": "string"
+    },
+    "show_sample_modal": {
+      "type": "boolean"
+    },
+    "invoice_or_sample": {
+      "type": "boolean"
+    },
+    "maximum_quantity_to_auto_process": {
+      "type": "number"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "SPANISH",
+        "ENGLISH",
+        "GERMAN",
+        "ARABIC",
+        "CATALAN",
+        "CHINESE",
+        "BASQUE",
+        "FRENCH",
+        "GALICIAN",
+        "GREEK",
+        "HINDI",
+        "ITALIAN",
+        "PORTUGUESE",
+        "RUSSIAN",
+        "SWAHILI",
+        "SWEDISH"
+      ]
+    },
+    "create_new_series_in_auto_process": {
+      "type": "boolean"
+    },
+    "logo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `logo` to the tool, first call the tool `expandSchema` with \"/properties/logo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

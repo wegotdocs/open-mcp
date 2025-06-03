@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "User ID",
+      "type": "string"
+    },
+    "role": {
+      "description": "New user role",
+      "type": "string",
+      "enum": [
+        "USER",
+        "USER_ADMIN"
+      ]
+    }
+  },
+  "required": [
+    "business_id",
+    "user_id",
+    "role"
+  ]
+}

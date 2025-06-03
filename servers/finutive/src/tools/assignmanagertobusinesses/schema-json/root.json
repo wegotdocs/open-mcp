@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "managerId": {
+      "type": "string"
+    },
+    "businesses_ids": {
+      "uniqueItems": true,
+      "type": "array",
+      "description": "businesses ids",
+      "example": [
+        "bu_dev_01jjp2jyy9me06j3f7zbbg3qg4"
+      ],
+      "items": {
+        "type": "string",
+        "description": "businesses ids",
+        "example": "[\"bu_dev_01jjp2jyy9me06j3f7zbbg3qg4\"]"
+      }
+    }
+  },
+  "required": [
+    "managerId",
+    "businesses_ids"
+  ]
+}

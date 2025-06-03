@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "manager_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "start_date",
+    "end_date"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "b_business_id": {
+      "type": "string"
+    },
+    "expense_accounts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "account": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "counterpart": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "limit_char_expense_account": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "limit_char_accounting_account": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

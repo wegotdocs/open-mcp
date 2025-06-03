@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the dashboard section",
+      "example": "Financial Overview"
+    },
+    "category": {
+      "type": "string",
+      "description": "Category of the dashboard section",
+      "example": "BANKS",
+      "enum": [
+        "BANKS",
+        "TIMETRACKER",
+        "INVOICES",
+        "LABORAL",
+        "DOCUMENTS",
+        "COMMUNICATION",
+        "TAXES"
+      ]
+    },
+    "roles": {
+      "uniqueItems": true,
+      "type": "array",
+      "description": "Set of roles that can access this section",
+      "example": [
+        "USER",
+        "ADMIN"
+      ],
+      "items": {
+        "type": "string",
+        "description": "Set of roles that can access this section",
+        "example": "[\"USER\",\"ADMIN\"]",
+        "enum": [
+          "USER",
+          "ADMIN"
+        ]
+      }
+    },
+    "priority": {
+      "type": "integer",
+      "description": "Priority order of the section",
+      "format": "int32",
+      "example": 1
+    },
+    "tool_id": {
+      "type": "string",
+      "description": "ID of the related tool",
+      "example": "tool_123"
+    },
+    "service_id": {
+      "type": "string",
+      "description": "ID of the associated service",
+      "example": "service_456"
+    },
+    "default_width": {
+      "minimum": 1,
+      "type": "integer",
+      "description": "Section Default width",
+      "format": "int32",
+      "example": 2
+    },
+    "default_height": {
+      "minimum": 1,
+      "type": "integer",
+      "description": "Section Default height",
+      "format": "int32",
+      "example": 2
+    },
+    "is_default_for_roles": {
+      "uniqueItems": true,
+      "type": "array",
+      "description": "Roles for which this section is default",
+      "example": [
+        "USER"
+      ],
+      "items": {
+        "type": "string",
+        "description": "Roles for which this section is default",
+        "example": "[\"USER\"]",
+        "enum": [
+          "USER",
+          "ADMIN"
+        ]
+      }
+    },
+    "min_version": {
+      "type": "integer",
+      "description": "Minimum version required for this section",
+      "format": "int32",
+      "example": 1
+    },
+    "sage_active_dependency": {
+      "type": "boolean",
+      "description": "Whether this section depends on Sage being active",
+      "example": false
+    }
+  },
+  "required": [
+    "name",
+    "category",
+    "roles",
+    "is_default_for_roles"
+  ]
+}

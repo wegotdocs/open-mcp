@@ -1,0 +1,97 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string"
+    },
+    "startDate": {
+      "description": "Filter by start date (yyyy-MM-dd)",
+      "type": "string",
+      "format": "date"
+    },
+    "endDate": {
+      "description": "Filter by end date (yyyy-MM-dd)",
+      "type": "string",
+      "format": "date"
+    },
+    "discountType": {
+      "description": "Filter by discount type",
+      "type": "string",
+      "enum": [
+        "PERCENTAGE",
+        "FIXED",
+        "PROMOTIONAL",
+        "NA",
+        "PAUSED"
+      ]
+    },
+    "serviceProductId": {
+      "description": "Filter by service product ID",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serviceId": {
+      "description": "Filter by service ID",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "paymentMethod": {
+      "description": "Filter by payment method",
+      "type": "string",
+      "enum": [
+        "WANNME",
+        "GOCARDLESS",
+        "CASH",
+        "BANK_TRANSFER",
+        "TPV",
+        "QONTO",
+        "TO_PAY"
+      ]
+    },
+    "paymentReferenceIsNull": {
+      "description": "Filter by payment reference is null",
+      "type": "boolean"
+    },
+    "invoiceIsNull": {
+      "description": "Filter by invoice is null",
+      "type": "boolean"
+    },
+    "clientInvoiceIsNull": {
+      "description": "Filter by client invoice is null",
+      "type": "boolean"
+    },
+    "invoiceId": {
+      "description": "Filter by invoice ID",
+      "type": "string"
+    },
+    "page": {
+      "description": "Zero-based page index (0..N)",
+      "minimum": 0,
+      "type": "integer",
+      "default": 0
+    },
+    "size": {
+      "description": "The size of the page to be returned",
+      "minimum": 1,
+      "type": "integer",
+      "default": 10
+    },
+    "sort": {
+      "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "date,DESC"
+      ]
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

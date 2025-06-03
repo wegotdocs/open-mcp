@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "skip_exceptions": {
+      "type": "boolean",
+      "default": false
+    },
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "include_individual": {
+      "type": "boolean"
+    },
+    "zip_pdfs": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "businessId",
+    "type"
+  ]
+}

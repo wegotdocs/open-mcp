@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "manager_id": {
+      "type": "string"
+    },
+    "business_id": {
+      "type": "string"
+    },
+    "service_id": {
+      "type": "string"
+    },
+    "type_of_register": {
+      "type": "string",
+      "enum": [
+        "INITIATIVE",
+        "USER"
+      ]
+    },
+    "manager_helped_id": {
+      "type": "string"
+    },
+    "is_edited": {
+      "type": "boolean"
+    },
+    "reason_edited": {
+      "type": "string"
+    },
+    "delete": {
+      "type": "boolean"
+    },
+    "sub_item_id": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

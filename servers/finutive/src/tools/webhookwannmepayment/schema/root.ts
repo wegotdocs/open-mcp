@@ -1,0 +1,30 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.string().optional(),
+  "checksum": z.string().optional(),
+  "checksum512": z.string().optional(),
+  "notificationType": z.enum(["PAYMENT","DEBT_CASE","RECURENT_PAYMENT","MERGE_PAYMENT","MERCHANT"]).optional(),
+  "receiptNumber": z.string().optional(),
+  "transactionCode": z.string().optional(),
+  "amount": z.number().optional(),
+  "statusCode": z.enum(["1","2","3","4","5","6","7","8","9","10","11","12","13"]).optional(),
+  "statusDescription": z.string().optional(),
+  "subStatusCode": z.number().int().optional(),
+  "subStatusDescription": z.string().optional(),
+  "partnerReference1": z.string().optional(),
+  "partnerReference2": z.string().optional(),
+  "uniqueNotificationId": z.string().optional(),
+  "recurrentPaymentId": z.string().optional(),
+  "debtCaseId": z.string().optional(),
+  "errorCode": z.string().optional(),
+  "errorDescription": z.string().optional(),
+  "paymentMethod": z.string().optional(),
+  "partnerId": z.string().optional(),
+  "customField1": z.string().optional(),
+  "customField2": z.string().optional(),
+  "customField3": z.string().optional(),
+  "customField4": z.string().optional(),
+  "customField5": z.string().optional(),
+  "customField6": z.string().optional()
+}

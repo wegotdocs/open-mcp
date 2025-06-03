@@ -1,0 +1,132 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "name_english": {
+      "type": "string"
+    },
+    "description_english": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "onboarding": {
+      "type": "boolean"
+    },
+    "recurrent": {
+      "type": "boolean"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "product_id": {
+            "type": "string"
+          },
+          "product_name": {
+            "type": "string"
+          },
+          "typology": {
+            "type": "string",
+            "enum": [
+              "ANY",
+              "BUSINESS",
+              "AUTONOMOUS"
+            ]
+          },
+          "serie_id": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "payment_type": {
+            "type": "string",
+            "enum": [
+              "UNIQUE",
+              "MONTHLY",
+              "ANNUAL"
+            ]
+          },
+          "tax_regime": {
+            "type": "string",
+            "enum": [
+              "GENERAL",
+              "NOT_SUBJECT_SALES"
+            ]
+          }
+        }
+      }
+    },
+    "file_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "url_landing": {
+      "type": "string"
+    },
+    "collaborator_email": {
+      "type": "string"
+    },
+    "email_content": {
+      "type": "string"
+    },
+    "email_attachments": {
+      "type": "string"
+    },
+    "counter": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "outsourced": {
+      "type": "boolean"
+    },
+    "serie_id": {
+      "type": "string"
+    },
+    "external_category": {
+      "type": "string"
+    },
+    "ambitions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "LAUNCHING",
+          "STABILIZATION",
+          "GROWTH",
+          "INORGANIC_GROWTH",
+          "EXPANSION_AND_INTERNATIONALIZATION"
+        ]
+      }
+    },
+    "partner_privacy_policy": {
+      "type": "string"
+    },
+    "responsibles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

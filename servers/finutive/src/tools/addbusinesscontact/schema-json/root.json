@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "phone_prefix": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "main_contact": {
+      "type": "boolean"
+    },
+    "relation_type": {
+      "type": "string",
+      "enum": [
+        "INTERNAL",
+        "EXTERNAL"
+      ]
+    },
+    "role": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

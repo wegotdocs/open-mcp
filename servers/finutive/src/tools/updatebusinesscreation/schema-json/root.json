@@ -1,0 +1,474 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "Business ID",
+      "type": "string"
+    },
+    "business_type": {
+      "type": "string"
+    },
+    "start_company_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completed": {
+      "type": "string"
+    },
+    "name_mode": {
+      "type": "string"
+    },
+    "legal_name": {
+      "type": "string"
+    },
+    "name_granted_file": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "city": {
+      "type": "string"
+    },
+    "iban": {
+      "type": "string"
+    },
+    "desired_constitution_company_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "activity_direccion": {
+      "type": "string"
+    },
+    "activity_postal_code": {
+      "type": "string"
+    },
+    "activity_town": {
+      "type": "string"
+    },
+    "activity_province": {
+      "type": "string"
+    },
+    "personal_address": {
+      "type": "string"
+    },
+    "personal_zipcode": {
+      "type": "string"
+    },
+    "personal_town": {
+      "type": "string"
+    },
+    "personal_province": {
+      "type": "string"
+    },
+    "social_direccion": {
+      "type": "string"
+    },
+    "social_postal_code": {
+      "type": "string"
+    },
+    "social_town": {
+      "type": "string"
+    },
+    "social_province": {
+      "type": "string"
+    },
+    "fiscal_direccion": {
+      "type": "string"
+    },
+    "fiscal_postal_code": {
+      "type": "string"
+    },
+    "fiscal_town": {
+      "type": "string"
+    },
+    "fiscal_province": {
+      "type": "string"
+    },
+    "meters_local": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "meters_activity": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "principal_activity": {
+      "type": "string"
+    },
+    "secondary_activity": {
+      "type": "string"
+    },
+    "regimen_iva": {
+      "type": "string"
+    },
+    "regimen_irpf": {
+      "type": "string"
+    },
+    "intracomunitario": {
+      "type": "string"
+    },
+    "vivir_en_extranjero": {
+      "type": "string"
+    },
+    "bank_account": {
+      "type": "string"
+    },
+    "civil_state": {
+      "type": "string"
+    },
+    "civil_state_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "name": {
+      "type": "string"
+    },
+    "lastname_1": {
+      "type": "string"
+    },
+    "lastname_2": {
+      "type": "string"
+    },
+    "dni": {
+      "type": "string"
+    },
+    "passport": {
+      "type": "string"
+    },
+    "social_security": {
+      "type": "string"
+    },
+    "sell_eu": {
+      "type": "string"
+    },
+    "buy_eu": {
+      "type": "string"
+    },
+    "suscribe_services": {
+      "type": "string"
+    },
+    "job_seeker": {
+      "type": "string"
+    },
+    "activity_place": {
+      "type": "string"
+    },
+    "cadastral_reference": {
+      "type": "string"
+    },
+    "birth_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "document_type": {
+      "type": "string"
+    },
+    "have_social_security_number": {
+      "type": "string"
+    },
+    "birth_place": {
+      "type": "string"
+    },
+    "birth_province": {
+      "type": "string"
+    },
+    "birth_country": {
+      "type": "string"
+    },
+    "father_name_surname": {
+      "type": "string"
+    },
+    "mother_name_surname": {
+      "type": "string"
+    },
+    "mother_single_surname": {
+      "type": "string"
+    },
+    "contribution_base_select": {
+      "type": "string"
+    },
+    "contribution_base_number": {
+      "type": "string"
+    },
+    "termination_of_activity_select": {
+      "type": "string"
+    },
+    "mutual_company": {
+      "type": "string"
+    },
+    "youth": {
+      "type": "string"
+    },
+    "dni_file": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sepa_file": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "roi_file": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "europa_out": {
+      "type": "string"
+    },
+    "monetary_contribution": {
+      "type": "string"
+    },
+    "availability": {
+      "type": "string"
+    },
+    "amount_contribution": {
+      "type": "string"
+    },
+    "contibution_objects": {
+      "type": "string"
+    },
+    "partners": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "lastname_1": {
+            "type": "string"
+          },
+          "lastname_2": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "document_type": {
+            "type": "string"
+          },
+          "dni": {
+            "type": "string"
+          },
+          "passport": {
+            "type": "string"
+          },
+          "nationality": {
+            "type": "string"
+          },
+          "country_of_residence": {
+            "type": "string"
+          },
+          "social_security": {
+            "type": "string"
+          },
+          "bank_account": {
+            "type": "string"
+          },
+          "iban": {
+            "type": "string"
+          },
+          "iban_2": {
+            "type": "string"
+          },
+          "civil_state": {
+            "type": "string"
+          },
+          "civil_state_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "separation_property": {
+            "type": "string"
+          },
+          "name_spouse": {
+            "type": "string"
+          },
+          "dni_spouse": {
+            "type": "string"
+          },
+          "administrator": {
+            "type": "string"
+          },
+          "work_in_society": {
+            "type": "string"
+          },
+          "have_social_security_number": {
+            "type": "string"
+          },
+          "birth_place": {
+            "type": "string"
+          },
+          "birth_province": {
+            "type": "string"
+          },
+          "birth_country": {
+            "type": "string"
+          },
+          "father_name_surname": {
+            "type": "string"
+          },
+          "mother_name_surname": {
+            "type": "string"
+          },
+          "contribution_base_select": {
+            "type": "string"
+          },
+          "contribution_base_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "termination_of_activity_select": {
+            "type": "string"
+          },
+          "mutual_company": {
+            "type": "string"
+          },
+          "is_autonomous": {
+            "type": "string"
+          },
+          "personal_address": {
+            "type": "string"
+          },
+          "personal_zipcode": {
+            "type": "string"
+          },
+          "personal_town": {
+            "type": "string"
+          },
+          "personal_province": {
+            "type": "string"
+          },
+          "partner_type": {
+            "type": "string"
+          },
+          "legal_name": {
+            "type": "string"
+          },
+          "nif": {
+            "type": "string"
+          },
+          "establishment_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "registration_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contribution_new_company": {
+            "type": "string"
+          },
+          "representative_name": {
+            "type": "string"
+          },
+          "representative_lastname_1": {
+            "type": "string"
+          },
+          "representative_lastname_2": {
+            "type": "string"
+          },
+          "representative_nationality": {
+            "type": "string"
+          },
+          "representative_document_type": {
+            "type": "string"
+          },
+          "representative_dni": {
+            "type": "string"
+          },
+          "representative_address": {
+            "type": "string"
+          },
+          "representative_zipcode": {
+            "type": "string"
+          },
+          "representative_town": {
+            "type": "string"
+          },
+          "representative_province": {
+            "type": "string"
+          },
+          "legal_person_social_address": {
+            "type": "string"
+          },
+          "legal_person_social_zipcode": {
+            "type": "string"
+          },
+          "legal_person_social_town": {
+            "type": "string"
+          },
+          "legal_person_social_province": {
+            "type": "string"
+          },
+          "capitalized_unemployment": {
+            "type": "string"
+          },
+          "freelancer_10_months": {
+            "type": "string"
+          },
+          "dni_document": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sepa_document": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "percentage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "percentage_2": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "capital_document": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "simplify": {
+      "type": "string"
+    },
+    "name1": {
+      "type": "string"
+    },
+    "name2": {
+      "type": "string"
+    },
+    "name3": {
+      "type": "string"
+    },
+    "name4": {
+      "type": "string"
+    },
+    "name5": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "business_id"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "example": "luis.lopez@globalincubator.com"
+    },
+    "first_name": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "example": "Luis"
+    },
+    "last_name": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "example": "Lopez"
+    },
+    "business_name": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "example": "Abimbawe"
+    }
+  },
+  "required": [
+    "email",
+    "first_name",
+    "last_name",
+    "business_name"
+  ]
+}

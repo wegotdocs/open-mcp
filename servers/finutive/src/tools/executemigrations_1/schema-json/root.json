@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "pageSize": {
+      "type": "integer",
+      "format": "int32",
+      "default": 1000
+    },
+    "initialPage": {
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "threads": {
+      "type": "integer",
+      "format": "int32",
+      "default": 10
+    },
+    "batch": {
+      "type": "boolean",
+      "default": false
+    },
+    "token": {
+      "type": "string",
+      "default": "false"
+    },
+    "invoices": {
+      "type": "boolean",
+      "default": false
+    },
+    "documents": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": []
+}

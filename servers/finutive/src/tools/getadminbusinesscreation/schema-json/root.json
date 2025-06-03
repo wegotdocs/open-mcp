@@ -1,0 +1,141 @@
+{
+  "type": "object",
+  "properties": {
+    "start": {
+      "description": "Start index for pagination",
+      "type": "integer",
+      "format": "int32"
+    },
+    "length": {
+      "description": "Number of elements per page",
+      "type": "integer",
+      "format": "int32"
+    },
+    "query": {
+      "description": "Search text",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "Start date filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date": {
+      "description": "End date filter",
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_date_activity": {
+      "description": "Activity start date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date_activity": {
+      "description": "Activity end date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_recurrent_date": {
+      "description": "Recurrent start date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_recurrent_date": {
+      "description": "Recurrent end date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "description": "Business creation status",
+      "type": "string"
+    },
+    "paid": {
+      "description": "Payment status",
+      "type": "string"
+    },
+    "responsible": {
+      "description": "Assigned responsible",
+      "type": "string"
+    },
+    "business_type": {
+      "description": "Business type",
+      "type": "string"
+    },
+    "language": {
+      "description": "Business language",
+      "type": "string"
+    },
+    "blocked": {
+      "description": "Blocked status (1 for blocked, 0 for not blocked)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "recurrent": {
+      "description": "Recurrent status (1 for recurrent, 0 for not recurrent)",
+      "type": "integer",
+      "format": "int32"
+    },
+    "tags_filter_mode": {
+      "description": "Tags filter mode",
+      "type": "integer",
+      "format": "int32"
+    },
+    "contribution_types": {
+      "description": "Contribution types",
+      "type": "string"
+    },
+    "start_activation_date": {
+      "description": "Activation start date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_activation_date": {
+      "description": "Activation end date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_date_company_constitution": {
+      "description": "Company constitution start date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_date_company_constitution": {
+      "description": "Company constitution end date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_paid_date": {
+      "description": "Payment start date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_paid_date": {
+      "description": "Payment end date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "deal_labels": {
+      "description": "Deal labels",
+      "type": "string"
+    },
+    "ids": {
+      "description": "Specific IDs to query",
+      "type": "string"
+    },
+    "order_column": {
+      "description": "Column to order by",
+      "type": "integer",
+      "format": "int32"
+    },
+    "order_dir": {
+      "description": "Ordering direction (asc/desc)",
+      "type": "string"
+    },
+    "select_all": {
+      "description": "Select all flag (1 for yes, 0 for no)",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": []
+}

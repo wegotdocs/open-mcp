@@ -1,0 +1,261 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Instance name",
+      "example": "Finutive"
+    },
+    "agency_email_domain": {
+      "type": "string",
+      "description": "Agency email domain",
+      "example": "gestoriafinutive.com"
+    },
+    "no_recurrent_invoices_serie": {
+      "type": "string",
+      "description": "Non-recurrent invoices series",
+      "example": "-1"
+    },
+    "recurrent_invoices_serie": {
+      "type": "string",
+      "description": "Recurrent invoices series",
+      "example": "83556890"
+    },
+    "rectifying_invoices_serie": {
+      "type": "string",
+      "description": "Rectifying invoices series",
+      "example": "83556890"
+    },
+    "churn_rate": {
+      "type": "integer",
+      "description": "Churn rate",
+      "format": "int32",
+      "example": 5
+    },
+    "emission_date_instance": {
+      "type": "integer",
+      "description": "Emission date instance",
+      "format": "int32",
+      "example": 1
+    },
+    "main_initiative": {
+      "type": "string",
+      "description": "Main initiative ID",
+      "example": "223926"
+    },
+    "nps_feedback_email": {
+      "type": "string",
+      "description": "NPS feedback email addresses",
+      "example": "comunicacion@finutive.com, soporte@finutive.com"
+    },
+    "nps_negative_feedback_email": {
+      "type": "string",
+      "description": "NPS negative feedback email",
+      "example": "antonio.riaguas@finutive.com"
+    },
+    "nps_manager_negative_feedback_email": {
+      "type": "string",
+      "description": "NPS manager negative feedback email",
+      "example": "jefasos@finutive.com, soporte@finutive.com"
+    },
+    "nps_service_negative_feedback_email": {
+      "type": "string",
+      "description": "NPS service negative feedback email",
+      "example": "jefasos@finutive.com,soporte@finutive.com"
+    },
+    "nps_positive_feedback_survey_url": {
+      "type": "string",
+      "description": "NPS positive feedback survey URL"
+    },
+    "nps_negative_feedback_survey_url": {
+      "type": "string",
+      "description": "NPS negative feedback survey URL"
+    },
+    "email_promotions": {
+      "type": "string",
+      "description": "Email promotions",
+      "example": "clientes@finutive.com, soporte@finutive.com"
+    },
+    "user_message_products_invoices": {
+      "type": "string",
+      "description": "User message products invoices",
+      "example": "464167"
+    },
+    "invoices_email": {
+      "type": "string",
+      "description": "Invoices email",
+      "example": "facturacion@finutive.com"
+    },
+    "services_email": {
+      "type": "string",
+      "description": "Services email",
+      "example": "clientes@finutive.com"
+    },
+    "new_user_email": {
+      "type": "string",
+      "description": "New user email",
+      "example": "clientes@finutive.com"
+    },
+    "contract_signed_email": {
+      "type": "string",
+      "description": "Contract signed email",
+      "example": "facturacion@finutive.com"
+    },
+    "product_requisite_timetracker": {
+      "type": "string",
+      "description": "Product requisite timetracker",
+      "example": "97866841"
+    },
+    "sage_enable": {
+      "type": "boolean",
+      "description": "Sage enable flag",
+      "example": true
+    },
+    "sage_domain": {
+      "type": "string",
+      "description": "Sage domain"
+    },
+    "sage_domain_pre": {
+      "type": "string",
+      "description": "Sage domain pre"
+    },
+    "sage_instance": {
+      "type": "string",
+      "description": "Sage instance",
+      "example": "finutive"
+    },
+    "sage_write_invoices": {
+      "type": "boolean",
+      "description": "Sage write invoices flag",
+      "example": true
+    },
+    "sage_billing_type": {
+      "type": "string",
+      "description": "Sage billing type",
+      "example": "finutive"
+    },
+    "sage_accounting_id": {
+      "type": "integer",
+      "description": "Sage accounting ID",
+      "format": "int32",
+      "example": 0
+    },
+    "email_no_destinataries": {
+      "type": "string",
+      "description": "Email no destinataries",
+      "example": "clientes@finutive.com"
+    },
+    "banner_mgm": {
+      "type": "string",
+      "description": "Banner MGM"
+    },
+    "banner_funnel": {
+      "type": "string",
+      "description": "Banner funnel"
+    },
+    "banner_funnel_en": {
+      "type": "string",
+      "description": "Banner funnel English"
+    },
+    "banner_mgm_en": {
+      "type": "string",
+      "description": "Banner MGM English"
+    },
+    "commercial_flow": {
+      "type": "string",
+      "description": "Commercial flow",
+      "example": "1"
+    },
+    "email_due": {
+      "type": "string",
+      "description": "Email due"
+    },
+    "email_model_036": {
+      "type": "string",
+      "description": "Email model 036"
+    },
+    "date_new_flow": {
+      "type": "string",
+      "description": "Date new flow",
+      "example": "2024-04-09"
+    },
+    "main_color": {
+      "type": "string",
+      "description": "Main color",
+      "example": "#6eb3a1"
+    },
+    "secondary_color": {
+      "type": "string",
+      "description": "Secondary color",
+      "example": "#2a3254"
+    },
+    "third_color": {
+      "type": "string",
+      "description": "Third color",
+      "example": "#6eb3a1"
+    },
+    "internal_logo": {
+      "type": "string",
+      "description": "Internal logo path"
+    },
+    "logo_favicon": {
+      "type": "string",
+      "description": "Logo favicon path"
+    },
+    "logo_landing_page": {
+      "type": "string",
+      "description": "Logo landing page URL"
+    },
+    "logo_landing_page_contrast": {
+      "type": "string",
+      "description": "Logo landing page contrast URL"
+    },
+    "logo_square": {
+      "type": "string",
+      "description": "Logo square URL"
+    },
+    "loader_gif": {
+      "type": "string",
+      "description": "Loader GIF URL"
+    },
+    "logo_web_app": {
+      "type": "string",
+      "description": "Logo web app URL"
+    },
+    "hero_landing_page": {
+      "type": "string",
+      "description": "Hero landing page"
+    },
+    "email_params_main_logo": {
+      "type": "string",
+      "description": "Email parameters main logo"
+    },
+    "email_params_message": {
+      "type": "string",
+      "description": "Email parameters message"
+    },
+    "email_params_email": {
+      "type": "string",
+      "description": "Email parameters email"
+    },
+    "email_params_url": {
+      "type": "string",
+      "description": "Email parameters URL"
+    },
+    "email_params_privacy_policy": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `email_params_privacy_policy` to the tool, first call the tool `expandSchema` with \"/properties/email_params_privacy_policy\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Email parameters privacy policy</property-description>",
+      "additionalProperties": true
+    },
+    "email_params_privacy_form": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `email_params_privacy_form` to the tool, first call the tool `expandSchema` with \"/properties/email_params_privacy_form\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Email parameters privacy form</property-description>",
+      "additionalProperties": true
+    },
+    "email_params_color": {
+      "type": "string",
+      "description": "Email parameters color"
+    }
+  },
+  "required": []
+}

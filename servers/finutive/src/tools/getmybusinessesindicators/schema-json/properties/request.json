@@ -1,0 +1,259 @@
+{
+  "description": "Additional filtering criteria",
+  "type": "object",
+  "properties": {
+    "size": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "offset": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "order": {
+      "type": "string"
+    },
+    "order_direction": {
+      "type": "string"
+    },
+    "all_businesses": {
+      "type": "boolean"
+    },
+    "cifs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "accounting_responsibles_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "min_accounting_service_months": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_accounting_service_months": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_tickets_to_process": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_tickets_to_process": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_global_rating": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_global_rating": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_engagement": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_engagement": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "business_categories_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "search_string": {
+      "type": "string"
+    },
+    "business_type": {
+      "type": "string",
+      "enum": [
+        "SOCIETY",
+        "UNSUPPORTED",
+        "AUTONOMOUS"
+      ]
+    },
+    "startup_certificate": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "language": {
+      "type": "string"
+    },
+    "invite_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "invite_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "services_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deal_labels_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "opportunity_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "opportunity_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "paid_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "paid_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "discarded_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "discarded_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "recurrent_start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "recurrent_end_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "products_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "products_out_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "services_out_id": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ecommerce": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_blocked": {
+      "type": "boolean"
+    },
+    "connected": {
+      "type": "boolean"
+    },
+    "discarded": {
+      "type": "boolean"
+    },
+    "opportunity": {
+      "type": "boolean"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "recurrent": {
+      "type": "boolean"
+    },
+    "has_products": {
+      "type": "boolean"
+    },
+    "has_assigned_client": {
+      "type": "boolean"
+    },
+    "signed": {
+      "type": "boolean"
+    },
+    "with_recurrency": {
+      "type": "boolean"
+    },
+    "with_bank_account": {
+      "type": "boolean"
+    },
+    "with_fiscal_documents": {
+      "type": "boolean"
+    },
+    "gocardless_active": {
+      "type": "boolean"
+    },
+    "sage_active": {
+      "type": "boolean"
+    },
+    "zip_code": {
+      "type": "string"
+    },
+    "province": {
+      "type": "string"
+    },
+    "min_invoices_last6_months_incomes": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_invoices_last6_months_incomes": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_transactions_last6_months_incomes": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_transactions_last6_months_incomes": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "min_annual_budget": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "max_annual_budget": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "census_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "has_promotional_products": {
+      "type": "boolean"
+    },
+    "tags_filter_mode": {
+      "type": "boolean"
+    }
+  }
+}

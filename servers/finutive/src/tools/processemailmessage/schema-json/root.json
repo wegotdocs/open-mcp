@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "description": "ID of the business",
+      "type": "string"
+    },
+    "email_id": {
+      "type": "string",
+      "description": "Unique identifier for the email",
+      "example": "email-123"
+    },
+    "from_email": {
+      "type": "string",
+      "description": "Email address of the sender",
+      "example": "sender@example.com"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Subject line of the email",
+      "example": "Invoice Inquiry"
+    },
+    "body": {
+      "type": "string",
+      "description": "Main content of the email",
+      "example": "I have a question about my recent invoice..."
+    },
+    "attachments": {
+      "type": "array",
+      "description": "List of attachments included in the email",
+      "items": {
+        "required": [
+          "id",
+          "title",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the attachment",
+            "example": "attachment-123"
+          },
+          "title": {
+            "type": "string",
+            "description": "Filename or title of the attachment",
+            "example": "report.pdf"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL to access the attachment file",
+            "example": "https://storage.example.com/files/report.pdf"
+          },
+          "type": {
+            "type": "string",
+            "description": "MIME type of the attachment",
+            "example": "application/pdf"
+          },
+          "size": {
+            "type": "integer",
+            "description": "Size of the attachment in bytes",
+            "format": "int32",
+            "example": 15240
+          }
+        },
+        "description": "Attachment in an email message"
+      }
+    },
+    "conversation_id": {
+      "type": "string",
+      "description": "ID of the existing conversation if this email is part of one",
+      "example": "conversation-123"
+    },
+    "tag_service": {
+      "type": "string",
+      "description": "Service tag for routing and categorization",
+      "example": "billing"
+    }
+  },
+  "required": [
+    "business_id",
+    "email_id",
+    "from_email",
+    "subject",
+    "body"
+  ]
+}
