@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "PostReconcilingItemSchema",
+        "required": [
+          "amount",
+          "currency",
+          "date",
+          "description",
+          "customId",
+          "reconcilingSourceCustomId"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "title": "Amount",
+            "type": "number",
+            "description": "Amount of the reconciling item"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "date": {
+            "title": "Date",
+            "type": "string",
+            "description": "Date of the reconciling item",
+            "format": "date-time"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "Description of the reconciling item"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "type": "object",
+            "description": "Metadata of the reconciling item. You can use it to store any information you want to associate with the reconciling item."
+          },
+          "additionalInfo": {
+            "title": "Additionalinfo",
+            "type": "object",
+            "description": "Additional information of the reconciling item"
+          },
+          "customId": {
+            "title": "Customid",
+            "type": "string",
+            "description": "Embat custom/auto unique reconciling item identifier. You can use as your internal reconciling item identifier"
+          },
+          "reconcilingSourceCustomId": {
+            "title": "Reconcilingsourcecustomid",
+            "type": "string",
+            "description": "Embat custom/auto unique Reconciling Source identifier. You can get them from 'Reconciling Sources' endpoints"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

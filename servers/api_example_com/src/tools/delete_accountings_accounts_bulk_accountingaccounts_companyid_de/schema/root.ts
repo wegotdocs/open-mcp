@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "companyId": z.string(),
+  "data": z.array(z.object({ "accountingCode": z.string() }))
+}

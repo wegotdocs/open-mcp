@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "AuxBulkPatchProductsRequestSchema",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "additionalInfo": {
+            "title": "Additionalinfo",
+            "type": "object",
+            "default": {}
+          },
+          "accountingCode": {
+            "title": "Accountingcode",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string",
+            "description": "Embat product ID"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

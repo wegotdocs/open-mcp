@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "AuxBulkPatchAttributesRequestSchema",
+        "required": [
+          "customId"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "active": {
+            "title": "Active",
+            "type": "boolean",
+            "default": true
+          },
+          "values": {
+            "title": "Values",
+            "type": "array",
+            "items": {
+              "title": "AttributesRequestValuesSchema",
+              "required": [
+                "customId",
+                "name"
+              ],
+              "type": "object",
+              "properties": {
+                "customId": {
+                  "title": "Customid",
+                  "type": "string"
+                },
+                "name": {
+                  "title": "Name",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "customId": {
+            "title": "Customid",
+            "type": "string",
+            "description": "Embat custom/auto unique attribute ID. You can use as your custom ERP attribute id"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "PostOperationsAttributesRequestSchema",
+        "required": [
+          "customId",
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "customId": {
+            "title": "Customid",
+            "type": "string"
+          },
+          "attributes": {
+            "title": "Attributes",
+            "type": "array",
+            "items": {
+              "title": "AttributeValueRequestSchema",
+              "required": [
+                "customId",
+                "value"
+              ],
+              "type": "object",
+              "properties": {
+                "customId": {
+                  "title": "Customid",
+                  "type": "string"
+                },
+                "value": {
+                  "title": "Value",
+                  "type": "string"
+                },
+                "valueCustomId": {
+                  "title": "Valuecustomid",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

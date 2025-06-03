@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "DeleteReconcilingItemsRequestSchema",
+        "required": [
+          "customId"
+        ],
+        "type": "object",
+        "properties": {
+          "customId": {
+            "title": "Customid",
+            "type": "string",
+            "description": "Embat custom/auto unique reconciling item identifier. You can use as your internal reconciling item identifier"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

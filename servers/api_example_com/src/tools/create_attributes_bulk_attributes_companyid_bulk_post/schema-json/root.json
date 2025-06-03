@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "PostAttributesRequestSchema",
+        "required": [
+          "source",
+          "name",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "customId": {
+            "title": "Customid",
+            "type": "string"
+          },
+          "source": {
+            "title": "SourceEnum",
+            "enum": [
+              "erp",
+              "api",
+              "embat"
+            ],
+            "type": "string",
+            "description": "An enumeration."
+          },
+          "active": {
+            "title": "Active",
+            "type": "boolean",
+            "default": true
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "type": {
+            "title": "AttributesStatusEnum",
+            "enum": [
+              "list",
+              "string",
+              "number"
+            ],
+            "type": "string",
+            "description": "An enumeration."
+          },
+          "required": {
+            "title": "Required",
+            "type": "boolean",
+            "default": false
+          },
+          "values": {
+            "title": "Values",
+            "type": "array",
+            "items": {
+              "title": "AttributesRequestValuesSchema",
+              "required": [
+                "customId",
+                "name"
+              ],
+              "type": "object",
+              "properties": {
+                "customId": {
+                  "title": "Customid",
+                  "type": "string"
+                },
+                "name": {
+                  "title": "Name",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "data"
+  ]
+}

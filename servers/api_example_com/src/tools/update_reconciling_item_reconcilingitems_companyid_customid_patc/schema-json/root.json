@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "customId": {
+      "title": "Customid",
+      "type": "string"
+    },
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "amount": {
+      "title": "Amount",
+      "type": "number",
+      "description": "Amount of the reconciling item"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "date": {
+      "title": "Date",
+      "type": "string",
+      "description": "Date of the reconciling item",
+      "format": "date-time"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string",
+      "description": "Description of the reconciling item"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `metadata` to the tool, first call the tool `expandSchema` with \"/properties/metadata\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Metadata of the reconciling item. You can use it to store any information you want to associate with the reconciling item.</property-description>",
+      "additionalProperties": true
+    },
+    "additionalInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `additionalInfo` to the tool, first call the tool `expandSchema` with \"/properties/additionalInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional information of the reconciling item</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "customId",
+    "companyId"
+  ]
+}

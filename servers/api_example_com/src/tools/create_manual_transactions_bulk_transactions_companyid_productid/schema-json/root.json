@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "title": "Companyid",
+      "type": "string"
+    },
+    "productId": {
+      "title": "Productid",
+      "type": "string"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items": {
+        "title": "PostTransactionsRequestSchema",
+        "required": [
+          "operationDate",
+          "valueDate",
+          "concept",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "operationDate": {
+            "title": "Operationdate",
+            "type": "string",
+            "format": "date"
+          },
+          "valueDate": {
+            "title": "Valuedate",
+            "type": "string",
+            "format": "date"
+          },
+          "concept": {
+            "title": "Concept",
+            "type": "string"
+          },
+          "amount": {
+            "title": "Amount",
+            "type": "number"
+          }
+        },
+        "description": "Transactions request data schema"
+      }
+    }
+  },
+  "required": [
+    "companyId",
+    "productId",
+    "data"
+  ]
+}
