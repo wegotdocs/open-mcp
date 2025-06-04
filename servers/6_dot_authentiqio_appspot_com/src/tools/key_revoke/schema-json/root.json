@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "PK": {
+      "description": "Public Signing Key - Authentiq ID (43 chars)",
+      "type": "string"
+    },
+    "secret": {
+      "description": "revokation secret",
+      "type": "string"
+    }
+  },
+  "required": [
+    "PK",
+    "secret"
+  ]
+}

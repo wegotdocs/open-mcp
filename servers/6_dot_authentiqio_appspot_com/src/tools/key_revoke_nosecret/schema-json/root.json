@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "description": "primary email associated to Key (ID)",
+      "type": "string"
+    },
+    "phone": {
+      "description": "primary phone number, international representation",
+      "type": "string"
+    },
+    "code": {
+      "description": "verification code sent by email",
+      "type": "string"
+    }
+  },
+  "required": [
+    "email",
+    "phone"
+  ]
+}
