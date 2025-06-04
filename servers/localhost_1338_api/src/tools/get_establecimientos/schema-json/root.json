@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "sort": {
+      "description": "Sort by attributes ascending (asc) or descending (desc)",
+      "type": "string"
+    },
+    "pagination[withCount]": {
+      "description": "Return page/pageSize (default: true)",
+      "type": "boolean"
+    },
+    "pagination[page]": {
+      "description": "Page number (default: 0)",
+      "type": "integer"
+    },
+    "pagination[pageSize]": {
+      "description": "Page size (default: 25)",
+      "type": "integer"
+    },
+    "pagination[start]": {
+      "description": "Offset value (default: 0)",
+      "type": "integer"
+    },
+    "pagination[limit]": {
+      "description": "Number of entities to return (default: 25)",
+      "type": "integer"
+    },
+    "fields": {
+      "description": "Fields to return (ex: title,author)",
+      "type": "string"
+    },
+    "populate": {
+      "description": "Relations to return",
+      "type": "string"
+    },
+    "filters": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `filters` to the tool, first call the tool `expandSchema` with \"/properties/filters\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Filters to apply</property-description>",
+      "additionalProperties": true
+    },
+    "locale": {
+      "description": "Locale to apply",
+      "type": "string"
+    }
+  },
+  "required": []
+}

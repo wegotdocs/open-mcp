@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "description": "every api",
+    "properties": {
+      "controllers": {
+        "description": "every controller of the api",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "every action of every controller",
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "type": "boolean"
+              },
+              "policy": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {}
+}
