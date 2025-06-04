@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Calendar ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "daysOff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "H:i",
+            "example": "00:00"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "H:i",
+            "example": "02:00"
+          }
+        }
+      },
+      "description": "array of AbsenceCalendarDayOff"
+    }
+  },
+  "required": [
+    "id",
+    "daysOff"
+  ]
+}

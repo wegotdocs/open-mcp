@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "calendarId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "create",
+        "delete"
+      ]
+    },
+    "daysOff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "comment": {
+      "type": "string"
+    },
+    "onlyWithSchedule": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "employeeId",
+    "calendarId",
+    "type",
+    "daysOff"
+  ]
+}

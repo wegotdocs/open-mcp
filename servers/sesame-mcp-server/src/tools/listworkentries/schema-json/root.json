@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "The id of the employee",
+      "type": "string",
+      "format": "uuid"
+    },
+    "from": {
+      "description": "Y-m-d",
+      "type": "string",
+      "format": "date"
+    },
+    "to": {
+      "description": "Y-m-d",
+      "type": "string",
+      "format": "date"
+    },
+    "updatedAt[gte]": {
+      "description": "UpdatedAt greater or equal",
+      "type": "string",
+      "format": "Y-m-dTH:i:sP",
+      "example": "2020-01-01T10:00:00+01:00"
+    },
+    "updatedAt[lte]": {
+      "description": "UpdatedAt lesser or equal",
+      "type": "string",
+      "format": "Y-m-dTH:i:sP",
+      "example": "2020-01-01T10:00:00+01:00"
+    },
+    "onlyReturn": {
+      "description": "Return specific users",
+      "type": "string",
+      "default": "not_deleted",
+      "enum": [
+        "all",
+        "not_deleted",
+        "deleted"
+      ]
+    },
+    "limit": {
+      "description": "Limit work entries",
+      "type": "integer",
+      "default": 20
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    },
+    "orderBy": {
+      "description": "field1 asc, field2 desc",
+      "type": "string"
+    }
+  },
+  "required": []
+}

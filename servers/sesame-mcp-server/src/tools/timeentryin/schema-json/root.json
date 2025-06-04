@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "projectId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "tagIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "comment": {
+      "type": "string",
+      "format": "text"
+    },
+    "coordinates": {
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "format": "float"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    }
+  },
+  "required": [
+    "employeeId"
+  ]
+}

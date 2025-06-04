@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "workdayTypeId": {
+      "description": "Workday Type ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "format": "date",
+      "description": "Name of the workday type"
+    }
+  },
+  "required": [
+    "workdayTypeId",
+    "name"
+  ]
+}

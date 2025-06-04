@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Company ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Limit results",
+      "type": "integer"
+    },
+    "orderBy": {
+      "description": "field1 asc, field2 desc",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

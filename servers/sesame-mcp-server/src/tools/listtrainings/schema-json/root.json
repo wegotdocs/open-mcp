@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the training",
+      "type": "string"
+    },
+    "startDate": {
+      "description": "Y-m-d",
+      "type": "string",
+      "format": "date"
+    },
+    "endDate": {
+      "description": "Y-m-d",
+      "type": "string",
+      "format": "date"
+    },
+    "orderType": {
+      "description": "Order ascendant or descendent",
+      "type": "string",
+      "default": "asc",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "orderKey": {
+      "description": "Order by the specific field specific users",
+      "type": "string",
+      "default": "name",
+      "enum": [
+        "name",
+        "amount"
+      ]
+    },
+    "limit": {
+      "description": "Limit work entries",
+      "type": "integer",
+      "default": 20
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": []
+}

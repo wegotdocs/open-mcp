@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "properties": {
+    "period": {
+      "description": "Salary pay period",
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "biweekly",
+        "fortnightly",
+        "monthly"
+      ]
+    },
+    "from": {
+      "description": "Y-m-d",
+      "type": "string",
+      "format": "date"
+    },
+    "to": {
+      "description": "Y-m-d",
+      "type": "string",
+      "format": "date"
+    },
+    "currency": {
+      "description": "Salary currency",
+      "type": "string",
+      "enum": [
+        "EUR",
+        "MXN",
+        "USD"
+      ],
+      "example": "EUR"
+    },
+    "officeIds[in]": {
+      "description": "Office Ids to filter employees belonging to them",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "departmentIds[in]": {
+      "description": "Department Ids to filter employees belonging to them",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "employeeStatus[in]": {
+      "description": "Employee status",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "active",
+          "inactive"
+        ]
+      }
+    },
+    "limit": {
+      "description": "Limit custom fields",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    },
+    "orderBy": {
+      "description": "firstName asc",
+      "type": "string"
+    }
+  },
+  "required": [
+    "period",
+    "from",
+    "to",
+    "currency"
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "type": "object",
+  "properties": {
+    "contractId": {
+      "description": "Contract ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startAt": {
+      "type": "string",
+      "format": "date",
+      "description": "Start date of contract"
+    },
+    "endAt": {
+      "type": "string",
+      "format": "date",
+      "description": "end date of contract"
+    },
+    "code": {
+      "type": "string",
+      "description": "Code of the contract"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Comments"
+    },
+    "jobChargeId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Job charge ID"
+    },
+    "contractTypeId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the agreement"
+    },
+    "agreementId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the agreement"
+    },
+    "degreeId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the degree"
+    },
+    "workDayTypeId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the work type"
+    },
+    "socialSecurityNumber": {
+      "type": "string",
+      "description": "The social security number"
+    },
+    "trialPeriod": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `trialPeriod` to the tool, first call the tool `expandSchema` with \"/properties/trialPeriod\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "cbo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `cbo` to the tool, first call the tool `expandSchema` with \"/properties/cbo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "remoteWork": {
+      "type": "boolean",
+      "description": "Remote work"
+    },
+    "seniorityDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Seniority date"
+    },
+    "jobLevel": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The job level"
+    },
+    "jobPositionDescription": {
+      "type": "string",
+      "description": "The job position description"
+    },
+    "weeklyHours": {
+      "type": "number",
+      "format": "float",
+      "description": "Weekly working hours"
+    },
+    "maxLegalWeeklyHours": {
+      "type": "number",
+      "format": "float",
+      "description": "Max legal weekly working hours"
+    },
+    "maxLegalAnnualHours": {
+      "type": "number",
+      "format": "float",
+      "description": "Max legal annual working hours"
+    },
+    "percentageWorkDay": {
+      "type": "number",
+      "format": "float",
+      "description": "Percentage of workday"
+    },
+    "fte": {
+      "type": "number",
+      "format": "float",
+      "description": "The FTE value should be between 0 and 1"
+    },
+    "workDays": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "string",
+            "description": "Day of the week",
+            "enum": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday",
+              "saturday",
+              "sunday"
+            ]
+          },
+          "hour": {
+            "type": "number",
+            "format": "float",
+            "description": "Total hour to work in the day"
+          }
+        },
+        "required": [
+          "day",
+          "hour"
+        ]
+      }
+    }
+  },
+  "required": [
+    "contractId",
+    "startAt"
+  ]
+}

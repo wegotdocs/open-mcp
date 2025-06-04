@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "workEntryType": {
+      "type": "string",
+      "enum": [
+        "work",
+        "pause"
+      ]
+    },
+    "workBreakId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "workCheckTypeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "workEntryIn": {
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "Y-m-dTH:i:sP",
+          "example": "2020-01-01T10:00:00+01:00"
+        },
+        "coordinates": {
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "format": "float"
+            },
+            "longitude": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        }
+      }
+    },
+    "workEntryOut": {
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "Y-m-dTH:i:sP",
+          "example": "2020-01-01T10:00:00+01:00"
+        },
+        "coordinates": {
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "format": "float"
+            },
+            "longitude": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "employeeId",
+    "workEntryType",
+    "workEntryIn"
+  ]
+}

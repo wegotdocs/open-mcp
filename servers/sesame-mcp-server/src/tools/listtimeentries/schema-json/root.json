@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "from": {
+      "type": "string",
+      "format": "date"
+    },
+    "to": {
+      "type": "string",
+      "format": "date"
+    },
+    "employeeStatus": {
+      "type": "string",
+      "default": "active",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "limit": {
+      "description": "Limit results",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

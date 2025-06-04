@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeIds[in]": {
+      "description": "EmployeeIds to query",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "status": {
+      "description": "Allowed Status",
+      "type": "string",
+      "enum": [
+        "unsent",
+        "sent",
+        "accepted",
+        "rejected"
+      ]
+    },
+    "from": {
+      "description": "Request a date from",
+      "type": "string",
+      "format": "date"
+    },
+    "to": {
+      "description": "Request a date to",
+      "type": "string",
+      "format": "date"
+    },
+    "limit": {
+      "description": "Limit results",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

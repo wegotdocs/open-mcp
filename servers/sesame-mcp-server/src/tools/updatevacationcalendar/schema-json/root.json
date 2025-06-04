@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Calendar ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "daysOff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "array of VacationCalendarDayOff"
+    },
+    "maxDaysOff": {
+      "type": "integer",
+      "description": "This limit will have priority over the Vacation Configuration maxDaysOff limit"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

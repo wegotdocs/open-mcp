@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "Employee Id",
+      "type": "string",
+      "format": "uuid"
+    },
+    "limit": {
+      "description": "Limit departments",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "employeeId"
+  ]
+}

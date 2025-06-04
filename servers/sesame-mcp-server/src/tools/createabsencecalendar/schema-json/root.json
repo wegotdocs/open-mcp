@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "absenceTypeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "year": {
+      "type": "integer",
+      "format": "YYYY",
+      "example": "2023"
+    },
+    "daysOff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "H:i",
+            "example": "09:00"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "H:i",
+            "example": "10:00"
+          }
+        }
+      },
+      "description": "array of AbsenceCalendarDayOff"
+    }
+  },
+  "required": [
+    "employeeId",
+    "absenceTypeId",
+    "year",
+    "daysOff"
+  ]
+}

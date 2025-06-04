@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "salaryId": {
+      "description": "Salary ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "description": "End date of salary"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comments"
+    }
+  },
+  "required": [
+    "salaryId"
+  ]
+}

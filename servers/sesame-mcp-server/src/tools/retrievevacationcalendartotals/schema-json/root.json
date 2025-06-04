@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "Employee Id",
+      "type": "string",
+      "format": "uuid"
+    },
+    "year": {
+      "description": "Calendar year",
+      "type": "number",
+      "format": "integer"
+    },
+    "limit": {
+      "description": "Limit results",
+      "type": "integer",
+      "default": 20
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "employeeId"
+  ]
+}

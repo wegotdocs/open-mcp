@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Employee UUID"
+    },
+    "scheduleTemplateId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Schedule template UUID"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Start date"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "description": "End date"
+    }
+  },
+  "required": [
+    "employeeId",
+    "scheduleTemplateId",
+    "startDate"
+  ]
+}

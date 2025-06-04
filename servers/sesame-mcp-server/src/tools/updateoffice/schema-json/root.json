@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Office ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the office"
+    },
+    "address": {
+      "type": "string",
+      "description": "The address of the office"
+    },
+    "coordinates": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `coordinates` to the tool, first call the tool `expandSchema` with \"/properties/coordinates\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The coordinates of the office</property-description>",
+      "additionalProperties": true
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the office"
+    },
+    "radio": {
+      "type": "integer",
+      "description": "The radio of the office"
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ]
+}

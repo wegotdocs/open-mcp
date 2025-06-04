@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "workEntryIn": {
+      "properties": {
+        "coordinates": {
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "format": "float"
+            },
+            "longitude": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        }
+      }
+    },
+    "workCheckTypeId": {
+      "type": "string",
+      "nullable": true,
+      "format": "uuid"
+    },
+    "workBreakId": {
+      "type": "string",
+      "nullable": true,
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "employeeId"
+  ]
+}

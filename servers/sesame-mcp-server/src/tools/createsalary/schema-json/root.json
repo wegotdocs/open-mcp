@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the employee"
+    },
+    "payPeriod": {
+      "type": "string",
+      "description": "Payment period of contract",
+      "enum": [
+        "daily",
+        "weekly",
+        "biweekly",
+        "monthly",
+        "yearly"
+      ]
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency of contract",
+      "example": "EUR"
+    },
+    "grossSalary": {
+      "type": "number",
+      "format": "float",
+      "description": "Salary amount"
+    },
+    "payments": {
+      "type": "integer",
+      "description": "Number of payments"
+    },
+    "contributionGroupId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Contribution group id"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Salary start date"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Salary end date"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comments"
+    },
+    "prorated": {
+      "type": "boolean",
+      "description": "Defines whether the salary is prorated or not"
+    }
+  },
+  "required": [
+    "employeeId",
+    "payPeriod",
+    "currency",
+    "grossSalary",
+    "payments",
+    "contributionGroupId",
+    "startDate",
+    "prorated"
+  ]
+}

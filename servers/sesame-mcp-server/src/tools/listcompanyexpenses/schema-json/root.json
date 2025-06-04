@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "Filter expenses by employee id",
+      "type": "string",
+      "format": "uuid"
+    },
+    "from": {
+      "description": "From date",
+      "type": "string",
+      "format": "date"
+    },
+    "to": {
+      "description": "To date",
+      "type": "string",
+      "format": "date"
+    },
+    "paymentMethodIds": {
+      "description": "Payment method",
+      "type": "string"
+    },
+    "status": {
+      "description": "Expense status",
+      "type": "string",
+      "enum": [
+        "pending",
+        "accepted",
+        "rejected",
+        "pending_info",
+        "personal"
+      ]
+    },
+    "limit": {
+      "description": "Limit work entries",
+      "type": "integer",
+      "default": 20
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "required": []
+}

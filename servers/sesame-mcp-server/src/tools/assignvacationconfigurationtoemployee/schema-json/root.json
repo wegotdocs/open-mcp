@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "vacationConfigurationId": {
+      "description": "Vacation Configuration ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "year": {
+      "type": "number",
+      "format": "int",
+      "example": "2025"
+    }
+  },
+  "required": [
+    "vacationConfigurationId",
+    "employeeId",
+    "year"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "holidayCalendarId": {
+      "description": "Holiday Calendar Id",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the holidays",
+      "example": "Zona Valencia"
+    },
+    "daysOff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "New Year's Day"
+          },
+          "date": {
+            "type": "string",
+            "example": "2021-01-01",
+            "format": "Y-m-d"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "holidayCalendarId",
+    "name",
+    "daysOff"
+  ]
+}

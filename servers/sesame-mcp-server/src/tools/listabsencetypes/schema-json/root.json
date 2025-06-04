@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "description": "Absence type status",
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "limit": {
+      "description": "Limit results",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

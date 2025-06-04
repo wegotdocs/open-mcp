@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "Find Assignation by employeeId",
+      "type": "string",
+      "format": "uuid"
+    },
+    "departmentId": {
+      "description": "Find Assignation by departmentId",
+      "type": "string",
+      "format": "uuid"
+    },
+    "limit": {
+      "description": "Limit assignations",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": []
+}
