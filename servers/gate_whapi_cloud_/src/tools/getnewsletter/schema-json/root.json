@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "NewsletterID": {
+      "description": "Newsletter ID",
+      "type": "string",
+      "pattern": "^[\\d]{10,18}@newsletter$"
+    },
+    "user role": {
+      "description": "User's role regarding the newsletter",
+      "type": "string",
+      "enum": [
+        "subscriber",
+        "admin",
+        "guest",
+        "owner"
+      ]
+    }
+  },
+  "required": [
+    "NewsletterID"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Update user name.",
+      "minLength": 3,
+      "maxLength": 25
+    },
+    "about": {
+      "type": "string",
+      "description": "Update user info in About section.",
+      "minLength": 1,
+      "maxLength": 139
+    },
+    "icon": {
+      "type": "string",
+      "description": "Update user icon in base64/url."
+    }
+  },
+  "required": []
+}

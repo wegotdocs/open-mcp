@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "CommunityID": {
+      "description": "Group ID",
+      "type": "string",
+      "pattern": "^[\\d-]{10,31}@g\\.us$"
+    },
+    "setting": {
+      "type": "string",
+      "enum": [
+        "modify_groups",
+        "member_add_mode"
+      ]
+    },
+    "policy": {
+      "type": "string",
+      "enum": [
+        "anyone",
+        "admins"
+      ]
+    }
+  },
+  "required": [
+    "CommunityID",
+    "setting",
+    "policy"
+  ]
+}

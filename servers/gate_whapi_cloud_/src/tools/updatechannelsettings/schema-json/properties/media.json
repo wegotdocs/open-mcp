@@ -1,0 +1,25 @@
+{
+  "title": "Media",
+  "type": "object",
+  "properties": {
+    "auto_download": {
+      "description": "An array specifying which types of media to automatically download.",
+      "type": "array",
+      "items": {
+        "enum": [
+          "image",
+          "audio",
+          "voice",
+          "video",
+          "document",
+          "sticker"
+        ],
+        "type": "string"
+      }
+    },
+    "init_avatars": {
+      "description": "Set to true if you need to get avatars after channel authorization",
+      "type": "boolean"
+    }
+  }
+}

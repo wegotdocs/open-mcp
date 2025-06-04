@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "timeZone": {
+      "description": "Timezone identifier",
+      "type": "string",
+      "example": "Europe/Bucharest"
+    },
+    "config": {
+      "description": "Working hours configuration",
+      "type": "array",
+      "items": {
+        "title": "Business Hours",
+        "type": "object",
+        "description": "Working hours",
+        "properties": {
+          "day": {
+            "description": "Day of the week",
+            "type": "string",
+            "example": "mon",
+            "enum": [
+              "sun",
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat"
+            ]
+          },
+          "mode": {
+            "type": "string",
+            "example": "open_24h",
+            "description": "Mode of working hours. You can not combine both",
+            "enum": [
+              "open_24h",
+              "specific_hours"
+            ]
+          },
+          "openTime": {
+            "type": "number",
+            "example": 540,
+            "description": "Representation on hour in minutes. I.e 9 A.M. - 540"
+          },
+          "closeTime": {
+            "type": "number",
+            "example": 960,
+            "description": "Representation on hour in minutes. I.e 16 - 960"
+          }
+        }
+      }
+    }
+  }
+}

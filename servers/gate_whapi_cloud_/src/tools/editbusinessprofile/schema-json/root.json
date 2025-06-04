@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "address": {
+      "description": "Address of the business\nMaximum of 256 characters",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the business\nMaximum of 256 characters",
+      "type": "string"
+    },
+    "email": {
+      "description": "Email address to contact the business\nMaximum of 128 characters",
+      "type": "string"
+    },
+    "hours": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `hours` to the tool, first call the tool `expandSchema` with \"/properties/hours\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "websites": {
+      "description": "URLs associated with business (e.g., website, Facebook page, Instagram)\nMaximum of 2 websites with a maximum of 256 characters each",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

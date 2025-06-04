@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "count": {
+      "description": "Count of objects to return",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 500,
+      "default": 100
+    },
+    "offset": {
+      "description": "Offset of objects to return",
+      "type": "number",
+      "minimum": 0
+    },
+    "time_from": {
+      "description": "Timestamp from which to get objects",
+      "type": "number"
+    },
+    "time_to": {
+      "description": "Timestamp up to which to get objects",
+      "type": "number"
+    },
+    "sort": {
+      "description": "Order for items in request",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    }
+  },
+  "required": []
+}

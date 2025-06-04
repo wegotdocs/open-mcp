@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "country_code": {
+      "description": "Country for search",
+      "type": "string"
+    },
+    "cursor": {
+      "description": "Cursor to continue pagination",
+      "type": "string"
+    },
+    "count": {
+      "description": "Count of objects to return",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 500,
+      "default": 100
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "contacts": {
+      "type": "array",
+      "description": "List of contacts to send the story to",
+      "items": {
+        "type": "string",
+        "description": "Contact ID",
+        "pattern": "^([\\d]{7,15})?$"
+      }
+    },
+    "exclude_contacts": {
+      "type": "array",
+      "description": "List of contacts to exclude",
+      "items": {
+        "type": "string",
+        "description": "Contact ID",
+        "pattern": "^([\\d]{7,15})?$"
+      }
+    },
+    "caption": {
+      "description": "Optional. Text caption under the media.",
+      "type": "string"
+    },
+    "background_color": {
+      "type": "string",
+      "description": "Background color of the story (ARGB)",
+      "pattern": "^#[0-9a-fA-F]{6,8}$",
+      "example": "#FF000000",
+      "default": "#00000000"
+    },
+    "caption_color": {
+      "type": "string",
+      "description": "Caption color of the story (ARGB)",
+      "pattern": "^#[0-9a-fA-F]{6,8}$",
+      "example": "#FF000000",
+      "default": "#FFFFFFFF"
+    },
+    "font_type": {
+      "type": "string",
+      "description": "Font style of the story",
+      "enum": [
+        "SYSTEM",
+        "SYSTEM_TEXT",
+        "FB_SCRIPT",
+        "SYSTEM_BOLD",
+        "MORNINGBREEZE_REGULAR",
+        "CALISTOGA_REGULAR",
+        "EXO2_EXTRABOLD",
+        "COURIERPRIME_BOLD"
+      ]
+    }
+  },
+  "required": [
+    "caption"
+  ]
+}

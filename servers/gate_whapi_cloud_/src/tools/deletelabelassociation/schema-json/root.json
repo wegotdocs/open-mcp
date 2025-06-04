@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "LabelID": {
+      "description": "Label ID",
+      "type": "string",
+      "pattern": "^([\\d]{1,2})?$"
+    },
+    "AssociationID": {
+      "description": "Chat ID or Message ID for label association",
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Message ID",
+          "pattern": "^[A-Za-z0-9._]{4,23}-[A-Za-z0-9._]{4,14}(-[A-Za-z0-9._]{4,10})?(-[A-Za-z0-9._]{4,10})?$"
+        },
+        {
+          "type": "string",
+          "description": "Chat ID",
+          "pattern": "^[\\d-]{10,31}@[\\w\\.]{1,}$"
+        }
+      ]
+    }
+  },
+  "required": [
+    "LabelID",
+    "AssociationID"
+  ]
+}

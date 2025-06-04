@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Label ID",
+      "pattern": "^([\\d]{1,2})?$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Label name"
+    },
+    "color": {
+      "type": "string",
+      "description": "Label color",
+      "enum": [
+        "salmon",
+        "lightskyblue",
+        "gold",
+        "plum",
+        "silver",
+        "mediumturquoise",
+        "violet",
+        "goldenrod",
+        "cornflowerblue",
+        "greenyellow",
+        "cyan",
+        "lightpink",
+        "mediumaquamarine",
+        "orangered",
+        "deepskyblue",
+        "limegreen",
+        "darkorange",
+        "lightsteelblue",
+        "mediumpurple",
+        "rebeccapurple"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "color"
+  ]
+}

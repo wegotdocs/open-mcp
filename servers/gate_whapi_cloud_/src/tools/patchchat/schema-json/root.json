@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "ChatID": {
+      "description": "Chat ID",
+      "type": "string",
+      "pattern": "^[\\d-]{10,31}@[\\w\\.]{1,}$"
+    },
+    "pin": {
+      "type": "boolean",
+      "description": "Pin or unpin chat",
+      "example": true
+    },
+    "mute_until": {
+      "type": "integer",
+      "description": "Time until which the chat should remain muted, in UNIX timestamp format (in milliseconds). Use 0 to unmute the chat",
+      "example": 1810364624000
+    },
+    "mark_unread": {
+      "type": "boolean",
+      "description": "Mark as unread/read chat",
+      "example": true
+    },
+    "ephemeral": {
+      "type": "string",
+      "description": "Amount of days to store messages, when set to none will store infinitely",
+      "enum": [
+        "none",
+        "day",
+        "week",
+        "quarter"
+      ],
+      "example": "week"
+    }
+  },
+  "required": [
+    "ChatID"
+  ]
+}

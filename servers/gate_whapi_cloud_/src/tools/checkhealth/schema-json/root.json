@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "wakeup": {
+      "description": "If set to false, the channel will not launch",
+      "type": "boolean",
+      "default": true
+    },
+    "platform": {
+      "description": "Browser name, OS name, OS version separated by commas. Example: 'Safari,Windows,10.0.19044' or 'Desktop,Mac OS,11.6.3'",
+      "type": "string",
+      "example": "Chrome,Whapi,1.6.0"
+    },
+    "channel_type": {
+      "description": "Channel type. Web - for linking existing WA account via WA Web, Mobile - for creating new WA account",
+      "type": "string",
+      "enum": [
+        "web",
+        "mobile"
+      ],
+      "default": "web"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "MediaMessageType": {
+      "description": "Media message type",
+      "type": "string",
+      "enum": [
+        "image",
+        "video",
+        "gif",
+        "audio",
+        "voice",
+        "document",
+        "sticker"
+      ]
+    },
+    "SendParams": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `SendParams` to the tool, first call the tool `expandSchema` with \"/properties/SendParams\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Send sender parameters via query</property-description>",
+      "additionalProperties": true
+    },
+    "no_encode": {
+      "description": "Do not use our encoding",
+      "type": "boolean"
+    },
+    "media": {
+      "anyOf": [
+        {
+          "title": "Media with upload from file",
+          "description": "File to upload",
+          "type": "string",
+          "format": "binary"
+        },
+        {
+          "title": "Media with upload from URL",
+          "description": "Media file URL for upload",
+          "type": "string"
+        },
+        {
+          "title": "Media with upload from base64",
+          "description": "Base64 encoded file to upload",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "required": [
+    "MediaMessageType",
+    "SendParams"
+  ]
+}

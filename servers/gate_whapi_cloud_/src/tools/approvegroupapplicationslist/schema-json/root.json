@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "GroupID": {
+      "description": "Group ID",
+      "type": "string",
+      "pattern": "^[\\d-]{10,31}@g\\.us$"
+    },
+    "application": {
+      "type": "string",
+      "description": "Chat ID",
+      "pattern": "^[\\d-]{10,31}@[\\w\\.]{1,}$"
+    }
+  },
+  "required": [
+    "GroupID",
+    "application"
+  ]
+}

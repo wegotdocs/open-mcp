@@ -1,0 +1,32 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "getmessageviewstatuses",
+  "toolDescription": "Get message or story view statuses",
+  "baseUrl": "https://gate.whapi.cloud/",
+  "path": "/statuses/{MessageID}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    },
+    {
+      "key": "token",
+      "value": "<mcp-env-var>TOKEN</mcp-env-var>",
+      "in": "query",
+      "envVarName": "TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "MessageID": "MessageID"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

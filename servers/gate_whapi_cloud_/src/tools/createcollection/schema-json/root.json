@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Collection name",
+      "type": "string"
+    },
+    "products": {
+      "description": "Collection's Products",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Product ID",
+        "pattern": "^([\\d]{10,18})?$"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "products"
+  ]
+}

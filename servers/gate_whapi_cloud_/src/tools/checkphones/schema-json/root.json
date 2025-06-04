@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "blocking": {
+      "description": "Blocking determines whether the request should wait for the processing to complete (synchronous) or not (asynchronous).",
+      "default": "no_wait",
+      "enum": [
+        "no_wait",
+        "wait"
+      ],
+      "type": "string"
+    },
+    "contacts": {
+      "description": "Array of contact phone numbers. The numbers can be in any standard telephone number format.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "force_check": {
+      "description": "Force check determines whether the request should check the contact even if it is already in the cache.",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "contacts"
+  ]
+}

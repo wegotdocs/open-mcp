@@ -1,0 +1,250 @@
+{
+  "description": "Send sender parameters via query",
+  "title": "Sender media",
+  "type": "object",
+  "required": [
+    "to"
+  ],
+  "allOf": [
+    {
+      "title": "Send message parameters",
+      "required": [
+        "to"
+      ],
+      "type": "object",
+      "properties": {
+        "to": {
+          "type": "string",
+          "description": "Use the phone number or [Chat ID](https://support.whapi.cloud/help-desk/faq/chat-id.-what-is-it-and-how-to-get-it) of the contact/group/channel to which you want to send the message. Use [Get groups](https://whapi.readme.io/reference/getgroups) to get the group ID.",
+          "pattern": "^[\\d-]{9,31}(@[\\w\\.]{1,})?$",
+          "example": "1234567891@s.whatsapp.net"
+        },
+        "quoted": {
+          "type": "string",
+          "description": "Message ID of the message to be quoted",
+          "pattern": "^[A-Za-z0-9._]{4,23}-[A-Za-z0-9._]{4,14}(-[A-Za-z0-9._]{4,10})?(-[A-Za-z0-9._]{4,10})?$"
+        },
+        "ephemeral": {
+          "type": "integer",
+          "description": "Time in seconds for the message to be deleted. The Disappearing messages setting should be enabled in the chat where you are sending this message.",
+          "minimum": 1,
+          "maximum": 604800
+        },
+        "edit": {
+          "type": "string",
+          "description": "Message ID of the message to be edited",
+          "pattern": "^[A-Za-z0-9._]{4,23}-[A-Za-z0-9._]{4,14}(-[A-Za-z0-9._]{4,10})?(-[A-Za-z0-9._]{4,10})?$"
+        }
+      }
+    },
+    {
+      "oneOf": [
+        {
+          "title": "Message image or video unique parameters",
+          "type": "object",
+          "allOf": [
+            {
+              "properties": {
+                "caption": {
+                  "description": "Optional. Text caption under the media.",
+                  "type": "string"
+                },
+                "preview": {
+                  "description": "Optional. Base64 encoded preview of the media. In JPEG format.",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "title": "Size",
+              "type": "object",
+              "properties": {
+                "width": {
+                  "description": "Width of the media in pixels",
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "height": {
+                  "description": "Height of the media in pixels",
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": "Message gif unique parameters",
+          "type": "object",
+          "allOf": [
+            {
+              "title": "Message image or video unique parameters",
+              "type": "object",
+              "allOf": [
+                {
+                  "properties": {
+                    "caption": {
+                      "description": "Optional. Text caption under the media.",
+                      "type": "string"
+                    },
+                    "preview": {
+                      "description": "Optional. Base64 encoded preview of the media. In JPEG format.",
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "title": "Size",
+                  "type": "object",
+                  "properties": {
+                    "width": {
+                      "description": "Width of the media in pixels",
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "height": {
+                      "description": "Height of the media in pixels",
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "properties": {
+                "autoplay": {
+                  "description": "Optional. This field indicates whether the GIF should be played automatically when the message is received.",
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": "Message sticker unique parameters",
+          "type": "object",
+          "allOf": [
+            {
+              "properties": {
+                "animated": {
+                  "description": "Optional. For stickers, this field indicates whether the sticker is animated.",
+                  "type": "boolean"
+                }
+              }
+            },
+            {
+              "title": "Size",
+              "type": "object",
+              "properties": {
+                "width": {
+                  "description": "Width of the media in pixels",
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "height": {
+                  "description": "Height of the media in pixels",
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": "Message document unique parameters",
+          "type": "object",
+          "properties": {
+            "caption": {
+              "description": "Optional. Text caption under the document.",
+              "type": "string"
+            },
+            "filename": {
+              "description": "Optional. File name",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "title": "Message audio unique parameters",
+          "type": "object",
+          "properties": {
+            "seconds": {
+              "description": "Optional. For audio files, this field indicates the duration of the audio file in seconds.",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        {
+          "title": "Message voice unique parameters",
+          "type": "object",
+          "allOf": [
+            {
+              "title": "Message audio unique parameters",
+              "type": "object",
+              "properties": {
+                "seconds": {
+                  "description": "Optional. For audio files, this field indicates the duration of the audio file in seconds.",
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            {
+              "properties": {
+                "recording_time": {
+                  "type": "number",
+                  "description": "Time in seconds to simulate recording voice",
+                  "default": 0,
+                  "minimum": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Size",
+      "type": "object",
+      "properties": {
+        "width": {
+          "description": "Width of the media in pixels",
+          "type": "integer",
+          "format": "int32"
+        },
+        "height": {
+          "description": "Height of the media in pixels",
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    {
+      "title": "Mentions",
+      "type": "object",
+      "properties": {
+        "mentions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\d{7,15}(@s\\.whatsapp\\.net)?$|^\\d{10,31}@g\\.us$"
+          },
+          "description": "The numbers of the mentioned users"
+        }
+      }
+    },
+    {
+      "title": "View once",
+      "type": "object",
+      "properties": {
+        "view_once": {
+          "type": "boolean",
+          "description": "Is view once"
+        }
+      }
+    }
+  ],
+  "properties": {}
+}
