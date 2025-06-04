@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "description": "The identifier of the employee",
+      "format": "uuid"
+    },
+    "managerId": {
+      "type": "string",
+      "description": "The identifier of the employee manager",
+      "format": "uuid"
+    },
+    "permission": {
+      "type": "string",
+      "description": "Type of validation manager",
+      "enum": [
+        "check",
+        "vacation"
+      ]
+    },
+    "order": {
+      "type": "integer",
+      "description": "The validator order",
+      "enum": [
+        0,
+        1
+      ]
+    }
+  },
+  "required": [
+    "employeeId",
+    "managerId",
+    "permission",
+    "order"
+  ]
+}

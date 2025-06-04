@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Nombre de la formación"
+    },
+    "description": {
+      "type": "string",
+      "example": "Descripción de la formación"
+    },
+    "typeId": {
+      "type": "string",
+      "format": "uuid",
+      "example": "961b95cf-55d0-4eb6-9b98-20693f50852a"
+    },
+    "currency": {
+      "type": "string",
+      "example": "EUR"
+    },
+    "amountType": {
+      "default": "per_person",
+      "enum": [
+        "per_course",
+        "per_person"
+      ]
+    },
+    "amount": {
+      "type": "number",
+      "format": "float",
+      "example": 120.5
+    },
+    "durationInHours": {
+      "type": "number",
+      "format": "integer",
+      "example": 120
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2024-11-30"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2024-12-30"
+    },
+    "bonusable": {
+      "type": "boolean",
+      "example": false
+    },
+    "trainingEntity": {
+      "type": "string",
+      "example": "Epresa de formación"
+    },
+    "bonusPercent": {
+      "type": "number",
+      "format": "integer",
+      "example": 0
+    },
+    "email": {
+      "type": "string",
+      "example": "email@email.com"
+    },
+    "teacher": {
+      "type": "string",
+      "example": "Profesor de la formación"
+    },
+    "businessName": {
+      "type": "string",
+      "example": "Razón Social de la empresa formadora"
+    },
+    "cif": {
+      "type": "string",
+      "example": "B52603690"
+    },
+    "phone": {
+      "type": "string",
+      "example": "+34 695 36 98 80"
+    }
+  },
+  "required": [
+    "name",
+    "typeId",
+    "currency",
+    "amountType",
+    "amount",
+    "durationInHours",
+    "startDate",
+    "endDate",
+    "bonusable",
+    "trainingEntity"
+  ]
+}

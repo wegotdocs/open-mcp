@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "assignId": {
+      "description": "Assign ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "default": "pending",
+      "enum": [
+        "rejected",
+        "pending",
+        "in_progress",
+        "completed"
+      ]
+    }
+  },
+  "required": [
+    "assignId"
+  ]
+}

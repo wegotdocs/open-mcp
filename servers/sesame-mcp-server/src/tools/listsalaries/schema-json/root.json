@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "Employee ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "salaryId": {
+      "description": "Salary ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "payPeriod": {
+      "description": "Pay Period",
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "biweekly",
+        "monthly",
+        "yearly"
+      ]
+    },
+    "grossSalary": {
+      "description": "Gross Salary",
+      "type": "integer"
+    },
+    "payments": {
+      "description": "Payments",
+      "type": "integer"
+    },
+    "contributionGroup": {
+      "description": "Contribution Group",
+      "type": "string"
+    },
+    "startDate": {
+      "description": "Start Date",
+      "type": "string",
+      "format": "date"
+    },
+    "endDate": {
+      "description": "End Date",
+      "type": "string",
+      "format": "date"
+    },
+    "limit": {
+      "description": "Limit results",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "employeeId"
+  ]
+}

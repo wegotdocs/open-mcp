@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "Find employee managers by employeeId",
+      "type": "string",
+      "format": "uuid"
+    },
+    "managerId": {
+      "description": "Find employee managers by managerId",
+      "type": "string",
+      "format": "uuid"
+    },
+    "permission": {
+      "description": "Filter employee managers by permission type. <b>Supported operators:</b> in. <b>Note:</b> If an invalid permission value is provided, the filter will be ignored and all results will be returned (same behavior as not providing the parameter).",
+      "type": "string",
+      "enum": [
+        "absencesManagement",
+        "checksManageRequestsAndIncidences"
+      ]
+    },
+    "limit": {
+      "description": "Limit departments",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

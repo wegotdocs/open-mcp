@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Candidate ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "The first name of the candidate"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "The last name of the candidate"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "The phone number of the candidate"
+    },
+    "linkedinURL": {
+      "type": "string",
+      "description": "The LinkedIn URL of the candidate"
+    },
+    "desiredSalary": {
+      "type": "string",
+      "description": "The desired salary of the candidate"
+    },
+    "startWorkDate": {
+      "type": "string",
+      "description": "The start work date of the candidate"
+    },
+    "web": {
+      "type": "string",
+      "description": "The web of the candidate"
+    },
+    "location": {
+      "type": "string",
+      "description": "The location of the candidate"
+    },
+    "vacancyId": {
+      "type": "string",
+      "description": "The identifier of the vacancy where the candidate will be added",
+      "format": "uuid"
+    },
+    "statusId": {
+      "type": "string",
+      "description": "The identifier of the status of the candidate",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "id",
+    "firstName",
+    "lastName",
+    "email",
+    "phone",
+    "vacancyId"
+  ]
+}

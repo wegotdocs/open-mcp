@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "workEntryOut": {
+      "properties": {
+        "coordinates": {
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "format": "float"
+            },
+            "longitude": {
+              "type": "number",
+              "format": "float"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "employeeId"
+  ]
+}

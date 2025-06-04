@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeIds[in]": {
+      "description": "Array of employee ids",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "withChecks": {
+      "description": "true or false",
+      "type": "boolean"
+    },
+    "from": {
+      "description": "Y-m-d",
+      "type": "string",
+      "format": "date"
+    },
+    "to": {
+      "description": "Y-m-d",
+      "type": "string",
+      "format": "date"
+    },
+    "limit": {
+      "description": "Limit employees",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "from",
+    "to"
+  ]
+}

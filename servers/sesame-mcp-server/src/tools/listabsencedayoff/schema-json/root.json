@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeIds": {
+      "description": "The id of the employees",
+      "type": "array",
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      }
+    },
+    "from": {
+      "description": "First day of search period",
+      "type": "string",
+      "format": "date"
+    },
+    "to": {
+      "description": "Last day of search period",
+      "type": "string",
+      "format": "date"
+    },
+    "limit": {
+      "description": "Limit day offs",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    },
+    "orderBy": {
+      "description": "field1 asc, field2 desc",
+      "type": "string"
+    }
+  },
+  "required": []
+}

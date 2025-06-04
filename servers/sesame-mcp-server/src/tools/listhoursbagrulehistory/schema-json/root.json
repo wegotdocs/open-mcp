@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "from": {
+      "description": "Filter date by start date",
+      "type": "string",
+      "format": "date"
+    },
+    "to": {
+      "description": "Filter date by end date",
+      "type": "string",
+      "format": "date"
+    },
+    "hoursBagRuleIds": {
+      "description": "Find HoursBagRuleHistory by hoursBagRule Ids",
+      "type": "array",
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      }
+    },
+    "employeeIds": {
+      "description": "Find HoursBagRuleHistory by employee Ids",
+      "type": "array",
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      }
+    },
+    "limit": {
+      "description": "Limit HoursBagRuleHistory",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

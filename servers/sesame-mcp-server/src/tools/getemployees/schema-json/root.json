@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "from": {
+      "description": "The start of the date range for fetching employee information.",
+      "type": "string",
+      "format": "date",
+      "default": "2025-01-01"
+    },
+    "to": {
+      "description": "The end of the date range for fetching employee information.",
+      "type": "string",
+      "format": "date",
+      "default": "2025-12-31"
+    }
+  },
+  "required": [
+    "from",
+    "to"
+  ]
+}

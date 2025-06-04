@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "Employee ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "organizationChartManagerId": {
+      "type": "string",
+      "description": "The identifier of the organization chart manager",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "employeeId",
+    "organizationChartManagerId"
+  ]
+}

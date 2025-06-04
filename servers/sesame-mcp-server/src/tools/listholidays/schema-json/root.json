@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "Employee ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "year": {
+      "description": "",
+      "type": "integer",
+      "format": "YYYY"
+    },
+    "limit": {
+      "description": "Limit results",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "employeeId",
+    "year"
+  ]
+}

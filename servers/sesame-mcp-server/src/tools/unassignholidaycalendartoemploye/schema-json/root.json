@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "holidayCalendarId": {
+      "description": "Holiday Calendar Id",
+      "type": "string",
+      "format": "uuid"
+    },
+    "employees": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "example": "15547588-2e7e-4ac2-8f8a-3dce978065ba"
+      }
+    }
+  },
+  "required": [
+    "holidayCalendarId"
+  ]
+}

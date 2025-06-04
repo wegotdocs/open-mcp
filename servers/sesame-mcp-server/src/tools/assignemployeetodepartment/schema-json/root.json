@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The identifier of the employee"
+    },
+    "departmentId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The identifier of the department"
+    }
+  },
+  "required": [
+    "employeeId",
+    "departmentId"
+  ]
+}

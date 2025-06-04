@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "description": "Filter directories by employee id",
+      "type": "string",
+      "format": "uuid"
+    },
+    "parentDirectoryType": {
+      "description": "Parent directory type",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Limit results",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

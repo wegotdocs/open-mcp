@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "vacationConfigurationId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "year": {
+      "type": "integer",
+      "format": "YYYY",
+      "example": 2021
+    },
+    "daysOff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "description": "array of VacationCalendarDayOff"
+    }
+  },
+  "required": [
+    "employeeId",
+    "vacationConfigurationId",
+    "year",
+    "daysOff"
+  ]
+}

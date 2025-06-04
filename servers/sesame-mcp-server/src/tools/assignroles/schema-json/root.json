@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "roleId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Role Id"
+    },
+    "employeeId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The id of the employee to assign the role"
+    },
+    "entityAffectedId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The id of the entity to manage"
+    }
+  },
+  "required": [
+    "roleId",
+    "employeeId",
+    "entityAffectedId"
+  ]
+}

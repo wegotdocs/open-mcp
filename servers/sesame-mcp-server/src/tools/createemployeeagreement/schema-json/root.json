@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "agreementId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Agreement UUID"
+    },
+    "employeeId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Employee UUID"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Start date"
+    }
+  },
+  "required": [
+    "agreementId",
+    "employeeId",
+    "startDate"
+  ]
+}

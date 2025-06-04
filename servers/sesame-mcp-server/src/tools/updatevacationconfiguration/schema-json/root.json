@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "vacationConfigurationId": {
+      "description": "Vacation Configuration ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "requestVacationFrom": {
+      "type": "string",
+      "format": "Y-m"
+    },
+    "renewalPeriod": {
+      "type": "string",
+      "enum": [
+        "working_year",
+        "calendar_year",
+        "each_month"
+      ]
+    },
+    "dayType": {
+      "type": "string",
+      "enum": [
+        "business_day",
+        "calendar_day"
+      ]
+    },
+    "maxDaysOff": {
+      "type": "number",
+      "format": "integer"
+    },
+    "creationDateNextYear": {
+      "type": "string"
+    },
+    "maxDateToTakeVacations": {
+      "type": "number",
+      "format": "integer"
+    },
+    "needsValidation": {
+      "type": "boolean"
+    },
+    "employeeRequestDenyExcessDaysOff": {
+      "type": "boolean"
+    },
+    "hoursQuantityConfigured": {
+      "type": "boolean"
+    },
+    "halfDayVacationConfiguration": {
+      "type": "string",
+      "enum": [
+        "weekly_average",
+        "daily_average"
+      ]
+    },
+    "allowFreeHoursSelection": {
+      "type": "boolean"
+    },
+    "enjoyMonthPeriod": {
+      "type": "number",
+      "format": "integer"
+    },
+    "employeeRequestEnabled": {
+      "type": "boolean"
+    },
+    "notAllowedDateRanges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "format": "Y-m"
+          },
+          "to": {
+            "type": "string",
+            "format": "Y-m"
+          }
+        }
+      }
+    },
+    "configurationType": {
+      "type": "string",
+      "enum": [
+        "max_days",
+        "seniority_days",
+        "unlimited_days"
+      ]
+    },
+    "year": {
+      "type": "number",
+      "format": "int"
+    }
+  },
+  "required": [
+    "vacationConfigurationId",
+    "name",
+    "dayType",
+    "creationDateNextYear",
+    "needsValidation",
+    "employeeRequestDenyExcessDaysOff",
+    "hoursQuantityConfigured",
+    "allowFreeHoursSelection",
+    "employeeRequestEnabled",
+    "configurationType"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "agreementId": {
+      "description": "Agreement UUID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "Agreement name"
+    },
+    "code": {
+      "type": "string",
+      "description": "Agreement code"
+    },
+    "color": {
+      "type": "string",
+      "description": "Color of agreement"
+    },
+    "annualHours": {
+      "type": "number",
+      "format": "int",
+      "description": "Annual hours"
+    }
+  },
+  "required": [
+    "agreementId",
+    "name",
+    "code",
+    "color",
+    "annualHours"
+  ]
+}

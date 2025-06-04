@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "vacationConfigurationId": {
+      "description": "Vacation Configuration ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "year": {
+      "description": "year of the configuration",
+      "type": "number",
+      "format": "int"
+    },
+    "limit": {
+      "description": "Limit contract types",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "vacationConfigurationId"
+  ]
+}

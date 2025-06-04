@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Custom field ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the custom field"
+    },
+    "slug": {
+      "type": "string",
+      "format": "cf_[a-z0-9_]+",
+      "example": "cf_preferred_os"
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ]
+}

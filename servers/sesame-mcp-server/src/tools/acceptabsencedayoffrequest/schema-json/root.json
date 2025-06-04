@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Day Off Request Id",
+      "type": "string",
+      "format": "uuid"
+    },
+    "managerId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "resolutionComment": {
+      "type": "string",
+      "example": "No problem!"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

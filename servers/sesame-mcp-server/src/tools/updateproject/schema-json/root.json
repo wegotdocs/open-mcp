@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Project ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the project"
+    },
+    "parentProjectId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The id of the parent project"
+    },
+    "customerId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The id of the customer"
+    },
+    "price": {
+      "type": "number",
+      "format": "float",
+      "description": "The price of the project"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The start date of the project"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The end date of the project"
+    },
+    "managerId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The id of the employee manager"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the project"
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the project",
+      "enum": [
+        "active",
+        "inactive",
+        "paused"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ]
+}

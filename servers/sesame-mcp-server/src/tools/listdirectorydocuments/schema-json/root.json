@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "directoryId": {
+      "description": "Directory UUID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "limit": {
+      "description": "Number of documents per page",
+      "type": "number",
+      "format": "int"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "number",
+      "format": "int"
+    }
+  },
+  "required": [
+    "directoryId"
+  ]
+}

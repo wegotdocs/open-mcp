@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "Limit results",
+      "type": "integer",
+      "default": 20
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    },
+    "name[contains]": {
+      "description": "Filter by name",
+      "type": "string"
+    }
+  },
+  "required": []
+}

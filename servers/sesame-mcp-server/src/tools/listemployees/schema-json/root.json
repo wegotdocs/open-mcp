@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "Find Employee by code",
+      "type": "integer"
+    },
+    "dni": {
+      "description": "Find Employee by dni",
+      "type": "string"
+    },
+    "email": {
+      "description": "Find Employee by email",
+      "type": "string",
+      "format": "email"
+    },
+    "departmentIds": {
+      "description": "Find Employee by department Ids",
+      "type": "array",
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      }
+    },
+    "officeIds": {
+      "description": "Find Employee by office Ids",
+      "type": "array",
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      }
+    },
+    "limit": {
+      "description": "Limit employees",
+      "type": "integer"
+    },
+    "page": {
+      "description": "Request a specific page",
+      "type": "integer"
+    },
+    "orderBy": {
+      "description": "field1 asc, field2 desc",
+      "type": "string"
+    },
+    "status": {
+      "description": "<b>Supported operators:</b> in",
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    }
+  },
+  "required": []
+}
