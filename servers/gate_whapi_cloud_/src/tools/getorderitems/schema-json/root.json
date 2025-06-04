@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "OrderID": {
+      "description": "Order ID",
+      "type": "string",
+      "pattern": "^([\\d]{10,18})?$"
+    },
+    "order_token": {
+      "description": "Base64 token from order for receiving information",
+      "type": "string"
+    }
+  },
+  "required": [
+    "OrderID"
+  ]
+}

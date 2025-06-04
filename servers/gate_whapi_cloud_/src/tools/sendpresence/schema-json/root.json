@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "EntryID": {
+      "description": "Contact or group id",
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Contact ID",
+          "pattern": "^([\\d]{7,15})?$"
+        },
+        {
+          "type": "string",
+          "description": "Chat ID",
+          "pattern": "^[\\d-]{10,31}@[\\w\\.]{1,}$"
+        }
+      ]
+    },
+    "presence": {
+      "type": "string",
+      "enum": [
+        "typing",
+        "recording",
+        "pause"
+      ]
+    },
+    "delay": {
+      "type": "number",
+      "description": "Delay in seconds to simulate typing or recording",
+      "default": 0,
+      "minimum": 0
+    }
+  },
+  "required": [
+    "EntryID",
+    "presence"
+  ]
+}

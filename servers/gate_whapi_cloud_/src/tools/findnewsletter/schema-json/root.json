@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "country_code": {
+      "description": "Country for search",
+      "type": "string"
+    },
+    "search": {
+      "description": "Search word",
+      "type": "string"
+    },
+    "newsletter_field": {
+      "description": "Cursor to continue pagination",
+      "type": "string",
+      "enum": [
+        "creation_time",
+        "subscribers"
+      ]
+    },
+    "cursor": {
+      "description": "Cursor to continue pagination",
+      "type": "string"
+    },
+    "count": {
+      "description": "Count of objects to return",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 500,
+      "default": 100
+    },
+    "sort": {
+      "description": "Order for items in request",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    }
+  },
+  "required": []
+}

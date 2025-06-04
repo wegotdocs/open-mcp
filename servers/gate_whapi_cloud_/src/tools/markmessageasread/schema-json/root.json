@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "MessageID": {
+      "description": "Message ID",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._]{4,23}-[A-Za-z0-9._]{4,14}(-[A-Za-z0-9._]{4,10})?(-[A-Za-z0-9._]{4,10})?$"
+    }
+  },
+  "required": [
+    "MessageID"
+  ]
+}

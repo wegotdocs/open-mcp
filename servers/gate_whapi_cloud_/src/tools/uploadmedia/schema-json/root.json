@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "no_encode": {
+      "description": "Do not use our encoding",
+      "type": "boolean"
+    },
+    "media": {
+      "anyOf": [
+        {
+          "title": "Media with upload from file",
+          "description": "File to upload",
+          "type": "string",
+          "format": "binary"
+        },
+        {
+          "title": "Media with upload from URL",
+          "description": "Media file URL for upload",
+          "type": "string"
+        },
+        {
+          "title": "Media with upload from base64",
+          "description": "Base64 encoded file to upload",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "required": []
+}

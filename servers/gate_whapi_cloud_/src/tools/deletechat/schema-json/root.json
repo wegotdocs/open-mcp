@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "ChatID": {
+      "description": "Chat ID",
+      "type": "string",
+      "pattern": "^[\\d-]{10,31}@[\\w\\.]{1,}$"
+    }
+  },
+  "required": [
+    "ChatID"
+  ]
+}

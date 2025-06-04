@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "GroupID": {
+      "description": "Group ID",
+      "type": "string",
+      "pattern": "^[\\d-]{10,31}@g\\.us$"
+    },
+    "media": {
+      "anyOf": [
+        {
+          "title": "Media with upload from URL",
+          "description": "Media file URL for upload",
+          "type": "string"
+        },
+        {
+          "title": "Media with upload from base64",
+          "description": "Base64 encoded file to upload",
+          "type": "string"
+        },
+        {
+          "title": "Media without upload",
+          "description": "Media file ID",
+          "type": "string"
+        }
+      ]
+    },
+    "mime_type": {
+      "description": "Mime type of media",
+      "type": "string"
+    }
+  },
+  "required": [
+    "GroupID",
+    "media"
+  ]
+}

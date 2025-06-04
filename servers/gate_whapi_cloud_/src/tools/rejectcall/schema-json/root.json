@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "CallID": {
+      "description": "Call ID",
+      "type": "string"
+    },
+    "callFrom": {
+      "type": "string",
+      "description": "Contact ID",
+      "pattern": "^([\\d]{7,15})?$"
+    }
+  },
+  "required": [
+    "CallID",
+    "callFrom"
+  ]
+}

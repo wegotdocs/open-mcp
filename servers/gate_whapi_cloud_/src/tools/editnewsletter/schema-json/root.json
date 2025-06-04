@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "NewsletterID": {
+      "description": "Newsletter ID",
+      "type": "string",
+      "pattern": "^[\\d]{10,18}@newsletter$"
+    },
+    "name": {
+      "type": "string",
+      "example": "<Newsletter Title>"
+    },
+    "description": {
+      "type": "string",
+      "example": "<Newsletter Description>"
+    },
+    "newsletter_pic": {
+      "type": "string",
+      "description": "Newsletter jpeg picture in base64 format",
+      "example": "<data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAAAAAAD/>"
+    },
+    "reactions": {
+      "description": "Available reactions",
+      "type": "string",
+      "enum": [
+        "all",
+        "basic",
+        "blocklist",
+        "none"
+      ]
+    }
+  },
+  "required": [
+    "NewsletterID"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "GroupID": {
+      "description": "Group ID",
+      "type": "string",
+      "pattern": "^[\\d-]{10,31}@g\\.us$"
+    },
+    "setting": {
+      "type": "string",
+      "enum": [
+        "send_messages",
+        "edit_group_info",
+        "approve_participants",
+        "add_participants"
+      ]
+    },
+    "policy": {
+      "type": "string",
+      "enum": [
+        "anyone",
+        "admins"
+      ]
+    }
+  },
+  "required": [
+    "GroupID",
+    "setting",
+    "policy"
+  ]
+}

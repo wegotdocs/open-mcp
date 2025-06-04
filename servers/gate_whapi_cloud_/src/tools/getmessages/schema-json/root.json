@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "count": {
+      "description": "Count of objects to return",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 500,
+      "default": 100
+    },
+    "offset": {
+      "description": "Offset of objects to return",
+      "type": "number",
+      "minimum": 0
+    },
+    "time_from": {
+      "description": "Timestamp from which to get objects",
+      "type": "number"
+    },
+    "time_to": {
+      "description": "Timestamp up to which to get objects",
+      "type": "number"
+    },
+    "normal_types": {
+      "description": "If false, include system messages",
+      "type": "boolean"
+    },
+    "author": {
+      "description": "Contact ID",
+      "type": "string",
+      "pattern": "^([\\d]{7,15})?$"
+    },
+    "from_me": {
+      "description": "If true, only return messages sent by the authenticated user. If false, only return messages sent by other users.",
+      "type": "boolean"
+    },
+    "sort": {
+      "description": "Order for items in request",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    }
+  },
+  "required": []
+}

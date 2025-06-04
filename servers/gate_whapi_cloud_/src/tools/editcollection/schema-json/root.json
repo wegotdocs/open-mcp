@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "CollectionID": {
+      "description": "CollectionID",
+      "type": "string"
+    },
+    "name": {
+      "description": "Collection name",
+      "type": "string"
+    },
+    "remove_products": {
+      "description": "List of product's ids",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Product ID",
+        "pattern": "^([\\d]{10,18})?$"
+      }
+    },
+    "add_products": {
+      "description": "List of product's ids",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Product ID",
+        "pattern": "^([\\d]{10,18})?$"
+      }
+    }
+  },
+  "required": [
+    "CollectionID"
+  ]
+}

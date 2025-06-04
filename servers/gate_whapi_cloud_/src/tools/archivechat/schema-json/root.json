@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "ChatID": {
+      "description": "Chat ID",
+      "type": "string",
+      "pattern": "^[\\d-]{10,31}@[\\w\\.]{1,}$"
+    },
+    "archive": {
+      "type": "boolean",
+      "description": "Archive or unarchive chat",
+      "example": true
+    }
+  },
+  "required": [
+    "ChatID"
+  ]
+}

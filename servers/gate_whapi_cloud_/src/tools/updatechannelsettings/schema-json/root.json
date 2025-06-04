@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "callback_backoff_delay_ms": {
+      "description": "Backoff delay for a failed callback in milliseconds This setting is used to configure the amount of time the backoff delays before retrying a failed callback. The backoff delay increases linearly by this value each time a callback fails to get a HTTPS 200 OK response. The backoff delay is capped by the max_callback_backoff_delay_ms setting.",
+      "type": "number",
+      "minimum": 3000,
+      "maximum": 15000
+    },
+    "max_callback_backoff_delay_ms": {
+      "description": "Maximum delay for a failed callback in milliseconds",
+      "type": "number",
+      "minimum": 600000,
+      "maximum": 3600000
+    },
+    "callback_persist": {
+      "description": "Stores callbacks on disk until they are successfully acknowledged by the Webhook or not. Restart required.",
+      "type": "boolean"
+    },
+    "media": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `media` to the tool, first call the tool `expandSchema` with \"/properties/media\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "webhooks": {
+      "title": "Webhooks",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "proxy": {
+      "description": "Use your Socks5 proxy if your account activity arouses suspicion from WhatsApp. This can help maintain anonymity and ensure smooth operation.",
+      "type": "string",
+      "pattern": "^socks5h?:\\/\\/([!-\\/:-@[-`{-~a-zA-Z0-9_-]+):([a-zA-Z0-9_-]+)@(((?:[0-9]{1,3}\\.){3}[0-9]{1,3})|[a-zA-Z0-9.]+):([0-9]{1,5})$|^$"
+    },
+    "mobile_proxy": {
+      "description": "Service proxy for mobile authorization.",
+      "type": "string"
+    },
+    "offline_mode": {
+      "description": "When true, API will not send online status to the server on connection. This will allow you to receive push notifications to devices connected to the number. Working after reconnect.",
+      "default": false,
+      "type": "boolean"
+    },
+    "full_history": {
+      "description": "When true, all messages will be cached after the connection. If false, old messages will selectively not be cached, allowing large accounts to run faster. Working after reconnect.",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

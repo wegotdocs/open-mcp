@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "NewsletterID": {
+      "description": "Newsletter ID",
+      "type": "string",
+      "pattern": "^[\\d]{10,18}@newsletter$"
+    },
+    "count": {
+      "description": "Count of objects to return",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 500,
+      "default": 100
+    },
+    "before": {
+      "description": "Request messages before the specified one (see first and last)",
+      "type": "number",
+      "minimum": 0
+    },
+    "after": {
+      "description": "Request messages after the specified one (see first and last)",
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "NewsletterID"
+  ]
+}

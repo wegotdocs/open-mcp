@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "EntryID": {
+      "description": "Contact or group id",
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Contact ID",
+          "pattern": "^([\\d]{7,15})?$"
+        },
+        {
+          "type": "string",
+          "description": "Chat ID",
+          "pattern": "^[\\d-]{10,31}@[\\w\\.]{1,}$"
+        }
+      ]
+    }
+  },
+  "required": [
+    "EntryID"
+  ]
+}
