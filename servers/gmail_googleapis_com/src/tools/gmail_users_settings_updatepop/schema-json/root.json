@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+      "default": "me",
+      "type": "string"
+    },
+    "accessWindow": {
+      "description": "The range of messages which are accessible via POP.",
+      "enum": [
+        "accessWindowUnspecified",
+        "disabled",
+        "fromNowOn",
+        "allMail"
+      ],
+      "type": "string"
+    },
+    "disposition": {
+      "description": "The action that will be executed on a message after it has been fetched via POP.",
+      "enum": [
+        "dispositionUnspecified",
+        "leaveInInbox",
+        "archive",
+        "trash",
+        "markRead"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

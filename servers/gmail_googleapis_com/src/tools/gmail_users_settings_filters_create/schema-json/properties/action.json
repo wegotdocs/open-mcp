@@ -1,0 +1,24 @@
+{
+  "description": "Action that the filter performs.",
+  "properties": {
+    "addLabelIds": {
+      "description": "List of labels to add to the message.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "forward": {
+      "description": "Email address that the message should be forwarded to.",
+      "type": "string"
+    },
+    "removeLabelIds": {
+      "description": "List of labels to remove from the message.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}
