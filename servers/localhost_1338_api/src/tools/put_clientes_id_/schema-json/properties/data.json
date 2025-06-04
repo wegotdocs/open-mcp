@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "nombre": {
+      "type": "string"
+    },
+    "dni": {
+      "type": "string"
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "trasteros": {
+      "type": "array",
+      "items": {
+        "example": "string or id",
+        "anyOf": [
+          {
+            "type": "integer"
+          }
+        ]
+      }
+    }
+  }
+}

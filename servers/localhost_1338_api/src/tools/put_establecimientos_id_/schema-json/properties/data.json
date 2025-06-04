@@ -1,0 +1,26 @@
+{
+  "required": [
+    "nombre",
+    "direccion"
+  ],
+  "type": "object",
+  "properties": {
+    "nombre": {
+      "type": "string"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "trasteros": {
+      "type": "array",
+      "items": {
+        "example": "string or id",
+        "anyOf": [
+          {
+            "type": "integer"
+          }
+        ]
+      }
+    }
+  }
+}

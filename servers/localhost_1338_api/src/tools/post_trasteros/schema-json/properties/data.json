@@ -1,0 +1,36 @@
+{
+  "required": [
+    "numero",
+    "metrosCuadrados"
+  ],
+  "type": "object",
+  "properties": {
+    "numero": {
+      "type": "integer"
+    },
+    "metrosCuadrados": {
+      "type": "number",
+      "format": "float"
+    },
+    "precio": {
+      "type": "number",
+      "format": "float"
+    },
+    "establecimiento": {
+      "example": "string or id",
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "cliente": {
+      "example": "string or id",
+      "anyOf": [
+        {
+          "type": "integer"
+        }
+      ]
+    }
+  }
+}
