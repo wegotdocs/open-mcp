@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "forwardingEmail": {
+      "description": "An email address to which messages can be forwarded.",
+      "type": "string"
+    },
+    "verificationStatus": {
+      "description": "Indicates whether this address has been verified and is usable for forwarding. Read-only.",
+      "enum": [
+        "verificationStatusUnspecified",
+        "accepted",
+        "pending"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

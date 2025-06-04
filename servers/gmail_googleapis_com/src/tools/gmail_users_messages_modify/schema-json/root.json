@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the message to modify.",
+      "type": "string"
+    },
+    "addLabelIds": {
+      "description": "A list of IDs of labels to add to this message. You can add up to 100 labels with each update.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "removeLabelIds": {
+      "description": "A list IDs of labels to remove from this message. You can remove up to 100 labels with each update.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "userId",
+    "id"
+  ]
+}

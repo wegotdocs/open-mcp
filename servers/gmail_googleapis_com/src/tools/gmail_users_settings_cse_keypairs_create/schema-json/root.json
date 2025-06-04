@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The requester's primary email address. To indicate the authenticated user, you can use the special value `me`.",
+      "type": "string"
+    },
+    "disableTime": {
+      "description": "Output only. If a key pair is set to `DISABLED`, the time that the key pair's state changed from `ENABLED` to `DISABLED`. This field is present only when the key pair is in state `DISABLED`.",
+      "format": "google-datetime",
+      "readOnly": true,
+      "type": "string"
+    },
+    "enablementState": {
+      "description": "Output only. The current state of the key pair.",
+      "enum": [
+        "stateUnspecified",
+        "enabled",
+        "disabled"
+      ],
+      "readOnly": true,
+      "type": "string"
+    },
+    "keyPairId": {
+      "description": "Output only. The immutable ID for the client-side encryption S/MIME key pair.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "pem": {
+      "description": "Output only. The public key and its certificate chain, in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "pkcs7": {
+      "description": "Input only. The public key and its certificate chain. The chain must be in [PKCS#7](https://en.wikipedia.org/wiki/PKCS_7) format and use PEM encoding and ASCII armor.",
+      "type": "string"
+    },
+    "privateKeyMetadata": {
+      "description": "Metadata for instances of this key pair's private key.",
+      "items": {
+        "description": "Metadata for a private key instance.",
+        "properties": {
+          "kaclsKeyMetadata": {
+            "description": "Metadata for a private key instance managed by an external key access control list service.",
+            "properties": {
+              "kaclsData": {
+                "description": "Opaque data generated and used by the key access control list service. Maximum size: 8 KiB.",
+                "type": "string"
+              },
+              "kaclsUri": {
+                "description": "The URI of the key access control list service that manages the private key.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "privateKeyMetadataId": {
+            "description": "Output only. The immutable ID for the private key metadata instance.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "subjectEmailAddresses": {
+      "description": "Output only. The email address identities that are specified on the leaf certificate.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

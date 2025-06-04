@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "autoExpunge": {
+      "description": "If this value is true, Gmail will immediately expunge a message when it is marked as deleted in IMAP. Otherwise, Gmail will wait for an update from the client before expunging messages marked as deleted.",
+      "type": "boolean"
+    },
+    "enabled": {
+      "description": "Whether IMAP is enabled for the account.",
+      "type": "boolean"
+    },
+    "expungeBehavior": {
+      "description": "The action that will be executed on a message when it is marked as deleted and expunged from the last visible IMAP folder.",
+      "enum": [
+        "expungeBehaviorUnspecified",
+        "archive",
+        "trash",
+        "deleteForever"
+      ],
+      "type": "string"
+    },
+    "maxFolderSize": {
+      "description": "An optional limit on the number of messages that an IMAP folder may contain. Legal values are 0, 1000, 2000, 5000 or 10000. A value of zero is interpreted to mean that there is no limit.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

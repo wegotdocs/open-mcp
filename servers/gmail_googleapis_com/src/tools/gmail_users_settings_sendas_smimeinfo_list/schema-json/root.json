@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "sendAsEmail": {
+      "description": "The email address that appears in the \"From:\" header for mail sent using this alias.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "sendAsEmail"
+  ]
+}

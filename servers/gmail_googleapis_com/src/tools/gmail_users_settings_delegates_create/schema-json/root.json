@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "delegateEmail": {
+      "description": "The email address of the delegate.",
+      "type": "string"
+    },
+    "verificationStatus": {
+      "description": "Indicates whether this address has been verified and can act as a delegate for the account. Read-only.",
+      "enum": [
+        "verificationStatusUnspecified",
+        "accepted",
+        "pending",
+        "rejected",
+        "expired"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The requester's primary email address. To indicate the authenticated user, you can use the special value `me`.",
+      "type": "string"
+    },
+    "keyPairId": {
+      "description": "The identifier of the key pair to retrieve.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "keyPairId"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "forwardingEmail": {
+      "description": "The forwarding address to be retrieved.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "forwardingEmail"
+  ]
+}
