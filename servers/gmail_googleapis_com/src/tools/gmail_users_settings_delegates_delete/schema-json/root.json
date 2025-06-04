@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+      "default": "me",
+      "type": "string"
+    },
+    "delegateEmail": {
+      "description": "The email address of the user to be removed as a delegate.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "delegateEmail"
+  ]
+}

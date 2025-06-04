@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "default": "me",
+      "type": "string"
+    },
+    "ids": {
+      "description": "The IDs of the messages to delete.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "default": "me",
+      "type": "string"
+    },
+    "sendAsEmail": {
+      "description": "The email address that appears in the \"From:\" header for mail sent using this alias.",
+      "type": "string"
+    },
+    "encryptedKeyPassword": {
+      "description": "Encrypted key password, when key is encrypted.",
+      "type": "string"
+    },
+    "expiration": {
+      "description": "When the certificate expires (in milliseconds since epoch).",
+      "format": "int64",
+      "type": "string"
+    },
+    "id": {
+      "description": "The immutable ID for the SmimeInfo.",
+      "type": "string"
+    },
+    "isDefault": {
+      "description": "Whether this SmimeInfo is the default one for this user's send-as address.",
+      "type": "boolean"
+    },
+    "issuerCn": {
+      "description": "The S/MIME certificate issuer's common name.",
+      "type": "string"
+    },
+    "pem": {
+      "description": "PEM formatted X509 concatenated certificate string (standard base64 encoding). Format used for returning key, which includes public key as well as certificate chain (not private key).",
+      "type": "string"
+    },
+    "pkcs12": {
+      "description": "PKCS#12 format containing a single private/public key pair and certificate chain. This format is only accepted from client for creating a new SmimeInfo and is never returned, because the private key is not intended to be exported. PKCS#12 may be encrypted, in which case encryptedKeyPassword should be set appropriately.",
+      "format": "byte",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "sendAsEmail"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "default": "me",
+      "type": "string"
+    },
+    "messageId": {
+      "description": "The ID of the message containing the attachment.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the attachment.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "messageId",
+    "id"
+  ]
+}
