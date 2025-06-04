@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "deleted": {
+      "description": "Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for Google Workspace accounts.",
+      "type": "boolean"
+    },
+    "internalDateSource": {
+      "description": "Source for Gmail's internal date of the message.",
+      "enum": [
+        "receivedTime",
+        "dateHeader"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

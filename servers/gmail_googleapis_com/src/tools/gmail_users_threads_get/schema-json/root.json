@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the thread to retrieve.",
+      "type": "string"
+    },
+    "format": {
+      "description": "The format to return the messages in.",
+      "enum": [
+        "full",
+        "metadata",
+        "minimal"
+      ],
+      "type": "string"
+    },
+    "metadataHeaders": {
+      "description": "When given and format is METADATA, only include headers specified.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "userId",
+    "id"
+  ]
+}

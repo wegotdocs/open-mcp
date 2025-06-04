@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the filter to be deleted.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "id"
+  ]
+}

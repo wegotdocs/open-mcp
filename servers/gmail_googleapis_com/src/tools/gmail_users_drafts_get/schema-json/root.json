@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The user's email address. The special value `me` can be used to indicate the authenticated user.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the draft to retrieve.",
+      "type": "string"
+    },
+    "format": {
+      "description": "The format to return the draft in.",
+      "enum": [
+        "minimal",
+        "full",
+        "raw",
+        "metadata"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "id"
+  ]
+}

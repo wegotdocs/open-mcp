@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The requester's primary email address. To indicate the authenticated user, you can use the special value `me`.",
+      "type": "string"
+    },
+    "emailAddress": {
+      "description": "The email address of the client-side encryption identity to update.",
+      "type": "string"
+    },
+    "b_emailAddress": {
+      "description": "The email address for the sending identity. The email address must be the primary email address of the authenticated user.",
+      "type": "string"
+    },
+    "primaryKeyPairId": {
+      "description": "If a key pair is associated, the identifier of the key pair, CseKeyPair.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userId",
+    "emailAddress"
+  ]
+}
