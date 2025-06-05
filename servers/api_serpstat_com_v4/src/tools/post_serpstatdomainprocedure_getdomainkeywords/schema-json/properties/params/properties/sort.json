@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "description": "Order of sorting the results in the format: {field: order}\n\nDefault: `{\"position\": \"asc\", \"region_queries_count\": \"desc\"}`\n",
+  "properties": {
+    "region_queries_count": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by keyword search volume, where 'asc' means ascending and 'desc' means descending."
+    },
+    "types": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by special elements associated with the keywords, with 'asc' for ascending and 'desc' for descending."
+    },
+    "cost": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the keyword cost per click (CPC), with 'asc' for ascending and 'desc' for descending."
+    },
+    "keyword_length": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the length of the keyword (number of words), with 'asc' for ascending and 'desc' for descending."
+    },
+    "concurrency": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by concurrency, indicating the availability or competition for the keyword, with 'asc' for ascending and 'desc' for descending."
+    },
+    "geo_names": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the toponyms (geographic locations) related to the keyword, with 'asc' for ascending and 'desc' for descending."
+    },
+    "traff": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the traffic associated with the keyword, with 'asc' for ascending and 'desc' for descending."
+    },
+    "region_queries_count_wide": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the keyword volume in broad match, where 'asc' means ascending and 'desc' means descending."
+    },
+    "dynamic": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by keyword dynamic, indicating how often the keyword changes, with 'asc' for ascending and 'desc' for descending."
+    },
+    "position": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the position of the keyword, with 'asc' for ascending and 'desc' for descending."
+    },
+    "found_results": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of results found for the keyword, with 'asc' for ascending and 'desc' for descending."
+    }
+  }
+}

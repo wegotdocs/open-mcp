@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "description": "Filters for search. Fields are combined using the **AND** logic. Numeric range fields (`_from` and `_to`) allow specifying minimum and maximum values. List fields (`_contain` and `_not_contain`) specify inclusion or exclusion criteria",
+  "properties": {
+    "visible": {
+      "type": "integer",
+      "description": "The visibility score"
+    },
+    "visible_from": {
+      "type": "integer",
+      "description": "The minimum visibility score to apply the filter."
+    },
+    "visible_to": {
+      "type": "integer",
+      "description": "The maximum visibility score to apply the filter."
+    },
+    "traff": {
+      "type": "integer",
+      "description": "The traffic score"
+    },
+    "traff_from": {
+      "type": "integer",
+      "description": "The minimum traffic score to apply the filter."
+    },
+    "traff_to": {
+      "type": "integer",
+      "description": "The maximum traffic score to apply the filter."
+    },
+    "minus_domains": {
+      "type": "array",
+      "description": "A list of domain names to exclude from the search.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "keywords": {
+      "type": "integer",
+      "description": "The total number of keywords associated with the filter."
+    },
+    "keywords_from": {
+      "type": "integer",
+      "description": "The minimum number of keywords to apply the filter."
+    },
+    "keywords_to": {
+      "type": "integer",
+      "description": "The maximum number of keywords to apply the filter."
+    },
+    "relevance": {
+      "type": "integer",
+      "description": "The relevance score"
+    },
+    "relevance_from": {
+      "type": "integer",
+      "description": "The minimum relevance score to apply the filter."
+    },
+    "relevance_to": {
+      "type": "integer",
+      "description": "The maximum relevance score to apply the filter."
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": "basic filters",
+  "x-stoplight": {
+    "id": "h8supmwurzvll"
+  },
+  "type": "object",
+  "description": "Optional combinations of filters applied to your request. In most cases one filter is enough. Filter combinations have `AND` logic. ",
+  "properties": {
+    "traff": {
+      "type": "integer",
+      "description": "filter results match exact given traffic value "
+    },
+    "traff_from": {
+      "type": "integer",
+      "description": "filters results that exceed given traffic value"
+    },
+    "traff_to": {
+      "type": "integer",
+      "description": "filter results that bellow given traffic value"
+    },
+    "visible": {
+      "type": "integer",
+      "description": "exact visibility value match"
+    },
+    "visible_from": {
+      "type": "integer",
+      "description": "filter results that exceed given visibility value"
+    },
+    "visible_to": {
+      "type": "integer",
+      "description": "filter results that bellow given visibility value"
+    }
+  }
+}

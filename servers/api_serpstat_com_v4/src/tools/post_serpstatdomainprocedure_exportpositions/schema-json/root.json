@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "id",
+      "x-stoplight": {
+        "id": "9vjc78v5xh394"
+      },
+      "type": "string",
+      "description": "Request / response identifier, prodvided from your side, will be mirrored from request to `id` in response. Example \"id\":\"123\"",
+      "x-examples": {
+        "Example 1": {
+          "id": "123"
+        }
+      }
+    },
+    "method": {
+      "type": "string",
+      "description": "Should be exact `SerpstatDomainProcedure.exportPositions` "
+    },
+    "params": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `params` to the tool, first call the tool `expandSchema` with \"/properties/params\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id",
+    "method"
+  ]
+}

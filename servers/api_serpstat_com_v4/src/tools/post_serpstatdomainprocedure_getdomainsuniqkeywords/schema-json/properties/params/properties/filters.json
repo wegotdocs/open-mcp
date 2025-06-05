@@ -1,0 +1,173 @@
+{
+  "type": "object",
+  "description": "Filters for search. Fields are combined using the **AND** logic. Numeric range fields (`_from` and `_to`) allow specifying minimum and maximum values. List fields (`_contain` and `_not_contain`) specify inclusion or exclusion criteria",
+  "properties": {
+    "right_spelling": {
+      "type": "boolean",
+      "description": "Include or exclude correctly spelled keywords.",
+      "example": true
+    },
+    "misspelled": {
+      "type": "boolean",
+      "description": "Include or exclude misspelled keywords.",
+      "example": false
+    },
+    "keywords": {
+      "type": "array",
+      "description": "List of included keywords.",
+      "example": [
+        "red",
+        "iphone"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "minus_keywords": {
+      "type": "array",
+      "description": "List of excluded keywords.",
+      "example": [
+        "blackberry",
+        "nokia"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "queries": {
+      "type": "integer",
+      "description": "Exact number of keyword searches per month.",
+      "example": 400
+    },
+    "queries_from": {
+      "type": "integer",
+      "description": "Minimum number of keyword searches per month.",
+      "example": 50
+    },
+    "queries_to": {
+      "type": "integer",
+      "description": "Maximum number of keyword searches per month.",
+      "example": 2000
+    },
+    "cost": {
+      "type": "number",
+      "description": "Exact cost per click (in USD, exact match).",
+      "example": 40
+    },
+    "cost_from": {
+      "type": "number",
+      "description": "Minimum cost per click (in USD, exact match).",
+      "example": 5
+    },
+    "cost_to": {
+      "type": "number",
+      "description": "Maximum cost per click (in USD, exact match).",
+      "example": 20
+    },
+    "concurrency": {
+      "type": "integer",
+      "description": "Exact competition level (1-100).",
+      "example": 30
+    },
+    "concurrency_from": {
+      "type": "integer",
+      "description": "Minimum competition level (1-100).",
+      "example": 10
+    },
+    "concurrency_to": {
+      "type": "integer",
+      "description": "Maximum competition level (1-100).",
+      "example": 50
+    },
+    "difficulty": {
+      "type": "integer",
+      "description": "Exact keyword difficulty.",
+      "example": 20
+    },
+    "difficulty_from": {
+      "type": "integer",
+      "description": "Minimum keyword difficulty.",
+      "example": 10
+    },
+    "difficulty_to": {
+      "type": "integer",
+      "description": "Maximum keyword difficulty.",
+      "example": 40
+    },
+    "region_queries_count": {
+      "type": "integer",
+      "description": "Exact search volume for the selected region.",
+      "example": 10
+    },
+    "region_queries_count_from": {
+      "type": "integer",
+      "description": "Minimum search volume for the selected region.",
+      "example": 30
+    },
+    "region_queries_count_to": {
+      "type": "integer",
+      "description": "Maximum search volume for the selected region.",
+      "example": 40
+    },
+    "region_queries_count_wide": {
+      "type": "integer",
+      "description": "Exact search volume in broad match.",
+      "example": 100
+    },
+    "region_queries_count_wide_from": {
+      "type": "integer",
+      "description": "Minimum search volume in broad match.",
+      "example": 200
+    },
+    "region_queries_count_wide_to": {
+      "type": "integer",
+      "description": "Maximum search volume in broad match.",
+      "example": 5000
+    },
+    "keyword_length": {
+      "type": "integer",
+      "description": "Exact number of words in a keyword.",
+      "example": 1
+    },
+    "keyword_length_from": {
+      "type": "integer",
+      "description": "Minimum number of words in a keyword.",
+      "example": 3
+    },
+    "keyword_length_to": {
+      "type": "integer",
+      "description": "Maximum number of words in a keyword.",
+      "example": 4
+    },
+    "traff": {
+      "type": "integer",
+      "description": "Exact traffic volume for the keyword.",
+      "example": 100
+    },
+    "traff_from": {
+      "type": "integer",
+      "description": "Minimum traffic volume for the keyword.",
+      "example": 2000
+    },
+    "traff_to": {
+      "type": "integer",
+      "description": "Maximum traffic volume for the keyword.",
+      "example": 5000
+    },
+    "position": {
+      "type": "integer",
+      "description": "Exact keyword position in the SERP.",
+      "example": 1
+    },
+    "position_from": {
+      "type": "integer",
+      "description": "Minimum keyword position in the SERP.",
+      "example": 2
+    },
+    "position_to": {
+      "type": "integer",
+      "description": "Maximum keyword position in the SERP.",
+      "example": 5
+    }
+  }
+}

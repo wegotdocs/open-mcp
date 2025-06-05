@@ -1,0 +1,171 @@
+{
+  "type": "object",
+  "properties": {
+    "cost": {
+      "type": "number",
+      "description": "Cost per click (in US $; exact match)"
+    },
+    "cost_from": {
+      "type": "number",
+      "description": "Cost per click (in US $; exact match) from"
+    },
+    "cost_to": {
+      "type": "number",
+      "description": "Cost per click (in US $; exact match) to"
+    },
+    "position": {
+      "type": "integer",
+      "description": "Keyword position (any whole number in the range of 1-100)",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "position_from": {
+      "type": "integer",
+      "description": "Keyword position from (any whole number in the range of 1-100)",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "position_to": {
+      "type": "integer",
+      "description": "Keyword position to (any whole number in the range of 1-100)",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "concurrency": {
+      "type": "integer",
+      "description": "Competition (how hard it is to promote a keyword to the top, from 1-100)",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "concurrency_from": {
+      "type": "integer",
+      "description": "Competition (from, how hard it is to promote a keyword to the top, from 1-100)",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "concurrency_to": {
+      "type": "integer",
+      "description": "Competition (to, how hard it is to promote a keyword to the top, from 1-100)",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "keyword_length": {
+      "type": "integer",
+      "description": "Number of words in the keyword"
+    },
+    "difficulty": {
+      "type": "number",
+      "description": "The difficulty of the keyword"
+    },
+    "difficulty_from": {
+      "type": "number",
+      "description": "The difficulty of the keyword from"
+    },
+    "difficulty_to": {
+      "type": "number",
+      "description": "The difficulty of the keyword to"
+    },
+    "traff": {
+      "type": "integer",
+      "description": "Traffic by the keyword"
+    },
+    "region_queries_count": {
+      "type": "integer",
+      "description": "Volume of the keyword by the selected region"
+    },
+    "region_queries_count_from": {
+      "type": "integer",
+      "description": "Volume of the keyword by the selected region from"
+    },
+    "region_queries_count_to": {
+      "type": "integer",
+      "description": "Volume of the keyword by the selected region to"
+    },
+    "region_queries_count_wide": {
+      "type": "integer",
+      "description": "Volume of the keyword in broad match"
+    },
+    "region_queries_count_wide_from": {
+      "type": "integer",
+      "description": "Volume of the keyword in broad match from"
+    },
+    "region_queries_count_wide_to": {
+      "type": "integer",
+      "description": "Volume of the keyword in broad match to"
+    },
+    "url_contains": {
+      "type": "string",
+      "description": "Exact website pages ranking for the keywords",
+      "format": "uri"
+    },
+    "right_spelling": {
+      "type": "boolean",
+      "description": "Display or not display misspelled keywords"
+    },
+    "keyword_contain": {
+      "type": "string",
+      "description": "Contains all keywords (exact matching)"
+    },
+    "keyword_not_contain": {
+      "type": "string",
+      "description": "Does not contain all keywords (exact matching)"
+    },
+    "keyword_contain_one_of": {
+      "type": "string",
+      "description": "Contains one of the keywords (exact matching)"
+    },
+    "keyword_not_contain_one_of": {
+      "type": "string",
+      "description": "Does not contain one of the keywords (exact matching)"
+    },
+    "keyword_contain_broad_match": {
+      "type": "string",
+      "description": "Contains all keywords (broad match)"
+    },
+    "keyword_not_contain_broad_match": {
+      "type": "string",
+      "description": "Does not contain all keywords (broad match)"
+    },
+    "keyword_contain_one_of_broad_match": {
+      "type": "string",
+      "description": "Contains one of the keywords (broad match)"
+    },
+    "keyword_not_contain_one_of_broad_match": {
+      "type": "string",
+      "description": "Does not contain one of the keywords (broad match)"
+    },
+    "intents_contain": {
+      "type": "array",
+      "description": "Contains one or several of intents",
+      "example": [
+        "informational",
+        "commercial"
+      ],
+      "items": {
+        "type": "string",
+        "enum": [
+          "informational",
+          "navigational",
+          "commercial",
+          "transactional"
+        ]
+      }
+    },
+    "intents_not_contain": {
+      "type": "array",
+      "description": "Does not contain one of the intents",
+      "example": [
+        "navigational"
+      ],
+      "items": {
+        "type": "string",
+        "enum": [
+          "informational",
+          "navigational",
+          "commercial",
+          "transactional"
+        ]
+      }
+    }
+  }
+}

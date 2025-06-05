@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "description": "Order of sorting the results in the format: {field: order}\n\nDefault: `{\"relevance\":\"desc\"}`\n",
+  "properties": {
+    "ads": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of ads."
+    },
+    "keywords": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of keywords."
+    },
+    "intersected": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of intersected keywords."
+    },
+    "missing_keywords": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of missing keywords."
+    }
+  }
+}

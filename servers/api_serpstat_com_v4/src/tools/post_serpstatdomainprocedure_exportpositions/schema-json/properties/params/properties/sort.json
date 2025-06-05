@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "description": "Order of sorting the results in the format: {field: order}\n\nDefault: `{\"cost\": \"asc\"}`\n",
+  "properties": {
+    "region_queries_count": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of queries in the selected region."
+    },
+    "types": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by content types."
+    },
+    "cost": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by cost."
+    },
+    "keyword_length": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by keyword length."
+    },
+    "concurrency": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by concurrency level."
+    },
+    "geo_names": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by geographic names."
+    },
+    "traff": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by traffic."
+    },
+    "region_queries_count_wide": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of queries across multiple regions."
+    },
+    "dynamic": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by dynamic changes."
+    },
+    "position": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by search position."
+    },
+    "found_results": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of found results."
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "description": "Order of sorting the results in the format: {field: order}\n\nDefault: `{\"organic_keywords\":\"desc\"}`\n\n> **ATTENTION**: Only 1 sort field per request. This sorting will sort only data on current page.",
+  "properties": {
+    "organic_keywords": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of organic keywords (asc — ascending, desc — descending).",
+      "example": "desc"
+    },
+    "facebook_shares": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by the number of Facebook shares.",
+      "example": "asc"
+    },
+    "potential_traff": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by potential traffic.",
+      "example": "desc"
+    }
+  }
+}

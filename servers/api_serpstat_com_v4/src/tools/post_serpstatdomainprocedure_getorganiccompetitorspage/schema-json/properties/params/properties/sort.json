@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "description": "Order of sorting the results in the format: {field: order}\n\nDefault: `{\"relevance\":\"desc\"}`\n\n> **ATTENTION**: Only 1 sort field per request. This sorting will sort only data on current page.",
+  "properties": {
+    "missing": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by missing keywords (asc — ascending, desc — descending).",
+      "example": "asc"
+    },
+    "relevance": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by keyword relevance.",
+      "example": "desc"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by site visibility.",
+      "example": "asc"
+    },
+    "all": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by all keywords.",
+      "example": "asc"
+    },
+    "common": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "description": "Sort by common keywords.",
+      "example": "desc"
+    }
+  }
+}

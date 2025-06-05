@@ -1,0 +1,108 @@
+{
+  "type": "object",
+  "description": "Filters for search. Fields are combined using the **AND** logic. Numeric range fields (`_from` and `_to`) allow specifying minimum and maximum values. List fields (`_contain` and `_not_contain`) specify inclusion or exclusion criteria",
+  "properties": {
+    "position": {
+      "type": "integer",
+      "description": "The exact position of the keyword in search results, e.g., 1."
+    },
+    "position_from": {
+      "type": "integer",
+      "description": "The minimum position of the keyword in search results."
+    },
+    "position_to": {
+      "type": "integer",
+      "description": "The maximum position of the keyword in search results."
+    },
+    "queries": {
+      "type": "integer",
+      "description": "The exact number of queries, e.g., 5."
+    },
+    "queries_from": {
+      "type": "integer",
+      "description": "The minimum number of queries."
+    },
+    "queries_to": {
+      "type": "integer",
+      "description": "The maximum number of queries."
+    },
+    "region_queries_count": {
+      "type": "integer",
+      "description": "The volume of the keyword by the selected region, e.g., 1000."
+    },
+    "region_queries_count_from": {
+      "type": "integer",
+      "description": "The minimum volume of the keyword by the selected region."
+    },
+    "region_queries_count_to": {
+      "type": "integer",
+      "description": "The maximum volume of the keyword by the selected region."
+    },
+    "region_queries_count_wide": {
+      "type": "integer",
+      "description": "The broad volume of the keyword across multiple regions, e.g., 1000."
+    },
+    "region_queries_count_wide_from": {
+      "type": "integer",
+      "description": "The minimum broad volume of the keyword."
+    },
+    "region_queries_count_wide_to": {
+      "type": "integer",
+      "description": "The maximum broad volume of the keyword."
+    },
+    "cost": {
+      "type": "number",
+      "description": "Cost value, e.g., 10."
+    },
+    "cost_from": {
+      "type": "number",
+      "description": "The minimum cost value."
+    },
+    "cost_to": {
+      "type": "number",
+      "description": "The maximum cost value."
+    },
+    "concurrency": {
+      "type": "integer",
+      "description": "The concurrency value, e.g., 7."
+    },
+    "concurrency_from": {
+      "type": "integer",
+      "description": "The minimum concurrency value."
+    },
+    "concurrency_to": {
+      "type": "integer",
+      "description": "The maximum concurrency value."
+    },
+    "difficulty": {
+      "type": "integer",
+      "description": "The difficulty level of the keyword, e.g., 3."
+    },
+    "difficulty_from": {
+      "type": "integer",
+      "description": "The minimum difficulty level of the keyword."
+    },
+    "difficulty_to": {
+      "type": "integer",
+      "description": "The maximum difficulty level of the keyword."
+    },
+    "minus_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Excludes results from a specific URL, e.g., https://www.apple.com/airpods-2nd-generation/."
+    },
+    "pm_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Filters results by a specific URL, e.g., https://www.apple.com/airpods/."
+    },
+    "right_spelling": {
+      "type": "boolean",
+      "description": "Filters by spelling correction. If true, results will include corrected spelling; if false, only exact spelling is used."
+    },
+    "misspelled": {
+      "type": "boolean",
+      "description": "Filters misspelled queries. If true, only misspelled keywords are included; if false, only correctly spelled keywords are shown."
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "title": "basic filters with date",
+  "x-stoplight": {
+    "id": "s2ceau5sgn4h5"
+  },
+  "type": "object",
+  "description": "Optional combinations of filters applied to your request. In most cases one filter is enough. Filter combinations have `AND` logic. ",
+  "properties": {
+    "traff": {
+      "type": "integer",
+      "description": "filter results match exact given traffic value "
+    },
+    "traff_from": {
+      "type": "integer",
+      "description": "filters results that exceed given traffic value"
+    },
+    "traff_to": {
+      "type": "integer",
+      "description": "filter results that bellow given traffic value"
+    },
+    "visible": {
+      "type": "integer",
+      "description": "exact visibility value match"
+    },
+    "visible_from": {
+      "type": "integer",
+      "description": "filter results that exceed given visibility value"
+    },
+    "visible_to": {
+      "type": "integer",
+      "description": "filter results that bellow given visibility value"
+    },
+    "date_from": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "6et6t5mb0p5o4"
+      },
+      "format": "date",
+      "example": "2024-12-31",
+      "description": "filter result above given date"
+    },
+    "date_to": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "u0ld6rqh4867k"
+      },
+      "format": "date",
+      "example": "2025-05-30",
+      "description": "filter results bellow given date"
+    }
+  }
+}
