@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "team": {
+      "description": "Filter recipients by a specific team ID",
+      "type": "integer"
+    },
+    "file": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "required": [
+    "team",
+    "file"
+  ]
+}

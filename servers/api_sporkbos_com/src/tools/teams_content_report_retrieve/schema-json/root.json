@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this team.",
+      "type": "integer"
+    },
+    "order_by": {
+      "description": "Order by asc or desc",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "sort_by": {
+      "description": "Sort by field name",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

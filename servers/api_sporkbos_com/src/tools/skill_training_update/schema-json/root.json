@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this skill training.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "level": {
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "Advanced",
+        "Master"
+      ],
+      "type": "string",
+      "description": "* `Beginner` - Beginner\n* `Intermediate` - Intermediate\n* `Advanced` - Advanced\n* `Master` - Master"
+    },
+    "trainer_name": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 255
+    },
+    "date_of_training": {
+      "type": "string",
+      "format": "date"
+    },
+    "note": {
+      "type": "string",
+      "nullable": true
+    },
+    "state": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 255
+    },
+    "position": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 255
+    },
+    "trainer": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id",
+    "b_id",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "users",
+    "skills",
+    "level",
+    "date_of_training"
+  ]
+}

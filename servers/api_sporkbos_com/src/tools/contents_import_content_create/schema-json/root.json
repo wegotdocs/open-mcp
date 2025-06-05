@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "team": {
+      "description": "Filter recipients by a specific team ID",
+      "type": "integer"
+    },
+    "file": {
+      "type": "string",
+      "format": "uri"
+    },
+    "user_timezone": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "team",
+    "file",
+    "user_timezone"
+  ]
+}

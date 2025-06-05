@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string",
+      "title": "Snapshot Number",
+      "maxLength": 255
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "title": "Snapshot Start Date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "title": "Snapshot End Date"
+    },
+    "performance_start_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true
+    },
+    "performance_end_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "title": "Performance Start Date"
+    },
+    "required_all_users": {
+      "type": "boolean"
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Snapshot Users"
+      },
+      "title": "Snapshot Users"
+    }
+  },
+  "required": [
+    "id",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "name"
+  ]
+}

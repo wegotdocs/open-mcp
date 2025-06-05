@@ -1,0 +1,771 @@
+{
+  "type": "object",
+  "properties": {
+    "ulid": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "b_ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "content_pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          },
+          "deleted_by": {
+            "type": "string"
+          },
+          "ulid": {
+            "type": "string",
+            "readOnly": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "deleted_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "order": {
+            "type": "integer",
+            "maximum": 2147483647,
+            "minimum": -2147483648
+          },
+          "note": {
+            "type": "string"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "start_time": {
+            "type": "string",
+            "format": "time",
+            "nullable": true
+          },
+          "duration": {
+            "type": "integer",
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "nullable": true
+          },
+          "icon": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "color": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "flag": {
+            "enum": [
+              "Clear",
+              "Flagged",
+              "Warning",
+              "Blocked",
+              "None"
+            ],
+            "type": "string",
+            "description": "* `Clear` - Clear\n* `Flagged` - Flagged\n* `Warning` - Warning\n* `Blocked` - Blocked\n* `None` - None"
+          },
+          "is_template": {
+            "type": "boolean",
+            "title": "Template"
+          },
+          "team": {
+            "type": "integer",
+            "readOnly": true,
+            "nullable": true
+          },
+          "content": {
+            "type": "integer",
+            "readOnly": true,
+            "nullable": true
+          }
+        },
+        "required": [
+          "content",
+          "created_at",
+          "created_by",
+          "deleted_at",
+          "deleted_by",
+          "name",
+          "order",
+          "team",
+          "ulid",
+          "updated_at",
+          "updated_by"
+        ]
+      }
+    },
+    "children": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "writeOnly": true
+    },
+    "is_favourite": {
+      "type": "boolean",
+      "default": false
+    },
+    "mark_children_complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "mark_children_cancel": {
+      "type": "boolean",
+      "default": false
+    },
+    "owner_data": {
+      "type": "string"
+    },
+    "collaborators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "user",
+              "group",
+              "position"
+            ],
+            "type": "string",
+            "description": "* `user` - user\n* `group` - group\n* `position` - position"
+          },
+          "avatar": {
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "avatar",
+          "id",
+          "name",
+          "type"
+        ]
+      }
+    },
+    "parent_data": {
+      "type": "string"
+    },
+    "category_name": {
+      "type": "string",
+      "readOnly": true
+    },
+    "latest_result": {
+      "type": "string",
+      "readOnly": true
+    },
+    "metric_collaborators_details": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type"
+        ]
+      }
+    },
+    "is_page_edited": {
+      "type": "boolean",
+      "default": false
+    },
+    "required_relearning": {
+      "type": "boolean",
+      "default": false
+    },
+    "reschedule_confirmation": {
+      "type": "boolean",
+      "default": false
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string"
+    },
+    "stage": {
+      "enum": [
+        "Draft",
+        "Published",
+        "Archive",
+        "Parking"
+      ],
+      "type": "string",
+      "description": "* `Draft` - Draft\n* `Published` - Published\n* `Archive` - Archive\n* `Parking` - Parking"
+    },
+    "content_type": {
+      "enum": [
+        "Decision",
+        "Glossary",
+        "Goal",
+        "Guide",
+        "Knowledge",
+        "Meeting",
+        "Note",
+        "Parking",
+        "Project",
+        "Series",
+        "Survey",
+        "Task",
+        "Metric",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Decision` - Key Decision\n* `Glossary` - Glossary\n* `Goal` - Goal\n* `Guide` - Guide\n* `Knowledge` - Knowledge\n* `Meeting` - Meeting Minutes\n* `Note` - Note\n* `Parking` - Parking Lot\n* `Project` - Project\n* `Series` - Series\n* `Survey` - Survey\n* `Task` - Task\n* `Metric` - Metric\n* `None` - None"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "id_number": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "priority": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "urgency": {
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Low` - Low\n* `Medium` - Medium\n* `High` - High\n* `Critical` - Critical\n* `None` - None"
+    },
+    "importance": {
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Low` - Low\n* `Medium` - Medium\n* `High` - High\n* `Critical` - Critical\n* `None` - None"
+    },
+    "status": {
+      "type": "string"
+    },
+    "progress": {
+      "enum": [
+        "Zero",
+        "Five",
+        "Ten",
+        "Fifteen",
+        "Twenty",
+        "TwentyFive",
+        "Thirty",
+        "ThirtyFive",
+        "Forty",
+        "FortyFive",
+        "Fifty",
+        "FiftyFive",
+        "Sixty",
+        "SixtyFive",
+        "Seventy",
+        "SeventyFive",
+        "Eighty",
+        "EightyFive",
+        "Ninety",
+        "NinetyFive",
+        "OneHundred",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Zero` - 0%\n* `Five` - 5%\n* `Ten` - 10%\n* `Fifteen` - 15%\n* `Twenty` - 20%\n* `TwentyFive` - 25%\n* `Thirty` - 30%\n* `ThirtyFive` - 35%\n* `Forty` - 40%\n* `FortyFive` - 45%\n* `Fifty` - 50%\n* `FiftyFive` - 55%\n* `Sixty` - 60%\n* `SixtyFive` - 65%\n* `Seventy` - 70%\n* `SeventyFive` - 75%\n* `Eighty` - 80%\n* `EightyFive` - 85%\n* `Ninety` - 90%\n* `NinetyFive` - 95%\n* `OneHundred` - 100%\n* `None` - None"
+    },
+    "pace": {
+      "enum": [
+        "Problem",
+        "Behind",
+        "NotStarted",
+        "OnSchedule",
+        "Ahead",
+        "Complete",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Problem` - Problem\n* `Behind` - Behind\n* `NotStarted` - Not Started\n* `OnSchedule` - On Schedule\n* `Ahead` - Ahead\n* `Complete` - Complete\n* `None` - None"
+    },
+    "skill": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "knowledge_level": {
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "Advanced",
+        "Master",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Beginner` - Beginner\n* `Intermediate` - Intermediate\n* `Advanced` - Advanced\n* `Master` - Master\n* `None` - None"
+    },
+    "difficulty_level": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "specialist",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `low` - Low\n* `medium` - Medium\n* `high` - High\n* `specialist` - Specialist\n* `None` - None"
+    },
+    "hours": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "frequency": {
+      "enum": [
+        "Never",
+        "Revision",
+        "Recurring"
+      ],
+      "type": "string",
+      "description": "* `Never` - Never\n* `Revision` - Every Revision\n* `Recurring` - Recurring"
+    },
+    "workload": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "views": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "guide_type": {
+      "enum": [
+        "Dream",
+        "Why",
+        "Purpose",
+        "Vision",
+        "Mission",
+        "Value",
+        "Strategy",
+        "Target",
+        "Guarantee",
+        "Process",
+        "USP",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Dream` - We Dream Big\n* `Why` - Our Why\n* `Purpose` - Purpose for Being\n* `Vision` - Vision of the Future\n* `Mission` - We are on a Mission\n* `Value` - The Core Values\n* `Strategy` - Strategic Plans\n* `Target` - Our Target Market\n* `Guarantee` - What We Stand For\n* `Process` - Following the Process\n* `USP` - Unique Selling Proposition\n* `None` - None"
+    },
+    "flag": {
+      "enum": [
+        "Clear",
+        "Flagged",
+        "Warning",
+        "Blocked",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Clear` - Clear\n* `Flagged` - Flagged\n* `Warning` - Warning\n* `Blocked` - Blocked\n* `None` - None"
+    },
+    "visibility": {
+      "enum": [
+        "Private",
+        "Team",
+        "Public",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Private` - Private\n* `Team` - Team\n* `Public` - Public\n* `None` - None"
+    },
+    "ignore_in_performance": {
+      "type": "boolean"
+    },
+    "required_all_learn": {
+      "type": "boolean"
+    },
+    "can_self_learn": {
+      "type": "boolean"
+    },
+    "is_template": {
+      "type": "boolean",
+      "title": "Template"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "title": "Deleted"
+    },
+    "recurring_type": {
+      "type": "string"
+    },
+    "recurring_interval": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Learn Recurring Interval"
+    },
+    "version": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,9}(?:\\.\\d{0,1})?$"
+    },
+    "is_full_day": {
+      "type": "boolean",
+      "title": "Full Day"
+    },
+    "unit_of_measure": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 100
+    },
+    "calculation": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "enum": [
+            "None",
+            "Rollup",
+            "Average",
+            "Cumulative",
+            "YTD",
+            "MTD"
+          ],
+          "type": "string",
+          "description": "* `None` - None\n* `Rollup` - Roll-up\n* `Average` - Average\n* `Cumulative` - Cumulative\n* `YTD` - Year-To-Date\n* `MTD` - Month-To-Date"
+        }
+      ]
+    },
+    "result_accuracy": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "enum": [
+            "#",
+            "#.#",
+            "#.##",
+            "#.###",
+            "#.####"
+          ],
+          "type": "string",
+          "description": "* `#` - #\n* `#.#` - #.#\n* `#.##` - #.##\n* `#.###` - #.###\n* `#.####` - #.####"
+        }
+      ]
+    },
+    "timeframe": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "enum": [
+            "Daily",
+            "Weekly",
+            "Monthly",
+            "Quarterly",
+            "Yearly"
+          ],
+          "type": "string",
+          "description": "* `Daily` - Daily\n* `Weekly` - Weekly\n* `Monthly` - Monthly\n* `Quarterly` - Quarterly\n* `Yearly` - Yearly"
+        }
+      ]
+    },
+    "orientation": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "enum": [
+            "GTE",
+            "LTE",
+            "Range"
+          ],
+          "type": "string",
+          "description": "* `GTE` - GTE\n* `LTE` - LTE\n* `Range` - Range"
+        }
+      ]
+    },
+    "metric_status": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "enum": [
+            "Danger",
+            "Caution",
+            "Acceptable",
+            "Success"
+          ],
+          "type": "string",
+          "description": "* `Danger` - Danger\n* `Caution` - Caution\n* `Acceptable` - Acceptable\n* `Success` - Success"
+        }
+      ]
+    },
+    "ceiling": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,4})?$",
+      "nullable": true
+    },
+    "high": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,4})?$",
+      "nullable": true
+    },
+    "target": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,4})?$",
+      "nullable": true
+    },
+    "medium": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,4})?$",
+      "nullable": true
+    },
+    "low": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,4})?$",
+      "nullable": true
+    },
+    "floor": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,4})?$",
+      "nullable": true
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "owner": {
+      "type": "integer",
+      "nullable": true
+    },
+    "board": {
+      "type": "integer",
+      "nullable": true,
+      "title": "Content Board"
+    },
+    "parent": {
+      "type": "integer",
+      "nullable": true
+    },
+    "performance_type": {
+      "type": "integer",
+      "nullable": true
+    },
+    "content_category": {
+      "type": "integer",
+      "nullable": true,
+      "title": "Category"
+    },
+    "collaborators_users": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true,
+        "title": "Collaborator Users"
+      },
+      "title": "Collaborator Users"
+    },
+    "collaborators_groups": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true,
+        "title": "Collaborator Groups"
+      },
+      "title": "Collaborator Groups"
+    },
+    "collaborators_positions": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true,
+        "title": "Collaborator Position"
+      },
+      "title": "Collaborator Position"
+    },
+    "shared_users": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Shared Users"
+      }
+    },
+    "shared_groups": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Shared Groups"
+      }
+    },
+    "required_positions_learn": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Positions"
+      },
+      "title": "Positions"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "linked_contents": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Linked Contents"
+      }
+    },
+    "shared_positions": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Shared Positions"
+      }
+    },
+    "related_contents": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "metric_shared_users": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Metric Shared Users"
+      }
+    },
+    "metric_shared_groups": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Metric Shared Groups"
+      }
+    },
+    "metric_shared_positions": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Metric Shared Positions"
+      }
+    }
+  },
+  "required": [
+    "ulid"
+  ]
+}

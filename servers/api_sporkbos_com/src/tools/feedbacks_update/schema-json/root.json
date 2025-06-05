@@ -1,0 +1,232 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this feedback.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "content_title": {
+      "type": "string",
+      "readOnly": true
+    },
+    "content_type": {
+      "type": "string",
+      "readOnly": true
+    },
+    "performance_type_name": {
+      "type": "string",
+      "readOnly": true
+    },
+    "performance_type_icon": {
+      "type": "string",
+      "readOnly": true
+    },
+    "recipient_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "title": "Name of User",
+            "maxLength": 255
+          },
+          "role": {
+            "type": "string",
+            "readOnly": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email address",
+            "maxLength": 254
+          },
+          "avatar": {
+            "type": "string",
+            "format": "uri",
+            "readOnly": true
+          },
+          "alt_id": {
+            "type": "string",
+            "maxLength": 6
+          },
+          "status": {
+            "enum": [
+              "Active",
+              "Pending",
+              "Archive",
+              "Deleted",
+              "Awaiting Access"
+            ],
+            "type": "string",
+            "description": "* `Active` - Active\n* `Pending` - Pending\n* `Archive` - Archive\n* `Deleted` - Delete\n* `Awaiting Access` - Awaiting Access"
+          }
+        },
+        "required": [
+          "alt_id",
+          "avatar",
+          "email",
+          "id",
+          "role"
+        ]
+      },
+      "readOnly": true
+    },
+    "type": {
+      "enum": [
+        "Peer",
+        "General",
+        "PeerContent",
+        "ContentReview",
+        "Interest",
+        "Network",
+        "Birthday",
+        "Anniversary",
+        "Other"
+      ],
+      "type": "string",
+      "description": "* `Peer` - Peer\n* `General` - General\n* `PeerContent` - Peer Content\n* `ContentReview` - Content Review\n* `Interest` - Interest\n* `Network` - Network\n* `Birthday` - Birthday\n* `Anniversary` - Anniversary\n* `Other` - Other"
+    },
+    "share": {
+      "enum": [
+        "Public",
+        "Private",
+        "Hidden"
+      ],
+      "type": "string",
+      "description": "* `Public` - Public\n* `Private` - Private\n* `Hidden` - Hidden"
+    },
+    "rating": {
+      "enum": [
+        "unacceptable",
+        "unsatisfactory",
+        "mediocre",
+        "good",
+        "great",
+        "excellent",
+        "exceptional"
+      ],
+      "type": "string",
+      "description": "* `unacceptable` - Unacceptable\n* `unsatisfactory` - Unsatisfactory\n* `mediocre` - Mediocre\n* `good` - Good\n* `great` - Great\n* `excellent` - Excellent\n* `exceptional` - Exceptional"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "is_annonymous": {
+      "type": "boolean",
+      "title": "Annonymous"
+    },
+    "flag": {
+      "enum": [
+        "Clear",
+        "Flagged",
+        "Warning",
+        "Blocked",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Clear` - Clear\n* `Flagged` - Flagged\n* `Warning` - Warning\n* `Blocked` - Blocked\n* `None` - None"
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "performance_type": {
+      "type": "integer",
+      "nullable": true
+    },
+    "recipient": {
+      "type": "integer",
+      "nullable": true
+    },
+    "created_by_manager": {
+      "type": "integer",
+      "nullable": true
+    },
+    "recipient_manager": {
+      "type": "integer",
+      "nullable": true
+    },
+    "created_by_position": {
+      "type": "integer",
+      "nullable": true
+    },
+    "recipient_position": {
+      "type": "integer",
+      "nullable": true
+    },
+    "created_by_position_level": {
+      "type": "integer",
+      "nullable": true
+    },
+    "recipient_position_level": {
+      "type": "integer",
+      "nullable": true
+    },
+    "content": {
+      "type": "integer",
+      "nullable": true
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Recipient Users"
+      },
+      "title": "Recipient Users"
+    }
+  },
+  "required": [
+    "id",
+    "b_id",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "content_title",
+    "content_type",
+    "performance_type_name",
+    "performance_type_icon",
+    "recipient_data",
+    "type"
+  ]
+}

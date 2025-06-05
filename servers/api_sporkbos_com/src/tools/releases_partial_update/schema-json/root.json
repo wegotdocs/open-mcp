@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this release.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "is_editable": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "title": "Information Description"
+    },
+    "video_link": {
+      "type": "string",
+      "description": "Embedded Vimeo link. If no link is provided, only the description will be shown."
+    },
+    "release_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_published": {
+      "type": "boolean",
+      "title": "Published"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

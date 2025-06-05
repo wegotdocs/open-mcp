@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this team fee.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "nullable": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "engagement_fee": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,2})?$"
+    },
+    "owner_fee": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,2})?$"
+    },
+    "admin_fee": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,2})?$"
+    },
+    "hr_fee": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,2})?$"
+    },
+    "manager_fee": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,2})?$"
+    },
+    "employee_fee": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,2})?$"
+    },
+    "staff_fee": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,2})?$"
+    },
+    "guest_fee": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,2})?$"
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

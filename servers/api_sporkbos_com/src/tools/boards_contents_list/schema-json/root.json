@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "ulid": {
+      "type": "string"
+    },
+    "content_name": {
+      "description": "Search contents by name",
+      "type": "string"
+    },
+    "content_type": {
+      "description": "Filter by content type",
+      "type": "string"
+    },
+    "due_date_range_end": {
+      "description": "Filter by due date (end date)",
+      "type": "string"
+    },
+    "due_date_range_start": {
+      "description": "Filter by due date (start date)",
+      "type": "string"
+    },
+    "importance": {
+      "description": "Filter by importance (comma-separated values)",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "order_by": {
+      "description": "Sort order: 'asc' or 'desc'",
+      "type": "string"
+    },
+    "owner": {
+      "description": "Filter by owner (comma-separated values)",
+      "type": "string"
+    },
+    "page_no": {
+      "description": "A page number within the paginated result set.",
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "show_completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "sort_by": {
+      "description": "Sort by field name",
+      "type": "string"
+    },
+    "status": {
+      "description": "Filter by status (comma-separated values)",
+      "type": "string"
+    },
+    "team": {
+      "type": "number"
+    },
+    "tree_view": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "ulid"
+  ]
+}

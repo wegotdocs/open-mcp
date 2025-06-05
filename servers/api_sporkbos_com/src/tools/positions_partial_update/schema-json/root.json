@@ -1,0 +1,135 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this position.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "required_knowledge": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "writeOnly": true
+      },
+      "writeOnly": true
+    },
+    "position_parent_data": {
+      "type": "string",
+      "readOnly": true
+    },
+    "skills": {
+      "type": "string",
+      "readOnly": true
+    },
+    "required_learning": {
+      "type": "string",
+      "readOnly": true
+    },
+    "position_group_data": {
+      "type": "string",
+      "readOnly": true
+    },
+    "job_description_data": {
+      "type": "string",
+      "readOnly": true
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "colour": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "status": {
+      "enum": [
+        "Active",
+        "Pending",
+        "Archive",
+        "Deleted",
+        "Awaiting Access"
+      ],
+      "type": "string",
+      "description": "* `Active` - Active\n* `Pending` - Pending\n* `Archive` - Archive\n* `Deleted` - Delete\n* `Awaiting Access` - Awaiting Access"
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "position_level": {
+      "type": "integer",
+      "nullable": true
+    },
+    "parent": {
+      "type": "integer",
+      "nullable": true
+    },
+    "job_description": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

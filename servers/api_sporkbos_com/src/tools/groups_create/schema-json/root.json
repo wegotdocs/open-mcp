@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "positions": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "colour": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "type": {
+      "enum": [
+        "Position",
+        "User"
+      ],
+      "type": "string",
+      "description": "* `Position` - Position\n* `User` - User"
+    },
+    "status": {
+      "enum": [
+        "Active",
+        "Pending",
+        "Archive",
+        "Deleted",
+        "Awaiting Access"
+      ],
+      "type": "string",
+      "description": "* `Active` - Active\n* `Pending` - Pending\n* `Archive` - Archive\n* `Deleted` - Delete\n* `Awaiting Access` - Awaiting Access"
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "owner": {
+      "type": "integer",
+      "nullable": true,
+      "title": "Group Owner"
+    }
+  },
+  "required": [
+    "id",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "name",
+    "type"
+  ]
+}

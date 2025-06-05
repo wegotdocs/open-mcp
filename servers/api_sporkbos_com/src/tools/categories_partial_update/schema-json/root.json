@@ -1,0 +1,147 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this category.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "children": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          },
+          "deleted_by": {
+            "type": "string"
+          },
+          "ulid": {
+            "type": "string",
+            "readOnly": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "deleted_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "stage": {
+            "enum": [
+              "Draft",
+              "Published",
+              "Archive",
+              "Parking"
+            ],
+            "type": "string",
+            "description": "* `Draft` - Draft\n* `Published` - Published\n* `Archive` - Archive\n* `Parking` - Parking"
+          },
+          "team": {
+            "type": "integer",
+            "nullable": true
+          },
+          "parent": {
+            "type": "integer",
+            "nullable": true
+          }
+        },
+        "required": [
+          "created_at",
+          "created_by",
+          "deleted_at",
+          "deleted_by",
+          "id",
+          "name",
+          "team",
+          "ulid",
+          "updated_at",
+          "updated_by"
+        ]
+      },
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "stage": {
+      "enum": [
+        "Draft",
+        "Published",
+        "Archive",
+        "Parking"
+      ],
+      "type": "string",
+      "description": "* `Draft` - Draft\n* `Published` - Published\n* `Archive` - Archive\n* `Parking` - Parking"
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "parent": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

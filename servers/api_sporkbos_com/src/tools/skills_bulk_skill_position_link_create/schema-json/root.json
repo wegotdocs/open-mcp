@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "position": {
+      "type": "integer"
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "skill": {
+            "type": "integer"
+          },
+          "is_linked": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "is_linked",
+          "skill"
+        ]
+      }
+    }
+  },
+  "required": [
+    "position",
+    "skills"
+  ]
+}

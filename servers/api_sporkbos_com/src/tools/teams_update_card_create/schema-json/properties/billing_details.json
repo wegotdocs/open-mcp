@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/billing_details/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "nullable": true
+    },
+    "phone": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 15
+    }
+  }
+}

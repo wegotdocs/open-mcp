@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "team": {
+      "type": "integer"
+    },
+    "file": {
+      "type": "string",
+      "format": "uri"
+    },
+    "delete_all_positions": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "team",
+    "file"
+  ]
+}

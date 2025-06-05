@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "nullable": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "filled_seats": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "type": {
+      "enum": [
+        "Trial",
+        "Engage",
+        "Survey",
+        "Content",
+        "Feedback",
+        "Perform",
+        "Grow"
+      ],
+      "type": "string",
+      "description": "* `Trial` - Trial\n* `Engage` - Engage\n* `Survey` - Survey\n* `Content` - Content\n* `Feedback` - Feedback\n* `Perform` - Perform\n* `Grow` - Grow"
+    },
+    "seats": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "price_per_seat": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "subscribed_at": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "expired_at": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "note": {
+      "type": "string"
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "filled_seats",
+    "type",
+    "seats",
+    "price_per_seat"
+  ]
+}

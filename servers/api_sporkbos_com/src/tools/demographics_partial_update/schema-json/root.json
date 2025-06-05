@@ -1,0 +1,129 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this demographic.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "family_status": {
+      "enum": [
+        "Single",
+        "Married",
+        "SingleWithChildren",
+        "MarriedWithChildren",
+        "Other",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Single` - Single\n* `Married` - Married\n* `SingleWithChildren` - Single with Children\n* `MarriedWithChildren` - Married with Children\n* `Other` - Other\n* `None` - None"
+    },
+    "gender": {
+      "enum": [
+        "Male",
+        "Female",
+        "Other",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Male` - Male\n* `Female` - Female\n* `Other` - Other\n* `None` - None"
+    },
+    "race": {
+      "enum": [
+        "White",
+        "Black",
+        "Hispanic",
+        "Asian",
+        "Other",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `White` - White\n* `Black` - Black\n* `Hispanic` - Hispanic\n* `Asian` - Asian\n* `Other` - Other\n* `None` - None"
+    },
+    "religion": {
+      "enum": [
+        "Christianity",
+        "Islam",
+        "Hinduism",
+        "Buddhism",
+        "Judaism",
+        "Taoism",
+        "Shinto",
+        "Sikhism",
+        "Jainism",
+        "Agnosticism",
+        "Atheism",
+        "Other",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Christianity` - Christianity\n* `Islam` - Islam\n* `Hinduism` - Hinduism\n* `Buddhism` - Buddhism\n* `Judaism` - Judaism\n* `Taoism` - Taoism\n* `Shinto` - Shinto\n* `Sikhism` - Sikhism\n* `Jainism` - Jainism\n* `Agnosticism` - Agnosticism\n* `Atheism` - Atheism\n* `Other` - Other\n* `None` - None"
+    },
+    "sexual_orientation": {
+      "enum": [
+        "Heterosexual",
+        "LGBTQ",
+        "Other",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Heterosexual` - Heterosexual\n* `LGBTQ` - LGBTQ+\n* `Other` - Other\n* `None` - None"
+    },
+    "veteran": {
+      "enum": [
+        "Non",
+        "Active",
+        "Reservist",
+        "Veteran",
+        "Protected",
+        "Other",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Non` - Non Veteran\n* `Active` - Active Military\n* `Reservist` - Reservist\n* `Veteran` - Veteran\n* `Protected` - Protected Veteran\n* `Other` - Other\n* `None` - None"
+    },
+    "birth_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true
+    },
+    "user": {
+      "type": "integer",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

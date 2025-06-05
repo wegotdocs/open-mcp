@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this user.",
+      "type": "integer"
+    },
+    "end": {
+      "description": "Filter by date range - YYYY-MM-DD",
+      "type": "string"
+    },
+    "is_meeting": {
+      "description": "Filter by meetings",
+      "type": "boolean"
+    },
+    "start": {
+      "description": "Filter by date range - YYYY-MM-DD",
+      "type": "string"
+    },
+    "team": {
+      "description": "Filter by team ID",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "end",
+    "start",
+    "team"
+  ]
+}

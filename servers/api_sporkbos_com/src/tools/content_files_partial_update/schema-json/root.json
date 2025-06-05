@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this content file.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "file": {
+      "type": "string",
+      "format": "uri",
+      "title": "Content File"
+    },
+    "content": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "size": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,25 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "ulid": z.string(),
+  "id": z.number().int().readonly().optional(),
+  "shared_with": z.array(z.object({ "id": z.number().int(), "name": z.string(), "type": z.enum(["user","position","group"]).describe("* `user` - user\n* `position` - position\n* `group` - group"), "avatar": z.string().readonly() })).optional(),
+  "b_ulid": z.string().optional(),
+  "created_at": z.string().datetime({ offset: true }).optional(),
+  "updated_at": z.string().datetime({ offset: true }).readonly().optional(),
+  "deleted_at": z.string().datetime({ offset: true }).nullable().optional(),
+  "title": z.string().max(255).optional(),
+  "description": z.string().optional(),
+  "start_at": z.string().datetime({ offset: true }).optional(),
+  "end_at": z.string().datetime({ offset: true }).optional(),
+  "is_full_day_event": z.boolean().optional(),
+  "is_team_event": z.boolean().optional(),
+  "is_deleted": z.boolean().optional(),
+  "created_by": z.number().int().nullable().optional(),
+  "updated_by": z.number().int().nullable().optional(),
+  "deleted_by": z.number().int().nullable().optional(),
+  "team": z.number().int().nullable().optional(),
+  "shared_users": z.array(z.number().int()).optional(),
+  "shared_groups": z.array(z.number().int()).optional(),
+  "shared_positions": z.array(z.number().int()).optional()
+}

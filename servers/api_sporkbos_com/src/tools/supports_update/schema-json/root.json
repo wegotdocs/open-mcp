@@ -1,0 +1,149 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this support.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "type": {
+      "enum": [
+        "Improvement",
+        "Problem",
+        "Question",
+        "Other"
+      ],
+      "type": "string",
+      "description": "* `Improvement` - Improvement\n* `Problem` - Problem\n* `Question` - Question\n* `Other` - Other"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "note": {
+      "type": "string"
+    },
+    "resolution": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "Active",
+        "Pending",
+        "Archive",
+        "Deleted",
+        "Awaiting Access"
+      ],
+      "type": "string",
+      "description": "* `Active` - Active\n* `Pending` - Pending\n* `Archive` - Archive\n* `Deleted` - Delete\n* `Awaiting Access` - Awaiting Access"
+    },
+    "importance": {
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Low` - Low\n* `Medium` - Medium\n* `High` - High\n* `Critical` - Critical\n* `None` - None"
+    },
+    "flag": {
+      "enum": [
+        "Clear",
+        "Flagged",
+        "Warning",
+        "Blocked",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Clear` - Clear\n* `Flagged` - Flagged\n* `Warning` - Warning\n* `Blocked` - Blocked\n* `None` - None"
+    },
+    "read_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true,
+      "nullable": true
+    },
+    "resolved_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true,
+      "nullable": true
+    },
+    "submission_url": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "team": {
+      "type": "integer",
+      "readOnly": true,
+      "nullable": true
+    },
+    "issuer": {
+      "type": "integer",
+      "readOnly": true,
+      "nullable": true
+    },
+    "support_staff": {
+      "type": "integer",
+      "readOnly": true,
+      "nullable": true
+    },
+    "resolved_by": {
+      "type": "integer",
+      "readOnly": true,
+      "nullable": true
+    }
+  },
+  "required": [
+    "id",
+    "b_id",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "type",
+    "note",
+    "read_at",
+    "resolved_at",
+    "team",
+    "issuer",
+    "support_staff",
+    "resolved_by"
+  ]
+}

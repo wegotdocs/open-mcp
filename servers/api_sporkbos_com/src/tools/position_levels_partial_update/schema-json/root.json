@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this position level.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "type": {
+      "enum": [
+        "Exempt",
+        "NonExempt"
+      ],
+      "type": "string",
+      "description": "* `Exempt` - Exempt\n* `NonExempt` - Non-Exempt"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "colour": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "status": {
+      "enum": [
+        "Active",
+        "Pending",
+        "Archive",
+        "Deleted",
+        "Awaiting Access"
+      ],
+      "type": "string",
+      "description": "* `Active` - Active\n* `Pending` - Pending\n* `Archive` - Archive\n* `Deleted` - Delete\n* `Awaiting Access` - Awaiting Access"
+    },
+    "order": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

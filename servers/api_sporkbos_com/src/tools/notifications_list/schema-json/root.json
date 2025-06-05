@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "page_no": {
+      "description": "A page number within the paginated result set.",
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "recipient": {
+      "description": "Filter notifications by user",
+      "type": "integer"
+    },
+    "team": {
+      "description": "Filter notifications by team",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "recipient",
+    "team"
+  ]
+}

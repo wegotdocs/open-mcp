@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "content": {
+      "description": "ID of the content to import results for",
+      "type": "integer"
+    },
+    "team": {
+      "description": "ID of the team",
+      "type": "integer"
+    },
+    "file": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "required": [
+    "content",
+    "team",
+    "file"
+  ]
+}

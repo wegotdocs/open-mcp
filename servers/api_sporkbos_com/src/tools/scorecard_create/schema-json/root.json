@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "is_favorite": {
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "title": "Scorecard Name",
+      "maxLength": 255
+    },
+    "status": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "title": "Scorecard Description"
+    },
+    "share": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "integer",
+      "nullable": true,
+      "title": "Scorecard Owner"
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "shared_users": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Scorecard Shared Users"
+      },
+      "title": "Scorecard Shared Users"
+    },
+    "shared_groups": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Scorecard Shared Groups"
+      },
+      "title": "Scorecard Shared Groups"
+    },
+    "contents": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Scorecard Metrics"
+      },
+      "title": "Scorecard Metrics"
+    }
+  },
+  "required": [
+    "id",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "is_favorite",
+    "name"
+  ]
+}

@@ -1,0 +1,19 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.number().int().readonly(),
+  "created_by": z.string(),
+  "updated_by": z.string(),
+  "deleted_by": z.string(),
+  "ulid": z.string().readonly(),
+  "created_at": z.string().datetime({ offset: true }).readonly(),
+  "updated_at": z.string().datetime({ offset: true }).readonly(),
+  "deleted_at": z.string().datetime({ offset: true }).readonly(),
+  "feedback_count": z.number().int().readonly(),
+  "name": z.string().max(50),
+  "icon": z.string().max(50).optional(),
+  "colour": z.string().max(50).optional(),
+  "status": z.enum(["Active","Pending","Archive","Deleted","Awaiting Access"]).describe("* `Active` - Active\n* `Pending` - Pending\n* `Archive` - Archive\n* `Deleted` - Delete\n* `Awaiting Access` - Awaiting Access").optional(),
+  "description": z.string().optional(),
+  "team": z.number().int().nullable().optional()
+}

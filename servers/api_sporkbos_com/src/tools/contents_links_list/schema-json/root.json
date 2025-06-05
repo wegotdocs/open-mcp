@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "string"
+    },
+    "content_type": {
+      "type": "string"
+    },
+    "link_type": {
+      "description": "Content link type",
+      "type": "string",
+      "enum": [
+        "Child",
+        "Other",
+        "Parent"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "team": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "link_type"
+  ]
+}
