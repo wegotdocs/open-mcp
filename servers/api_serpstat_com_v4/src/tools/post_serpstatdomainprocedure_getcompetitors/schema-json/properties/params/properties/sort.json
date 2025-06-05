@@ -1,0 +1,173 @@
+{
+  "type": "object",
+  "description": "**Optional**. With this sorting options, you can sort by one of response parameters.  Default sorting is `\"relevance\":\"desc\"`\n",
+  "properties": {
+    "relevance": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "**Default sort**. Sort by by relevance of keyword sets of rival domains"
+    },
+    "visible": {
+      "x-stoplight": {
+        "id": "ii7cpse1ar2uk"
+      },
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by visibility of competitiors domains"
+    },
+    "keywords": {
+      "x-stoplight": {
+        "id": "tnygo3hmo9lk2"
+      },
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "total keywords in top of rival domain"
+    },
+    "traff": {
+      "x-stoplight": {
+        "id": "gz6gqvfeggzcc"
+      },
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by estimated search traffic of rival domains"
+    },
+    "visible_dynamic": {
+      "x-stoplight": {
+        "id": "kuuvrt9ebpe86"
+      },
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by change in visibility of rival domains"
+    },
+    "keywords_dynamic": {
+      "x-stoplight": {
+        "id": "bgyybgqlgyabh"
+      },
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by change in keywords count of rival domains"
+    },
+    "traff_dynamic": {
+      "x-stoplight": {
+        "id": "v0r7sohyncw8d"
+      },
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by change in estimated search traffic of rival domains"
+    },
+    "new_keywords": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by change in recently appared keywords in SERPs of rival domains",
+      "x-stoplight": {
+        "id": "25sjpl99v4dff"
+      }
+    },
+    "ads_dynamic": {
+      "x-stoplight": {
+        "id": "2dvkv5l432jg4"
+      },
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by change in ads numbers of rival domains"
+    },
+    "out_keywords": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by change in recently dropped from SERPs keywords of rival domains",
+      "x-stoplight": {
+        "id": "sp5li4aozfftv"
+      }
+    },
+    "rised_keywords": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by change in recently moved up in SERPs keywords of rival domains",
+      "x-stoplight": {
+        "id": "xfz8wbi622vz7"
+      }
+    },
+    "down_keywords": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by change in recently moved down in SERPs keywords of rival domains",
+      "x-stoplight": {
+        "id": "bndts4z7w0fj6"
+      }
+    },
+    "ad_keywords": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by ads keywords of rival domains",
+      "x-stoplight": {
+        "id": "i3a29f6xwj805"
+      }
+    },
+    "ads": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by ads numbers of rival domains",
+      "x-stoplight": {
+        "id": "6barx7mx9djub"
+      }
+    },
+    "intersected": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by volume of intersected keywords with rival domains",
+      "x-stoplight": {
+        "id": "mr69tch1eefyl"
+      }
+    },
+    "new_relevance": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by volume of intersected new keywords with rival domains",
+      "x-stoplight": {
+        "id": "zghk08nyrbnn9"
+      }
+    },
+    "our_relevance": {
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "description": "Sort by volume of intersected out of SERP keywords with rival domains",
+      "x-stoplight": {
+        "id": "kuj98a4slnhzp"
+      }
+    }
+  }
+}

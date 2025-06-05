@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "description": "Filters for search. Fields are combined using the **AND** logic. Numeric range fields (`_from` and `_to`) allow specifying minimum and maximum values. List fields (`_contain` and `_not_contain`) specify inclusion or exclusion criteria",
+  "properties": {
+    "url_prefix": {
+      "type": "string",
+      "description": "Filters results to URLs that start with the given prefix.",
+      "example": "https://www.apple.com/ipad/"
+    },
+    "url_contain": {
+      "type": "string",
+      "description": "Filters results to URLs that contain the specified substring.",
+      "example": "/ipad/"
+    },
+    "url_not_contain": {
+      "type": "string",
+      "description": "Excludes results with URLs that contain the specified substring.",
+      "example": "/mac/"
+    }
+  }
+}

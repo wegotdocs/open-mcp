@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "description": "Filters for search. Fields are combined using the **AND** logic.",
+  "properties": {
+    "url_prefix": {
+      "type": "string",
+      "description": "Filters results by URLs that start with the given prefix.",
+      "example": "https://www.apple.com/ipad/"
+    },
+    "url_contain": {
+      "type": "string",
+      "description": "Filters results by URLs that contain the given substring.",
+      "example": "/ipad/"
+    },
+    "url_not_contain": {
+      "type": "string",
+      "description": "Filters results by URLs that do not contain the given substring.",
+      "example": "/mac/"
+    },
+    "url": {
+      "type": "string",
+      "description": "Filters results to show only exact matching URLs.",
+      "example": "https://www.example.com/product"
+    },
+    "minus_url": {
+      "type": "string",
+      "description": "Excludes results that match the given URL.",
+      "example": "https://www.example.com/unwanted-page"
+    },
+    "pm_url": {
+      "type": "string",
+      "description": "Filters results by URLs that partially match the given pattern.",
+      "example": "example.com/blog/*"
+    }
+  }
+}

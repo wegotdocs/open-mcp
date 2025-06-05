@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": [
+    "domain"
+  ],
+  "properties": {
+    "domain": {
+      "type": "string",
+      "description": "Domain name"
+    },
+    "sort": {
+      "enum": [
+        "traff",
+        "region",
+        "country_name_en",
+        "google_domain"
+      ],
+      "description": "Sort by data\n\nDefault: `[\"traff\"]`"
+    },
+    "order": {
+      "description": "Sort order\n\nDefault: `\"desc\"`",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    }
+  }
+}

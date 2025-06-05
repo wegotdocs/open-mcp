@@ -1,0 +1,32 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "right_spelling": z.boolean().describe("Include or exclude correctly spelled keywords.").optional(),
+  "misspelled": z.boolean().describe("Include or exclude misspelled keywords.").optional(),
+  "cost": z.number().describe("Exact cost per click (in USD, exact match).").optional(),
+  "cost_from": z.number().describe("Minimum cost per click (in USD, exact match).").optional(),
+  "cost_to": z.number().describe("Maximum cost per click (in USD, exact match).").optional(),
+  "concurrency": z.number().int().describe("Exact competition level (1-100).").optional(),
+  "concurrency_from": z.number().int().describe("Minimum competition level (1-100).").optional(),
+  "concurrency_to": z.number().int().describe("Maximum competition level (1-100).").optional(),
+  "difficulty": z.number().int().describe("Exact keyword difficulty.").optional(),
+  "difficulty_from": z.number().int().describe("Minimum keyword difficulty.").optional(),
+  "difficulty_to": z.number().int().describe("Maximum keyword difficulty.").optional(),
+  "region_queries_count": z.number().int().describe("Exact search volume for the selected region.").optional(),
+  "region_queries_count_from": z.number().int().describe("Minimum search volume for the selected region.").optional(),
+  "region_queries_count_wide": z.number().int().describe("Exact search volume in broad match.").optional(),
+  "region_queries_count_to": z.number().int().describe("Maximum search volume for the selected region.").optional(),
+  "region_queries_count_wide_from": z.number().int().describe("Minimum search volume in broad match.").optional(),
+  "region_queries_count_wide_to": z.number().int().describe("Maximum search volume in broad match.").optional(),
+  "keyword_length": z.number().int().describe("Exact number of words in a keyword.").optional(),
+  "keyword_length_from": z.number().int().describe("Minimum number of words in a keyword.").optional(),
+  "keyword_length_to": z.number().int().describe("Maximum number of words in a keyword.").optional(),
+  "traff": z.number().int().describe("Exact traffic volume for the keyword.").optional(),
+  "traff_from": z.number().int().describe("Minimum traffic volume for the keyword.").optional(),
+  "traff_to": z.number().int().describe("Maximum traffic volume for the keyword.").optional(),
+  "position": z.number().int().describe("Exact position in SERP for the keyword.").optional(),
+  "position_from": z.number().int().describe("Minimum osition in SERP for the keyword.").optional(),
+  "position_to": z.number().int().describe("Maximum position in SERP for the keyword.").optional(),
+  "keywords": z.array(z.string()).describe("List of included keywords.").optional(),
+  "minus_keywords": z.array(z.string()).describe("List of excluded keywords.").optional()
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "domain"
+  ],
+  "properties": {
+    "domain": {
+      "type": "string",
+      "description": "Domain name",
+      "example": "ebay.com"
+    },
+    "sort": {
+      "enum": [
+        "keywords_count",
+        "db_name",
+        "country_name_en",
+        "google_domain"
+      ],
+      "description": "Field for sorting",
+      "default": "keywords_count"
+    },
+    "order": {
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "default": "desc",
+      "description": "Sort order (asc — ascending, desc — descending)"
+    }
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "type": "object",
+  "description": "Filters for search. Fields are combined using the **AND** logic. Numeric range fields (`_from` and `_to`) allow specifying minimum and maximum values. List fields (`_contain` and `_not_contain`) specify inclusion or exclusion criteria",
+  "properties": {
+    "right_spelling": {
+      "type": "boolean",
+      "description": "Include or exclude correctly spelled keywords.",
+      "example": true
+    },
+    "misspelled": {
+      "type": "boolean",
+      "description": "Include or exclude misspelled keywords.",
+      "example": false
+    },
+    "cost": {
+      "type": "number",
+      "description": "Exact cost per click (in USD, exact match).",
+      "example": 15
+    },
+    "cost_from": {
+      "type": "number",
+      "description": "Minimum cost per click (in USD, exact match).",
+      "example": 10
+    },
+    "cost_to": {
+      "type": "number",
+      "description": "Maximum cost per click (in USD, exact match).",
+      "example": 50
+    },
+    "concurrency": {
+      "type": "integer",
+      "description": "Exact competition level (1-100).",
+      "example": 50
+    },
+    "concurrency_from": {
+      "type": "integer",
+      "description": "Minimum competition level (1-100).",
+      "example": 10
+    },
+    "concurrency_to": {
+      "type": "integer",
+      "description": "Maximum competition level (1-100).",
+      "example": 100
+    },
+    "difficulty": {
+      "type": "integer",
+      "description": "Exact keyword difficulty.",
+      "example": 3
+    },
+    "difficulty_from": {
+      "type": "integer",
+      "description": "Minimum keyword difficulty.",
+      "example": 10
+    },
+    "difficulty_to": {
+      "type": "integer",
+      "description": "Maximum keyword difficulty.",
+      "example": 15
+    },
+    "region_queries_count": {
+      "type": "integer",
+      "description": "Exact search volume for the selected region.",
+      "example": 10000
+    },
+    "region_queries_count_from": {
+      "type": "integer",
+      "description": "Minimum search volume for the selected region.",
+      "example": 1000
+    },
+    "region_queries_count_wide": {
+      "type": "integer",
+      "description": "Exact search volume in broad match.",
+      "example": 10000
+    },
+    "region_queries_count_to": {
+      "type": "integer",
+      "description": "Maximum search volume for the selected region.",
+      "example": 5000
+    },
+    "region_queries_count_wide_from": {
+      "type": "integer",
+      "description": "Minimum search volume in broad match.",
+      "example": 1000
+    },
+    "region_queries_count_wide_to": {
+      "type": "integer",
+      "description": "Maximum search volume in broad match.",
+      "example": 5000
+    },
+    "keyword_length": {
+      "type": "integer",
+      "description": "Exact number of words in a keyword.",
+      "example": 1
+    },
+    "keyword_length_from": {
+      "type": "integer",
+      "description": "Minimum number of words in a keyword.",
+      "example": 1
+    },
+    "keyword_length_to": {
+      "type": "integer",
+      "description": "Maximum number of words in a keyword.",
+      "example": 3
+    },
+    "traff": {
+      "type": "integer",
+      "description": "Exact traffic volume for the keyword.",
+      "example": 3000
+    },
+    "traff_from": {
+      "type": "integer",
+      "description": "Minimum traffic volume for the keyword.",
+      "example": 1000
+    },
+    "traff_to": {
+      "type": "integer",
+      "description": "Maximum traffic volume for the keyword.",
+      "example": 5000
+    },
+    "position": {
+      "type": "integer",
+      "description": "Exact position in SERP for the keyword.",
+      "example": 1
+    },
+    "position_from": {
+      "type": "integer",
+      "description": "Minimum osition in SERP for the keyword.",
+      "example": 5
+    },
+    "position_to": {
+      "type": "integer",
+      "description": "Maximum position in SERP for the keyword.",
+      "example": 20
+    },
+    "keywords": {
+      "type": "array",
+      "description": "List of included keywords.",
+      "example": [
+        "iphone",
+        "iphone x"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "minus_keywords": {
+      "type": "array",
+      "description": "List of excluded keywords.",
+      "example": [
+        "ipad",
+        "iphone xr"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
