@@ -1,0 +1,152 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this skill.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "is_favourite": {
+      "type": "boolean",
+      "default": false
+    },
+    "linked_positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": {}
+      },
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "stage": {
+      "enum": [
+        "Draft",
+        "Published",
+        "Archive",
+        "Parking"
+      ],
+      "type": "string",
+      "description": "* `Draft` - Draft\n* `Published` - Published\n* `Archive` - Archive\n* `Parking` - Parking"
+    },
+    "difficulty": {
+      "type": "string"
+    },
+    "id_number": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 50
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "learn_frequency": {
+      "enum": [
+        "Never",
+        "Recurring"
+      ],
+      "type": "string",
+      "description": "* `Never` - Never\n* `Recurring` - Recurring"
+    },
+    "recurring_interval": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "beginner_hours": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "intermediate_hours": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "advanced_hours": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "master_hours": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "category": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

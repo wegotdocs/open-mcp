@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "feedback_role": {
+      "type": "string",
+      "enum": [
+        "given",
+        "received"
+      ]
+    },
+    "feedback_type": {
+      "type": "string",
+      "enum": [
+        "all",
+        "coaching",
+        "praising"
+      ]
+    },
+    "feedback_types": {
+      "type": "string"
+    },
+    "team": {
+      "type": "integer"
+    },
+    "user": {
+      "type": "integer"
+    }
+  },
+  "required": []
+}

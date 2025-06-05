@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "user_preferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "team_id": {
+            "type": "integer"
+          },
+          "user_id": {
+            "type": "integer"
+          },
+          "receive_by_email": {
+            "type": "boolean"
+          },
+          "receive_by_sms_text": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "receive_by_email",
+          "receive_by_sms_text",
+          "team_id",
+          "user_id"
+        ]
+      }
+    }
+  },
+  "required": []
+}

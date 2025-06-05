@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "end": {
+      "description": "Filter by date range - YYYY-MM-DD",
+      "type": "string"
+    },
+    "is_paginated": {
+      "type": "boolean"
+    },
+    "page_no": {
+      "description": "A page number within the paginated result set.",
+      "type": "integer"
+    },
+    "page_size": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "start": {
+      "description": "Filter by date range - YYYY-MM-DD",
+      "type": "string"
+    },
+    "team": {
+      "description": "Filter events by a specific team ID",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "team"
+  ]
+}

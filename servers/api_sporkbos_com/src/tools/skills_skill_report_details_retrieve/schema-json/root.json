@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "skill": {
+      "description": "Filter by skill name.",
+      "type": "string"
+    },
+    "team": {
+      "description": "Filter by team ID.",
+      "type": "integer"
+    },
+    "user": {
+      "description": "Filter by user ID.",
+      "type": "integer"
+    },
+    "view_by": {
+      "description": "View skill report by 'level' or 'score'.",
+      "type": "string",
+      "enum": [
+        "level",
+        "score"
+      ]
+    }
+  },
+  "required": [
+    "team"
+  ]
+}

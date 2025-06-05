@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this skill file.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "file": {
+      "type": "string",
+      "format": "uri",
+      "title": "Skill File"
+    },
+    "skill": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "size": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "id",
+    "b_id",
+    "file",
+    "skill",
+    "size"
+  ]
+}

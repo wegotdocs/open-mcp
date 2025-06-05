@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "string"
+    },
+    "learning_status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "complete_optional",
+        "complete_required",
+        "required"
+      ]
+    },
+    "team": {
+      "type": "integer"
+    },
+    "user": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "learning_status",
+    "team"
+  ]
+}

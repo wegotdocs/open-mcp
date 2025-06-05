@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this user.",
+      "type": "integer"
+    },
+    "team": {
+      "description": "Filter users by team ID",
+      "type": "integer"
+    },
+    "receive_by_email": {
+      "type": "boolean"
+    },
+    "receive_by_sms_text": {
+      "type": "boolean",
+      "title": "Receive By SMS"
+    }
+  },
+  "required": [
+    "id",
+    "team"
+  ]
+}

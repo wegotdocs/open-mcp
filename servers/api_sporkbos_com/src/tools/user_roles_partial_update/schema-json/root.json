@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this role.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "colour": {
+      "type": "string",
+      "maxLength": 50
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

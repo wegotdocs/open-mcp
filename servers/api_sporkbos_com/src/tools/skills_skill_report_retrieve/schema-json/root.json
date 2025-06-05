@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "group": {
+      "type": "string"
+    },
+    "order_by": {
+      "description": "Order by asc or desc",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "sort_by": {
+      "description": "Sort by field name",
+      "type": "string"
+    },
+    "team": {
+      "description": "Filter by team ID.",
+      "type": "integer"
+    },
+    "view_by": {
+      "description": "View skill report by 'level' or 'score'",
+      "type": "string",
+      "enum": [
+        "level",
+        "score"
+      ]
+    }
+  },
+  "required": [
+    "team"
+  ]
+}

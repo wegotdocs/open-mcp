@@ -1,0 +1,112 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "order": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "note": {
+      "type": "string"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true
+    },
+    "start_time": {
+      "type": "string",
+      "format": "time",
+      "nullable": true
+    },
+    "duration": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "icon": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "flag": {
+      "enum": [
+        "Clear",
+        "Flagged",
+        "Warning",
+        "Blocked",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Clear` - Clear\n* `Flagged` - Flagged\n* `Warning` - Warning\n* `Blocked` - Blocked\n* `None` - None"
+    },
+    "is_template": {
+      "type": "boolean",
+      "title": "Template"
+    },
+    "team": {
+      "type": "integer",
+      "readOnly": true,
+      "nullable": true
+    },
+    "content": {
+      "type": "integer",
+      "readOnly": true,
+      "nullable": true
+    }
+  },
+  "required": [
+    "id",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "name",
+    "order",
+    "team",
+    "content"
+  ]
+}

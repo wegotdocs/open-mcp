@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "old_password": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "new_password1": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "new_password2": {
+      "type": "string",
+      "maxLength": 128
+    }
+  },
+  "required": [
+    "old_password",
+    "new_password1",
+    "new_password2"
+  ]
+}

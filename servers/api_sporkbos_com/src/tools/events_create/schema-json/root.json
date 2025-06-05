@@ -1,0 +1,132 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "shared_with": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "user",
+              "position",
+              "group"
+            ],
+            "type": "string",
+            "description": "* `user` - user\n* `position` - position\n* `group` - group"
+          },
+          "avatar": {
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "avatar",
+          "id",
+          "name",
+          "type"
+        ]
+      }
+    },
+    "ulid": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "title": {
+      "type": "string",
+      "title": "Event Title",
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "title": "Event Description"
+    },
+    "start_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Start DateTime"
+    },
+    "end_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "End DateTime"
+    },
+    "is_full_day_event": {
+      "type": "boolean"
+    },
+    "is_team_event": {
+      "type": "boolean"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "title": "Deleted"
+    },
+    "created_by": {
+      "type": "integer",
+      "nullable": true
+    },
+    "updated_by": {
+      "type": "integer",
+      "nullable": true
+    },
+    "deleted_by": {
+      "type": "integer",
+      "nullable": true
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "shared_users": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Shared Users"
+      }
+    },
+    "shared_groups": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Shared Groups"
+      }
+    },
+    "shared_positions": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "title": "Shared Positions"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "updated_at",
+    "title",
+    "start_at",
+    "end_at"
+  ]
+}

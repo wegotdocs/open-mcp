@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "note": {
+      "type": "string"
+    },
+    "flag": {
+      "enum": [
+        "Clear",
+        "Flagged",
+        "Warning",
+        "Blocked",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Clear` - Clear\n* `Flagged` - Flagged\n* `Warning` - Warning\n* `Blocked` - Blocked\n* `None` - None"
+    },
+    "read_at": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "is_read": {
+      "type": "boolean"
+    },
+    "ttl": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "title": "Time To Live"
+    },
+    "link": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "purpose": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 255
+    },
+    "related_info": {
+      "nullable": true
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "recipient": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "title",
+    "note"
+  ]
+}

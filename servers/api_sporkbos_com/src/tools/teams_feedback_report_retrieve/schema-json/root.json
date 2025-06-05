@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this team.",
+      "type": "integer"
+    },
+    "creators": {
+      "type": "string"
+    },
+    "end": {
+      "description": "Filter by date range - YYYY-MM-DD",
+      "type": "string"
+    },
+    "feedback_types": {
+      "type": "string"
+    },
+    "order_by": {
+      "description": "Order by asc or desc",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "performance_types": {
+      "type": "string"
+    },
+    "recipients": {
+      "type": "string"
+    },
+    "sort_by": {
+      "description": "Sort by field name",
+      "type": "string"
+    },
+    "start": {
+      "description": "Filter by date range - YYYY-MM-DD",
+      "type": "string"
+    },
+    "users": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

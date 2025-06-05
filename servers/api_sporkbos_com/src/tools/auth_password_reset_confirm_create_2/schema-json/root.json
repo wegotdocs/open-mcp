@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string"
+    },
+    "uidb64": {
+      "type": "string"
+    },
+    "new_password1": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "new_password2": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "uid": {
+      "type": "string"
+    },
+    "b_token": {
+      "type": "string"
+    },
+    "accepted_policies": {
+      "type": "boolean"
+    },
+    "required_reset_password": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "token",
+    "uidb64",
+    "new_password1",
+    "new_password2",
+    "uid",
+    "b_token"
+  ]
+}

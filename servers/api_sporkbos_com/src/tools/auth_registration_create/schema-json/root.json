@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "password1": {
+      "type": "string",
+      "writeOnly": true
+    },
+    "password2": {
+      "type": "string",
+      "writeOnly": true
+    },
+    "accepted_policies": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "email",
+    "password1",
+    "password2",
+    "accepted_policies"
+  ]
+}

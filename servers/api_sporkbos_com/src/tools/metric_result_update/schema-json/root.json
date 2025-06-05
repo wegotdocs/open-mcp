@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this metric result.",
+      "type": "integer"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "result": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,8}(?:\\.\\d{0,4})?$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "note": {
+      "type": "string",
+      "nullable": true
+    },
+    "team": {
+      "type": "integer"
+    },
+    "content": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "id",
+    "b_id",
+    "result",
+    "team",
+    "content",
+    "updated_at"
+  ]
+}

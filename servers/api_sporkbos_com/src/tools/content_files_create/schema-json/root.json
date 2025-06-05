@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "file": {
+      "type": "string",
+      "format": "uri",
+      "title": "Content File"
+    },
+    "content": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "size": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "id",
+    "file",
+    "content",
+    "size"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "position": {
+      "type": "integer"
+    },
+    "content_states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "integer"
+          },
+          "is_checked": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "content",
+          "is_checked"
+        ]
+      }
+    }
+  },
+  "required": [
+    "position",
+    "content_states"
+  ]
+}

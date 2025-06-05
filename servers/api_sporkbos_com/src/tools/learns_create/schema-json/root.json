@@ -1,0 +1,115 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "deleted_by": {
+      "type": "string"
+    },
+    "ulid": {
+      "type": "string",
+      "readOnly": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "content_skill": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Skill"
+    },
+    "content_difficulty": {
+      "type": "string"
+    },
+    "content_hours": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Hours"
+    },
+    "content_knowledge_level": {
+      "type": "string"
+    },
+    "user_country": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "user_state": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "flag": {
+      "enum": [
+        "Clear",
+        "Flagged",
+        "Warning",
+        "Blocked",
+        "None"
+      ],
+      "type": "string",
+      "description": "* `Clear` - Clear\n* `Flagged` - Flagged\n* `Warning` - Warning\n* `Blocked` - Blocked\n* `None` - None"
+    },
+    "was_required": {
+      "type": "boolean",
+      "title": "Was Reqired"
+    },
+    "content_version": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,9}(?:\\.\\d{0,1})?$",
+      "title": "Version"
+    },
+    "team": {
+      "type": "integer",
+      "nullable": true
+    },
+    "content": {
+      "type": "integer",
+      "nullable": true
+    },
+    "user": {
+      "type": "integer",
+      "readOnly": true,
+      "nullable": true
+    },
+    "user_position": {
+      "type": "integer",
+      "nullable": true,
+      "title": "Position"
+    }
+  },
+  "required": [
+    "id",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "ulid",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "user"
+  ]
+}
