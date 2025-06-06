@@ -1,0 +1,26 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "list_6",
+  "toolDescription": "List of subareas",
+  "baseUrl": "https://api-crm.inmobalia.com/v1",
+  "path": "/v1/locations/subareas/by-area/{areaId}",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>OAUTH2_TOKEN</mcp-env-var>",
+      "in": "header",
+      "envVarName": "OAUTH2_TOKEN"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "areaId": "areaId"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

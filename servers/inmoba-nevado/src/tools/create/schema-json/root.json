@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "format": "uri"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "nullable": true
+    },
+    "phone": {
+      "type": "string",
+      "nullable": true
+    },
+    "remoteIp": {
+      "type": "string",
+      "nullable": true
+    },
+    "comments": {
+      "type": "string",
+      "nullable": true
+    },
+    "properties": {
+      "type": "array",
+      "nullable": true,
+      "items": {
+        "type": "string",
+        "nullable": true
+      }
+    },
+    "contact": {
+      "type": "integer",
+      "description": "If contact is setted, the web-lead will be archived and assigned to the contact",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "source"
+  ]
+}

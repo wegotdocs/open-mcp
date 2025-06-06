@@ -1,0 +1,507 @@
+{
+  "type": "object",
+  "properties": {
+    "reference": {
+      "maxLength": 30,
+      "minLength": 2,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-()]*[a-zA-Z0-9]$",
+      "type": "string"
+    },
+    "constructYear": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "constructYearMonth": {
+      "pattern": "^[12][0-9]{3}-(?:0[1-9]|1[0-2])$",
+      "type": "string",
+      "nullable": true
+    },
+    "renovationYear": {
+      "type": "string",
+      "nullable": true
+    },
+    "renovationYearMonth": {
+      "pattern": "^[12][0-9]{3}-(?:0[1-9]|1[0-2])$",
+      "type": "string",
+      "nullable": true
+    },
+    "bathrooms": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "bedrooms": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "suiteBathrooms": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "toilets": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "floors": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "level": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "mtsBuild": {
+      "type": "number",
+      "nullable": true
+    },
+    "mtsInterior": {
+      "type": "number",
+      "nullable": true
+    },
+    "mtsPlot": {
+      "type": "number",
+      "nullable": true
+    },
+    "mtsTerrace": {
+      "type": "number",
+      "nullable": true
+    },
+    "pax": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "garden": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "YES",
+        "NO",
+        "PRIVATE",
+        "COMMUNAL"
+      ]
+    },
+    "pool": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "YES",
+        "NO",
+        "PRIVATE",
+        "COMMUNAL"
+      ]
+    },
+    "garage": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "YES",
+        "NO",
+        "PRIVATE",
+        "COMMUNAL",
+        "CARPORT"
+      ]
+    },
+    "parkingSpaces": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "orientation": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ]
+    },
+    "community": {
+      "type": "number",
+      "nullable": true
+    },
+    "garbage": {
+      "type": "number",
+      "nullable": true
+    },
+    "ibi": {
+      "type": "number",
+      "nullable": true
+    },
+    "direct": {
+      "type": "boolean"
+    },
+    "exclusive": {
+      "type": "boolean"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "hot": {
+      "type": "boolean"
+    },
+    "luxury": {
+      "type": "boolean"
+    },
+    "newProperty": {
+      "type": "boolean"
+    },
+    "special": {
+      "type": "boolean"
+    },
+    "customFeatures": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "FEAT1",
+          "FEAT2",
+          "FEAT3",
+          "FEAT4",
+          "FEAT5",
+          "FEAT6"
+        ]
+      }
+    },
+    "type": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "city": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "area": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "subarea": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "development": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "dateListed": {
+      "type": "string",
+      "description": "The date must be current or in the past",
+      "format": "date-time"
+    },
+    "dateReview": {
+      "type": "string",
+      "description": "The date must be current or in the past",
+      "format": "date-time"
+    },
+    "features": {
+      "uniqueItems": true,
+      "type": "array",
+      "description": "List of property features codes",
+      "items": {
+        "type": "string",
+        "description": "List of property features codes"
+      }
+    },
+    "tags": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rentShortterm": {
+      "type": "boolean"
+    },
+    "rentLongterm": {
+      "type": "boolean"
+    },
+    "rented": {
+      "type": "boolean"
+    },
+    "sale": {
+      "type": "boolean"
+    },
+    "sold": {
+      "type": "boolean"
+    },
+    "underOffer": {
+      "type": "boolean"
+    },
+    "rentalPriceShortterm": {
+      "type": "integer",
+      "description": "required if rentShortterm is true",
+      "format": "int32",
+      "nullable": true
+    },
+    "rentalPriceShorttermVisible": {
+      "type": "boolean"
+    },
+    "rentalPriceShorttermPeriod": {
+      "type": "string",
+      "description": "required if rentalPriceShortterm is not null",
+      "nullable": true,
+      "enum": [
+        "DAY",
+        "WEEK",
+        "FORTNIGHT",
+        "MONTH"
+      ]
+    },
+    "rentalPriceLongterm": {
+      "type": "integer",
+      "description": "required if rentLongterm is true",
+      "format": "int32",
+      "nullable": true
+    },
+    "rentalPriceLongtermVisible": {
+      "type": "boolean"
+    },
+    "salePrice": {
+      "type": "integer",
+      "description": "required if sale is true",
+      "format": "int32",
+      "nullable": true
+    },
+    "salePriceVisible": {
+      "type": "boolean"
+    },
+    "salePricePrevious": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "address": {
+      "type": "string",
+      "nullable": true
+    },
+    "expenses": {
+      "type": "string",
+      "nullable": true
+    },
+    "gpsPoint": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `gpsPoint` to the tool, first call the tool `expandSchema` with \"/properties/gpsPoint\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>GeoJSon geometry</property-description>",
+      "additionalProperties": true
+    },
+    "gpsVisible": {
+      "type": "boolean"
+    },
+    "internalNotes": {
+      "type": "string",
+      "nullable": true
+    },
+    "saleboard": {
+      "type": "boolean"
+    },
+    "keys": {
+      "type": "boolean"
+    },
+    "keyStatus": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "OFFICE",
+        "VENDOR",
+        "KEYHOLDER",
+        "NONE"
+      ]
+    },
+    "keyscode": {
+      "type": "string",
+      "nullable": true
+    },
+    "listedBy": {
+      "maxItems": 2,
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "seller": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "publicAgent": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "postcode": {
+      "type": "string",
+      "nullable": true
+    },
+    "taxes": {
+      "type": "string",
+      "nullable": true
+    },
+    "valuation": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "valuationDate": {
+      "type": "string",
+      "format": "date",
+      "nullable": true
+    },
+    "visitingConditions": {
+      "type": "string",
+      "nullable": true
+    },
+    "zone": {
+      "type": "string",
+      "nullable": true
+    },
+    "communitiesAdmin": {
+      "type": "string",
+      "nullable": true
+    },
+    "agreement": {
+      "type": "boolean"
+    },
+    "copyTrashBills": {
+      "type": "boolean"
+    },
+    "copyRegistrationProperty": {
+      "type": "boolean"
+    },
+    "copyRegistrationCompany": {
+      "type": "boolean"
+    },
+    "copyIbiBills": {
+      "type": "boolean"
+    },
+    "copyNotaSimple": {
+      "type": "boolean"
+    },
+    "copyPlans": {
+      "type": "boolean"
+    },
+    "copyAttorney": {
+      "type": "boolean"
+    },
+    "copyFirstOccupationLicense": {
+      "type": "boolean"
+    },
+    "owner": {
+      "type": "string",
+      "nullable": true
+    },
+    "refCatastro": {
+      "type": "string",
+      "nullable": true
+    },
+    "register": {
+      "type": "string",
+      "nullable": true
+    },
+    "legalRepresentative": {
+      "type": "string",
+      "nullable": true
+    },
+    "copyTenSecurity": {
+      "type": "boolean"
+    },
+    "rateableValue": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "energyIsInProcess": {
+      "type": "boolean"
+    },
+    "energyKwLevel": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+      ]
+    },
+    "energyCo2Level": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+      ]
+    },
+    "energyKw": {
+      "type": "number",
+      "nullable": true
+    },
+    "energyCo2": {
+      "type": "number",
+      "nullable": true
+    },
+    "energyInfo": {
+      "type": "string",
+      "nullable": true
+    },
+    "touristicCode": {
+      "type": "string",
+      "nullable": true
+    },
+    "commission": {
+      "type": "string",
+      "description": "Comment about sales commission",
+      "nullable": true
+    },
+    "commissionPercent": {
+      "maximum": 100,
+      "exclusiveMaximum": false,
+      "minimum": 0,
+      "exclusiveMinimum": false,
+      "type": "number",
+      "description": "Percentage of the total sales price, e.g. 5%. Mandatory if marked as shared",
+      "nullable": true
+    },
+    "commissionNetworkPercent": {
+      "maximum": 100,
+      "exclusiveMaximum": false,
+      "minimum": 0,
+      "exclusiveMinimum": false,
+      "type": "number",
+      "description": "Percentage of commission to be shared, e.g. 50%. Mandatory if marked as shared",
+      "nullable": true
+    }
+  },
+  "required": [
+    "reference",
+    "customFeatures",
+    "type",
+    "city",
+    "dateListed",
+    "dateReview",
+    "features",
+    "tags",
+    "listedBy"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "activityId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "startDateTime": {
+      "type": "string",
+      "description": "Required if allDay is false",
+      "format": "date-time",
+      "nullable": true
+    },
+    "endDateTime": {
+      "type": "string",
+      "description": "Required if allDay is false",
+      "format": "date-time",
+      "nullable": true
+    },
+    "startDate": {
+      "type": "string",
+      "description": "Required if allDay is true",
+      "format": "date",
+      "nullable": true
+    },
+    "endDate": {
+      "type": "string",
+      "description": "Required if allDay is true",
+      "format": "date",
+      "nullable": true
+    },
+    "timezone": {
+      "type": "string",
+      "example": "Europe/Madrid"
+    },
+    "allDay": {
+      "type": "boolean"
+    },
+    "reminder": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "MINUTES_30",
+        "HOUR_1",
+        "HOURS_2",
+        "DAY_1",
+        "DAYS_3",
+        "DAYS_7",
+        "DAYS_15",
+        "DAYS_30"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": [
+    "activityId",
+    "timezone",
+    "allDay"
+  ]
+}
