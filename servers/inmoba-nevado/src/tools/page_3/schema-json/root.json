@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "fromStart": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "toStart": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "fromEnd": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "toEnd": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "page": {
+      "description": "Zero-based page index (0..N)",
+      "type": "integer",
+      "default": 0
+    },
+    "size": {
+      "description": "The size of the page to be returned",
+      "type": "integer",
+      "default": 20
+    },
+    "sort": {
+      "description": "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

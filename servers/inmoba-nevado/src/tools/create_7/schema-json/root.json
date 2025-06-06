@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "contactId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "EMAIL",
+        "SOCIAL",
+        "PHONE",
+        "WEBSITE",
+        "OTHER"
+      ]
+    },
+    "address": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "contactId",
+    "kind",
+    "address",
+    "description"
+  ]
+}

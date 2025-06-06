@@ -1,0 +1,188 @@
+{
+  "type": "object",
+  "properties": {
+    "contactId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "assignedTo": {
+      "maxItems": 2,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assignedToTeam": {
+      "type": "boolean"
+    },
+    "title": {
+      "maxLength": 15,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "name": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "surname": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "company": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "address": {
+      "maxLength": 2000,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "notes": {
+      "maxLength": 25000,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "identcard": {
+      "maxLength": 50,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "email": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "format": "email",
+      "nullable": true
+    },
+    "mobile": {
+      "maxLength": 50,
+      "minLength": 0,
+      "type": "string",
+      "description": "A phone number in full international format includes a plus sign (+)",
+      "nullable": true
+    },
+    "telephone": {
+      "maxLength": 50,
+      "minLength": 0,
+      "type": "string",
+      "description": "A phone number in full international format includes a plus sign (+)",
+      "nullable": true
+    },
+    "fax": {
+      "type": "string",
+      "nullable": true
+    },
+    "web": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "format": "url",
+      "nullable": true
+    },
+    "language": {
+      "type": "string",
+      "description": "ISO 639-1 Code, https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes",
+      "nullable": true
+    },
+    "country": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 Code, https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements",
+      "nullable": true
+    },
+    "archived": {
+      "type": "boolean"
+    },
+    "typeBuyer": {
+      "type": "boolean"
+    },
+    "typeCollaborator": {
+      "type": "boolean"
+    },
+    "typeDeveloper": {
+      "type": "boolean"
+    },
+    "typeLawyer": {
+      "type": "boolean"
+    },
+    "typeOwner": {
+      "type": "boolean"
+    },
+    "typeServiceco": {
+      "type": "boolean"
+    },
+    "typeTenantLong": {
+      "type": "boolean"
+    },
+    "typeTenantShort": {
+      "type": "boolean"
+    },
+    "sentBy": {
+      "type": "integer",
+      "description": "Contact ID collaborator",
+      "format": "int32",
+      "nullable": true
+    },
+    "sentTo": {
+      "type": "integer",
+      "description": "Contact ID collaborator",
+      "format": "int32",
+      "nullable": true
+    },
+    "lawyer": {
+      "type": "integer",
+      "description": "Contact ID lawyer",
+      "format": "int32",
+      "nullable": true
+    },
+    "source": {
+      "type": "string",
+      "nullable": true
+    },
+    "sourceDetails": {
+      "type": "string",
+      "nullable": true
+    },
+    "leadStatus": {
+      "type": "string",
+      "nullable": true
+    },
+    "saleStage": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+        "CLOSED",
+        "CLOSING",
+        "DISQUALIFIED",
+        "LEAD_CAPTURING",
+        "LISTINGMATCHING",
+        "OFFERING",
+        "VIEWINGS"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowAutoEmailDealAlert": {
+      "type": "boolean"
+    },
+    "allowAutoEmailMarketing": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "contactId"
+  ]
+}

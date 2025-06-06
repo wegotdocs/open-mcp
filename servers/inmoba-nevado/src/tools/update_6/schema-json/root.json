@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "contactId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "fileId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": [
+    "contactId",
+    "fileId",
+    "name"
+  ]
+}

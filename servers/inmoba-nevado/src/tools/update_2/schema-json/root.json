@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "propertyId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "imageId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "publish": {
+      "type": "boolean",
+      "description": "It is ignored if the main field is true or if it is the only image of the property",
+      "default": false
+    },
+    "main": {
+      "type": "boolean",
+      "description": "Default true if it is the only image of the property, otherwise false",
+      "default": false
+    },
+    "position": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "propertyId",
+    "imageId"
+  ]
+}

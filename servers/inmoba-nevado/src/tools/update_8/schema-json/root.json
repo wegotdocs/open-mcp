@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "activityId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "type": {
+      "type": "string"
+    },
+    "subject": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string"
+    },
+    "details": {
+      "maxLength": 25000,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "responsible": {
+      "type": "string",
+      "description": "If null, the value will be the request user",
+      "nullable": true
+    },
+    "contactMain": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "bookings": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "developments": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "properties": {
+      "type": "array",
+      "items": {
+        "required": [
+          "propertyId"
+        ],
+        "type": "object",
+        "properties": {
+          "propertyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "activityId",
+    "type",
+    "subject"
+  ]
+}

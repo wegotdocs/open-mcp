@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "propertyId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "language": {
+      "type": "string"
+    },
+    "shortDesc": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "mainDesc": {
+      "maxLength": 25000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "extraDesc": {
+      "maxLength": 25000,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    },
+    "priceDesc": {
+      "maxLength": 25000,
+      "minLength": 0,
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": [
+    "propertyId",
+    "language",
+    "mainDesc"
+  ]
+}

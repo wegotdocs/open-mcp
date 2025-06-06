@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "propertyId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string"
+    },
+    "lang": {
+      "type": "string",
+      "nullable": true
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ARTICLE",
+        "DOCUMENT",
+        "FLOOR_PLAN",
+        "MAP",
+        "ONLINE_BROCHURE",
+        "VIDEO",
+        "VIRTUAL_TOUR"
+      ]
+    },
+    "publish": {
+      "type": "boolean"
+    },
+    "visibleNetwork": {
+      "type": "boolean"
+    },
+    "excludePortals": {
+      "type": "boolean"
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": [
+    "propertyId",
+    "name",
+    "type",
+    "url"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ACTIVE",
+          "LOST",
+          "WON"
+        ]
+      }
+    },
+    "transactionType": {
+      "type": "string",
+      "enum": [
+        "SALE",
+        "RENT_SHORTTERM",
+        "RENT_LONGTERM"
+      ]
+    },
+    "fromDateCreated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "toDateCreated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "fromDateModified": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "toDateModified": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "page": {
+      "description": "Zero-based page index (0..N)",
+      "type": "integer",
+      "default": 0
+    },
+    "size": {
+      "description": "The size of the page to be returned",
+      "type": "integer",
+      "default": 20
+    },
+    "sort": {
+      "description": "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

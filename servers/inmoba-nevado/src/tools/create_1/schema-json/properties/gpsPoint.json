@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The geometry type",
+      "nullable": false,
+      "enum": [
+        "Point"
+      ]
+    },
+    "coordinates": {
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array",
+      "nullable": false,
+      "items": {
+        "type": "number",
+        "nullable": false
+      }
+    }
+  },
+  "description": "GeoJSon geometry",
+  "nullable": true,
+  "externalDocs": {
+    "url": "https://datatracker.ietf.org/doc/html/rfc7946#section-3"
+  }
+}
