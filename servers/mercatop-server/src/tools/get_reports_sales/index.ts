@@ -1,0 +1,29 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "get_reports_sales",
+  "toolDescription": "",
+  "baseUrl": "https://api.mercatop.com/v1",
+  "path": "/reports/sales",
+  "method": "get",
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    }
+  ],
+  "paramsMap": {
+    "query": {
+      "context": "context",
+      "period": "period",
+      "date_min": "date_min",
+      "date_max": "date_max"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

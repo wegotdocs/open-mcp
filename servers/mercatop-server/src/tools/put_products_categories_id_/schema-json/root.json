@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "description": "Category name."
+    },
+    "slug": {
+      "type": "string",
+      "description": "An alphanumeric identifier for the resource unique to its type."
+    },
+    "parent": {
+      "type": "integer",
+      "description": "The ID for the parent of the resource."
+    },
+    "description": {
+      "type": "string",
+      "description": "HTML description of the resource."
+    },
+    "display": {
+      "type": "string",
+      "description": "Category archive display type.",
+      "enum": [
+        "default",
+        "products",
+        "subcategories",
+        "both"
+      ]
+    },
+    "image": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `image` to the tool, first call the tool `expandSchema` with \"/properties/image\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Image data.</property-description>",
+      "additionalProperties": true
+    },
+    "menu_order": {
+      "type": "integer",
+      "description": "Menu order, used to custom sort the resource."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

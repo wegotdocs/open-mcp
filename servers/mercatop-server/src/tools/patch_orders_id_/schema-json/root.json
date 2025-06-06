@@ -1,0 +1,560 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "parent_id": {
+      "type": "integer",
+      "description": "Parent order ID."
+    },
+    "status": {
+      "type": "string",
+      "description": "Order status.",
+      "enum": [
+        "pending",
+        "processing",
+        "on-hold",
+        "completed",
+        "cancelled",
+        "refunded",
+        "failed"
+      ]
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency the order was created with, in ISO format.",
+      "enum": [
+        "AED",
+        "AFN",
+        "ALL",
+        "AMD",
+        "ANG",
+        "AOA",
+        "ARS",
+        "AUD",
+        "AWG",
+        "AZN",
+        "BAM",
+        "BBD",
+        "BDT",
+        "BGN",
+        "BHD",
+        "BIF",
+        "BMD",
+        "BND",
+        "BOB",
+        "BRL",
+        "BSD",
+        "BTC",
+        "BTN",
+        "BWP",
+        "BYR",
+        "BYN",
+        "BZD",
+        "CAD",
+        "CDF",
+        "CHF",
+        "CLP",
+        "CNY",
+        "COP",
+        "CRC",
+        "CUC",
+        "CUP",
+        "CVE",
+        "CZK",
+        "DJF",
+        "DKK",
+        "DOP",
+        "DZD",
+        "EGP",
+        "ERN",
+        "ETB",
+        "EUR",
+        "FJD",
+        "FKP",
+        "GBP",
+        "GEL",
+        "GGP",
+        "GHS",
+        "GIP",
+        "GMD",
+        "GNF",
+        "GTQ",
+        "GYD",
+        "HKD",
+        "HNL",
+        "HRK",
+        "HTG",
+        "HUF",
+        "IDR",
+        "ILS",
+        "IMP",
+        "INR",
+        "IQD",
+        "IRR",
+        "IRT",
+        "ISK",
+        "JEP",
+        "JMD",
+        "JOD",
+        "JPY",
+        "KES",
+        "KGS",
+        "KHR",
+        "KMF",
+        "KPW",
+        "KRW",
+        "KWD",
+        "KYD",
+        "KZT",
+        "LAK",
+        "LBP",
+        "LKR",
+        "LRD",
+        "LSL",
+        "LYD",
+        "MAD",
+        "MDL",
+        "MGA",
+        "MKD",
+        "MMK",
+        "MNT",
+        "MOP",
+        "MRU",
+        "MUR",
+        "MVR",
+        "MWK",
+        "MXN",
+        "MYR",
+        "MZN",
+        "NAD",
+        "NGN",
+        "NIO",
+        "NOK",
+        "NPR",
+        "NZD",
+        "OMR",
+        "PAB",
+        "PEN",
+        "PGK",
+        "PHP",
+        "PKR",
+        "PLN",
+        "PRB",
+        "PYG",
+        "QAR",
+        "RON",
+        "RSD",
+        "RUB",
+        "RWF",
+        "SAR",
+        "SBD",
+        "SCR",
+        "SDG",
+        "SEK",
+        "SGD",
+        "SHP",
+        "SLL",
+        "SOS",
+        "SRD",
+        "SSP",
+        "STN",
+        "SYP",
+        "SZL",
+        "THB",
+        "TJS",
+        "TMT",
+        "TND",
+        "TOP",
+        "TRY",
+        "TTD",
+        "TWD",
+        "TZS",
+        "UAH",
+        "UGX",
+        "USD",
+        "UYU",
+        "UZS",
+        "VEF",
+        "VES",
+        "VND",
+        "VUV",
+        "WST",
+        "XAF",
+        "XCD",
+        "XOF",
+        "XPF",
+        "YER",
+        "ZAR",
+        "ZMW"
+      ]
+    },
+    "customer_id": {
+      "type": "integer",
+      "description": "User ID who owns the order. 0 for guests."
+    },
+    "customer_note": {
+      "type": "string",
+      "description": "Note left by customer during checkout."
+    },
+    "billing": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `billing` to the tool, first call the tool `expandSchema` with \"/properties/billing\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Billing address.</property-description>",
+      "additionalProperties": true
+    },
+    "shipping": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `shipping` to the tool, first call the tool `expandSchema` with \"/properties/shipping\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Shipping address.</property-description>",
+      "additionalProperties": true
+    },
+    "payment_method": {
+      "type": "string",
+      "description": "Payment method ID."
+    },
+    "payment_method_title": {
+      "type": "string",
+      "description": "Payment method title."
+    },
+    "transaction_id": {
+      "type": "string",
+      "description": "Unique transaction ID."
+    },
+    "meta_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Meta ID."
+          },
+          "key": {
+            "type": "string",
+            "description": "Meta key."
+          },
+          "value": {
+            "type": "string",
+            "description": "Meta value."
+          }
+        }
+      },
+      "description": "Meta data."
+    },
+    "line_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Item ID."
+          },
+          "name": {
+            "type": "string",
+            "description": "Product name."
+          },
+          "parent_name": {
+            "type": "string",
+            "description": "Parent product name if the product is a variation."
+          },
+          "product_id": {
+            "type": "string",
+            "description": "Product ID."
+          },
+          "variation_id": {
+            "type": "integer",
+            "description": "Variation ID, if applicable."
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Quantity ordered."
+          },
+          "tax_class": {
+            "type": "string",
+            "description": "Tax class of product."
+          },
+          "subtotal": {
+            "type": "string",
+            "description": "Line subtotal (before discounts)."
+          },
+          "subtotal_tax": {
+            "type": "string",
+            "description": "Line subtotal tax (before discounts)."
+          },
+          "total": {
+            "type": "string",
+            "description": "Line total (after discounts)."
+          },
+          "total_tax": {
+            "type": "string",
+            "description": "Line total tax (after discounts)."
+          },
+          "taxes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Tax rate ID."
+                },
+                "total": {
+                  "type": "string",
+                  "description": "Tax total."
+                },
+                "subtotal": {
+                  "type": "string",
+                  "description": "Tax subtotal."
+                }
+              }
+            },
+            "description": "Line taxes."
+          },
+          "meta_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Meta ID."
+                },
+                "key": {
+                  "type": "string",
+                  "description": "Meta key."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "Meta value."
+                },
+                "display_key": {
+                  "type": "string",
+                  "description": "Meta key for UI display."
+                },
+                "display_value": {
+                  "type": "string",
+                  "description": "Meta value for UI display."
+                }
+              }
+            },
+            "description": "Meta data."
+          },
+          "sku": {
+            "type": "string",
+            "description": "Product SKU."
+          },
+          "price": {
+            "type": "number",
+            "description": "Product price."
+          }
+        }
+      },
+      "description": "Line items data."
+    },
+    "shipping_lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Item ID."
+          },
+          "method_title": {
+            "type": "string",
+            "description": "Shipping method name."
+          },
+          "method_id": {
+            "type": "string",
+            "description": "Shipping method ID."
+          },
+          "instance_id": {
+            "type": "string",
+            "description": "Shipping instance ID."
+          },
+          "total": {
+            "type": "string",
+            "description": "Line total (after discounts)."
+          },
+          "total_tax": {
+            "type": "string",
+            "description": "Line total tax (after discounts)."
+          },
+          "taxes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Tax rate ID."
+                },
+                "total": {
+                  "type": "string",
+                  "description": "Tax total."
+                }
+              }
+            },
+            "description": "Line taxes."
+          },
+          "meta_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Meta ID."
+                },
+                "key": {
+                  "type": "string",
+                  "description": "Meta key."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "Meta value."
+                }
+              }
+            },
+            "description": "Meta data."
+          }
+        }
+      },
+      "description": "Shipping lines data."
+    },
+    "fee_lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Item ID."
+          },
+          "name": {
+            "type": "string",
+            "description": "Fee name."
+          },
+          "tax_class": {
+            "type": "string",
+            "description": "Tax class of fee."
+          },
+          "tax_status": {
+            "type": "string",
+            "description": "Tax status of fee.",
+            "enum": [
+              "taxable",
+              "none"
+            ]
+          },
+          "total": {
+            "type": "string",
+            "description": "Line total (after discounts)."
+          },
+          "total_tax": {
+            "type": "string",
+            "description": "Line total tax (after discounts)."
+          },
+          "taxes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Tax rate ID."
+                },
+                "total": {
+                  "type": "string",
+                  "description": "Tax total."
+                },
+                "subtotal": {
+                  "type": "string",
+                  "description": "Tax subtotal."
+                }
+              }
+            },
+            "description": "Line taxes."
+          },
+          "meta_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Meta ID."
+                },
+                "key": {
+                  "type": "string",
+                  "description": "Meta key."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "Meta value."
+                }
+              }
+            },
+            "description": "Meta data."
+          }
+        }
+      },
+      "description": "Fee lines data."
+    },
+    "coupon_lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Item ID."
+          },
+          "code": {
+            "type": "string",
+            "description": "Coupon code."
+          },
+          "discount": {
+            "type": "string",
+            "description": "Discount total."
+          },
+          "discount_tax": {
+            "type": "string",
+            "description": "Discount total tax."
+          },
+          "meta_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Meta ID."
+                },
+                "key": {
+                  "type": "string",
+                  "description": "Meta key."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "Meta value."
+                }
+              }
+            },
+            "description": "Meta data."
+          }
+        }
+      },
+      "description": "Coupons line data."
+    },
+    "set_paid": {
+      "type": "boolean",
+      "description": "Define if the order is paid. It will set the status to processing and reduce stock items."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

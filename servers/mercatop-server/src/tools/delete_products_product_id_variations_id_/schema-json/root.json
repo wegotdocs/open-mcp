@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "product_id": {
+      "description": "Unique identifier for the variable product.",
+      "type": "integer"
+    },
+    "id": {
+      "description": "Unique identifier for the variation.",
+      "type": "integer"
+    },
+    "force": {
+      "description": "Whether to bypass trash and force deletion.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "product_id",
+    "id"
+  ]
+}

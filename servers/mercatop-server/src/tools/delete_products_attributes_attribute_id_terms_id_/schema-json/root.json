@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "attribute_id": {
+      "description": "Unique identifier for the attribute of the terms.",
+      "type": "integer"
+    },
+    "force": {
+      "description": "Required to be true, as resource does not support trashing.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "attribute_id"
+  ]
+}

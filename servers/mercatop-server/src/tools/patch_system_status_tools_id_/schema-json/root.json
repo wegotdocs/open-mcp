@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique identifier for the tool.",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "Tool name."
+    },
+    "action": {
+      "type": "string",
+      "description": "What running the tool will do."
+    },
+    "description": {
+      "type": "string",
+      "description": "Tool description."
+    },
+    "success": {
+      "type": "boolean",
+      "description": "Did the tool run successfully?"
+    },
+    "message": {
+      "type": "string",
+      "description": "Tool return message."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

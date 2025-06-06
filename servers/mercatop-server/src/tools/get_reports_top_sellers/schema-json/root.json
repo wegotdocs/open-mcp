@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "context": {
+      "description": "Scope under which the request is made; determines fields present in response.",
+      "type": "string",
+      "enum": [
+        "view"
+      ]
+    },
+    "period": {
+      "description": "Report period.",
+      "type": "string",
+      "enum": [
+        "week",
+        "month",
+        "last_month",
+        "year"
+      ]
+    },
+    "date_min": {
+      "description": "Return sales for a specific start date, the date need to be in the YYYY-MM-DD format.",
+      "type": "string",
+      "format": "date"
+    },
+    "date_max": {
+      "description": "Return sales for a specific end date, the date need to be in the YYYY-MM-DD format.",
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "description": "The order ID.",
+      "type": "integer"
+    },
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "context": {
+      "description": "Scope under which the request is made; determines fields present in response.",
+      "type": "string",
+      "enum": [
+        "view",
+        "edit"
+      ]
+    }
+  },
+  "required": [
+    "order_id",
+    "id"
+  ]
+}

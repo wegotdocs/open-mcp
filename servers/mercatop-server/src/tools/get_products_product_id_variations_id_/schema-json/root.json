@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "product_id": {
+      "description": "Unique identifier for the variable product.",
+      "type": "integer"
+    },
+    "id": {
+      "description": "Unique identifier for the variation.",
+      "type": "integer"
+    },
+    "context": {
+      "description": "Scope under which the request is made; determines fields present in response.",
+      "type": "string",
+      "enum": [
+        "view",
+        "edit"
+      ]
+    }
+  },
+  "required": [
+    "product_id",
+    "id"
+  ]
+}

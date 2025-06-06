@@ -1,0 +1,203 @@
+{
+  "type": "object",
+  "properties": {
+    "product_id": {
+      "description": "Unique identifier for the variable product.",
+      "type": "integer"
+    },
+    "id": {
+      "description": "Unique identifier for the variation.",
+      "type": "integer"
+    },
+    "description": {
+      "type": "string",
+      "description": "Variation description."
+    },
+    "sku": {
+      "type": "string",
+      "description": "Unique identifier."
+    },
+    "regular_price": {
+      "type": "string",
+      "description": "Variation regular price."
+    },
+    "sale_price": {
+      "type": "string",
+      "description": "Variation sale price."
+    },
+    "date_on_sale_from": {
+      "type": "string",
+      "description": "Start date of sale price, in the site's timezone."
+    },
+    "date_on_sale_from_gmt": {
+      "type": "string",
+      "description": "Start date of sale price, as GMT."
+    },
+    "date_on_sale_to": {
+      "type": "string",
+      "description": "End date of sale price, in the site's timezone."
+    },
+    "date_on_sale_to_gmt": {
+      "type": "string",
+      "description": "End date of sale price, in the site's timezone."
+    },
+    "status": {
+      "type": "string",
+      "description": "Variation status.",
+      "enum": [
+        "draft",
+        "pending",
+        "private",
+        "publish"
+      ]
+    },
+    "virtual": {
+      "type": "boolean",
+      "description": "If the variation is virtual."
+    },
+    "downloadable": {
+      "type": "boolean",
+      "description": "If the variation is downloadable."
+    },
+    "downloads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "File ID."
+          },
+          "name": {
+            "type": "string",
+            "description": "File name."
+          },
+          "file": {
+            "type": "string",
+            "description": "File URL."
+          }
+        }
+      },
+      "description": "List of downloadable files."
+    },
+    "download_limit": {
+      "type": "integer",
+      "description": "Number of times downloadable files can be downloaded after purchase."
+    },
+    "download_expiry": {
+      "type": "integer",
+      "description": "Number of days until access to downloadable files expires."
+    },
+    "tax_status": {
+      "type": "string",
+      "description": "Tax status.",
+      "enum": [
+        "taxable",
+        "shipping",
+        "none"
+      ]
+    },
+    "tax_class": {
+      "type": "string",
+      "description": "Tax class."
+    },
+    "manage_stock": {
+      "type": "boolean",
+      "description": "Stock management at variation level."
+    },
+    "stock_quantity": {
+      "type": "integer",
+      "description": "Stock quantity."
+    },
+    "stock_status": {
+      "type": "string",
+      "description": "Controls the stock status of the product.",
+      "enum": [
+        "instock",
+        "outofstock",
+        "onbackorder"
+      ]
+    },
+    "backorders": {
+      "type": "string",
+      "description": "If managing stock, this controls if backorders are allowed.",
+      "enum": [
+        "no",
+        "notify",
+        "yes"
+      ]
+    },
+    "low_stock_amount": {
+      "type": "integer",
+      "description": "Low Stock amount for the variation."
+    },
+    "weight": {
+      "type": "string",
+      "description": "Variation weight (kg)."
+    },
+    "dimensions": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `dimensions` to the tool, first call the tool `expandSchema` with \"/properties/dimensions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Variation dimensions.</property-description>",
+      "additionalProperties": true
+    },
+    "shipping_class": {
+      "type": "string",
+      "description": "Shipping class slug."
+    },
+    "image": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `image` to the tool, first call the tool `expandSchema` with \"/properties/image\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Variation image data.</property-description>",
+      "additionalProperties": true
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Attribute ID."
+          },
+          "name": {
+            "type": "string",
+            "description": "Attribute name."
+          },
+          "option": {
+            "type": "string",
+            "description": "Selected attribute term name."
+          }
+        }
+      },
+      "description": "List of attributes."
+    },
+    "menu_order": {
+      "type": "integer",
+      "description": "Menu order, used to custom sort products."
+    },
+    "meta_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Meta ID."
+          },
+          "key": {
+            "type": "string",
+            "description": "Meta key."
+          },
+          "value": {
+            "type": "string",
+            "description": "Meta value."
+          }
+        }
+      },
+      "description": "Meta data."
+    }
+  },
+  "required": [
+    "product_id",
+    "id"
+  ]
+}

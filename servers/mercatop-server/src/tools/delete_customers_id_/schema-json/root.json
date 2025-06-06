@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "force": {
+      "description": "Required to be true, as resource does not support trashing.",
+      "type": "boolean"
+    },
+    "reassign": {
+      "description": "ID to reassign posts to.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

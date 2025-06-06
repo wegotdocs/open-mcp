@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "attribute_id": {
+      "description": "Unique identifier for the attribute of the terms.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "description": "Term name."
+    },
+    "slug": {
+      "type": "string",
+      "description": "An alphanumeric identifier for the resource unique to its type."
+    },
+    "description": {
+      "type": "string",
+      "description": "HTML description of the resource."
+    },
+    "menu_order": {
+      "type": "integer",
+      "description": "Menu order, used to custom sort the resource."
+    }
+  },
+  "required": [
+    "id",
+    "attribute_id"
+  ]
+}

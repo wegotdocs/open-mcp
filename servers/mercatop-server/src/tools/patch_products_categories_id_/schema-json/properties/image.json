@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Image ID."
+    },
+    "date_created": {
+      "type": "string",
+      "description": "The date the image was created, in the site's timezone."
+    },
+    "date_created_gmt": {
+      "type": "string",
+      "description": "The date the image was created, as GMT."
+    },
+    "date_modified": {
+      "type": "string",
+      "description": "The date the image was last modified, in the site's timezone."
+    },
+    "date_modified_gmt": {
+      "type": "string",
+      "description": "The date the image was last modified, as GMT."
+    },
+    "src": {
+      "type": "string",
+      "format": "uri",
+      "description": "Image URL."
+    },
+    "name": {
+      "type": "string",
+      "description": "Image name."
+    },
+    "alt": {
+      "type": "string",
+      "description": "Image alternative text."
+    }
+  },
+  "description": "Image data."
+}

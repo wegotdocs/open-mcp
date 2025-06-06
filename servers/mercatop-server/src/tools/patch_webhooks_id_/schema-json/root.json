@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "description": "A friendly name for the webhook."
+    },
+    "status": {
+      "type": "string",
+      "description": "Webhook status.",
+      "enum": [
+        "active",
+        "paused",
+        "disabled"
+      ]
+    },
+    "topic": {
+      "type": "string",
+      "description": "Webhook topic."
+    },
+    "secret": {
+      "type": "string",
+      "description": "Secret key used to generate a hash of the delivered webhook and provided in the request headers. This will default to a MD5 hash from the current user's ID|username if not provided."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

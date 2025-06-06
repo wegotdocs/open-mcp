@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "attribute_id": {
+      "description": "Unique identifier for the attribute of the terms.",
+      "type": "integer"
+    },
+    "context": {
+      "description": "Scope under which the request is made; determines fields present in response.",
+      "type": "string",
+      "enum": [
+        "view",
+        "edit"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "attribute_id"
+  ]
+}
