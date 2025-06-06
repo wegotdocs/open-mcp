@@ -1,0 +1,429 @@
+{
+  "properties": {
+    "lang": {
+      "type": "string",
+      "title": "Lang",
+      "description": "Target language for the notes. It may be different from the language of the audio. If it is indeed different, we will translate the transcription and the notes to the target language."
+    },
+    "langCult": {
+      "type": "string",
+      "title": "Langcult",
+      "description": "Target language culture for the notes.",
+      "default": ""
+    },
+    "userRole": {
+      "type": "string",
+      "title": "Userrole",
+      "description": "User role in the consultation.",
+      "default": ""
+    },
+    "country": {
+      "type": "string",
+      "title": "Country",
+      "description": "Country of the consultation.",
+      "default": ""
+    },
+    "healthCenterGroup": {
+      "type": "string",
+      "title": "Healthcentergroup",
+      "description": "Optional health center group.",
+      "default": ""
+    },
+    "healthCenter": {
+      "type": "string",
+      "title": "Healthcenter",
+      "description": "Optional health center.",
+      "default": ""
+    },
+    "specialty": {
+      "type": "string",
+      "title": "Specialty",
+      "description": "Specialty of the consultation.",
+      "default": ""
+    },
+    "subSpecialty": {
+      "type": "string",
+      "title": "Subspecialty",
+      "description": "Optional sub specialty. If not specified, the specialty will be used.",
+      "default": ""
+    },
+    "subSubSpecialty": {
+      "type": "string",
+      "title": "Subsubspecialty",
+      "description": "Optional sub sub specialty.",
+      "default": ""
+    },
+    "consultationType": {
+      "description": "Type of consultation.",
+      "default": "background",
+      "type": "string",
+      "enum": [
+        "",
+        "background",
+        "firstVisit",
+        "followUp"
+      ],
+      "title": "ConsultationType"
+    },
+    "initialContext": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Initialcontext",
+      "description": "Optional initial context.",
+      "default": ""
+    },
+    "isMulti": {
+      "type": "boolean",
+      "title": "Ismulti",
+      "description": "If it is a multi-consultation visit, i.e. a visit with multiple cosultation reasons.",
+      "default": false
+    },
+    "createdAt": {
+      "type": "string",
+      "title": "Createdat",
+      "description": "The date and time when the record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "title": "Updatedat",
+      "description": "The date and time when the record was updated."
+    },
+    "updatedBy": {
+      "type": "string",
+      "title": "Updatedby",
+      "description": "The user who updated the record.",
+      "default": ""
+    },
+    "resultid": {
+      "type": "string",
+      "title": "Resultid",
+      "description": "The unique identifier for the result in our system."
+    },
+    "status": {
+      "description": "The status of the result.",
+      "default": "pending",
+      "type": "string",
+      "enum": [
+        "pending",
+        "processing",
+        "completed",
+        "error",
+        "waiting_for_trigger"
+      ],
+      "title": "ResultStatus"
+    },
+    "transcription": {
+      "anyOf": [
+        {
+          "properties": {
+            "segments": {
+              "items": {
+                "properties": {
+                  "start": {
+                    "type": "integer",
+                    "title": "Start",
+                    "description": "The timestamp of the start of the segment."
+                  },
+                  "tokens": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "integer"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Tokens",
+                    "description": "The tokens of the segment."
+                  },
+                  "end": {
+                    "type": "integer",
+                    "title": "End",
+                    "description": "The timestamp of the end of the segment."
+                  },
+                  "text": {
+                    "type": "string",
+                    "title": "Text",
+                    "description": "The text of the segment."
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "start",
+                  "end",
+                  "text"
+                ],
+                "title": "Segment",
+                "description": "Segment."
+              },
+              "type": "array",
+              "title": "Segments",
+              "description": "The segments of the transcription.",
+              "default": []
+            },
+            "embeddings": {
+              "items": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "type": "array",
+              "title": "Embeddings",
+              "default": []
+            }
+          },
+          "type": "object",
+          "title": "Transcription",
+          "description": "Transcription."
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "The transcription of the consultation."
+    },
+    "errorCode": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "api",
+            "llm",
+            "transcription",
+            "censor_filter",
+            "consultation_too_short",
+            "unknown",
+            "building_pipeline",
+            "rate_limit",
+            "coding"
+          ],
+          "title": "ErrorCode",
+          "description": "Error code enum."
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "The error code of the result if any."
+    },
+    "failedFields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Failedfields",
+      "description": "If the consultation failed to be processed, this field will contain the list of failed fields for the doctor to review.",
+      "default": []
+    },
+    "answers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `answers` to the tool, first call the tool `expandSchema` with \"/properties/result/properties/answers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The clinical notes generated for the consultation.</property-description>",
+      "additionalProperties": true
+    },
+    "multiAnswers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `multiAnswers` to the tool, first call the tool `expandSchema` with \"/properties/result/properties/multiAnswers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>In case of a multi-consultation visit, those fields which change from one reason to another will be stored here.</property-description>",
+      "additionalProperties": true
+    },
+    "sources": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sources` to the tool, first call the tool `expandSchema` with \"/properties/result/properties/sources\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The part of the transcription where the information was extracted. This is useful to quickly identify the source of the information in case of doubts.</property-description>",
+      "additionalProperties": true
+    },
+    "expdate": {
+      "type": "integer",
+      "title": "Expdate",
+      "description": "The expiration timestamp for the result in seconds.",
+      "default": 1749454727
+    },
+    "username": {
+      "type": "string",
+      "title": "Username",
+      "default": ""
+    },
+    "reviewTime": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reviewtime",
+      "description": "The time it took to review the result in seconds."
+    },
+    "processTime": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Processtime",
+      "description": "The time it took to process the result in seconds."
+    },
+    "audioDuration": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Audioduration",
+      "description": "The duration of the audio in seconds."
+    },
+    "piiEntities": {
+      "anyOf": [
+        {
+          "items": {
+            "properties": {
+              "beginOffset": {
+                "type": "integer",
+                "title": "Beginoffset",
+                "default": 0
+              },
+              "endOffset": {
+                "type": "integer",
+                "title": "Endoffset",
+                "default": 0
+              },
+              "entityType": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "ADDRESS",
+                  "AGE",
+                  "AWS_ACCESS_KEY",
+                  "AWS_SECRET_KEY",
+                  "CREDIT_DEBIT_CVV",
+                  "CREDIT_DEBIT_EXPIRY",
+                  "CREDIT_DEBIT_NUMBER",
+                  "DATE_TIME",
+                  "DRIVER_ID",
+                  "EMAIL",
+                  "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+                  "IP_ADDRESS",
+                  "LICENSE_PLATE",
+                  "MAC_ADDRESS",
+                  "NAME",
+                  "PASSWORD",
+                  "PHONE",
+                  "PIN",
+                  "SWIFT_CODE",
+                  "URL",
+                  "USERNAME",
+                  "VEHICLE_IDENTIFICATION_NUMBER",
+                  "CA_HEALTH_NUMBER",
+                  "CA_SOCIAL_INSURANCE_NUMBER",
+                  "IN_AADHAAR",
+                  "IN_NREGA",
+                  "IN_PERMANENT_ACCOUNT_NUMBER",
+                  "IN_VOTE_NUMBER",
+                  "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+                  "UK_NATIONAL_INSURANCE_NUMBER",
+                  "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+                  "BANK_ACCOUNT_NUMBER",
+                  "BANK_ROUTING",
+                  "PASSPORT_NUMBER",
+                  "US_INDIVIDUAL_TAXPAYER_IDENTIFICATION_NUMBER",
+                  "SSN"
+                ],
+                "title": "PiiEntityType",
+                "description": "Enum for PII types."
+              },
+              "score": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "title": "Score",
+                "default": "0.0"
+              }
+            },
+            "type": "object",
+            "required": [
+              "entityType"
+            ],
+            "title": "PiiEntity",
+            "description": "PII entity model."
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Piientities",
+      "description": "The PII entities found in the transcription. This is not enable for now.",
+      "default": []
+    },
+    "tags": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Tags",
+      "description": "The tags of the result."
+    },
+    "callbackUrl": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Callbackurl",
+      "description": "The URL to call when the result is ready. The body of the request will be the result in JSON format."
+    },
+    "title": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Title",
+      "description": "The title of the consultation."
+    },
+    "coding": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `coding` to the tool, first call the tool `expandSchema` with \"/properties/result/properties/coding\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The coding information of the consultation. This dictionary follows the same schema as in `answers` with the coding that applies to each field, if any.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "type": "object",
+  "required": [
+    "lang",
+    "resultid"
+  ],
+  "title": "RequestResult",
+  "description": "Request result."
+}

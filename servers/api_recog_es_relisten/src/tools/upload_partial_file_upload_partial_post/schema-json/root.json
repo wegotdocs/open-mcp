@@ -1,0 +1,136 @@
+{
+  "type": "object",
+  "properties": {
+    "resultid": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Resultid",
+      "description": "The unique identifier for the consultation in our system."
+    },
+    "lang": {
+      "type": "string",
+      "title": "Lang",
+      "description": "Target language for the notes. It may be different from the language of the audio. If it is indeed different, we will translate the transcription and the notes to the target language."
+    },
+    "langCult": {
+      "type": "string",
+      "title": "Langcult",
+      "description": "Target language culture for the notes.",
+      "default": ""
+    },
+    "country": {
+      "type": "string",
+      "title": "Country",
+      "description": "Country of the consultation.",
+      "default": ""
+    },
+    "specialty": {
+      "type": "string",
+      "title": "Specialty",
+      "description": "Specialty of the consultation.",
+      "default": ""
+    },
+    "subSpecialty": {
+      "type": "string",
+      "title": "Subspecialty",
+      "description": "Optional sub specialty. If not specified, the specialty will be used.",
+      "default": ""
+    },
+    "subSubSpecialty": {
+      "type": "string",
+      "title": "Subsubspecialty",
+      "description": "Optional sub sub specialty.",
+      "default": ""
+    },
+    "consultationType": {
+      "description": "Type of consultation.",
+      "default": "background",
+      "type": "string",
+      "enum": [
+        "",
+        "background",
+        "firstVisit",
+        "followUp"
+      ],
+      "title": "ConsultationType"
+    },
+    "initialContext": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Initialcontext",
+      "description": "Optional initial context.",
+      "default": ""
+    },
+    "isMulti": {
+      "type": "boolean",
+      "title": "Ismulti",
+      "description": "If it is a multi-consultation visit, i.e. a visit with multiple cosultation reasons.",
+      "default": false
+    },
+    "contentType": {
+      "type": "string",
+      "title": "Contenttype",
+      "description": "The content type of the file. Refer to https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types for a list of available MIME Types."
+    },
+    "errorCode": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "api",
+            "llm",
+            "transcription",
+            "censor_filter",
+            "consultation_too_short",
+            "unknown",
+            "building_pipeline",
+            "rate_limit",
+            "coding"
+          ],
+          "title": "ErrorCode",
+          "description": "Error code enum."
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "You can force and error by informing the error code here. This is useful for testing the error handling in your application."
+    },
+    "tags": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Tags",
+      "description": "For internal use only.",
+      "example": {}
+    },
+    "groupId": {
+      "type": "string",
+      "title": "Groupid",
+      "description": "The unique identifier for the consultation in our system."
+    }
+  },
+  "required": [
+    "lang",
+    "contentType",
+    "groupId"
+  ]
+}

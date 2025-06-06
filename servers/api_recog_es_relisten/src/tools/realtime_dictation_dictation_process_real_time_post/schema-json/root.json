@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "title": "Key",
+      "description": "Key of the audio file with the dictation."
+    },
+    "lang": {
+      "type": "string",
+      "title": "Lang",
+      "description": "Language of the dictation.",
+      "default": "es"
+    },
+    "transcription": {
+      "type": "string",
+      "title": "Transcription",
+      "description": "Transcription of the dictation."
+    },
+    "formattedTranscription": {
+      "type": "string",
+      "title": "Formattedtranscription",
+      "description": "Formatted transcription of the dictation."
+    },
+    "healthCenterGroup": {
+      "type": "string",
+      "title": "Healthcentergroup",
+      "description": "Health center group of the dictation."
+    }
+  },
+  "required": [
+    "key",
+    "transcription",
+    "formattedTranscription",
+    "healthCenterGroup"
+  ]
+}
