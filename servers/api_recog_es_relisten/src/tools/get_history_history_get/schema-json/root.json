@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "per_page": {
+      "type": "integer",
+      "default": 10,
+      "title": "Per Page"
+    },
+    "last_evaluated_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Last Evaluated Key"
+    },
+    "reverse": {
+      "type": "boolean",
+      "default": false,
+      "title": "Reverse"
+    },
+    "field": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Field"
+    }
+  },
+  "required": []
+}

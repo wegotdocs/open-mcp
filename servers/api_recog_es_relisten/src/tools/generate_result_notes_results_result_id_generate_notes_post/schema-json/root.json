@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "result_id": {
+      "type": "string",
+      "title": "Result Id"
+    },
+    "lang": {
+      "type": "string",
+      "title": "Lang",
+      "description": "The language of the consultation to generate the notes."
+    },
+    "langCult": {
+      "type": "string",
+      "title": "Langcult",
+      "description": "The language culture of the consultation to generate the notes."
+    },
+    "specialty": {
+      "type": "string",
+      "title": "Specialty",
+      "description": "The specialty of the consultation to generate the notes."
+    },
+    "subSpecialty": {
+      "type": "string",
+      "title": "Subspecialty",
+      "description": "The subspecialty of the consultation to generate the notes."
+    },
+    "subSubSpecialty": {
+      "type": "string",
+      "title": "Subsubspecialty",
+      "description": "The subsubspecialty of the consultation to generate the notes."
+    },
+    "isMulti": {
+      "type": "boolean",
+      "title": "Ismulti",
+      "description": "Whether the consultation is a multi-consultation visit."
+    },
+    "consultationType": {
+      "description": "The type of consultation to generate the notes.",
+      "type": "string",
+      "enum": [
+        "",
+        "background",
+        "firstVisit",
+        "followUp"
+      ],
+      "title": "ConsultationType"
+    },
+    "userRole": {
+      "type": "string",
+      "title": "Userrole",
+      "description": "The role of the user who is generating the notes."
+    }
+  },
+  "required": [
+    "result_id",
+    "lang",
+    "langCult",
+    "specialty",
+    "subSpecialty",
+    "subSubSpecialty",
+    "isMulti",
+    "consultationType",
+    "userRole"
+  ]
+}

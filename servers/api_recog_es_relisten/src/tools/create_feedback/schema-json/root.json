@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "resultid": {
+      "type": "string",
+      "title": "Resultid",
+      "description": "The result ID for which the feedback is related to."
+    },
+    "audio": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "maximum": 10,
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Audio",
+      "description": "The quality of the audio in the consultation in a scale of 1 to 10."
+    },
+    "transcription": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "maximum": 10,
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Transcription",
+      "description": "The quality of the transcription in the consultation in a scale of 1 to 10."
+    },
+    "anamnesis": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "maximum": 10,
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Anamnesis",
+      "description": "The quality of the anamnesis of the consultation in a scale of 1 to 10."
+    },
+    "fields": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "maximum": 10,
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Fields",
+      "description": "The quality of the rest of the fields in the consultation in a scale of 1 to 10."
+    },
+    "comments": {
+      "type": "string",
+      "title": "Comments",
+      "description": "Additional comments from the user about the result.",
+      "default": ""
+    },
+    "extraFields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `extraFields` to the tool, first call the tool `expandSchema` with \"/properties/extraFields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional fields from the user about the result.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "resultid",
+    "audio",
+    "transcription"
+  ]
+}

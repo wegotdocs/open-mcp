@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "result_id": {
+      "type": "string",
+      "title": "Result Id"
+    },
+    "reviewTime": {
+      "type": "integer",
+      "title": "Reviewtime",
+      "description": "The time it took to review the result in seconds."
+    },
+    "answers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `answers` to the tool, first call the tool `expandSchema` with \"/properties/answers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The clinical notes generated for the consultation reviewed by the doctor.</property-description>",
+      "additionalProperties": true
+    },
+    "multiAnswers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `multiAnswers` to the tool, first call the tool `expandSchema` with \"/properties/multiAnswers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>In case of a multi-consultation visit, those fields which change from one reason to another, reviewed by the doctor.</property-description>",
+      "additionalProperties": true
+    },
+    "title": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Title",
+      "description": "The title of the consultation."
+    }
+  },
+  "required": [
+    "result_id",
+    "reviewTime",
+    "answers",
+    "multiAnswers"
+  ]
+}
