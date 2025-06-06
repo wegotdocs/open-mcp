@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country ISO 3166 code."
+    },
+    "state": {
+      "type": "string",
+      "description": "State code."
+    },
+    "postcode": {
+      "type": "string",
+      "description": "Postcode/ZIP, it doesn't support multiple values. Deprecated as of WooCommerce 5.3, 'postcodes' should be used instead."
+    },
+    "city": {
+      "type": "string",
+      "description": "City name, it doesn't support multiple values. Deprecated as of WooCommerce 5.3, 'cities' should be used instead."
+    },
+    "rate": {
+      "type": "string",
+      "description": "Tax rate."
+    },
+    "name": {
+      "type": "string",
+      "description": "Tax rate name."
+    },
+    "priority": {
+      "type": "integer",
+      "description": "Tax priority."
+    },
+    "compound": {
+      "type": "boolean",
+      "description": "Whether or not this is a compound rate."
+    },
+    "shipping": {
+      "type": "boolean",
+      "description": "Whether or not this tax rate also gets applied to shipping."
+    },
+    "order": {
+      "type": "integer",
+      "description": "Indicates the order that will appear in queries."
+    },
+    "class": {
+      "type": "string",
+      "description": "Tax class.",
+      "enum": [
+        "standard",
+        "reduced-rate",
+        "zero-rate"
+      ]
+    },
+    "postcodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of postcodes / ZIPs. Introduced in WooCommerce 5.3."
+    },
+    "cities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of city names. Introduced in WooCommerce 5.3."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

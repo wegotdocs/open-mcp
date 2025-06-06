@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the resource.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "description": "Tag name."
+    },
+    "slug": {
+      "type": "string",
+      "description": "An alphanumeric identifier for the resource unique to its type."
+    },
+    "description": {
+      "type": "string",
+      "description": "HTML description of the resource."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

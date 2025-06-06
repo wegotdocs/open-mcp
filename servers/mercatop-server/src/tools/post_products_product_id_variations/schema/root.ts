@@ -1,0 +1,33 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "product_id": z.number().int().describe("Unique identifier for the variable product."),
+  "description": z.string().describe("Variation description.").optional(),
+  "sku": z.string().describe("Unique identifier.").optional(),
+  "regular_price": z.string().describe("Variation regular price.").optional(),
+  "sale_price": z.string().describe("Variation sale price.").optional(),
+  "date_on_sale_from": z.string().describe("Start date of sale price, in the site's timezone.").optional(),
+  "date_on_sale_from_gmt": z.string().describe("Start date of sale price, as GMT.").optional(),
+  "date_on_sale_to": z.string().describe("End date of sale price, in the site's timezone.").optional(),
+  "date_on_sale_to_gmt": z.string().describe("End date of sale price, in the site's timezone.").optional(),
+  "status": z.enum(["draft","pending","private","publish"]).describe("Variation status.").optional(),
+  "virtual": z.boolean().describe("If the variation is virtual.").optional(),
+  "downloadable": z.boolean().describe("If the variation is downloadable.").optional(),
+  "downloads": z.array(z.object({ "id": z.string().describe("File ID.").optional(), "name": z.string().describe("File name.").optional(), "file": z.string().describe("File URL.").optional() })).describe("List of downloadable files.").optional(),
+  "download_limit": z.number().int().describe("Number of times downloadable files can be downloaded after purchase.").optional(),
+  "download_expiry": z.number().int().describe("Number of days until access to downloadable files expires.").optional(),
+  "tax_status": z.enum(["taxable","shipping","none"]).describe("Tax status.").optional(),
+  "tax_class": z.string().describe("Tax class.").optional(),
+  "manage_stock": z.boolean().describe("Stock management at variation level.").optional(),
+  "stock_quantity": z.number().int().describe("Stock quantity.").optional(),
+  "stock_status": z.enum(["instock","outofstock","onbackorder"]).describe("Controls the stock status of the product.").optional(),
+  "backorders": z.enum(["no","notify","yes"]).describe("If managing stock, this controls if backorders are allowed.").optional(),
+  "low_stock_amount": z.number().int().describe("Low Stock amount for the variation.").optional(),
+  "weight": z.string().describe("Variation weight (kg).").optional(),
+  "dimensions": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `dimensions` to the tool, first call the tool `expandSchema` with \"/properties/dimensions\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Variation dimensions.</property-description>").optional(),
+  "shipping_class": z.string().describe("Shipping class slug.").optional(),
+  "image": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `image` to the tool, first call the tool `expandSchema` with \"/properties/image\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Variation image data.</property-description>").optional(),
+  "attributes": z.array(z.object({ "id": z.number().int().describe("Attribute ID.").optional(), "name": z.string().describe("Attribute name.").optional(), "option": z.string().describe("Selected attribute term name.").optional() })).describe("List of attributes.").optional(),
+  "menu_order": z.number().int().describe("Menu order, used to custom sort products.").optional(),
+  "meta_data": z.array(z.object({ "id": z.number().int().describe("Meta ID.").optional(), "key": z.string().describe("Meta key.").optional(), "value": z.string().describe("Meta value.").optional() })).describe("Meta data.").optional()
+}

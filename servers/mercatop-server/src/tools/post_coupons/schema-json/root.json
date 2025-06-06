@@ -1,0 +1,123 @@
+{
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "Coupon code."
+    },
+    "amount": {
+      "type": "string",
+      "description": "The amount of discount. Should always be numeric, even if setting a percentage."
+    },
+    "discount_type": {
+      "type": "string",
+      "description": "Determines the type of discount that will be applied.",
+      "enum": [
+        "percent",
+        "fixed_cart",
+        "fixed_product"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Coupon description."
+    },
+    "date_expires": {
+      "type": "string",
+      "description": "The date the coupon expires, in the site's timezone."
+    },
+    "date_expires_gmt": {
+      "type": "string",
+      "description": "The date the coupon expires, as GMT."
+    },
+    "individual_use": {
+      "type": "boolean",
+      "description": "If true, the coupon can only be used individually. Other applied coupons will be removed from the cart."
+    },
+    "product_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "List of product IDs the coupon can be used on."
+    },
+    "excluded_product_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "List of product IDs the coupon cannot be used on."
+    },
+    "usage_limit": {
+      "type": "integer",
+      "description": "How many times the coupon can be used in total."
+    },
+    "usage_limit_per_user": {
+      "type": "integer",
+      "description": "How many times the coupon can be used per customer."
+    },
+    "limit_usage_to_x_items": {
+      "type": "integer",
+      "description": "Max number of items in the cart the coupon can be applied to."
+    },
+    "free_shipping": {
+      "type": "boolean",
+      "description": "If true and if the free shipping method requires a coupon, this coupon will enable free shipping."
+    },
+    "product_categories": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "List of category IDs the coupon applies to."
+    },
+    "excluded_product_categories": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "List of category IDs the coupon does not apply to."
+    },
+    "exclude_sale_items": {
+      "type": "boolean",
+      "description": "If true, this coupon will not be applied to items that have sale prices."
+    },
+    "minimum_amount": {
+      "type": "string",
+      "description": "Minimum order amount that needs to be in the cart before coupon applies."
+    },
+    "maximum_amount": {
+      "type": "string",
+      "description": "Maximum order amount allowed when using the coupon."
+    },
+    "email_restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of email addresses that can use this coupon."
+    },
+    "meta_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Meta ID."
+          },
+          "key": {
+            "type": "string",
+            "description": "Meta key."
+          },
+          "value": {
+            "type": "string",
+            "description": "Meta value."
+          }
+        }
+      },
+      "description": "Meta data."
+    }
+  },
+  "required": []
+}

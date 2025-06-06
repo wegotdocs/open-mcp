@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "attribute_id": {
+      "description": "Unique identifier for the attribute of the terms.",
+      "type": "integer"
+    },
+    "context": {
+      "description": "Scope under which the request is made; determines fields present in response.",
+      "type": "string",
+      "enum": [
+        "view",
+        "edit"
+      ]
+    },
+    "page": {
+      "description": "Current page of the collection.",
+      "type": "integer"
+    },
+    "per_page": {
+      "description": "Maximum number of items to be returned in result set.",
+      "type": "integer"
+    },
+    "search": {
+      "description": "Limit results to those matching a string.",
+      "type": "string"
+    },
+    "exclude": {
+      "description": "Ensure result set excludes specific IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "include": {
+      "description": "Limit result set to specific ids.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "offset": {
+      "description": "Offset the result set by a specific number of items. Applies to hierarchical taxonomies only.",
+      "type": "integer"
+    },
+    "order": {
+      "description": "Order sort attribute ascending or descending.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "orderby": {
+      "description": "Sort collection by resource attribute.",
+      "type": "string",
+      "enum": [
+        "id",
+        "include",
+        "name",
+        "slug",
+        "term_group",
+        "description",
+        "count"
+      ]
+    },
+    "hide_empty": {
+      "description": "Whether to hide resources not assigned to any products.",
+      "type": "boolean"
+    },
+    "parent": {
+      "description": "Limit result set to resources assigned to a specific parent. Applies to hierarchical taxonomies only.",
+      "type": "integer"
+    },
+    "product": {
+      "description": "Limit result set to resources assigned to a specific product.",
+      "type": "integer"
+    },
+    "slug": {
+      "description": "Limit result set to resources with a specific slug.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "attribute_id"
+  ]
+}

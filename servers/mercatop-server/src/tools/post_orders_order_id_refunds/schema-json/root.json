@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "description": "The order ID.",
+      "type": "integer"
+    },
+    "amount": {
+      "type": "string",
+      "description": "Refund amount."
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for refund."
+    },
+    "refunded_by": {
+      "type": "integer",
+      "description": "User ID of user who created the refund."
+    },
+    "meta_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Meta ID."
+          },
+          "key": {
+            "type": "string",
+            "description": "Meta key."
+          },
+          "value": {
+            "type": "string",
+            "description": "Meta value."
+          }
+        }
+      },
+      "description": "Meta data."
+    },
+    "api_refund": {
+      "type": "boolean",
+      "description": "When true, the payment gateway API is used to generate the refund."
+    },
+    "api_restock": {
+      "type": "boolean",
+      "description": "When true, refunded items are restocked."
+    }
+  },
+  "required": [
+    "order_id"
+  ]
+}

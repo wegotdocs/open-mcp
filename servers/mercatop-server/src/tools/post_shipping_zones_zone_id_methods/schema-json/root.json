@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "zone_id": {
+      "description": "Unique ID for the zone.",
+      "type": "integer"
+    },
+    "order": {
+      "type": "integer",
+      "description": "Shipping method sort order."
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Shipping method enabled status."
+    },
+    "settings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `settings` to the tool, first call the tool `expandSchema` with \"/properties/settings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Shipping method settings.</property-description>",
+      "additionalProperties": true
+    },
+    "method_id": {
+      "type": "string",
+      "description": "Shipping method ID."
+    }
+  },
+  "required": [
+    "zone_id"
+  ]
+}

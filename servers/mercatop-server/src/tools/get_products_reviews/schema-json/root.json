@@ -1,0 +1,110 @@
+{
+  "type": "object",
+  "properties": {
+    "context": {
+      "description": "Scope under which the request is made; determines fields present in response.",
+      "type": "string",
+      "enum": [
+        "view",
+        "edit"
+      ]
+    },
+    "page": {
+      "description": "Current page of the collection.",
+      "type": "integer"
+    },
+    "per_page": {
+      "description": "Maximum number of items to be returned in result set.",
+      "type": "integer"
+    },
+    "search": {
+      "description": "Limit results to those matching a string.",
+      "type": "string"
+    },
+    "after": {
+      "description": "Limit response to resources published after a given ISO8601 compliant date.",
+      "type": "string",
+      "format": "string"
+    },
+    "before": {
+      "description": "Limit response to reviews published before a given ISO8601 compliant date.",
+      "type": "string",
+      "format": "string"
+    },
+    "exclude": {
+      "description": "Ensure result set excludes specific IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "include": {
+      "description": "Limit result set to specific IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "offset": {
+      "description": "Offset the result set by a specific number of items.",
+      "type": "integer"
+    },
+    "order": {
+      "description": "Order sort attribute ascending or descending.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "orderby": {
+      "description": "Sort collection by object attribute.",
+      "type": "string",
+      "enum": [
+        "date",
+        "date_gmt",
+        "id",
+        "include",
+        "product"
+      ]
+    },
+    "reviewer": {
+      "description": "Limit result set to reviews assigned to specific user IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "reviewer_exclude": {
+      "description": "Ensure result set excludes reviews assigned to specific user IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "reviewer_email": {
+      "description": "Limit result set to that from a specific author email.",
+      "type": "string",
+      "format": "email"
+    },
+    "product": {
+      "description": "Limit result set to reviews assigned to specific product IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "status": {
+      "description": "Limit result set to reviews assigned a specific status.",
+      "type": "string",
+      "enum": [
+        "all",
+        "hold",
+        "approved",
+        "spam",
+        "trash"
+      ]
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "description": "The order ID.",
+      "type": "integer"
+    },
+    "note": {
+      "type": "string",
+      "description": "Order note content."
+    },
+    "customer_note": {
+      "type": "boolean",
+      "description": "If true, the note will be shown to customers and they will be notified. If false, the note will be for admin reference only."
+    },
+    "added_by_user": {
+      "type": "boolean",
+      "description": "If true, this note will be attributed to the current user. If false, the note will be attributed to the system."
+    }
+  },
+  "required": [
+    "order_id"
+  ]
+}

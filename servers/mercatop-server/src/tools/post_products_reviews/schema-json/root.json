@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "product_id": {
+      "type": "integer",
+      "description": "Unique identifier for the product."
+    },
+    "status": {
+      "type": "string",
+      "description": "Status of the review.",
+      "enum": [
+        "approved",
+        "hold",
+        "spam",
+        "unspam",
+        "trash",
+        "untrash"
+      ]
+    },
+    "reviewer": {
+      "type": "string",
+      "description": "Name of the reviewer."
+    },
+    "reviewer_email": {
+      "type": "string",
+      "description": "Email of the reviewer."
+    },
+    "review": {
+      "type": "string",
+      "description": "Review content."
+    },
+    "rating": {
+      "type": "integer",
+      "description": "Review rating (0 to 5)."
+    }
+  },
+  "required": []
+}

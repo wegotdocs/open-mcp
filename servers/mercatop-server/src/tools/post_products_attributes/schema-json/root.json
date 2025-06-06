@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name for the resource."
+    },
+    "slug": {
+      "type": "string",
+      "description": "An alphanumeric identifier for the resource unique to its type."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of attribute.",
+      "enum": [
+        "select"
+      ]
+    },
+    "order_by": {
+      "type": "string",
+      "description": "Default sort order.",
+      "enum": [
+        "menu_order",
+        "name",
+        "name_num",
+        "id"
+      ]
+    },
+    "has_archives": {
+      "type": "boolean",
+      "description": "Enable/Disable attribute archives."
+    }
+  },
+  "required": []
+}

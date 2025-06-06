@@ -1,0 +1,112 @@
+{
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "description": "The order ID.",
+      "type": "integer"
+    },
+    "context": {
+      "description": "Scope under which the request is made; determines fields present in response.",
+      "type": "string",
+      "enum": [
+        "view",
+        "edit"
+      ]
+    },
+    "page": {
+      "description": "Current page of the collection.",
+      "type": "integer"
+    },
+    "per_page": {
+      "description": "Maximum number of items to be returned in result set.",
+      "type": "integer"
+    },
+    "search": {
+      "description": "Limit results to those matching a string.",
+      "type": "string"
+    },
+    "after": {
+      "description": "Limit response to resources published after a given ISO8601 compliant date.",
+      "type": "string",
+      "format": "string"
+    },
+    "before": {
+      "description": "Limit response to resources published before a given ISO8601 compliant date.",
+      "type": "string",
+      "format": "string"
+    },
+    "modified_after": {
+      "description": "Limit response to resources modified after a given ISO8601 compliant date.",
+      "type": "string",
+      "format": "string"
+    },
+    "modified_before": {
+      "description": "Limit response to resources modified before a given ISO8601 compliant date.",
+      "type": "string",
+      "format": "string"
+    },
+    "dates_are_gmt": {
+      "description": "Whether to consider GMT post dates when limiting response by published or modified date.",
+      "type": "boolean"
+    },
+    "exclude": {
+      "description": "Ensure result set excludes specific IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "include": {
+      "description": "Limit result set to specific ids.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "offset": {
+      "description": "Offset the result set by a specific number of items.",
+      "type": "integer"
+    },
+    "order": {
+      "description": "Order sort attribute ascending or descending.",
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "orderby": {
+      "description": "Sort collection by object attribute.",
+      "type": "string",
+      "enum": [
+        "date",
+        "id",
+        "include",
+        "title",
+        "slug",
+        "modified"
+      ]
+    },
+    "parent": {
+      "description": "Limit result set to those of particular parent IDs.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "parent_exclude": {
+      "description": "Limit result set to all items except those of a particular parent ID.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "dp": {
+      "description": "Number of decimal points to use in each resource.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "order_id"
+  ]
+}

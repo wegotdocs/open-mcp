@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique ID for the resource.",
+      "type": "integer"
+    },
+    "code": {
+      "type": "string",
+      "description": "Shipping zone location code."
+    },
+    "type": {
+      "type": "string",
+      "description": "Shipping zone location type.",
+      "enum": [
+        "postcode",
+        "state",
+        "country",
+        "continent"
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

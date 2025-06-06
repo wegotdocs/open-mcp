@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A unique identifier for the setting."
+    },
+    "label": {
+      "type": "string",
+      "description": "A human readable label for the setting used in interfaces."
+    },
+    "description": {
+      "type": "string",
+      "description": "A human readable description for the setting used in interfaces."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of setting.",
+      "enum": [
+        "text",
+        "email",
+        "number",
+        "color",
+        "password",
+        "textarea",
+        "select",
+        "multiselect",
+        "radio",
+        "image_width",
+        "checkbox",
+        "class",
+        "order"
+      ]
+    },
+    "value": {
+      "type": "string",
+      "description": "Setting value."
+    },
+    "default": {
+      "type": "string",
+      "description": "Default value for the setting."
+    },
+    "tip": {
+      "type": "string",
+      "description": "Additional help text shown to the user about the setting."
+    },
+    "placeholder": {
+      "type": "string",
+      "description": "Placeholder text to be displayed in text inputs."
+    }
+  },
+  "description": "Shipping method settings."
+}

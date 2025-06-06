@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "slug": {
+      "description": "Unique slug for the resource.",
+      "type": "string"
+    },
+    "force": {
+      "description": "Required to be true, as resource does not support trashing.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "slug"
+  ]
+}
