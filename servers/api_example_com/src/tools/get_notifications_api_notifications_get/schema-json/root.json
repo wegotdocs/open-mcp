@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "since": {
+      "description": "ISO timestamp to get notifications since",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Since"
+    },
+    "limit": {
+      "description": "Maximum number of notifications to return",
+      "type": "integer",
+      "default": 50,
+      "title": "Limit"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "env_name": {
+      "type": "string",
+      "title": "Env Name"
+    },
+    "min_healthy_percentage": {
+      "type": "integer",
+      "title": "Min Healthy Percentage",
+      "description": "Minimum percentage of healthy instances during refresh",
+      "default": 90
+    },
+    "instance_warmup": {
+      "type": "integer",
+      "title": "Instance Warmup",
+      "description": "Instance warmup time in seconds",
+      "default": 300
+    },
+    "preferences": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Preferences",
+      "description": "Additional preferences for the refresh operation"
+    }
+  },
+  "required": [
+    "env_name"
+  ]
+}

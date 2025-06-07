@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "user_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "User Name",
+      "description": "Git user name"
+    },
+    "user_email": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "User Email",
+      "description": "Git user email"
+    },
+    "global_config": {
+      "type": "boolean",
+      "title": "Global Config",
+      "description": "Use global git config",
+      "default": true
+    }
+  },
+  "required": []
+}

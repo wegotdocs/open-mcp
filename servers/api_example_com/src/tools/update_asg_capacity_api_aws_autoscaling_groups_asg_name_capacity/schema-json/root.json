@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "asg_name": {
+      "type": "string",
+      "title": "Asg Name"
+    },
+    "min_size": {
+      "description": "New minimum size",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Min Size"
+    },
+    "max_size": {
+      "description": "New maximum size",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Max Size"
+    },
+    "desired_capacity": {
+      "description": "New desired capacity",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Desired Capacity"
+    }
+  },
+  "required": [
+    "asg_name"
+  ]
+}

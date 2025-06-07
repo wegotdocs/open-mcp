@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "auth_enabled": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Auth Enabled",
+      "description": "Enable/disable authentication"
+    },
+    "auth_mode": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Auth Mode",
+      "description": "Authentication mode: auth0, local, or both"
+    },
+    "auth0_domain": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Auth0 Domain",
+      "description": "Auth0 domain"
+    },
+    "auth0_api_audience": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Auth0 Api Audience",
+      "description": "Auth0 API audience"
+    },
+    "auth0_client_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Auth0 Client Id",
+      "description": "Auth0 client ID for frontend"
+    }
+  },
+  "required": []
+}

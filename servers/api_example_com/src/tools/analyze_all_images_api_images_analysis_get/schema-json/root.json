@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "team_filter": {
+      "description": "Filter by team (dai, foundation, platform)",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Team Filter"
+    },
+    "tag_type_filter": {
+      "description": "Filter by tag type (version, sha, branch, latest)",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Tag Type Filter"
+    }
+  },
+  "required": []
+}

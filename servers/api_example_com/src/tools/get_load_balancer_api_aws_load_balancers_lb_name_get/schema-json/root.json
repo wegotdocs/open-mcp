@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "lb_name": {
+      "type": "string",
+      "title": "Lb Name"
+    },
+    "lb_type": {
+      "description": "Type of load balancer (classic, application, network)",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Lb Type"
+    }
+  },
+  "required": [
+    "lb_name"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "timeout": {
+      "description": "Timeout in seconds for each request",
+      "type": "number",
+      "default": 5,
+      "title": "Timeout"
+    },
+    "protocols": {
+      "description": "Comma-separated list of protocols to try",
+      "type": "string",
+      "default": "https,http",
+      "title": "Protocols"
+    },
+    "paths": {
+      "description": "Comma-separated list of paths to try",
+      "type": "string",
+      "default": "/,/health,/ping",
+      "title": "Paths"
+    },
+    "check_dns_only": {
+      "description": "Only check DNS resolution, don't make HTTP requests",
+      "type": "boolean",
+      "default": false,
+      "title": "Check Dns Only"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "title": "Code",
+      "description": "Authorization code from Auth0"
+    },
+    "redirect_uri": {
+      "type": "string",
+      "title": "Redirect Uri",
+      "description": "Redirect URI used in the Auth0 request"
+    }
+  },
+  "required": [
+    "code",
+    "redirect_uri"
+  ]
+}

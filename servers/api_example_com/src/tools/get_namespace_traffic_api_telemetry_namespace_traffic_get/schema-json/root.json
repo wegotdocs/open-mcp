@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "title": "Namespace"
+    },
+    "duration": {
+      "description": "Time duration for rate calculation (e.g., 5m, 1h)",
+      "type": "string",
+      "default": "5m",
+      "title": "Duration"
+    }
+  },
+  "required": [
+    "namespace"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "environment": {
+      "type": "string",
+      "title": "Environment"
+    },
+    "backend": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "dynamodb",
+        "s3"
+      ],
+      "default": "auto",
+      "title": "Backend"
+    }
+  },
+  "required": [
+    "environment"
+  ]
+}

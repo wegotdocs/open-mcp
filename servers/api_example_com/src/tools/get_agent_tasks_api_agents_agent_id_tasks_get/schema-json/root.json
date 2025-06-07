@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "title": "Agent Id"
+    },
+    "status": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "pending",
+            "assigned",
+            "in_progress",
+            "completed",
+            "failed",
+            "cancelled"
+          ],
+          "title": "TaskStatus",
+          "description": "Task status enumeration"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Status"
+    }
+  },
+  "required": [
+    "agent_id"
+  ]
+}

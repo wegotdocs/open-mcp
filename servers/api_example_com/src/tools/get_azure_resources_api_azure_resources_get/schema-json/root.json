@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "resource_group": {
+      "description": "Filter by resource group",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Resource Group"
+    },
+    "resource_type": {
+      "description": "Filter by resource type",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Resource Type"
+    }
+  },
+  "required": []
+}

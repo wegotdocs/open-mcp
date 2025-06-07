@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",
+      "maxLength": 50,
+      "minLength": 3,
+      "title": "Username",
+      "description": "Username"
+    },
+    "password": {
+      "type": "string",
+      "minLength": 6,
+      "title": "Password",
+      "description": "Password"
+    },
+    "email": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Email",
+      "description": "Email address"
+    },
+    "full_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Full Name",
+      "description": "Full name"
+    },
+    "is_admin": {
+      "type": "boolean",
+      "title": "Is Admin",
+      "description": "Admin privileges",
+      "default": false
+    }
+  },
+  "required": [
+    "username",
+    "password"
+  ]
+}

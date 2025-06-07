@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "title": "Namespace"
+    },
+    "include_secrets": {
+      "description": "Include secrets in response",
+      "type": "boolean",
+      "default": true,
+      "title": "Include Secrets"
+    },
+    "include_configmaps": {
+      "description": "Include configmaps in response",
+      "type": "boolean",
+      "default": true,
+      "title": "Include Configmaps"
+    },
+    "include_costs": {
+      "description": "Include cost calculations",
+      "type": "boolean",
+      "default": true,
+      "title": "Include Costs"
+    },
+    "use_cache": {
+      "description": "Use cached data if available",
+      "type": "boolean",
+      "default": true,
+      "title": "Use Cache"
+    }
+  },
+  "required": [
+    "namespace"
+  ]
+}
