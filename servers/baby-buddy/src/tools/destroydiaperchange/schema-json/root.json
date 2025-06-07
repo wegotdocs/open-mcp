@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this Diaper Change.",
+      "type": "string"
+    },
+    "amount": {
+      "description": "amount",
+      "type": "string"
+    },
+    "child": {
+      "description": "child",
+      "type": "string"
+    },
+    "color": {
+      "description": "color",
+      "type": "string",
+      "enum": [
+        "black",
+        "brown",
+        "green",
+        "yellow"
+      ]
+    },
+    "date": {
+      "description": "DateTime",
+      "type": "string"
+    },
+    "date_max": {
+      "description": "Max. DateTime",
+      "type": "string"
+    },
+    "date_min": {
+      "description": "Min. DateTime",
+      "type": "string"
+    },
+    "solid": {
+      "description": "solid",
+      "type": "string"
+    },
+    "wet": {
+      "description": "wet",
+      "type": "string"
+    },
+    "tags": {
+      "description": "tag",
+      "type": "string"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

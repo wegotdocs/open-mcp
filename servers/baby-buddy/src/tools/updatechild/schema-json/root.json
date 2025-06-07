@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "slug": {
+      "description": "",
+      "type": "string"
+    },
+    "id": {
+      "description": "id",
+      "type": "string"
+    },
+    "first_name": {
+      "description": "first_name",
+      "type": "string"
+    },
+    "last_name": {
+      "description": "last_name",
+      "type": "string"
+    },
+    "q_slug": {
+      "description": "slug",
+      "type": "string"
+    },
+    "birth_date": {
+      "description": "birth_date",
+      "type": "string"
+    },
+    "birth_time": {
+      "description": "birth_time",
+      "type": "string"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "b_first_name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "b_last_name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "b_birth_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "b_birth_time": {
+      "type": "string",
+      "nullable": true
+    },
+    "b_slug": {
+      "type": "string",
+      "readOnly": true,
+      "pattern": "^[-\\w]+\\z"
+    },
+    "picture": {
+      "type": "string",
+      "format": "binary",
+      "nullable": true
+    }
+  },
+  "required": [
+    "slug",
+    "b_first_name",
+    "b_birth_date"
+  ]
+}

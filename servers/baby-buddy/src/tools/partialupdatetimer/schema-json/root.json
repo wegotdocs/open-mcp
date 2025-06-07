@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this Timer.",
+      "type": "string"
+    },
+    "child": {
+      "description": "child",
+      "type": "string"
+    },
+    "end": {
+      "description": "End DateTime",
+      "type": "string"
+    },
+    "end_max": {
+      "description": "Max. End DateTime",
+      "type": "string"
+    },
+    "end_min": {
+      "description": "Min. End DateTime",
+      "type": "string"
+    },
+    "name": {
+      "description": "name",
+      "type": "string"
+    },
+    "start": {
+      "description": "Start DateTime",
+      "type": "string"
+    },
+    "start_max": {
+      "description": "Max. End DateTime",
+      "type": "string"
+    },
+    "start_min": {
+      "description": "Min. Start DateTime",
+      "type": "string"
+    },
+    "user": {
+      "description": "user",
+      "type": "string"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "b_child": {
+      "type": "integer",
+      "nullable": true
+    },
+    "b_name": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 255
+    },
+    "b_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "duration": {
+      "type": "string",
+      "readOnly": true
+    },
+    "b_user": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

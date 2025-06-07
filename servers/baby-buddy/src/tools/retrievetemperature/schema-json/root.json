@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this Temperature.",
+      "type": "string"
+    },
+    "child": {
+      "description": "child",
+      "type": "string"
+    },
+    "date": {
+      "description": "DateTime",
+      "type": "string"
+    },
+    "date_max": {
+      "description": "Max. DateTime",
+      "type": "string"
+    },
+    "date_min": {
+      "description": "Min. DateTime",
+      "type": "string"
+    },
+    "tags": {
+      "description": "tag",
+      "type": "string"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this Sleep.",
+      "type": "string"
+    },
+    "child": {
+      "description": "child",
+      "type": "string"
+    },
+    "end": {
+      "description": "End DateTime",
+      "type": "string"
+    },
+    "end_max": {
+      "description": "Max. End DateTime",
+      "type": "string"
+    },
+    "end_min": {
+      "description": "Min. End DateTime",
+      "type": "string"
+    },
+    "start": {
+      "description": "Start DateTime",
+      "type": "string"
+    },
+    "start_max": {
+      "description": "Max. End DateTime",
+      "type": "string"
+    },
+    "start_min": {
+      "description": "Min. Start DateTime",
+      "type": "string"
+    },
+    "tags": {
+      "description": "tag",
+      "type": "string"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "b_child": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Required unless a Timer value is provided."
+    },
+    "b_start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Required unless a Timer value is provided."
+    },
+    "b_end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Required unless a Timer value is provided."
+    },
+    "timer": {
+      "type": "integer",
+      "writeOnly": true,
+      "nullable": true,
+      "description": "May be used in place of the Start, End, and/or Child values."
+    },
+    "duration": {
+      "type": "string",
+      "readOnly": true,
+      "nullable": true
+    },
+    "nap": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "notes": {
+      "type": "string",
+      "nullable": true
+    },
+    "b_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

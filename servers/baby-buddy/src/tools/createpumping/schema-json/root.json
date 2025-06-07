@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "child": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Required unless a Timer value is provided."
+    },
+    "amount": {
+      "type": "number"
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Required unless a Timer value is provided."
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Required unless a Timer value is provided."
+    },
+    "duration": {
+      "type": "string",
+      "readOnly": true,
+      "nullable": true
+    },
+    "notes": {
+      "type": "string",
+      "nullable": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "timer": {
+      "type": "integer",
+      "writeOnly": true,
+      "nullable": true,
+      "description": "May be used in place of the Start, End, and/or Child values."
+    }
+  },
+  "required": [
+    "amount"
+  ]
+}

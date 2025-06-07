@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this Diaper Change.",
+      "type": "string"
+    },
+    "amount": {
+      "description": "amount",
+      "type": "string"
+    },
+    "child": {
+      "description": "child",
+      "type": "string"
+    },
+    "color": {
+      "description": "color",
+      "type": "string",
+      "enum": [
+        "black",
+        "brown",
+        "green",
+        "yellow"
+      ]
+    },
+    "date": {
+      "description": "DateTime",
+      "type": "string"
+    },
+    "date_max": {
+      "description": "Max. DateTime",
+      "type": "string"
+    },
+    "date_min": {
+      "description": "Min. DateTime",
+      "type": "string"
+    },
+    "solid": {
+      "description": "solid",
+      "type": "string"
+    },
+    "wet": {
+      "description": "wet",
+      "type": "string"
+    },
+    "tags": {
+      "description": "tag",
+      "type": "string"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "b_child": {
+      "type": "integer"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "b_wet": {
+      "type": "boolean"
+    },
+    "b_solid": {
+      "type": "boolean"
+    },
+    "b_color": {
+      "enum": [
+        "black",
+        "brown",
+        "green",
+        "yellow"
+      ],
+      "type": "string"
+    },
+    "b_amount": {
+      "type": "number",
+      "nullable": true
+    },
+    "notes": {
+      "type": "string",
+      "nullable": true
+    },
+    "b_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "b_child",
+    "b_wet",
+    "b_solid"
+  ]
+}

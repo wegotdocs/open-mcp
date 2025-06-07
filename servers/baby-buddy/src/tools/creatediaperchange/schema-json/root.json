@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "child": {
+      "type": "integer"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "wet": {
+      "type": "boolean"
+    },
+    "solid": {
+      "type": "boolean"
+    },
+    "color": {
+      "enum": [
+        "black",
+        "brown",
+        "green",
+        "yellow"
+      ],
+      "type": "string"
+    },
+    "amount": {
+      "type": "number",
+      "nullable": true
+    },
+    "notes": {
+      "type": "string",
+      "nullable": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "child",
+    "wet",
+    "solid"
+  ]
+}

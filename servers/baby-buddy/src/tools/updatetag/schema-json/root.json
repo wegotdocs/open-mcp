@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "slug": {
+      "description": "",
+      "type": "string"
+    },
+    "last_used": {
+      "description": "last_used",
+      "type": "string"
+    },
+    "name": {
+      "description": "name",
+      "type": "string"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "b_slug": {
+      "type": "string",
+      "readOnly": true,
+      "pattern": "^[-\\w]+\\z"
+    },
+    "b_name": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$",
+      "maxLength": 32
+    },
+    "b_last_used": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "slug",
+    "b_name"
+  ]
+}

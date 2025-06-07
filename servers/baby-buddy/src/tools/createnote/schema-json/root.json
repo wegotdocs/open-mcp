@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "child": {
+      "type": "integer"
+    },
+    "note": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string",
+      "format": "binary",
+      "nullable": true
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "child",
+    "note"
+  ]
+}
