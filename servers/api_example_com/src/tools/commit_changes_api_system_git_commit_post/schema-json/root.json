@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "title": "Message",
+      "description": "Commit message"
+    },
+    "files": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Files",
+      "description": "Specific files to commit (empty for all)"
+    }
+  },
+  "required": [
+    "message"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "title": "Namespace"
+    },
+    "catalog": {
+      "description": "Catalog name",
+      "type": "string",
+      "default": "hive",
+      "title": "Catalog"
+    },
+    "schema": {
+      "description": "Schema name",
+      "type": "string",
+      "default": "default",
+      "title": "Schema"
+    }
+  },
+  "required": [
+    "namespace"
+  ]
+}

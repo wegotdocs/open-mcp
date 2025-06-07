@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "cluster": {
+      "type": "string",
+      "title": "Cluster"
+    },
+    "limit": {
+      "description": "Maximum number of entries to return",
+      "type": "integer",
+      "default": 100,
+      "title": "Limit"
+    },
+    "verb": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Verb"
+    },
+    "object_kind": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Object Kind"
+    },
+    "user": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "User"
+    }
+  },
+  "required": [
+    "cluster"
+  ]
+}

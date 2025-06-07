@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": "string",
+      "title": "Provider"
+    },
+    "instance_id": {
+      "type": "string",
+      "title": "Instance Id"
+    },
+    "region": {
+      "description": "Cloud region",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Region"
+    },
+    "subscription_id": {
+      "description": "Azure subscription ID",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Subscription Id"
+    },
+    "resource_group": {
+      "description": "Azure resource group",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Resource Group"
+    }
+  },
+  "required": [
+    "provider",
+    "instance_id"
+  ]
+}

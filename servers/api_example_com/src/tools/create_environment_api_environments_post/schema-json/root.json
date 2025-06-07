@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "description": "Name of the environment to create"
+    },
+    "parameters": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `parameters` to the tool, first call the tool `expandSchema` with \"/properties/parameters\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Parameters for environment creation</property-description>",
+      "additionalProperties": true
+    },
+    "commit_to_git": {
+      "type": "boolean",
+      "title": "Commit To Git",
+      "description": "Whether to commit changes to git",
+      "default": true
+    },
+    "env_type": {
+      "type": "string",
+      "title": "Env Type",
+      "description": "Type of environment to create (regular or customer)",
+      "default": "regular"
+    },
+    "template_prefixes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Template Prefixes",
+      "description": "List of template prefixes to use",
+      "default": [
+        "foundation"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

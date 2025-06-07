@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "subscription_id": {
+      "description": "Azure subscription ID",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Subscription Id"
+    },
+    "timeframe": {
+      "description": "Cost timeframe: MonthToDate, LastMonth, etc",
+      "type": "string",
+      "default": "MonthToDate",
+      "title": "Timeframe"
+    },
+    "granularity": {
+      "description": "Cost granularity: Daily, Monthly",
+      "type": "string",
+      "default": "Daily",
+      "title": "Granularity"
+    }
+  },
+  "required": []
+}

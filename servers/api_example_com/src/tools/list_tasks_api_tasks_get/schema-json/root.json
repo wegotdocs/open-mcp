@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "pending",
+            "assigned",
+            "in_progress",
+            "completed",
+            "failed",
+            "cancelled"
+          ],
+          "title": "TaskStatus",
+          "description": "Task status enumeration"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Status"
+    },
+    "task_type": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "environment_create",
+            "environment_delete",
+            "environment_update",
+            "image_update",
+            "kubectl_command",
+            "git_operation",
+            "health_check",
+            "release_update",
+            "custom"
+          ],
+          "title": "TaskType",
+          "description": "Types of tasks agents can execute"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Task Type"
+    },
+    "environment": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Environment"
+    },
+    "assigned_agent_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Assigned Agent Id"
+    }
+  },
+  "required": []
+}

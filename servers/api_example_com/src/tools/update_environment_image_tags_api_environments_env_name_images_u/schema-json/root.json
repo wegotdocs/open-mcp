@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "env_name": {
+      "type": "string",
+      "title": "Env Name"
+    },
+    "commit_to_git": {
+      "description": "Whether to commit changes to git",
+      "type": "boolean",
+      "default": true,
+      "title": "Commit To Git"
+    }
+  },
+  "required": [
+    "env_name"
+  ]
+}

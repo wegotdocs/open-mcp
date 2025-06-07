@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "title": "Message"
+    },
+    "conversation_history": {
+      "items": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Conversation History",
+      "default": []
+    }
+  },
+  "required": [
+    "message"
+  ]
+}

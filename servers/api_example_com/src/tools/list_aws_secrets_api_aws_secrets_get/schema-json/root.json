@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "environment": {
+      "description": "Environment name or 'all' for all environments",
+      "type": "string",
+      "default": "all",
+      "title": "Environment"
+    },
+    "prefix": {
+      "description": "Filter secrets by prefix (e.g., 'platform/')",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Prefix"
+    }
+  },
+  "required": []
+}

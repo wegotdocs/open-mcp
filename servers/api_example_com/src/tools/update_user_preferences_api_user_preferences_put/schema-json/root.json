@@ -1,0 +1,121 @@
+{
+  "type": "object",
+  "properties": {
+    "theme": {
+      "type": "string",
+      "title": "Theme",
+      "description": "Theme preference: light, dark, or system",
+      "default": "system"
+    },
+    "language": {
+      "type": "string",
+      "title": "Language",
+      "description": "Language preference",
+      "default": "en"
+    },
+    "timezone": {
+      "type": "string",
+      "title": "Timezone",
+      "description": "User's timezone",
+      "default": "UTC"
+    },
+    "dateFormat": {
+      "type": "string",
+      "title": "Dateformat",
+      "description": "Date format preference",
+      "default": "MM/DD/YYYY"
+    },
+    "timeFormat": {
+      "type": "string",
+      "title": "Timeformat",
+      "description": "Time format: 12h or 24h",
+      "default": "12h"
+    },
+    "defaultEnvironment": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Defaultenvironment",
+      "description": "Default environment to select"
+    },
+    "dashboardRefreshInterval": {
+      "type": "integer",
+      "title": "Dashboardrefreshinterval",
+      "description": "Dashboard auto-refresh interval in seconds",
+      "default": 30
+    },
+    "defaultView": {
+      "type": "string",
+      "title": "Defaultview",
+      "description": "Default dashboard view: grid or list",
+      "default": "grid"
+    },
+    "showNotifications": {
+      "type": "boolean",
+      "title": "Shownotifications",
+      "description": "Show in-app notifications",
+      "default": true
+    },
+    "emailNotifications": {
+      "type": "boolean",
+      "title": "Emailnotifications",
+      "description": "Receive email notifications",
+      "default": true
+    },
+    "slackNotifications": {
+      "type": "boolean",
+      "title": "Slacknotifications",
+      "description": "Receive Slack notifications",
+      "default": false
+    },
+    "alertThreshold": {
+      "type": "string",
+      "title": "Alertthreshold",
+      "description": "Alert threshold level",
+      "default": "warning"
+    },
+    "sessionTimeout": {
+      "type": "integer",
+      "title": "Sessiontimeout",
+      "description": "Session timeout in minutes",
+      "default": 30
+    },
+    "codeTheme": {
+      "type": "string",
+      "title": "Codetheme",
+      "description": "Code editor theme",
+      "default": "vs-dark"
+    },
+    "gitBranch": {
+      "type": "string",
+      "title": "Gitbranch",
+      "description": "Default git branch",
+      "default": "main"
+    },
+    "autoSave": {
+      "type": "boolean",
+      "title": "Autosave",
+      "description": "Auto-save file changes",
+      "default": false
+    },
+    "customSettings": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Customsettings",
+      "description": "Additional custom preferences"
+    }
+  },
+  "required": []
+}

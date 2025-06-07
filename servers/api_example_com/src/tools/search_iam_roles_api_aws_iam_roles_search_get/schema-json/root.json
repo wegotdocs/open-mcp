@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "search_term": {
+      "description": "Search term to find in role names",
+      "type": "string",
+      "title": "Search Term"
+    },
+    "max_results": {
+      "description": "Maximum number of results to return",
+      "type": "integer",
+      "maximum": 100,
+      "minimum": 1,
+      "default": 20,
+      "title": "Max Results"
+    }
+  },
+  "required": [
+    "search_term"
+  ]
+}

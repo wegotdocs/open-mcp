@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "title": "Path",
+      "description": "File path relative to repository root"
+    },
+    "content": {
+      "type": "string",
+      "title": "Content",
+      "description": "File content"
+    },
+    "commit_message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Commit Message",
+      "description": "Custom commit message"
+    }
+  },
+  "required": [
+    "path",
+    "content"
+  ]
+}

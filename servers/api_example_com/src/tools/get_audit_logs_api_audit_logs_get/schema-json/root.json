@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "description": "Start date (ISO format)",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Start Date"
+    },
+    "end_date": {
+      "description": "End date (ISO format)",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "End Date"
+    },
+    "action": {
+      "description": "Filter by action type",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Action"
+    },
+    "user": {
+      "description": "Filter by user",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "User"
+    },
+    "environment": {
+      "description": "Filter by environment",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Environment"
+    },
+    "status": {
+      "description": "Filter by status (success/failure/partial)",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Status"
+    },
+    "limit": {
+      "description": "Maximum number of logs to return",
+      "type": "integer",
+      "maximum": 1000,
+      "minimum": 1,
+      "default": 100,
+      "title": "Limit"
+    },
+    "offset": {
+      "description": "Number of logs to skip",
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "title": "Offset"
+    }
+  },
+  "required": []
+}

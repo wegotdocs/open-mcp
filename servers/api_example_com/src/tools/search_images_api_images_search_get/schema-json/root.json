@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "query": {
+      "description": "Search query (service name, repository, or tag)",
+      "type": "string",
+      "title": "Query"
+    },
+    "limit": {
+      "description": "Maximum number of results",
+      "type": "integer",
+      "default": 50,
+      "title": "Limit"
+    }
+  },
+  "required": [
+    "query"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "namespace": {
+      "type": "string",
+      "title": "Namespace"
+    },
+    "cluster": {
+      "type": "string",
+      "title": "Cluster"
+    },
+    "version": {
+      "type": "string",
+      "title": "Version"
+    },
+    "capabilities": {
+      "items": {
+        "type": "string",
+        "enum": [
+          "environment_create",
+          "environment_delete",
+          "environment_update",
+          "image_update",
+          "kubectl_command",
+          "git_operation",
+          "health_check",
+          "release_update",
+          "custom"
+        ],
+        "title": "TaskType",
+        "description": "Types of tasks agents can execute"
+      },
+      "type": "array",
+      "title": "Capabilities"
+    },
+    "metadata": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Metadata"
+    },
+    "pod_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pod Name"
+    },
+    "node_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Node Name"
+    }
+  },
+  "required": [
+    "name",
+    "namespace",
+    "cluster",
+    "version",
+    "capabilities"
+  ]
+}

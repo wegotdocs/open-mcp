@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "title": "Namespace"
+    },
+    "release_name": {
+      "type": "string",
+      "title": "Release Name"
+    },
+    "suspend": {
+      "description": "True to suspend, False to resume",
+      "type": "boolean",
+      "title": "Suspend"
+    }
+  },
+  "required": [
+    "namespace",
+    "release_name",
+    "suspend"
+  ]
+}

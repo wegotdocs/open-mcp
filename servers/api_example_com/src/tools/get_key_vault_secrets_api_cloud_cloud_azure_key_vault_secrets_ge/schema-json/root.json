@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "vault_name": {
+      "description": "Key Vault name",
+      "type": "string",
+      "title": "Vault Name"
+    },
+    "subscription_id": {
+      "description": "Azure subscription ID",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Subscription Id"
+    },
+    "resource_group": {
+      "description": "Azure resource group",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Resource Group"
+    }
+  },
+  "required": [
+    "vault_name"
+  ]
+}

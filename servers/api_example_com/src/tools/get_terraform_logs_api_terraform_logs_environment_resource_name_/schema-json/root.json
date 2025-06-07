@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "environment": {
+      "type": "string",
+      "title": "Environment"
+    },
+    "resource_name": {
+      "type": "string",
+      "title": "Resource Name"
+    },
+    "tail_lines": {
+      "description": "Number of log lines to retrieve",
+      "type": "integer",
+      "default": 100,
+      "title": "Tail Lines"
+    }
+  },
+  "required": [
+    "environment",
+    "resource_name"
+  ]
+}

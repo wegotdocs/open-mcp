@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "cluster_name": {
+      "description": "Optional EKS cluster name to filter instances",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Cluster Name"
+    }
+  },
+  "required": []
+}

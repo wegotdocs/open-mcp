@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "path_prefix": {
+      "description": "Filter roles by path prefix (e.g., '/service-role/')",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Path Prefix"
+    },
+    "max_items": {
+      "description": "Maximum number of roles to return",
+      "type": "integer",
+      "maximum": 500,
+      "minimum": 1,
+      "default": 100,
+      "title": "Max Items"
+    }
+  },
+  "required": []
+}

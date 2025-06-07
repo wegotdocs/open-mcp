@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "title": "Namespace"
+    },
+    "hours": {
+      "description": "Number of hours of history to retrieve",
+      "type": "integer",
+      "default": 24,
+      "title": "Hours"
+    },
+    "limit": {
+      "description": "Maximum number of records to return",
+      "type": "integer",
+      "default": 100,
+      "title": "Limit"
+    }
+  },
+  "required": [
+    "namespace"
+  ]
+}

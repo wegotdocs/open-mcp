@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "title": "Namespace"
+    },
+    "query": {
+      "type": "string",
+      "title": "Query",
+      "description": "SQL query to execute (SELECT only)"
+    },
+    "database": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Database",
+      "description": "Database to query"
+    }
+  },
+  "required": [
+    "namespace",
+    "query"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "updates": {
+      "items": {
+        "properties": {
+          "service_name": {
+            "type": "string",
+            "title": "Service Name",
+            "description": "Name of the service to update"
+          },
+          "new_tag": {
+            "type": "string",
+            "title": "New Tag",
+            "description": "New tag to set"
+          },
+          "tag_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tag Type",
+            "description": "Type of tag (version, sha, branch, latest)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "service_name",
+          "new_tag"
+        ],
+        "title": "ImageUpdateRequest",
+        "description": "Request model for updating a single image tag"
+      },
+      "type": "array",
+      "title": "Updates",
+      "description": "List of image updates to perform"
+    },
+    "commit_to_git": {
+      "type": "boolean",
+      "title": "Commit To Git",
+      "description": "Whether to commit changes to git",
+      "default": true
+    }
+  },
+  "required": [
+    "updates"
+  ]
+}

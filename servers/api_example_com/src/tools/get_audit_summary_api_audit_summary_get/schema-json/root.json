@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "description": "Start date (ISO format)",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Start Date"
+    },
+    "end_date": {
+      "description": "End date (ISO format)",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "End Date"
+    }
+  },
+  "required": []
+}

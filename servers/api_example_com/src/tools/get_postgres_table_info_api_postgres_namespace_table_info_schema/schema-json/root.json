@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "title": "Namespace"
+    },
+    "schema": {
+      "type": "string",
+      "title": "Schema"
+    },
+    "table": {
+      "type": "string",
+      "title": "Table"
+    },
+    "database": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Database"
+    }
+  },
+  "required": [
+    "namespace",
+    "schema",
+    "table"
+  ]
+}

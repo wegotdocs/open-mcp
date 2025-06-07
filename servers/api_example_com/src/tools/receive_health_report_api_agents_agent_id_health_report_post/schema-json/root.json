@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "title": "Agent Id"
+    },
+    "reports": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Reports"
+    },
+    "timestamp": {
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "cluster": {
+      "type": "string",
+      "title": "Cluster"
+    }
+  },
+  "required": [
+    "agent_id",
+    "reports",
+    "timestamp",
+    "cluster"
+  ]
+}
