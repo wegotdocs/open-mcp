@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this Timer.",
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "child": {
+      "type": "integer",
+      "nullable": true
+    },
+    "name": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 255
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "duration": {
+      "type": "string",
+      "readOnly": true
+    },
+    "user": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

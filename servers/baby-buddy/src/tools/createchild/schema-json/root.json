@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "first_name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "last_name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "birth_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "birth_time": {
+      "type": "string",
+      "nullable": true
+    },
+    "slug": {
+      "type": "string",
+      "readOnly": true,
+      "pattern": "^[-\\w]+\\z"
+    },
+    "picture": {
+      "type": "string",
+      "format": "binary",
+      "nullable": true
+    }
+  },
+  "required": [
+    "first_name",
+    "birth_date"
+  ]
+}

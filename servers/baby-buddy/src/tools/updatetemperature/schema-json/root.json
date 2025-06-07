@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this Temperature.",
+      "type": "string"
+    },
+    "child": {
+      "description": "child",
+      "type": "string"
+    },
+    "date": {
+      "description": "DateTime",
+      "type": "string"
+    },
+    "date_max": {
+      "description": "Max. DateTime",
+      "type": "string"
+    },
+    "date_min": {
+      "description": "Min. DateTime",
+      "type": "string"
+    },
+    "tags": {
+      "description": "tag",
+      "type": "string"
+    },
+    "ordering": {
+      "description": "Which field to use when ordering the results.",
+      "type": "string"
+    },
+    "b_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "b_child": {
+      "type": "integer"
+    },
+    "temperature": {
+      "type": "number"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string",
+      "nullable": true
+    },
+    "b_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "b_child",
+    "temperature"
+  ]
+}

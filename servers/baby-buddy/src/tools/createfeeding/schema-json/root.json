@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "child": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Required unless a Timer value is provided."
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Required unless a Timer value is provided."
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Required unless a Timer value is provided."
+    },
+    "timer": {
+      "type": "integer",
+      "writeOnly": true,
+      "nullable": true,
+      "description": "May be used in place of the Start, End, and/or Child values."
+    },
+    "duration": {
+      "type": "string",
+      "readOnly": true,
+      "nullable": true
+    },
+    "type": {
+      "enum": [
+        "breast milk",
+        "formula",
+        "fortified breast milk",
+        "solid food"
+      ],
+      "type": "string"
+    },
+    "method": {
+      "enum": [
+        "bottle",
+        "left breast",
+        "right breast",
+        "both breasts",
+        "parent fed",
+        "self fed"
+      ],
+      "type": "string"
+    },
+    "amount": {
+      "type": "number",
+      "nullable": true
+    },
+    "notes": {
+      "type": "string",
+      "nullable": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "method"
+  ]
+}

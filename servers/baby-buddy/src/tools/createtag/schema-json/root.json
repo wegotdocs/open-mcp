@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string",
+      "readOnly": true,
+      "pattern": "^[-\\w]+\\z"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$",
+      "maxLength": 32
+    },
+    "last_used": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
