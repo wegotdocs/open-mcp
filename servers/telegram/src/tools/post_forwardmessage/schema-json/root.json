@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "Parameters": {
+      "type": "string"
+    },
+    "chat_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "from_chat_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "disable_notification": {
+      "type": "boolean"
+    },
+    "message_id": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "chat_id",
+    "from_chat_id",
+    "message_id"
+  ]
+}

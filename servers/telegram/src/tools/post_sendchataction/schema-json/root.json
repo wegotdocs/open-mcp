@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "Parameters": {
+      "type": "string"
+    },
+    "chat_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "action": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "chat_id",
+    "action"
+  ]
+}

@@ -1,0 +1,37 @@
+export const OPENAPI_URL = "https://raw.githubusercontent.com/sys-001/telegram-bot-api-versions/refs/heads/main/files/openapi/yaml/v183.yaml"
+export const SERVER_NAME = "telegram"
+export const SERVER_VERSION = "0.0.1"
+export const OPERATION_FILES_RELATIVE = [
+  "./tools/description_getupdates/index.js",
+  "./tools/post_getupdates/index.js",
+  "./tools/description_setwebhook/index.js",
+  "./tools/post_setwebhook/index.js",
+  "./tools/description_getme/index.js",
+  "./tools/post_getme/index.js",
+  "./tools/description_sendmessage/index.js",
+  "./tools/post_sendmessage/index.js",
+  "./tools/description_forwardmessage/index.js",
+  "./tools/post_forwardmessage/index.js",
+  "./tools/description_sendphoto/index.js",
+  "./tools/post_sendphoto/index.js",
+  "./tools/description_sendaudio/index.js",
+  "./tools/post_sendaudio/index.js",
+  "./tools/description_senddocument/index.js",
+  "./tools/post_senddocument/index.js",
+  "./tools/description_sendsticker/index.js",
+  "./tools/post_sendsticker/index.js",
+  "./tools/description_sendvideo/index.js",
+  "./tools/post_sendvideo/index.js",
+  "./tools/description_sendvoice/index.js",
+  "./tools/post_sendvoice/index.js",
+  "./tools/description_sendlocation/index.js",
+  "./tools/post_sendlocation/index.js",
+  "./tools/description_sendchataction/index.js",
+  "./tools/post_sendchataction/index.js",
+  "./tools/description_getuserprofilephotos/index.js",
+  "./tools/post_getuserprofilephotos/index.js",
+  "./tools/description_getfile/index.js",
+  "./tools/post_getfile/index.js",
+  "./tools/description_answerinlinequery/index.js",
+  "./tools/post_answerinlinequery/index.js"
+]

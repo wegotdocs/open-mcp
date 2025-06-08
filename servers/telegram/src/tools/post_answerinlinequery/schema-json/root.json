@@ -1,0 +1,298 @@
+{
+  "type": "object",
+  "properties": {
+    "Parameters": {
+      "type": "string"
+    },
+    "inline_query_id": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "description": "This object represents one result of an inline query. Telegram clients currently support results of the following 5 types:",
+        "anyOf": [
+          {
+            "description": "Represents a link to an article or web page.",
+            "required": [
+              "Field",
+              "type",
+              "id",
+              "title",
+              "message_text"
+            ],
+            "properties": {
+              "Field": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "default": "article"
+              },
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "message_text": {
+                "type": "string"
+              },
+              "parse_mode": {
+                "type": "string"
+              },
+              "disable_web_page_preview": {
+                "type": "boolean"
+              },
+              "url": {
+                "type": "string"
+              },
+              "hide_url": {
+                "type": "boolean"
+              },
+              "description": {
+                "type": "string"
+              },
+              "thumb_url": {
+                "type": "string"
+              },
+              "thumb_width": {
+                "type": "integer"
+              },
+              "thumb_height": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          {
+            "description": "Represents a link to a photo. By default, this photo will be sent by the user with optional caption. Alternatively, you can provide message_text to send it instead of photo.",
+            "required": [
+              "Field",
+              "type",
+              "id",
+              "photo_url",
+              "thumb_url"
+            ],
+            "properties": {
+              "Field": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "default": "photo"
+              },
+              "id": {
+                "type": "string"
+              },
+              "photo_url": {
+                "type": "string"
+              },
+              "photo_width": {
+                "type": "integer"
+              },
+              "photo_height": {
+                "type": "integer"
+              },
+              "thumb_url": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "message_text": {
+                "type": "string"
+              },
+              "parse_mode": {
+                "type": "string"
+              },
+              "disable_web_page_preview": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          {
+            "description": "Represents a link to an animated GIF file. By default, this animated GIF file will be sent by the user with optional caption. Alternatively, you can provide message_text to send it instead of the animation.",
+            "required": [
+              "Field",
+              "type",
+              "id",
+              "gif_url",
+              "thumb_url"
+            ],
+            "properties": {
+              "Field": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "default": "gif"
+              },
+              "id": {
+                "type": "string"
+              },
+              "gif_url": {
+                "type": "string"
+              },
+              "gif_width": {
+                "type": "integer"
+              },
+              "gif_height": {
+                "type": "integer"
+              },
+              "thumb_url": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "message_text": {
+                "type": "string"
+              },
+              "parse_mode": {
+                "type": "string"
+              },
+              "disable_web_page_preview": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          {
+            "description": "Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). By default, this animated MPEG-4 file will be sent by the user with optional caption. Alternatively, you can provide message_text to send it instead of the animation.",
+            "required": [
+              "Field",
+              "type",
+              "id",
+              "mpeg4_url",
+              "thumb_url"
+            ],
+            "properties": {
+              "Field": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "default": "mpeg4_gif"
+              },
+              "id": {
+                "type": "string"
+              },
+              "mpeg4_url": {
+                "type": "string"
+              },
+              "mpeg4_width": {
+                "type": "integer"
+              },
+              "mpeg4_height": {
+                "type": "integer"
+              },
+              "thumb_url": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "message_text": {
+                "type": "string"
+              },
+              "parse_mode": {
+                "type": "string"
+              },
+              "disable_web_page_preview": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          {
+            "description": "Represents link to a page containing an embedded video player or a video file.",
+            "required": [
+              "Field",
+              "type",
+              "id",
+              "video_url",
+              "mime_type",
+              "message_text",
+              "thumb_url",
+              "title"
+            ],
+            "properties": {
+              "Field": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "default": "video"
+              },
+              "id": {
+                "type": "string"
+              },
+              "video_url": {
+                "type": "string"
+              },
+              "mime_type": {
+                "type": "string"
+              },
+              "message_text": {
+                "type": "string"
+              },
+              "parse_mode": {
+                "type": "string"
+              },
+              "disable_web_page_preview": {
+                "type": "boolean"
+              },
+              "video_width": {
+                "type": "integer"
+              },
+              "video_height": {
+                "type": "integer"
+              },
+              "video_duration": {
+                "type": "integer"
+              },
+              "thumb_url": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "cache_time": {
+      "type": "integer",
+      "default": 300
+    },
+    "is_personal": {
+      "type": "boolean"
+    },
+    "next_offset": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "inline_query_id",
+    "results"
+  ]
+}
