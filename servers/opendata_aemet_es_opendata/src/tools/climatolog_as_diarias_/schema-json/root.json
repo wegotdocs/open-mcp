@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "fechaIniStr": {
+      "description": "Fecha Inicial (AAAA-MM-DDTHH:MM:SSUTC)",
+      "type": "string"
+    },
+    "fechaFinStr": {
+      "description": "Fecha Final (AAAA-MM-DDTHH:MM:SSUTC)",
+      "type": "string"
+    },
+    "idema": {
+      "description": "Indicativo climatológico de la EMA. Puede introducir varios indicativos separados por comas (,)",
+      "type": "string"
+    }
+  },
+  "required": [
+    "fechaIniStr",
+    "fechaFinStr",
+    "idema"
+  ]
+}

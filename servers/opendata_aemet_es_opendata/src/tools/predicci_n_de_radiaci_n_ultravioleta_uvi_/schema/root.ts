@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "dia": z.string().describe(" | Código de día | Día |\n|----------|----------|\n| 0 | día actual  |\n| 1  | d+1 (mañana)   |\n| 2  | d+2 (pasado mañana)  |\n| 3  | d+3 (dentro de 3 días) |\n| 4  | d+4 (dentro de 4 días)")
+}

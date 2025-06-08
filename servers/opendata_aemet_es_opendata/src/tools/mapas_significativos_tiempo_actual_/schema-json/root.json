@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "fecha": {
+      "description": "Fecha de elaboración (AAAA-MM-DD)",
+      "type": "string"
+    },
+    "ambito": {
+      "description": " | Código | Ámbito |\n|----------|----------|\n| esp  | España|\n| and  | Andalucía   |\n| arn  | Aragón   |\n| ast  | Asturias  |\n| bal  | Ballears, Illes   |\n| coo  | Canarias   |\n| can  | Cantabria   |\n| cle  | Castilla y León   |\n| clm  | Castilla - La Mancha   |\n| cat  | Cataluña   |\n| val  | Comunitat Valenciana   |\n| ext  | Extremadura   |\n| gal  | Galicia   |\n| mad  | Madrid, Comunidad de    |\n| mur  | Murcia, Región de   |\n| nav  | Navarra, Comunidad Foral de   |\n| pva  | País Vasco |\n| rio  | Rioja, La",
+      "type": "string"
+    },
+    "dia": {
+      "description": " | Código de día | Día |\n|----------|----------|\n| a | D+0 (00-12)  |\n| b  | D+0 (12-24)   |\n|  c | D+1 (00-12)  |\n| d  | D+1 (12-24) |\n| e  | D+2 (00-12) |\n| f  | D+2 (12-24)",
+      "type": "string"
+    }
+  },
+  "required": [
+    "fecha",
+    "ambito",
+    "dia"
+  ]
+}

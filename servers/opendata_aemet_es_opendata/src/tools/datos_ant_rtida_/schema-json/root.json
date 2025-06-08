@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "fechaIniStr": {
+      "description": "Fecha Inicial (AAAA-MM-DDTHH:MM:SSUTC)",
+      "type": "string"
+    },
+    "fechaFinStr": {
+      "description": "Fecha Final (AAAA-MM-DDTHH:MM:SSUTC)",
+      "type": "string"
+    },
+    "identificacion": {
+      "description": " | Identificacion | Estación |\n|----------|----------|\n| 89064      | Estación Meteorológica Juan Carlos I   |\n| 89064R      | Estación Radiométrica Juan Carlos I|\n| 89064RA  | Estación Radiométrica Juan Carlos I (hasta 08/03/2007)) |\n| 89070  | Estación Meteorológica Gabriel de Castilla   ",
+      "type": "string"
+    }
+  },
+  "required": [
+    "fechaIniStr",
+    "fechaFinStr",
+    "identificacion"
+  ]
+}
