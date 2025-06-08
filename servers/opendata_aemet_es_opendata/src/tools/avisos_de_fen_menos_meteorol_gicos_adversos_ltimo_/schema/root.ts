@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "area": z.string().describe(" | Código | Área |\n|----------|----------|\n| esp  | España|\n| 61  | Andalucía   |\n| 62  | Aragón   |\n| 63  | Asturias, Principado de  |\n| 64  | Ballears, Illes   |\n| 78  | Ceuta   |\n| 65  | Canarias   |\n| 66  | Cantabria   |\n| 67  | Castilla y León   |\n| 68  | Castilla - La Mancha   |\n| 69  | Cataluña   |\n| 77  | Comunitat Valenciana   |\n| 70  | Extremadura   |\n| 71  | Galicia   |\n| 72  | Madrid, Comunidad de    |\n| 79  | Melilla   |\n| 73  | Murcia, Región de   |\n| 74  | Navarra, Comunidad Foral de   |\n| 75  | País Vasco |\n| 76  | Rioja, La")
+}

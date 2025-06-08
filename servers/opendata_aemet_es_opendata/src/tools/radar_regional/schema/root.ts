@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "radar": z.string().describe(" | Código | Radar |\n|----------|----------|\n| am  | Almería   |\n| sa  | Asturias   |\n| pm  | Illes Balears   |\n| ba  | Barcelona  |\n| cc  | Cáceres   |\n| co  | A Coruña   |\n| ma  | Madrid   |\n| ml  | Málaga   |\n| mu  | Murcia   |\n| vd  | Palencia   |\n| ca  | Las Palmas   |\n| se  | Sevilla   |\n| va  | Valencia   |\n| ss  | Vizcaya   |\n| za  | Zaragoza   ")
+}

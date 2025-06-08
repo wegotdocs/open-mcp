@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "area": z.string().describe(" | Código de Área Montañosa | Área Montañosa |\n|----------|----------|\n| peu1 | Picos de Europa   |\n| nav1  | Pirineo Navarro   |\n| arn1  | Pirineo Aragonés  |\n| cat1  | Pirineo Catalán   |\n| rio1  | Ibérica Riojana   |\n| arn2  | Ibérica Aragonesa   |\n| mad2  | Sierras de Guadarrama y Somosierra  |\n| gre1  | Sierra de Gredos   |\n| nev1  | Sierra Nevada")
+}
