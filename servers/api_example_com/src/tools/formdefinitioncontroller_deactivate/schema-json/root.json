@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string",
+      "description": "User Id that performed action",
+      "default": "<auth0|Id>"
+    },
+    "formType": {
+      "type": "string",
+      "description": "Type of the form",
+      "enum": [
+        "startform",
+        "tableform"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "userId"
+  ]
+}

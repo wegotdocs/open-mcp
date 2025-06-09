@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "FormId Example: WorkflowId for start form",
+      "default": "<id>"
+    },
+    "versionId": {
+      "type": "string",
+      "description": "Form version Example: Workflow version number",
+      "default": "<version>"
+    },
+    "versionLabel": {
+      "type": "string",
+      "description": "Form version Example: major designer version 2.0",
+      "default": "<version-label>"
+    },
+    "versionComments": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `versionComments` to the tool, first call the tool `expandSchema` with \"/properties/versionComments\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Version Comments</property-description>",
+      "additionalProperties": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Form Name Example: Workflow Name",
+      "default": "<name>"
+    },
+    "description": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `description` to the tool, first call the tool `expandSchema` with \"/properties/description\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Form description</property-description>",
+      "additionalProperties": true
+    },
+    "allowAnonymous": {
+      "type": "boolean",
+      "description": "Allow Anonymous access to Form Definition",
+      "default": "false"
+    },
+    "formDefinition": {
+      "type": "string",
+      "description": "Form definition to save",
+      "default": "<formDefinition>"
+    },
+    "useInMobileAndMyNintex": {
+      "type": "boolean",
+      "description": "Is form consumable in mobile and MyNintex ?",
+      "default": "true|false"
+    },
+    "userId": {
+      "type": "string",
+      "description": "User Id that performed action",
+      "default": "<auth0|Id>"
+    },
+    "formType": {
+      "type": "string",
+      "description": "Type of the form",
+      "enum": [
+        "startform",
+        "tableform"
+      ]
+    },
+    "parentId": {
+      "type": "string",
+      "description": "Id of the related parent object. For a Start form, the parentId will be the workflowId or formId, as these are the same value. For a Table form, the parentId will be the tableId."
+    },
+    "ntx-correlation-id": {
+      "type": "string"
+    },
+    "Authorization": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "versionId",
+    "name",
+    "allowAnonymous",
+    "formDefinition",
+    "useInMobileAndMyNintex",
+    "userId",
+    "ntx-correlation-id",
+    "Authorization"
+  ]
+}

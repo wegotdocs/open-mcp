@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "enableCustomCss": {
+      "type": "boolean",
+      "description": "Enable the use of CSS in form",
+      "default": false
+    },
+    "allowAnonymous": {
+      "type": "boolean",
+      "description": "Allow Anonymous access to Form Settings",
+      "default": false
+    },
+    "enablePlugins": {
+      "type": "boolean",
+      "description": "Enable the use of form plugins in form",
+      "default": false
+    },
+    "enableAuthTaskFormsRedirect": {
+      "type": "boolean",
+      "description": "Enable redirecting all Authenticated Task forms into My Nintex",
+      "default": false
+    },
+    "localizationAndTranslation": {
+      "type": "string"
+    },
+    "enableAiFormGenerator": {
+      "type": "boolean",
+      "description": "Enable the use of AI form generator in form",
+      "default": false
+    },
+    "enableFormPdfConverter": {
+      "type": "boolean",
+      "description": "Enable the use of form pdf converter in form",
+      "default": false
+    },
+    "Authorization": {
+      "description": "Bearer Token should belong to admin role",
+      "type": "string"
+    }
+  },
+  "required": [
+    "enableCustomCss",
+    "allowAnonymous",
+    "enablePlugins",
+    "enableAuthTaskFormsRedirect",
+    "localizationAndTranslation",
+    "enableAiFormGenerator",
+    "enableFormPdfConverter",
+    "Authorization"
+  ]
+}

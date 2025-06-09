@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "formTypes": {
+      "description": "A comma-delimited list of form types to return. If not specified, only start forms are returned.",
+      "enum": [
+        "startform",
+        "tableform",
+        "all"
+      ],
+      "type": "string"
+    },
+    "User-Agent": {
+      "type": "string"
+    },
+    "ntx-client": {
+      "type": "string"
+    },
+    "ntx-correlation-id": {
+      "type": "string"
+    },
+    "ntx-operation-id": {
+      "type": "string"
+    },
+    "ntx-nm-last-modified": {
+      "type": "string"
+    },
+    "ntx-tenancy": {
+      "type": "string"
+    },
+    "Authorization": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ntx-tenancy",
+    "Authorization"
+  ]
+}
