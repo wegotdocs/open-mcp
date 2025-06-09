@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "transaction_type": {
+      "type": "number",
+      "enum": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ]
+    },
+    "transaction_debet_id": {
+      "type": "number"
+    },
+    "transaction_credit_id": {
+      "type": "number"
+    },
+    "transaction_amount": {
+      "type": "number",
+      "minimum": 0.01
+    },
+    "document": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "date": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "transaction_currency": {
+      "type": "number"
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "connection": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "transaction_id": {
+      "type": "number"
+    },
+    "unit_id": {
+      "type": [
+        "number",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "language",
+    "transaction_type",
+    "transaction_debet_id",
+    "transaction_credit_id",
+    "transaction_amount",
+    "transaction_currency"
+  ]
+}

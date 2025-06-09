@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "extra_type": {
+      "type": "number"
+    },
+    "operation_id": {
+      "type": "integer"
+    },
+    "driver_tin": {
+      "type": "string"
+    },
+    "driver_name": {
+      "type": "string"
+    },
+    "car_number": {
+      "type": "string"
+    },
+    "start_address": {
+      "type": "string"
+    },
+    "end_address": {
+      "type": "string"
+    },
+    "transportation_cost": {
+      "type": "string"
+    },
+    "organization_name": {
+      "type": "string"
+    },
+    "tranCostPayer": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "from_account_id": {
+      "type": "number"
+    },
+    "date": {
+      "type": "string"
+    },
+    "document": {
+      "type": "string"
+    },
+    "vat": {
+      "type": "number"
+    },
+    "course": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "number"
+    },
+    "object_id": {
+      "type": "number"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "barcode": {
+            "type": "string"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "unit_id": {
+            "type": "string"
+          },
+          "coefficient": {
+            "type": "number"
+          },
+          "rs_barcode": {
+            "type": "string"
+          },
+          "rs_product_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "barcode",
+          "unit_price",
+          "amount",
+          "unit_id"
+        ]
+      }
+    }
+  },
+  "required": [
+    "language",
+    "from_account_id",
+    "vat",
+    "course",
+    "currency",
+    "products"
+  ]
+}

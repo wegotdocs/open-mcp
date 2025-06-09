@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "password": {
+      "type": "string",
+      "minLength": 6
+    },
+    "password_confirmation": {
+      "type": "string",
+      "minLength": 6
+    }
+  },
+  "required": [
+    "token",
+    "email",
+    "password",
+    "password_confirmation"
+  ]
+}

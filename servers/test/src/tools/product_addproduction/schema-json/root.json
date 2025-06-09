@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "to_account": {
+      "type": "integer"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "number"
+          },
+          "id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "account_id",
+          "quantity"
+        ]
+      }
+    }
+  },
+  "required": [
+    "language",
+    "to_account"
+  ]
+}

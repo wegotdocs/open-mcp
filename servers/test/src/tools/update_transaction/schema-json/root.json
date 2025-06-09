@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "properties": {
+    "locale": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "transaction_id": {
+            "type": "number"
+          },
+          "object_id": {
+            "type": "number"
+          },
+          "amount": {
+            "type": "string",
+            "description": "'operations.*.deb_acc' => ['required', 'numeric',\nRule::exists('accounting_accounts', 'id')\n->whereNotNull('parent_id')\n],\n'operations.*.cre_acc' => ['required', 'numeric', 'different:transaction_debet_id',\nRule::exists('accounting_accounts', 'id')\n->whereNotNull('parent_id')\n],"
+          },
+          "document": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "currency": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "course": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "connection": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "unit_amount": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "transaction_id",
+          "object_id",
+          "amount"
+        ]
+      }
+    }
+  },
+  "required": [
+    "locale",
+    "id",
+    "operations"
+  ]
+}

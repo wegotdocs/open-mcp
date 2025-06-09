@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "from_account_id": {
+      "type": "number"
+    },
+    "transaction_type": {
+      "type": "number",
+      "enum": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ]
+    },
+    "date": {
+      "type": "string"
+    },
+    "document": {
+      "type": "string"
+    },
+    "vat": {
+      "type": "number"
+    },
+    "course": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "number"
+    },
+    "object_id": {
+      "type": "number"
+    },
+    "payment": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `payment` to the tool, first call the tool `expandSchema` with \"/properties/payment\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "barcode": {
+            "type": "string"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "unit_id": {
+            "type": "string"
+          },
+          "coefficient": {
+            "type": "number"
+          },
+          "rs_barcode": {
+            "type": "string"
+          },
+          "rs_product_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "barcode",
+          "unit_price",
+          "amount",
+          "unit_id"
+        ]
+      }
+    }
+  },
+  "required": [
+    "language",
+    "from_account_id",
+    "transaction_type",
+    "vat",
+    "course",
+    "currency",
+    "object_id",
+    "products"
+  ]
+}
