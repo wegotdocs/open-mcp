@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "payload": {
+      "description": "Payload containing user input text for translaiton",
+      "type": "array",
+      "items": {
+        "type": "array"
+      }
+    },
+    "Authorization": {
+      "description": "Bearer User Auth Token",
+      "type": "string"
+    }
+  },
+  "required": [
+    "payload",
+    "Authorization"
+  ]
+}

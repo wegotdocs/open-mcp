@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "formTypes": {
+      "description": "A comma-delimited list of form types to return. If not specified, only start forms are returned.",
+      "enum": [
+        "startform",
+        "tableform",
+        "all"
+      ],
+      "type": "string"
+    },
+    "includeMyNintexFormsOnly": {
+      "description": "When set to true, only start forms published with the 'Nintex Mobile and My Nintex' option are included. If false, all start forms the user has access to are included.",
+      "type": "boolean"
+    },
+    "Authorization": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "Authorization"
+  ]
+}
