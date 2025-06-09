@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "account_type": {
+      "type": "string",
+      "enum": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "file": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "language",
+    "account_type",
+    "file"
+  ]
+}

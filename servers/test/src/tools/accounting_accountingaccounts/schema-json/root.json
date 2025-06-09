@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "account_number": {
+      "type": "string"
+    },
+    "account_name": {
+      "type": "string"
+    },
+    "parent_account_number": {
+      "type": "string"
+    },
+    "account_key": {
+      "type": "string"
+    },
+    "parent_id": {
+      "type": "number"
+    },
+    "id": {
+      "type": "number"
+    },
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mixed": {
+      "type": "string"
+    },
+    "amount_from": {
+      "type": "number"
+    },
+    "amount_to": {
+      "type": "number"
+    },
+    "search": {
+      "type": "string"
+    },
+    "barcode": {
+      "type": "string"
+    },
+    "group_id": {
+      "type": "number"
+    },
+    "service_organization_identification": {
+      "type": "string"
+    },
+    "type": {
+      "description": "ROOT_TYPE = 0;  FINANCIAL_TYPE = 1; ORGANIZATION_TYPE = 2; EMPLOYEE_TYPE = 3; COMMODITY_TYPE = 4;",
+      "type": "integer",
+      "enum": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "currency": {
+      "type": "number"
+    },
+    "country": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "language"
+  ]
+}

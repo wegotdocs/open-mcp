@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "rs_user": {
+      "type": "string"
+    },
+    "rs_pass": {
+      "type": "string"
+    },
+    "identification": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "brand_name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "start_date": {
+      "type": "string"
+    },
+    "vat": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "profit": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "income": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "ignorable": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "temporary for frontend"
+    }
+  },
+  "required": [
+    "language",
+    "rs_user",
+    "rs_pass",
+    "identification",
+    "name",
+    "brand_name",
+    "address",
+    "telephone",
+    "email",
+    "start_date"
+  ]
+}

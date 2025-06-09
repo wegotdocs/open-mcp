@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "integer"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "driver_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "driver_identification": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "car_number": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "language",
+    "organizationId",
+    "id",
+    "name",
+    "address"
+  ]
+}

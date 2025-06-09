@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "locale": {
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "sale_object": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "purchase_object": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "active": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "driver_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "driver_identification": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "car_number": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "locale",
+    "organizationId",
+    "name",
+    "address"
+  ]
+}

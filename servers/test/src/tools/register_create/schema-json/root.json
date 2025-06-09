@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "last_name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "user_name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "personal_number": {
+      "type": "string"
+    },
+    "cityzen": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "birth_day": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "maxLength": 255
+    },
+    "password": {
+      "type": "string",
+      "minLength": 8
+    },
+    "password_confirmation": {
+      "type": "string",
+      "minLength": 8
+    }
+  },
+  "required": [
+    "name",
+    "last_name",
+    "user_name",
+    "personal_number",
+    "cityzen",
+    "mobile",
+    "birth_day",
+    "email",
+    "password",
+    "password_confirmation"
+  ]
+}

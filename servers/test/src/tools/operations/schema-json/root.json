@@ -1,0 +1,141 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "id": {
+      "type": "number"
+    },
+    "asset": {
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    "date_from": {
+      "type": "string"
+    },
+    "date_to": {
+      "type": "string"
+    },
+    "organization_id": {
+      "type": "number"
+    },
+    "document": {
+      "type": "string"
+    },
+    "debet_name": {
+      "type": "string"
+    },
+    "credit_name": {
+      "type": "string"
+    },
+    "debet_number": {
+      "type": "string"
+    },
+    "credit_number": {
+      "type": "string"
+    },
+    "object_id": {
+      "type": "number"
+    },
+    "unit_id": {
+      "type": "number"
+    },
+    "unit_from": {
+      "type": "number"
+    },
+    "unit_to": {
+      "type": "number"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "amount_from": {
+      "type": "number"
+    },
+    "amount_to": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "number"
+    },
+    "description": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "number"
+    },
+    "quantity_from": {
+      "type": "number"
+    },
+    "quantity_to": {
+      "type": "number"
+    },
+    "course_from": {
+      "type": "number"
+    },
+    "course_to": {
+      "type": "number"
+    },
+    "operation_type": {
+      "type": "number"
+    },
+    "transaction_type": {
+      "type": "number"
+    },
+    "page_size": {
+      "type": "number"
+    },
+    "page": {
+      "type": "number"
+    },
+    "operation_id": {
+      "type": "number"
+    },
+    "waybillId": {
+      "type": "number"
+    },
+    "waybill_number": {
+      "type": "string"
+    },
+    "parent_id": {
+      "type": "number"
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "vat": {
+      "type": "boolean"
+    },
+    "account_id": {
+      "type": "number"
+    },
+    "connectable_account_id": {
+      "type": "number"
+    },
+    "with_start_transactions": {
+      "type": "boolean"
+    },
+    "card_account_id": {
+      "type": "number"
+    },
+    "account_ids": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "connectable_account_ids": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "language"
+  ]
+}

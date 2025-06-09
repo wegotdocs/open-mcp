@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "brand_name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "start_date": {
+      "type": "string"
+    },
+    "type": {
+      "type": "integer"
+    },
+    "vat": {
+      "type": "number"
+    },
+    "profit": {
+      "type": "number"
+    },
+    "income": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "language",
+    "id",
+    "name",
+    "brand_name",
+    "address",
+    "telephone",
+    "email",
+    "start_date"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "locale": {
+      "type": "string"
+    },
+    "transaction_id": {
+      "type": "integer"
+    },
+    "waybill_id": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "locale"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "integer"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "product_name": {
+            "type": "string"
+          },
+          "coefficient": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "account_id",
+          "barcode",
+          "product_name"
+        ]
+      }
+    }
+  },
+  "required": [
+    "language",
+    "products"
+  ]
+}

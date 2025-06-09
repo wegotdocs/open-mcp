@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "role_id": {
+      "type": "integer"
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "language",
+    "role_id",
+    "permissions"
+  ]
+}
