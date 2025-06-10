@@ -1,0 +1,82 @@
+{
+  "description": "A request object for use in a batch request.",
+  "type": "object",
+  "properties": {
+    "actions": {
+      "type": "array",
+      "items": {
+        "description": "An action object for use in a batch request.",
+        "type": "object",
+        "properties": {
+          "relative_path": {
+            "description": "The path of the desired endpoint relative to the API’s base URL. Query parameters are not accepted here; put them in `data` instead.",
+            "type": "string",
+            "example": "/tasks/123"
+          },
+          "method": {
+            "description": "The HTTP method you wish to emulate for the action.",
+            "type": "string",
+            "enum": [
+              "get",
+              "post",
+              "put",
+              "delete",
+              "patch",
+              "head"
+            ],
+            "example": "get"
+          },
+          "data": {
+            "description": "For `GET` requests, this should be a map of query parameters you would have normally passed in the URL. Options and pagination are not accepted here; put them in `options` instead. For `POST`, `PATCH`, and `PUT` methods, this should be the content you would have normally put in the data field of the body.",
+            "type": "object",
+            "example": {
+              "assignee": "me",
+              "workspace": "1337"
+            }
+          },
+          "options": {
+            "description": "Pagination (`limit` and `offset`) and output options (`fields` or `expand`) for the action. “Pretty” JSON output is not an available option on individual actions; if you want pretty output, specify that option on the parent request.",
+            "type": "object",
+            "properties": {
+              "limit": {
+                "description": "Pagination limit for the request.",
+                "type": "integer",
+                "example": 50
+              },
+              "offset": {
+                "description": "Pagination offset for the request.",
+                "type": "integer",
+                "example": "eyJ0eXAiOJiKV1iQLCJhbGciOiJIUzI1NiJ9"
+              },
+              "fields": {
+                "description": "The fields to retrieve in the request.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "name",
+                  "gid",
+                  "notes",
+                  "completed"
+                ]
+              }
+            },
+            "example": {
+              "limit": 3,
+              "fields": [
+                "name",
+                "notes",
+                "completed"
+              ]
+            }
+          }
+        },
+        "required": [
+          "relative_path",
+          "method"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the new task.",
+      "type": "string",
+      "example": "New Task Name"
+    },
+    "include": {
+      "description": "A comma-separated list of fields that will be duplicated to the new task.\n##### Fields\n- assignee\n- attachments\n- dates\n- dependencies\n- followers\n- notes\n- parent\n- projects\n- subtasks\n- tags",
+      "type": "string",
+      "pattern": "([notes|assignee|subtasks|attachments|tags|followers|projects|dates|dependencies|parent])(,\\1)*",
+      "example": [
+        "notes,assignee,subtasks,attachments,tags,followers,projects,dates,dependencies,parent"
+      ]
+    }
+  }
+}

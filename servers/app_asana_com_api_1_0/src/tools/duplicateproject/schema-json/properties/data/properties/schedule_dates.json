@@ -1,0 +1,24 @@
+{
+  "description": "A dictionary of options to auto-shift dates. `task_dates` must be included to use this option. Requires either `start_on` or `due_on`, but not both.",
+  "type": "object",
+  "required": [
+    "should_skip_weekends"
+  ],
+  "properties": {
+    "should_skip_weekends": {
+      "description": "Determines if the auto-shifted dates should skip weekends.",
+      "type": "boolean",
+      "example": true
+    },
+    "due_on": {
+      "description": "Sets the last due date in the duplicated project to the given date. The rest of the due dates will be offset by the same amount as the due dates in the original project.",
+      "type": "string",
+      "example": "2019-05-21"
+    },
+    "start_on": {
+      "description": "Sets the first start date in the duplicated project to the given date. The rest of the start dates will be offset by the same amount as the start dates in the original project.",
+      "type": "string",
+      "example": "2019-05-21"
+    }
+  }
+}
