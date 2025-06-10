@@ -1,0 +1,10 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "name": z.string().describe("The name of the new project."),
+  "team": z.string().describe("*Optional*. Sets the team of the new project. If the project template exists in an _organization_, you may specify a value for `team`. If no value is provided then it defaults to the same team as the project template.").optional(),
+  "privacy_setting": z.enum(["public_to_workspace","private_to_team","private"]).describe("The privacy setting of the project. *Note: Administrators in your organization may restrict the values of `privacy_setting`.*").optional(),
+  "is_strict": z.boolean().describe("*Optional*. If set to `true`, the endpoint returns an \"Unprocessable Entity\" error if you fail to provide a calendar date value for any date variable. If set to `false`, a default date is used for each unfulfilled date variable (e.g., the current date is used as the Start Date of a project).").optional(),
+  "requested_dates": z.array(z.object({ "gid": z.string().describe("Globally unique identifier of the date field in the project template. A value of `1` refers to the project start date, while `2` refers to the project due date.").optional(), "value": z.string().datetime({ offset: true }).nullable().describe("The date with which the date variable should be replaced when instantiating a project. This takes a date with `YYYY-MM-DD` format.").optional() })).describe("*Conditional*. Array of mappings of date variables to calendar dates. This property is required in the instantiation request if the project template includes dates (e.g., a start date on a task).").optional(),
+  "requested_roles": z.array(z.object({ "gid": z.string().describe("Globally unique identifier of the template role in the project template.").optional(), "value": z.string().describe("The user id that should be assigned to the template role.").optional() })).describe("Array of mappings of template roles to user ids").optional()
+}

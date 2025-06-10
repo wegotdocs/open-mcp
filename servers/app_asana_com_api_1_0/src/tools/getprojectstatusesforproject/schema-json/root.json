@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "project_gid": {
+      "description": "Globally unique identifier for the project.",
+      "type": "string"
+    },
+    "opt_pretty": {
+      "description": "Provides “pretty” output.\nProvides the response in a “pretty” format. In the case of JSON this means doing proper line breaking and indentation to make it readable. This will take extra time and increase the response size so it is advisable only to use this during debugging.",
+      "type": "boolean"
+    },
+    "limit": {
+      "description": "Results per page.\nThe number of objects to return per page. The value must be between 1 and 100.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    },
+    "offset": {
+      "description": "Offset token.\nAn offset to the next page returned by the API. A pagination request will return an offset token, which can be used as an input parameter to the next request. If an offset is not passed in, the API will return the first page of results.\n*Note: You can only pass in an offset that was returned to you via a previously paginated request.*",
+      "type": "string"
+    },
+    "opt_fields": {
+      "description": "This endpoint returns a resource which excludes some properties by default. To include those optional properties, set this query parameter to a comma-separated list of the properties you wish to include.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "author",
+          "author.name",
+          "color",
+          "created_at",
+          "created_by",
+          "created_by.name",
+          "html_text",
+          "modified_at",
+          "offset",
+          "path",
+          "text",
+          "title",
+          "uri"
+        ]
+      }
+    }
+  },
+  "required": [
+    "project_gid"
+  ]
+}

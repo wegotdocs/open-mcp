@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "followers": {
+      "description": "An array of strings identifying users. These can either be the string \"me\", an email, or the gid of a user.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "13579",
+        "321654"
+      ]
+    }
+  },
+  "required": [
+    "followers"
+  ]
+}
