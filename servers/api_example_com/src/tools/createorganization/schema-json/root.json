@@ -1,0 +1,108 @@
+{
+  "type": "object",
+  "properties": {
+    "templateOrganizationId": {
+      "description": "Model/Template organization to copy settings from",
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "description": "Organization full name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Organization Description"
+    },
+    "userData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `userData` to the tool, first call the tool `expandSchema` with \"/properties/userData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom attributes</property-description>",
+      "additionalProperties": true
+    },
+    "nodeApprovalMode": {
+      "type": "string",
+      "description": "Device Approval Mode",
+      "enum": [
+        "AUTOMATIC",
+        "MANUAL",
+        "REJECT"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags",
+      "items": {
+        "type": "string",
+        "description": "Tags"
+      }
+    },
+    "fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fields` to the tool, first call the tool `expandSchema` with \"/properties/fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom Fields</property-description>",
+      "additionalProperties": true
+    },
+    "locations": {
+      "type": "array",
+      "description": "List of locations",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Location name"
+          },
+          "address": {
+            "type": "string",
+            "description": "Address"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description"
+          },
+          "userData": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "Custom attributes"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "items": {
+              "type": "string",
+              "description": "Tags"
+            }
+          },
+          "fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "description": "Custom Fields"
+            },
+            "description": "Custom Fields"
+          }
+        }
+      }
+    },
+    "policies": {
+      "type": "array",
+      "description": "Node role policy assignments",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nodeRoleId": {
+            "type": "integer",
+            "description": "Node Role Identifier",
+            "format": "int32"
+          },
+          "policyId": {
+            "type": "integer",
+            "description": "Policy Identifier",
+            "format": "int32"
+          }
+        },
+        "description": "Node role policy assignments"
+      }
+    }
+  },
+  "required": []
+}

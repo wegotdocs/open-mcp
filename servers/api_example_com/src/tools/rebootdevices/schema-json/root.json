@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "mode": {
+      "description": "Reboot mode",
+      "type": "string",
+      "enum": [
+        "NORMAL",
+        "FORCED"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "description": "Stated reboot reason"
+    }
+  },
+  "required": [
+    "id",
+    "mode"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "df": {
+      "description": "Device filter",
+      "type": "string"
+    },
+    "cursor": {
+      "description": "Cursor name",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Limit number of records per page",
+      "maximum": 10000,
+      "minimum": 10,
+      "type": "integer",
+      "format": "int32",
+      "default": 1000
+    },
+    "updatedAfter": {
+      "description": "Custom fields updated after specified date",
+      "type": "string"
+    },
+    "fields": {
+      "description": "Comma-separated list of fields",
+      "type": "string"
+    },
+    "showSecureValues": {
+      "description": "Flag to indicate if secure values should be returned as plain text without encryption",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

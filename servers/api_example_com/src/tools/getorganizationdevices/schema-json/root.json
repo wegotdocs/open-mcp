@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Organization identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "pageSize": {
+      "description": "Limit number of devices to return",
+      "type": "integer",
+      "format": "int32"
+    },
+    "after": {
+      "description": "Last Node ID from previous page",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

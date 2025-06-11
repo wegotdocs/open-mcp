@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "df": {
+      "description": "Device filter",
+      "type": "string"
+    },
+    "cursor": {
+      "description": "Cursor name",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Limit number of records per page",
+      "type": "integer",
+      "format": "int32"
+    },
+    "installedBefore": {
+      "description": "Include software installed before specified date",
+      "type": "string"
+    },
+    "installedAfter": {
+      "description": "Include software installed after specified date",
+      "type": "string"
+    }
+  },
+  "required": []
+}

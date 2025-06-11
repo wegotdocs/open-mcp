@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "type": "integer",
+      "description": "Client (Organization) identifier",
+      "format": "int32",
+      "example": 1
+    },
+    "ticketFormId": {
+      "type": "integer",
+      "description": "Ticket form identifier",
+      "format": "int32",
+      "example": 1
+    },
+    "locationId": {
+      "type": "integer",
+      "description": "Location identifier",
+      "format": "int32",
+      "nullable": true,
+      "example": 1
+    },
+    "nodeId": {
+      "type": "integer",
+      "description": "Device identifier",
+      "format": "int32",
+      "nullable": true,
+      "example": 1
+    },
+    "subject": {
+      "maxLength": 200,
+      "minLength": 0,
+      "type": "string",
+      "example": "CPU with problems"
+    },
+    "description": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `description` to the tool, first call the tool `expandSchema` with \"/properties/description\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "status": {
+      "type": "string",
+      "default": "1000"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of ticket",
+      "nullable": true,
+      "example": "PROBLEM",
+      "enum": [
+        "PROBLEM",
+        "QUESTION",
+        "INCIDENT",
+        "TASK"
+      ]
+    },
+    "cc": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `cc` to the tool, first call the tool `expandSchema` with \"/properties/cc\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "assignedAppUserId": {
+      "type": "integer",
+      "format": "int32",
+      "nullable": true
+    },
+    "requesterUid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "severity": {
+      "type": "string",
+      "nullable": true,
+      "default": "NONE",
+      "enum": [
+        "NONE",
+        "MINOR",
+        "MODERATE",
+        "MAJOR",
+        "CRITICAL"
+      ]
+    },
+    "priority": {
+      "type": "string",
+      "nullable": true,
+      "default": "NONE",
+      "enum": [
+        "NONE",
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "parentTicketId": {
+      "type": "integer",
+      "description": "Ticket parent identifier",
+      "format": "int32",
+      "nullable": true,
+      "example": 1
+    },
+    "tags": {
+      "type": "array",
+      "nullable": true,
+      "example": [
+        "tag1",
+        "tag2"
+      ],
+      "items": {
+        "type": "string",
+        "nullable": true,
+        "example": "[\"tag1\",\"tag2\"]"
+      }
+    },
+    "attributes": {
+      "type": "array",
+      "nullable": true,
+      "items": {
+        "required": [
+          "attributeId",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "attributeId": {
+            "type": "integer",
+            "description": "Attribute identifier",
+            "format": "int32",
+            "example": 1
+          },
+          "value": {
+            "type": "string",
+            "description": "Attribute value"
+          }
+        },
+        "nullable": true
+      }
+    }
+  },
+  "required": [
+    "clientId",
+    "ticketFormId",
+    "subject",
+    "status"
+  ]
+}

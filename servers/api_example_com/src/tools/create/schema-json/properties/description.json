@@ -1,0 +1,32 @@
+{
+  "required": [
+    "public"
+  ],
+  "type": "object",
+  "properties": {
+    "public": {
+      "type": "boolean",
+      "default": true
+    },
+    "body": {
+      "type": "string",
+      "nullable": true,
+      "example": "new comment"
+    },
+    "htmlBody": {
+      "type": "string",
+      "nullable": true,
+      "example": "<p>new comment</p>"
+    },
+    "timeTracked": {
+      "type": "integer",
+      "description": "time in seconds",
+      "format": "int32",
+      "nullable": true,
+      "example": 60
+    },
+    "duplicateInIncidents": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "class": {
+      "description": "Activity Class (System/Device) filter",
+      "type": "string",
+      "default": "ALL",
+      "enum": [
+        "SYSTEM",
+        "DEVICE",
+        "USER",
+        "ALL"
+      ]
+    },
+    "before": {
+      "description": "Return activities recorded prior to specified date",
+      "type": "string"
+    },
+    "after": {
+      "description": "Return activities recorded after to specified date",
+      "type": "string"
+    },
+    "olderThan": {
+      "description": "Return activities recorded that are newer than specified activity ID",
+      "type": "integer",
+      "format": "int64"
+    },
+    "newerThan": {
+      "description": "Return activities recorded that are older than specified activity ID",
+      "type": "integer",
+      "format": "int64"
+    },
+    "type": {
+      "description": "Return activities of type",
+      "type": "string"
+    },
+    "status": {
+      "description": "Return activities with status(es)",
+      "type": "string"
+    },
+    "user": {
+      "description": "Return activities for user(s)",
+      "type": "string"
+    },
+    "seriesUid": {
+      "description": "Return activities related to alert (series)",
+      "type": "string"
+    },
+    "df": {
+      "description": "Device filter",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Limit number of activities to return",
+      "maximum": 1000,
+      "minimum": 10,
+      "type": "integer",
+      "format": "int32",
+      "default": 200
+    },
+    "lang": {
+      "description": "Language tag",
+      "type": "string"
+    },
+    "tz": {
+      "description": "Time Zone",
+      "type": "string"
+    },
+    "sourceConfigUid": {
+      "description": "Allows users to make a request directed to a specific script",
+      "type": "string"
+    }
+  },
+  "required": []
+}
