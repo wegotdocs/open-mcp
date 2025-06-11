@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "Occurrence enabled",
+      "default": false
+    },
+    "threshold": {
+      "type": "integer",
+      "description": "Occurrence threshold",
+      "format": "int32",
+      "default": 2
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Occurrence duration",
+      "format": "int32",
+      "default": 5
+    }
+  },
+  "description": "Windows event policy condition occurrence"
+}

@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "locationId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "description": "Location name"
+    },
+    "address": {
+      "type": "string",
+      "description": "Address"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description"
+    },
+    "userData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `userData` to the tool, first call the tool `expandSchema` with \"/properties/userData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom attributes</property-description>",
+      "additionalProperties": true
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags",
+      "items": {
+        "type": "string",
+        "description": "Tags"
+      }
+    },
+    "fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fields` to the tool, first call the tool `expandSchema` with \"/properties/fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom Fields</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id",
+    "locationId"
+  ]
+}

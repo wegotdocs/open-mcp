@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "assetType": {
+      "type": "string",
+      "enum": [
+        "device"
+      ]
+    },
+    "assetId": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "assetType",
+    "assetId"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "folderIds": {
+      "type": "array",
+      "description": "Folders to move",
+      "items": {
+        "type": "integer",
+        "description": "Folders to move",
+        "format": "int32"
+      }
+    },
+    "documentIds": {
+      "type": "array",
+      "description": "Documents to move",
+      "items": {
+        "type": "integer",
+        "description": "Documents to move",
+        "format": "int32"
+      }
+    },
+    "destinationFolderId": {
+      "type": "integer",
+      "description": "Destination folder",
+      "format": "int32"
+    },
+    "destinationOrganizationId": {
+      "type": "integer",
+      "description": "Destination client. Use when the root folder of the client does not exist.",
+      "format": "int32"
+    }
+  },
+  "required": []
+}

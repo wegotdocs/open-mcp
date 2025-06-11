@@ -1,0 +1,224 @@
+{
+  "type": "object",
+  "properties": {
+    "policy_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Policy condition enabled",
+      "default": true
+    },
+    "displayName": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "description": "Policy condition display name"
+    },
+    "severity": {
+      "type": "string",
+      "description": "Policy condition severity",
+      "default": "NONE",
+      "enum": [
+        "NONE",
+        "MINOR",
+        "MODERATE",
+        "MAJOR",
+        "CRITICAL"
+      ]
+    },
+    "priority": {
+      "type": "string",
+      "description": "Policy condition priority",
+      "default": "NONE",
+      "enum": [
+        "NONE",
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "channels": {
+      "maxItems": 20,
+      "minItems": 0,
+      "uniqueItems": true,
+      "type": "array",
+      "description": "Policy condition notification channels",
+      "items": {
+        "type": "integer",
+        "description": "Policy condition notification channels",
+        "format": "int32"
+      }
+    },
+    "scripts": {
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array",
+      "description": "Policy condition scripts",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scriptId": {
+            "type": "integer",
+            "description": "Policy condition script id",
+            "format": "int32"
+          },
+          "runAs": {
+            "type": "string",
+            "description": "Policy condition script runAs",
+            "default": "SYSTEM",
+            "enum": [
+              "SYSTEM",
+              "LOGGED_ON_USER",
+              "LOCAL_ADMIN",
+              "DOMAIN_ADMIN",
+              "PREFERRED_CREDENTIAL_MAC",
+              "PREFERRED_CREDENTIAL_LINUX"
+            ]
+          },
+          "scriptParam": {
+            "type": "string",
+            "description": "Policy condition script parameter"
+          },
+          "scriptVariables": {
+            "maxItems": 20,
+            "minItems": 0,
+            "type": "array",
+            "description": "Policy condition script variables",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Policy condition script variable Id"
+                },
+                "value": {
+                  "maxLength": 65535,
+                  "minLength": 0,
+                  "type": "string",
+                  "description": "Policy condition script variable value"
+                }
+              },
+              "description": "Policy condition script variable"
+            }
+          }
+        },
+        "description": "Policy condition script"
+      }
+    },
+    "notificationAction": {
+      "type": "string",
+      "description": "Policy condition notification action",
+      "default": "NONE",
+      "enum": [
+        "NONE",
+        "SEND"
+      ]
+    },
+    "notifyOnReset": {
+      "type": "boolean",
+      "description": "Policy condition notify on reset",
+      "default": false
+    },
+    "resetThreshold": {
+      "type": "integer",
+      "description": "Policy condition reset threshold (seconds)",
+      "format": "int32",
+      "default": 14400
+    },
+    "matchAll": {
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array",
+      "description": "Custom field value must meet all conditions",
+      "items": {
+        "required": [
+          "fieldName",
+          "operator",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "maxLength": 250,
+            "minLength": 0,
+            "type": "string",
+            "description": "Custom field name"
+          },
+          "operator": {
+            "type": "string",
+            "description": "Custom field operator",
+            "enum": [
+              "EQUALS",
+              "NOT_EQUALS",
+              "LESS_THAN",
+              "LESS_OR_EQUAL_THAN",
+              "GREATER_THAN",
+              "GREATER_OR_EQUAL_THAN",
+              "IS_NOT_NULL",
+              "CONTAINS",
+              "CONTAINS_NONE",
+              "CONTAINS_ANY"
+            ]
+          },
+          "value": {
+            "maxLength": 65535,
+            "minLength": 0,
+            "type": "string",
+            "description": "Custom field value"
+          }
+        },
+        "description": "Policy condition custom field"
+      }
+    },
+    "matchAny": {
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array",
+      "description": "Custom field value must meet any conditions",
+      "items": {
+        "required": [
+          "fieldName",
+          "operator",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "maxLength": 250,
+            "minLength": 0,
+            "type": "string",
+            "description": "Custom field name"
+          },
+          "operator": {
+            "type": "string",
+            "description": "Custom field operator",
+            "enum": [
+              "EQUALS",
+              "NOT_EQUALS",
+              "LESS_THAN",
+              "LESS_OR_EQUAL_THAN",
+              "GREATER_THAN",
+              "GREATER_OR_EQUAL_THAN",
+              "IS_NOT_NULL",
+              "CONTAINS",
+              "CONTAINS_NONE",
+              "CONTAINS_ANY"
+            ]
+          },
+          "value": {
+            "maxLength": 65535,
+            "minLength": 0,
+            "type": "string",
+            "description": "Custom field value"
+          }
+        },
+        "description": "Policy condition custom field"
+      }
+    }
+  },
+  "required": [
+    "policy_id"
+  ]
+}
