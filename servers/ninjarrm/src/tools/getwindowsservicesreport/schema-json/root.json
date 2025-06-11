@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "df": {
+      "description": "Device filter",
+      "type": "string"
+    },
+    "name": {
+      "description": "Service name",
+      "type": "string"
+    },
+    "state": {
+      "description": "Service state",
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "STOPPED",
+        "START_PENDING",
+        "RUNNING",
+        "STOP_PENDING",
+        "PAUSE_PENDING",
+        "PAUSED",
+        "CONTINUE_PENDING"
+      ]
+    },
+    "cursor": {
+      "description": "Cursor name",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Limit number of records per page",
+      "maximum": 10000,
+      "minimum": 10,
+      "type": "integer",
+      "format": "int32",
+      "default": 1000
+    }
+  },
+  "required": []
+}

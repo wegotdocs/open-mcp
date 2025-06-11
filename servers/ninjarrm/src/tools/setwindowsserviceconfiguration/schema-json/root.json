@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "serviceId": {
+      "description": "Service identifier",
+      "type": "string"
+    },
+    "startType": {
+      "type": "string",
+      "description": "Start Type",
+      "enum": [
+        "AUTO_START",
+        "AUTO_START_DELAYED",
+        "BOOT_START",
+        "DEMAND_START",
+        "DISABLED",
+        "SYSTEM_START"
+      ]
+    },
+    "userName": {
+      "type": "string",
+      "description": "Username"
+    }
+  },
+  "required": [
+    "id",
+    "serviceId"
+  ]
+}

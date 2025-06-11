@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "status": {
+      "description": "Patch Status filter",
+      "type": "string"
+    },
+    "productIdentifier": {
+      "description": "Product Identifier",
+      "type": "string"
+    },
+    "type": {
+      "description": "Patch Type filter",
+      "type": "string"
+    },
+    "impact": {
+      "description": "Patch Impact filter",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

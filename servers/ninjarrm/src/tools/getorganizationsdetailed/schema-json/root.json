@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "pageSize": {
+      "description": "Limit number of organizations to return",
+      "type": "integer",
+      "format": "int32"
+    },
+    "after": {
+      "description": "Last Organization Identifier from previous page",
+      "type": "integer",
+      "format": "int32"
+    },
+    "of": {
+      "description": "Organization filter",
+      "type": "string"
+    }
+  },
+  "required": []
+}

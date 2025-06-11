@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "boardId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "sortBy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          }
+        }
+      }
+    },
+    "filters": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "operator": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pageSize": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "searchCriteria": {
+      "maxLength": 512,
+      "minLength": 0,
+      "type": "string"
+    },
+    "includeColumns": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lastCursorId": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "boardId"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "description": "Organization identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "clientDocumentId": {
+      "description": "Organization document identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "documentName": {
+      "type": "string",
+      "description": "Document Name"
+    },
+    "documentDescription": {
+      "type": "string",
+      "description": "Document Description"
+    },
+    "fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fields` to the tool, first call the tool `expandSchema` with \"/properties/fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Fields</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "organizationId",
+    "clientDocumentId"
+  ]
+}

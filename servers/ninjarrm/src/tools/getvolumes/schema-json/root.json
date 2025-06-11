@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "df": {
+      "description": "Device filter",
+      "type": "string"
+    },
+    "ts": {
+      "description": "Monitoring timestamp filter",
+      "type": "string"
+    },
+    "cursor": {
+      "description": "Cursor name",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Limit number of records per page",
+      "type": "integer",
+      "format": "int32"
+    },
+    "include": {
+      "description": "Additional information to include (bl - BitLocker status)",
+      "type": "string"
+    }
+  },
+  "required": []
+}
