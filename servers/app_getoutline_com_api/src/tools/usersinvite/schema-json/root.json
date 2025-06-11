@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "invites": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The full name of the user being invited"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email address to invite"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "admin",
+              "member",
+              "viewer",
+              "guest"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "invites"
+  ]
+}

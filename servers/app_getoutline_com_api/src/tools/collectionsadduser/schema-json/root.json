@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "userId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "permission": {
+      "type": "string",
+      "enum": [
+        "read",
+        "read_write"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "userId"
+  ]
+}

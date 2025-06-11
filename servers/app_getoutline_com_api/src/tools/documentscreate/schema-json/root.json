@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "example": "Welcome to Acme Inc"
+    },
+    "text": {
+      "type": "string",
+      "description": "The body of the document in markdown"
+    },
+    "collectionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "parentDocumentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "templateId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "template": {
+      "type": "boolean",
+      "description": "Whether this document should be considered to be a template."
+    },
+    "publish": {
+      "type": "boolean",
+      "description": "Whether this document should be immediately published and made visible to other team members."
+    }
+  },
+  "required": [
+    "title",
+    "collectionId"
+  ]
+}
