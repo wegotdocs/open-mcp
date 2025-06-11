@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "df": {
+      "description": "Device filter.",
+      "type": "string"
+    },
+    "ddf": {
+      "description": "Deleted device filter.",
+      "type": "string"
+    },
+    "sf": {
+      "description": "Backup job status filter.",
+      "type": "string"
+    },
+    "ptf": {
+      "description": "Backup job planType filter.",
+      "type": "string"
+    },
+    "stf": {
+      "description": "Backup job startTime filter.",
+      "type": "string"
+    },
+    "include": {
+      "description": "Which devices include (active|deleted|all) default value active.",
+      "type": "string",
+      "default": "active"
+    },
+    "cursor": {
+      "description": "Cursor name.",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Limit number of records per page.",
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32",
+      "default": 10000
+    }
+  },
+  "required": []
+}

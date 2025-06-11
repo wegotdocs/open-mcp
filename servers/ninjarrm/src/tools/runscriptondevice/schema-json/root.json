@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type",
+      "enum": [
+        "ACTION",
+        "SCRIPT"
+      ]
+    },
+    "b_id": {
+      "type": "integer",
+      "description": "Script identifier",
+      "format": "int32"
+    },
+    "uid": {
+      "type": "string",
+      "description": "Built-in action identifier",
+      "format": "uuid"
+    },
+    "parameters": {
+      "type": "string",
+      "description": "Action/Script parameters"
+    },
+    "runAs": {
+      "type": "string",
+      "description": "Credential role/identifier"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

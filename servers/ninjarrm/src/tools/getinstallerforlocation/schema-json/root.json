@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "location_id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "installer_type": {
+      "type": "string",
+      "enum": [
+        "WINDOWS_MSI",
+        "MAC_DMG",
+        "MAC_PKG",
+        "LINUX_DEB",
+        "LINUX_RPM",
+        "LINUX_ARM64_DEB",
+        "LINUX_ARMV7A_DEB",
+        "LINUX_ARM64_RPM",
+        "LINUX_ARMV7A_RPM"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "location_id",
+    "installer_type"
+  ]
+}

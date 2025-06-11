@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "df": {
+      "description": "Device filter",
+      "type": "string"
+    },
+    "ts": {
+      "description": "Monitoring timestamp filter",
+      "type": "string"
+    },
+    "status": {
+      "description": "Patch Status filter",
+      "type": "string"
+    },
+    "type": {
+      "description": "Patch Type filter",
+      "type": "string"
+    },
+    "severity": {
+      "description": "Patch Severity filter",
+      "type": "string"
+    },
+    "cursor": {
+      "description": "Cursor name",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Limit number of records per page",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": []
+}

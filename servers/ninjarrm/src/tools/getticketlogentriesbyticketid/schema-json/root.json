@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "ticketId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "DESCRIPTION",
+        "COMMENT",
+        "CONDITION",
+        "SAVE",
+        "DELETE",
+        "PRODUCT"
+      ]
+    },
+    "createTime": {
+      "type": "string"
+    },
+    "anchorId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "pageSize": {
+      "type": "integer",
+      "format": "int32",
+      "default": 500
+    }
+  },
+  "required": [
+    "ticketId"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "df": {
+      "description": "Device filter",
+      "type": "string"
+    },
+    "status": {
+      "description": "Patch Status filter (FAILED, INSTALLED)",
+      "type": "string"
+    },
+    "installedBefore": {
+      "description": "Include patches installed before specified date",
+      "type": "string"
+    },
+    "installedAfter": {
+      "description": "Include patches installed after specified date",
+      "type": "string"
+    },
+    "cursor": {
+      "description": "Cursor name",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Limit number of records per page",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": []
+}

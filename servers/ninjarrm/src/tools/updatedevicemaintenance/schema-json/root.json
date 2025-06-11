@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "disabledFeatures": {
+      "type": "array",
+      "description": "List of features that will be disabled during maintenance",
+      "items": {
+        "type": "string",
+        "description": "List of features that will be disabled during maintenance",
+        "enum": [
+          "ALERTS",
+          "PATCHING",
+          "AVSCANS",
+          "TASKS"
+        ]
+      }
+    },
+    "start": {
+      "type": "number",
+      "description": "Maintenance window start (optional, defaults to now)",
+      "format": "double"
+    },
+    "end": {
+      "type": "number",
+      "description": "Maintenance window end",
+      "format": "double"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

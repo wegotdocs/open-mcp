@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "type": "integer",
+      "description": "Organization identifier",
+      "format": "int32"
+    },
+    "locationId": {
+      "type": "integer",
+      "description": "Location identifier",
+      "format": "int32"
+    },
+    "installerType": {
+      "type": "string",
+      "description": "Agent installer type",
+      "enum": [
+        "WINDOWS_MSI",
+        "MAC_DMG",
+        "MAC_PKG",
+        "LINUX_DEB",
+        "LINUX_RPM",
+        "LINUX_ARM64_DEB",
+        "LINUX_ARMV7A_DEB",
+        "LINUX_ARM64_RPM",
+        "LINUX_ARMV7A_RPM"
+      ]
+    },
+    "usageLimit": {
+      "type": "integer",
+      "description": "Usage limit",
+      "format": "int32",
+      "readOnly": true
+    },
+    "content": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `content` to the tool, first call the tool `expandSchema` with \"/properties/content\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>content</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "status": {
+      "description": "Patch Status filter (FAILED, INSTALLED)",
+      "type": "string"
+    },
+    "installedBefore": {
+      "description": "Include patches installed before specified date",
+      "type": "string"
+    },
+    "installedAfter": {
+      "description": "Include patches installed after specified date",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

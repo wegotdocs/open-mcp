@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "values": {
+      "maxItems": 20,
+      "minItems": 0,
+      "uniqueItems": true,
+      "type": "array",
+      "description": "Text values",
+      "items": {
+        "type": "string",
+        "description": "Text values"
+      }
+    },
+    "condition": {
+      "type": "string",
+      "description": "Text condition",
+      "default": "CONTAINS",
+      "enum": [
+        "CONTAINS",
+        "NOT_CONTAINS"
+      ]
+    },
+    "include": {
+      "type": "string",
+      "description": "Text include",
+      "default": "ALL",
+      "enum": [
+        "ALL",
+        "ANY"
+      ]
+    }
+  },
+  "description": "Windows event policy condition text"
+}

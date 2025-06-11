@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "type": {
+      "description": "Patch Type filter",
+      "type": "string"
+    },
+    "impact": {
+      "description": "Patch Impact filter",
+      "type": "string"
+    },
+    "status": {
+      "description": "Patch Status filter",
+      "type": "string"
+    },
+    "productIdentifier": {
+      "description": "Product Identifier",
+      "type": "string"
+    },
+    "installedBefore": {
+      "description": "Include patches installed before specified date",
+      "type": "string"
+    },
+    "installedAfter": {
+      "description": "Include patches installed after specified date",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
