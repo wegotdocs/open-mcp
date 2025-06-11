@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "olderThan": {
+      "description": "Return activities recorded that are newer than specified activity ID",
+      "type": "integer",
+      "format": "int32"
+    },
+    "newerThan": {
+      "description": "Return activities recorded that are older than specified activity ID",
+      "type": "integer",
+      "format": "int32"
+    },
+    "activityType": {
+      "description": "Return activities of type",
+      "type": "string"
+    },
+    "status": {
+      "description": "Return activities with status(es)",
+      "type": "string"
+    },
+    "seriesUid": {
+      "description": "Return activities related to alert (series)",
+      "type": "string"
+    },
+    "pageSize": {
+      "description": "Limit number of activities to return",
+      "maximum": 1000,
+      "minimum": 10,
+      "type": "integer",
+      "format": "int32",
+      "default": 200
+    },
+    "lang": {
+      "description": "Language tag",
+      "type": "string"
+    },
+    "tz": {
+      "description": "Time Zone",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

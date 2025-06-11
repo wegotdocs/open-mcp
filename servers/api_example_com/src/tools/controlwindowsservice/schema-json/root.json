@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "serviceId": {
+      "description": "Service identifier",
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "description": "Action",
+      "enum": [
+        "START",
+        "PAUSE",
+        "STOP",
+        "RESTART"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "serviceId"
+  ]
+}

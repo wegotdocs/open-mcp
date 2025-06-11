@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "pageSize": {
+      "description": "Limit number of records per page",
+      "type": "integer",
+      "format": "int32",
+      "default": 50
+    },
+    "anchorNaturalId": {
+      "description": "Last User Identifier from previous page",
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "searchCriteria": {
+      "description": "Search by first name, last name or email address",
+      "type": "string"
+    },
+    "userType": {
+      "description": "User Type",
+      "type": "string",
+      "enum": [
+        "TECHNICIAN",
+        "END_USER",
+        "CONTACT"
+      ]
+    },
+    "clientId": {
+      "description": "Organization identifier",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": []
+}

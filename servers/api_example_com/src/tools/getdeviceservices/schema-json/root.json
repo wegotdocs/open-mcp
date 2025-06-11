@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "description": "Service name",
+      "type": "string"
+    },
+    "state": {
+      "description": "Service state",
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "STOPPED",
+        "START_PENDING",
+        "RUNNING",
+        "STOP_PENDING",
+        "PAUSE_PENDING",
+        "PAUSED",
+        "CONTINUE_PENDING"
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

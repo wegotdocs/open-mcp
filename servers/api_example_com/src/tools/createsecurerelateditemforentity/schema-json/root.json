@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "entityType": {
+      "type": "string",
+      "enum": [
+        "ORGANIZATION",
+        "DOCUMENT",
+        "LOCATION",
+        "NODE",
+        "CHECKLIST",
+        "KB_DOCUMENT",
+        "END_USER"
+      ]
+    },
+    "entityId": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "entityType",
+    "entityId"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "entityType": {
+      "type": "string",
+      "enum": [
+        "NODE",
+        "LOCATION",
+        "ORGANIZATION"
+      ]
+    },
+    "entityId": {
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": [
+    "entityType",
+    "entityId"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "userType": {
+      "description": "User type filter",
+      "type": "string",
+      "enum": [
+        "TECHNICIAN",
+        "END_USER"
+      ]
+    },
+    "includeRoles": {
+      "description": "Includes user role information",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": []
+}

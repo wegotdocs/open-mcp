@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "uids": {
+      "uniqueItems": true,
+      "type": "array",
+      "description": "List of user uids to be carbon-copied",
+      "nullable": true,
+      "example": [
+        "1fa74a18-a329-40d8-b5b7-0a22624f7800",
+        "b0558cb6-3c4e-438c-b8fd-5247c648bbbe"
+      ],
+      "items": {
+        "type": "string",
+        "description": "List of user uids to be carbon-copied",
+        "format": "uuid",
+        "nullable": true
+      }
+    },
+    "emails": {
+      "uniqueItems": true,
+      "type": "array",
+      "description": "emails",
+      "nullable": true,
+      "example": [
+        "example1@example.com",
+        "example2@example.com"
+      ],
+      "items": {
+        "type": "string",
+        "description": "emails",
+        "nullable": true,
+        "example": "[\"example1@example.com\",\"example2@example.com\"]"
+      }
+    }
+  },
+  "nullable": true
+}
