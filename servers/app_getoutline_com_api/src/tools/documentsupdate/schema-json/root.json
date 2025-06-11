@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "hDYep1TPAM",
+      "description": "Unique identifier for the document. Either the UUID or the urlId is acceptable."
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the document."
+    },
+    "text": {
+      "type": "string",
+      "description": "The body of the document in markdown."
+    },
+    "append": {
+      "type": "boolean",
+      "description": "If true the text field will be appended to the end of the existing document, rather than the default behavior of replacing it. This is potentially useful for things like logging into a document."
+    },
+    "publish": {
+      "type": "boolean",
+      "description": "Whether this document should be published and made visible to other team members, if a draft"
+    },
+    "done": {
+      "type": "boolean",
+      "description": "Whether the editing session has finished, this will trigger any notifications. This property will soon be deprecated."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

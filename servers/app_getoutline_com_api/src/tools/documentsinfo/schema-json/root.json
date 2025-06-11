@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the document. Either the UUID or the urlId is acceptable."
+    },
+    "shareId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for a document share, a shareId may be used in place of a document UUID"
+    }
+  },
+  "required": []
+}

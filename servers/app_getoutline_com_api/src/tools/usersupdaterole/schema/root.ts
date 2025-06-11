@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.string().uuid().describe("Unique identifier for the user."),
+  "role": z.enum(["admin","member","viewer","guest"])
+}

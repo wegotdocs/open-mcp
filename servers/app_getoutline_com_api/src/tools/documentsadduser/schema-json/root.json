@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the document. Either the UUID or the urlId is acceptable."
+    },
+    "userId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "permission": {
+      "type": "string",
+      "enum": [
+        "read",
+        "read_write"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "userId"
+  ]
+}

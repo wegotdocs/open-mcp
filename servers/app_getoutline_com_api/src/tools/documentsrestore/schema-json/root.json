@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "hDYep1TPAM",
+      "description": "Unique identifier for the document. Either the UUID or the urlId is acceptable."
+    },
+    "revisionId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Identifier for the revision to restore to."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

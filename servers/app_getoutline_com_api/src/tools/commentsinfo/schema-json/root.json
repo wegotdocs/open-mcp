@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "includeAnchorText": {
+      "type": "boolean",
+      "description": "Include the document text that the comment is anchored to, if any, in the response."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the OAuth client.",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the OAuth client.",
+      "example": "My App"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of this OAuth client.",
+      "example": "Integrate Acme Inc's services into Outline."
+    },
+    "developerName": {
+      "type": "string",
+      "description": "The name of the developer who created this OAuth client.",
+      "example": "Acme Inc"
+    },
+    "developerUrl": {
+      "type": "string",
+      "description": "The URL of the developer who created this OAuth client.",
+      "example": "https://example.com"
+    },
+    "avatarUrl": {
+      "type": "string",
+      "description": "A URL pointing to an image representing the OAuth client."
+    },
+    "redirectUris": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of redirect URIs for the OAuth client.",
+      "example": [
+        "https://example.com/callback"
+      ]
+    },
+    "published": {
+      "type": "boolean",
+      "description": "Whether the OAuth client is available to other workspaces.",
+      "example": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

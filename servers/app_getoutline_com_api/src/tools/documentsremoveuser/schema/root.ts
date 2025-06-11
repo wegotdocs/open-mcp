@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.string().describe("Unique identifier for the document. Either the UUID or the urlId is acceptable."),
+  "userId": z.string().uuid()
+}

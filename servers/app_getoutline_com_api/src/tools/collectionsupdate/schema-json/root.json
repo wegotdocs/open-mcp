@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "example": "Human Resources"
+    },
+    "description": {
+      "type": "string",
+      "description": "A brief description of the collection, markdown supported.",
+      "example": "HR documentation is confidential and should be handled with care."
+    },
+    "permission": {
+      "type": "string",
+      "enum": [
+        "read",
+        "read_write"
+      ]
+    },
+    "icon": {
+      "type": "string",
+      "description": "A string that represents an icon in the outline-icons package or an emoji"
+    },
+    "color": {
+      "type": "string",
+      "description": "A hex color code for the collection icon",
+      "example": "#123123"
+    },
+    "sharing": {
+      "type": "boolean",
+      "description": "Whether public sharing of documents is allowed",
+      "example": false
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

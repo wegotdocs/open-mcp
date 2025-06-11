@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "hDYep1TPAM",
+      "description": "Unique identifier for the document. Either the UUID or the urlId is acceptable."
+    },
+    "permanent": {
+      "type": "boolean",
+      "example": false,
+      "description": "If set to true the document will be destroyed with no way to recover rather than moved to the trash."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

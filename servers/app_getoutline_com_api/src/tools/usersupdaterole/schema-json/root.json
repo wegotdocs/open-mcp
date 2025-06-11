@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the user.",
+      "format": "uuid"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "member",
+        "viewer",
+        "guest"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "role"
+  ]
+}

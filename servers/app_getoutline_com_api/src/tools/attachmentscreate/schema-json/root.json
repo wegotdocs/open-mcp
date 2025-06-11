@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "image.png"
+    },
+    "documentId": {
+      "type": "string",
+      "description": "Identifier for the associated document, if any.",
+      "format": "uuid"
+    },
+    "contentType": {
+      "type": "string",
+      "example": "image/png"
+    },
+    "size": {
+      "type": "number",
+      "description": "Size of the file attachment in bytes."
+    }
+  },
+  "required": [
+    "name",
+    "contentType",
+    "size"
+  ]
+}
