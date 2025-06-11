@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "relatedEntityType": {
+      "type": "string",
+      "enum": [
+        "ORGANIZATION",
+        "DOCUMENT",
+        "LOCATION",
+        "NODE",
+        "ATTACHMENT",
+        "TECHNICIAN",
+        "CREDENTIAL",
+        "CHECKLIST",
+        "END_USER",
+        "CONTACT",
+        "KB_DOCUMENT"
+      ]
+    }
+  },
+  "required": [
+    "relatedEntityType"
+  ]
+}

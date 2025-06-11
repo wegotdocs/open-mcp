@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "status": {
+      "description": "Patch Status filter",
+      "type": "string"
+    },
+    "type": {
+      "description": "Patch Type filter",
+      "type": "string"
+    },
+    "severity": {
+      "description": "Patch Severity filter",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

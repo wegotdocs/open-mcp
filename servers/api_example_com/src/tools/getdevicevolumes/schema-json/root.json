@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Device identifier",
+      "type": "integer",
+      "format": "int32"
+    },
+    "include": {
+      "description": "Additional information to include (bl - BitLocker status)",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "Callback (WebHook) URL for activity notifications"
+    },
+    "activities": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `activities` to the tool, first call the tool `expandSchema` with \"/properties/activities\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Activity filter</property-description>",
+      "additionalProperties": true
+    },
+    "expand": {
+      "type": "array",
+      "description": "Which references to expand in payloads",
+      "items": {
+        "type": "string",
+        "description": "Which references to expand in payloads"
+      }
+    },
+    "headers": {
+      "type": "array",
+      "description": "Custom HTTP Headers (i.e. Authorization)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Header name"
+          },
+          "value": {
+            "type": "string",
+            "description": "Header value"
+          }
+        },
+        "description": "Custom HTTP Headers (i.e. Authorization)"
+      }
+    }
+  },
+  "required": []
+}
