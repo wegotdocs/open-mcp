@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "all-contents": {
+      "description": "Specifies whether to include all contents of an object or only get the first page contents. * 'true', would include all contents of the specified objects. * 'false', would only include the first page contents of the specified objects.",
+      "type": "string",
+      "default": false
+    },
+    "format": {
+      "description": "The format of the content uploaded.",
+      "type": "string"
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName"
+  ]
+}

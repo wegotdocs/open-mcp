@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "itemId": {
+      "description": "The object id of the inbox item.",
+      "type": "string"
+    },
+    "action": {
+      "description": "Specifies what action to perform on the work queue task. The following actions are supported. * HOLD, Sets the work item a_held_by to indicate if the task is being worked on. * REASSIGN, Reassigns this task to the specified user, user-name is required, and pulled is optional. This action will unsuspend a suspended task. * SUSPEND, Suspends this task with the specified expected unsuspend date and time, unsuspend-time is optional. * UNSUSPEND, Unsuspends or resumes this task. * UNHOLD, Releases the task.",
+      "type": "string"
+    },
+    "user-name": {
+      "description": "Specifies the login name of the user to whom the task will be reassigned.",
+      "type": "string"
+    },
+    "pulled": {
+      "description": "Set to true to indicate that it's an end user's action, or false if a supervisor or administrator assigns the task. Defaults to false.",
+      "type": "string"
+    },
+    "unsuspend-time": {
+      "description": "Specifies the absolute date and time when the task must be unsuspended automatically. Used when performing a SUSPEND action. Pass in NULL if the timer is not used for suspending the task. The date format should comply with ISO 8601.",
+      "type": "string"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "itemId",
+    "action"
+  ]
+}

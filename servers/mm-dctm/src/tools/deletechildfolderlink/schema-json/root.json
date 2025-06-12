@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "parentFolderId": {
+      "description": "The r_object_id of parent folder for the object.",
+      "type": "string"
+    },
+    "objectId": {
+      "description": "The r_object_id of required sysobject.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "repositoryName",
+    "parentFolderId",
+    "objectId"
+  ]
+}

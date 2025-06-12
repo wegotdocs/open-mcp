@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The r_object_id of queried object.",
+      "type": "string"
+    },
+    "trace": {
+      "description": "Whether make the audit trail traceable when purging it.",
+      "type": "string",
+      "default": false
+    }
+  },
+  "required": [
+    "repositoryName",
+    "id"
+  ]
+}

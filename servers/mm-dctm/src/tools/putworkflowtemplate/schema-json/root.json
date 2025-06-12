@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "templateId": {
+      "description": "The object id of the workflow template.",
+      "type": "string"
+    },
+    "action": {
+      "description": "Specifies what action will be done on the workflow template, currently, only these actions are supported, VALIDATE,INSTALL,INVALIDATE,UNINSTALL.",
+      "type": "string"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "templateId",
+    "action"
+  ]
+}

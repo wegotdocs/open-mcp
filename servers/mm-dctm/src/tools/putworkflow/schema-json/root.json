@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "workflowId": {
+      "description": "The object id of the workflow instance.",
+      "type": "string"
+    },
+    "action": {
+      "description": "Specifies what action will be done on the workflow instance, currently, only these actions are supported, RESTART,RESTART-ALL,HALT,HALT-ALL,RESUME,RESUME-ALL,ABORT,CHANGE-SUPERVISOR.",
+      "type": "string"
+    },
+    "activity": {
+      "description": "Specifies the activity name.",
+      "type": "string"
+    },
+    "supervisor": {
+      "description": "Specifies the new supervisor name when action is CHANGE-SUPERVISOR.",
+      "type": "string"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "workflowId",
+    "action"
+  ]
+}

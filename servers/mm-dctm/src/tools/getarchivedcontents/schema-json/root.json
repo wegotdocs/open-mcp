@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "object-id": {
+      "description": "The r_object_id of required sysobject.",
+      "type": "string"
+    },
+    "include-children": {
+      "description": "Specifies whether to get its child nodes' contents for a virtual document. * 'true', would include its child nodes' contents. * 'false', do not include its child nodes' contents, means only get this root node's contents.",
+      "type": "string",
+      "default": false
+    },
+    "binding-label": {
+      "description": "Specifies the version label to use to resolve late bound nodes for a virtual document.",
+      "type": "string",
+      "default": "CURRENT"
+    },
+    "include-broken": {
+      "description": "Specifies whether to include nodes with broken bindings for a virtual document. * 'true', would include nodes with broken bindings with current version. * 'false', do not include nodes with broken bindings.",
+      "type": "string",
+      "default": false
+    },
+    "depth": {
+      "description": "Specifies to what depth level the virtual document hierarchy will be returned. -1 means return the whole virtual document tree.",
+      "type": "integer",
+      "default": 1
+    },
+    "format": {
+      "description": "The format of the content uploaded.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "repositoryName"
+  ]
+}

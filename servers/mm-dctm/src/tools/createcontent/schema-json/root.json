@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "objectId": {
+      "description": "The r_object_id of required sysobject.",
+      "type": "string"
+    },
+    "format": {
+      "description": "Specifies the format name of the specific content or rendition.",
+      "type": "string"
+    },
+    "page": {
+      "description": "Specifies the page number of the specific content or rendition.",
+      "type": "integer",
+      "default": 0
+    },
+    "modifier": {
+      "description": "Specifies the page modifier of the specific rendition.",
+      "type": "string"
+    },
+    "primary": {
+      "description": "Specifies whether the imported content is primary content or a rendition.",
+      "type": "string"
+    },
+    "content-length": {
+      "description": "The byte count of the content uploaded.",
+      "type": "integer",
+      "default": 0
+    },
+    "content-charset": {
+      "description": "The charset of the content uploaded.",
+      "type": "string"
+    },
+    "overwrite": {
+      "description": "Specifies whether or not to overwrite the existing content with the same content properties. * 'true', would overwrite the existing primary content. * 'false', throw an exception when the primary content or rendition with the same content properties already exists.",
+      "type": "string"
+    },
+    "require-checksum": {
+      "description": "Specifies the query parameter for Checksum",
+      "type": "Boolean"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "objectId"
+  ]
+}

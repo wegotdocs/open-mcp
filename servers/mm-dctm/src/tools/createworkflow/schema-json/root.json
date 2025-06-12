@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "quick-flow": {
+      "description": "Specifies whether to start an ad-hoc workflow or start a workflow from template. * 'true', would creates and starts an ad-hoc workflow to route objects to users and/or groups. * 'false', would creates and starts a workflow from the template.",
+      "type": "string"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName"
+  ]
+}

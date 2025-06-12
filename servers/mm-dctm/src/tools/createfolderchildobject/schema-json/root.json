@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "folderId": {
+      "description": "The r_object_id of queried folder.",
+      "type": "string"
+    },
+    "require-dc-write": {
+      "description": "Whether the document requires distributed content upload",
+      "type": "string"
+    },
+    "format": {
+      "description": "The format of the content uploaded.",
+      "type": "string"
+    },
+    "network-location": {
+      "description": "The network location for distributed content write.",
+      "type": "string"
+    },
+    "async": {
+      "description": "Whether async upload when distributed content writing.",
+      "type": "string",
+      "default": false
+    },
+    "all-primary": {
+      "description": "Whether save all contents as primary on different pages.",
+      "type": "string",
+      "default": true
+    },
+    "content-length": {
+      "description": "The byte count of the content uploaded. A comma separated list can be used to define multiple values for this parameter.",
+      "type": "string"
+    },
+    "modifier": {
+      "description": "uniquely identifies a rendition within the same page number and format for a document. If there already exists a rendition with the supplied page_modifier (at the given format and page) the rendition will be overwritten. If null is passed then page_modifier is set to empty string.",
+      "type": "string"
+    },
+    "content-charset": {
+      "description": "The charset of the content uploaded.",
+      "type": "string"
+    },
+    "content-count": {
+      "description": "The count of the content uploaded.",
+      "type": "integer",
+      "default": 0
+    },
+    "require-ip-network-location": {
+      "description": "Whether a BOCS url for a document content upload need to be selected  based on client IP address",
+      "type": "string"
+    },
+    "require-checksum": {
+      "description": "Specifies the query parameter for Checksum",
+      "type": "Boolean"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json",
+        "multipart/form-data",
+        "multipart/mixed"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "folderId",
+    "require-dc-write",
+    "content-length"
+  ]
+}
