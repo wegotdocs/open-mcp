@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "items-per-page": {
+      "description": "The number of entries per page. When the result feed is paged, the attribute items-per-page will be displayed in the feed.",
+      "type": "integer",
+      "default": 100
+    },
+    "page": {
+      "description": "The number of the page to be served. When the result feed is paged, the attribute page will be displayed in the feed.",
+      "type": "integer",
+      "default": 1
+    },
+    "include-total": {
+      "description": "Indicate to calculate the total count of the feed items as though not returning them all in one page. When the result feed is paged, the attribute include-total will be displayed in the feed.\n* true - the total count of feed items is calculated by server and returned\n* false - neither calculate nor return the total count",
+      "type": "boolean",
+      "default": false
+    },
+    "view": {
+      "description": "Properties to return. The pattern is like:?view=(:view-name)?(,column)*. (:view-name) and (,columns)* must be mutually exclusive names of predefined views start with colon (':'). The following view-name are defined: :all :default\n\nIf no view-name is specified, names of properties or predefined views should be returned, separated by comma (',').",
+      "type": "string",
+      "default": ":default"
+    },
+    "sort": {
+      "description": "Sorting for entries in collection result. A sort consists of multiple sort specifications, separated by comma (','). Each sort specification consists of an attribute to be sorted and its sort order, separated by the spacpe (' ').\n\nSort order can be either DESC orASC, case insensitive. Sort order is optional, if not specified, the default sort order isASC. Optionally it can be specified with non-repeating attributes. Sort order can be forced to be in case insensitive mode, with the hint no-case. Whether the default sort is in case sensitive mode or not is determined by the database.\n\nExample: sort=r_modify_date desc,object_name asc no-case,title. If any attribute with invalid name is specified, error will be thrown.",
+      "type": "string"
+    },
+    "inline": {
+      "description": "Ensures whether to show content (the object instance) in the atom entry for a collection. * 'true', return object instance and embed object instance into entry's content element. * 'false', do not return object instance within entry's content.",
+      "type": "boolean",
+      "default": false
+    },
+    "links": {
+      "description": "Ensures whether link relations to be returned for this object representation. * 'true', return links for the object. * 'false' do not return links for the object.",
+      "type": "boolean",
+      "default": true
+    },
+    "object-type": {
+      "description": "The type of the queried object.",
+      "type": "string"
+    },
+    "collections": {
+      "description": "Specifies a list of collections separated by comma (,). to which the query is scoped. The collections must exist in xPlore.",
+      "type": "string"
+    },
+    "facet": {
+      "description": "Specifies the property to be used as facet.",
+      "type": "string"
+    },
+    "timezone": {
+      "description": "Indicates the time zone used to compute date facets. Valid time zones include (case-insensitive):\n- Abbreviation, such as GMT and UTC\n- Full names, such as America/Los_Angeles\n- Custom time zones, such as GMT-8:00",
+      "type": "string",
+      "default": "GMT"
+    },
+    "q": {
+      "description": "Specifies the search criterion with a full-text expression in Simple Search Language.\n\nParameter q must be encoded because it may contain non-English locale characters.\n\nInternational characters that are used in this query parameter must be sent with URL encoded by the UTF-8 charset. Otherwise, the result may be incorrect.",
+      "type": "string"
+    },
+    "locations": {
+      "description": "Specifies a list of folder paths separated by comma (,) to which the query is scoped.\n\nParameter locations must be encoded because it may contain non-English locale characters.\n\nInternational characters that are used in this query parameter must be sent with URL encoded by the UTF-8 charset. Otherwise, the result may be incorrect.",
+      "type": "string"
+    },
+    "facet-value-constraints": {
+      "description": "Specifies a property constraint expression. For example, when facet is set to r_object_type facet-value-constraints is set to dm_object, only dm_object instances are returned.\n\nYou can use boolean operators + for AND and | for OR in a property constraint expression to define more complex constraints. For example, the expression dm_object|dm_folder returns both dm_object and dm_folder instances.\n\nParameter facet-value-constraints must be encoded because it may contain non-English locale characters.\n\nInternational characters that are used in this query parameter must be sent with URL encoded by the UTF-8 charset. Otherwise, the result may be incorrect.",
+      "type": "string"
+    },
+    "facet-id-constraints": {
+      "description": "Contains the key value pairs for each facet id and its constraint. The id should comply with the facet id in the AQL.",
+      "type": "string"
+    },
+    "query-locale": {
+      "description": "A locale used to evaluate the query and parse word into language dependent token. Only supported with xPlore.",
+      "type": "string",
+      "default": "en"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/atom+xml",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName"
+  ]
+}

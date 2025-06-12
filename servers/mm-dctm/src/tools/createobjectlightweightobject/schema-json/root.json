@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "objectId": {
+      "description": "The r_object_id of required sysobject.",
+      "type": "string"
+    },
+    "format": {
+      "description": "The format of the content uploaded.",
+      "type": "string"
+    },
+    "content-length": {
+      "description": "The byte count of the content uploaded.",
+      "type": "integer",
+      "default": 0
+    },
+    "content-charset": {
+      "description": "The charset of the content uploaded.",
+      "type": "string"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "objectId"
+  ]
+}

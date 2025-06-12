@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "objectId": {
+      "description": "The r_object_id of required sysobject.",
+      "type": "string"
+    },
+    "aspectName": {
+      "description": "The name of the aspect.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "repositoryName",
+    "objectId",
+    "aspectName"
+  ]
+}

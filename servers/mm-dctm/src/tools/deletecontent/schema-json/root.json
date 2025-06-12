@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The r_object_id of queried object.",
+      "type": "string"
+    },
+    "format": {
+      "description": "Specifies the format name of the specific content or rendition.",
+      "type": "string"
+    },
+    "page": {
+      "description": "Specifies the page number of the specific content or rendition.",
+      "type": "integer",
+      "default": 0
+    },
+    "modifier": {
+      "description": "Specifies the page modifier of the specific rendition.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "repositoryName",
+    "id"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "clientCode": {
+      "description": "The client identification.",
+      "type": "string"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "clientCode"
+  ]
+}

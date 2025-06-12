@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "objectId": {
+      "description": "The r_object_id of required sysobject.",
+      "type": "string"
+    },
+    "parentFolderId": {
+      "description": "The r_object_id of parent folder for the object.",
+      "type": "string"
+    },
+    "include-all-versions": {
+      "description": "Whether include all versions",
+      "type": "string",
+      "default": false
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "objectId",
+    "parentFolderId"
+  ]
+}

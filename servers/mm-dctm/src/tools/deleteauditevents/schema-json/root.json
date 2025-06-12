@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "audit-scope": {
+      "description": "The scope of the audit event would effect to register and would use with 'object-id' to get the intersection to operate. * 'repository', means the event would register over whole repository. * 'type', means the event would register over type. * 'object', means the event would register over object.",
+      "type": "string"
+    },
+    "object-id": {
+      "description": "The r_object_id of required sysobject.",
+      "type": "string"
+    },
+    "object-type": {
+      "description": "The type of the queried object.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "repositoryName",
+    "audit-scope"
+  ]
+}

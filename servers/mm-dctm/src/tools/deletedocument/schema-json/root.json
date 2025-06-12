@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The r_object_id of queried object.",
+      "type": "string"
+    },
+    "del-version": {
+      "description": "Delete options for multi-version document object. * 'selected_version', delete selected version only. * 'non_used_versions', delete non used versions. * 'all_versions', delete all versions.",
+      "type": "integer",
+      "enum": [
+        "SELECTED",
+        "UNUSED",
+        "ALL"
+      ]
+    },
+    "del-vd-all": {
+      "description": "Whether remove the all the descendants if the object is virtual.",
+      "type": "string",
+      "default": false
+    }
+  },
+  "required": [
+    "repositoryName",
+    "id"
+  ]
+}

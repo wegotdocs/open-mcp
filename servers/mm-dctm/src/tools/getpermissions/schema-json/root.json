@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "objectId": {
+      "description": "The r_object_id of required sysobject.",
+      "type": "string"
+    },
+    "links": {
+      "description": "Ensures whether link relations to be returned for this object representation. * 'true', return links for the object. * 'false' do not return links for the object.",
+      "type": "boolean",
+      "default": true
+    },
+    "accessor": {
+      "description": "Specifies a user or group name to check his permissions on this object.",
+      "type": "string"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "objectId"
+  ]
+}

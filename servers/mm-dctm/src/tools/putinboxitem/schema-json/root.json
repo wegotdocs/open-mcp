@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "itemId": {
+      "description": "The object id of the inbox item.",
+      "type": "string"
+    },
+    "action": {
+      "description": "Specifies what action will be done on the workflow task inbox item, currently, only these actions are supported, ACQUIRE,FORWARD,REJECT,DELEGATE,REPEAT,SIGNOFF.",
+      "type": "string"
+    },
+    "delegate-user": {
+      "description": "Specifies the user to be delegated for a workflow task, this is mandatory when action is DELEGATE, for other actions, the value will be ignored.",
+      "type": "string"
+    },
+    "repeat-users": {
+      "description": "Specifies the user names and/or group names to repeat the workflow task, and more values are separated by the comma, e.g. userA,userB,groupC. This is mandatory when action is REPEAT, for other actions,this value will be ignored.",
+      "type": "string"
+    },
+    "signoff-password": {
+      "description": "Specifies the signoff password when the action is SIGNOFF, this value will be ignored for other actions.",
+      "type": "string"
+    },
+    "activity": {
+      "description": "Specifies the activity name.",
+      "type": "string"
+    },
+    "assign-performers": {
+      "description": "Specifies URL encoded user names and/or group names to whom the target activity will be assigned. Separated by commas. Mandatory when performing ASSIGN action. Ignored for other actions.",
+      "type": "string"
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "repositoryName",
+    "itemId",
+    "action"
+  ]
+}

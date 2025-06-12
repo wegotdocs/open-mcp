@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "description": "The repository name.",
+      "type": "string"
+    },
+    "itemId": {
+      "description": "The object id of the inbox item.",
+      "type": "string"
+    },
+    "index": {
+      "description": "The index of the package in the workflow task packages.",
+      "type": "string"
+    },
+    "noteId": {
+      "description": "The id of the workflow task package's note.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "repositoryName",
+    "itemId",
+    "index",
+    "noteId"
+  ]
+}

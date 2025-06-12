@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "otagtoken": {
+      "description": "Secure 'otagtoken' token obtained from Appworks Platform SDK. Get otagtoken via POST request to Appworks gateway URL http://<Gateway_URL>:8080/v3/admin/auth",
+      "type": "string"
+    },
+    "async": {
+      "description": "Whether send as async mail.",
+      "type": "boolean",
+      "default": true
+    },
+    "Accept": {
+      "description": "The Accept header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+json",
+        "application/vnd.emc.documentum+xml",
+        "application/hal+json"
+      ]
+    },
+    "Content-Type": {
+      "description": "The Content-Type header.",
+      "type": "string",
+      "enum": [
+        "application/vnd.emc.documentum+xml",
+        "application/vnd.emc.documentum+json",
+        "application/hal+json"
+      ]
+    }
+  },
+  "required": [
+    "otagtoken"
+  ]
+}
