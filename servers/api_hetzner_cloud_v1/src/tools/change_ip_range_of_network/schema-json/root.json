@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Network.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "ip_range": {
+      "description": "IP range of the [Network](#networks).\n\nUses CIDR notation.\n\nMust span all included subnets. Must be one of the private IPv4 ranges of RFC1918.\n\nMinimum network size is /24. We highly recommend that you pick a larger [Network](#networks) with a /16 netmask.\n",
+      "example": "10.0.0.0/16",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "ip_range"
+  ]
+}

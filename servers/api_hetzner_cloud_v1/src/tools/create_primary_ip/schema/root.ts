@@ -1,0 +1,11 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "assignee_id": z.number().int().nullable().describe("ID of resource to assign the [Primary IP](#primary-ips) to.\n\nOmitted if the [Primary IP](#primary-ips) should not get assigned.\n").optional(),
+  "assignee_type": z.literal("server").describe("Type of resource the [Primary IP](#primary-ips) can get assigned to.\n\nCurrently [Primary IPs](#primary-ips) can only be assigned to [Servers](#servers),\ntherefore this field must be set to `server`.\n"),
+  "auto_delete": z.boolean().describe("Auto deletion state.\n\nIf enabled the [Primary IP](#primary-ips) will be deleted once the assigned resource gets deleted.\n").optional(),
+  "datacenter": z.string().describe("[Datacenter](#datacenters) ID or name.\n\nThe  [Primary IP](#primary-ips) will be bound to this [Datacenter](#datacenters). Omit if `assignee_id`/`assignee_type` is provided.\n").optional(),
+  "labels": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `labels` to the tool, first call the tool `expandSchema` with \"/properties/labels\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User-defined labels (`key/value` pairs) for the Resource.\nFor more information, see \"[Labels](#labels)\".\n</property-description>").optional(),
+  "name": z.string().describe("Name of the Resource. Must be unique per Project."),
+  "type": z.enum(["ipv4","ipv6"]).describe("Floating IP type | Type of [Floating IP](#floating-ips) the price is for. | Type of [Primary IP](#primary-ips) the price is for. | [Primary IP](#primary-ips) type.")
+}

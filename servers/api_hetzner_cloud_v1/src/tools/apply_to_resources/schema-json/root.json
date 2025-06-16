@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Firewall.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "apply_to": {
+      "description": "Resources to apply the [Firewall](#firewalls) to.\n\nExtends existing resources.\n",
+      "items": {
+        "properties": {
+          "label_selector": {
+            "description": "Configuration for type LabelSelector, required if type is `label_selector`",
+            "properties": {
+              "selector": {
+                "description": "Label selector | The selector.",
+                "example": "env=prod",
+                "type": "string"
+              }
+            },
+            "required": [
+              "selector"
+            ],
+            "type": "object"
+          },
+          "server": {
+            "description": "ID of the Resource",
+            "properties": {
+              "id": {
+                "description": "ID of the Server. | ID of the [Server](#servers). | ID of the Server",
+                "example": 42,
+                "format": "int64",
+                "maximum": 9007199254740991,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "type": "object"
+          },
+          "type": {
+            "description": "Type of the resource.",
+            "enum": [
+              "label_selector",
+              "server"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "title": "FirewallResource",
+        "type": "object",
+        "description": "Resource a Firewall should be applied to."
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "apply_to"
+  ]
+}

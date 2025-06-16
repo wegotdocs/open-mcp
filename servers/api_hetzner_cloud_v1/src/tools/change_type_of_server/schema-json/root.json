@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Server.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "server_type": {
+      "description": "ID or name of Server type the Server should migrate to",
+      "example": "cpx11",
+      "type": "string"
+    },
+    "upgrade_disk": {
+      "description": "If false, do not upgrade the disk (this allows downgrading the Server type later)",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "server_type",
+    "upgrade_disk"
+  ]
+}

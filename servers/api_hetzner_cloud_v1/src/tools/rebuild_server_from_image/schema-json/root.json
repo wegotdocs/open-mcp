@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Server.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "image": {
+      "description": "ID or name of Image to rebuilt from.",
+      "example": "ubuntu-20.04",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "image"
+  ]
+}

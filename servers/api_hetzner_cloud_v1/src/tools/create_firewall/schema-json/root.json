@@ -1,0 +1,149 @@
+{
+  "type": "object",
+  "properties": {
+    "apply_to": {
+      "description": "Resources to apply the [Firewall](#firewalls) to.\n\nResources added directly are taking precedence over those added via a [Label Selector](#label-selector).\n",
+      "items": {
+        "properties": {
+          "label_selector": {
+            "description": "Configuration for type LabelSelector, required if type is `label_selector`",
+            "properties": {
+              "selector": {
+                "description": "Label selector | The selector.",
+                "example": "env=prod",
+                "type": "string"
+              }
+            },
+            "required": [
+              "selector"
+            ],
+            "type": "object"
+          },
+          "server": {
+            "description": "ID of the Resource",
+            "properties": {
+              "id": {
+                "description": "ID of the Server. | ID of the [Server](#servers). | ID of the Server",
+                "example": 42,
+                "format": "int64",
+                "maximum": 9007199254740991,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "type": "object"
+          },
+          "type": {
+            "description": "Type of the resource.",
+            "enum": [
+              "label_selector",
+              "server"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "title": "FirewallResource",
+        "type": "object",
+        "description": "Resource a Firewall should be applied to."
+      },
+      "type": "array"
+    },
+    "labels": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `labels` to the tool, first call the tool `expandSchema` with \"/properties/labels\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User-defined labels (`key/value` pairs) for the Resource.\nFor more information, see \"[Labels](#labels)\".\n</property-description>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "Name of the [Firewall](#firewalls).\n\nLimited to a maximum of 128 characters.\n\nMust be unique per Project.\n",
+      "example": "new-name",
+      "type": "string"
+    },
+    "rules": {
+      "description": "Array of rules.\n\nRules are limited to 50 entries per [Firewall](#firewalls) and [500 effective rules](https://docs.hetzner.com/cloud/firewalls/overview#limits).\n",
+      "example": [
+        {
+          "direction": "in",
+          "port": "80",
+          "protocol": "tcp",
+          "source_ips": [
+            "28.239.13.1/32",
+            "28.239.14.0/24",
+            "ff21:1eac:9a3b:ee58:5ca:990c:8bc9:c03b/128"
+          ]
+        }
+      ],
+      "items": {
+        "properties": {
+          "description": {
+            "description": "Description of the rule.",
+            "maxLength": 255,
+            "nullable": true,
+            "type": "string"
+          },
+          "destination_ips": {
+            "description": "List of permitted IPv4/IPv6 addresses for outgoing traffic.\n\nThe `direction` must be set to `out`.\n\nIPs must be in [CIDR block notation](https://wikipedia.org/wiki/CIDR). You can specify 100 CIDR\nblocks at most.\n\nThe CIDR blocks may refer to networks (with empty host bits) or single hosts.\nFor example, a network could be defined with `10.0.1.0/24` or `2001:db8:ff00:42::/64`,\nand a single host with `10.0.1.1/32` or `2001:db8:ff00:42::8329/128`.\n\nUse `0.0.0.0/0` to allow any IPv4 addresses and `::/0` to allow any IPv6 addresses.\n",
+            "example": [],
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "direction": {
+            "description": "Traffic direction in which the rule should be applied to.\n\nUse `source_ips` for direction `in` and `destination_ips` for direction `out` to specify IPs.\n",
+            "enum": [
+              "in",
+              "out"
+            ],
+            "example": "in",
+            "type": "string"
+          },
+          "port": {
+            "description": "Port or port range to apply the rule for.\n\nOnly applicable for protocols `tcp` and `udp`.\n\nA port range can be specified by separating lower and upper bounds with a dash. `1024-5000` will include\nall ports starting from 1024 up to port 5000.\n",
+            "example": "80",
+            "type": "string",
+            "nullable": true
+          },
+          "protocol": {
+            "description": "Network protocol to apply the rule for.",
+            "enum": [
+              "esp",
+              "gre",
+              "icmp",
+              "tcp",
+              "udp"
+            ],
+            "type": "string"
+          },
+          "source_ips": {
+            "description": "List of permitted IPv4/IPv6 addresses for incoming traffic.\n\nThe `direction` must be set to `in`.\n\nIPs must be provided in [CIDR block notation](https://wikipedia.org/wiki/CIDR). You can specify 100 CIDR\nblocks at most.\n\nThe CIDR blocks may refer to networks (with empty host bits) or single hosts.\nFor example, a network could be defined with `10.0.1.0/24` or `2001:db8:ff00:42::/64`,\nand a single host with `10.0.1.1/32` or `2001:db8:ff00:42::8329/128`.\n\nUse `0.0.0.0/0` to allow any IPv4 addresses and `::/0` to allow any IPv6 addresses.\n",
+            "example": [
+              "28.239.13.1/32",
+              "28.239.14.0/24",
+              "ff21:1eac:9a3b:ee58:5ca:990c:8bc9:c03b/128"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "direction",
+          "protocol"
+        ],
+        "title": "Rule",
+        "type": "object",
+        "description": "Rule of a firewall."
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

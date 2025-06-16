@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Floating IP.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "dns_ptr": {
+      "description": "Domain Name to point to.\n\nPTR record content used for reverse DNS.\n | DNS pointer for the specific IP address",
+      "example": "server.example.com",
+      "type": "string"
+    },
+    "ip": {
+      "description": "Single IPv4 or IPv6 address to create pointer for.\n | Single IPv6 address of this Server for which the reverse DNS entry has been set up",
+      "example": "2001:db8::1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "dns_ptr",
+    "ip"
+  ]
+}

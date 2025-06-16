@@ -1,0 +1,14 @@
+{
+  "additionalProperties": {
+    "type": "string",
+    "pattern": "^(()|[a-z0-9A-Z]|([a-z0-9A-Z][a-z0-9A-Z\\._-]{0,61}[a-z0-9A-Z]))$"
+  },
+  "description": "User-defined labels (`key/value` pairs) for the Resource.\nFor more information, see \"[Labels](#labels)\".\n",
+  "example": {
+    "environment": "prod",
+    "example.com/my": "label",
+    "just-a-key": ""
+  },
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Floating IP.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "server": {
+      "description": "[Server](#servers) the [Floating IP](#floating-ips) is assigned to.\n\n`null` if not assigned.\n",
+      "example": 42,
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "server"
+  ]
+}

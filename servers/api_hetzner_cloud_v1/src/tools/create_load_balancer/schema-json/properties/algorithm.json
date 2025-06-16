@@ -1,0 +1,22 @@
+{
+  "default": {
+    "type": "round_robin"
+  },
+  "description": "Algorithm of the Load Balancer",
+  "properties": {
+    "type": {
+      "default": "round_robin",
+      "description": "Type of the algorithm.",
+      "enum": [
+        "least_connections",
+        "round_robin"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "title": "LoadBalancerAlgorithm",
+  "type": "object"
+}

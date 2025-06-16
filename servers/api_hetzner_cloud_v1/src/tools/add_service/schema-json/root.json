@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Load Balancer.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "destination_port": {
+      "description": "Port the Load Balancer will balance to",
+      "example": 80,
+      "type": "integer"
+    },
+    "health_check": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `health_check` to the tool, first call the tool `expandSchema` with \"/properties/health_check\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Service health check</property-description>",
+      "additionalProperties": true
+    },
+    "http": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `http` to the tool, first call the tool `expandSchema` with \"/properties/http\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration option for protocols http and https</property-description>",
+      "additionalProperties": true
+    },
+    "listen_port": {
+      "description": "Port the Load Balancer listens on",
+      "example": 443,
+      "type": "integer"
+    },
+    "protocol": {
+      "description": "Protocol of the Load Balancer",
+      "enum": [
+        "http",
+        "https",
+        "tcp"
+      ],
+      "example": "https",
+      "type": "string"
+    },
+    "proxyprotocol": {
+      "description": "Is Proxyprotocol enabled or not",
+      "example": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "destination_port",
+    "health_check",
+    "listen_port",
+    "protocol",
+    "proxyprotocol"
+  ]
+}

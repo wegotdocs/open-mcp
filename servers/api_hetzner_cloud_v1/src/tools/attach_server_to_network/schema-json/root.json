@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Server.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "alias_ips": {
+      "description": "Additional IPs to be assigned to this Server",
+      "example": [
+        "10.0.1.2"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ip": {
+      "description": "IP to request to be assigned to this Server; if you do not provide this then you will be auto assigned an IP address",
+      "example": "10.0.1.1",
+      "type": "string"
+    },
+    "network": {
+      "description": "ID of an existing network to attach the Server to",
+      "example": 4711,
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "network"
+  ]
+}

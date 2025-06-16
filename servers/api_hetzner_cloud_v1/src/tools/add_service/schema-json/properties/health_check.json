@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "description": "Service health check",
+  "properties": {
+    "http": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `http` to the tool, first call the tool `expandSchema` with \"/properties/health_check/properties/http\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Additional configuration for protocol http</property-description>",
+      "additionalProperties": true
+    },
+    "interval": {
+      "description": "Time interval in seconds health checks are performed",
+      "example": 15,
+      "type": "integer"
+    },
+    "port": {
+      "description": "Port the health check will be performed on",
+      "example": 4711,
+      "type": "integer"
+    },
+    "protocol": {
+      "description": "Type of the health check",
+      "enum": [
+        "http",
+        "tcp"
+      ],
+      "example": "http",
+      "type": "string"
+    },
+    "retries": {
+      "description": "Unsuccessful retries needed until a target is considered unhealthy; an unhealthy target needs the same number of successful retries to become healthy again",
+      "example": 3,
+      "type": "integer"
+    },
+    "timeout": {
+      "description": "Time in seconds after an attempt is considered a timeout",
+      "example": 10,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "protocol",
+    "port",
+    "interval",
+    "timeout",
+    "retries"
+  ],
+  "title": "LoadBalancerServiceHealthCheck",
+  "type": "object"
+}

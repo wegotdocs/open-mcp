@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "labels": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `labels` to the tool, first call the tool `expandSchema` with \"/properties/labels\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User-defined labels (`key/value` pairs) for the Resource.\nFor more information, see \"[Labels](#labels)\".\n</property-description>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "Name of the SSH key",
+      "example": "My ssh key",
+      "type": "string"
+    },
+    "public_key": {
+      "description": "Public key",
+      "example": "ssh-rsa AAAjjk76kgf...Xt",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "public_key"
+  ]
+}

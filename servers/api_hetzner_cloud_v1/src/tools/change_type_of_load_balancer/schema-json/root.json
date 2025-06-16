@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Load Balancer.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "load_balancer_type": {
+      "description": "ID or name of Load Balancer type the Load Balancer should migrate to",
+      "example": "lb21",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "load_balancer_type"
+  ]
+}

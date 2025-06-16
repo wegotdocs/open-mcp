@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "properties": {
+    "expose_routes_to_vswitch": {
+      "description": "Toggle to expose routes to the [Networks](#networks) vSwitch.\n\nIndicates if the routes from this [Network](#networks) should be exposed to the vSwitch in this [Network](#networks). Only takes effect if a [vSwitch is setup](https://docs.hetzner.com/cloud/networks/connect-dedi-vswitch) in this [Network](#networks).\n",
+      "example": false,
+      "type": "boolean"
+    },
+    "ip_range": {
+      "description": "IP range of the [Network](#networks).\n\nUses CIDR notation.\n\nMust span all included subnets. Must be one of the private IPv4 ranges of RFC1918.\n\nMinimum network size is /24. We highly recommend that you pick a larger [Network](#networks) with a /16 netmask.\n",
+      "example": "10.0.0.0/16",
+      "type": "string"
+    },
+    "labels": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `labels` to the tool, first call the tool `expandSchema` with \"/properties/labels\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User-defined labels (`key/value` pairs) for the Resource.\nFor more information, see \"[Labels](#labels)\".\n</property-description>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "Name of the [Network](#networks).",
+      "example": "mynet",
+      "type": "string"
+    },
+    "routes": {
+      "description": "Array of routes set in this [Network](#networks).",
+      "items": {
+        "properties": {
+          "destination": {
+            "description": "Destination network or host of the route.\n\nPackages addressed for IPs matching the destination IP prefix will be send to the specified gateway.\n\nMust be one of\n* private IPv4 ranges of RFC1918\n* or `0.0.0.0/0`.\n\nMust not overlap with\n* an existing ip_range in any subnets\n* or with any destinations in other routes\n* or with `172.31.1.1`.\n\n`172.31.1.1` is being used as a gateway for the public network interface of [Servers](#servers).\n",
+            "example": "10.100.1.0/24",
+            "type": "string"
+          },
+          "gateway": {
+            "description": "Gateway of the route.\n\nPackages addressed for the specified destination will be send to this IP address.\n\nCannot be\n* the first IP of the networks ip_range,\n* an IP behind a vSwitch or\n* `172.31.1.1`.\n\n`172.31.1.1` is being used as a gateway for the public network interface of [Servers](#servers).\n",
+            "example": "10.0.1.1",
+            "type": "string"
+          }
+        },
+        "required": [
+          "destination",
+          "gateway"
+        ],
+        "type": "object",
+        "description": "Request for POST https://api.hetzner.cloud/v1/networks/{id}/actions/add_route | Request for POST https://api.hetzner.cloud/v1/networks/{id}/actions/delete_route"
+      },
+      "type": "array"
+    },
+    "subnets": {
+      "description": "Array of subnets to allocate.",
+      "items": {
+        "properties": {
+          "ip_range": {
+            "description": "IP range of the subnet.\n\nUses CIDR notation.\n\nMust be a subnet of the parent [Networks](#networks) `ip_range`.\n\nMust not overlap with any other subnets or with any destinations in routes.\n\nMinimum network size is /30. We highly recommend that you pick a larger subnet with a /24 netmask.\n",
+            "example": "10.0.1.0/24",
+            "type": "string"
+          },
+          "network_zone": {
+            "description": "Name of the [Network Zone](#network-zones).\n\nThe [Location](#locations) contains the `network_zone` property it belongs to.\n | Name of the [Network Zone](#network-zones).\n\nThe [Location](#locations) contains the `network_zone` it belongs to.\n",
+            "example": "eu-central",
+            "type": "string"
+          },
+          "type": {
+            "description": "Type of subnet.\n\n- `cloud` - Used to connect cloud [Servers](#servers) and [Load Balancers](#load-balancers).\n- `server` - Same as the `cloud` type. **Deprecated**, use the `cloud` type instead.\n- `vswitch` - Used to [connect cloud Servers and Load Balancers with dedicated Servers](https://docs.hetzner.com/cloud/networks/connect-dedi-vswitch).\n",
+            "enum": [
+              "cloud",
+              "server",
+              "vswitch"
+            ],
+            "type": "string"
+          },
+          "vswitch_id": {
+            "description": "ID of the robot vSwitch.\n\nMust only be supplied for subnets of type `vswitch`.\n | ID of the robot vSwitch.\n\nMust be supplied if the subnet is of type `vswitch`.\n",
+            "example": 1000,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "type",
+          "network_zone"
+        ],
+        "type": "object",
+        "description": "Subnets divide the ip_range from the parent Network object into multiple Subnetworks that you can use for different specific purposes."
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ip_range",
+    "name"
+  ]
+}

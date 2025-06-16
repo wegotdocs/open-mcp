@@ -1,0 +1,42 @@
+{
+  "description": "Configuration option for protocols http and https",
+  "properties": {
+    "certificates": {
+      "description": "IDs of the Certificates to use for TLS/SSL termination by the Load Balancer; empty for TLS/SSL passthrough or if `protocol` is `http`.",
+      "example": [
+        897
+      ],
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "cookie_lifetime": {
+      "default": 300,
+      "description": "Lifetime of the cookie used for sticky sessions (in seconds).",
+      "example": 300,
+      "type": "integer"
+    },
+    "cookie_name": {
+      "default": "HCLBSTICKY",
+      "description": "Name of the cookie used for sticky sessions.",
+      "example": "HCLBSTICKY",
+      "type": "string"
+    },
+    "redirect_http": {
+      "default": false,
+      "description": "Redirect HTTP requests to HTTPS. Only available if `protocol` is `https`.",
+      "example": true,
+      "type": "boolean"
+    },
+    "sticky_sessions": {
+      "default": false,
+      "description": "Use sticky sessions. Only available if `protocol` is `http` or `https`.",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "title": "LoadBalancerServiceHTTP",
+  "type": "object"
+}

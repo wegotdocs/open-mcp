@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "Description of the Resource.",
+      "example": "This describes my resource",
+      "nullable": true,
+      "type": "string"
+    },
+    "home_location": {
+      "description": "Home [Location](#locations) for the [Floating IP](#floating-ips).\n\nEither the ID or the name of the [Location](#locations).\n\nOnly optional if no [Server](#servers) is provided. Routing is optimized for this [Locations](#locations).\n",
+      "example": "fsn1",
+      "type": "string"
+    },
+    "labels": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `labels` to the tool, first call the tool `expandSchema` with \"/properties/labels\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User-defined labels (`key/value` pairs) for the Resource.\nFor more information, see \"[Labels](#labels)\".\n</property-description>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "Name of the Resource. Must be unique per Project.",
+      "example": "my-resource",
+      "type": "string"
+    },
+    "server": {
+      "description": "[Server](#servers) the [Floating IP](#floating-ips) is assigned to.\n\n`null` if not assigned.\n",
+      "example": 42,
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "type": {
+      "description": "Floating IP type | Type of [Floating IP](#floating-ips) the price is for. | Type of [Primary IP](#primary-ips) the price is for. | [Primary IP](#primary-ips) type.",
+      "enum": [
+        "ipv4",
+        "ipv6"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}
