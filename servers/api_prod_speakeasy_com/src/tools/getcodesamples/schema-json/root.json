@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "registry_url": {
+      "description": "The registry URL from which to retrieve the snippets.",
+      "type": "string"
+    },
+    "operation_ids": {
+      "description": "The operation IDs to retrieve snippets for.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "method_paths": {
+      "description": "The method paths to retrieve snippets for.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "method",
+          "path"
+        ],
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [
+              "get",
+              "post",
+              "put",
+              "patch",
+              "delete",
+              "head",
+              "options",
+              "trace"
+            ]
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "languages": {
+      "description": "The languages to retrieve snippets for.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "registry_url"
+  ]
+}

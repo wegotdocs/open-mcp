@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace_name": {
+      "type": "string"
+    },
+    "revision_digest": {
+      "description": "revision digest to add tags too sha256:...",
+      "type": "string"
+    },
+    "tags": {
+      "description": "string tags to add to the revision",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "namespace_name",
+    "revision_digest",
+    "tags"
+  ]
+}

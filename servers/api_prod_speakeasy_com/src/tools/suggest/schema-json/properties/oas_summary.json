@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "info": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `info` to the tool, first call the tool `expandSchema` with \"/properties/oas_summary/properties/info\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "operation_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "method_name_override": {
+            "type": "string"
+          },
+          "group_override": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "method",
+          "path",
+          "operation_id",
+          "description",
+          "tags"
+        ]
+      }
+    }
+  },
+  "required": [
+    "info",
+    "operations"
+  ]
+}

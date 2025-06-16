@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "workspace_id": {
+      "description": "Unique identifier of the workspace.",
+      "type": "string"
+    },
+    "target_id": {
+      "description": "Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)",
+      "type": "string"
+    },
+    "after_created_at": {
+      "description": "Filter to only return events created after this timestamp",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "workspace_id",
+    "target_id"
+  ]
+}

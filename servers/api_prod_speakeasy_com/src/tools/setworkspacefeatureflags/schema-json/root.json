@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "feature_flags": {
+      "type": "array",
+      "items": {
+        "description": "enum value workspace feature flag",
+        "type": "string",
+        "x-speakeasy-unknown-values": "allow",
+        "enum": [
+          "schema_registry",
+          "changes_report",
+          "skip_schema_registry",
+          "webhooks"
+        ]
+      }
+    }
+  },
+  "required": [
+    "feature_flags"
+  ]
+}

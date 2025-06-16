@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "account_type": {
+      "type": "string",
+      "x-speakeasy-unknown-values": "allow",
+      "enum": [
+        "free",
+        "scale-up",
+        "business",
+        "enterprise"
+      ]
+    },
+    "telemetry_disabled": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "free_trial_expiry": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "sso_connection_id": {
+      "type": "string",
+      "nullable": true
+    },
+    "sso_activated": {
+      "type": "boolean"
+    },
+    "internal": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "slug",
+    "account_type",
+    "telemetry_disabled",
+    "created_at",
+    "updated_at",
+    "sso_activated"
+  ]
+}

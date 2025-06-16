@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "type": "string",
+      "description": "The GitHub organization name"
+    },
+    "repo": {
+      "type": "string",
+      "description": "The GitHub repository name"
+    },
+    "subdirectory": {
+      "type": "string",
+      "description": "The subdirectory (location of mint.json)"
+    },
+    "input": {
+      "type": "string",
+      "description": "The input OpenAPI document"
+    },
+    "overlays": {
+      "type": "array",
+      "description": "The overlays to apply",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "org",
+    "repo",
+    "input",
+    "overlays"
+  ]
+}
