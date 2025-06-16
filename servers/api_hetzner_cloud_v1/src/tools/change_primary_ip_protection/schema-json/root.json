@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Primary IP.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "delete": {
+      "description": "Prevent the Resource from being deleted.",
+      "example": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "delete"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Server.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "iso": {
+      "description": "ID or name of ISO to attach to the Server as listed in GET `/isos`",
+      "example": "FreeBSD-11.0-RELEASE-amd64-dvd1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "iso"
+  ]
+}

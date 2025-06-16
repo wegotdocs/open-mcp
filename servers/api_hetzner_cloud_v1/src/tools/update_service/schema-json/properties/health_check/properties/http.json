@@ -1,0 +1,43 @@
+{
+  "additionalProperties": false,
+  "description": "Additional configuration for protocol http",
+  "properties": {
+    "domain": {
+      "description": "Host header to send in the HTTP request. May not contain spaces, percent or backslash symbols. Can be null, in that case no host header is sent.",
+      "example": "example.com",
+      "nullable": true,
+      "type": "string"
+    },
+    "path": {
+      "description": "HTTP path to use for health checks. May not contain literal spaces, use percent-encoding instead.",
+      "example": "/",
+      "type": "string"
+    },
+    "response": {
+      "description": "String that must be contained in HTTP response in order to pass the health check",
+      "example": "{\"status\": \"ok\"}",
+      "type": "string"
+    },
+    "status_codes": {
+      "default": [
+        "2??",
+        "3??"
+      ],
+      "description": "List of returned HTTP status codes in order to pass the health check. Supports the wildcards `?` for exactly one character and `*` for multiple ones.",
+      "example": [
+        "2??",
+        "3??"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "tls": {
+      "description": "Use HTTPS for health check",
+      "example": false,
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

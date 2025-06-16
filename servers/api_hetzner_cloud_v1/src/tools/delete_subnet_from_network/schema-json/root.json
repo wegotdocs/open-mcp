@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Network.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "ip_range": {
+      "description": "IP range in CIDR block notation of the subnet to delete.",
+      "example": "10.0.1.0/24",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "ip_range"
+  ]
+}

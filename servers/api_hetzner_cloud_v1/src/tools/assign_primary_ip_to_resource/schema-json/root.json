@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Primary IP.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "assignee_id": {
+      "description": "ID of a resource of type `assignee_type`",
+      "example": 4711,
+      "format": "int64",
+      "type": "integer"
+    },
+    "assignee_type": {
+      "description": "Type of resource assigning the Primary IP to",
+      "enum": [
+        "server"
+      ],
+      "example": "server",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "assignee_id",
+    "assignee_type"
+  ]
+}

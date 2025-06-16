@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Load Balancer.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "delete": {
+      "description": "If true, prevents the Load Balancer from being deleted",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

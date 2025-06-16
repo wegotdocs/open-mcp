@@ -1,0 +1,122 @@
+{
+  "type": "object",
+  "properties": {
+    "automount": {
+      "description": "Auto-mount Volumes after attach",
+      "example": false,
+      "type": "boolean"
+    },
+    "datacenter": {
+      "description": "ID or name of Datacenter to create Server in (must not be used together with location)",
+      "example": "nbg1-dc3",
+      "type": "string"
+    },
+    "firewalls": {
+      "description": "Firewalls which should be applied on the Server's public network interface at creation time",
+      "example": [
+        {
+          "firewall": 38
+        }
+      ],
+      "items": {
+        "properties": {
+          "firewall": {
+            "description": "ID of the Firewall",
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "firewall"
+        ],
+        "type": "object",
+        "title": "CreateServerRequestFirewalls"
+      },
+      "type": "array"
+    },
+    "image": {
+      "description": "ID or name of the Image the Server is created from",
+      "example": "ubuntu-20.04",
+      "type": "string"
+    },
+    "labels": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `labels` to the tool, first call the tool `expandSchema` with \"/properties/labels\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User-defined labels (`key/value` pairs) for the Resource.\nFor more information, see \"[Labels](#labels)\".\n</property-description>",
+      "additionalProperties": true
+    },
+    "location": {
+      "description": "ID or name of Location to create Server in (must not be used together with datacenter)",
+      "example": "nbg1",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the Server to create (must be unique per Project and a valid hostname as per RFC 1123)",
+      "example": "my-server",
+      "type": "string"
+    },
+    "networks": {
+      "description": "Network IDs which should be attached to the Server private network interface at the creation time",
+      "example": [
+        456
+      ],
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "placement_group": {
+      "description": "ID of the Placement Group the server should be in",
+      "example": 1,
+      "format": "int64",
+      "type": "integer"
+    },
+    "public_net": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `public_net` to the tool, first call the tool `expandSchema` with \"/properties/public_net\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Public Network options</property-description>",
+      "additionalProperties": true
+    },
+    "server_type": {
+      "description": "ID or name of the Server type this Server should be created with",
+      "example": "cpx11",
+      "type": "string"
+    },
+    "ssh_keys": {
+      "description": "SSH key IDs (`integer`) or names (`string`) which should be injected into the Server at creation time",
+      "example": [
+        "my-ssh-key"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "start_after_create": {
+      "default": true,
+      "description": "This automatically triggers a [Power on a Server-Server Action](#server-actions-power-on-a-server) after the creation is finished and is returned in the `next_actions` response object.",
+      "example": true,
+      "type": "boolean"
+    },
+    "user_data": {
+      "description": "Cloud-Init user data to use during Server creation. This field is limited to 32KiB.",
+      "example": "#cloud-config\nruncmd:\n- [touch, /root/cloud-init-worked]\n",
+      "type": "string"
+    },
+    "volumes": {
+      "description": "Volume IDs which should be attached to the Server at the creation time. Volumes must be in the same Location.",
+      "example": [
+        123
+      ],
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "image",
+    "name",
+    "server_type"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Volume.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "size": {
+      "description": "New Volume size in GB (must be greater than current size)",
+      "example": 50,
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "size"
+  ]
+}

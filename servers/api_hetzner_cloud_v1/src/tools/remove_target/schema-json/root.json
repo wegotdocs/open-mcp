@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Load Balancer.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "ip": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `ip` to the tool, first call the tool `expandSchema` with \"/properties/ip\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>IP target where the traffic should be routed to. It is only possible to use the (Public or vSwitch) IPs of Hetzner Online Root Servers belonging to the project owner. IPs belonging to other users are blocked. Additionally IPs belonging to services provided by Hetzner Cloud (Servers, Load Balancers, ...) are blocked as well. Only present for target type `ip`. | Configuration for an IP target. It is only possible to use the (Public or vSwitch) IPs of Hetzner Online Root Servers belonging to the project owner. IPs belonging to other users are blocked. Additionally IPs belonging to services provided by Hetzner Cloud (Servers, Load Balancers, ...) are blocked as well. Only valid and required if type is `ip`.</property-description>",
+      "additionalProperties": true
+    },
+    "label_selector": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `label_selector` to the tool, first call the tool `expandSchema` with \"/properties/label_selector\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Configuration for type LabelSelector, required if type is `label_selector`</property-description>",
+      "additionalProperties": true
+    },
+    "server": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `server` to the tool, first call the tool `expandSchema` with \"/properties/server\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>ID of the Resource</property-description>",
+      "additionalProperties": true
+    },
+    "type": {
+      "description": "Type of the resource",
+      "enum": [
+        "ip",
+        "label_selector",
+        "server"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}

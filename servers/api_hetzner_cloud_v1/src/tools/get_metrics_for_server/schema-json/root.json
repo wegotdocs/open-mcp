@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Server.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "type": {
+      "description": "Type of metrics to get",
+      "enum": [
+        "cpu",
+        "disk",
+        "network"
+      ],
+      "type": "string"
+    },
+    "start": {
+      "description": "Start of period to get Metrics for (in ISO-8601 format)",
+      "type": "string"
+    },
+    "end": {
+      "description": "End of period to get Metrics for (in ISO-8601 format)",
+      "type": "string"
+    },
+    "step": {
+      "description": "Resolution of results in seconds",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "start",
+    "end"
+  ]
+}

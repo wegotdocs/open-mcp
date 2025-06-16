@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "sort": {
+      "description": "Sort resources by field and direction. Can be used multiple times. For more\ninformation, see \"[Sorting](#sorting)\".\n",
+      "enum": [
+        "id",
+        "id:asc",
+        "id:desc",
+        "name",
+        "name:asc",
+        "name:desc",
+        "created",
+        "created:asc",
+        "created:desc"
+      ],
+      "type": "string"
+    },
+    "name": {
+      "description": "Filter resources by their name. The response will only contain the resources\nmatching the specified name.\n",
+      "type": "string"
+    },
+    "label_selector": {
+      "description": "Filter resources by labels. The response will only contain resources matching the\nlabel selector. For more information, see \"[Label Selector](#label-selector)\".\n",
+      "type": "string"
+    },
+    "page": {
+      "description": "Page number to return. For more information, see \"[Pagination](#pagination)\".",
+      "default": 1,
+      "example": 2,
+      "format": "int64",
+      "type": "integer"
+    },
+    "per_page": {
+      "description": "Maximum number of entries returned per page. For more information, see \"[Pagination](#pagination)\".",
+      "default": 25,
+      "example": 25,
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

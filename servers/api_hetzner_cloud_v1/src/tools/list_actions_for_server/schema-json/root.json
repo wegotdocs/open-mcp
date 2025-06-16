@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Server. Limited to 52 bits to ensure compatability with JSON double precision floats.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer",
+      "title": "Server ID"
+    },
+    "sort": {
+      "description": "Sort actions by field and direction. Can be used multiple times. For more\ninformation, see \"[Sorting](#sorting)\".\n",
+      "enum": [
+        "id",
+        "id:asc",
+        "id:desc",
+        "command",
+        "command:asc",
+        "command:desc",
+        "status",
+        "status:asc",
+        "status:desc",
+        "started",
+        "started:asc",
+        "started:desc",
+        "finished",
+        "finished:asc",
+        "finished:desc"
+      ],
+      "type": "string"
+    },
+    "status": {
+      "description": "Status of the Action.",
+      "enum": [
+        "running",
+        "success",
+        "error"
+      ],
+      "type": "string"
+    },
+    "page": {
+      "description": "Page number to return. For more information, see \"[Pagination](#pagination)\".",
+      "default": 1,
+      "example": 2,
+      "format": "int64",
+      "type": "integer"
+    },
+    "per_page": {
+      "description": "Maximum number of entries returned per page. For more information, see \"[Pagination](#pagination)\".",
+      "default": 25,
+      "example": 25,
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

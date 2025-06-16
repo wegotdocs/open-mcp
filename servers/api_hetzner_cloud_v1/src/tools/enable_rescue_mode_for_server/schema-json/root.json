@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Server.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "ssh_keys": {
+      "description": "Array of SSH key IDs which should be injected into the rescue system.",
+      "example": [
+        2323
+      ],
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "type": {
+      "default": "linux64",
+      "description": "Type of rescue system to boot.",
+      "enum": [
+        "linux64"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

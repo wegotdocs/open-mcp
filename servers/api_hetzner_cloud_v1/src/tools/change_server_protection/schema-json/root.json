@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Server.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "delete": {
+      "description": "If true, prevents the Server from being deleted (currently delete and rebuild attribute needs to have the same value)",
+      "example": true,
+      "type": "boolean"
+    },
+    "rebuild": {
+      "description": "If true, prevents the Server from being rebuilt (currently delete and rebuild attribute needs to have the same value)",
+      "example": true,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

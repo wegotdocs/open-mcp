@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Load Balancer.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "type": {
+      "default": "round_robin",
+      "description": "Type of the algorithm.",
+      "enum": [
+        "least_connections",
+        "round_robin"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}

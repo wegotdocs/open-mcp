@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Load Balancer.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "dns_ptr": {
+      "description": "Hostname to set as a reverse DNS PTR entry",
+      "example": "lb1.example.com",
+      "nullable": true,
+      "type": "string"
+    },
+    "ip": {
+      "description": "Public IP address for which the reverse DNS entry should be set",
+      "example": "1.2.3.4",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "dns_ptr",
+    "ip"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "certificate": {
+      "description": "Certificate and chain in PEM format, in order so that each record directly certifies the one preceding. Required for type `uploaded` Certificates.",
+      "example": "-----BEGIN CERTIFICATE-----\n...",
+      "type": "string"
+    },
+    "domain_names": {
+      "description": "Domains and subdomains that should be contained in the Certificate issued by *Let's Encrypt*. Required for type `managed` Certificates.",
+      "example": null,
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "labels": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `labels` to the tool, first call the tool `expandSchema` with \"/properties/labels\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User-defined labels (`key/value` pairs) for the Resource.\nFor more information, see \"[Labels](#labels)\".\n</property-description>",
+      "additionalProperties": true
+    },
+    "name": {
+      "description": "Name of the Certificate",
+      "example": "my website cert",
+      "type": "string"
+    },
+    "private_key": {
+      "description": "Certificate key in PEM format. Required for type `uploaded` Certificates.",
+      "example": "-----BEGIN PRIVATE KEY-----\n...",
+      "type": "string"
+    },
+    "type": {
+      "default": "uploaded",
+      "description": "Choose between uploading a Certificate in PEM format or requesting a managed *Let's Encrypt* Certificate.",
+      "enum": [
+        "managed",
+        "uploaded"
+      ],
+      "example": "uploaded",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

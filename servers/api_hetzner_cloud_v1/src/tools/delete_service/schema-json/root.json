@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the Load Balancer.",
+      "example": 42,
+      "format": "int64",
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "listen_port": {
+      "description": "The listen port of the service you want to delete",
+      "example": 443,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "listen_port"
+  ]
+}
