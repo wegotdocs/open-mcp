@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "spec": {
+      "type": "string",
+      "description": "The OpenAPI specification to store."
+    },
+    "packageName": {
+      "type": "string",
+      "description": "The package name to use in code snippets / quickstart."
+    },
+    "sdkClassname": {
+      "type": "string",
+      "description": "The classname of the SDK to use in code snippets / quickstart."
+    },
+    "format": {
+      "type": "string",
+      "description": "The format of the OpenAPI specification.",
+      "enum": [
+        "json",
+        "yaml"
+      ]
+    }
+  },
+  "required": [
+    "spec",
+    "packageName",
+    "sdkClassname",
+    "format"
+  ]
+}

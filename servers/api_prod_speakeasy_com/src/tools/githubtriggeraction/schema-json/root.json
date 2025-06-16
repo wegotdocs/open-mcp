@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "type": "string",
+      "description": "The GitHub organization name"
+    },
+    "repo_name": {
+      "type": "string",
+      "description": "The GitHub repository name"
+    },
+    "target_name": {
+      "type": "string",
+      "description": "The target name for the action"
+    },
+    "gen_lock_id": {
+      "type": "string",
+      "description": "The generation lock ID"
+    },
+    "set_version": {
+      "type": "string",
+      "description": "A version to override the SDK too in workflow dispatch"
+    },
+    "force": {
+      "type": "boolean",
+      "description": "Force an SDK generation"
+    }
+  },
+  "required": [
+    "org",
+    "repo_name",
+    "gen_lock_id"
+  ]
+}

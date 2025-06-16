@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "workspace_id": {
+      "type": "string"
+    },
+    "alg": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "last_used": {
+      "nullable": true,
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "nullable": true
+    },
+    "created_by_name": {
+      "type": "string",
+      "nullable": true
+    },
+    "created_by_photo_url": {
+      "type": "string",
+      "nullable": true
+    },
+    "email": {
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "workspace_id",
+    "alg",
+    "key",
+    "created_at"
+  ]
+}

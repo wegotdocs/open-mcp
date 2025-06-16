@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "add_ons": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-speakeasy-unknown-values": "allow",
+        "enum": [
+          "webhooks",
+          "sdk_testing",
+          "custom_code_regions",
+          "snippet_ai"
+        ]
+      }
+    }
+  },
+  "required": [
+    "add_ons"
+  ]
+}

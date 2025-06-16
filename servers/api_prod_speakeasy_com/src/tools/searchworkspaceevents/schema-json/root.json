@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "source_revision_digest": {
+      "description": "Unique identifier of the source revision digest.",
+      "type": "string"
+    },
+    "lint_report_digest": {
+      "description": "Unique identifier of the lint report digest.",
+      "type": "string"
+    },
+    "openapi_diff_report_digest": {
+      "description": "Unique identifier of the openapi diff report digest.",
+      "type": "string"
+    },
+    "interaction_type": {
+      "description": "Type of interaction.",
+      "type": "string",
+      "enum": [
+        "CI_EXEC",
+        "CLI_EXEC",
+        "LINT",
+        "OPENAPI_DIFF",
+        "TARGET_GENERATE",
+        "TOMBSTONE",
+        "AUTHENTICATE",
+        "QUICKSTART",
+        "RUN",
+        "CONFIGURE",
+        "PUBLISH",
+        "TEST"
+      ]
+    },
+    "generate_gen_lock_id": {
+      "description": "A specific gen lock ID for the events.",
+      "type": "string"
+    },
+    "execution_id": {
+      "description": "Shared execution ID for cli events across a single action.",
+      "type": "string"
+    },
+    "success": {
+      "description": "Whether the event was successful or not.",
+      "type": "boolean"
+    },
+    "limit": {
+      "description": "Number of results to return.",
+      "type": "integer"
+    }
+  },
+  "required": []
+}

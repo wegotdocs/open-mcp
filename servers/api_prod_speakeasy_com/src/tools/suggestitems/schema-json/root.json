@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "prompt": {
+      "description": "The prompt to use for the suggestion. Think of this as the \"preamble\".",
+      "type": "string"
+    },
+    "items": {
+      "description": "The list of \"things\" to get suggestions for. One suggestion will be returned for each item in the list.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "prompt",
+    "items"
+  ]
+}

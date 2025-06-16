@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "namespace_name": {
+      "type": "string"
+    },
+    "revision_reference": {
+      "description": "Tag or digest",
+      "type": "string"
+    },
+    "oas_summary": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `oas_summary` to the tool, first call the tool `expandSchema` with \"/properties/oas_summary\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "suggestion_type": {
+      "type": "string",
+      "enum": [
+        "method-names",
+        "diagnostics-only"
+      ]
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Message describing the issue"
+          },
+          "path": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Schema path to the issue"
+          },
+          "type": {
+            "type": "string",
+            "description": "Issue type"
+          },
+          "helpMessage": {
+            "type": "string",
+            "description": "Help message for how to fix the issue"
+          }
+        },
+        "required": [
+          "message",
+          "path",
+          "type"
+        ]
+      }
+    },
+    "x-session-id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "namespace_name",
+    "revision_reference",
+    "oas_summary",
+    "suggestion_type",
+    "diagnostics",
+    "x-session-id"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "target_id": {
+      "type": "string"
+    },
+    "target_resource": {
+      "type": "string"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "token_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_id",
+    "target_resource",
+    "valid_until",
+    "token_name"
+  ]
+}

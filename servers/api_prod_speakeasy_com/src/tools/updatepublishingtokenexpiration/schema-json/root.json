@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "tokenID": {
+      "description": "Unique identifier of the publishing token.",
+      "type": "string"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The new expiration date for the publishing token."
+    },
+    "token_name": {
+      "type": "string",
+      "description": "The new name for the publishing token."
+    }
+  },
+  "required": [
+    "tokenID",
+    "valid_until"
+  ]
+}
