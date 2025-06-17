@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Host ID",
+      "format": "uuid",
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "from": {
+      "description": "Start of the chart interval, as ISO8601 timestamp",
+      "format": "date-time",
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "to": {
+      "description": "End of the chart interval, as ISO8601 timestamp",
+      "format": "date-time",
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    }
+  },
+  "required": [
+    "id",
+    "from",
+    "to"
+  ]
+}

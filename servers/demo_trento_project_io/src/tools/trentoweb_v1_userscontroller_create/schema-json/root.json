@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "abilities": {
+      "description": "A collection of abilities in the system",
+      "items": {
+        "additionalProperties": false,
+        "description": "Ability entry",
+        "properties": {
+          "id": {
+            "description": "Ability ID",
+            "nullable": false,
+            "type": "integer",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "label": {
+            "description": "Description of the ability",
+            "nullable": false,
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "name": {
+            "description": "Ability name",
+            "nullable": false,
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "resource": {
+            "description": "Resource attached to ability",
+            "nullable": false,
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "resource"
+        ],
+        "title": "Ability",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "title": "AbilityCollection",
+      "type": "array",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "email": {
+      "description": "User email",
+      "format": "email",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "enabled": {
+      "description": "User enabled in the system",
+      "nullable": false,
+      "type": "boolean",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "fullname": {
+      "description": "User full name",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "password": {
+      "description": "User new password",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "password_confirmation": {
+      "description": "User new password, should be the same as password field",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "username": {
+      "description": "User username",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    }
+  },
+  "required": [
+    "email",
+    "enabled",
+    "fullname",
+    "password",
+    "password_confirmation",
+    "username"
+  ]
+}
