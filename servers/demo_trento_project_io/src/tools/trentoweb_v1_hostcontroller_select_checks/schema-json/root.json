@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "",
+      "format": "uuid",
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "checks": {
+      "items": {
+        "type": "string",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "type": "array",
+      "x-struct": null,
+      "x-validate": null
+    }
+  },
+  "required": [
+    "id",
+    "checks"
+  ]
+}

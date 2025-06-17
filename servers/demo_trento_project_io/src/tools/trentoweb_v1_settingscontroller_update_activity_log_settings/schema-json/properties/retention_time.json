@@ -1,0 +1,33 @@
+{
+  "additionalProperties": false,
+  "description": "Retention Time settings of the Activity Log",
+  "properties": {
+    "unit": {
+      "description": "The retention duration unit, that is used in conjunction with the retention time period.",
+      "enum": [
+        "day",
+        "week",
+        "month",
+        "year"
+      ],
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "value": {
+      "description": "The integer retention duration, that is used in conjunction with the retention time unit.",
+      "minimum": 1,
+      "type": "integer",
+      "x-struct": null,
+      "x-validate": null
+    }
+  },
+  "required": [
+    "value",
+    "unit"
+  ],
+  "title": "RetentionTimeSettings",
+  "type": "object",
+  "x-struct": null,
+  "x-validate": null
+}

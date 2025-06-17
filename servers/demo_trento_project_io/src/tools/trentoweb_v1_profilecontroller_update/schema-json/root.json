@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "analytics_enabled": {
+      "description": "Whether user analytics collection is enabled",
+      "nullable": false,
+      "type": "boolean",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "current_password": {
+      "description": "User current password, used to set a new password",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "email": {
+      "description": "User email",
+      "format": "email",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "fullname": {
+      "description": "User full name",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "password": {
+      "description": "User new password",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "password_confirmation": {
+      "description": "User new password, should be the same as password field",
+      "nullable": false,
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    }
+  },
+  "required": []
+}

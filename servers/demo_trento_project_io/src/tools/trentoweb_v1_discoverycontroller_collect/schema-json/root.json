@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "agent_id": {
+      "format": "uuid",
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "discovery_type": {
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "payload": {
+      "nullable": true,
+      "x-struct": null,
+      "x-validate": null,
+      "anyOf": [
+        {
+          "type": "object",
+          "x-struct": null,
+          "x-validate": null
+        }
+      ]
+    }
+  },
+  "required": [
+    "agent_id",
+    "discovery_type",
+    "payload"
+  ]
+}

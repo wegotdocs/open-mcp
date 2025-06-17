@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Cluster's identifier",
+      "format": "uuid",
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "host_id": {
+      "description": "Host's identifier",
+      "format": "uuid",
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    },
+    "operation": {
+      "description": "Operation to be performed on the cluster's host",
+      "type": "string",
+      "x-struct": null,
+      "x-validate": null
+    }
+  },
+  "required": [
+    "id",
+    "host_id",
+    "operation"
+  ]
+}
