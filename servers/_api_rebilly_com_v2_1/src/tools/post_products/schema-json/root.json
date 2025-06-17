@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "description": "The product name",
+      "type": "string",
+      "maxLength": 255
+    },
+    "description": {
+      "description": "The product description",
+      "type": "string",
+      "maxLength": 512
+    },
+    "taxCategoryId": {
+      "description": "The product's tax category identifier string",
+      "type": "string",
+      "enum": [
+        99999,
+        20010,
+        40030,
+        51020,
+        51010,
+        31000,
+        30070
+      ]
+    },
+    "requiresShipping": {
+      "description": "If the product requires shipping, shipping calculations will be applied",
+      "type": "boolean"
+    },
+    "accountingCode": {
+      "description": "The product accounting code",
+      "type": "string"
+    },
+    "customFields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customFields` to the tool, first call the tool `expandSchema` with \"/properties/customFields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>\"Custom Fields list as a map `{\"custom field name\": \"custom field value\", ...}\"`.\nThe format must follow the saved format (see Custom Fields section for the formats).\n</property-description>",
+      "additionalProperties": true
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

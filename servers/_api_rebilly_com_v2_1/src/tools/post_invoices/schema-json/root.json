@@ -1,0 +1,148 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "websiteId": {
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "string"
+    },
+    "subscriptionId": {
+      "type": "string"
+    },
+    "currency": {
+      "description": "The currency three letter code",
+      "type": "string"
+    },
+    "amount": {
+      "description": "The Invoice's amount",
+      "type": "number",
+      "format": "double",
+      "readOnly": true
+    },
+    "shippingAmount": {
+      "description": "The Invoice's shipping amount",
+      "type": "number",
+      "format": "double",
+      "readOnly": true
+    },
+    "billingAddress": {
+      "type": "string"
+    },
+    "deliveryAddress": {
+      "type": "string"
+    },
+    "notes": {
+      "description": "Notes for the customer which will display on the invoice",
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "description": "Invoice items array",
+      "readOnly": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "taxes": {
+      "type": "array",
+      "description": "Taxes applied to this invoice",
+      "readOnly": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "discounts": {
+      "type": "array",
+      "description": "Discounts applied",
+      "readOnly": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "Invoice status.",
+      "readOnly": true,
+      "enum": [
+        "draft",
+        "issued",
+        "past-due",
+        "paid",
+        "abandoned",
+        "voided"
+      ]
+    },
+    "delinquentCollectionPeriod": {
+      "type": "integer",
+      "description": "Delinquent Collection Period - difference between paidTime and dueTime in days.",
+      "readOnly": true
+    },
+    "collectionPeriod": {
+      "type": "integer",
+      "description": "Collection Period - difference between paidTime and issuedTime in days.",
+      "readOnly": true
+    },
+    "abandonedTime": {
+      "type": "string"
+    },
+    "voidedTime": {
+      "type": "string"
+    },
+    "paidTime": {
+      "type": "string"
+    },
+    "dueTime": {
+      "type": "string"
+    },
+    "issuedTime": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "customerId",
+    "websiteId",
+    "currency"
+  ]
+}

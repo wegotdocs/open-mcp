@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "description": "The shipping zone name",
+      "type": "string",
+      "maxLength": 255
+    },
+    "countries": {
+      "description": "Countries covered by the shipping zone. A country can only belong to one shipping zone (no overlapping).\nThis property can be empty or null to create a default shipping zone for countries that were not specified in other zones.\n",
+      "type": "array",
+      "items": {
+        "description": "Country ISO Alpha-2 code",
+        "type": "string",
+        "pattern": "^[A-Z]{2}$"
+      }
+    },
+    "rates": {
+      "description": "Price-based shipping rate instructions",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "isDefault": {
+      "description": "Is this Shipping Zone default",
+      "readOnly": true
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "discriminator": {
+    "propertyName": "type"
+  },
+  "properties": {
+    "type": {
+      "description": "Discount type",
+      "type": "string",
+      "enum": [
+        "fixed",
+        "percent"
+      ]
+    }
+  }
+}

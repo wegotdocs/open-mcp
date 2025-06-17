@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "token": {
+      "description": "The token identifier string",
+      "type": "string",
+      "readOnly": true
+    },
+    "username": {
+      "description": "The token's username",
+      "type": "string"
+    },
+    "password": {
+      "description": "The token's password (write-only)",
+      "type": "string",
+      "format": "password"
+    },
+    "credentialId": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "expiredTime": {
+      "description": "Token's expired time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "username",
+    "password"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "description": {
+      "description": "API key description",
+      "type": "string"
+    },
+    "datetimeFormat": {
+      "description": "Date time format",
+      "type": "string",
+      "default": "iso8601",
+      "enum": [
+        "mysql",
+        "iso8601"
+      ]
+    },
+    "apiUser": {
+      "description": "API user name",
+      "type": "string",
+      "readOnly": true
+    },
+    "secretKey": {
+      "description": "API secret key's value",
+      "type": "string",
+      "readOnly": true
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

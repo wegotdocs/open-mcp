@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": [
+    "method"
+  ],
+  "discriminator": {
+    "propertyName": "method"
+  },
+  "properties": {
+    "method": {
+      "type": "string",
+      "description": "The payment method",
+      "enum": [
+        "ach",
+        "cash",
+        "payment-card",
+        "paypal",
+        "Alipay",
+        "China UnionPay",
+        "Flexepin",
+        "Gpaysafe",
+        "Jeton",
+        "OchaPay",
+        "SMSVoucher",
+        "UPayCard",
+        "WeChat Pay"
+      ]
+    }
+  }
+}

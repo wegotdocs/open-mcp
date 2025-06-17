@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "redemptionCode": {
+      "type": "string"
+    },
+    "discount": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `discount` to the tool, first call the tool `expandSchema` with \"/properties/discount\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "restrictions": {
+      "description": "Coupon restrictions",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "redemptionsCount": {
+      "type": "integer",
+      "description": "Coupon's redemptions count",
+      "minimum": 0,
+      "readOnly": true
+    },
+    "status": {
+      "type": "string",
+      "description": "If coupon enabled",
+      "readOnly": true,
+      "enum": [
+        "issued",
+        "expired"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Your coupon description. When it is not empty this is used for invoice discount item description,\notherwise the item's description uses coupon's redemptionCode like 'Coupon \"redemptionCode\"'\n"
+    },
+    "issuedTime": {
+      "description": "Coupon's issued time (start time)",
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiredTime": {
+      "description": "Coupon's expire time (end time)",
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "discount",
+    "issuedTime"
+  ]
+}

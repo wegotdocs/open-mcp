@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "description": "Original File name",
+      "type": "string"
+    },
+    "extension": {
+      "description": "The File extension",
+      "type": "string"
+    },
+    "description": {
+      "description": "The File description",
+      "type": "string"
+    },
+    "url": {
+      "description": "Write-only. If defined on POST, this would be used as a file source.",
+      "type": "string"
+    },
+    "tags": {
+      "description": "The tags list",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mime": {
+      "description": "The mime type",
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "image/png",
+        "image/jpeg",
+        "image/gif",
+        "application/pdf",
+        "audio/mpeg"
+      ]
+    },
+    "size": {
+      "description": "The File size in bytes",
+      "type": "integer",
+      "readOnly": true
+    },
+    "width": {
+      "description": "Image width, applicable to images only",
+      "type": "integer",
+      "readOnly": true
+    },
+    "height": {
+      "description": "Image height, applicable to images only",
+      "type": "integer",
+      "readOnly": true
+    },
+    "sha1": {
+      "description": "Hash sum of the file",
+      "type": "string",
+      "readOnly": true
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": []
+}

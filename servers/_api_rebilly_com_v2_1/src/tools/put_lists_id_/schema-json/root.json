@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "description": "List version",
+      "type": "integer",
+      "readOnly": true,
+      "minimum": 1
+    },
+    "name": {
+      "description": "List name",
+      "type": "string"
+    },
+    "values": {
+      "description": "List values",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "Links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "values"
+  ]
+}

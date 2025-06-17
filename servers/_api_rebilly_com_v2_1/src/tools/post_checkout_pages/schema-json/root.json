@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "planId": {
+      "type": "string"
+    },
+    "websiteId": {
+      "type": "string"
+    },
+    "uriPath": {
+      "description": "Your own custom uri path for this Checkout Page. It will be appended to checkout url https://checkout.rebilly.com/website/",
+      "type": "string"
+    },
+    "name": {
+      "description": "Checkout page name",
+      "type": "string"
+    },
+    "isActive": {
+      "description": "If checkout page active",
+      "type": "boolean"
+    },
+    "redirectUrl": {
+      "description": "Checkout page url",
+      "type": "string"
+    },
+    "redirectTimeout": {
+      "description": "Checkout page redirect timeout",
+      "type": "integer"
+    },
+    "allowCustomCustomerId": {
+      "description": "If to enable your own customer ID in requests",
+      "type": "boolean"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "planId",
+    "websiteId",
+    "uriPath",
+    "name"
+  ]
+}

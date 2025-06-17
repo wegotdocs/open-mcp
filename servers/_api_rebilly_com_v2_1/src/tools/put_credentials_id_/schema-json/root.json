@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "username": {
+      "description": "Credential's username",
+      "type": "string"
+    },
+    "password": {
+      "description": "The credential's password",
+      "type": "string",
+      "format": "password"
+    },
+    "customerId": {
+      "description": "The credential's customer ID",
+      "type": "string"
+    },
+    "expiredTime": {
+      "description": "The credential's expired time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 2,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "username",
+    "password",
+    "customerId"
+  ]
+}

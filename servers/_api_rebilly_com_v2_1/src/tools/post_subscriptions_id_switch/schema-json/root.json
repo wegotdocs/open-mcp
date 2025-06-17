@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "planId": {
+      "type": "string"
+    },
+    "policy": {
+      "description": "Switch policy",
+      "type": "string",
+      "enum": [
+        "at-next-renewal",
+        "now-with-prorata-credit",
+        "now"
+      ]
+    },
+    "websiteId": {
+      "type": "string"
+    },
+    "quantity": {
+      "description": "Quantity for each subscription. Default value to 1",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "planId",
+    "policy"
+  ]
+}

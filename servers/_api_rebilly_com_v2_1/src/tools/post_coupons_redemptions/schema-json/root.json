@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "redemptionCode": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "additionalRestrictions": {
+      "description": "Additional restrictions for coupon's redemptions",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "redeemedTime": {
+      "type": "string"
+    },
+    "canceledTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

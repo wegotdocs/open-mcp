@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "description": "Email",
+      "type": "string"
+    },
+    "password": {
+      "description": "Password",
+      "type": "string",
+      "format": "password"
+    },
+    "expiredTime": {
+      "description": "Session expired time. Defaults to one hour",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "email",
+    "password"
+  ]
+}

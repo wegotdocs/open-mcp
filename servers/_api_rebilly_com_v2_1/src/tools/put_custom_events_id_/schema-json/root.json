@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "eventType": {
+      "type": "string",
+      "description": "The system event type",
+      "enum": [
+        "subscription-ended",
+        "subscription-trial-ended",
+        "subscription-renewed",
+        "payment-card-expired",
+        "invoice-past-due",
+        "invoice-issued",
+        "invoice-voided",
+        "invoice-paid",
+        "invoice-abandoned"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "description": "The custom event title"
+    },
+    "description": {
+      "type": "string",
+      "description": "The custom event description"
+    },
+    "chronology": {
+      "type": "string",
+      "description": "The emitting time of the custom event relatively to the system event",
+      "enum": [
+        "before",
+        "after"
+      ]
+    },
+    "scheduleInstruction": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `scheduleInstruction` to the tool, first call the tool `expandSchema` with \"/properties/scheduleInstruction\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The calculation instruction of scheduled time</property-description>",
+      "additionalProperties": true
+    },
+    "createdTime": {
+      "type": "string",
+      "description": "Read-only timestamp, automatically assigned on back-end.",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "rulesCount": {
+      "type": "integer",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "eventType",
+    "title",
+    "chronology",
+    "scheduleInstruction"
+  ]
+}

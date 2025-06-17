@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "description": "Payment Token instrument object",
+  "properties": {
+    "pan": {
+      "description": "The card PAN (Primary Account Number)",
+      "type": "string"
+    },
+    "expMonth": {
+      "description": "Card's expiry month",
+      "type": "integer"
+    },
+    "expYear": {
+      "description": "Card's expiry year",
+      "type": "integer"
+    },
+    "cvv": {
+      "description": "The CVV/CVC of the payment card",
+      "type": "string"
+    },
+    "routingNumber": {
+      "description": "Routing Number",
+      "type": "integer"
+    },
+    "accountNumber": {
+      "description": "AccountNumber",
+      "type": "integer"
+    },
+    "accountType": {
+      "description": "Account Type",
+      "type": "string"
+    },
+    "bankName": {
+      "description": "Bank name",
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "policy": {
+      "description": "Cancel policy",
+      "type": "string",
+      "enum": [
+        "at-next-renewal",
+        "now-with-prorata-credit",
+        "now"
+      ]
+    },
+    "canceledBy": {
+      "description": "Canceled by",
+      "type": "string",
+      "enum": [
+        "merchant",
+        "customer"
+      ]
+    },
+    "cancelCategory": {
+      "description": "Cancel category",
+      "type": "string",
+      "enum": [
+        "did-not-use",
+        "did-not-want",
+        "missing-features",
+        "bugs-or-problems",
+        "do-not-remember",
+        "risk-warning",
+        "contract-expired",
+        "too-expensive",
+        "other"
+      ]
+    },
+    "cancelDescription": {
+      "description": "Cancel reason description in free form",
+      "type": "string",
+      "maxLength": 255
+    }
+  },
+  "required": [
+    "policy",
+    "canceledBy",
+    "cancelCategory"
+  ]
+}

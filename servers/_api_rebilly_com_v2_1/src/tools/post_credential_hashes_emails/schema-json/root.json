@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "hash": {
+      "type": "string"
+    },
+    "host": {
+      "type": "string",
+      "description": "The host name"
+    },
+    "port": {
+      "type": "integer",
+      "description": "The port value",
+      "minimum": 1,
+      "maximum": 65535,
+      "default": 25
+    },
+    "encryption": {
+      "type": "string",
+      "description": "The encryption value",
+      "enum": [
+        "none",
+        "tls",
+        "ssl"
+      ],
+      "default": "none"
+    },
+    "auth": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `auth` to the tool, first call the tool `expandSchema` with \"/properties/auth\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "host"
+  ]
+}
