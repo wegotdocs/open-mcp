@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "The collection items limit",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "offset": {
+      "description": "The collection items offset",
+      "type": "integer",
+      "minimum": 0
+    },
+    "filter": {
+      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n",
+      "type": "string"
+    },
+    "q": {
+      "description": "The partial search of the text fields.",
+      "type": "string"
+    },
+    "criteria": {
+      "description": "The json criteria for collection",
+      "type": "string"
+    },
+    "sort": {
+      "description": "The collection items sort field and order (prefix with \"-\" for descending sort).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Accept": {
+      "description": "The response media type",
+      "type": "string",
+      "enum": [
+        "application/json",
+        "text/csv"
+      ],
+      "default": "application/json"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "The collection items limit",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "offset": {
+      "description": "The collection items offset",
+      "type": "integer",
+      "minimum": 0
+    },
+    "filter": {
+      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n",
+      "type": "string"
+    },
+    "q": {
+      "description": "The partial search of the text fields.",
+      "type": "string"
+    },
+    "expand": {
+      "description": "Expand response to get full related object instead of ID.  See the expand guide for more info.",
+      "type": "string"
+    },
+    "fields": {
+      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.",
+      "type": "string"
+    },
+    "sort": {
+      "description": "The collection items sort field and order (prefix with \"-\" for descending sort).",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "id",
+          "-id",
+          "name",
+          "-name",
+          "extension",
+          "-extension",
+          "size",
+          "-size",
+          "width",
+          "-width",
+          "height",
+          "-height",
+          "createdTime",
+          "-createdTime",
+          "updatedTime",
+          "-updatedTime"
+        ]
+      }
+    }
+  },
+  "required": []
+}

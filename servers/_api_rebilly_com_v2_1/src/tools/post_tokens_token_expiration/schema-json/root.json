@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string",
+      "description": "The payment method",
+      "enum": [
+        "ach",
+        "cash",
+        "payment-card",
+        "paypal",
+        "Alipay",
+        "China UnionPay",
+        "Flexepin",
+        "Gpaysafe",
+        "Jeton",
+        "OchaPay",
+        "SMSVoucher",
+        "UPayCard",
+        "WeChat Pay"
+      ]
+    },
+    "paymentInstrument": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `paymentInstrument` to the tool, first call the tool `expandSchema` with \"/properties/paymentInstrument\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Payment Token instrument object</property-description>",
+      "additionalProperties": true
+    },
+    "fingerprint": {
+      "description": "Device fingerprint hash",
+      "type": "string"
+    },
+    "billingAddress": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "method",
+    "paymentInstrument"
+  ]
+}

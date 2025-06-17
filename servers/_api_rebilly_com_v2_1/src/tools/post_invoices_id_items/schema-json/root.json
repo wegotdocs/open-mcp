@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "description": "Invoice item's type",
+      "type": "string",
+      "enum": [
+        "debit",
+        "credit"
+      ]
+    },
+    "unitPrice": {
+      "description": "Invoice item's price",
+      "type": "number",
+      "format": "double"
+    },
+    "quantity": {
+      "description": "Invoice item's quantity",
+      "type": "integer"
+    },
+    "productId": {
+      "type": "string"
+    },
+    "description": {
+      "description": "Invoice item's description",
+      "type": "string"
+    },
+    "discountAmount": {
+      "description": "Invoice item discount amount",
+      "type": "number",
+      "format": "double",
+      "readOnly": true
+    },
+    "periodStartTime": {
+      "description": "Start time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "periodEndTime": {
+      "description": "End time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 2,
+      "items": {
+        "x-tuple": true,
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "type",
+    "unitPrice"
+  ]
+}

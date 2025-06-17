@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "createdBy": {
+      "description": "The note's creator",
+      "type": "string",
+      "readOnly": true
+    },
+    "content": {
+      "description": "The note's name",
+      "type": "string"
+    },
+    "archived": {
+      "description": "Is the note archived (excluded from List method)",
+      "type": "boolean"
+    },
+    "relatedType": {
+      "description": "The note's related resource type",
+      "type": "string",
+      "enum": [
+        "customer",
+        "payment-card",
+        "payment-gateway",
+        "subscription",
+        "transaction"
+      ]
+    },
+    "relatedId": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "archivedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "content",
+    "relatedType",
+    "relatedId"
+  ]
+}

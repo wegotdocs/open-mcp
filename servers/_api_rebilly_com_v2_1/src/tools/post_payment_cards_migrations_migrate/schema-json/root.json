@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "fromGatewayAccountId": {
+      "type": "string"
+    },
+    "toGatewayAccountId": {
+      "type": "string"
+    },
+    "paymentCardIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "fromGatewayAccountId",
+    "toGatewayAccountId",
+    "paymentCardIds"
+  ]
+}

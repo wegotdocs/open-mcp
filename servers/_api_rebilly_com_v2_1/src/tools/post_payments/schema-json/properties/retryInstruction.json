@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "attempts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "scheduleInstruction": {
+            "type": "object",
+            "description": "The calculation instruction of scheduled time",
+            "discriminator": {
+              "propertyName": "method"
+            },
+            "properties": {
+              "method": {
+                "type": "string",
+                "enum": [
+                  "auto",
+                  "immediately",
+                  "date-interval",
+                  "day-of-month",
+                  "day-of-week"
+                ]
+              }
+            },
+            "required": [
+              "method"
+            ]
+          },
+          "paymentInstruction": {
+            "type": "object",
+            "discriminator": {
+              "propertyName": "method"
+            },
+            "properties": {
+              "method": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "partial",
+                  "discount"
+                ]
+              }
+            },
+            "required": [
+              "method"
+            ]
+          }
+        },
+        "required": [
+          "scheduleInstruction",
+          "paymentInstruction"
+        ]
+      }
+    },
+    "afterAttemptPolicy": {
+      "description": "The policy on the attempt finishes",
+      "type": "string",
+      "enum": [
+        "none",
+        "change-subscription-renewal-time"
+      ]
+    },
+    "afterRetryEndPolicy": {
+      "description": "The policy on the retry ends",
+      "type": "string",
+      "enum": [
+        "none",
+        "cancel-subscription"
+      ]
+    }
+  },
+  "required": [
+    "attempts",
+    "afterAttemptPolicy",
+    "afterRetryEndPolicy"
+  ]
+}

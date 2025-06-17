@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "email": {
+      "description": "The user email",
+      "type": "string",
+      "format": "email",
+      "maxLength": 100
+    },
+    "firstName": {
+      "description": "User's first name",
+      "type": "string"
+    },
+    "lastName": {
+      "description": "User's last name",
+      "type": "string"
+    },
+    "businessPhone": {
+      "description": "The user business phone number",
+      "type": "string"
+    },
+    "mobilePhone": {
+      "description": "The user mobile phone number",
+      "type": "string"
+    },
+    "password": {
+      "description": "User's password. If not provided, password reset email will be sent",
+      "type": "string",
+      "format": "password"
+    },
+    "permissions": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "loginTime": {
+      "type": "string"
+    },
+    "reportingCurrency": {
+      "description": "The user's ISO Alpha-3 code used for reports",
+      "type": "string"
+    },
+    "availableCurrencies": {
+      "type": "array",
+      "description": "An array of reporting currencies enabled for the merchant",
+      "readOnly": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "totpRequired": {
+      "description": "The user setting of two-factor authentication",
+      "type": "boolean"
+    },
+    "totpSecret": {
+      "description": "The user TOTP key for authentication app (if TOTP enabled)",
+      "type": "string"
+    },
+    "totpUrl": {
+      "description": "The user link to QR-code for TOTP authentication app (if TOTP enabled)",
+      "type": "string",
+      "format": "url"
+    },
+    "status": {
+      "description": "The user status",
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "pending-confirmation"
+      ],
+      "readOnly": true
+    },
+    "country": {
+      "description": "The user country setting - two letter code",
+      "type": "string"
+    },
+    "preferences": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `preferences` to the tool, first call the tool `expandSchema` with \"/properties/preferences\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User preferences like timezone, language and many more. This is an object with custom properties.</property-description>",
+      "additionalProperties": true
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "email",
+    "firstName",
+    "lastName"
+  ]
+}

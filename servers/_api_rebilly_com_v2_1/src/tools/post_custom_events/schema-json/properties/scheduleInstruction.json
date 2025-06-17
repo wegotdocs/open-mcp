@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "description": "The calculation instruction of scheduled time",
+  "discriminator": {
+    "propertyName": "method"
+  },
+  "properties": {
+    "method": {
+      "type": "string",
+      "enum": [
+        "date-interval",
+        "day-of-month",
+        "day-of-week"
+      ]
+    }
+  },
+  "required": [
+    "method"
+  ]
+}

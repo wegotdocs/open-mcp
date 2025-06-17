@@ -1,0 +1,124 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "pan": {
+      "description": "The card PAN (Primary Account Number). Required if card is creating not from Token",
+      "type": "string"
+    },
+    "bin": {
+      "description": "The card's bin (the PAN's first 6 digits)",
+      "type": "string",
+      "format": "bin",
+      "readOnly": true
+    },
+    "last4": {
+      "description": "The PAN's last 4 digits",
+      "type": "string",
+      "readOnly": true
+    },
+    "expYear": {
+      "description": "Card's expiry year. Required if card is creating not from Token",
+      "type": "integer"
+    },
+    "expMonth": {
+      "description": "Card's expiry month. Required if card is creating not from Token",
+      "type": "integer"
+    },
+    "cvv": {
+      "description": "Card's cvv (card verification value). Required if card is creating not from Token",
+      "type": "string"
+    },
+    "billingAddress": {
+      "type": "string"
+    },
+    "token": {
+      "description": "PaymentCardToken. Use without any other fields",
+      "type": "string"
+    },
+    "safeHash": {
+      "description": "The card's hash. Based on bin and last 4 digits of the PAN",
+      "type": "string",
+      "readOnly": true
+    },
+    "status": {
+      "description": "Payment Card status",
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "active",
+        "expired",
+        "inactive",
+        "deactivated",
+        "pending"
+      ]
+    },
+    "brand": {
+      "description": "Payment Card brand",
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "Visa",
+        "MasterCard",
+        "American Express",
+        "Discover",
+        "Maestro",
+        "Solo",
+        "Electron",
+        "JCB",
+        "Voyager",
+        "Diners Club",
+        "Switch",
+        "Laser",
+        "China UnionPay"
+      ]
+    },
+    "bankCountry": {
+      "description": "Payment Card bank country",
+      "type": "string",
+      "readOnly": true
+    },
+    "bankName": {
+      "description": "Payment Card bank name",
+      "type": "string",
+      "readOnly": true
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "customFields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customFields` to the tool, first call the tool `expandSchema` with \"/properties/customFields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>\"Custom Fields list as a map `{\"custom field name\": \"custom field value\", ...}\"`.\nThe format must follow the saved format (see Custom Fields section for the formats).\n</property-description>",
+      "additionalProperties": true
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": []
+}

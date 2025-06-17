@@ -1,0 +1,286 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "status": {
+      "description": "The gateway account's status",
+      "readOnly": true,
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "pending"
+      ]
+    },
+    "gatewayName": {
+      "description": "The gateway name",
+      "type": "string",
+      "enum": [
+        "A1Gateway",
+        "AmexVPC",
+        "AuthorizeNet",
+        "Beanstream",
+        "BraintreePayments",
+        "Cashflows",
+        "Cayan",
+        "Chase",
+        "ChinaUnionPay",
+        "Credorax",
+        "DataCash",
+        "Dengi",
+        "eMerchantPay",
+        "Flexepin",
+        "FundSend",
+        "Forte",
+        "GET",
+        "GlobalCollect",
+        "GlobalOne",
+        "Gpaysafe",
+        "iCheque",
+        "Ilixium",
+        "JetPay",
+        "Jeton",
+        "Moneris",
+        "NMI",
+        "OchaPay",
+        "Optimal",
+        "PandaGateway",
+        "Payeezy",
+        "Payflow",
+        "PayPal",
+        "Payr",
+        "Payvision",
+        "Plugnpay",
+        "Realex",
+        "RealTime",
+        "RebillyProcessor",
+        "Redsys",
+        "RPN",
+        "Sagepay",
+        "SMSVoucher",
+        "Stripe",
+        "UPayCard",
+        "USAePay",
+        "VantivLitle",
+        "vegaaH",
+        "Walpay",
+        "Wirecard",
+        "Worldpay"
+      ]
+    },
+    "acquirerName": {
+      "description": "Acquirer name",
+      "type": "string",
+      "enum": [
+        "Alipay",
+        "AIB",
+        "B+S",
+        "Bank of America",
+        "Bank of Moscow",
+        "Bank of Rebilly",
+        "Bank One",
+        "Beanstream",
+        "BMO Harris Bank",
+        "Borgun",
+        "BraintreePayments",
+        "Catalunya Caixa",
+        "Chase",
+        "ChinaUnionPay",
+        "CIM",
+        "Credorax",
+        "Elavon",
+        "EMS",
+        "Fifth Third Bank",
+        "First Data Buypass",
+        "First Data Nashville",
+        "First Data North",
+        "First Data Omaha",
+        "Flexepin",
+        "Forte",
+        "FundSend",
+        "GlobalCollect",
+        "Global East",
+        "Gpaysafe",
+        "Heartland",
+        "HSBC",
+        "iCheque",
+        "Ilixium",
+        "Jeton",
+        "Masapay",
+        "Merrick",
+        "Mission Valley Bank",
+        "Moneris",
+        "NATWEST",
+        "NMI",
+        "OchaPay",
+        "Other",
+        "Panda Bank",
+        "PayPal",
+        "Payr",
+        "Payvision",
+        "Peoples Trust Company",
+        "Privatbank",
+        "RBC",
+        "RBS WorldPay",
+        "RealTime",
+        "RebillyProcessor",
+        "SMSVoucher",
+        "State Bank of Mauritius",
+        "Stripe",
+        "TBI",
+        "TrustPay",
+        "TSYS",
+        "UPayCard",
+        "Vantiv",
+        "VoicePay",
+        "WeChat Pay",
+        "Wells Fargo",
+        "Wing Hang Bank",
+        "Wirecard",
+        "WorldPay"
+      ]
+    },
+    "merchantCategoryCode": {
+      "description": "The gateway account's merchant category code",
+      "type": "integer",
+      "minimum": 742,
+      "maximum": 9950
+    },
+    "dccMarkup": {
+      "description": "Dynamic currency conversion markup in basis points",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "descriptor": {
+      "description": "The gateway account's descriptor",
+      "type": "string"
+    },
+    "cityField": {
+      "description": "The gateway account's city field (also known as line 2 descriptor)",
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "string"
+    },
+    "websites": {
+      "description": "Websites IDs",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "excludedDccQuoteCurrencies": {
+      "description": "Excluded Dynamic Currency Conversion Quote Currencies",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "monthlyLimit": {
+      "description": "Monthly Limit",
+      "type": "integer",
+      "format": "double",
+      "minimum": 0
+    },
+    "threeDSecure": {
+      "description": "True, if Gateway Account allows 3DSecure",
+      "type": "boolean"
+    },
+    "dynamicDescriptor": {
+      "description": "True, if Gateway Account allows dynamic descriptor",
+      "type": "boolean"
+    },
+    "acceptedCurrencies": {
+      "description": "Accepted currencies (array of the currency three letter code)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "method": {
+      "type": "string",
+      "description": "The payment method",
+      "enum": [
+        "ach",
+        "cash",
+        "payment-card",
+        "paypal",
+        "Alipay",
+        "China UnionPay",
+        "Flexepin",
+        "Gpaysafe",
+        "Jeton",
+        "OchaPay",
+        "SMSVoucher",
+        "UPayCard",
+        "WeChat Pay"
+      ]
+    },
+    "paymentCardSchemes": {
+      "description": "Accepted payment card brands",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Visa",
+          "MasterCard",
+          "American Express",
+          "Discover",
+          "Maestro",
+          "Solo",
+          "Electron",
+          "JCB",
+          "Voyager",
+          "Diners Club",
+          "Switch",
+          "Laser",
+          "China Unionpay"
+        ]
+      }
+    },
+    "downtimeStart": {
+      "description": "Gateway account downtime start",
+      "type": "string",
+      "format": "date-time"
+    },
+    "downtimeEnd": {
+      "description": "Gateway account downtime end",
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 2,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "gatewayName",
+    "acquirerName",
+    "merchantCategoryCode",
+    "organizationId",
+    "websites",
+    "acceptedCurrencies"
+  ]
+}

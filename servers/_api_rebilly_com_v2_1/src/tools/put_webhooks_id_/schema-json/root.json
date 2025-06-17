@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "eventsFilter": {
+      "description": "An array of System event type",
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string",
+        "description": "Rebilly webhooks event type",
+        "enum": [
+          "gateway-account-requested",
+          "subscription-trial-ended",
+          "subscription-activated",
+          "subscription-canceled",
+          "subscription-renewed",
+          "transaction-processed",
+          "payment-card-expired",
+          "payment-declined",
+          "invoice-modified",
+          "invoice-created",
+          "dispute-created",
+          "suspended-payment-completed"
+        ]
+      }
+    },
+    "status": {
+      "type": "string",
+      "default": "active",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ]
+    },
+    "url": {
+      "description": "URL that will be triggered when the given event occurs.",
+      "type": "string",
+      "format": "uri"
+    },
+    "headers": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `headers` to the tool, first call the tool `expandSchema` with \"/properties/headers\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Map of elements with header name - header value association</property-description>",
+      "additionalProperties": true
+    },
+    "credentialHash": {
+      "type": "string",
+      "description": "Hash from Credentials which is used for authentication by the given URL"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "Links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "method",
+    "url",
+    "credentialHash"
+  ]
+}

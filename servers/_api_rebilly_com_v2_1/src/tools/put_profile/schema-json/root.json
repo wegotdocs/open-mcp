@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "email": {
+      "description": "The user email",
+      "readOnly": true,
+      "type": "string",
+      "format": "email",
+      "maxLength": 100
+    },
+    "firstName": {
+      "description": "User's first name",
+      "readOnly": true,
+      "type": "string"
+    },
+    "lastName": {
+      "description": "User's last name",
+      "readOnly": true,
+      "type": "string"
+    },
+    "businessPhone": {
+      "description": "The user business phone number",
+      "readOnly": true,
+      "type": "string"
+    },
+    "mobilePhone": {
+      "description": "The user mobile phone number",
+      "readOnly": true,
+      "type": "string"
+    },
+    "availableCurrencies": {
+      "type": "array",
+      "description": "An array of reporting currencies enabled for the merchant",
+      "readOnly": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "reportingCurrency": {
+      "description": "The user's ISO Alpha-3 code used for reports",
+      "type": "string"
+    },
+    "totpRequired": {
+      "description": "The user setting of two-factor authentication",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "totpSecret": {
+      "description": "The user TOTP key for authentication app (if TOTP enabled)",
+      "readOnly": true,
+      "type": "string"
+    },
+    "totpUrl": {
+      "description": "The user link to QR-code for TOTP authentication app (if TOTP enabled)",
+      "readOnly": true,
+      "type": "string",
+      "format": "url"
+    },
+    "country": {
+      "description": "The user country setting - two letter code",
+      "readOnly": true,
+      "type": "string"
+    },
+    "preferences": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `preferences` to the tool, first call the tool `expandSchema` with \"/properties/preferences\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>User preferences like timezone, language and many more. This is an object with custom properties.</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

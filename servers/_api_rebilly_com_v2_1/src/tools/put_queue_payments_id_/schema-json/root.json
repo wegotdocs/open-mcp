@@ -1,0 +1,143 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "websiteId": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "currency": {
+      "description": "The payment currency ISO Alpha code",
+      "type": "string"
+    },
+    "amount": {
+      "description": "The payment amount",
+      "type": "integer",
+      "format": "double"
+    },
+    "scheduledTime": {
+      "description": "The time the payment is scheduled for collection",
+      "type": "string",
+      "format": "date-time"
+    },
+    "invoiceIds": {
+      "description": "The array of invoice identifiers",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "The resource ID. Defaults to UUID v4",
+        "maxLength": 50,
+        "example": "4f6cf35x-2c4y-483z-a0a9-158621f77a21"
+      }
+    },
+    "description": {
+      "description": "The payment description",
+      "type": "string",
+      "maxLength": 255
+    },
+    "retryInstruction": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `retryInstruction` to the tool, first call the tool `expandSchema` with \"/properties/retryInstruction\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "retryNumber": {
+      "readOnly": true,
+      "description": "The position in the sequence of retries",
+      "type": "integer"
+    },
+    "retriedPaymentId": {
+      "type": "string"
+    },
+    "customFields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customFields` to the tool, first call the tool `expandSchema` with \"/properties/customFields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>\"Custom Fields list as a map `{\"custom field name\": \"custom field value\", ...}\"`.\nThe format must follow the saved format (see Custom Fields section for the formats).\n</property-description>",
+      "additionalProperties": true
+    },
+    "paymentInstrument": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `paymentInstrument` to the tool, first call the tool `expandSchema` with \"/properties/paymentInstrument\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "billingAddress": {
+      "type": "string"
+    },
+    "createdBy": {
+      "description": "The process that created this payment",
+      "type": "string"
+    },
+    "updatedBy": {
+      "description": "The process that updated this payment",
+      "type": "string"
+    },
+    "status": {
+      "description": "Payment status",
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "scheduled",
+        "queued",
+        "in-progress",
+        "incomplete",
+        "waiting-gateway",
+        "suspended",
+        "completed"
+      ]
+    },
+    "result": {
+      "description": "Payment result",
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "approved",
+        "declined",
+        "canceled",
+        "unknown"
+      ]
+    },
+    "riskMetadata": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "websiteId",
+    "customerId",
+    "currency",
+    "amount"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "description": "The website's name",
+      "type": "string"
+    },
+    "url": {
+      "description": "The website's domain address",
+      "type": "string"
+    },
+    "servicePhone": {
+      "description": "The website's customer service phone number",
+      "type": "string"
+    },
+    "serviceEmail": {
+      "description": "The website's customer service email address",
+      "type": "string",
+      "format": "email"
+    },
+    "checkoutPageUri": {
+      "description": "Your own custom URI for this Checkout Page",
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "customFields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customFields` to the tool, first call the tool `expandSchema` with \"/properties/customFields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>\"Custom Fields list as a map `{\"custom field name\": \"custom field value\", ...}\"`.\nThe format must follow the saved format (see Custom Fields section for the formats).\n</property-description>",
+      "additionalProperties": true
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 2,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "name",
+    "url",
+    "servicePhone",
+    "serviceEmail"
+  ]
+}

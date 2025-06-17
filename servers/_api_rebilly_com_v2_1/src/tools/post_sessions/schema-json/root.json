@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "token": {
+      "description": "The session's token used for authentication",
+      "type": "string"
+    },
+    "permissions": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "expiredTime": {
+      "description": "Session expired time. Defaults to one hour",
+      "type": "string",
+      "format": "date-time"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "permissions"
+  ]
+}

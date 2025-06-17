@@ -1,0 +1,126 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "description": "The plan name",
+      "type": "string"
+    },
+    "currency": {
+      "description": "Currency (three letter ISO 4217 code)",
+      "type": "string"
+    },
+    "currencySign": {
+      "description": "Currency sign",
+      "type": "string"
+    },
+    "isActive": {
+      "description": "If the plan is not active, customers cannot subscribe to the plan (default to true)",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "The plan description",
+      "type": "string"
+    },
+    "richDescription": {
+      "description": "The plan rich description - supports HTML",
+      "type": "string"
+    },
+    "recurringAmount": {
+      "description": "The amount that recurs according to the schedule",
+      "type": "number",
+      "format": "double"
+    },
+    "recurringPeriodUnit": {
+      "description": "The unit of time",
+      "type": "string",
+      "enum": [
+        "day",
+        "week",
+        "month",
+        "year"
+      ]
+    },
+    "recurringPeriodLength": {
+      "description": "The length of time (used with the recurringPeriodUnit)",
+      "type": "integer"
+    },
+    "trialAmount": {
+      "description": "The amount of a trial - 0 is a valid value (for free)",
+      "type": "number",
+      "format": "double"
+    },
+    "trialPeriodUnit": {
+      "description": "The unit of time",
+      "type": "string",
+      "enum": [
+        "day",
+        "week",
+        "month",
+        "year"
+      ]
+    },
+    "trialPeriodLength": {
+      "description": "The length of time (used with the trialPeriodUnit)",
+      "type": "integer"
+    },
+    "setupAmount": {
+      "description": "The amount of a trial - 0 is a valid value (for free)",
+      "type": "number",
+      "format": "double"
+    },
+    "expiredTime": {
+      "description": "Time when the plan is not longer valid",
+      "type": "string",
+      "format": "date-time"
+    },
+    "contractTermUnit": {
+      "description": "The unit of time",
+      "type": "string",
+      "enum": [
+        "day",
+        "week",
+        "month",
+        "year"
+      ]
+    },
+    "contractTermLength": {
+      "description": "The length that corresponds with the contractTermUnit",
+      "type": "integer"
+    },
+    "recurringPeriodLimit": {
+      "description": "The number of times a subscription will rebill until the contract is over",
+      "type": "integer"
+    },
+    "minQuantity": {
+      "description": "Minimum quantity per order, defaults to 1",
+      "type": "integer"
+    },
+    "maxQuantity": {
+      "description": "Maximum quantity per order (NULL if no maximum)",
+      "type": "integer"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "currency"
+  ]
+}

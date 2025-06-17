@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "expiredTime": {
+      "description": "The coupon's expiry time, must be greater than the issued time. Null or empty string will immediately expire the coupon.",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "expiredTime"
+  ]
+}

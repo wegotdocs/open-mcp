@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the layout string",
+      "type": "string"
+    },
+    "items": {
+      "description": "The array of layout items (planId and starred)",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "planId"
+        ],
+        "properties": {
+          "planId": {
+            "type": "string"
+          },
+          "starred": {
+            "description": "Boolean if the plan should be starred (special callout presentation)",
+            "type": "boolean"
+          },
+          "order": {
+            "description": "Item's order in Layout",
+            "type": "integer",
+            "readOnly": true
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to resource",
+            "readOnly": true,
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "customFields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customFields` to the tool, first call the tool `expandSchema` with \"/properties/customFields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>\"Custom Fields list as a map `{\"custom field name\": \"custom field value\", ...}\"`.\nThe format must follow the saved format (see Custom Fields section for the formats).\n</property-description>",
+      "additionalProperties": true
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

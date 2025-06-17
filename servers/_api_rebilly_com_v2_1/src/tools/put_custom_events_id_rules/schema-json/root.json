@@ -1,0 +1,123 @@
+{
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "The rule",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "default": "active",
+            "enum": [
+              "active",
+              "inactive"
+            ]
+          },
+          "final": {
+            "description": "Whether rule is final, meaning stop further matching rules if this is matched",
+            "type": "boolean",
+            "default": true
+          },
+          "criteria": {
+            "type": "object",
+            "discriminator": {
+              "propertyName": "op"
+            },
+            "properties": {
+              "op": {
+                "type": "string",
+                "description": "The condition operation",
+                "enum": [
+                  "and",
+                  "or",
+                  "not",
+                  "between",
+                  "equals",
+                  "in",
+                  "gt",
+                  "gte",
+                  "lt",
+                  "lte"
+                ]
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "actions": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "discriminator": {
+                "propertyName": "name"
+              },
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The action name",
+                  "enum": [
+                    "blacklist",
+                    "cancel-scheduled-payments",
+                    "guess-payment-card-expiration",
+                    "pick-gateway-account",
+                    "schedule-payment-retry",
+                    "schedule-payment",
+                    "send-email",
+                    "trigger-webhook",
+                    "stop-subscriptions",
+                    "add-risk-score"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "default": "active",
+                  "enum": [
+                    "active",
+                    "inactive"
+                  ]
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "actions"
+        ]
+      }
+    },
+    "updatedTime": {
+      "type": "string",
+      "description": "Read-only timestamp, automatically assigned on back-end.",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "rules"
+  ]
+}

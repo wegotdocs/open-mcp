@@ -1,0 +1,97 @@
+{
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "description": "The contact first name",
+      "type": "string"
+    },
+    "lastName": {
+      "description": "The contact last name",
+      "type": "string"
+    },
+    "organization": {
+      "description": "The contact organization",
+      "type": "string"
+    },
+    "address": {
+      "description": "The contact street address",
+      "type": "string",
+      "maxLength": 60
+    },
+    "address2": {
+      "description": "The contact street address (second line)",
+      "type": "string",
+      "maxLength": 60
+    },
+    "city": {
+      "description": "The contact city",
+      "type": "string",
+      "maxLength": 45
+    },
+    "region": {
+      "description": "The contact region (state)",
+      "type": "string",
+      "maxLength": 45
+    },
+    "country": {
+      "description": "The contact country ISO Alpha-2 code",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "postalCode": {
+      "description": "The contact postal code",
+      "type": "string",
+      "maxLength": 10
+    },
+    "phoneNumbers": {
+      "description": "The contact phone numbers",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "value"
+        ],
+        "properties": {
+          "label": {
+            "description": "The phone label",
+            "type": "string"
+          },
+          "value": {
+            "description": "The phone value",
+            "type": "string"
+          },
+          "primary": {
+            "description": "True if phone is primary",
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "emails": {
+      "description": "The contact emails",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "value"
+        ],
+        "properties": {
+          "label": {
+            "description": "The email label",
+            "type": "string"
+          },
+          "value": {
+            "description": "The email value",
+            "type": "string"
+          },
+          "primary": {
+            "description": "True if email is primary",
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

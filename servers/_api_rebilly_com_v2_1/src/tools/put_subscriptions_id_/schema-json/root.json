@@ -1,0 +1,155 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "planId": {
+      "type": "string"
+    },
+    "websiteId": {
+      "type": "string"
+    },
+    "initialInvoiceId": {
+      "type": "string"
+    },
+    "deliveryAddress": {
+      "type": "string"
+    },
+    "billingAddress": {
+      "type": "string"
+    },
+    "status": {
+      "description": "Subscription status",
+      "type": "string",
+      "readOnly": true
+    },
+    "quantity": {
+      "description": "Quantity for each subscription. Default value to 1",
+      "type": "integer"
+    },
+    "autopay": {
+      "description": "Autopay determines if a payment attempt will be automatic",
+      "type": "boolean",
+      "default": true
+    },
+    "inTrial": {
+      "description": "True if the subscription is currently in a trial period",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "rebillNumber": {
+      "description": "The current period number",
+      "type": "integer",
+      "readOnly": true
+    },
+    "canceledBy": {
+      "description": "Canceled by",
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "merchant",
+        "customer",
+        "rebilly"
+      ]
+    },
+    "cancelCategory": {
+      "description": "Cancel category",
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "billing-failure",
+        "did-not-use",
+        "did-not-want",
+        "missing-features",
+        "bugs-or-problems",
+        "do-not-remember",
+        "risk-warning",
+        "contract-expired",
+        "too-expensive",
+        "never-started",
+        "switched-plan",
+        "other"
+      ]
+    },
+    "cancelDescription": {
+      "description": "Cancel reason description in free form",
+      "type": "string",
+      "readOnly": true,
+      "maxLength": 255
+    },
+    "riskMetadata": {
+      "type": "string"
+    },
+    "startTime": {
+      "description": "Subscription start time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "activationTime": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "string"
+    },
+    "renewalTime": {
+      "description": "Subscription renewal time",
+      "type": "string",
+      "format": "date-time"
+    },
+    "canceledTime": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string"
+    },
+    "updatedTime": {
+      "type": "string"
+    },
+    "customFields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customFields` to the tool, first call the tool `expandSchema` with \"/properties/customFields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>\"Custom Fields list as a map `{\"custom field name\": \"custom field value\", ...}\"`.\nThe format must follow the saved format (see Custom Fields section for the formats).\n</property-description>",
+      "additionalProperties": true
+    },
+    "_links": {
+      "type": "array",
+      "description": "The links related to resource",
+      "readOnly": true,
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "customerId",
+    "planId",
+    "websiteId"
+  ]
+}

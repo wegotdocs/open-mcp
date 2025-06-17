@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "websiteId": {
+      "description": "The Website ID",
+      "type": "string"
+    },
+    "currency": {
+      "description": "Currency (three letter code)",
+      "type": "string"
+    },
+    "amount": {
+      "description": "The amount to authorize",
+      "type": "number",
+      "format": "double",
+      "default": 1
+    },
+    "redirectURLs": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `redirectURLs` to the tool, first call the tool `expandSchema` with \"/properties/redirectURLs\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Redirect URLs</property-description>",
+      "additionalProperties": true
+    },
+    "gatewayAccountId": {
+      "description": "The Gateway Account ID which use to send transactions",
+      "type": "string"
+    }
+  },
+  "required": [
+    "websiteId",
+    "currency"
+  ]
+}
