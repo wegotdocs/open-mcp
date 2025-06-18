@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "service": {
+      "type": "string",
+      "enum": [
+        "gmail"
+      ],
+      "title": "ServiceEnum"
+    },
+    "user_id": {
+      "type": "string",
+      "title": "User Id"
+    }
+  },
+  "required": [
+    "service",
+    "user_id"
+  ]
+}
