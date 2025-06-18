@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "analysis_id": {
+      "type": "string",
+      "title": "Analysis Id"
+    },
+    "assigned_label": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Assigned Label"
+    },
+    "priority_level": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^(high|medium|low)$"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Priority Level"
+    },
+    "suggested_action": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Suggested Action"
+    },
+    "confidence_score": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "maximum": 100,
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Confidence Score"
+    }
+  },
+  "required": [
+    "analysis_id"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "skip": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "title": "Skip"
+    },
+    "limit": {
+      "type": "integer",
+      "maximum": 1000,
+      "minimum": 1,
+      "default": 100,
+      "title": "Limit"
+    },
+    "priority_level": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^(high|medium|low)$"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Priority Level"
+    },
+    "assigned_label": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Assigned Label"
+    },
+    "user_id": {
+      "description": "User ID",
+      "type": "string",
+      "title": "User Id"
+    }
+  },
+  "required": [
+    "user_id"
+  ]
+}
