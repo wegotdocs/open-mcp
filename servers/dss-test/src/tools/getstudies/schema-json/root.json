@@ -1,0 +1,78 @@
+{
+  "type": "object",
+  "properties": {
+    "institution": {
+      "description": "Institution id querystring parameter",
+      "format": "uuid",
+      "type": "string"
+    },
+    "institutions[]": {
+      "description": "List of institution ids",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "institutionLegacy": {
+      "description": "Institution Legacy id querystring parameter",
+      "format": "uuid",
+      "type": "string"
+    },
+    "institutionsLegacy[]": {
+      "description": "List of institution legacy ids",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "dicomStudyId": {
+      "description": "Study id from dicom",
+      "type": "string"
+    },
+    "patientId": {
+      "description": "Patient id from dicom",
+      "type": "string"
+    },
+    "modality": {
+      "description": "modality query string parameter",
+      "type": "string"
+    },
+    "source": {
+      "description": "source query string parameter",
+      "type": "string"
+    },
+    "studyInstanceUid": {
+      "description": "Study Instance Uid from dicom",
+      "type": "string"
+    },
+    "limit": {
+      "description": "limit items to return on pagination",
+      "default": 20,
+      "type": "integer"
+    },
+    "page": {
+      "description": "page number to return on pagination",
+      "default": 1,
+      "type": "integer"
+    },
+    "date": {
+      "description": "study creation date on dss",
+      "type": "string"
+    },
+    "accessionNumber": {
+      "description": "accession number from dicom",
+      "type": "string"
+    },
+    "storageArea[]": {
+      "description": "storage area that where the resources are stored",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "Id": {
+      "description": "Represents an uuid",
+      "format": "uuid",
+      "title": "Uuid",
+      "type": "string"
+    },
+    "LegacyId": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Tenant": {
+      "enum": [
+        "veheri",
+        "cmrad"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "Id",
+    "LegacyId",
+    "Name",
+    "Tenant"
+  ]
+}
