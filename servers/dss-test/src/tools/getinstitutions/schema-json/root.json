@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "institutionsLegacy[]": {
+      "description": "List of institution legacy ids",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "search": {
+      "description": "Search string",
+      "type": "string"
+    },
+    "tenant": {
+      "type": "string"
+    },
+    "aet": {
+      "description": "aet query string parameter",
+      "type": "string"
+    }
+  },
+  "required": []
+}

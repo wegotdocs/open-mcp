@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "filesSize": {
+      "description": "Represents a size in bytes",
+      "format": "int64",
+      "minimum": 0,
+      "title": "FilesSize",
+      "type": "integer"
+    },
+    "id": {
+      "description": "Represents an uuid",
+      "format": "uuid",
+      "title": "Uuid",
+      "type": "string"
+    },
+    "institutionId": {
+      "type": "string"
+    },
+    "numOfFiles": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source": {
+      "enum": [
+        "web-upload",
+        "cm-connect",
+        "direct-dicom"
+      ],
+      "title": "TransferSource",
+      "type": "string"
+    },
+    "storageArea": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "filesSize",
+    "id",
+    "institutionId",
+    "numOfFiles",
+    "source",
+    "storageArea"
+  ]
+}

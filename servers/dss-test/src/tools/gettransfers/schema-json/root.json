@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "enum": [
+        "uploading",
+        "completed",
+        "cancelled",
+        "failed"
+      ],
+      "type": "string"
+    },
+    "statuses[]": {
+      "items": {
+        "enum": [
+          "uploading",
+          "completed",
+          "cancelled",
+          "failed"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "institution_id": {
+      "description": "Institution id querystring parameter",
+      "format": "uuid",
+      "type": "string"
+    }
+  },
+  "required": []
+}

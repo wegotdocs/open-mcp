@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "filesSize": {
+      "format": "int64",
+      "nullable": true,
+      "type": "integer"
+    },
+    "numOfFiles": {
+      "nullable": true,
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "uploading",
+        "completed",
+        "cancelled",
+        "failed"
+      ],
+      "nullable": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "filesSize",
+    "numOfFiles",
+    "status"
+  ]
+}
