@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "ID of the desired user",
+      "type": "string",
+      "format": "uuid",
+      "example": "01234567-abcd-4321-fedc-9876543210fa"
+    },
+    "accountId": {
+      "description": "ID of the desired account",
+      "type": "string",
+      "format": "uuid",
+      "example": "02345617-bacd-3421-fdce-876593401fa0"
+    },
+    "name": {
+      "type": "string",
+      "description": "Account name to update to"
+    }
+  },
+  "required": [
+    "userId",
+    "accountId",
+    "name"
+  ]
+}
