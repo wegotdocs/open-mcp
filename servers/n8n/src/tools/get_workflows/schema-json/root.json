@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean",
+      "example": true
+    },
+    "tags": {
+      "type": "string",
+      "example": "test,production"
+    },
+    "name": {
+      "type": "string",
+      "example": "My Workflow"
+    },
+    "projectId": {
+      "type": "string",
+      "example": "VmwOO9HeTEj20kxM"
+    },
+    "excludePinnedData": {
+      "description": "Set this to avoid retrieving pinned data",
+      "type": "boolean",
+      "example": true
+    },
+    "limit": {
+      "description": "The maximum number of items to return.",
+      "type": "number",
+      "example": 100,
+      "default": 100,
+      "maximum": 250
+    },
+    "cursor": {
+      "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "includeData": {
+      "description": "Whether or not to include the execution's detailed data.",
+      "type": "boolean"
+    },
+    "status": {
+      "description": "Status to filter the executions by.",
+      "type": "string",
+      "enum": [
+        "error",
+        "success",
+        "waiting"
+      ]
+    },
+    "workflowId": {
+      "description": "Workflow to filter the executions by.",
+      "type": "string",
+      "example": "1000"
+    },
+    "projectId": {
+      "type": "string",
+      "example": "VmwOO9HeTEj20kxM"
+    },
+    "limit": {
+      "description": "The maximum number of items to return.",
+      "type": "number",
+      "example": 100,
+      "default": 100,
+      "maximum": 250
+    },
+    "cursor": {
+      "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+      "type": "string"
+    }
+  },
+  "required": []
+}
