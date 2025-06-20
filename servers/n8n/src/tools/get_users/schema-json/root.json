@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "The maximum number of items to return.",
+      "type": "number",
+      "example": 100,
+      "default": 100,
+      "maximum": 250
+    },
+    "cursor": {
+      "description": "Paginate by setting the cursor parameter to the nextCursor attribute returned by the previous request's response. Default value fetches the first \"page\" of the collection. See pagination for more detail.",
+      "type": "string"
+    },
+    "includeRole": {
+      "description": "Whether to include the user's role or not.",
+      "type": "boolean",
+      "example": true,
+      "default": false
+    },
+    "projectId": {
+      "type": "string",
+      "example": "VmwOO9HeTEj20kxM"
+    }
+  },
+  "required": []
+}

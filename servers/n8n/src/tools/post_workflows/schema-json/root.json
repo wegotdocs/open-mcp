@@ -1,0 +1,186 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true,
+      "example": "2tUt1wbLX592XDdX"
+    },
+    "name": {
+      "type": "string",
+      "example": "Workflow 1"
+    },
+    "active": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "0f5532f9-36ba-4bef-86c7-30d607400b15"
+          },
+          "name": {
+            "type": "string",
+            "example": "Jira"
+          },
+          "webhookId": {
+            "type": "string"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "notesInFlow": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "example": "n8n-nodes-base.Jira"
+          },
+          "typeVersion": {
+            "type": "number",
+            "example": 1
+          },
+          "executeOnce": {
+            "type": "boolean",
+            "example": false
+          },
+          "alwaysOutputData": {
+            "type": "boolean",
+            "example": false
+          },
+          "retryOnFail": {
+            "type": "boolean",
+            "example": false
+          },
+          "maxTries": {
+            "type": "number"
+          },
+          "waitBetweenTries": {
+            "type": "number"
+          },
+          "onError": {
+            "type": "string",
+            "example": "stopWorkflow"
+          },
+          "position": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "example": [
+              -100,
+              80
+            ]
+          },
+          "parameters": {
+            "type": "object",
+            "example": {
+              "additionalProperties": {}
+            }
+          },
+          "credentials": {
+            "type": "object",
+            "example": {
+              "jiraSoftwareCloudApi": {
+                "id": "35",
+                "name": "jiraApi"
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        }
+      }
+    },
+    "connections": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `connections` to the tool, first call the tool `expandSchema` with \"/properties/connections\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "settings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `settings` to the tool, first call the tool `expandSchema` with \"/properties/settings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "staticData": {
+      "example": {
+        "lastId": 1
+      },
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "jsonString",
+          "nullable": true
+        },
+        {
+          "type": "object",
+          "nullable": true
+        }
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true,
+            "example": "2tUt1wbLX592XDdX"
+          },
+          "name": {
+            "type": "string",
+            "example": "Production"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        }
+      },
+      "readOnly": true
+    }
+  },
+  "required": [
+    "name",
+    "nodes",
+    "connections",
+    "settings"
+  ]
+}
