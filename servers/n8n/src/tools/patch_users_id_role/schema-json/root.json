@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID or email of the user.",
+      "type": "string",
+      "format": "identifier"
+    },
+    "newRoleName": {
+      "type": "string",
+      "enum": [
+        "global:admin",
+        "global:member"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "newRoleName"
+  ]
+}

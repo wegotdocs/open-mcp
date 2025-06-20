@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "description": "The ID of the project.",
+      "type": "string"
+    },
+    "userId": {
+      "description": "The ID of the user.",
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "description": "The role assigned to the user in the project.",
+      "example": "project:viewer"
+    }
+  },
+  "required": [
+    "projectId",
+    "userId",
+    "role"
+  ]
+}

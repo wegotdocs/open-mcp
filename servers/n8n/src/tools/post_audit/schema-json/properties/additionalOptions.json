@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "daysAbandonedWorkflow": {
+      "type": "integer",
+      "description": "Days for a workflow to be considered abandoned if not executed"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "credentials",
+          "database",
+          "nodes",
+          "filesystem",
+          "instance"
+        ]
+      }
+    }
+  }
+}
