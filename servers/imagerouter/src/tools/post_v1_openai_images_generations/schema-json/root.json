@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "response_format": {
+      "type": "string",
+      "enum": [
+        "url",
+        "b64_json"
+      ],
+      "default": "url"
+    },
+    "quality": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "auto"
+    }
+  },
+  "required": [
+    "prompt",
+    "model"
+  ]
+}
