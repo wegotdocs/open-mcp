@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "name": z.string().describe("The connection name"),
+  "data": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `data` to the tool, first call the tool `expandSchema` with \"/properties/data\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>The raw connection store data. Schemas for connection types are not documented, but you can find the connection data of your existing connections in the xpipe vault.</property-description>"),
+  "validate": z.boolean().describe("Whether to perform a connection validation before adding it, i.e., probe the connection first. If validation is enabled and fails, the connection will not be added"),
+  "category": z.string().describe("The category uuid to put the connection in. If not specified, the default category will be used").optional()
+}
