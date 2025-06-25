@@ -1,0 +1,25 @@
+{
+  "description": "Filter by available properties in query params, like this: `api/v2/resources?filter[id]=value&filter[another_property]=value1,value2`. Check our Filtering guide for examples and all about filtering [here](https://developers.myclickfunnels.com/docs/filtering).\n",
+  "type": "object",
+  "properties": {
+    "contact_id": {
+      "type": "string",
+      "description": "A comma-separated list of Contact IDs to filter by.",
+      "example": 142
+    },
+    "id": {
+      "type": "string",
+      "description": "A comma-separated list of Order IDs to filter by.",
+      "example": 142
+    },
+    "order_type": {
+      "type": "string",
+      "description": "The order type to filter by.",
+      "enum": [
+        "subscription-order",
+        "one-time-order"
+      ],
+      "example": "subscription-order"
+    }
+  }
+}

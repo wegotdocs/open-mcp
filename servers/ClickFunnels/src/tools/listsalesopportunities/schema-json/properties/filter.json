@@ -1,0 +1,31 @@
+{
+  "description": "Filter by available properties in query params, like this: `api/v2/resources?filter[id]=value&filter[another_property]=value1,value2`. Check our Filtering guide for examples and all about filtering [here](https://developers.myclickfunnels.com/docs/filtering).\n",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A comma-separated list of opportunity IDs to filter by.",
+      "example": 142
+    },
+    "pipeline_id": {
+      "type": "string",
+      "description": "A comma-separated list of pipeline IDs to filter by.",
+      "example": 142
+    },
+    "pipelines_stage_id": {
+      "type": "string",
+      "description": "A comma-separated list of pipelines stage IDs to filter by.",
+      "example": 142
+    },
+    "primary_contact_id": {
+      "type": "string",
+      "description": "A comma-separated list of primary contact IDs to filter by.",
+      "example": 142
+    },
+    "assignee_id": {
+      "type": "string",
+      "description": "A comma-separated list of assignee memberships IDs to filter by.",
+      "example": 142
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "workspace_id": {
+      "type": "integer"
+    },
+    "sales_pipeline": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `sales_pipeline` to the tool, first call the tool `expandSchema` with \"/properties/sales_pipeline\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Pipelines</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "workspace_id"
+  ]
+}

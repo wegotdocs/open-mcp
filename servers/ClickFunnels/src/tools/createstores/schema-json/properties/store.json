@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "title": "Stores",
+  "description": "Stores",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name"
+    },
+    "current_path": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Current path"
+    },
+    "seo_title": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "SEO title"
+    },
+    "seo_description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "SEO description"
+    },
+    "seo_indexable": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "SEO Indexable"
+    },
+    "social_image_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Social image"
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "description": "Store Status"
+    }
+  },
+  "example": {
+    "store": {
+      "name": "Example Store",
+      "current_path": "/example-store",
+      "seo_title": "Example Store",
+      "seo_description": "Example Store",
+      "seo_indexable": true,
+      "social_image_id": null,
+      "status": "draft"
+    }
+  }
+}

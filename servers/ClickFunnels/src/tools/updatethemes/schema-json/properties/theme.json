@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "title": "Themes",
+  "description": "Themes",
+  "required": [],
+  "properties": {
+    "custom_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A custom name to override the theme name"
+    },
+    "current_style_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The style that will be applied to the theme"
+    }
+  },
+  "example": {
+    "theme": {
+      "custom_name": "Custom Name",
+      "current_style_id": 5
+    }
+  }
+}

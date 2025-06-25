@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "name": z.string().describe("Stage name").optional(),
+  "sort_order": z.union([z.number().int().describe("The position of the stage in the pipeline. The stages are ordered by the sort order attribute, starting at zero.\nIf not provided, the stage will be added at the end of the pipeline.\nIf provided, the stage will be inserted at the specified position, and the sort order of the subsequent stages will be incremented by one.\n"), z.null().describe("The position of the stage in the pipeline. The stages are ordered by the sort order attribute, starting at zero.\nIf not provided, the stage will be added at the end of the pipeline.\nIf provided, the stage will be inserted at the specified position, and the sort order of the subsequent stages will be incremented by one.\n")]).describe("The position of the stage in the pipeline. The stages are ordered by the sort order attribute, starting at zero.\nIf not provided, the stage will be added at the end of the pipeline.\nIf provided, the stage will be inserted at the specified position, and the sort order of the subsequent stages will be incremented by one.\n").optional(),
+  "close_probability": z.number().nullable().describe("Close probability of the opportunities in this stage").optional()
+}

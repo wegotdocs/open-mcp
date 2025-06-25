@@ -1,0 +1,14 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "name": z.string().describe("Name of the products collection"),
+  "description": z.union([z.string().describe("Description of the collection"), z.null().describe("Description of the collection")]).describe("Description of the collection").optional(),
+  "collection_type": z.union([z.string().describe("Type of the collection (manual or automatic)"), z.null().describe("Type of the collection (manual or automatic)")]).describe("Type of the collection (manual or automatic)").optional(),
+  "product_ids": z.union([z.array(z.any()).describe("Array of product IDs in the collection. Updating with invalid or non-workspace product IDs will result in an error. If IDs from existing products in the collection are left out, they will be removed from the collection. You can also remove all the products from a collection by providing an empty array."), z.null().describe("Array of product IDs in the collection. Updating with invalid or non-workspace product IDs will result in an error. If IDs from existing products in the collection are left out, they will be removed from the collection. You can also remove all the products from a collection by providing an empty array.")]).describe("Array of product IDs in the collection. Updating with invalid or non-workspace product IDs will result in an error. If IDs from existing products in the collection are left out, they will be removed from the collection. You can also remove all the products from a collection by providing an empty array.").optional(),
+  "sort_method": z.enum(["manually","name_asc","name_desc","price_desc","price_asc","added_at_desc","added_at_asc","created_at_desc","created_at_asc"]).describe("Method used to sort the products in the collection").optional(),
+  "image_id": z.union([z.string().describe("Collection image"), z.null().describe("Collection image")]).describe("Collection image").optional(),
+  "visible_in_store": z.union([z.boolean().describe("Whether the collection is visible in the online store"), z.null().describe("Whether the collection is visible in the online store")]).describe("Whether the collection is visible in the online store").optional(),
+  "seo_title": z.union([z.string().describe("Title of the collection for SEO purposes"), z.null().describe("Title of the collection for SEO purposes")]).describe("Title of the collection for SEO purposes").optional(),
+  "seo_description": z.union([z.string().describe("Description of the collection for SEO purposes"), z.null().describe("Description of the collection for SEO purposes")]).describe("Description of the collection for SEO purposes").optional(),
+  "social_image_id": z.union([z.string().describe("Image for social sharing"), z.null().describe("Image for social sharing")]).describe("Image for social sharing").optional()
+}

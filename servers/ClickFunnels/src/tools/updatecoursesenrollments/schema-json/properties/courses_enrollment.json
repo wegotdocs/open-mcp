@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "title": "Enrollments",
+  "description": "Enrollments",
+  "required": [],
+  "properties": {
+    "suspended": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Suspended"
+    },
+    "suspension_reason": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Suspension Reason"
+    }
+  },
+  "example": {
+    "courses_enrollment": {
+      "suspended": false,
+      "suspension_reason": "Call in to reapply after robot incident"
+    }
+  }
+}

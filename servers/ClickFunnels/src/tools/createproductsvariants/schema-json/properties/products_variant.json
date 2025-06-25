@@ -1,0 +1,183 @@
+{
+  "type": "object",
+  "title": "Variants",
+  "description": "Variants",
+  "required": [
+    "name",
+    "product_type",
+    "weight_unit",
+    "properties_values"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name"
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The description of the variant. The description of the **default variant** is the user-facing description of the `Product`."
+    },
+    "sku": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "SKU"
+    },
+    "product_type": {
+      "type": "string",
+      "description": "Type"
+    },
+    "out_of_stock_sales": {
+      "type": "boolean",
+      "description": "Out of stock sales",
+      "nullable": true
+    },
+    "weight": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Weight"
+    },
+    "weight_unit": {
+      "type": "string",
+      "description": "Weight unit"
+    },
+    "height": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Height"
+    },
+    "width": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Width"
+    },
+    "length": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Length"
+    },
+    "dimensions_unit": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Dimensions unit"
+    },
+    "tax_category_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Tax category ID"
+    },
+    "taxable": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Taxable"
+    },
+    "track_quantity": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Track Quantity"
+    },
+    "archived": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Archived"
+    },
+    "visible": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Is visible"
+    },
+    "fulfillment_required": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Fulfillment required"
+    },
+    "country_of_manufacture_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Country of manufacture"
+    },
+    "image_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The images for the variant."
+    },
+    "fulfillments_location_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The fulfillment locations for the variant."
+    },
+    "properties_values": {
+      "type": "array",
+      "description": "The property values of the Variant. e.g. 'Large', 'Red' etc.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "property_id": {
+            "type": "integer",
+            "description": "The ID of the property"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value"
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "products_variant": {
+      "name": "Fantastic Rubber Clock variant 28e3",
+      "description": "Sed sit fuga recusandae.",
+      "sku": "2nvgo6lJYkbAOVV6",
+      "product_type": "physical",
+      "out_of_stock_sales": true,
+      "weight": "92.0",
+      "weight_unit": "lb",
+      "height": "29.0",
+      "width": "815.0",
+      "length": "31.0",
+      "dimensions_unit": "inches",
+      "tax_category_id": null,
+      "taxable": null,
+      "track_quantity": false,
+      "archived": false,
+      "visible": true,
+      "fulfillment_required": false,
+      "country_of_manufacture_id": null,
+      "image_ids": [],
+      "fulfillments_location_ids": []
+    }
+  }
+}

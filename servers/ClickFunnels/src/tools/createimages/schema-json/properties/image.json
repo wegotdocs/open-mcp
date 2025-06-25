@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "title": "Images",
+  "description": "Images",
+  "required": [
+    "upload_source_url"
+  ],
+  "properties": {
+    "alt_text": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Image alt attribute"
+    },
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Image name"
+    },
+    "upload_source_url": {
+      "type": "string",
+      "description": "The source URL of the image that you want to upload. Not required on Update when not needed to re-upload the image."
+    }
+  },
+  "example": {
+    "image": {
+      "alt_text": "Alt text of the image",
+      "name": "Amazing Shot",
+      "upload_source_url": "https://image-hosting-x.com/cdn/123"
+    }
+  }
+}

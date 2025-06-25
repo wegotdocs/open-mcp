@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "title": "Pipelines",
+  "description": "Pipelines",
+  "required": [
+    "name",
+    "stages_attributes"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Pipeline name"
+    },
+    "stages_attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the stage"
+          },
+          "close_probability": {
+            "type": "integer",
+            "description": "The probability of closing a deal in this stage"
+          }
+        }
+      },
+      "description": "The stages of the pipeline. The stages are ordered by the position attribute."
+    }
+  },
+  "example": {
+    "sales_pipeline": {
+      "name": "Example Pipeline"
+    }
+  }
+}

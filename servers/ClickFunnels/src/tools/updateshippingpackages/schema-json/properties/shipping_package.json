@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "title": "Packages",
+  "description": "Packages",
+  "required": [],
+  "properties": {
+    "package_type": {
+      "type": "string",
+      "description": "Package Type",
+      "enum": [
+        "box",
+        "envelope",
+        "soft_package"
+      ]
+    },
+    "height": {
+      "type": "number",
+      "description": "Height"
+    },
+    "width": {
+      "type": "number",
+      "description": "Width"
+    },
+    "length": {
+      "type": "number",
+      "description": "Length"
+    },
+    "distance_unit": {
+      "type": "string",
+      "description": "Distance Unit"
+    },
+    "empty_weight": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Empty Weight"
+    },
+    "weight": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Weight"
+    },
+    "weight_unit": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "lb",
+        "kg",
+        "g",
+        "oz"
+      ],
+      "description": "Weight Unit"
+    },
+    "default_package": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Default Package"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name"
+    },
+    "carrier": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "fedex",
+        "ups",
+        "usps"
+      ],
+      "description": "Carrier"
+    }
+  },
+  "example": {
+    "shipping_package": {
+      "package_type": "box",
+      "height": "4.0",
+      "width": "2.0",
+      "length": "2.0",
+      "distance_unit": "in",
+      "empty_weight": null,
+      "weight": "0.0",
+      "weight_unit": "lb",
+      "default_package": false,
+      "name": "Example Package",
+      "carrier": null
+    }
+  }
+}

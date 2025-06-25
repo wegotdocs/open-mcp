@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "title": "Answers",
+  "description": "Answers",
+  "required": [],
+  "properties": {
+    "field_id": {
+      "type": "string",
+      "description": "Field"
+    },
+    "fields_option_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "ID of a record from the Forms::Fields::Option API."
+    },
+    "entry": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Entry"
+    },
+    "fields_option_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Fields Options"
+    }
+  },
+  "example": {
+    "forms_submissions_answer": {
+      "field_id": 123,
+      "fields_option_id": 50,
+      "entry": "MyText",
+      "fields_option_ids": []
+    }
+  }
+}

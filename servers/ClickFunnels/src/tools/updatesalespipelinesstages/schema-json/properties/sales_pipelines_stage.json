@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "title": "Stages",
+  "description": "Stages",
+  "required": [],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Stage name"
+    },
+    "sort_order": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The position of the stage in the pipeline. The stages are ordered by the sort order attribute, starting at zero.\nIf not provided, the stage will be added at the end of the pipeline.\nIf provided, the stage will be inserted at the specified position, and the sort order of the subsequent stages will be incremented by one.\n"
+    },
+    "close_probability": {
+      "type": "number",
+      "description": "Close probability of the opportunities in this stage",
+      "nullable": true
+    }
+  },
+  "example": {
+    "sales_pipelines_stage": {
+      "name": "Example Stage",
+      "sort_order": 5,
+      "close_probability": 20
+    }
+  }
+}

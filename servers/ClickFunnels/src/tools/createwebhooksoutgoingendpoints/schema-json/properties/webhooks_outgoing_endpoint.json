@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "title": "Webhooks",
+  "description": "Webhooks",
+  "required": [
+    "url",
+    "name"
+  ],
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "The URL that ClickFunnels event webhooks will be sent to."
+    },
+    "name": {
+      "type": "string",
+      "description": "The custom name for the webhook endpoint."
+    },
+    "event_type_ids": {
+      "type": "array",
+      "description": "Represents the event types to which the webhook is subscribed. On create one or more valid `event_type_ids` are required. See the <a class=\"link\" href=\"https://developers.myclickfunnels.com/docs/webhook-event-types#order-webhooks\" target=\"_blank\">Webhook Event Types guide</a> for details.\n\nTo remove one `event_type_id` on update, pass an array of all current `event_type_ids` less the one to be removed.\n\nOn update to remove all `event_type_ids` pass an empty array.\n"
+    },
+    "page_ids": {
+      "type": "array",
+      "nullable": true,
+      "description": "The pages scope of the webhook, i.e., the endpoint will only subscribe to events triggered by users from the pages with the given IDs.\nIf not configured initially (equalling null) or empty, subscribes to events fired from any page in the workspace.\nUpdating the array will override existing values. To remove all `page_ids` pass an empty array or null.\n"
+    },
+    "funnel_ids": {
+      "type": "array",
+      "nullable": true,
+      "description": "The funnel scope of the webhook, i.e., the endpoint will only subscribe to events triggered by users from the funnels with the given IDs.\nIf not configured initially (equalling null) or empty, subscribes to events fired from any funnel in the workspace.\nUpdating the array will override existing values. To remove all `funnel_ids` pass an empty array or null.\n"
+    }
+  },
+  "example": {
+    "webhooks_outgoing_endpoint": {
+      "url": "https://example.com/some-endpoint-url",
+      "name": "Example Endpoint",
+      "event_type_ids": [
+        "contact.identified",
+        "one-time-order.completed"
+      ],
+      "page_ids": [],
+      "funnel_ids": []
+    }
+  }
+}

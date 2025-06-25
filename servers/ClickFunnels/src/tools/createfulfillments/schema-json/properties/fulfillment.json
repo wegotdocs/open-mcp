@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "title": "Fulfillments",
+  "description": "Fulfillments",
+  "required": [
+    "contact_id",
+    "location_id",
+    "included_orders_invoices_line_items_attributes"
+  ],
+  "properties": {
+    "contact_id": {
+      "type": "integer",
+      "description": "The contact that made the order that is being fulfilled."
+    },
+    "tracking_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Tracking URL"
+    },
+    "shipping_provider": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Shipping Provider"
+    },
+    "tracking_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Tracking Code"
+    },
+    "location_id": {
+      "type": "integer",
+      "description": "The location that the fulfillment is being fulfilled from"
+    },
+    "ignore_out_of_stock": {
+      "type": "boolean",
+      "description": "Create a fulfillment despite the item being out of stock."
+    },
+    "notify_customer": {
+      "type": "boolean",
+      "description": "Send an email to the customer when the fulfillment is created. Will use workspace default behavior if left unset."
+    },
+    "included_orders_invoices_line_items_attributes": {
+      "type": "array",
+      "description": "The orders invoices line items to fulfill as part of this fulfillment.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "invoices_line_item_id": {
+            "type": "integer",
+            "description": "The orders invoice line item to fulfill"
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "The quantity to fulfill"
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "fulfillment": {
+      "contact_id": 7,
+      "tracking_url": "https://usps.com/track/1234567890",
+      "shipping_provider": "USPS",
+      "tracking_code": "1234567890",
+      "location_id": 1,
+      "ignore_out_of_stock": true,
+      "notify_customer": true,
+      "included_orders_invoices_line_items_attributes": [
+        {
+          "invoices_line_item_id": 1,
+          "quantity": 1
+        },
+        {
+          "invoices_line_item_id": 2,
+          "quantity": 2
+        }
+      ]
+    }
+  }
+}

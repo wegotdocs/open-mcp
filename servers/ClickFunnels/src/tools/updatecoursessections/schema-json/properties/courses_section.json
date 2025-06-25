@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "title": "Modules",
+  "description": "Modules",
+  "required": [],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title"
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Description"
+    },
+    "days_till_drip_access": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Days until drip access"
+    },
+    "blocker_section_id": {
+      "type": "integer",
+      "description": "Blocker section",
+      "nullable": true
+    },
+    "blocker_lesson_id": {
+      "type": "integer",
+      "description": "Blocker lesson",
+      "nullable": true
+    },
+    "is_hidden_from_non_members": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Current Path"
+    }
+  },
+  "example": {
+    "courses_section": {
+      "title": "Module 1",
+      "description": "Example Course Section",
+      "days_till_drip_access": 5,
+      "blocker_section_id": 123,
+      "blocker_lesson_id": 123,
+      "is_hidden_from_non_members": true
+    }
+  }
+}

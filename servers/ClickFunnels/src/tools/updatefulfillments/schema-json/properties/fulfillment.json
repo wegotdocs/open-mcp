@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "title": "Fulfillments",
+  "description": "Fulfillments",
+  "required": [],
+  "properties": {
+    "tracking_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Tracking URL"
+    },
+    "shipping_provider": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Shipping Provider"
+    },
+    "tracking_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Tracking Code"
+    },
+    "notify_customer": {
+      "type": "boolean",
+      "description": "Send an email to the customer when the fulfillment is updated. Will use workspace default behavior if left unset"
+    }
+  },
+  "example": {
+    "fulfillment": {
+      "tracking_url": "https://usps.com/track/1234567890",
+      "shipping_provider": "USPS",
+      "tracking_code": "1234567890",
+      "notify_customer": true
+    }
+  }
+}

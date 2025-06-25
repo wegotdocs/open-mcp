@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "title": "Contacts",
+  "description": "Contacts",
+  "required": [],
+  "properties": {
+    "email_address": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Email address"
+    },
+    "first_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "First name"
+    },
+    "last_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Last name"
+    },
+    "phone_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Phone number"
+    },
+    "time_zone": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The human-readable time zone, usually set dynamically by the app for the contact, for example, during opt-in.\nRead more about time zones and how to map them back to the TZ standard in [our Time Zones guide.](https://dash.readme.com/project/cf2/v2/docs/timezones).\n"
+    },
+    "fb_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Facebook URL"
+    },
+    "twitter_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Twitter URL"
+    },
+    "instagram_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Instagram URL"
+    },
+    "linkedin_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Linkedin URL"
+    },
+    "website_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Website URL"
+    },
+    "tag_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "Contact Tag IDs. Any valid array, empty or with valid tags will overwrite existing values. To avoid losing existing tags first use the Fetch Contact endpoint, then be sure to include the existing tags in your payload along with any new addition(s)."
+    },
+    "custom_attributes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_attributes` to the tool, first call the tool `expandSchema` with \"/properties/contact/properties/custom_attributes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Custom attributes are usually added in ClickFunnels to a contact when they submit forms that contain custom contact attributes. Here you can directly create them during contact modification.\n\nCustom attributes are provided as key-value pairs:\nA key that does not exist, will create a new custom contact attribute.\nA key that already exists, will update the value of an existing custom contact attribute.\n\nEmpty or null values, will set the custom attribute values to empty strings. A key that has special characters or spaces will be automatically converted to `snake_case` (For example, 'Favorite Food! 🥑' will be converted to 'favorite_food').\n\nEmpty keys will trigger a bad request response. Also, non-object inputs for custom_attributes (e.g. an array or string), it will be ignored.\nKeys that are default properties on the Contact resource or variations of it will result in an error. E.g., 'first_name', 'First Name',  etc. are not valid inputs.\n</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "example": {
+    "contact": {
+      "email_address": "test-880007c96a851763710e@example.com",
+      "first_name": "Chadwick",
+      "last_name": "Padberg",
+      "phone_number": "(241) 277-8058",
+      "time_zone": "Pacific Time (US & Canada)",
+      "fb_url": "https://www.facebook.com/example",
+      "twitter_url": "https://twitter.com/example",
+      "instagram_url": null,
+      "linkedin_url": "https://www.linkedin.com/in/example",
+      "website_url": "https://example.com"
+    }
+  }
+}

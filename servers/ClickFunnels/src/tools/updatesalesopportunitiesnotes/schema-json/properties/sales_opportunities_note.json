@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "title": "Notes",
+  "description": "Notes",
+  "required": [],
+  "properties": {
+    "content": {
+      "type": "string",
+      "description": "Content"
+    },
+    "created_by_id": {
+      "type": "integer",
+      "description": "The ID of the Team-Membership that created the note. When creating notes via the API, this defaults to the ClickFunnels API default User's Membership ID. You can retrieve a list of available Memberships and their id via the Team resource's memberships property.\n"
+    }
+  },
+  "example": {
+    "sales_opportunities_note": {
+      "content": "Example Note",
+      "created_by_id": 42
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "title": "Zones",
+  "description": "Zones",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name"
+    },
+    "address_filter_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Zone"
+    },
+    "region_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Region IDs"
+    },
+    "country_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Country IDs"
+    },
+    "includes_rest_of_world": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Includes Rest of the World"
+    }
+  },
+  "example": {
+    "shipping_zone": {
+      "name": "Vaughn Hettinger",
+      "address_filter_id": null,
+      "region_ids": [],
+      "country_ids": [],
+      "includes_rest_of_world": false
+    }
+  }
+}
