@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "string"
+  },
+  "description": "Custom attributes are usually added in ClickFunnels to a contact when they submit forms that contain custom contact attributes. Here you can directly create them during contact modification.\n\nCustom attributes are provided as key-value pairs:\nA key that does not exist, will create a new custom contact attribute.\nA key that already exists, will update the value of an existing custom contact attribute.\n\nEmpty or null values, will set the custom attribute values to empty strings. A key that has special characters or spaces will be automatically converted to `snake_case` (For example, 'Favorite Food! 🥑' will be converted to 'favorite_food').\n\nEmpty keys will trigger a bad request response. Also, non-object inputs for custom_attributes (e.g. an array or string), it will be ignored.\nKeys that are default properties on the Contact resource or variations of it will result in an error. E.g., 'first_name', 'First Name',  etc. are not valid inputs.\n",
+  "properties": {}
+}

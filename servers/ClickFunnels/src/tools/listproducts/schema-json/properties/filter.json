@@ -1,0 +1,38 @@
+{
+  "description": "Filter by available properties in query params, like this: `api/v2/resources?filter[id]=value&filter[another_property]=value1,value2`. Check our Filtering guide for examples and all about filtering [here](https://developers.myclickfunnels.com/docs/filtering).\n",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A comma-separated list of product IDs to filter by.",
+      "example": 123
+    },
+    "visible_in_store": {
+      "type": "boolean",
+      "description": "Filter products by visibility in the online store.",
+      "example": true,
+      "enum": [
+        true,
+        false
+      ]
+    },
+    "visible_in_customer_center": {
+      "type": "boolean",
+      "description": "Filter products by visibility in the customer center.",
+      "example": true,
+      "enum": [
+        true,
+        false
+      ]
+    },
+    "archived": {
+      "type": "boolean",
+      "description": "Filter products by archived state.",
+      "example": true,
+      "enum": [
+        true,
+        false
+      ]
+    }
+  }
+}

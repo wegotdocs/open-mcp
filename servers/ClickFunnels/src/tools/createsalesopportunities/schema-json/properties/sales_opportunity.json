@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "title": "Opportunities",
+  "description": "Opportunities",
+  "required": [
+    "name",
+    "pipelines_stage_id",
+    "primary_contact_id"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name"
+    },
+    "pipelines_stage_id": {
+      "type": "integer",
+      "description": "Pipeline Stage"
+    },
+    "primary_contact_id": {
+      "type": "integer",
+      "description": "Primary Contact"
+    },
+    "value": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The potential value of this opportunity in the default currency of the workspace"
+    },
+    "closed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Close date"
+    },
+    "assignee_id": {
+      "type": "integer",
+      "description": "The ID of the Team `Membership` to assign the Opportunity to.\nAn Opportunity can be assigned to any Team member since they have access to all your workspaces.\nYou can get a list of available Memberships and their `id` via the `Team` resource's `memberships` property.\n\nIf the opportunity is already assigned to a team member, the assignee will be updated.\nYou can unset the assignee by passing a `null` value for `assignee_id`.\n"
+    }
+  },
+  "example": {
+    "sales_opportunity": {
+      "name": "Example Opportunity",
+      "pipelines_stage_id": 32,
+      "primary_contact_id": 25,
+      "value": "100.0",
+      "closed_at": "2025-05-14T14:47:53.759Z",
+      "assignee_id": 42
+    }
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "type": "object",
+  "title": "Products",
+  "description": "Products",
+  "required": [],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "current_path": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Current Path"
+    },
+    "visible_in_store": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Visible in Store"
+    },
+    "visible_in_customer_center": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Visible in Customer Center"
+    },
+    "seo_title": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A clear title without branding or mentioning the domain itself. Longer is better, but max is 60 characters."
+    },
+    "seo_description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A clear SEO description, at least two sentences long. Longer is better, but max is 160 characters. You will find the actual user-facing description on the **default variant of the product** (see the `Products::Variant` resource)."
+    },
+    "seo_image_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "SEO image"
+    },
+    "commissionable": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Commissionable"
+    },
+    "image_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Images"
+    },
+    "variant_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "minContains": 0,
+      "contains": {
+        "type": "integer"
+      },
+      "description": "Variant IDs"
+    },
+    "price_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Price IDs"
+    },
+    "redirect_funnel_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Redirect funnel"
+    },
+    "cancellation_funnel_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Cancellation Funnel Url"
+    },
+    "tag_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "Any valid array, empty or with valid tag ids will overwrite existing values. To avoid losing existing tags first use the Fetch Product endpoint, then be sure to include the existing tags in your payload along with any new addition(s)"
+    },
+    "variant_properties": {
+      "type": "array",
+      "description": "The properties of the product's variants. e.g. 'Size', 'Color' etc.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The ID of the property, if updating the property"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the property"
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "product": {
+      "name": "Heavy Duty Steel",
+      "current_path": null,
+      "visible_in_store": true,
+      "visible_in_customer_center": true,
+      "seo_title": "Minima suscipit velit eveniet.",
+      "seo_description": "In vel eaque velit.",
+      "seo_image_id": null,
+      "commissionable": true,
+      "image_ids": [],
+      "variant_ids": [
+        22
+      ],
+      "price_ids": [],
+      "redirect_funnel_id": null,
+      "cancellation_funnel_url": null,
+      "tag_ids": [
+        1,
+        2,
+        3
+      ],
+      "variant_properties": [
+        {
+          "id": 1,
+          "name": "Size"
+        },
+        {
+          "id": 2,
+          "name": "Color"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "title": "Enrollments",
+  "description": "Enrollments",
+  "required": [
+    "contact_id"
+  ],
+  "properties": {
+    "contact_id": {
+      "type": "integer",
+      "description": "Contact ID"
+    },
+    "suspended": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Suspended"
+    },
+    "suspension_reason": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Suspension Reason"
+    }
+  },
+  "example": {
+    "courses_enrollment": {
+      "contact_id": 2,
+      "suspended": false,
+      "suspension_reason": "Call in to reapply after robot incident"
+    }
+  }
+}

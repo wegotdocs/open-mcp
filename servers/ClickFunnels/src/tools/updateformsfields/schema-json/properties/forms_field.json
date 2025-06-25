@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "title": "Fields",
+  "description": "Fields",
+  "required": [],
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "Label"
+    },
+    "field_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Field Type"
+    },
+    "allow_multiple": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Allow Multiple"
+    },
+    "key": {
+      "type": "string",
+      "description": "Key"
+    },
+    "hidden": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Hidden"
+    }
+  },
+  "example": {
+    "forms_field": {
+      "label": "Example Field",
+      "field_type": "MyString",
+      "allow_multiple": false,
+      "key": "CustomKey",
+      "hidden": false
+    }
+  }
+}

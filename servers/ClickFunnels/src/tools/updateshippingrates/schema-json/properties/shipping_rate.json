@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "title": "Rates",
+  "description": "Rates",
+  "required": [],
+  "properties": {
+    "provider_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Provider Name"
+    },
+    "price": {
+      "type": "string",
+      "description": "Price"
+    },
+    "price_currency": {
+      "type": "string",
+      "description": "Price Currency"
+    },
+    "rates_name_id": {
+      "type": "integer",
+      "description": "Rate name ID"
+    },
+    "live_rates_provider": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Shippo"
+      ],
+      "description": "Live Rates Provider"
+    }
+  },
+  "example": {
+    "shipping_rate": {
+      "provider_name": "Stepanie Bashirian",
+      "price": "10.00",
+      "price_currency": "USD",
+      "rates_name_id": 1,
+      "live_rates_provider": null
+    }
+  }
+}

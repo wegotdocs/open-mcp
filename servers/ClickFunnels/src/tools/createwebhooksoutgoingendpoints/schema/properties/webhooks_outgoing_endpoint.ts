@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "url": z.string().describe("The URL that ClickFunnels event webhooks will be sent to."),
+  "name": z.string().describe("The custom name for the webhook endpoint."),
+  "event_type_ids": z.array(z.any()).describe("Represents the event types to which the webhook is subscribed. On create one or more valid `event_type_ids` are required. See the <a class=\"link\" href=\"https://developers.myclickfunnels.com/docs/webhook-event-types#order-webhooks\" target=\"_blank\">Webhook Event Types guide</a> for details.\n\nTo remove one `event_type_id` on update, pass an array of all current `event_type_ids` less the one to be removed.\n\nOn update to remove all `event_type_ids` pass an empty array.\n").optional(),
+  "page_ids": z.array(z.any()).nullable().describe("The pages scope of the webhook, i.e., the endpoint will only subscribe to events triggered by users from the pages with the given IDs.\nIf not configured initially (equalling null) or empty, subscribes to events fired from any page in the workspace.\nUpdating the array will override existing values. To remove all `page_ids` pass an empty array or null.\n").optional(),
+  "funnel_ids": z.array(z.any()).nullable().describe("The funnel scope of the webhook, i.e., the endpoint will only subscribe to events triggered by users from the funnels with the given IDs.\nIf not configured initially (equalling null) or empty, subscribes to events fired from any funnel in the workspace.\nUpdating the array will override existing values. To remove all `funnel_ids` pass an empty array or null.\n").optional()
+}

@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "title": "Teams",
+  "description": "Teams",
+  "required": [],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of your Team"
+    },
+    "time_zone": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The human-readable time zone set manually by a ClickFunnels user or dynamically by the app.\nRead more about time zones and how to map them back to the TZ standard in [our Time Zones guide.](https://dash.readme.com/project/cf2/v2/docs/timezones).\n"
+    },
+    "locale": {
+      "type": "string",
+      "description": "The main language used to create a new website.",
+      "enum": [
+        "en",
+        "es",
+        "ja",
+        "pt"
+      ],
+      "default": "en"
+    }
+  },
+  "example": {
+    "team": {
+      "name": "Example Team",
+      "time_zone": "Pacific Time (US & Canada)",
+      "locale": "en"
+    }
+  }
+}

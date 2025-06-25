@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "title": "Completed lessons",
+  "description": "Completed lessons",
+  "required": [
+    "enrollment_id",
+    "lesson_id"
+  ],
+  "properties": {
+    "enrollment_id": {
+      "type": "integer",
+      "description": "The ID of the `Courses::Enrollment` record that completed the lesson"
+    },
+    "lesson_id": {
+      "type": "integer",
+      "description": "The ID of the `Courses::Lesson` record that was completed"
+    }
+  },
+  "example": {
+    "courses_lesson_completion": {
+      "enrollment_id": 2,
+      "lesson_id": 2
+    }
+  }
+}

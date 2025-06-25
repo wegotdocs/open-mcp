@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "opportunity_id": z.number().int(),
+  "after": z.string().describe("ID of item after which the collection should be returned. More examples and info about pagination [in our guides](https://developers.myclickfunnels.com/docs/pagination).").optional(),
+  "sort_order": z.enum(["asc","desc"]).describe("Sort order of a list response. Use 'desc' to reverse the default 'asc' (ascending) sort order. Examples [in our guides](https://developers.myclickfunnels.com/docs/pagination).").optional(),
+  "sort_property": z.enum(["id","updated_at"]).describe("Sort property of a list response. The default is id and thus the created_at order.\nIf you sort by other properties, we additionally sort by id implicitly as a secondary sort property, so that you can rely on the sort order to be deterministic even if the main sort property ends up with the same values.\n").optional(),
+  "filter": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `filter` to the tool, first call the tool `expandSchema` with \"/properties/filter\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Filter by available properties in query params, like this: `api/v2/resources?filter[id]=value&filter[another_property]=value1,value2`. Check our Filtering guide for examples and all about filtering [here](https://developers.myclickfunnels.com/docs/filtering).\n</property-description>").optional()
+}

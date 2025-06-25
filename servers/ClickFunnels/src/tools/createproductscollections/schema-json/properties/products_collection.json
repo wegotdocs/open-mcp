@@ -1,0 +1,102 @@
+{
+  "type": "object",
+  "title": "Collections",
+  "description": "Collections",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the products collection"
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Description of the collection"
+    },
+    "collection_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Type of the collection (manual or automatic)"
+    },
+    "product_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Array of product IDs in the collection. Updating with invalid or non-workspace product IDs will result in an error. If IDs from existing products in the collection are left out, they will be removed from the collection. You can also remove all the products from a collection by providing an empty array."
+    },
+    "sort_method": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "manually",
+        "name_asc",
+        "name_desc",
+        "price_desc",
+        "price_asc",
+        "added_at_desc",
+        "added_at_asc",
+        "created_at_desc",
+        "created_at_asc"
+      ],
+      "description": "Method used to sort the products in the collection"
+    },
+    "image_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Collection image"
+    },
+    "visible_in_store": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the collection is visible in the online store"
+    },
+    "seo_title": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Title of the collection for SEO purposes"
+    },
+    "seo_description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Description of the collection for SEO purposes"
+    },
+    "social_image_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Image for social sharing"
+    }
+  },
+  "example": {
+    "products_collection": {
+      "name": "Example Collection",
+      "description": "Example Description",
+      "collection_type": "manual",
+      "product_ids": [],
+      "sort_method": "manually",
+      "image_id": null,
+      "visible_in_store": true,
+      "seo_title": "Example SEO Title",
+      "seo_description": "Example SEO Description",
+      "social_image_id": null
+    }
+  }
+}

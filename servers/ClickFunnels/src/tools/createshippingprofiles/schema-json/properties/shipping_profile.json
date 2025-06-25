@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "title": "Profiles",
+  "description": "Profiles",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name"
+    },
+    "variant_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Variant IDs"
+    }
+  },
+  "example": {
+    "shipping_profile": {
+      "name": "Example Shipping Profile",
+      "variant_ids": []
+    }
+  }
+}

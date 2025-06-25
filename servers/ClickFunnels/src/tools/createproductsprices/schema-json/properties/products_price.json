@@ -1,0 +1,162 @@
+{
+  "type": "object",
+  "title": "Prices",
+  "description": "Prices",
+  "required": [
+    "amount",
+    "currency",
+    "duration",
+    "interval",
+    "trial_interval",
+    "trial_duration",
+    "trial_amount",
+    "interval_count"
+  ],
+  "properties": {
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Name"
+    },
+    "amount": {
+      "type": "string",
+      "description": "Amount"
+    },
+    "cost": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Cost"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Duration"
+    },
+    "interval": {
+      "type": "string",
+      "description": "Interval"
+    },
+    "trial_interval": {
+      "type": "string",
+      "description": "Trial interval"
+    },
+    "trial_duration": {
+      "type": "string",
+      "description": "Trial duration"
+    },
+    "trial_amount": {
+      "type": "string",
+      "description": "Trial Amount"
+    },
+    "setup_amount": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Setup amount"
+    },
+    "self_cancel": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Customer can cancel"
+    },
+    "self_upgrade": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Customer can upgrade"
+    },
+    "self_downgrade": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Customer can downgrade"
+    },
+    "self_reactivate": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Customer can reactivate"
+    },
+    "interval_count": {
+      "type": "string",
+      "description": "Interval count"
+    },
+    "payment_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "one_time",
+        "subscription",
+        "payment_plan"
+      ],
+      "description": "Defaults to 'one_time' if left blank"
+    },
+    "visible": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Visible"
+    },
+    "compare_at_amount": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Compare at amount"
+    },
+    "key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Key"
+    },
+    "archived": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Archived"
+    }
+  },
+  "example": {
+    "products_price": {
+      "name": "Example Price",
+      "amount": "100.00",
+      "cost": "0.00",
+      "currency": "USD",
+      "duration": null,
+      "interval": null,
+      "trial_interval": null,
+      "trial_duration": null,
+      "trial_amount": "0.00",
+      "setup_amount": null,
+      "self_cancel": true,
+      "self_upgrade": true,
+      "self_downgrade": true,
+      "self_reactivate": true,
+      "interval_count": null,
+      "payment_type": "one_time",
+      "visible": true,
+      "compare_at_amount": null,
+      "key": null,
+      "archived": false
+    }
+  }
+}

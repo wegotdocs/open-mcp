@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "title": "Funnels",
+  "description": "Funnels",
+  "required": [],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the Funnel"
+    },
+    "live_mode": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "In Live Mode your Funnel cannot be tested and will process live payments"
+    }
+  },
+  "example": {
+    "funnel": {
+      "name": "Example Funnel",
+      "live_mode": true
+    }
+  }
+}

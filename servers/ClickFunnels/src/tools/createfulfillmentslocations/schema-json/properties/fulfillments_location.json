@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "title": "Locations",
+  "description": "Locations",
+  "required": [
+    "name",
+    "address_name",
+    "email_address"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Location name"
+    },
+    "address_name": {
+      "type": "string",
+      "description": "Address name"
+    },
+    "email_address": {
+      "type": "string",
+      "description": "Email address"
+    },
+    "phone_number": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Phone number"
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indicates if the location is archived"
+    },
+    "external_app": {
+      "type": "boolean",
+      "description": "Indicates a location managed by an external integration. Only to be used for requests made with Oauth 2.0 access tokens. External app locations do not need to provide an address."
+    },
+    "address": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `address` to the tool, first call the tool `expandSchema` with \"/properties/fulfillments_location/properties/address\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "example": {
+    "fulfillments_location": {
+      "name": "Example Location",
+      "address_name": "Example Address",
+      "email_address": "myemail1747838866@example.com",
+      "phone_number": "(123)-555-4567",
+      "archived": false
+    }
+  }
+}
