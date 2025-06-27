@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "properties": {
+    "lon": {
+      "description": "Longitude coordinate between -180 and 180",
+      "title": "Lon coordinate",
+      "maximum": 180,
+      "minimum": -180,
+      "type": "number"
+    },
+    "lat": {
+      "description": "Latitude coordinate between 90 and 90",
+      "title": "Lat coordinate",
+      "maximum": 90,
+      "minimum": -90,
+      "type": "number"
+    },
+    "property": {
+      "title": "Property",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "bdod",
+        "cec",
+        "cfvo",
+        "clay",
+        "nitrogen",
+        "ocd",
+        "ocs",
+        "phh2o",
+        "sand",
+        "silt",
+        "soc",
+        "wv0010",
+        "wv0033",
+        "wv1500"
+      ]
+    },
+    "depth": {
+      "title": "Depth",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "0-5cm",
+        "0-30cm",
+        "5-15cm",
+        "15-30cm",
+        "30-60cm",
+        "60-100cm",
+        "100-200cm"
+      ]
+    },
+    "value": {
+      "title": "Value",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "Q0.5",
+        "Q0.05",
+        "Q0.95",
+        "mean",
+        "uncertainty"
+      ]
+    }
+  },
+  "required": [
+    "lon",
+    "lat"
+  ]
+}
