@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "lon": {
+      "description": "Longitude coordinate between -180 and 180",
+      "title": "Lon coordinate",
+      "maximum": 180,
+      "minimum": -180,
+      "type": "number"
+    },
+    "lat": {
+      "description": "Latitude coordinate between 90 and 90",
+      "title": "Lat coordinate",
+      "maximum": 90,
+      "minimum": -90,
+      "type": "number"
+    },
+    "number_classes": {
+      "description": "Number of WRB probability classes that will be return, ordered from higher to lower percentage",
+      "title": "Number of WRB probablity classes ",
+      "type": "integer",
+      "default": 5
+    }
+  },
+  "required": [
+    "lon",
+    "lat"
+  ]
+}
