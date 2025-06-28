@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "description": "Desired time for refreshing the WebSocket subscription",
+  "example": "PT15M",
+  "properties": {
+    "seconds": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "zero": {
+      "type": "boolean"
+    },
+    "nano": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "negative": {
+      "type": "boolean"
+    },
+    "positive": {
+      "type": "boolean"
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "durationEstimated": {
+            "type": "boolean"
+          },
+          "duration": {
+            "type": "object",
+            "properties": {
+              "seconds": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "zero": {
+                "type": "boolean"
+              },
+              "nano": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "negative": {
+                "type": "boolean"
+              },
+              "positive": {
+                "type": "boolean"
+              }
+            }
+          },
+          "timeBased": {
+            "type": "boolean"
+          },
+          "dateBased": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}
