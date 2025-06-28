@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "symbols": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "providers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "BINANCE",
+          "KRAKEN",
+          "BITFINEX",
+          "COINBASE"
+        ]
+      }
+    },
+    "from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "to": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "limit": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "interval": {
+      "type": "string"
+    },
+    "cursor": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "symbols",
+    "providers",
+    "interval"
+  ]
+}

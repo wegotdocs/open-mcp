@@ -1,0 +1,22 @@
+{
+  "description": "Pagination parameters (page, size, sort).",
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 0
+    },
+    "size": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 1
+    },
+    "sort": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
