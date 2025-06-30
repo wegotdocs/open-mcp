@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "lon": {
+      "description": "Longitude",
+      "type": "number",
+      "maximum": 180,
+      "minimum": -180,
+      "title": "lon"
+    },
+    "lat": {
+      "description": "Latitude",
+      "type": "number",
+      "maximum": 90,
+      "minimum": -90,
+      "title": "lat"
+    },
+    "top_k": {
+      "description": "Number of most probable soil types that will be returned, sorted by probability in descending order",
+      "type": "integer",
+      "maximum": 30,
+      "minimum": 0,
+      "title": "top_k",
+      "default": 0
+    }
+  },
+  "required": [
+    "lon",
+    "lat"
+  ]
+}

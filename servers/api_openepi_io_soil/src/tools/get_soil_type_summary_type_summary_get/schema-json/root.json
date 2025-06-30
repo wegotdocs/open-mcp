@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "min_lon": {
+      "description": "Minimum longitude",
+      "type": "number",
+      "maximum": 180,
+      "minimum": -180,
+      "title": "min_lon"
+    },
+    "max_lon": {
+      "description": "Maximum longitude",
+      "type": "number",
+      "maximum": 180,
+      "minimum": -180,
+      "title": "max_lon"
+    },
+    "min_lat": {
+      "description": "Minimum latitude",
+      "type": "number",
+      "maximum": 90,
+      "minimum": -90,
+      "title": "min_lat"
+    },
+    "max_lat": {
+      "description": "Maximum latitude",
+      "type": "number",
+      "maximum": 90,
+      "minimum": -90,
+      "title": "max_lat"
+    }
+  },
+  "required": [
+    "min_lon",
+    "max_lon",
+    "min_lat",
+    "max_lat"
+  ]
+}
