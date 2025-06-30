@@ -1,0 +1,85 @@
+{
+  "type": "object",
+  "properties": {
+    "lon": {
+      "description": "Longitude",
+      "type": "number",
+      "maximum": 180,
+      "minimum": -180,
+      "title": "lon"
+    },
+    "lat": {
+      "description": "Latitude",
+      "type": "number",
+      "maximum": 90,
+      "minimum": -90,
+      "title": "lat"
+    },
+    "depths": {
+      "description": "List of depths to include in the query.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "0-5cm",
+          "0-30cm",
+          "5-15cm",
+          "15-30cm",
+          "30-60cm",
+          "60-100cm",
+          "100-200cm"
+        ],
+        "title": "SoilDepthLabels"
+      },
+      "minItems": 1,
+      "title": "depths to include"
+    },
+    "properties": {
+      "description": "List of soil properties to include in the query.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "bdod",
+          "cec",
+          "cfvo",
+          "clay",
+          "nitrogen",
+          "ocd",
+          "ocs",
+          "phh2o",
+          "sand",
+          "silt",
+          "soc"
+        ],
+        "title": "SoilPropertiesCodes"
+      },
+      "minItems": 1,
+      "title": "properties to include"
+    },
+    "values": {
+      "description": "List of values to include in the query.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "mean",
+          "Q0.05",
+          "Q0.5",
+          "Q0.95",
+          "uncertainty"
+        ],
+        "title": "SoilPropertyValueTypes"
+      },
+      "minItems": 1,
+      "title": "values to include"
+    }
+  },
+  "required": [
+    "lon",
+    "lat",
+    "depths",
+    "properties",
+    "values"
+  ]
+}
