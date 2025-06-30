@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true,
+      "example": "R2DjclaysHbqn778"
+    },
+    "name": {
+      "type": "string",
+      "example": "Joe's Github Credentials"
+    },
+    "type": {
+      "type": "string",
+      "example": "github"
+    },
+    "data": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `data` to the tool, first call the tool `expandSchema` with \"/properties/data\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true,
+      "example": "2022-04-29T11:02:29.842Z"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true,
+      "example": "2022-04-29T11:02:29.842Z"
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "data"
+  ]
+}

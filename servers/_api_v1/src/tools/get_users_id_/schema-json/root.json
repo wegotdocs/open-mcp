@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID or email of the user.",
+      "type": "string",
+      "format": "identifier"
+    },
+    "includeRole": {
+      "description": "Whether to include the user's role or not.",
+      "type": "boolean",
+      "example": true,
+      "default": false
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

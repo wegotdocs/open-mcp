@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "description": "The ID of the project.",
+      "type": "string"
+    },
+    "relations": {
+      "type": "array",
+      "description": "A list of userIds and roles to add to the project.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "The unique identifier of the user.",
+            "example": "91765f0d-3b29-45df-adb9-35b23937eb92"
+          },
+          "role": {
+            "type": "string",
+            "description": "The role assigned to the user in the project.",
+            "example": "project:viewer"
+          }
+        },
+        "required": [
+          "userId",
+          "role"
+        ]
+      }
+    }
+  },
+  "required": [
+    "projectId",
+    "relations"
+  ]
+}
