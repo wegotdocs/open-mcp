@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "The URL of the web page to extract content from"
+    },
+    "X-Return-Format": {
+      "description": "Specifies the return format of the extracted content",
+      "type": "string",
+      "enum": [
+        "default",
+        "markdown",
+        "html",
+        "text",
+        "screenshot",
+        "pageshot"
+      ],
+      "default": "default"
+    },
+    "X-Target-Selector": {
+      "description": "CSS selector to target specific elements",
+      "type": "string"
+    },
+    "X-Timeout": {
+      "description": "Timeout in seconds for the request",
+      "type": "integer"
+    },
+    "X-Wait-For-Selector": {
+      "description": "CSS selector to wait for before processing the page",
+      "type": "string"
+    }
+  },
+  "required": [
+    "url"
+  ]
+}
