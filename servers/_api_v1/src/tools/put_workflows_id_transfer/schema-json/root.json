@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The ID of the workflow.",
+      "type": "string"
+    },
+    "destinationProjectId": {
+      "type": "string",
+      "description": "The ID of the project to transfer the workflow to."
+    }
+  },
+  "required": [
+    "id",
+    "destinationProjectId"
+  ]
+}

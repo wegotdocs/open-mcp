@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "description": "The ID of the project.",
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "projectId",
+    "name"
+  ]
+}
