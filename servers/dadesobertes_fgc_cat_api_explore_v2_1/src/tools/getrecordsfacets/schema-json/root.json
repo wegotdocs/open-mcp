@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "dataset_id": {
+      "description": "The identifier of the dataset to be queried.\n\nYou can find it in the \"Information\" tab of the dataset page or in the dataset URL, right after `/datasets/`.",
+      "type": "string"
+    },
+    "where": {
+      "description": "A `where` filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) and lots of other functions to perform complex and precise search operations.\n\nFor more information, see [Opendatasoft Query Language (ODSQL)](<https://help.opendatasoft.com/apis/ods-explore-v2/#section/Opendatasoft-Query-Language-(ODSQL)/Where-clause>) reference documentation.",
+      "type": "string"
+    },
+    "refine": {
+      "description": "Example: `refine=modified:2020` - Return only the value `2020` from the `modified` facet.\n\nA facet filter used to limit the result set.\nUsing this parameter, you can refine your query to display only the selected facet value in the response.\n\nRefinement uses the following syntax: `refine=<FACETNAME>:<FACETVALUE>`\n\nFor date, and other hierarchical facets, when refining on one value, all second-level values related to that entry will appear in facets enumeration. For example, after refining on the year 2019, the related second-level month will appear. And when refining on August 2019, the third-level day will appear.\n\n**`refine` must not be confused with a `where` filter. Refining with a facet is equivalent to selecting an entry in the left navigation panel.**",
+      "type": "string"
+    },
+    "exclude": {
+      "description": "Examples:\n- `exclude=city:Paris` - Exclude the value `Paris` from the `city` facet. Facets enumeration will display `Paris` as `excluded` without any count information.\n- `exclude=modified:2019/12` - Exclude the value `2019/12` from the `modified` facet. Facets enumeration will display `2020` as `excluded` without any count information.\n\nA facet filter used to exclude a facet value from the result set.\nUsing this parameter, you can filter your query to exclude the selected facet value in the response.\n\n`exclude` uses the following syntax: `exclude=<FACETNAME>:<FACETVALUE>`\n\n**`exclude` must not be confused with a `where` filter. Excluding a facet value is equivalent to removing an entry in the left navigation panel.**",
+      "type": "string"
+    },
+    "facet": {
+      "description": "A facet is a field used for simple filtering (through the `refine` and `exclude` parameters) or exploration (with the `/facets` endpoint).\n\nIt can also be a function such as `facet=facet(name=\"field_name\")` which is identical to `facet=field_name`. But this `facet()` function\ncan also take some optional arguments such as `disjunctive`, `hierarchical`, `separator`, `sort` and `limit`.\n\n* `disjunctive`: a boolean `true/false`, whether multiple values can be selected for the facet\n* `hierarchical`: a boolean `true/false` if the field is hierarchical. The separator must be given as the argument.\n   For instance, you can do `facet=facet(name=\"filepath\", hierarchical=true, separator=\"/\")` to retrieve facets related to this field which might look like `\"/home/user/file.txt\"`\n* `separator`: a string, e.g. `/`, `-`, `;`\n* `sort`: a string which describes how to sort the facets. Possible arguments are `count` and `-count` for all field types, `alphanum` and `-alphanum` for `date`, `datetime` and `text`, `num` and `-num` for `decimal` and `int`\n* `limit`: an integer to limit the number of results\n",
+      "type": "string"
+    },
+    "lang": {
+      "description": "A language value.\n\nIf specified, the `lang` value override the default language, which is \"fr\".\nThe language is used to format string, for example in the `date_format` function.",
+      "type": "string",
+      "enum": [
+        "en",
+        "fr",
+        "nl",
+        "pt",
+        "it",
+        "ar",
+        "de",
+        "es",
+        "ca",
+        "eu",
+        "sv"
+      ]
+    },
+    "timezone": {
+      "description": "Set the timezone for datetime fields.\n\nTimezone IDs are defined by the [Unicode CLDR project](https://github.com/unicode-org/cldr). The list of timezone IDs is available in [timezone.xml](https://github.com/unicode-org/cldr/blob/master/common/bcp47/timezone.xml).",
+      "type": "string",
+      "default": "UTC"
+    }
+  },
+  "required": [
+    "dataset_id"
+  ]
+}

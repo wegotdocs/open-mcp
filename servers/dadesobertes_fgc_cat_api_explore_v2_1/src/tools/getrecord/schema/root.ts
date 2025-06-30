@@ -1,0 +1,9 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "dataset_id": z.string().describe("The identifier of the dataset to be queried.\n\nYou can find it in the \"Information\" tab of the dataset page or in the dataset URL, right after `/datasets/`."),
+  "record_id": z.string().describe("Record identifier"),
+  "select": z.string().describe("Examples:\n- `select=size` - Example of select, which only return the \"size\" field.\n- `select=size * 2 as bigger_size` - Example of a complex expression with a label, which returns a new field named \"bigger_size\" and containing the double of size field value.\n- `select=dataset_id, fields` - Example of a select in catalog ODSQL query to only retrieve dataset_id and schema of datasets.\n\nA select expression can be used to add, remove or change the fields to return.\nAn expression can be:\n  - a wildcard ('*'): all fields are returned.\n  - A field name: only the specified field is returned.\n  - An include/exclude function: All fields matching the include or exclude expression are included or excluded. This expression can contain wildcard.\n  - A complex expression. The result of the expression is returned. A label can be set for this expression, and in that case, the field will be named after this label.").optional(),
+  "lang": z.enum(["en","fr","nl","pt","it","ar","de","es","ca","eu","sv"]).describe("A language value.\n\nIf specified, the `lang` value override the default language, which is \"fr\".\nThe language is used to format string, for example in the `date_format` function.").optional(),
+  "timezone": z.string().describe("Set the timezone for datetime fields.\n\nTimezone IDs are defined by the [Unicode CLDR project](https://github.com/unicode-org/cldr). The list of timezone IDs is available in [timezone.xml](https://github.com/unicode-org/cldr/blob/master/common/bcp47/timezone.xml).").optional()
+}

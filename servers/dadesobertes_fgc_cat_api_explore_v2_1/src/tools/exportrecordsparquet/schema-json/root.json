@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "dataset_id": {
+      "description": "The identifier of the dataset to be queried.\n\nYou can find it in the \"Information\" tab of the dataset page or in the dataset URL, right after `/datasets/`.",
+      "type": "string"
+    },
+    "parquet_compression": {
+      "description": "Sets the compression parameter for the Parquet export file",
+      "type": "string",
+      "enum": [
+        "snappy",
+        "zstd"
+      ],
+      "default": "snappy"
+    }
+  },
+  "required": [
+    "dataset_id"
+  ]
+}
