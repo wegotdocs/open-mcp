@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "delimiter": {
+      "description": "Sets the field delimiter of the CSV export",
+      "type": "string",
+      "enum": [
+        ";",
+        ",",
+        "\t",
+        "|"
+      ],
+      "default": ";"
+    },
+    "list_separator": {
+      "description": "Sets the separator character used for multivalued strings",
+      "type": "string",
+      "default": ","
+    },
+    "quote_all": {
+      "description": "Set it to true to force quoting all strings, i.e. surrounding all strings with quote characters",
+      "type": "boolean",
+      "default": false
+    },
+    "with_bom": {
+      "description": "Set it to true to force the first characters of the CSV file to be a Unicode Byte Order Mask (0xFEFF). It usually makes Excel correctly open the output CSV file without warning.\n**Warning:** the default value of this parameter is `false` in v2.0 and `true` starting with v2.1",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": []
+}

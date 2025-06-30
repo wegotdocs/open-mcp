@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "dataset_id": {
+      "description": "The identifier of the dataset to be queried.\n\nYou can find it in the \"Information\" tab of the dataset page or in the dataset URL, right after `/datasets/`.",
+      "type": "string"
+    },
+    "name_field": {
+      "description": "Sets the field that is used as the 'name' attribute in the GPX output",
+      "type": "string"
+    },
+    "description_field_list": {
+      "description": "Sets the fields to use in the 'description' attribute of the GPX output",
+      "type": "string"
+    },
+    "use_extension": {
+      "description": "Set it to true to use the `<extension>` tag for attributes (as GDAL does). Set it to false to use the `<desc>` tag for attributes.\n**Warning:** the default value of this parameter is `false` in v2.0 and `true` starting with v2.1",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "dataset_id"
+  ]
+}

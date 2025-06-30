@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "select": {
+      "description": "Examples:\n- `select=size` - Example of select, which only return the \"size\" field.\n- `select=size * 2 as bigger_size` - Example of a complex expression with a label, which returns a new field named \"bigger_size\" and containing the double of size field value.\n- `select=dataset_id, fields` - Example of a select in catalog ODSQL query to only retrieve dataset_id and schema of datasets.\n\nA select expression can be used to add, remove or change the fields to return.\nAn expression can be:\n  - a wildcard ('*'): all fields are returned.\n  - A field name: only the specified field is returned.\n  - An include/exclude function: All fields matching the include or exclude expression are included or excluded. This expression can contain wildcard.\n  - A complex expression. The result of the expression is returned. A label can be set for this expression, and in that case, the field will be named after this label.",
+      "type": "string"
+    },
+    "where": {
+      "description": "A `where` filter is a text expression performing a simple full-text search that can also include logical operations\n(NOT, AND, OR...) and lots of other functions to perform complex and precise search operations.\n\nFor more information, see [Opendatasoft Query Language (ODSQL)](<https://help.opendatasoft.com/apis/ods-explore-v2/#section/Opendatasoft-Query-Language-(ODSQL)/Where-clause>) reference documentation.",
+      "type": "string"
+    },
+    "order_by": {
+      "description": "Example: `order_by=sum(age) desc, name asc`\n\nA comma-separated list of field names or aggregations to sort on, followed by an order (`asc` or `desc`).\n\nResults are sorted in ascending order by default. To sort results in descending order, use the `desc` keyword.",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Number of items to return.\n\nTo use with the `offset` parameter to implement pagination.\n\nThe maximum possible value depends on whether the query contains a `group_by` clause or not.\n\nFor a query **without** a `group_by`:\n  - the maximum value for `limit` is 100,\n  - `offset+limit` should be less than 10000\n\nFor a query **with** a `group_by`:\n  - the maximum value for `limit` is 20000,\n  - `offset+limit` should be less than 20000\n\n**Note:** If you need more results, please use the /exports endpoint.\n",
+      "maximum": 100,
+      "minimum": -1,
+      "type": "integer",
+      "default": 10
+    },
+    "offset": {
+      "description": "Index of the first item to return (starting at 0).\n\nTo use with the `limit` parameter to implement pagination.\n\n**Note:** the maximum value depends on the type of query, see the note on `limit` for the details\n",
+      "minimum": 0,
+      "type": "integer",
+      "default": 0
+    },
+    "refine": {
+      "description": "Example: `refine=modified:2020` - Return only the value `2020` from the `modified` facet.\n\nA facet filter used to limit the result set.\nUsing this parameter, you can refine your query to display only the selected facet value in the response.\n\nRefinement uses the following syntax: `refine=<FACETNAME>:<FACETVALUE>`\n\nFor date, and other hierarchical facets, when refining on one value, all second-level values related to that entry will appear in facets enumeration. For example, after refining on the year 2019, the related second-level month will appear. And when refining on August 2019, the third-level day will appear.\n\n**`refine` must not be confused with a `where` filter. Refining with a facet is equivalent to selecting an entry in the left navigation panel.**",
+      "type": "string"
+    },
+    "exclude": {
+      "description": "Examples:\n- `exclude=city:Paris` - Exclude the value `Paris` from the `city` facet. Facets enumeration will display `Paris` as `excluded` without any count information.\n- `exclude=modified:2019/12` - Exclude the value `2019/12` from the `modified` facet. Facets enumeration will display `2020` as `excluded` without any count information.\n\nA facet filter used to exclude a facet value from the result set.\nUsing this parameter, you can filter your query to exclude the selected facet value in the response.\n\n`exclude` uses the following syntax: `exclude=<FACETNAME>:<FACETVALUE>`\n\n**`exclude` must not be confused with a `where` filter. Excluding a facet value is equivalent to removing an entry in the left navigation panel.**",
+      "type": "string"
+    },
+    "lang": {
+      "description": "A language value.\n\nIf specified, the `lang` value override the default language, which is \"fr\".\nThe language is used to format string, for example in the `date_format` function.",
+      "type": "string",
+      "enum": [
+        "en",
+        "fr",
+        "nl",
+        "pt",
+        "it",
+        "ar",
+        "de",
+        "es",
+        "ca",
+        "eu",
+        "sv"
+      ]
+    },
+    "timezone": {
+      "description": "Set the timezone for datetime fields.\n\nTimezone IDs are defined by the [Unicode CLDR project](https://github.com/unicode-org/cldr). The list of timezone IDs is available in [timezone.xml](https://github.com/unicode-org/cldr/blob/master/common/bcp47/timezone.xml).",
+      "type": "string",
+      "default": "UTC"
+    },
+    "group_by": {
+      "description": "Example: `group_by=city_field as city`\n\nA group by expression defines a grouping function for an aggregation.\nIt can be:\n - a field name: group result by each value of this field\n - a range function: group result by range\n - a date function: group result by date\n\nIt is possible to specify a custom name with the 'as name' notation.",
+      "type": "string"
+    },
+    "include_links": {
+      "description": "If set to `true`, this parameter will add HATEOAS links in the response.\n",
+      "type": "boolean",
+      "default": false
+    },
+    "include_app_metas": {
+      "description": "If set to `true`, this parameter will add application metadata to the response.\n",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": []
+}

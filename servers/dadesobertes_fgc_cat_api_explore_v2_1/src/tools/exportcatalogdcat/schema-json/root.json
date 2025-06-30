@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "dcat_ap_format": {
+      "description": "DCAT format specifier for the catalog export.\n`dcat_ap_*` formats are only available upon activation.",
+      "type": "string",
+      "enum": [
+        "_ap_ch",
+        "_ap_de",
+        "_ap_se",
+        "_ap_sp",
+        "_ap_it",
+        "_ap_vl",
+        "_ap_benap"
+      ]
+    },
+    "include_exports": {
+      "description": "Sets the datasets exports exposed in the DCAT export. By default, all exports are exposed.",
+      "type": "string",
+      "enum": [
+        "csv",
+        "fgb",
+        "geojson",
+        "gpx",
+        "json",
+        "jsonl",
+        "jsonld",
+        "kml",
+        "n3",
+        "ov2",
+        "parquet",
+        "rdfxml",
+        "shp",
+        "turtle",
+        "xlsx"
+      ]
+    },
+    "use_labels_in_exports": {
+      "description": "If set to `true`, this parameter will make distributions output the label of each field rather than its name. This parameter only applies on distributions that contain a list of the fields in their output (e.g., CSV, XLSX).",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "dcat_ap_format"
+  ]
+}
