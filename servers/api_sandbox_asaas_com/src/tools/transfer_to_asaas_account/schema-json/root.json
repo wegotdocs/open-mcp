@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "number",
+      "description": "Amount to be transferred",
+      "nullable": false,
+      "example": 1000,
+      "deprecated": false
+    },
+    "walletId": {
+      "type": "string",
+      "description": "WalletId of the target account",
+      "nullable": false,
+      "example": "021c712-d963-4d86-a59d-031e7ac51a2e",
+      "deprecated": false
+    },
+    "externalReference": {
+      "type": "string",
+      "description": "Transfer identifier in your system",
+      "deprecated": false,
+      "example": null
+    }
+  },
+  "required": [
+    "value",
+    "walletId"
+  ]
+}

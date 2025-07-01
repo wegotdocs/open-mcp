@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique subscription identifier in Asaas",
+      "type": "string",
+      "example": "sub_VXJBYgP2u0eO"
+    },
+    "deductions": {
+      "type": "number",
+      "description": "Deductions. Deductions do not change the total value of the invoice, but they do change the ISS calculation basis.",
+      "example": 55,
+      "deprecated": false
+    },
+    "effectiveDatePeriod": {
+      "type": "string",
+      "description": "When the invoice will be issued",
+      "example": "ON_PAYMENT_CONFIRMATION",
+      "deprecated": false,
+      "enum": [
+        "ON_PAYMENT_CONFIRMATION",
+        "ON_PAYMENT_DUE_DATE",
+        "BEFORE_PAYMENT_DUE_DATE",
+        "ON_DUE_DATE_MONTH",
+        "ON_NEXT_MONTH"
+      ]
+    },
+    "receivedOnly": {
+      "type": "boolean",
+      "description": "Issue only for paid charges",
+      "deprecated": false,
+      "example": null
+    },
+    "daysBeforeDueDate": {
+      "type": "integer",
+      "description": "Number of days before billing due date",
+      "format": "int32",
+      "deprecated": false,
+      "example": null
+    },
+    "observations": {
+      "type": "string",
+      "description": "Additional notes on the invoice",
+      "example": "Regarding March work",
+      "deprecated": false
+    },
+    "taxes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `taxes` to the tool, first call the tool `expandSchema` with \"/properties/taxes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Invoice taxes</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "startDate": {
+      "description": "List start date",
+      "type": "string",
+      "example": "2023-03-01"
+    },
+    "finishDate": {
+      "description": "List end date",
+      "type": "string",
+      "example": "2023-03-31"
+    },
+    "order": {
+      "description": "Result ordering",
+      "type": "string",
+      "example": "asc"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "paymentId": {
+      "description": "Filter by payment ID",
+      "type": "string",
+      "example": null
+    },
+    "status": {
+      "description": "Filter by status",
+      "type": "string",
+      "example": "PENDING",
+      "deprecated": false,
+      "enum": [
+        "PENDING",
+        "AWAITING_CREDIT",
+        "CANCELLED",
+        "DONE",
+        "REFUNDED",
+        "BLOCKED_BY_VALUE_DIVERGENCE"
+      ]
+    },
+    "paymentConfirmedDate[ge]": {
+      "description": "Filter from the initial payment confirmation date",
+      "type": "string",
+      "example": null
+    },
+    "paymentConfirmedDate[le]": {
+      "description": "Filter from final payment confirmation date",
+      "type": "string",
+      "example": null
+    },
+    "creditDate[ge]": {
+      "description": "Filter by date of receipt of initial split",
+      "type": "string",
+      "example": null
+    },
+    "creditDate[le]": {
+      "description": "Filter by date of receipt of final split",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "frequency": {
+      "type": "string",
+      "description": "Frequency",
+      "example": "MONTHLY",
+      "deprecated": false,
+      "enum": [
+        "WEEKLY",
+        "MONTHLY"
+      ]
+    },
+    "quantity": {
+      "maximum": 51,
+      "minimum": 1,
+      "type": "integer",
+      "description": "Number of repetitions. This transfer will be included as the first transaction of the recurrence.\n For the `WEEKLY` frequency, the maximum accepted is: `51`\n For the `MONTHLY` frequency, the maximum accepted is: `11`",
+      "format": "int32",
+      "example": 3,
+      "deprecated": false
+    }
+  },
+  "description": "Recurrence information. Only for Pix transfers",
+  "deprecated": false
+}

@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "cpfCnpj": {
+      "description": "Filter by the subaccount's CPF or CNPJ",
+      "type": "string",
+      "example": null
+    },
+    "email": {
+      "description": "Filter by subaccount email",
+      "type": "string",
+      "example": null
+    },
+    "name": {
+      "description": "Filter by subaccount name",
+      "type": "string",
+      "example": null
+    },
+    "walletId": {
+      "description": "Filter by subaccount walletId",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

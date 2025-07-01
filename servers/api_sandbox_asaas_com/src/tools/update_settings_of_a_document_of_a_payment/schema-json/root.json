@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique payment identifier in Asaas",
+      "type": "string",
+      "example": null
+    },
+    "documentId": {
+      "description": "Unique document identifier",
+      "type": "string",
+      "example": null
+    },
+    "availableAfterPayment": {
+      "type": "boolean",
+      "description": "true to make the file available only after receipt of the payment",
+      "nullable": false,
+      "example": true,
+      "deprecated": false
+    },
+    "type": {
+      "type": "string",
+      "description": "Document type",
+      "nullable": false,
+      "example": "INVOICE",
+      "deprecated": false,
+      "enum": [
+        "INVOICE",
+        "CONTRACT",
+        "MEDIA",
+        "DOCUMENT",
+        "SPREADSHEET",
+        "PROGRAM",
+        "OTHER"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "documentId",
+    "availableAfterPayment",
+    "type"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "required": [
+    "retainIss",
+    "cofins",
+    "csll",
+    "inss",
+    "ir",
+    "pis",
+    "iss"
+  ],
+  "type": "object",
+  "properties": {
+    "retainIss": {
+      "type": "boolean",
+      "description": "The invoice holder must withhold ISS or not",
+      "nullable": false,
+      "example": true,
+      "deprecated": false
+    },
+    "cofins": {
+      "type": "number",
+      "description": "COFINS rate",
+      "nullable": false,
+      "example": 1,
+      "deprecated": false
+    },
+    "csll": {
+      "type": "number",
+      "description": "CSLL rate",
+      "nullable": false,
+      "example": 1,
+      "deprecated": false
+    },
+    "inss": {
+      "type": "number",
+      "description": "INSS rate",
+      "nullable": false,
+      "example": 1,
+      "deprecated": false
+    },
+    "ir": {
+      "type": "number",
+      "description": "IR rate",
+      "nullable": false,
+      "example": 1,
+      "deprecated": false
+    },
+    "pis": {
+      "type": "number",
+      "description": "PIS rate",
+      "nullable": false,
+      "example": 1,
+      "deprecated": false
+    },
+    "iss": {
+      "type": "number",
+      "description": "ISS rate",
+      "nullable": false,
+      "example": 1,
+      "deprecated": false
+    }
+  },
+  "description": "Invoice taxes",
+  "deprecated": false
+}

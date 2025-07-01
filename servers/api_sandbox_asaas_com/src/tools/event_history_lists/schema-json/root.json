@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier of the payment dunning in Asaas",
+      "type": "string",
+      "example": "ce35702d-0d9f-475a-ba46-e251ad265c91"
+    },
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

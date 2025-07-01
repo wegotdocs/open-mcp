@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Customer name",
+      "example": "John Doe",
+      "deprecated": false
+    },
+    "cpfCnpj": {
+      "type": "string",
+      "description": "Customer CPF or CNPJ",
+      "example": "24971563792",
+      "deprecated": false
+    },
+    "email": {
+      "type": "string",
+      "description": "Customer email",
+      "example": "john.doe@asaas.com.br",
+      "deprecated": false
+    },
+    "phone": {
+      "type": "string",
+      "description": "Customer phone",
+      "example": "4738010919",
+      "deprecated": false
+    },
+    "address": {
+      "type": "string",
+      "description": "Customer address",
+      "example": "Av. Paulista",
+      "deprecated": false
+    },
+    "addressNumber": {
+      "type": "integer",
+      "description": "Address number",
+      "format": "int32",
+      "example": "150",
+      "deprecated": false
+    },
+    "complement": {
+      "type": "string",
+      "description": "Address complement (max. 255 characters)",
+      "example": "Sala 201",
+      "deprecated": false
+    },
+    "province": {
+      "type": "string",
+      "description": "Province of address",
+      "example": "Centro",
+      "deprecated": false
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Address zip code",
+      "example": "01310-000",
+      "deprecated": false
+    },
+    "city": {
+      "type": "integer",
+      "description": "City code",
+      "format": "int32",
+      "example": "12987382",
+      "deprecated": false
+    }
+  },
+  "description": "Customer data",
+  "deprecated": false
+}

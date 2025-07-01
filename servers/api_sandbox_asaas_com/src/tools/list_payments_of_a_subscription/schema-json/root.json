@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique subscription identifier in Asaas",
+      "type": "string",
+      "example": "sub_VXJBYgP2u0eO"
+    },
+    "status": {
+      "description": "Filter by payment status",
+      "type": "string",
+      "example": "PENDING",
+      "deprecated": false,
+      "enum": [
+        "PENDING",
+        "RECEIVED",
+        "CONFIRMED",
+        "OVERDUE",
+        "REFUNDED",
+        "RECEIVED_IN_CASH",
+        "REFUND_REQUESTED",
+        "REFUND_IN_PROGRESS",
+        "CHARGEBACK_REQUESTED",
+        "CHARGEBACK_DISPUTE",
+        "AWAITING_CHARGEBACK_REVERSAL",
+        "DUNNING_REQUESTED",
+        "DUNNING_RECEIVED",
+        "AWAITING_RISK_ANALYSIS"
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "status": {
+      "description": "Filter by recurrence status",
+      "type": "string",
+      "example": "AWAITING_CRITICAL_ACTION_AUTHORIZATION",
+      "deprecated": false,
+      "enum": [
+        "AWAITING_CRITICAL_ACTION_AUTHORIZATION",
+        "PENDING",
+        "SCHEDULED",
+        "CANCELLED",
+        "DONE"
+      ]
+    },
+    "value": {
+      "description": "Filter by recurrence value",
+      "type": "number",
+      "example": 100
+    },
+    "searchText": {
+      "description": "Filter by receiver name",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

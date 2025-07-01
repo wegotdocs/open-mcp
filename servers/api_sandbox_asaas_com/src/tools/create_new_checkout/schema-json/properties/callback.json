@@ -1,0 +1,33 @@
+{
+  "required": [
+    "successUrl",
+    "cancelUrl",
+    "expiredUrl"
+  ],
+  "type": "object",
+  "properties": {
+    "successUrl": {
+      "type": "string",
+      "description": "Redirect URL for successful checkout",
+      "nullable": false,
+      "example": "https://example.com/asaas/checkout/success",
+      "deprecated": false
+    },
+    "cancelUrl": {
+      "type": "string",
+      "description": "Redirect URL for canceled checkout",
+      "nullable": false,
+      "example": "https://example.com/asaas/checkout/cancel",
+      "deprecated": false
+    },
+    "expiredUrl": {
+      "type": "string",
+      "description": "Redirect URL for expired checkout",
+      "nullable": false,
+      "example": "https://example.com/asaas/checkout/expired",
+      "deprecated": false
+    }
+  },
+  "description": "Automatic redirection information after payment on the checkout screen",
+  "deprecated": false
+}

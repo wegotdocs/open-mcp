@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.string().describe("Installment ID"),
+  "splits": z.array(z.object({ "walletId": z.string().describe("Asaas wallet identifier that will be transferred"), "fixedValue": z.number().describe("Fixed amount to be transferred to the account when the payment is received").optional(), "percentualValue": z.number().describe("Percentage of the net value of the charge to be transferred when received").optional(), "totalFixedValue": z.number().describe("(Instalments only). Amount that will be split relative to the total amount that will be paid in installments.").optional(), "externalReference": z.string().describe("Split identifier in your system").optional(), "description": z.string().describe("Split description").optional(), "installmentNumber": z.number().int().describe("Installment number to which the split will be linked. Cannot be provided along with the 'totalFixedValue' field").optional() }).describe("Split Settings")).describe("Split data to update").optional()
+}

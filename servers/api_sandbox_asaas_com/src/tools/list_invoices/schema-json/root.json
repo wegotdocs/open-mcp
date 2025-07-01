@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "effectiveDate[Ge]": {
+      "description": "Filter by an issue date",
+      "type": "string",
+      "example": "2024-08-03"
+    },
+    "effectiveDate[Le]": {
+      "description": "Filter by an issue date",
+      "type": "string",
+      "example": "2024-09-03"
+    },
+    "payment": {
+      "description": "Filter by unique payment identifier",
+      "type": "string",
+      "example": null
+    },
+    "installment": {
+      "description": "Filter by the unique installment identifier",
+      "type": "string",
+      "example": null
+    },
+    "externalReference": {
+      "description": "Filter by invoice identifier in your system",
+      "type": "string",
+      "example": null
+    },
+    "status": {
+      "description": "Filter by situation",
+      "type": "string",
+      "example": "SCHEDULED",
+      "deprecated": false,
+      "enum": [
+        "SCHEDULED",
+        "AUTHORIZED",
+        "PROCESSING_CANCELLATION",
+        "CANCELED",
+        "CANCELLATION_DENIED",
+        "ERROR"
+      ]
+    },
+    "customer": {
+      "description": "Filter by unique customer identifier",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

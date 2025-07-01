@@ -1,0 +1,23 @@
+{
+  "required": [
+    "successUrl"
+  ],
+  "type": "object",
+  "properties": {
+    "successUrl": {
+      "type": "string",
+      "description": "URL that the customer will be redirected to after successful payment of the invoice or payment link",
+      "nullable": false,
+      "deprecated": false,
+      "example": null
+    },
+    "autoRedirect": {
+      "type": "boolean",
+      "description": "Define whether the customer will be automatically redirected or will just be informed with a button to return to the website. The default is true, if you want to disable it, enter false",
+      "deprecated": false,
+      "example": null
+    }
+  },
+  "description": "Automatic redirection information after the payment of the link payment",
+  "deprecated": false
+}

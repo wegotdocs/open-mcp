@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "string",
+      "description": "QRCode payload",
+      "nullable": false,
+      "example": "00020101021226730014br.gov.bcb.pix2551pix-h.asaas.com/pixqrcode/cobv/pay_76575613967995145204000053039865802BR5905ASAAS6009Joinville61088922827162070503***63045E7A",
+      "deprecated": false
+    },
+    "changeValue": {
+      "type": "number",
+      "description": "Change amount (for QRCode Change)",
+      "deprecated": false,
+      "example": null
+    }
+  },
+  "required": [
+    "payload"
+  ]
+}

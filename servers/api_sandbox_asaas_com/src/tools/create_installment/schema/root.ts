@@ -1,0 +1,18 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "installmentCount": z.number().int().describe("Number of installments"),
+  "customer": z.string().describe("Unique customer identifier in Asaas"),
+  "value": z.number().describe("Value of each installment"),
+  "totalValue": z.number().describe("Total installment amount").optional(),
+  "billingType": z.enum(["UNDEFINED","BOLETO","CREDIT_CARD","PIX"]).describe("Payment billing type"),
+  "dueDate": z.string().date().describe("Due date of the first installment"),
+  "description": z.string().describe("Installment description (max. 500 characters)").optional(),
+  "postalService": z.boolean().describe("Define whether the payment will be sent via post").optional(),
+  "daysAfterDueDateToRegistrationCancellation": z.number().int().describe("Days after registration cancellation deadline (only for bank slip)").optional(),
+  "paymentExternalReference": z.string().describe("Free search field").optional(),
+  "discount": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `discount` to the tool, first call the tool `expandSchema` with \"/properties/discount\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Discount information</property-description>").optional(),
+  "interest": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `interest` to the tool, first call the tool `expandSchema` with \"/properties/interest\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Interest information for payment after due date</property-description>").optional(),
+  "fine": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fine` to the tool, first call the tool `expandSchema` with \"/properties/fine\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Fine information for payment after due date</property-description>").optional(),
+  "splits": z.array(z.object({ "walletId": z.string().describe("Asaas wallet identifier that will be transferred"), "fixedValue": z.number().describe("Fixed amount to be transferred to the account when the payment is received").optional(), "percentualValue": z.number().describe("Percentage of the net value of the charge to be transferred when received").optional(), "totalFixedValue": z.number().describe("(Instalments only). Amount that will be split relative to the total amount that will be paid in installments.").optional(), "externalReference": z.string().describe("Split identifier in your system").optional(), "description": z.string().describe("Split description").optional(), "installmentNumber": z.number().int().describe("Installment number to which the split will be linked. Cannot be provided along with the 'totalFixedValue' field").optional() }).describe("Split Settings")).describe("Split Settings").optional()
+}

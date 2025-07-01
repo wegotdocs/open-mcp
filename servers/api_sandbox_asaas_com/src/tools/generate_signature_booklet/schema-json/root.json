@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique subscription identifier in Asaas",
+      "type": "string",
+      "example": "sub_VXJBYgP2u0eO"
+    },
+    "month": {
+      "description": "Final month for generating the booklet",
+      "type": "integer",
+      "example": null
+    },
+    "year": {
+      "description": "Final year for generating the booklet",
+      "type": "integer",
+      "example": null
+    },
+    "sort": {
+      "description": "Filter by column name",
+      "type": "string",
+      "example": null
+    },
+    "order": {
+      "description": "Column ordering",
+      "type": "string",
+      "example": "asc"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

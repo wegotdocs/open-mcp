@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "addressKey": {
+      "type": "string",
+      "description": "Key that will receive QrCode payments",
+      "example": "b6295ee1-f054-47d1-9e90-ee57b74f60d9",
+      "deprecated": false
+    },
+    "description": {
+      "type": "string",
+      "description": "QrCode Description",
+      "example": "Barbecue",
+      "deprecated": false
+    },
+    "value": {
+      "type": "number",
+      "description": "Value of the QrCode, if not informed, the payer can choose the value",
+      "example": 50,
+      "deprecated": false
+    },
+    "format": {
+      "type": "string",
+      "description": "QrCode Format",
+      "example": "ALL",
+      "deprecated": false,
+      "enum": [
+        "ALL",
+        "IMAGE",
+        "PAYLOAD"
+      ]
+    },
+    "expirationDate": {
+      "type": "string",
+      "description": "QrCode expiration date/time, after this date all payments will be refused.",
+      "format": "date-time",
+      "example": "2023-05-05 14:20:50",
+      "deprecated": false
+    },
+    "expirationSeconds": {
+      "type": "integer",
+      "description": "Determines the expiration date in seconds.",
+      "format": "int32",
+      "deprecated": false,
+      "example": null
+    },
+    "allowsMultiplePayments": {
+      "type": "boolean",
+      "description": "Defines whether the QrCode can be paid multiple times, if not entered the default value is true.",
+      "example": true,
+      "deprecated": false
+    },
+    "externalReference": {
+      "maxLength": 100,
+      "type": "string",
+      "description": "Free search field",
+      "deprecated": false,
+      "example": null
+    }
+  },
+  "required": []
+}

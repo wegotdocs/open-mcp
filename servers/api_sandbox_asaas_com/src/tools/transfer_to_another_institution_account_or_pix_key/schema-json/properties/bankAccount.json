@@ -1,0 +1,83 @@
+{
+  "required": [
+    "ownerName",
+    "cpfCnpj",
+    "agency",
+    "account",
+    "accountDigit"
+  ],
+  "type": "object",
+  "properties": {
+    "bank": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `bank` to the tool, first call the tool `expandSchema` with \"/properties/bankAccount/properties/bank\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Details of the bank account to which the transfer will be made</property-description>",
+      "additionalProperties": true
+    },
+    "accountName": {
+      "type": "string",
+      "description": "Bank account name",
+      "example": "Bradesco account",
+      "deprecated": false
+    },
+    "ownerName": {
+      "type": "string",
+      "description": "Name of bank account owner",
+      "nullable": false,
+      "example": "John Doe",
+      "deprecated": false
+    },
+    "ownerBirthDate": {
+      "type": "string",
+      "description": "Account owner's date of birth. Only when the bank account does not belong to the same CPF or CNPJ as the Asaas account.",
+      "format": "date",
+      "example": "1995-04-12",
+      "deprecated": false
+    },
+    "cpfCnpj": {
+      "type": "string",
+      "description": "CPF or CNPJ of the bank account owner",
+      "nullable": false,
+      "example": "52233424611",
+      "deprecated": false
+    },
+    "agency": {
+      "type": "string",
+      "description": "Non-digit agency number",
+      "nullable": false,
+      "example": "1263",
+      "deprecated": false
+    },
+    "account": {
+      "type": "string",
+      "description": "Non-digit bank account number",
+      "nullable": false,
+      "example": "9999991",
+      "deprecated": false
+    },
+    "accountDigit": {
+      "type": "string",
+      "description": "Bank account digit",
+      "nullable": false,
+      "example": "1",
+      "deprecated": false
+    },
+    "bankAccountType": {
+      "type": "string",
+      "description": "Account type",
+      "example": "CONTA_CORRENTE",
+      "deprecated": false,
+      "enum": [
+        "CONTA_CORRENTE",
+        "CONTA_POUPANCA"
+      ]
+    },
+    "ispb": {
+      "type": "string",
+      "description": "Identifier in the Brazilian Payment System",
+      "example": "60746948",
+      "deprecated": false
+    }
+  },
+  "description": "Enter your account details if it is a transfer to a bank account",
+  "deprecated": false
+}

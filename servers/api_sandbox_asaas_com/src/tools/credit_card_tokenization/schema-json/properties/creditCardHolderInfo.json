@@ -1,0 +1,70 @@
+{
+  "required": [
+    "name",
+    "email",
+    "cpfCnpj",
+    "postalCode",
+    "addressNumber",
+    "phone"
+  ],
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of card holder",
+      "nullable": false,
+      "example": "John Doe",
+      "deprecated": false
+    },
+    "email": {
+      "type": "string",
+      "description": "Cardholder email",
+      "nullable": false,
+      "example": "john.doe@asaas.com",
+      "deprecated": false
+    },
+    "cpfCnpj": {
+      "type": "string",
+      "description": "CPF or CNPJ of the cardholder",
+      "nullable": false,
+      "example": "12345678901",
+      "deprecated": false
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Cardholder zip code",
+      "nullable": false,
+      "example": "12345678",
+      "deprecated": false
+    },
+    "addressNumber": {
+      "type": "string",
+      "description": "Cardholder address number",
+      "nullable": false,
+      "example": "123",
+      "deprecated": false
+    },
+    "addressComplement": {
+      "type": "string",
+      "description": "Supplementing the cardholder's address",
+      "deprecated": false,
+      "example": null
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone with cardholder's area code",
+      "nullable": false,
+      "deprecated": false,
+      "example": null
+    },
+    "mobilePhone": {
+      "type": "string",
+      "description": "Cardholder's cell phone",
+      "deprecated": false,
+      "example": null
+    }
+  },
+  "description": "Credit card holder information",
+  "nullable": false,
+  "deprecated": false
+}

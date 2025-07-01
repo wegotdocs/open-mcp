@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique subaccount identifier in Asaas",
+      "type": "string",
+      "example": "4f468235-cec3-482f-b3d0-348af4c7194"
+    },
+    "daysToExpire": {
+      "type": "integer",
+      "description": "Number of days to expire the payment escrow",
+      "format": "int32",
+      "nullable": false,
+      "example": 30,
+      "deprecated": false
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Indicates whether the Escrow Account is enabled",
+      "example": true,
+      "deprecated": false
+    },
+    "isFeePayer": {
+      "type": "boolean",
+      "description": "Indicates whether the subaccount is responsible for paying the Escrow Account fee. If not informed, the main account will be responsible for the fee",
+      "example": false,
+      "deprecated": false
+    }
+  },
+  "required": [
+    "id",
+    "daysToExpire"
+  ]
+}

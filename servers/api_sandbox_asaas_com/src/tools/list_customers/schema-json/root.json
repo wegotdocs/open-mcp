@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "name": {
+      "description": "Filter by name",
+      "type": "string",
+      "example": "John Doe"
+    },
+    "email": {
+      "description": "Filter by email",
+      "type": "string",
+      "example": "john.doe@asaas.com.br"
+    },
+    "cpfCnpj": {
+      "description": "Filter by CPF or CNPJ",
+      "type": "string",
+      "example": "24971563792"
+    },
+    "groupName": {
+      "description": "Filter by group",
+      "type": "string",
+      "example": null
+    },
+    "externalReference": {
+      "description": "Filter by your system identifier",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

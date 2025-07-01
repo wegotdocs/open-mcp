@@ -1,0 +1,50 @@
+{
+  "required": [
+    "holderName",
+    "number",
+    "expiryMonth",
+    "expiryYear",
+    "ccv"
+  ],
+  "type": "object",
+  "properties": {
+    "holderName": {
+      "type": "string",
+      "description": "Name printed on card",
+      "nullable": false,
+      "example": "John Doe",
+      "deprecated": false
+    },
+    "number": {
+      "type": "string",
+      "description": "Card number",
+      "nullable": false,
+      "example": "1234567890123456",
+      "deprecated": false
+    },
+    "expiryMonth": {
+      "type": "string",
+      "description": "Expiration month with 2 digits",
+      "nullable": false,
+      "example": "6",
+      "deprecated": false
+    },
+    "expiryYear": {
+      "type": "string",
+      "description": "Expiration year with 4 digits",
+      "nullable": false,
+      "example": "2025",
+      "deprecated": false
+    },
+    "ccv": {
+      "type": "string",
+      "description": "Security code",
+      "nullable": false,
+      "example": "123",
+      "deprecated": false
+    }
+  },
+  "description": "Credit card information",
+  "nullable": false,
+  "deprecated": false
+}
