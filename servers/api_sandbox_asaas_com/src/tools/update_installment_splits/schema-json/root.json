@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Installment ID",
+      "type": "string",
+      "example": "2765d086-c7c5-5cca-898a-4262d212587c"
+    },
+    "splits": {
+      "type": "array",
+      "description": "Split data to update",
+      "deprecated": false,
+      "items": {
+        "required": [
+          "walletId"
+        ],
+        "type": "object",
+        "properties": {
+          "walletId": {
+            "type": "string",
+            "description": "Asaas wallet identifier that will be transferred",
+            "nullable": false,
+            "deprecated": false,
+            "example": null
+          },
+          "fixedValue": {
+            "type": "number",
+            "description": "Fixed amount to be transferred to the account when the payment is received",
+            "deprecated": false,
+            "example": null
+          },
+          "percentualValue": {
+            "type": "number",
+            "description": "Percentage of the net value of the charge to be transferred when received",
+            "deprecated": false,
+            "example": null
+          },
+          "totalFixedValue": {
+            "type": "number",
+            "description": "(Instalments only). Amount that will be split relative to the total amount that will be paid in installments.",
+            "deprecated": false,
+            "example": null
+          },
+          "externalReference": {
+            "type": "string",
+            "description": "Split identifier in your system",
+            "deprecated": false,
+            "example": null
+          },
+          "description": {
+            "type": "string",
+            "description": "Split description",
+            "deprecated": false,
+            "example": null
+          },
+          "installmentNumber": {
+            "type": "integer",
+            "description": "Installment number to which the split will be linked. Cannot be provided along with the 'totalFixedValue' field",
+            "format": "int32",
+            "deprecated": false,
+            "example": null
+          }
+        },
+        "description": "Split Settings",
+        "deprecated": false
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

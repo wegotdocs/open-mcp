@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "properties": {
+    "personType": {
+      "type": "string",
+      "description": "Person Type",
+      "example": "JURIDICA",
+      "deprecated": false,
+      "enum": [
+        "JURIDICA",
+        "FISICA"
+      ]
+    },
+    "cpfCnpj": {
+      "type": "string",
+      "description": "CPF or CNPJ of the account owner",
+      "example": "66625514000140",
+      "deprecated": false
+    },
+    "birthDate": {
+      "type": "string",
+      "description": "Birthday (Required if the information is from an individual)",
+      "format": "date",
+      "example": "1995-04-12",
+      "deprecated": false
+    },
+    "companyType": {
+      "type": "string",
+      "description": "Type of company (only when Legal Entity)",
+      "example": "MEI",
+      "deprecated": false,
+      "enum": [
+        "MEI",
+        "LIMITED",
+        "INDIVIDUAL",
+        "ASSOCIATION"
+      ]
+    },
+    "companyName": {
+      "type": "string",
+      "description": "Company Name",
+      "example": "ASAAS",
+      "deprecated": false
+    },
+    "incomeValue": {
+      "type": "number",
+      "description": "Billing/Monthly income",
+      "example": 25000,
+      "deprecated": false
+    },
+    "email": {
+      "type": "string",
+      "description": "Account's email",
+      "example": "john.doe@asaas.com.br",
+      "deprecated": false
+    },
+    "phone": {
+      "type": "string",
+      "description": "Telephone",
+      "deprecated": false,
+      "example": null
+    },
+    "mobilePhone": {
+      "type": "string",
+      "description": "Cell phone",
+      "deprecated": false,
+      "example": null
+    },
+    "site": {
+      "type": "string",
+      "description": "Web site",
+      "deprecated": false,
+      "example": null
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Address zip code",
+      "example": "89223005",
+      "deprecated": false
+    },
+    "address": {
+      "type": "string",
+      "description": "Public place",
+      "example": "Av. Rolf Wiest",
+      "deprecated": false
+    },
+    "addressNumber": {
+      "type": "string",
+      "description": "Address number",
+      "example": "659",
+      "deprecated": false
+    },
+    "complement": {
+      "type": "string",
+      "description": "Address complement",
+      "deprecated": false,
+      "example": null
+    },
+    "province": {
+      "type": "string",
+      "description": "Neighborhood",
+      "example": "Bom Retiro",
+      "deprecated": false
+    }
+  },
+  "required": []
+}

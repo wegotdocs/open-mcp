@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "payment": {
+      "description": "Filter anticipations of a payment",
+      "type": "string",
+      "example": null
+    },
+    "installment": {
+      "description": "Filter advances for an installment payment",
+      "type": "string",
+      "example": null
+    },
+    "status": {
+      "description": "Filter by status",
+      "type": "string",
+      "example": "PENDING",
+      "deprecated": false,
+      "enum": [
+        "PENDING",
+        "DENIED",
+        "CREDITED",
+        "DEBITED",
+        "CANCELLED",
+        "OVERDUE",
+        "SCHEDULED"
+      ]
+    }
+  },
+  "required": []
+}

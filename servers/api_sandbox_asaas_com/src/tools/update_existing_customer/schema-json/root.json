@@ -1,0 +1,127 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier of the customer to be updated.",
+      "type": "string",
+      "example": "cus_000005401844"
+    },
+    "name": {
+      "type": "string",
+      "description": "Client name",
+      "example": "John Doe",
+      "deprecated": false
+    },
+    "cpfCnpj": {
+      "type": "string",
+      "description": "Customer CPF or CNPJ",
+      "example": "24971563792",
+      "deprecated": false
+    },
+    "email": {
+      "type": "string",
+      "description": "Customer email",
+      "example": "john.doe@asaas.com.br",
+      "deprecated": false
+    },
+    "phone": {
+      "type": "string",
+      "description": "Landline",
+      "example": "4738010919",
+      "deprecated": false
+    },
+    "mobilePhone": {
+      "type": "string",
+      "description": "Cell phone",
+      "example": "4799376637",
+      "deprecated": false
+    },
+    "address": {
+      "type": "string",
+      "description": "Public place",
+      "example": "Av. Paulista",
+      "deprecated": false
+    },
+    "addressNumber": {
+      "type": "string",
+      "description": "Address number",
+      "example": "150",
+      "deprecated": false
+    },
+    "complement": {
+      "type": "string",
+      "description": "Address complement",
+      "example": "Sala 201",
+      "deprecated": false
+    },
+    "province": {
+      "type": "string",
+      "description": "Neighborhood",
+      "example": "Centro",
+      "deprecated": false
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Address zip code",
+      "example": "01310-000",
+      "deprecated": false
+    },
+    "externalReference": {
+      "type": "string",
+      "description": "Customer identifier in your system",
+      "example": "12987382",
+      "deprecated": false
+    },
+    "notificationDisabled": {
+      "type": "boolean",
+      "description": "true to disable sending billing notifications",
+      "example": false,
+      "deprecated": false
+    },
+    "additionalEmails": {
+      "type": "string",
+      "description": "Additional emails for sending billing notifications separated by \",\"",
+      "example": "john.doe@asaas.com,john.doe.silva@asaas.com.br",
+      "deprecated": false
+    },
+    "municipalInscription": {
+      "type": "string",
+      "description": "Customer municipal registration",
+      "example": "46683695908",
+      "deprecated": false
+    },
+    "stateInscription": {
+      "type": "string",
+      "description": "Customer state registration",
+      "example": "646681195275",
+      "deprecated": false
+    },
+    "observations": {
+      "type": "string",
+      "description": "Additional observations",
+      "example": "great payer, no problems so far",
+      "deprecated": false
+    },
+    "groupName": {
+      "type": "string",
+      "description": "Name of the group the customer belongs to",
+      "deprecated": false,
+      "example": null
+    },
+    "company": {
+      "type": "string",
+      "description": "Company",
+      "deprecated": false,
+      "example": null
+    },
+    "foreignCustomer": {
+      "type": "boolean",
+      "description": "inform true if it's a non-brazilian customer",
+      "example": false,
+      "deprecated": false
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

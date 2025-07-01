@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "number",
+      "description": "Percentage of fine on the amount of the charge for payment after the due date",
+      "deprecated": false,
+      "example": null
+    },
+    "type": {
+      "type": "string",
+      "description": "Fine type",
+      "example": "FIXED",
+      "deprecated": false,
+      "enum": [
+        "FIXED",
+        "PERCENTAGE"
+      ]
+    }
+  },
+  "description": "Fine information for payment after due date",
+  "deprecated": false
+}

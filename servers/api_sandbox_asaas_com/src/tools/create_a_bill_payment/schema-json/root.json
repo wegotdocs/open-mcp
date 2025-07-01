@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "identificationField": {
+      "type": "string",
+      "description": "Digitizable bill line",
+      "nullable": false,
+      "example": "03399.77779 29900.000000 04751.101017 1 81510000002990",
+      "deprecated": false
+    },
+    "scheduleDate": {
+      "type": "string",
+      "description": "Payment scheduling date",
+      "example": "2020-03-15",
+      "deprecated": false
+    },
+    "description": {
+      "type": "string",
+      "description": "Bill Payment Description",
+      "example": "Celular 03/12",
+      "deprecated": false
+    },
+    "discount": {
+      "type": "number",
+      "description": "Discount attributed to payment",
+      "example": 0,
+      "deprecated": false
+    },
+    "interest": {
+      "type": "number",
+      "description": "Interest attributed to payment",
+      "example": 0,
+      "deprecated": false
+    },
+    "fine": {
+      "type": "number",
+      "description": "Fine assigned to payment",
+      "example": 0,
+      "deprecated": false
+    },
+    "dueDate": {
+      "type": "string",
+      "description": "Expiration date of the account if it is the type that does not have this information",
+      "format": "date",
+      "example": "2020-03-30",
+      "deprecated": false
+    },
+    "value": {
+      "type": "number",
+      "description": "Account value if it is the type that does not have this information (Ex: credit card invoices)",
+      "example": 29,
+      "deprecated": false
+    },
+    "externalReference": {
+      "type": "string",
+      "description": "Unique identifier of the bill in your system",
+      "example": "056984",
+      "deprecated": false
+    }
+  },
+  "required": [
+    "identificationField"
+  ]
+}

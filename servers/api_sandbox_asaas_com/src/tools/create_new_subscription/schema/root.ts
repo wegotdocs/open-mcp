@@ -1,0 +1,18 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "customer": z.string().describe("Unique customer identifier in Asaas"),
+  "billingType": z.enum(["UNDEFINED","BOLETO","CREDIT_CARD","PIX"]).describe("Billing type"),
+  "value": z.number().describe("Subscription value"),
+  "nextDueDate": z.string().date().describe("First payment due"),
+  "discount": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `discount` to the tool, first call the tool `expandSchema` with \"/properties/discount\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Discount information</property-description>").optional(),
+  "interest": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `interest` to the tool, first call the tool `expandSchema` with \"/properties/interest\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Interest information for payment after due date</property-description>").optional(),
+  "fine": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `fine` to the tool, first call the tool `expandSchema` with \"/properties/fine\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Fine information for payment after due date</property-description>").optional(),
+  "cycle": z.enum(["WEEKLY","BIWEEKLY","MONTHLY","BIMONTHLY","QUARTERLY","SEMIANNUALLY","YEARLY"]).describe("Billing frequency"),
+  "description": z.string().describe("Subscription description (max. 500 characters)").optional(),
+  "endDate": z.string().date().describe("Deadline for payments to be due").optional(),
+  "maxPayments": z.number().int().describe("Maximum number of payments to be generated for this subscription").optional(),
+  "externalReference": z.string().describe("Subscription identifier on your system").optional(),
+  "split": z.array(z.object({ "walletId": z.string().describe("Asaas wallet identifier that will be transferred"), "fixedValue": z.number().describe("Fixed amount to be transferred to the account when the payment is received").optional(), "percentualValue": z.number().describe("Percentage of the net value of the charge to be transferred when received").optional(), "externalReference": z.string().describe("Split identifier in your system").optional(), "description": z.string().describe("Split description").optional() }).describe("Split information")).describe("Split information").optional(),
+  "callback": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `callback` to the tool, first call the tool `expandSchema` with \"/properties/callback\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Automatic redirection information after the payment of the link payment</property-description>").optional()
+}

@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "creditCardBrand": {
+      "description": "Filter by used card brand.",
+      "type": "string",
+      "example": "VISA",
+      "deprecated": false,
+      "enum": [
+        "VISA",
+        "MASTERCARD",
+        "ELO",
+        "DINERS",
+        "DISCOVER",
+        "AMEX",
+        "HIPERCARD",
+        "CABAL",
+        "BANESCARD",
+        "CREDZ",
+        "SOROCRED",
+        "CREDSYSTEM",
+        "JCB",
+        "UNKNOWN"
+      ]
+    },
+    "originDisputeDate[le]": {
+      "description": "Filter up to the chargeback opening date.",
+      "type": "string",
+      "example": "2024-12-05"
+    },
+    "originDisputeDate[ge]": {
+      "description": "Filter from a chargeback opening date.",
+      "type": "string",
+      "example": "2023-11-01"
+    },
+    "originTransactionDate[le]": {
+      "description": "Filter up to the transaction date.",
+      "type": "string",
+      "example": "2024-12-05"
+    },
+    "originTransactionDate[ge]": {
+      "description": "Filter from a transaction date.",
+      "type": "string",
+      "example": "2024-10-10"
+    },
+    "status": {
+      "description": "Filter by chargeback status.",
+      "type": "string",
+      "example": "REQUESTED",
+      "deprecated": false,
+      "enum": [
+        "REQUESTED",
+        "IN_DISPUTE",
+        "DISPUTE_LOST",
+        "REVERSED",
+        "DONE"
+      ]
+    }
+  },
+  "required": []
+}

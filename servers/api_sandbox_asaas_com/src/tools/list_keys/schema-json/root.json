@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "status": {
+      "description": "Filter by current key status",
+      "type": "string",
+      "example": "AWAITING_ACTIVATION",
+      "deprecated": false,
+      "enum": [
+        "AWAITING_ACTIVATION",
+        "ACTIVE",
+        "AWAITING_DELETION",
+        "AWAITING_ACCOUNT_DELETION",
+        "DELETED",
+        "ERROR"
+      ]
+    },
+    "statusList": {
+      "description": "Filter by one or more key statuses",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

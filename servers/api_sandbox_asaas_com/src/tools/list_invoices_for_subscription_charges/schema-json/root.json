@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique subscription identifier in Asaas",
+      "type": "string",
+      "example": "inv_000000000232"
+    },
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "effectiveDate[ge]": {
+      "description": "Filter from an issue date",
+      "type": "string",
+      "example": "2024-08-20"
+    },
+    "effectiveDate[le]": {
+      "description": "Filter until an issue date",
+      "type": "string",
+      "example": "2024-08-20"
+    },
+    "externalReference": {
+      "description": "Filter by invoice identifier in your system",
+      "type": "string",
+      "example": null
+    },
+    "status": {
+      "description": "Filter by invoice status",
+      "type": "string",
+      "example": "SCHEDULED",
+      "deprecated": false,
+      "enum": [
+        "SCHEDULED",
+        "WAITING_OVERDUE_PAYMENT",
+        "PENDING",
+        "SYNCHRONIZED",
+        "AUTHORIZED",
+        "PROCESSING_CANCELLATION",
+        "CANCELLED",
+        "CANCELLATION_DENIED",
+        "ERROR",
+        "NONE",
+        "CANCELED"
+      ]
+    },
+    "customer": {
+      "description": "Filter by unique customer identifier",
+      "type": "string",
+      "example": "cus_000000002750"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

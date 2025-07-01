@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "status": {
+      "description": "Filter by transaction status",
+      "type": "string",
+      "example": "AWAITING_BALANCE_VALIDATION",
+      "deprecated": false,
+      "enum": [
+        "AWAITING_BALANCE_VALIDATION",
+        "AWAITING_INSTANT_PAYMENT_ACCOUNT_BALANCE",
+        "AWAITING_CRITICAL_ACTION_AUTHORIZATION",
+        "AWAITING_CHECKOUT_RISK_ANALYSIS_REQUEST",
+        "AWAITING_CASH_IN_RISK_ANALYSIS_REQUEST",
+        "SCHEDULED",
+        "AWAITING_REQUEST",
+        "REQUESTED",
+        "DONE",
+        "REFUSED",
+        "CANCELLED"
+      ]
+    },
+    "type": {
+      "description": "Filter by transaction type",
+      "type": "string",
+      "example": "DEBIT",
+      "deprecated": false,
+      "enum": [
+        "DEBIT",
+        "CREDIT",
+        "CREDIT_REFUND",
+        "DEBIT_REFUND",
+        "DEBIT_REFUND_CANCELLATION"
+      ]
+    },
+    "endToEndIdentifier": {
+      "description": "Filter by Pix transaction identifier at the Central Bank",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

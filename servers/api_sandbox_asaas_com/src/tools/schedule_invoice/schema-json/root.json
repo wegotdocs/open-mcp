@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "properties": {
+    "payment": {
+      "type": "string",
+      "description": "Unique payment identifier in Asaas",
+      "example": "pay_637959110194",
+      "deprecated": false
+    },
+    "installment": {
+      "type": "string",
+      "description": "Unique installment identifier in Asaas",
+      "deprecated": false,
+      "example": null
+    },
+    "customer": {
+      "type": "string",
+      "description": "Unique customer identifier",
+      "example": "cus_000000002750",
+      "deprecated": false
+    },
+    "serviceDescription": {
+      "type": "string",
+      "description": "Description of invoice services",
+      "nullable": false,
+      "deprecated": false,
+      "example": null
+    },
+    "observations": {
+      "type": "string",
+      "description": "Additional observations",
+      "nullable": false,
+      "example": "Monthly for June work.",
+      "deprecated": false
+    },
+    "externalReference": {
+      "type": "string",
+      "description": "Invoice identifier in your system",
+      "deprecated": false,
+      "example": null
+    },
+    "value": {
+      "type": "number",
+      "description": "Total value",
+      "nullable": false,
+      "example": 300,
+      "deprecated": false
+    },
+    "deductions": {
+      "type": "number",
+      "description": "Deductions. Deductions do not change the total value of the invoice, but they do change the ISS calculation basis.",
+      "nullable": false,
+      "example": 10,
+      "deprecated": false
+    },
+    "effectiveDate": {
+      "type": "string",
+      "description": "Invoice issuance date",
+      "format": "date",
+      "nullable": false,
+      "example": "2024-08-20",
+      "deprecated": false
+    },
+    "municipalServiceId": {
+      "type": "string",
+      "description": "Unique municipal service identifier",
+      "deprecated": false,
+      "example": null
+    },
+    "municipalServiceCode": {
+      "type": "string",
+      "description": "Municipal Service Code",
+      "example": "1.01",
+      "deprecated": false
+    },
+    "municipalServiceName": {
+      "type": "string",
+      "description": "Name of the municipal service. If not provided, the municipalServiceCode attribute will be used as the name for identification.",
+      "nullable": false,
+      "example": "Systems analysis and development",
+      "deprecated": false
+    },
+    "updatePayment": {
+      "type": "boolean",
+      "description": "Update the Payment amount with the invoice taxes already deducted.",
+      "deprecated": false,
+      "example": null
+    },
+    "taxes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `taxes` to the tool, first call the tool `expandSchema` with \"/properties/taxes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Invoice taxes</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "serviceDescription",
+    "observations",
+    "value",
+    "deductions",
+    "effectiveDate",
+    "municipalServiceName",
+    "taxes"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "status": {
+      "description": "Filter by payment dunning status",
+      "type": "string",
+      "example": "PENDING",
+      "deprecated": false,
+      "enum": [
+        "PENDING",
+        "AWAITING_APPROVAL",
+        "AWAITING_CANCELLATION",
+        "PROCESSED",
+        "PAID",
+        "PARTIALLY_PAID",
+        "DENIED",
+        "CANCELLED"
+      ]
+    },
+    "type": {
+      "description": "Filter by type of payment dunning",
+      "type": "string",
+      "example": "CREDIT_BUREAU",
+      "deprecated": false,
+      "enum": [
+        "CREDIT_BUREAU",
+        "DEBT_RECOVERY_ASSISTANCE"
+      ]
+    },
+    "payment": {
+      "description": "Filter by dunnings for a specific payment",
+      "type": "string",
+      "example": null
+    },
+    "requestStartDate": {
+      "description": "Filter from initial request date",
+      "type": "string",
+      "example": null
+    },
+    "requestEndDate": {
+      "description": "Filter from end request date",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

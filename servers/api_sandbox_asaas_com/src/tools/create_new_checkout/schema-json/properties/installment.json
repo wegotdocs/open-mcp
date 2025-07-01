@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "maxInstallmentCount": {
+      "maximum": 21,
+      "minimum": 1,
+      "type": "integer",
+      "description": "Maximum number of installments",
+      "format": "int32",
+      "example": 1,
+      "deprecated": false
+    }
+  },
+  "description": "Installment details. If informed, it will be mandatory to include the `INSTALLMENT` chargeType",
+  "deprecated": false
+}

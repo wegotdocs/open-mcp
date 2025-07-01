@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique subscription identifier in Asaas",
+      "type": "string",
+      "example": "sub_VXJBYgP2u0eO"
+    },
+    "creditCard": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `creditCard` to the tool, first call the tool `expandSchema` with \"/properties/creditCard\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Credit card information</property-description>",
+      "additionalProperties": true
+    },
+    "creditCardHolderInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `creditCardHolderInfo` to the tool, first call the tool `expandSchema` with \"/properties/creditCardHolderInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Credit card holder information</property-description>",
+      "additionalProperties": true
+    },
+    "creditCardToken": {
+      "type": "string",
+      "description": "Credit card token for using the credit card tokenization functionality. If informed, the fields above are not mandatory.",
+      "example": "a75a1d98-c52d-4a6b-a413-71e00b193c99",
+      "deprecated": false
+    },
+    "remoteIp": {
+      "type": "string",
+      "description": "IP from where the customer is making the purchase. Your server's IP must not be entered.",
+      "nullable": false,
+      "example": "116.213.42.532",
+      "deprecated": false
+    }
+  },
+  "required": [
+    "id",
+    "creditCard",
+    "creditCardHolderInfo",
+    "remoteIp"
+  ]
+}

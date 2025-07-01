@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier of the notification to be updated",
+      "type": "string",
+      "example": "not_wuGp97JeCr7G"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Enable/disable notification",
+      "example": true,
+      "deprecated": false
+    },
+    "emailEnabledForProvider": {
+      "type": "boolean",
+      "description": "enable/disable the email sent to you",
+      "example": true,
+      "deprecated": false
+    },
+    "smsEnabledForProvider": {
+      "type": "boolean",
+      "description": "enable/disable the SMS sent to you",
+      "example": true,
+      "deprecated": false
+    },
+    "emailEnabledForCustomer": {
+      "type": "boolean",
+      "description": "enable/disable the email sent to your customer",
+      "example": true,
+      "deprecated": false
+    },
+    "smsEnabledForCustomer": {
+      "type": "boolean",
+      "description": "enable/disable the SMS sent to your customer",
+      "example": true,
+      "deprecated": false
+    },
+    "phoneCallEnabledForCustomer": {
+      "type": "boolean",
+      "description": "enable/disable voice notification sent to your customer",
+      "example": false,
+      "deprecated": false
+    },
+    "whatsappEnabledForCustomer": {
+      "type": "boolean",
+      "description": "enable/disable WhatsApp messages for your customer",
+      "example": false,
+      "deprecated": false
+    },
+    "scheduleOffset": {
+      "type": "integer",
+      "description": "Specifies how many days before the due date the notification must be sent.\n For the `PAYMENT_DUEDATE_WARNING` event, the accepted values are: `0`, `5`, `10`, `15` and `30`\n For the `PAYMENT_OVERDUE` event, the accepted values are: `1`, `7`, `15` and `30`",
+      "format": "int32",
+      "example": 1,
+      "deprecated": false,
+      "enum": [
+        0,
+        1,
+        5,
+        7,
+        10,
+        15,
+        30
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique payment identifier in Asaas",
+      "type": "string",
+      "example": null
+    },
+    "paymentDate": {
+      "type": "string",
+      "description": "Date the customer made the payment",
+      "format": "date",
+      "example": "2025-05-30",
+      "deprecated": false
+    },
+    "value": {
+      "type": "number",
+      "description": "Amount paid by the customer",
+      "example": 129.9,
+      "deprecated": false
+    },
+    "notifyCustomer": {
+      "type": "boolean",
+      "description": "Send or not send notification of confirmed payment to the customer",
+      "example": false,
+      "deprecated": false
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

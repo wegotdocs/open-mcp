@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique payment identifier in Asaas",
+      "type": "string",
+      "example": null
+    },
+    "creditCard": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `creditCard` to the tool, first call the tool `expandSchema` with \"/properties/creditCard\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Credit card information</property-description>",
+      "additionalProperties": true
+    },
+    "creditCardHolderInfo": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `creditCardHolderInfo` to the tool, first call the tool `expandSchema` with \"/properties/creditCardHolderInfo\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Credit card holder information</property-description>",
+      "additionalProperties": true
+    },
+    "creditCardToken": {
+      "type": "string",
+      "description": "Credit card token for using the credit card tokenization functionality. If informed, the fields above are not mandatory.",
+      "deprecated": false,
+      "example": null
+    }
+  },
+  "required": [
+    "id",
+    "creditCard",
+    "creditCardHolderInfo"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique invoice identifier in Asaas",
+      "type": "string",
+      "example": "inv_000000000232"
+    },
+    "serviceDescription": {
+      "type": "string",
+      "description": "Description of invoice services",
+      "deprecated": false,
+      "example": null
+    },
+    "observations": {
+      "type": "string",
+      "description": "Additional observations",
+      "example": "Monthly for June work.",
+      "deprecated": false
+    },
+    "externalReference": {
+      "type": "string",
+      "description": "Invoice identifier in your system",
+      "deprecated": false,
+      "example": null
+    },
+    "value": {
+      "type": "number",
+      "description": "Total value",
+      "example": 300,
+      "deprecated": false
+    },
+    "deductions": {
+      "type": "number",
+      "description": "Deductions. Deductions do not change the total value of the invoice, but they do change the ISS calculation basis.",
+      "example": 10,
+      "deprecated": false
+    },
+    "effectiveDate": {
+      "type": "string",
+      "description": "Invoice issuance date",
+      "format": "date",
+      "example": "2024-08-20",
+      "deprecated": false
+    },
+    "updatePayment": {
+      "type": "boolean",
+      "description": "Update the Payment amount with the invoice taxes already deducted.",
+      "deprecated": false,
+      "example": null
+    },
+    "taxes": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `taxes` to the tool, first call the tool `expandSchema` with \"/properties/taxes\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Invoice taxes</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

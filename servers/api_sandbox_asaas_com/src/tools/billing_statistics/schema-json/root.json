@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "customer": {
+      "description": "Filter by unique customer identifier",
+      "type": "string",
+      "example": "cus_3EZfkUThUMAt"
+    },
+    "billingType": {
+      "description": "Filter by payment method",
+      "type": "string",
+      "example": "BOLETO",
+      "deprecated": false,
+      "enum": [
+        "BOLETO",
+        "CREDIT_CARD",
+        "TRANSFER",
+        "DEPOSIT",
+        "DEBIT_CARD",
+        "PIX"
+      ]
+    },
+    "status": {
+      "description": "Filter by status",
+      "type": "string",
+      "example": "CONFIRMED",
+      "deprecated": false,
+      "enum": [
+        "PENDING",
+        "RECEIVED",
+        "CONFIRMED",
+        "OVERDUE"
+      ]
+    },
+    "anticipated": {
+      "description": "Filter early registrations or not",
+      "type": "boolean",
+      "example": false
+    },
+    "dateCreated[ge]": {
+      "description": "Filter from initial creation date",
+      "type": "string",
+      "example": "2023-01-01"
+    },
+    "dateCreated[le]": {
+      "description": "Filter from final creation date",
+      "type": "string",
+      "example": "2023-01-01"
+    },
+    "dueDate[ge]": {
+      "description": "Filter from initial due date",
+      "type": "string",
+      "example": "2023-01-01"
+    },
+    "dueDate[le]": {
+      "description": "Filter by final due date",
+      "type": "string",
+      "example": "2023-01-01"
+    },
+    "estimatedCreditDate[ge]": {
+      "description": "Filter from estimated initial credit date",
+      "type": "string",
+      "example": "2023-01-01"
+    },
+    "estimatedCreditDate[le]": {
+      "description": "Filter from estimated end credit date",
+      "type": "string",
+      "example": "2023-01-01"
+    },
+    "externalReference": {
+      "description": "Filter by your system identifier",
+      "type": "string",
+      "example": "056984"
+    }
+  },
+  "required": []
+}

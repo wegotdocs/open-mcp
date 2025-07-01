@@ -1,0 +1,160 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "customer": {
+      "description": "Filter by unique customer identifier",
+      "type": "string",
+      "example": null
+    },
+    "customerGroupName": {
+      "description": "Filter by customer group name",
+      "type": "string",
+      "example": null
+    },
+    "billingType": {
+      "description": "Filter by billing type",
+      "type": "string",
+      "example": "UNDEFINED",
+      "deprecated": false,
+      "enum": [
+        "UNDEFINED",
+        "BOLETO",
+        "CREDIT_CARD",
+        "PIX"
+      ]
+    },
+    "status": {
+      "description": "Filter by status",
+      "type": "string",
+      "example": "PENDING",
+      "deprecated": false,
+      "enum": [
+        "PENDING",
+        "RECEIVED",
+        "CONFIRMED",
+        "OVERDUE",
+        "REFUNDED",
+        "RECEIVED_IN_CASH",
+        "REFUND_REQUESTED",
+        "REFUND_IN_PROGRESS",
+        "CHARGEBACK_REQUESTED",
+        "CHARGEBACK_DISPUTE",
+        "AWAITING_CHARGEBACK_REVERSAL",
+        "DUNNING_REQUESTED",
+        "DUNNING_RECEIVED",
+        "AWAITING_RISK_ANALYSIS"
+      ]
+    },
+    "subscription": {
+      "description": "Filter by unique subscription identifier",
+      "type": "string",
+      "example": null
+    },
+    "installment": {
+      "description": "Filter by unique installment identifier",
+      "type": "string",
+      "example": null
+    },
+    "externalReference": {
+      "description": "Filter by your system identifier",
+      "type": "string",
+      "example": null
+    },
+    "paymentDate": {
+      "description": "Filter by payment date",
+      "type": "string",
+      "example": null
+    },
+    "invoiceStatus": {
+      "description": "Filter to return charges that have or do not have an invoice",
+      "type": "string",
+      "example": "SCHEDULED",
+      "deprecated": false,
+      "enum": [
+        "SCHEDULED",
+        "AUTHORIZED",
+        "PROCESSING_CANCELLATION",
+        "CANCELED",
+        "CANCELLATION_DENIED",
+        "ERROR"
+      ]
+    },
+    "estimatedCreditDate": {
+      "description": "Filter by estimated credit date",
+      "type": "string",
+      "example": null
+    },
+    "pixQrCodeId": {
+      "description": "Filter receipts originating from a static QrCode using the id generated when the QrCode was created",
+      "type": "string",
+      "example": null
+    },
+    "anticipated": {
+      "description": "Filter anticipated charges or not",
+      "type": "boolean",
+      "example": null
+    },
+    "anticipable": {
+      "description": "Filter anticipable charges or not",
+      "type": "boolean",
+      "example": null
+    },
+    "dateCreated[ge]": {
+      "description": "Filter from initial creation date",
+      "type": "string",
+      "example": null
+    },
+    "dateCreated[le]": {
+      "description": "Filter to final creation date",
+      "type": "string",
+      "example": null
+    },
+    "paymentDate[ge]": {
+      "description": "Filter from initial payment date",
+      "type": "string",
+      "example": null
+    },
+    "paymentDate[le]": {
+      "description": "Filter to final payment date",
+      "type": "string",
+      "example": null
+    },
+    "estimatedCreditDate[ge]": {
+      "description": "Filter from estimated initial credit date",
+      "type": "string",
+      "example": null
+    },
+    "estimatedCreditDate[le]": {
+      "description": "Filter to estimated end credit date",
+      "type": "string",
+      "example": null
+    },
+    "dueDate[ge]": {
+      "description": "Filter from initial due date",
+      "type": "string",
+      "example": null
+    },
+    "dueDate[le]": {
+      "description": "Filter by final due date",
+      "type": "string",
+      "example": null
+    },
+    "user": {
+      "description": "Filter by the email address of the user who created the payment.",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

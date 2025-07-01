@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "startDate": {
+      "description": "Initial date of the creation",
+      "type": "string",
+      "example": null
+    },
+    "endDate": {
+      "description": "Final date of the creation",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

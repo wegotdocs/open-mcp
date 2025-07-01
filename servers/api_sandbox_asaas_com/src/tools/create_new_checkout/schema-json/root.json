@@ -1,0 +1,190 @@
+{
+  "type": "object",
+  "properties": {
+    "billingTypes": {
+      "type": "array",
+      "description": "Payment methods",
+      "nullable": false,
+      "example": [
+        "CREDIT_CARD"
+      ],
+      "deprecated": false,
+      "items": {
+        "type": "string",
+        "description": "Payment methods",
+        "nullable": false,
+        "example": [
+          "CREDIT_CARD"
+        ],
+        "deprecated": false,
+        "enum": [
+          "CREDIT_CARD",
+          "PIX"
+        ]
+      },
+      "enum": [
+        "CREDIT_CARD",
+        "PIX"
+      ]
+    },
+    "chargeTypes": {
+      "type": "array",
+      "description": "Charge types",
+      "nullable": false,
+      "example": [
+        "DETACHED"
+      ],
+      "deprecated": false,
+      "items": {
+        "type": "string",
+        "description": "Charge types",
+        "nullable": false,
+        "example": [
+          "DETACHED"
+        ],
+        "deprecated": false,
+        "enum": [
+          "DETACHED",
+          "RECURRENT",
+          "INSTALLMENT"
+        ]
+      },
+      "enum": [
+        "DETACHED",
+        "RECURRENT",
+        "INSTALLMENT"
+      ]
+    },
+    "minutesToExpire": {
+      "maximum": 1440,
+      "minimum": 10,
+      "type": "integer",
+      "description": "Time in minutes for checkout expiration",
+      "format": "int32",
+      "example": 10,
+      "deprecated": false
+    },
+    "callback": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `callback` to the tool, first call the tool `expandSchema` with \"/properties/callback\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Automatic redirection information after payment on the checkout screen</property-description>",
+      "additionalProperties": true
+    },
+    "items": {
+      "type": "array",
+      "description": "List of items at checkout",
+      "nullable": false,
+      "deprecated": false,
+      "items": {
+        "required": [
+          "imageBase64",
+          "name",
+          "quantity",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "Item Description",
+            "example": "Camisetas",
+            "deprecated": false
+          },
+          "imageBase64": {
+            "type": "string",
+            "description": "Item image in Base64",
+            "nullable": false,
+            "example": "IMAGE IN BASE64",
+            "deprecated": false
+          },
+          "name": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "Item name",
+            "nullable": false,
+            "example": "Roupas",
+            "deprecated": false
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Item Quantity",
+            "format": "int32",
+            "nullable": false,
+            "example": 2,
+            "deprecated": false
+          },
+          "value": {
+            "type": "number",
+            "description": "Item value",
+            "nullable": false,
+            "example": 100,
+            "deprecated": false
+          }
+        },
+        "description": "List of items at checkout",
+        "deprecated": false
+      }
+    },
+    "customerData": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `customerData` to the tool, first call the tool `expandSchema` with \"/properties/customerData\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Customer data</property-description>",
+      "additionalProperties": true
+    },
+    "subscription": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `subscription` to the tool, first call the tool `expandSchema` with \"/properties/subscription\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Subscription details, required if chargeTypes includes `RECURRENT`</property-description>",
+      "additionalProperties": true
+    },
+    "installment": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `installment` to the tool, first call the tool `expandSchema` with \"/properties/installment\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Installment details. If informed, it will be mandatory to include the `INSTALLMENT` chargeType</property-description>",
+      "additionalProperties": true
+    },
+    "splits": {
+      "type": "array",
+      "description": "Split Settings",
+      "deprecated": false,
+      "items": {
+        "required": [
+          "walletId"
+        ],
+        "type": "object",
+        "properties": {
+          "walletId": {
+            "type": "string",
+            "description": "Asaas wallet identifier that will receive the transfer",
+            "nullable": false,
+            "example": "7bafd95a-e783-4a62-9be1-23999af742c6",
+            "deprecated": false
+          },
+          "fixedValue": {
+            "type": "number",
+            "description": "Fixed amount to be transferred to the account when the payment is received",
+            "example": "Comissão referente ao serviço utilizado",
+            "deprecated": false
+          },
+          "percentageValue": {
+            "type": "number",
+            "description": "Percentage of the net value of the charge to be transferred when received",
+            "example": 10,
+            "deprecated": false
+          },
+          "totalFixedValue": {
+            "type": "number",
+            "description": "(Instalments only). Amount that will be split relative to the total amount that will be paid in installments.",
+            "example": 15,
+            "deprecated": false
+          }
+        },
+        "description": "Split Settings",
+        "deprecated": false
+      }
+    }
+  },
+  "required": [
+    "billingTypes",
+    "chargeTypes",
+    "callback",
+    "items"
+  ]
+}

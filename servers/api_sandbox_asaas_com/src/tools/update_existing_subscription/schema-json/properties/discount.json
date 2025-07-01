@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "number",
+      "description": "Percentage or fixed amount of discount to be applied to the Payment amount",
+      "example": 10,
+      "deprecated": false
+    },
+    "dueDateLimitDays": {
+      "type": "integer",
+      "description": "Days before expiration to apply discount. Ex: 0 = until expiration, 1 = up to one day before, 2 = up to 2 days before, and so on",
+      "format": "int32",
+      "example": 0,
+      "deprecated": false
+    },
+    "type": {
+      "type": "string",
+      "description": "Discount type",
+      "example": "PERCENTAGE",
+      "deprecated": false,
+      "enum": [
+        "FIXED",
+        "PERCENTAGE"
+      ]
+    }
+  },
+  "description": "Discount information",
+  "deprecated": false
+}

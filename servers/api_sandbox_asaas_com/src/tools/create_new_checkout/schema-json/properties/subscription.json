@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "cycle": {
+      "type": "string",
+      "description": "Billing frequency",
+      "example": "MONTHLY",
+      "deprecated": false,
+      "enum": [
+        "WEEKLY",
+        "BIWEEKLY",
+        "MONTHLY",
+        "BIMONTHLY",
+        "QUARTERLY",
+        "SEMIANNUALLY",
+        "YEARLY"
+      ]
+    },
+    "endDate": {
+      "type": "string",
+      "description": "Deadline for payments to be due",
+      "format": "date",
+      "example": "2025-01-01",
+      "deprecated": false
+    },
+    "nextDueDate": {
+      "type": "string",
+      "description": "Due date of the next payment to be generated",
+      "format": "date",
+      "example": "2025-01-01",
+      "deprecated": false
+    }
+  },
+  "description": "Subscription details, required if chargeTypes includes `RECURRENT`",
+  "deprecated": false
+}

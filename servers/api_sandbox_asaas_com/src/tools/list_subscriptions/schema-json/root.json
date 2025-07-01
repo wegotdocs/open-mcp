@@ -1,0 +1,78 @@
+{
+  "type": "object",
+  "properties": {
+    "offset": {
+      "description": "List starting element",
+      "type": "integer",
+      "example": 0
+    },
+    "limit": {
+      "description": "Number of list elements (max: 100)",
+      "maximum": 100,
+      "type": "integer",
+      "example": 10
+    },
+    "customer": {
+      "description": "Filter by Unique Customer Identifier",
+      "type": "string",
+      "example": null
+    },
+    "customerGroupName": {
+      "description": "Filter by customer group name",
+      "type": "string",
+      "example": null
+    },
+    "billingType": {
+      "description": "Filter by billing type",
+      "type": "string",
+      "example": "UNDEFINED",
+      "deprecated": false,
+      "enum": [
+        "UNDEFINED",
+        "BOLETO",
+        "CREDIT_CARD",
+        "DEBIT_CARD",
+        "TRANSFER",
+        "DEPOSIT",
+        "PIX"
+      ]
+    },
+    "status": {
+      "description": "Filter by status",
+      "type": "string",
+      "example": "ACTIVE",
+      "deprecated": false,
+      "enum": [
+        "ACTIVE",
+        "EXPIRED",
+        "INACTIVE"
+      ]
+    },
+    "deletedOnly": {
+      "description": "Send true to return only removed subscriptions",
+      "type": "string",
+      "example": null
+    },
+    "includeDeleted": {
+      "description": "Send true to also recover removed subscriptions",
+      "type": "string",
+      "example": null
+    },
+    "externalReference": {
+      "description": "Filter by your system identifier",
+      "type": "string",
+      "example": null
+    },
+    "order": {
+      "description": "Ascending or descending order",
+      "type": "string",
+      "example": null
+    },
+    "sort": {
+      "description": "Which field will it be sorted by",
+      "type": "string",
+      "example": null
+    }
+  },
+  "required": []
+}

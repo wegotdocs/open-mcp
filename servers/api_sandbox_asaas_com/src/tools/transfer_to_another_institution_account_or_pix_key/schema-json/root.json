@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "number",
+      "description": "Amount to be transferred",
+      "nullable": false,
+      "example": 1000,
+      "deprecated": false
+    },
+    "bankAccount": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `bankAccount` to the tool, first call the tool `expandSchema` with \"/properties/bankAccount\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Enter your account details if it is a transfer to a bank account</property-description>",
+      "additionalProperties": true
+    },
+    "operationType": {
+      "type": "string",
+      "description": "Transfer modality. If not informed and the receiving institution is a Pix participant, the transfer is via Pix. Otherwise via TED.",
+      "example": "PIX",
+      "deprecated": false,
+      "enum": [
+        "PIX",
+        "TED"
+      ]
+    },
+    "pixAddressKey": {
+      "type": "string",
+      "description": "Enter the Pix key if it is a transfer to a Pix key",
+      "deprecated": false,
+      "example": null
+    },
+    "pixAddressKeyType": {
+      "type": "string",
+      "description": "Enter the type of key if it is a transfer to a Pix key",
+      "example": "EVP",
+      "deprecated": false,
+      "enum": [
+        "CPF",
+        "CNPJ",
+        "EMAIL",
+        "PHONE",
+        "EVP"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Transfers via Pix allow description",
+      "example": "Barbecue paid via Pix scheduled",
+      "deprecated": false
+    },
+    "scheduleDate": {
+      "type": "string",
+      "description": "For scheduled transfers, if not informed, payment is instantaneous",
+      "format": "date",
+      "example": "2018-01-26",
+      "deprecated": false
+    },
+    "externalReference": {
+      "type": "string",
+      "description": "Transfer identifier in your system",
+      "deprecated": false,
+      "example": null
+    },
+    "recurring": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `recurring` to the tool, first call the tool `expandSchema` with \"/properties/recurring\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Recurrence information. Only for Pix transfers</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "value"
+  ]
+}

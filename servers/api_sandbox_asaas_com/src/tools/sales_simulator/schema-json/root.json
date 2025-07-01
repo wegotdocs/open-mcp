@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "number",
+      "description": "Total installment or billing amount",
+      "nullable": false,
+      "example": 100,
+      "deprecated": false
+    },
+    "installmentCount": {
+      "type": "integer",
+      "description": "Number of installments",
+      "format": "int32",
+      "example": 2,
+      "deprecated": false
+    },
+    "billingTypes": {
+      "type": "array",
+      "description": "Form of payment",
+      "nullable": false,
+      "example": [
+        "CREDIT_CARD",
+        "BOLETO",
+        "PIX"
+      ],
+      "deprecated": false,
+      "items": {
+        "type": "string",
+        "description": "Form of payment",
+        "nullable": false,
+        "example": [
+          "CREDIT_CARD",
+          "BOLETO",
+          "PIX"
+        ],
+        "deprecated": false,
+        "enum": [
+          "UNDEFINED",
+          "BOLETO",
+          "CREDIT_CARD",
+          "MUNDIPAGG_CIELO",
+          "TRANSFER",
+          "DEPOSIT",
+          "DEBIT_CARD",
+          "PIX",
+          "ASAAS_MONEY"
+        ]
+      }
+    }
+  },
+  "required": [
+    "value",
+    "billingTypes"
+  ]
+}
