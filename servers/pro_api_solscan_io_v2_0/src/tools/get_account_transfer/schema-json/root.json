@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "account": {
+      "description": "A wallet address on solana blockchain",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Number of items to return",
+      "type": "integer",
+      "enum": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "default": 10
+    },
+    "offset": {
+      "description": "Number of items to skip",
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "required": [
+    "account"
+  ]
+}

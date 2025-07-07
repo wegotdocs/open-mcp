@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "account": {
+      "description": "A wallet address on solana blockchain",
+      "type": "string"
+    },
+    "before": {
+      "description": "The signature of the latest transaction of previous page",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Number of items to return",
+      "type": "integer",
+      "enum": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "default": 10
+    }
+  },
+  "required": [
+    "account"
+  ]
+}
