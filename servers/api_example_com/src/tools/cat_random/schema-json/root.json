@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "square",
+        "medium",
+        "small",
+        "xsmall"
+      ]
+    },
+    "filter": {
+      "type": "string",
+      "enum": [
+        "mono",
+        "negate",
+        "custom"
+      ]
+    },
+    "fit": {
+      "type": "string",
+      "enum": [
+        "cover",
+        "contain",
+        "fill",
+        "inside",
+        "outside"
+      ]
+    },
+    "position": {
+      "type": "string",
+      "enum": [
+        "top",
+        "right top",
+        "right",
+        "right bottom",
+        "bottom",
+        "left bottom",
+        "left",
+        "left top",
+        "center"
+      ],
+      "default": "center"
+    },
+    "width": {
+      "type": "number"
+    },
+    "height": {
+      "type": "number"
+    },
+    "blur": {
+      "type": "number"
+    },
+    "r": {
+      "description": "With custom filter, define red value between 0 and 255",
+      "type": "number"
+    },
+    "g": {
+      "description": "With custom filter, define green value between 0 and 255",
+      "type": "number"
+    },
+    "b": {
+      "description": "With custom filter, define blue value between 0 and 255",
+      "type": "number"
+    },
+    "brightness": {
+      "description": "With custom filter, define brightness",
+      "type": "number"
+    },
+    "saturation": {
+      "description": "With custom filter, define saturation",
+      "type": "number"
+    },
+    "hue": {
+      "description": "With custom filter, define hue",
+      "type": "number"
+    },
+    "lightness": {
+      "description": "With custom filter, define lightness",
+      "type": "number"
+    },
+    "html": {
+      "type": "boolean"
+    },
+    "json": {
+      "type": "boolean"
+    }
+  },
+  "required": []
+}
