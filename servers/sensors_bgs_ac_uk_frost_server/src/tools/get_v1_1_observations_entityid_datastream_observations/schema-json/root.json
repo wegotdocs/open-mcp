@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "entityId": {
+      "description": "The id of the requested entity",
+      "type": "integer"
+    },
+    "$skip": {
+      "description": "The number of elements to skip from the collection",
+      "type": "integer"
+    },
+    "$top": {
+      "description": "The number of elements to return",
+      "type": "integer"
+    },
+    "$count": {
+      "description": "Flag indicating if the total number of items in the collection should be returned.",
+      "type": "boolean"
+    },
+    "$select": {
+      "description": "The list of properties that need to be returned",
+      "type": "string"
+    },
+    "$expand": {
+      "description": "The list of related queries that need to be included in the result",
+      "type": "string"
+    },
+    "$filter": {
+      "description": "A filter query",
+      "type": "string"
+    }
+  },
+  "required": [
+    "entityId"
+  ]
+}
