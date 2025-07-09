@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "comment": {
+      "description": "Optional comment",
+      "type": "string"
+    },
+    "employee_id": {
+      "description": "Employee identifier",
+      "type": "integer"
+    },
+    "end_date": {
+      "description": "Absence end date as YYYY-MM-DD",
+      "format": "date",
+      "type": "string"
+    },
+    "half_day_end": {
+      "description": "Weather the end date is a half-day off",
+      "type": "boolean"
+    },
+    "half_day_start": {
+      "description": "Weather the start date is a half-day off",
+      "type": "boolean"
+    },
+    "start_date": {
+      "description": "Absence start date as YYYY-MM-DD",
+      "format": "date",
+      "type": "string"
+    },
+    "time_off_type_id": {
+      "description": "Time-off type identifier",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "employee_id",
+    "end_date",
+    "half_day_end",
+    "half_day_start",
+    "start_date",
+    "time_off_type_id"
+  ]
+}
