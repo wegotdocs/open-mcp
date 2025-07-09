@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID of the attendance period to update",
+      "format": "int32",
+      "type": "integer"
+    },
+    "break": {
+      "description": "Break in minutes",
+      "format": "int32",
+      "type": "integer"
+    },
+    "comment": {
+      "description": "Optional comment",
+      "type": "string"
+    },
+    "date": {
+      "description": "Attendance date as YYYY-MM-DD",
+      "format": "date",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "End time as HH:MM",
+      "pattern": "^\\d\\d:\\d\\d$",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "Start time as HH:MM",
+      "pattern": "^\\d\\d:\\d\\d$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

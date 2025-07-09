@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "description": "First day of the period to be queried. It is inclusive, so the day specified as start_date will also be considered on the results",
+      "format": "date",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "Last day of the period to be queried. It is inclusive, so the day specified as end_date will also be considered on the results.",
+      "format": "date",
+      "type": "string"
+    },
+    "updated_from": {
+      "description": "Datetime from when the queried periods have been updated. Same format as updated_at. It is inclusive, so the day specified as updated_from will also be considered on the results. Can be just the date, or the date and the time, with or without the timezone.",
+      "format": "datetime",
+      "type": "string"
+    },
+    "updated_to": {
+      "description": "Datetime until when the queried periods have been updated. Same format as updated_at. It is inclusive, so the day specified as updated_to will also be considered on the results. Can be just the date, or the date and the time, with or without the timezone.",
+      "format": "datetime",
+      "type": "string"
+    },
+    "employees": {
+      "description": "A list of Personio employee identifiers to filter the results. Only those employees specified here will be returned.",
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "limit": {
+      "description": "Pagination attribute to limit how many attendances will be returned per page",
+      "default": 200,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "offset": {
+      "description": "Pagination attribute to identify which page you are requesting, by the form of telling an offset from the first record that would be returned.",
+      "default": 0,
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "start_date",
+    "end_date"
+  ]
+}

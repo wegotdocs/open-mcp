@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "Pagination attribute to limit how many records will be returned per page",
+      "default": 200,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "offset": {
+      "description": "Pagination attribute to identify which page you are requesting, by the form of telling an offset from the first record that would be returned.",
+      "default": 0,
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": []
+}
