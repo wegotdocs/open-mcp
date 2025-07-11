@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "ID do contato",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "Nome do contato",
+      "example": "João Silva"
+    },
+    "job_title": {
+      "type": "string",
+      "description": "Cargo do contato",
+      "example": "Gerente de Marketing"
+    },
+    "emails": {
+      "type": "array",
+      "description": "Lista de emails do contato",
+      "items": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Endereço de email",
+            "example": "contato@exemplo.com"
+          }
+        }
+      }
+    },
+    "phones": {
+      "type": "array",
+      "description": "Lista de telefones do contato",
+      "items": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "description": "Número de telefone",
+            "example": "+55 11 91234-5678"
+          }
+        }
+      }
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date",
+      "description": "Data de aniversário (formato YYYY-MM-DD)",
+      "example": "1980-01-15"
+    },
+    "social_profiles": {
+      "type": "array",
+      "description": "Perfis sociais do contato",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Tipo de perfil social (facebook, linkedin, skype)",
+            "enum": [
+              "facebook",
+              "linkedin",
+              "skype"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "description": "URL ou identificador do perfil social"
+          }
+        }
+      }
+    },
+    "organization_id": {
+      "type": "string",
+      "description": "ID da organização associada ao contato"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Observações sobre o contato"
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `custom_fields` to the tool, first call the tool `expandSchema` with \"/properties/custom_fields\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>Campos personalizados do contato</property-description>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
