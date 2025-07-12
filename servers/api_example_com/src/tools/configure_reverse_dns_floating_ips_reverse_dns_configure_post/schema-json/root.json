@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "ip": {
+      "description": "Floating IP address to configure reverse DNS for",
+      "type": "string",
+      "title": "Ip"
+    },
+    "reverse_dns": {
+      "description": "Reverse DNS hostname (e.g., 'myhost.example.com'). Leave empty to delete.",
+      "type": "string",
+      "default": "",
+      "title": "Reverse Dns"
+    }
+  },
+  "required": [
+    "ip"
+  ]
+}

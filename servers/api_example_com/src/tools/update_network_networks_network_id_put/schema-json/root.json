@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "network_id": {
+      "type": "integer",
+      "title": "Network Id"
+    },
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Name"
+    },
+    "label": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Label"
+    }
+  },
+  "required": [
+    "network_id",
+    "name",
+    "label"
+  ]
+}

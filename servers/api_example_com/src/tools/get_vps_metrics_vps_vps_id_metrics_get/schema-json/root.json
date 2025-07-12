@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "vps_id": {
+      "type": "integer",
+      "title": "Vps Id"
+    },
+    "metrics": {
+      "description": "Comma-separated metrics",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Metrics"
+    },
+    "time_range": {
+      "description": "Time range like 1h, 7d, etc.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "1h",
+      "title": "Time Range"
+    }
+  },
+  "required": [
+    "vps_id"
+  ]
+}

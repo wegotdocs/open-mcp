@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "label": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Label"
+    },
+    "location_name": {
+      "type": "string",
+      "title": "Location Name"
+    },
+    "ip_range": {
+      "type": "string",
+      "title": "Ip Range"
+    },
+    "prefix": {
+      "type": "integer",
+      "title": "Prefix"
+    },
+    "project_id": {
+      "type": "integer",
+      "title": "Project Id"
+    }
+  },
+  "required": [
+    "name",
+    "location_name",
+    "ip_range",
+    "prefix",
+    "project_id"
+  ]
+}

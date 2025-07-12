@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "vps_id": {
+      "type": "integer",
+      "title": "Vps Id"
+    },
+    "power_type": {
+      "type": "string",
+      "enum": [
+        "start_vps",
+        "stop_vps",
+        "restart_vps"
+      ],
+      "title": "PowerTaskType"
+    }
+  },
+  "required": [
+    "vps_id",
+    "power_type"
+  ]
+}

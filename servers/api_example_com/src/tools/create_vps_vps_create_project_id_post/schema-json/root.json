@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "integer",
+      "title": "Project Id"
+    },
+    "label": {
+      "type": "string",
+      "title": "Label",
+      "example": "Production-Server"
+    },
+    "template_name": {
+      "type": "string",
+      "title": "Template Name",
+      "example": "Ubuntu 22"
+    },
+    "plan_name": {
+      "type": "string",
+      "title": "Plan Name",
+      "example": "rz.nano"
+    },
+    "location_name": {
+      "type": "string",
+      "title": "Location Name",
+      "example": "us-mia-1"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "example": "my-vps-01"
+    },
+    "ssh_key_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ssh Key Name",
+      "example": "my-ssh-key"
+    },
+    "network_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Network Id"
+    },
+    "user": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "User",
+      "description": "Will default to 'root' if empty.",
+      "example": ""
+    },
+    "password": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Password",
+      "description": "If empty, no root password is set. Minimum 8 characters if provided.",
+      "example": ""
+    }
+  },
+  "required": [
+    "project_id",
+    "label",
+    "template_name",
+    "plan_name",
+    "location_name",
+    "name"
+  ]
+}
