@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "vps_id": {
+      "type": "integer",
+      "title": "Vps Id"
+    },
+    "label": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Label"
+    },
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Name"
+    }
+  },
+  "required": [
+    "vps_id"
+  ]
+}

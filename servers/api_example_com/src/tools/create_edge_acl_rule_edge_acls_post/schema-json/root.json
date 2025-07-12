@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "src_ip": {
+      "type": "string",
+      "default": "0.0.0.0",
+      "title": "Src Ip"
+    },
+    "src_prefixlen": {
+      "type": "integer",
+      "default": 0,
+      "title": "Src Prefixlen"
+    },
+    "src_prefix_uuid": {
+      "type": "string",
+      "default": "0",
+      "title": "Src Prefix Uuid"
+    },
+    "ip_proto": {
+      "type": "integer",
+      "default": 6,
+      "title": "Ip Proto"
+    },
+    "dest_ip": {
+      "type": "string",
+      "default": "",
+      "title": "Dest Ip"
+    },
+    "dest_prefixlen": {
+      "type": "integer",
+      "default": 0,
+      "title": "Dest Prefixlen"
+    },
+    "dst_port_start": {
+      "type": "integer",
+      "default": 0,
+      "title": "Dst Port Start"
+    },
+    "dst_port_end": {
+      "type": "integer",
+      "default": 65535,
+      "title": "Dst Port End"
+    },
+    "src_port_start": {
+      "type": "integer",
+      "default": 0,
+      "title": "Src Port Start"
+    },
+    "src_port_end": {
+      "type": "integer",
+      "default": 65535,
+      "title": "Src Port End"
+    },
+    "pkt_len_start": {
+      "type": "integer",
+      "default": 0,
+      "title": "Pkt Len Start"
+    },
+    "pkt_len_end": {
+      "type": "integer",
+      "default": 65535,
+      "title": "Pkt Len End"
+    },
+    "tcp_flags": {
+      "type": "integer",
+      "default": 0,
+      "title": "Tcp Flags"
+    },
+    "action": {
+      "type": "integer",
+      "default": 0,
+      "title": "Action"
+    },
+    "rate_limit": {
+      "type": "integer",
+      "default": 0,
+      "title": "Rate Limit"
+    },
+    "comments": {
+      "type": "string",
+      "default": "",
+      "title": "Comments"
+    }
+  },
+  "required": []
+}

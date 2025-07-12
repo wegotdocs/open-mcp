@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "ip_address": {
+      "type": "string",
+      "title": "Ip Address",
+      "description": "IP address to configure DDoS protection for"
+    },
+    "prefix": {
+      "type": "integer",
+      "maximum": 32,
+      "minimum": 1,
+      "title": "Prefix",
+      "description": "Prefix length (e.g., 32 for single IP, 24 for /24 subnet)",
+      "default": 32
+    },
+    "tcp_validation_level": {
+      "type": "integer",
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Tcp Validation Level",
+      "description": "TCP validation level (0-1)"
+    },
+    "tcp_validation_sym_level": {
+      "type": "integer",
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Tcp Validation Sym Level",
+      "description": "TCP Symmetric validation level (0-1)"
+    },
+    "udp_validation_level": {
+      "type": "integer",
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Udp Validation Level",
+      "description": "UDP validation level (0-1)"
+    },
+    "fivem_protection_level": {
+      "type": "integer",
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Fivem Protection Level",
+      "description": "FiveM protection level (0-2: 0=Disabled, 1=Layer7, 2=UDP+Layer7)"
+    },
+    "mc_java_protection_level": {
+      "type": "integer",
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Mc Java Protection Level",
+      "description": "Minecraft Java protection level (0-1)"
+    },
+    "tls_validation_level": {
+      "type": "integer",
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Tls Validation Level",
+      "description": "TLS validation level (0-1)"
+    },
+    "rdp_protection_level": {
+      "type": "integer",
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Rdp Protection Level",
+      "description": "RDP protection level (0-1)"
+    }
+  },
+  "required": [
+    "ip_address",
+    "tcp_validation_level",
+    "tcp_validation_sym_level",
+    "udp_validation_level",
+    "fivem_protection_level",
+    "mc_java_protection_level",
+    "tls_validation_level",
+    "rdp_protection_level"
+  ]
+}

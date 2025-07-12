@@ -1,0 +1,36 @@
+export const OPENAPI_URL = "https://api.cubepath.com/openapi.json"
+export const SERVER_NAME = "api_example_com"
+export const SERVER_VERSION = "0.0.1"
+export const OPERATION_FILES_RELATIVE = [
+  "./tools/create_sshkey_sshkey_create_post/index.js",
+  "./tools/view_user_sshkeys_sshkey_user_sshkeys_get/index.js",
+  "./tools/delete_sshkey_sshkey_key_id_delete/index.js",
+  "./tools/get_floating_ips_by_user_organization_floating_ips_organization_/index.js",
+  "./tools/configure_reverse_dns_floating_ips_reverse_dns_configure_post/index.js",
+  "./tools/configure_ddos_protection_floating_ips_ddos_protection_post/index.js",
+  "./tools/create_network_networks_create_network_post/index.js",
+  "./tools/update_network_networks_network_id_put/index.js",
+  "./tools/delete_network_networks_network_id_delete/index.js",
+  "./tools/create_vps_vps_create_project_id_post/index.js",
+  "./tools/destroy_vps_vps_destroy_vps_id_post/index.js",
+  "./tools/power_vps_vps_vps_id_power_power_type_post/index.js",
+  "./tools/resize_vps_vps_resize_vps_id_vps_id_resize_plan_resize_plan_post/index.js",
+  "./tools/get_vnc_url_vps_vps_id_vnc_url_get/index.js",
+  "./tools/reinstall_vps_vps_reinstall_vps_id_post/index.js",
+  "./tools/change_vps_password_vps_vps_id_change_password_post/index.js",
+  "./tools/update_vps_vps_update_vps_id_patch/index.js",
+  "./tools/get_vps_metrics_vps_vps_id_metrics_get/index.js",
+  "./tools/list_countries_edge_acls_countries_get/index.js",
+  "./tools/list_prefix_lists_edge_acls_prefix_lists_get/index.js",
+  "./tools/create_prefix_list_edge_acls_prefix_lists_post/index.js",
+  "./tools/list_edge_acls_edge_acls_get/index.js",
+  "./tools/create_edge_acl_rule_edge_acls_post/index.js",
+  "./tools/delete_prefix_list_edge_acls_prefix_lists_prefix_list_uuid_delet/index.js",
+  "./tools/add_ip_to_prefix_list_edge_acls_prefix_lists_add_ip_post/index.js",
+  "./tools/delete_ip_from_prefix_list_edge_acls_prefix_lists_prefix_list_uu/index.js",
+  "./tools/delete_edge_acl_rule_edge_acls_rule_id_delete/index.js",
+  "./tools/get_attacks_ddos_attacks_attacks_get/index.js",
+  "./tools/get_attack_details_ddos_attacks_attacks_attack_id_details_get/index.js",
+  "./tools/get_attack_traffic_graph_ddos_attacks_attacks_attack_id_traffic_/index.js",
+  "./tools/list_tunnels_tunnels_get/index.js"
+]
