@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Empresa X atualizada"
+    },
+    "organization_custom_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "custom_field_id": {
+            "type": "string",
+            "example": "646e73a3651e44000f352486"
+          },
+          "value": {
+            "type": "string",
+            "example": "Valor de exemplo"
+          }
+        }
+      },
+      "example": [
+        {
+          "custom_field_id": "646e73a3651e44000f352486",
+          "value": "Valor de exemplo"
+        }
+      ]
+    },
+    "organization_segments": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "NOME_DO_SEGMENTO1"
+      },
+      "example": [
+        "NOME_DO_SEGMENTO1",
+        "NOME_DO_SEGMENTO2"
+      ]
+    },
+    "resume": {
+      "type": "string",
+      "example": "resumo da empresa"
+    },
+    "url": {
+      "type": "string",
+      "example": "http://google.com/"
+    },
+    "user_id": {
+      "type": "string",
+      "example": "5d1e122a572a6c0034f2e595"
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "type": "object",
+  "properties": {
+    "birthday": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `birthday` to the tool, first call the tool `expandSchema` with \"/properties/contact/properties/birthday\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "contact_custom_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "custom_field_id": {
+            "type": "string",
+            "example": "646e73a3651e44000f352486"
+          },
+          "value": {
+            "type": "string",
+            "example": "Valor X"
+          }
+        }
+      },
+      "example": [
+        {
+          "custom_field_id": "646e73a3651e44000f352486",
+          "value": "Valor X"
+        }
+      ]
+    },
+    "deal_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "64dccdc7902ce80001d9fa9f"
+      },
+      "example": [
+        "64dccdc7902ce80001d9fa9f",
+        "64da562812a6310001baa2a4"
+      ]
+    },
+    "emails": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "fulano@email.com.br"
+          }
+        }
+      },
+      "example": [
+        {
+          "email": "fulano@email.com.br"
+        }
+      ]
+    },
+    "facebook": {
+      "type": "string",
+      "example": "facebook do contato"
+    },
+    "legal_bases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "example": "data_processing"
+          },
+          "status": {
+            "type": "string",
+            "example": "granted"
+          },
+          "type": {
+            "type": "string",
+            "example": "consent"
+          }
+        }
+      },
+      "example": [
+        {
+          "category": "data_processing",
+          "status": "granted",
+          "type": "consent"
+        },
+        {
+          "category": "communications",
+          "status": "granted",
+          "type": "vital_interest"
+        }
+      ]
+    },
+    "linkedin": {
+      "type": "string",
+      "example": "linkedin do contato"
+    },
+    "name": {
+      "type": "string",
+      "example": "Renan Porto ATUALIZADO"
+    },
+    "organization_id": {
+      "type": "string",
+      "example": "64ca5196268ec600013bac1b"
+    },
+    "phones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "example": "1111111111"
+          },
+          "type": {
+            "type": "string",
+            "example": "home"
+          }
+        }
+      },
+      "example": [
+        {
+          "phone": "1111111111",
+          "type": "home"
+        },
+        {
+          "phone": "2222222222",
+          "type": "work"
+        },
+        {
+          "phone": "3333333333",
+          "type": "fax"
+        }
+      ]
+    },
+    "skype": {
+      "type": "string",
+      "example": "skype do contato"
+    },
+    "title": {
+      "type": "string",
+      "example": "Diretor"
+    }
+  }
+}

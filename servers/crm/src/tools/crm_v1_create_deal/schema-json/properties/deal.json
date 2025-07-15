@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "deal_custom_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "custom_field_id": {
+            "type": "string",
+            "example": "63c188a315b034000fbf62d1"
+          },
+          "value": {
+            "example": "Opção A",
+            "anyOf": [
+              {
+                "type": "string",
+                "example": "Opção A"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "Opção 1"
+                },
+                "example": [
+                  "Opção 1",
+                  "Opção 2"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "example": [
+        {
+          "custom_field_id": "63c188a315b034000fbf62d1",
+          "value": "Opção A"
+        },
+        {
+          "custom_field_id": "63e55e890ef6e0001819ddee",
+          "value": [
+            "Opção 1",
+            "Opção 2"
+          ]
+        }
+      ]
+    },
+    "deal_stage_id": {
+      "type": "string",
+      "example": "633de55c96c4ac0019c8a638"
+    },
+    "name": {
+      "type": "string",
+      "example": "Negociação"
+    },
+    "prediction_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "example": null
+    },
+    "rating": {
+      "type": "number",
+      "example": 1
+    },
+    "user_id": {
+      "type": "string",
+      "example": "5d1e122a572a6c0034f2e595"
+    }
+  }
+}

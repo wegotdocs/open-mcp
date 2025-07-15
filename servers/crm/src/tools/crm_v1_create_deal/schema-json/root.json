@@ -1,0 +1,252 @@
+{
+  "type": "object",
+  "properties": {
+    "campaign": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `campaign` to the tool, first call the tool `expandSchema` with \"/properties/campaign\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "birthday": {
+            "type": "object",
+            "properties": {
+              "day": {
+                "type": "number",
+                "example": 11
+              },
+              "month": {
+                "type": "number",
+                "example": 9
+              },
+              "year": {
+                "type": "number",
+                "example": 1979
+              }
+            }
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "email1@empresa.com"
+                }
+              }
+            },
+            "example": [
+              {
+                "email": "email1@empresa.com"
+              },
+              {
+                "email": "email2@empresa.com"
+              }
+            ]
+          },
+          "facebook": {
+            "type": "string",
+            "example": "https://..."
+          },
+          "legal_bases": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "string",
+                  "example": "data_processing"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "granted"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "consent"
+                }
+              }
+            },
+            "example": [
+              {
+                "category": "data_processing",
+                "status": "granted",
+                "type": "consent"
+              },
+              {
+                "category": "communications",
+                "status": "granted",
+                "type": "vital_interest"
+              }
+            ]
+          },
+          "linkedin": {
+            "type": "string",
+            "example": "http://..."
+          },
+          "name": {
+            "type": "string",
+            "example": "Alexandre"
+          },
+          "phones": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "phone": {
+                  "type": "string",
+                  "example": "3165585457"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "cellphone"
+                }
+              }
+            },
+            "example": [
+              {
+                "phone": "3165585457",
+                "type": "cellphone"
+              }
+            ]
+          },
+          "skype": {
+            "type": "string",
+            "example": "alexandre@email.com"
+          },
+          "title": {
+            "type": "string",
+            "example": "Gerente"
+          }
+        }
+      },
+      "example": [
+        {
+          "birthday": {
+            "day": 11,
+            "month": 9,
+            "year": 1979
+          },
+          "emails": [
+            {
+              "email": "email1@empresa.com"
+            },
+            {
+              "email": "email2@empresa.com"
+            }
+          ],
+          "facebook": "https://...",
+          "legal_bases": [
+            {
+              "category": "data_processing",
+              "status": "granted",
+              "type": "consent"
+            },
+            {
+              "category": "communications",
+              "status": "granted",
+              "type": "vital_interest"
+            }
+          ],
+          "linkedin": "http://...",
+          "name": "Alexandre",
+          "phones": [
+            {
+              "phone": "3165585457",
+              "type": "cellphone"
+            }
+          ],
+          "skype": "alexandre@email.com",
+          "title": "Gerente"
+        }
+      ]
+    },
+    "deal": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `deal` to the tool, first call the tool `expandSchema` with \"/properties/deal\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "deal_products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "example": 1.1
+          },
+          "base_price": {
+            "type": "number",
+            "example": 199.91
+          },
+          "description": {
+            "type": "string",
+            "example": "Description Product 1"
+          },
+          "discount_type": {
+            "type": "string",
+            "example": "value"
+          },
+          "name": {
+            "type": "string",
+            "example": "Product 01"
+          },
+          "price": {
+            "type": "number",
+            "example": 199.91
+          },
+          "recurrence": {
+            "type": "string",
+            "example": "spare"
+          },
+          "total": {
+            "type": "number",
+            "example": 199.91
+          }
+        }
+      },
+      "example": [
+        {
+          "amount": 1.1,
+          "base_price": 199.91,
+          "description": "Description Product 1",
+          "discount_type": "value",
+          "name": "Product 01",
+          "price": 199.91,
+          "recurrence": "spare",
+          "total": 199.91
+        },
+        {
+          "amount": 1.1,
+          "base_price": 199.92,
+          "description": "Description Product 2",
+          "discount_type": "value",
+          "name": "Product 02",
+          "price": 199.92,
+          "recurrence": "spare",
+          "total": 199.92
+        }
+      ]
+    },
+    "deal_source": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `deal_source` to the tool, first call the tool `expandSchema` with \"/properties/deal_source\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "distribution_settings": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `distribution_settings` to the tool, first call the tool `expandSchema` with \"/properties/distribution_settings\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "organization": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `organization` to the tool, first call the tool `expandSchema` with \"/properties/organization\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": []
+}

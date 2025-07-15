@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Empresa 03"
+    },
+    "organization_custom_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "custom_field_id": {
+            "type": "string",
+            "example": "62684cbc6caff8000c8b6b00"
+          },
+          "value": {
+            "type": "string",
+            "example": "48484848"
+          }
+        }
+      },
+      "example": [
+        {
+          "custom_field_id": "62684cbc6caff8000c8b6b00",
+          "value": "48484848"
+        }
+      ]
+    },
+    "organization_segments": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "NOME_DO_SEGMENTO1"
+      },
+      "example": [
+        "NOME_DO_SEGMENTO1",
+        "NOME_DO_SEGMENTO2"
+      ]
+    },
+    "resume": {
+      "type": "string",
+      "example": "resumo da empresa"
+    },
+    "url": {
+      "type": "string",
+      "example": "http://google.com/"
+    },
+    "user_id": {
+      "type": "string",
+      "example": "6268453dc9315700177a7767"
+    }
+  }
+}

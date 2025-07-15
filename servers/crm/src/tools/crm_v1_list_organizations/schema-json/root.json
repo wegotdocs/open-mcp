@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "description": "Número atual da página",
+      "type": "string",
+      "example": ""
+    },
+    "limit": {
+      "description": "Limite de empresas que virão por listagem. Valor padrão é 20. Valor máximo é 200",
+      "type": "string",
+      "example": ""
+    },
+    "order": {
+      "description": "Campo a ser ordenado. Valor padrão é \"name\"",
+      "type": "string",
+      "example": ""
+    },
+    "direction": {
+      "description": "Ordenação da lista. \"asc\" ou \"desc\", padrão é \"asc\"",
+      "type": "string",
+      "example": ""
+    },
+    "organization_segment": {
+      "description": "ID do segmento. Busca todas as empresas que têm esse segmento",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "ID do usuário. Busca as empresas do usuário anterior no parâmetro",
+      "type": "string"
+    },
+    "q": {
+      "description": "String com o nome da empresa. Busca as empresas com a string anterior no parâmetro",
+      "type": "string"
+    }
+  },
+  "required": []
+}

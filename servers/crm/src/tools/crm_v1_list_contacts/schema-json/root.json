@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "description": "Número atual da página",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Limite de contatos que serão listados. Valor padrão é 20. Valor máximo é 200",
+      "type": "string"
+    },
+    "order": {
+      "description": "Campo a ser ordenado. Valor padrão é \"name\"",
+      "type": "string"
+    },
+    "direction": {
+      "description": "Ordenação da lista. \"asc\" ou \"desc\", padrão é \"asc\"",
+      "type": "string"
+    },
+    "email": {
+      "description": "Filtra os resultados pelo e-mail informado",
+      "type": "string"
+    },
+    "q": {
+      "description": "Nome do contato a ser buscado",
+      "type": "string"
+    },
+    "phone": {
+      "description": "Filtra os resultados pelo telefone informado",
+      "type": "string"
+    },
+    "title": {
+      "description": "Filtra os resultados pelo cargo informado",
+      "type": "string"
+    }
+  },
+  "required": []
+}

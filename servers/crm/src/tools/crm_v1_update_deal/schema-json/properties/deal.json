@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "deal_custom_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "custom_field_id": {
+            "type": "string",
+            "example": "63c188a315b034000fbf62d1"
+          },
+          "value": {
+            "example": "Opção A",
+            "anyOf": [
+              {
+                "type": "string",
+                "nullable": true,
+                "example": "Opção A"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "Opção 1"
+                },
+                "example": [
+                  "Opção 1",
+                  "Opção 2"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "example": [
+        {
+          "custom_field_id": "63c188a315b034000fbf62d1",
+          "value": "Opção A"
+        },
+        {
+          "custom_field_id": "63e55e890ef6e0001819ddee",
+          "value": [
+            "Opção 1",
+            "Opção 2"
+          ]
+        }
+      ]
+    },
+    "deal_lost_note": {
+      "type": "string",
+      "nullable": true,
+      "example": null
+    },
+    "deal_lost_reason_id": {
+      "type": "string",
+      "nullable": true,
+      "example": null
+    },
+    "hold": {
+      "type": "boolean",
+      "nullable": true,
+      "example": null
+    },
+    "name": {
+      "type": "string",
+      "example": "Negociação Atualizada"
+    },
+    "organization_id": {
+      "type": "string",
+      "example": "64e002800e06f5000dad7673"
+    },
+    "prediction_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "example": null
+    },
+    "rating": {
+      "type": "number",
+      "example": 1
+    },
+    "user_id": {
+      "type": "string",
+      "example": "5d1e122a572a6c0034f2e595"
+    },
+    "win": {
+      "type": "boolean",
+      "nullable": true,
+      "example": null
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "properties": {
+    "deal_products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "example": 10.3
+          },
+          "discount": {
+            "type": "number",
+            "example": 12
+          },
+          "discount_type": {
+            "type": "string",
+            "example": "percentage"
+          },
+          "price": {
+            "type": "number",
+            "nullable": true,
+            "example": null
+          },
+          "product_id": {
+            "type": "string",
+            "example": "ID1"
+          },
+          "recurrence": {
+            "type": "string",
+            "example": "monthly"
+          },
+          "total": {
+            "type": "number",
+            "example": 125
+          }
+        }
+      },
+      "example": [
+        {
+          "amount": 10.3,
+          "discount": 12,
+          "discount_type": "percentage",
+          "price": null,
+          "product_id": "ID1",
+          "recurrence": "monthly",
+          "total": 125
+        },
+        {
+          "amount": 6.1,
+          "discount": 10,
+          "discount_type": "value",
+          "price": 15.1,
+          "product_id": "ID2",
+          "recurrence": "annual",
+          "total": 90.6
+        }
+      ]
+    }
+  },
+  "required": []
+}

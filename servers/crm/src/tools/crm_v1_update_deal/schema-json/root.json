@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "campaign": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `campaign` to the tool, first call the tool `expandSchema` with \"/properties/campaign\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "deal": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `deal` to the tool, first call the tool `expandSchema` with \"/properties/deal\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "deal_source": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `deal_source` to the tool, first call the tool `expandSchema` with \"/properties/deal_source\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "deal_stage_id": {
+      "type": "string",
+      "example": "633de55c96c4ac0019c8a638"
+    }
+  },
+  "required": []
+}
