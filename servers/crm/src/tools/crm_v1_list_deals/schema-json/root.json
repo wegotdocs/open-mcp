@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "description": "Número atual da página",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Limite de negociações que serão listadas. Valor padrão é 20. Valor máximo é 200",
+      "type": "string"
+    },
+    "order": {
+      "description": "Ordenação. Valor padrão é \"created_at\"",
+      "type": "string"
+    },
+    "direction": {
+      "description": "Ordenação da lista. \"asc\" ou \"desc\", padrão é \"desc\"",
+      "type": "string"
+    },
+    "name": {
+      "description": "Nome da negociação. Para buscas com nome exato, usar o parâmetro exact_name= true",
+      "type": "string"
+    },
+    "win": {
+      "description": "Negociações ganhas. O valor true (retorna as negociações \"ganhas\"), false (retorna as negociações \"perdidas\") e null (retorna as negociações \"em aberto\")",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "ID do usuário relacionado à negociação",
+      "type": "string"
+    },
+    "closed_at": {
+      "description": "Ao informar true (retorna as negociações \"ganhas\" ou \"perdidas\"). Ao informar false (retorna as negociações \"em aberto\" OU \"pausadas\")",
+      "type": "string"
+    },
+    "closed_at_period": {
+      "description": "Data de fechamento da negociação: se true deve ser informado start_date e end_date",
+      "type": "string"
+    },
+    "created_at_period": {
+      "description": "Data de criação da negociação: se true, deve ser informado start_date e end_date",
+      "type": "string"
+    },
+    "prediction_date_period": {
+      "description": "Data de previsão de fechamento da negociação: se true, deve ser informado start_date e end_date",
+      "type": "string"
+    },
+    "start_date": {
+      "description": "Primeiro dia/hora em que deve ser aplicado o filtro para o parâmetro closed_at_period ou created_at_period. Ex.: \"start_date\": \"2020-12-14T15:00:00\"",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "Último dia/hora em que deve ser aplicado o filtro para o parâmetro closed_at_period ou created_at_period. Ex.: \"end_date\": \"2020-12-14T15:00:00\"",
+      "type": "string"
+    },
+    "campaign_id": {
+      "description": "ID da campanha",
+      "type": "string"
+    },
+    "deal_stage_id": {
+      "description": "ID da etapa",
+      "type": "string"
+    },
+    "deal_lost_reason_id": {
+      "description": "ID do motivo de perda",
+      "type": "string"
+    },
+    "deal_pipeline_id": {
+      "description": "ID do funil",
+      "type": "string"
+    },
+    "organization": {
+      "description": "ID da empresa",
+      "type": "string"
+    },
+    "hold": {
+      "description": "Estado da negociação pausada. Se marcado como true (retorna todas negociações \"pausadas\"). Para outros casos, não deve-se utilizar esse parâmetro",
+      "type": "string"
+    },
+    "product_presence": {
+      "description": "Negociações que contenham produtos/serviços relacionados. Se false (nenhum produto relacionado), true (um ou mais produtos relacionados) ou uma lista de IDs de produto. A lista de IDs deve ser informada com os valores separados por vírgula. Ex.: 5esdsds, d767dsdssd, c6e40fd2f000972a083",
+      "type": "string"
+    },
+    "next_page": {
+      "description": "O parâmetro next_page serve para consultar a próxima página de resultados da busca corrente. Ele é obtido através da primeira consulta feita por esta API, porém todos os demais resultados apresentam este campo que se utilizado na requisição, navegam para sua próxima página.",
+      "type": "string",
+      "example": ""
+    }
+  },
+  "required": []
+}

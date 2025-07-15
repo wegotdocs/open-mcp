@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "deal_id": {
+      "description": "ID da negociação",
+      "type": "string"
+    },
+    "page": {
+      "description": "Número da página listada. Valor padrão é 1",
+      "type": "string",
+      "example": "1"
+    },
+    "limit": {
+      "description": "Limite de anotações que virão por listagem. Valor padrão é 20. Valor máximo é 200",
+      "type": "string",
+      "example": "200"
+    },
+    "start_date": {
+      "description": "Filtrar por data - início",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "Filtrar por data - fim",
+      "type": "string"
+    }
+  },
+  "required": []
+}

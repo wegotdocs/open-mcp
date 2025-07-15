@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "allow_new": {
+      "type": "boolean",
+      "example": false
+    },
+    "for": {
+      "type": "string",
+      "example": "deal"
+    },
+    "label": {
+      "type": "string",
+      "example": "Você gosta de praia?"
+    },
+    "opts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "Sim"
+      },
+      "example": [
+        "Sim",
+        "Não"
+      ]
+    },
+    "order": {
+      "type": "number",
+      "example": 0
+    },
+    "required": {
+      "type": "boolean",
+      "example": true
+    },
+    "type": {
+      "type": "string",
+      "example": "option"
+    },
+    "unique": {
+      "type": "boolean",
+      "example": false
+    }
+  }
+}

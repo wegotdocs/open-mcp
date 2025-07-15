@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "Limite de motivos da perda que virão por listagem. Valor padrão é 20. Valor máximo é 200",
+      "type": "string"
+    },
+    "page": {
+      "description": "Página da listagem de motivos da perda. Valor padrão é 1",
+      "type": "string"
+    },
+    "q": {
+      "description": "Nome do motivo da perda a ser buscado. Ex: a fonte \"Motivo 1\" deve ser buscada como \"motivo%201\"",
+      "type": "string"
+    },
+    "order": {
+      "description": "Campo a ser ordenado. Valor padrão e aceito é \"name\"",
+      "type": "string"
+    }
+  },
+  "required": []
+}

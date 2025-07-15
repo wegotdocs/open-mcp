@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "base_price": {
+      "type": "string",
+      "example": "10.00"
+    },
+    "description": {
+      "type": "string",
+      "example": "um lapis muito bom"
+    },
+    "name": {
+      "type": "string",
+      "example": "Lapis"
+    },
+    "product_custom_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "custom_field_id": {
+            "type": "string",
+            "example": "66e99df3a2d970001d5bfd19"
+          },
+          "value": {
+            "type": "string",
+            "example": "MDF"
+          }
+        }
+      },
+      "example": [
+        {
+          "custom_field_id": "66e99df3a2d970001d5bfd19",
+          "value": "MDF"
+        },
+        {
+          "custom_field_id": "66e99d06a2d970001d5bfd18",
+          "value": "12cm"
+        }
+      ]
+    }
+  }
+}

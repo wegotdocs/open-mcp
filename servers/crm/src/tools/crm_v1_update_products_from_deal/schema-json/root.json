@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "deal_products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "nullable": true,
+            "example": null
+          },
+          "id": {
+            "type": "string",
+            "example": "ID1"
+          },
+          "price": {
+            "type": "number",
+            "example": 15.1
+          }
+        }
+      },
+      "example": [
+        {
+          "amount": null,
+          "id": "ID1"
+        },
+        {
+          "id": "ID2",
+          "price": 15.1
+        }
+      ]
+    }
+  },
+  "required": []
+}

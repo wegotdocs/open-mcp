@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "description": "Número da página listada. Valor padrão é 1",
+      "type": "string",
+      "example": ""
+    },
+    "limit": {
+      "description": "Limite de tarefas que virão por listagem. Valor padrão é 20. Valor máximo é 200",
+      "type": "string",
+      "example": ""
+    },
+    "deal_id": {
+      "description": "ID da negociação",
+      "type": "string"
+    },
+    "done": {
+      "description": "Se a tarefa está concluída",
+      "type": "string"
+    },
+    "type": {
+      "description": "Tipo de tarefa. Valores possíveis: (call, email, meeting, task, lunch, visit, whatsapp)",
+      "type": "string"
+    },
+    "user_id": {
+      "description": "ID do usuário",
+      "type": "string"
+    },
+    "date_start": {
+      "description": "Filtrar por data de início",
+      "type": "string"
+    },
+    "date_end": {
+      "description": "Filtrar por data final",
+      "type": "string"
+    },
+    "done_date_start": {
+      "description": "Filtrar por data de conclusão - início",
+      "type": "string"
+    },
+    "done_date_end": {
+      "description": "Filtrar por data de conclusão - final",
+      "type": "string"
+    }
+  },
+  "required": []
+}
