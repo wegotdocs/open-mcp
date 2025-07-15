@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "task_meta_ids": {
+      "type": "array",
+      "example": [
+        12345,
+        67890
+      ],
+      "description": "List of project task IDs as described by `task_meta_id`",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "task_name": {
+      "type": "string",
+      "example": "Design",
+      "description": "The final name of the merged project task, an empty strings is valid. The final merged task will attempt to match existing names and if found merge into that `task_meta_id`",
+      "minLength": 0,
+      "maxLength": 200
+    },
+    "billable": {
+      "type": "integer",
+      "example": 1,
+      "description": "The final state of the merged project tasks; `1` = Billable, `0` = Non-billable"
+    }
+  },
+  "required": [
+    "task_meta_ids",
+    "task_name"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "active": {
+      "description": "Filter only on `0` = non-active or `1` = active entities in the response",
+      "type": "integer"
+    },
+    "department_id": {
+      "description": "A department ID to filter the response on",
+      "type": "integer"
+    },
+    "email": {
+      "description": "An email address to filter the response (exact match, non-case sensitive)",
+      "type": "string"
+    },
+    "people_type_id": {
+      "description": "The people type to filter the response on `1` = Employee, `2` = Contractor, `3` = Placeholder",
+      "type": "integer"
+    },
+    "employee_type_id": {
+      "description": "The employee type to filter the response on `1` = Full time, `0` = Part time",
+      "type": "integer"
+    },
+    "tag_name": {
+      "description": "Case-insensitive, URL encoded, exact text match of tag names to filter the response on. Comma-delimited values will return all matching records.",
+      "type": "string"
+    },
+    "page": {
+      "description": "The page number of the page of results to return, default `1`",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "per-page": {
+      "description": "The number of items per page, default is `50`",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 50
+    },
+    "sort": {
+      "description": "A field to sort the list values in the response, ascending (default), pre-fix `-` to apply descending. (Limited fields, varies per endpoint)",
+      "type": "string"
+    },
+    "modified_since": {
+      "description": "Datetime in either `YYYY-MM-DD hh:mm:ss` or as a Unix timestamp in seconds to filter on all records with an equal or later `modified` timestamp",
+      "type": "string"
+    },
+    "fields": {
+      "description": "Comma-delimited set of fields to include in the response",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expand": {
+      "description": "Comma-delimited values expands the response with additional fields: `account`,  `managers`, and `contracts`",
+      "type": "string"
+    }
+  },
+  "required": []
+}

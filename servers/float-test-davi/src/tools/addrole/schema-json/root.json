@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The ID of the role",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "example": "Senior prompt engineer",
+      "description": "The name of the role",
+      "maxLength": 200
+    },
+    "default_hourly_rate": {
+      "type": "string",
+      "example": "260.000",
+      "description": "Default hourly rate applied to a fee-based project/phase team member using this role"
+    },
+    "created": {
+      "type": "string",
+      "format": "ISODate",
+      "example": "2024-04-03T13:02:00+00:00",
+      "description": "Date/time this record was created",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "integer",
+      "example": 87655,
+      "description": "ID of the account that created this record",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "format": "ISODate",
+      "example": "2024-04-03T13:02:00+00:00",
+      "description": "Date/time this record was last modified",
+      "readOnly": true
+    },
+    "modified_by": {
+      "type": "integer",
+      "example": 87655,
+      "description": "ID of the account that last modified this record",
+      "readOnly": true
+    },
+    "cost_rate_history": {
+      "type": "array",
+      "description": "`expand` field. List of cost rates applied to people with the role and the effective date when they apply from",
+      "items": {
+        "type": "object",
+        "required": [
+          "rate",
+          "effective_date"
+        ],
+        "properties": {
+          "rate": {
+            "title": "rate",
+            "type": "string",
+            "example": "250.5000"
+          },
+          "effective_date": {
+            "title": "effective_date",
+            "type": "string",
+            "example": "2025-06-01"
+          }
+        }
+      }
+    },
+    "people_ids": {
+      "description": "`expand` field. List of all people by `people_id` that are currently assigned to the role",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "example": [
+          1234567,
+          5544332,
+          4959291
+        ]
+      }
+    },
+    "people_count": {
+      "type": "integer",
+      "description": "`expand` field. Count of all people currently assigned to the role",
+      "example": 4
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "description": "**Required:** Start date of the report duration in the format YYYY-MM-DD.",
+      "type": "string"
+    },
+    "end_date": {
+      "description": "**Required:** End date of the report duration in the format YYYY-MM-DD.",
+      "type": "string"
+    },
+    "people_id": {
+      "description": "A people ID to filter the response on",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "start_date",
+    "end_date"
+  ]
+}

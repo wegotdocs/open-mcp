@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "description": "A client ID associated with projects to filter the response on",
+      "type": "integer"
+    },
+    "project_id": {
+      "description": "A project ID to filter the response on",
+      "type": "integer"
+    },
+    "phase_id": {
+      "description": "A phase ID associated with a project to filter the response on",
+      "type": "integer"
+    },
+    "page": {
+      "description": "The page number of the page of results to return, default `1`",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "per-page": {
+      "description": "The number of items per page, default is `50`",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 50
+    }
+  },
+  "required": []
+}

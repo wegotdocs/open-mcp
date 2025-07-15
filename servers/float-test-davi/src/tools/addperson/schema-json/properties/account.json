@@ -1,0 +1,81 @@
+{
+  "title": "Account",
+  "type": "object",
+  "required": [
+    "email",
+    "name"
+  ],
+  "properties": {
+    "account_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The ID of this account",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "example": "Donna Nobel",
+      "description": "The name of the account",
+      "maxLength": 200
+    },
+    "email": {
+      "type": "string",
+      "example": "donna@example.com",
+      "description": "Email address for this account",
+      "maxLength": 200
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Timezone as a TZ identifier, set when using the time logging timer function",
+      "example": "America/New_York"
+    },
+    "avatar": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of an image file representing the account as an avatar",
+      "example": "https://floatcdn.com/icons/avatar1-80.png"
+    },
+    "account_type": {
+      "type": "integer",
+      "example": 7,
+      "description": "High level permissions of the account; `1` = Account Owner, `2` = Admin, `4` = Member, `5` = Billing, `7` = Manager"
+    },
+    "access": {
+      "type": "integer",
+      "example": 3,
+      "description": "Used in conjunction with `account_type` to determine granular permissions, see response description"
+    },
+    "department_filter_id": {
+      "type": "integer",
+      "example": 443,
+      "description": "The department ID if this account is filtered by a department"
+    },
+    "view_rights": {
+      "type": "integer",
+      "example": 1,
+      "description": "(**Deprecated** - see `access`) Do they have rights to view the team? `1` = Yes, `0` = No"
+    },
+    "edit_rights": {
+      "type": "integer",
+      "example": 1,
+      "description": "(**Deprecated** - see `access`) If a Member, do they have rights to edit their schedule? `1` = Yes, `0` = No"
+    },
+    "active": {
+      "type": "integer",
+      "example": 1,
+      "description": "Is this account active? `1` = Yes, `0` = No"
+    },
+    "created": {
+      "type": "string",
+      "example": "2023-05-16 03:08:23.000000",
+      "description": "Date time this record was created",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "example": "2024-05-16 03:08:23.000000",
+      "description": "Date time this record was last modified",
+      "readOnly": true
+    }
+  }
+}

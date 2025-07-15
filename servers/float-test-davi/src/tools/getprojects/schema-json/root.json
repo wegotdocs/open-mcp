@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "project_code": {
+      "description": "Case-insensitive, URL encoded match of a project code to filter the list response to a single project",
+      "type": "string"
+    },
+    "client_id": {
+      "description": "A client ID associated with projects to filter the response on",
+      "type": "integer"
+    },
+    "active": {
+      "description": "Filter only on `0` = non-active or `1` = active entities in the response",
+      "type": "integer"
+    },
+    "nonBillable": {
+      "description": "Filter response on `0` = billable or `1` = non-billable entities",
+      "type": "integer"
+    },
+    "status": {
+      "description": "Filter response on the `status` of a project",
+      "type": "integer"
+    },
+    "tag_name": {
+      "description": "Case-insensitive, URL encoded, exact text match of tag names to filter the response on. Comma-delimited values will return all matching records.",
+      "type": "string"
+    },
+    "page": {
+      "description": "The page number of the page of results to return, default `1`",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "per-page": {
+      "description": "The number of items per page, default is `50`",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 50
+    },
+    "sort": {
+      "description": "A field to sort the list values in the response, ascending (default), pre-fix `-` to apply descending. (Limited fields, varies per endpoint)",
+      "type": "string"
+    },
+    "modified_since": {
+      "description": "Datetime in either `YYYY-MM-DD hh:mm:ss` or as a Unix timestamp in seconds to filter on all records with an equal or later `modified` timestamp",
+      "type": "string"
+    },
+    "fields": {
+      "description": "Comma-delimited set of fields to include in the response",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expand": {
+      "description": "Comma-delimited values expands the response with additional fields: `project_tasks` - A list of the project tasks available in this project\n`project_team` - A list of people by `people_id` and their project `hourly_rate`, the `phase_id` will be `0`, the list may be empty",
+      "type": "string"
+    }
+  },
+  "required": []
+}

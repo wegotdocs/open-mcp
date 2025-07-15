@@ -1,0 +1,202 @@
+{
+  "type": "object",
+  "properties": {
+    "expand": {
+      "description": "Comma-delimited values expands the response with additional fields: `account`,  `managers`, and `contracts`",
+      "type": "string"
+    },
+    "people_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The unique identifier for this person. Ignored when creating a person",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "example": "Sarah-Jane Smith",
+      "description": "The person's full name",
+      "maxLength": 150
+    },
+    "email": {
+      "type": "string",
+      "example": "sarahjane@example.com",
+      "description": "Email address for this person",
+      "maxLength": 200
+    },
+    "job_title": {
+      "type": "string",
+      "example": "Designer",
+      "description": "The name of the person's role as defined by their `role_id`",
+      "maxLength": 200
+    },
+    "role_id": {
+      "type": "integer",
+      "example": 0,
+      "description": "ID of a role associated with this person, `role.name` is used for `job_title`, during updates `role_id` is higher order"
+    },
+    "department": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `department` to the tool, first call the tool `expandSchema` with \"/properties/department\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "notes": {
+      "type": "string",
+      "example": "Sarah-Jane can't work on weekends.",
+      "description": "Any notes related to this person",
+      "maxLength": 65535
+    },
+    "avatar_file": {
+      "type": "string",
+      "example": "",
+      "description": "Filename of thumbnail image for this person",
+      "maxLength": 40,
+      "readOnly": true
+    },
+    "auto_email": {
+      "type": "integer",
+      "example": 0,
+      "description": "Should this person's schedule be emailed at start of week? 1 = Yes, 0 = No"
+    },
+    "employee_type": {
+      "type": "integer",
+      "example": 0,
+      "description": "Full-time or part-type. `1` = Full-time, `0`  = Part-time"
+    },
+    "work_days_hours": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "format": "float",
+      "example": [
+        0,
+        8,
+        8,
+        8,
+        8,
+        4,
+        0
+      ],
+      "description": "Hours that a part-time person is available for scheduling each day in order from Sunday to Saturday"
+    },
+    "active": {
+      "type": "integer",
+      "example": 1,
+      "description": "Is this person active or archived? `1` = Active, `0` = Archived. Archived people do not show on the schedule or contribute to billing seats and will have their access removed"
+    },
+    "people_type_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "Is this person an `1` = Employee (default), `2` = Contractor, `3` = Placeholder?"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "east coast",
+            "description": "The name of the tag",
+            "maxLength": 64
+          }
+        },
+        "title": "PeopleTag"
+      }
+    },
+    "start_date": {
+      "type": "string",
+      "example": "2019-05-20",
+      "description": "Date the person started"
+    },
+    "end_date": {
+      "type": "string",
+      "example": "2019-11-11",
+      "description": "Date the person finished"
+    },
+    "default_hourly_rate": {
+      "type": "string",
+      "example": "100.50",
+      "description": "Default hourly rate applied when the person is added to a fee-based project, the request also accepts a decimal `number`"
+    },
+    "region_id": {
+      "type": "integer",
+      "example": 1234,
+      "description": "ID of the public holiday region to which the person belongs"
+    },
+    "created": {
+      "type": "string",
+      "example": "2019-05-07 10:26:49",
+      "description": "Date this record was created",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "example": "2019-05-07 11:26:49",
+      "description": "Date this record was last modified",
+      "readOnly": true
+    },
+    "contracts": {
+      "type": "array",
+      "description": "`expand` field. List of applicable contracts determined for the person based on effective dates",
+      "items": {
+        "type": "object",
+        "properties": {
+          "effective_date": {
+            "example": "2023-01-01",
+            "type": "string",
+            "format": "date",
+            "description": "The date the contract starts; defaults to the person's start_date"
+          },
+          "role_id": {
+            "type": "integer",
+            "example": 7891,
+            "description": "The ID of the role the contract is for (`null` if the person has no role)"
+          },
+          "role_name": {
+            "type": "string",
+            "example": "Software Engineer",
+            "description": "The name of the role the contract is for (`null` if the person has no role)"
+          },
+          "cost_rate": {
+            "type": "string",
+            "example": "100.50",
+            "description": "The effective cost rate for the contract (`null` if there are no cost rates)"
+          },
+          "cost_rate_from": {
+            "type": "string",
+            "example": "role",
+            "description": "The entity that the cost rate is derived from either role, person, or `null` (if there are no cost rates)."
+          }
+        },
+        "required": [
+          "effective_date"
+        ]
+      },
+      "readOnly": true
+    },
+    "account": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `account` to the tool, first call the tool `expandSchema` with \"/properties/account\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    },
+    "managers": {
+      "description": "`expand` field. List of accounts by `account_id` that manage this person, multiple managers are possible using departments. `null` if none",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "example": [
+        123456,
+        4567892
+      ],
+      "readOnly": true
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "integer",
+      "example": 7654321,
+      "description": "The ID of this allocation as a task",
+      "readOnly": true
+    },
+    "root_task_id": {
+      "type": "integer",
+      "example": 1234567,
+      "description": "The ID of the earliest linked allocation in a chain"
+    },
+    "parent_task_id": {
+      "type": "integer",
+      "example": 7654321,
+      "description": "The ID of the direct parent of a linked allocation"
+    },
+    "project_id": {
+      "type": "integer",
+      "example": 1345,
+      "description": "The ID of the project for this allocation"
+    },
+    "phase_id": {
+      "type": "integer",
+      "example": 153,
+      "description": "The ID of the project phase for this allocation"
+    },
+    "start_date": {
+      "type": "string",
+      "example": "2023-11-16",
+      "description": "Start date of this allocation"
+    },
+    "end_date": {
+      "type": "string",
+      "example": "2023-11-22",
+      "description": "End date of this allocation"
+    },
+    "start_time": {
+      "type": "string",
+      "example": "14:00",
+      "description": "Start time in 24 hr format"
+    },
+    "hours": {
+      "type": "number",
+      "example": 4.5,
+      "description": "Number of hours per day"
+    },
+    "people_id": {
+      "type": "integer",
+      "example": 11223344,
+      "description": "The ID of the person assigned to the allocation (omit when using `people_ids` field)"
+    },
+    "people_ids": {
+      "type": "array",
+      "example": [
+        "1234",
+        "5678"
+      ],
+      "description": "List of one or more people IDs assigned to the allocation (ignored if `people_id` is set)",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "status": {
+      "type": "integer",
+      "example": 2,
+      "description": "Status; `0` = Draft, `1` = Tentative, `2` = Confirmed, `3` = Complete"
+    },
+    "billable": {
+      "type": "integer",
+      "example": 1,
+      "description": "`1` = Billable, `0` = Non-billable - Billable status is set by the associated project task (`task_meta_id`), updates using this field are deprecated",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "example": "Concepting",
+      "description": "Name of the associated project task"
+    },
+    "task_meta_id": {
+      "type": "integer",
+      "example": 1234567,
+      "description": "The ID of the associated project task (named for backwards compatibility), takes higher priority over `name`"
+    },
+    "notes": {
+      "type": "string",
+      "example": "Sketches and wireframes only.",
+      "description": "Additional details about the work required"
+    },
+    "repeat_state": {
+      "type": "integer",
+      "example": 0,
+      "description": "Frequency that this allocation repeats. `0` = No repeat, `1` = Weekly, `2` = Monthly, `3` = Every two weeks, `4` = Every three weeks, `5` = Every six weeks, `6` = Every two months, `7` = Every three months, `8` = Every six months, `9` = Yearly"
+    },
+    "repeat_end_date": {
+      "type": "string",
+      "example": "2023-03-16",
+      "description": "Date that the repeating allocation will cease"
+    },
+    "created_by": {
+      "type": "integer",
+      "example": 23332,
+      "description": "Account ID of the creator",
+      "readOnly": true
+    },
+    "created": {
+      "type": "string",
+      "example": "2023-02-05 03:48:57.964",
+      "description": "Date this record was created",
+      "readOnly": true
+    },
+    "modified_by": {
+      "type": "integer",
+      "example": 23332,
+      "description": "Account ID who last modified",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "example": "2023-06-02 01:04:24.708",
+      "description": "Date this record was last modified",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "project_id",
+    "start_date",
+    "end_date",
+    "hours"
+  ]
+}

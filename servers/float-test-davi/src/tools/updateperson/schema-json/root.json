@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "people_id": {
+      "description": "The person's id",
+      "type": "integer"
+    },
+    "expand": {
+      "description": "Comma-delimited values expands the response with additional fields: `account`,  `managers`, and `contracts`",
+      "type": "string"
+    }
+  },
+  "required": [
+    "people_id"
+  ]
+}

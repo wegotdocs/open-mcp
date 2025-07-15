@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "status_id": {
+      "type": "integer",
+      "example": 123,
+      "description": "The ID of this status",
+      "readOnly": true
+    },
+    "status_type_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The status type ID set in the UI, the default values are `1` = Home, `2` = Travel, `3` = Custom and `4` = Office"
+    },
+    "people_id": {
+      "type": "integer",
+      "example": 123456,
+      "description": "The ID of the person assigned to this status"
+    },
+    "status_name": {
+      "type": "string",
+      "example": "Travelling",
+      "description": "The name used for a custom status (`status_type_id` = `3`), all other types show the name as null",
+      "maxLength": 200
+    },
+    "start_date": {
+      "type": "string",
+      "example": "2024-11-16",
+      "description": "Start date of this status"
+    },
+    "end_date": {
+      "type": "string",
+      "example": "2024-12-06",
+      "description": "End date of this status"
+    },
+    "repeat_state": {
+      "type": "integer",
+      "example": 0,
+      "description": "Frequency that this status repeats. `0` = No repeat, `1` = Weekly, `2` = Monthly, `3` = Every two weeks, `4` = Every three weeks, `5` = Every six weeks, `6` = Every two months, `7` = Every three months, `8` = Every six months, `9` = Yearly"
+    },
+    "repeat_end_date": {
+      "type": "string",
+      "example": "2023-03-16",
+      "description": "Date that the repeating status will cease"
+    },
+    "created": {
+      "type": "string",
+      "example": "2024-02-05",
+      "description": "Date this record was created",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "example": "2024-02-15",
+      "description": "Date this record was modified",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "integer",
+      "example": 12345,
+      "description": "Account ID of person who created this status",
+      "readOnly": true
+    },
+    "modified_by": {
+      "type": "integer",
+      "example": 12345,
+      "description": "Account ID of person who last modified this status",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "status_type_id",
+    "people_id",
+    "start_date",
+    "end_date"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "department_id": {
+      "type": "integer",
+      "example": 123,
+      "description": "The ID of this department",
+      "readOnly": true
+    },
+    "parent_id": {
+      "type": "integer",
+      "example": 123,
+      "description": "The ID of this department's parent department (identifies this as a sub-department if not `null`)"
+    },
+    "name": {
+      "type": "string",
+      "example": "Engineers",
+      "description": "The name of the department",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

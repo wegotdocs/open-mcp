@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "timeoff_type_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The ID of this time off type",
+      "readOnly": true
+    },
+    "timeoff_type_name": {
+      "type": "string",
+      "example": "Summer Fridays",
+      "description": "The name of this time off type. Note that the name \"*\" is reserved"
+    },
+    "color": {
+      "type": "string",
+      "example": "3190cf",
+      "description": "Time off type's color in hexadecimal"
+    },
+    "active": {
+      "type": "integer",
+      "example": 1,
+      "description": "Shows if the time off type is `1` = active or `0` = archived "
+    },
+    "created_by": {
+      "type": "integer",
+      "example": 12345,
+      "description": "Account ID of the person who created this record",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "timeoff_type_name"
+  ]
+}
