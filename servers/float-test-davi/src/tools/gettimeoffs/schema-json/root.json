@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "start_date": {
+      "description": "Start of date range in format YYYY-MM-DD. Must be used together with `end_date`",
+      "type": "string",
+      "format": "Date:YYYY-MM-DD"
+    },
+    "end_date": {
+      "description": "End of date range in format YYYY-MM-DD. Must be used together with `start_date`",
+      "type": "string",
+      "format": "Date:YYYY-MM-DD"
+    },
+    "full_day": {
+      "description": "Filter only on if timeoff is full day: `1` = Yes, `0` = No",
+      "type": "integer"
+    },
+    "status": {
+      "description": "Filter on the Status of the time off: `1` = tentative, `2` = confirmed.",
+      "type": "integer"
+    },
+    "timeoff_type_id": {
+      "description": "Filter on the ID of the timeoff type",
+      "type": "integer"
+    },
+    "page": {
+      "description": "The page number of the page of results to return, default `1`",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "per-page": {
+      "description": "The number of items per page, default is `50`",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 50
+    },
+    "sort": {
+      "description": "A field to sort the list values in the response, ascending (default), pre-fix `-` to apply descending. (Limited fields, varies per endpoint)",
+      "type": "string"
+    },
+    "modified_since": {
+      "description": "Datetime in either `YYYY-MM-DD hh:mm:ss` or as a Unix timestamp in seconds to filter on all records with an equal or later `modified` timestamp",
+      "type": "string"
+    },
+    "fields": {
+      "description": "Comma-delimited set of fields to include in the response",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

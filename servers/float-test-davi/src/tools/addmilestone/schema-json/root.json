@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "milestone_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The ID of this milestone",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "example": "Sprint #14",
+      "description": "The name of the milestone",
+      "maxLength": 200
+    },
+    "project_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The project that this milestone belongs to"
+    },
+    "phase_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The phase that this milestone belongs to"
+    },
+    "date": {
+      "type": "string",
+      "example": "2019-12-01 09:00",
+      "description": "Start date of the milestone"
+    },
+    "end_date": {
+      "type": "string",
+      "example": "2019-12-05 17:00",
+      "description": "End date of the milestone if more than 1 day"
+    },
+    "created": {
+      "type": "string",
+      "example": "2019-05-07 10:26:49",
+      "description": "Date this record was created",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "example": "2019-05-07 11:26:49",
+      "description": "Date this record was last modified",
+      "readOnly": true,
+      "title": "Milestone"
+    }
+  },
+  "required": [
+    "name",
+    "project_id",
+    "date"
+  ]
+}

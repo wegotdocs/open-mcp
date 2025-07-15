@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "role_id": {
+      "description": "The role's ID",
+      "type": "integer"
+    },
+    "expand": {
+      "description": "Comma-delimited values expands the response with additional fields: `cost_rate_history`, `people_ids`,`people_count`",
+      "type": "string"
+    }
+  },
+  "required": [
+    "role_id"
+  ]
+}

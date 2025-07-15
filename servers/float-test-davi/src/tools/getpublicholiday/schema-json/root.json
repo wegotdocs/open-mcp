@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "public_holiday_id": {
+      "description": "The public holiday's ID",
+      "type": "integer"
+    },
+    "year": {
+      "description": "Returns all results in the given year in format YYYY. Default if omitted is the current year. Overridden by `start_date` and `end_date` parameters",
+      "type": "string",
+      "format": "date:YYYY",
+      "default": "2023"
+    },
+    "start_date": {
+      "description": "Start of date range in format YYYY-MM-DD. Must be used together with `end_date`",
+      "type": "string",
+      "format": "Date:YYYY-MM-DD"
+    },
+    "end_date": {
+      "description": "End of date range in format YYYY-MM-DD. Must be used together with `start_date`",
+      "type": "string",
+      "format": "Date:YYYY-MM-DD"
+    }
+  },
+  "required": [
+    "public_holiday_id"
+  ]
+}

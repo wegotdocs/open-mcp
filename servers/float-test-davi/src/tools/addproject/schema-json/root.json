@@ -1,0 +1,134 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "integer",
+      "example": 4567,
+      "description": "The ID of the project",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "example": "Website Redesign",
+      "description": "The name of the project",
+      "maxLength": 200
+    },
+    "project_code": {
+      "type": "string",
+      "example": "PRJ-123456",
+      "description": "An optional third-party identifier unique across all projects enforced using case-insensitive comparison",
+      "maxLength": 32
+    },
+    "client_id": {
+      "type": "integer",
+      "example": 45672,
+      "description": "The ID of the project's client"
+    },
+    "color": {
+      "type": "string",
+      "example": "0095D7",
+      "description": "Project's color in hexadecimal"
+    },
+    "notes": {
+      "type": "string",
+      "example": "Due at the start of July. Paul to present",
+      "description": "Notes for this project"
+    },
+    "tags": {
+      "type": "array",
+      "example": [
+        "digital",
+        "pitch"
+      ],
+      "description": "List of tags",
+      "items": {
+        "type": "string"
+      }
+    },
+    "budget_type": {
+      "type": "integer",
+      "example": 1,
+      "description": "Is there a project budget? `1` = Total hours, `2` = Total fee, `3` = Hourly fee"
+    },
+    "budget_total": {
+      "type": "number",
+      "example": 1000.5,
+      "description": "The budget amount for Total hours or Total fee project budgets. Displays as `null` for Hourly fee, Phase and Task budgets, also see `budget_priority`"
+    },
+    "budget_per_phase": {
+      "type": "integer",
+      "example": 1,
+      "description": "(**Deprecated** - see `budget_priority`): Is the budget set per Phase? `1` = Yes, `0` = No"
+    },
+    "budget_priority": {
+      "type": "integer",
+      "example": 0,
+      "description": "Defines which level the budget will be determined from; `0` = Project, `1` = Phase, `2` = Task. For non-project levels, the total budget can be calculated from the sum of budgets in each Phase or Task"
+    },
+    "default_hourly_rate": {
+      "type": "string",
+      "example": "55.50",
+      "description": "The default hourly rate for fee-based budgets, the request also accepts a decimal `number`"
+    },
+    "non_billable": {
+      "type": "integer",
+      "example": 1,
+      "description": "Is this project billable? `0` = Billable, `1` = Non-billable"
+    },
+    "status": {
+      "type": "integer",
+      "example": 2,
+      "description": "The status of the project `0` = Draft, `1` = Tentative, `2` = Confirmed"
+    },
+    "tentative": {
+      "type": "integer",
+      "example": 0,
+      "description": "(**Deprecated** - see `status`): Is this project tentative? `1` = Yes, `0` = No"
+    },
+    "locked_task_list": {
+      "type": "integer",
+      "example": 1,
+      "description": "Are members locked from adding project tasks (Only Project Managers can add to this list)? 1 = Yes, locked to project editors, 0 = No, anyone can add tasks"
+    },
+    "active": {
+      "type": "integer",
+      "example": 1,
+      "description": "Is this project active or archived? `1` = Active, `0` = Archived"
+    },
+    "project_manager": {
+      "type": "integer",
+      "example": 17393464,
+      "description": "Account ID of the assigned project manager"
+    },
+    "all_pms_schedule": {
+      "type": "integer",
+      "example": 0,
+      "description": "Do all project managers have scheduling rights? `1` = Yes, `0` = No"
+    },
+    "created": {
+      "type": "string",
+      "example": "2024-10-30 02:40:40.000",
+      "description": "Date this record was created",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "example": "2024-11-14 03:02:05.000",
+      "description": "Date this record was last modified",
+      "readOnly": true
+    },
+    "start_date": {
+      "type": "string",
+      "example": "2024-11-07",
+      "description": "The start date of this project which is either manually set or calculated from the earliest phase, milestone, allocation, or logged time"
+    },
+    "end_date": {
+      "type": "string",
+      "example": "2025-01-18",
+      "description": "The end date of this project which is either manually set or calculated from the latest phase, milestone, allocation, or logged time"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "properties": {
+    "phase_id": {
+      "type": "integer",
+      "example": 6754,
+      "description": "The ID of this phase",
+      "readOnly": true
+    },
+    "project_id": {
+      "type": "integer",
+      "example": 4567,
+      "description": "The ID of the project to which this phase belongs"
+    },
+    "name": {
+      "type": "string",
+      "example": "Design",
+      "description": "The name of the phase",
+      "maxLength": 200
+    },
+    "color": {
+      "type": "string",
+      "example": "0095D7",
+      "description": "Phase's color in hexadecimal (defaults to project color)"
+    },
+    "notes": {
+      "type": "string",
+      "example": "Due at the start of July. Paul to present",
+      "description": "Notes for this phase"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date:YYYY-MM-DD",
+      "example": "2024-12-12",
+      "description": "The start date of this phase which is either manually set or calculated from the earliest milestone, allocation, or logged time within this phase"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date:YYYY-MM-DD",
+      "example": "2025-02-23",
+      "description": "The end date of this phase which is either manually set or calculated from the latest milestone, allocation, or logged time within this phase"
+    },
+    "budget_total": {
+      "type": "number",
+      "example": 1000.5,
+      "description": "The budget amount for 'hours by phase' or 'fee by phase' project budgets"
+    },
+    "default_hourly_rate": {
+      "type": "string",
+      "example": "55.50",
+      "description": "The default hourly rate for fee-based budgets, the request also accepts a decimal `number`"
+    },
+    "non_billable": {
+      "type": "integer",
+      "example": 1,
+      "description": "Is this phase billable? `0` = Billable, `1` = Non-billable"
+    },
+    "status": {
+      "type": "integer",
+      "example": 2,
+      "description": "The status of the phase `0` = Draft, `1` = Tentative, `2` = Confirmed. Draft phases must belong to draft projects, tentative phase can belong to tentative or confirmed projects, confirmed phases must belong to confirmed projects"
+    },
+    "tentative": {
+      "type": "integer",
+      "example": 0,
+      "description": "(**Deprecated** - see `status`): Is this phase tentative? `1` = Yes, `0` = No"
+    },
+    "active": {
+      "type": "integer",
+      "example": 1,
+      "description": "Is this phase active or archived? `1` = Active, `0` = Archived"
+    },
+    "created": {
+      "type": "string",
+      "example": "2025-01-03 07:45:37",
+      "description": "Date this record was created",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "example": "2025-01-11 06:38:44",
+      "description": "Date this record was last modified",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "project_id",
+    "name",
+    "start_date",
+    "end_date"
+  ]
+}

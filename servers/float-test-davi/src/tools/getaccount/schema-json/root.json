@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "description": "The account ID",
+      "type": "integer"
+    },
+    "expand": {
+      "description": "Use `people_id` to return an additional `people_id` field that can reference a record on `/people`, or `null` if a guest",
+      "type": "string"
+    }
+  },
+  "required": [
+    "account_id"
+  ]
+}

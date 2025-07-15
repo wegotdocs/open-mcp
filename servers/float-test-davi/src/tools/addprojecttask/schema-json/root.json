@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "task_meta_id": {
+      "type": "integer",
+      "example": 4567,
+      "description": "The ID of the project task (named for backwards compatibility)",
+      "readOnly": true
+    },
+    "project_id": {
+      "type": "integer",
+      "example": 32154,
+      "description": "The ID of the project the project task belongs to"
+    },
+    "phase_id": {
+      "type": "integer",
+      "example": 123,
+      "description": "The ID of the phase the project task belongs to; `0` indicates it does not belong to a phase",
+      "default": 0
+    },
+    "task_name": {
+      "type": "string",
+      "example": "Design",
+      "description": "The name of the project task, an empty string is valid and is the default on the UI when a project task has not been chosen",
+      "minLength": 0,
+      "maxLength": 200
+    },
+    "billable": {
+      "type": "integer",
+      "example": 1,
+      "description": "`1` = Billable, `0` = Non-billable - Billable project tasks may not belong to non-billable projects or phases"
+    },
+    "budget": {
+      "type": "number",
+      "example": 100.99,
+      "description": "The budget amount for 'hours by task' or 'fee by task' project budgets"
+    },
+    "count_tasks": {
+      "type": "integer",
+      "example": 150,
+      "description": "The number of allocations (`task_id`) this project task is associated with.",
+      "readOnly": true
+    },
+    "count_logged_time": {
+      "type": "integer",
+      "example": 100,
+      "description": "The number of logged time entries (`logged_time_id`) this project task is associated with.",
+      "readOnly": true
+    },
+    "created": {
+      "type": "string",
+      "example": "2023-10-22 23:11:23.578",
+      "description": "Date this record was created",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "example": "2023-11-11 07:38:44",
+      "description": "Date this record was last modified",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "project_id",
+    "task_name"
+  ]
+}

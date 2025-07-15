@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "description": "A client ID associated with projects to filter the response on",
+      "type": "integer"
+    },
+    "project_id": {
+      "description": "A project ID to filter the response on",
+      "type": "integer"
+    },
+    "phase_id": {
+      "description": "A phase ID associated with a project to filter the response on",
+      "type": "integer"
+    },
+    "task_meta_id": {
+      "description": "A project task ID to filter the response on",
+      "type": "integer"
+    },
+    "people_id": {
+      "description": "A people ID to filter the response on",
+      "type": "integer"
+    },
+    "start_date": {
+      "description": "Start of date range in format YYYY-MM-DD. Must be used together with `end_date`",
+      "type": "string",
+      "format": "Date:YYYY-MM-DD"
+    },
+    "end_date": {
+      "description": "End of date range in format YYYY-MM-DD. Must be used together with `start_date`. Will be inclusive of `repeat_end_date` date.",
+      "type": "string"
+    },
+    "billable": {
+      "description": "Filter response on `0` = non-billable or `1` = billable",
+      "type": "integer"
+    },
+    "status": {
+      "description": "Filter response on the Status. `1` = Tentative, `2` = Confirmed, `3` = Complete\"",
+      "type": "integer"
+    },
+    "repeat_state": {
+      "description": "Filter response on the repeat state. `0` = No repeat, `1` = Weekly, `2` = Monthly, `3` = Every two weeks, `4` = Every three weeks, `5` = Every six weeks, `6` = Every two months, `7` = Every three months, `8` = Every six months, `9` = Yearly",
+      "type": "integer"
+    },
+    "page": {
+      "description": "The page number of the page of results to return, default `1`",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "per-page": {
+      "description": "The number of items per page, default is `50`",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 50
+    },
+    "sort": {
+      "description": "A field to sort the list values in the response, ascending (default), pre-fix `-` to apply descending. (Limited fields, varies per endpoint)",
+      "type": "string"
+    },
+    "modified_since": {
+      "description": "Datetime in either `YYYY-MM-DD hh:mm:ss` or as a Unix timestamp in seconds to filter on all records with an equal or later `modified` timestamp",
+      "type": "string"
+    },
+    "fields": {
+      "description": "Comma-delimited set of fields to include in the response",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expand": {
+      "description": "Use `task_days` to return an additional array of dates `[YYYY-MM-DD]` calculated by taking into account the date range & `repeat_end_date` of each `task_id` plus holidays & availability of all associated people. (e.g. weekends and holidays dates will not be returned). By default, a date is returned if any person is available, the `people_id` filter may be used to limit this. The `start_date` and `end_date` filters must always be provided.",
+      "type": "string"
+    }
+  },
+  "required": []
+}

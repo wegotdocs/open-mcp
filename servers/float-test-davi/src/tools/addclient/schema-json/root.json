@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The ID of this client",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "example": "Red Circle",
+      "description": "The name of the client",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

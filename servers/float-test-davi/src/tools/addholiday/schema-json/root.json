@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "holiday_id": {
+      "type": "integer",
+      "example": 1,
+      "description": "The ID of this team holiday",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "example": "Christmas Break",
+      "description": "The name of the team holiday",
+      "maxLength": 200
+    },
+    "date": {
+      "type": "string",
+      "example": "2019-12-24 09:00",
+      "description": "Date of the team holiday"
+    },
+    "end_date": {
+      "type": "string",
+      "example": "2020-01-01 17:00",
+      "description": "End date of the team holiday if more than 1 day"
+    }
+  },
+  "required": [
+    "name",
+    "date"
+  ]
+}

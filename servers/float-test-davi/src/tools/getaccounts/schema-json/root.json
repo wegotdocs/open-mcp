@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "expand": {
+      "description": "Use `people_id` to return an additional `people_id` field that can reference a record on `/people`, or `null` if a guest",
+      "type": "string"
+    },
+    "page": {
+      "description": "The page number of the page of results to return, default `1`",
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "per-page": {
+      "description": "The number of items per page, default is `50`",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 50
+    }
+  },
+  "required": []
+}

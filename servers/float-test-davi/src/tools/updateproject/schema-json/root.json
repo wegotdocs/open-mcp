@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "description": "The project's ID",
+      "type": "integer"
+    },
+    "expand": {
+      "description": "Comma-delimited values expands the response with additional fields: `project_tasks` - A list of the project tasks available in this project\n`project_team` - A list of people by `people_id` and their project `hourly_rate`, the `phase_id` will be `0`, the list may be empty",
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_id"
+  ]
+}

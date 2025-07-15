@@ -1,0 +1,117 @@
+{
+  "type": "object",
+  "properties": {
+    "logged_time_id": {
+      "type": "string",
+      "example": "5e38963be429adc74664c777",
+      "description": "Unique ID of the logged time entry",
+      "readOnly": true
+    },
+    "people_id": {
+      "type": "integer",
+      "example": 9876,
+      "description": "The ID of the person for the logged time entry"
+    },
+    "date": {
+      "type": "string",
+      "format": "date:YYYY-MM-DD",
+      "example": "2022-12-12",
+      "description": "Date of the logged time entry"
+    },
+    "reference_date": {
+      "type": "string",
+      "format": "date:YYYY-MM-DD",
+      "example": "2025-04-12",
+      "description": "The date on which to suppress a log time suggestion of the corresponding `task_id` in the UI"
+    },
+    "hours": {
+      "type": "number",
+      "format": "float",
+      "description": "Total hours of the logged time entry, will be rounded to 2 decimal places, `0` values are valid however this acts as a soft-delete so the response is hidden",
+      "minimum": 0,
+      "maximum": 24,
+      "example": 5.25
+    },
+    "billable": {
+      "type": "integer",
+      "example": 1,
+      "description": "Shows if logged time entry is `1` = billable or `0` = non-billable. Determined by the associated project, phase or task",
+      "readOnly": true
+    },
+    "notes": {
+      "type": "string",
+      "example": "This took a lot longer than planned because I didn't have the original illustrations",
+      "description": "Additional notes about this logged time entry"
+    },
+    "project_id": {
+      "type": "integer",
+      "example": 4567,
+      "description": "The ID of the project on which this entry was logged"
+    },
+    "phase_id": {
+      "type": "integer",
+      "example": 335,
+      "description": "The ID of the project phase for which this entry was logged. A value of `0` indicates no phase is used"
+    },
+    "task_id": {
+      "type": "integer",
+      "example": 7654321,
+      "description": "The ID of a scheduled allocation, when used with `reference_date` it suppresses a matching log time suggestion in the UI"
+    },
+    "task_name": {
+      "type": "string",
+      "example": "Front-end Development",
+      "description": "The name of the project task against which this entry was logged, will create a project task name"
+    },
+    "task_meta_id": {
+      "type": "integer",
+      "example": 1234567,
+      "description": "The ID of the associated project task (named for backwards compatibility), takes higher priority over `task_name`"
+    },
+    "locked": {
+      "type": "integer",
+      "example": 1,
+      "description": "Is the logged time entry locked? `1` = true, `0` = false",
+      "readOnly": true
+    },
+    "locked_date": {
+      "type": "string",
+      "format": "date:YYYY-MM-DD",
+      "example": "2025-04-01",
+      "description": "Date this logged time entry was last locked",
+      "readOnly": true
+    },
+    "created": {
+      "type": "string",
+      "format": "ISODate",
+      "example": "2025-04-01T13:02:00+00:00",
+      "description": "Date/time this record was created",
+      "readOnly": true
+    },
+    "created_by": {
+      "type": "integer",
+      "example": 87655,
+      "description": "ID of the account that created this record",
+      "readOnly": true
+    },
+    "modified": {
+      "type": "string",
+      "format": "ISODate",
+      "example": "2025-07-02T14:02:00+00:00",
+      "description": "Date/time this record was last modified",
+      "readOnly": true
+    },
+    "modified_by": {
+      "type": "integer",
+      "example": 87655,
+      "description": "ID of the account that last modified this record",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "people_id",
+    "date",
+    "hours",
+    "project_id"
+  ]
+}
