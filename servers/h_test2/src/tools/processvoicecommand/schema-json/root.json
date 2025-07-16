@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "example": "打开客厅空调并调到25度",
+      "description": "用户语音指令文本"
+    },
+    "userId": {
+      "type": "string",
+      "description": "用户唯一标识"
+    },
+    "context": {
+      "type": "object",
+      "description": "<llm-instruction>This part of the input schema is truncated. If you want to pass the property `context` to the tool, first call the tool `expandSchema` with \"/properties/context\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "text",
+    "userId"
+  ]
+}
