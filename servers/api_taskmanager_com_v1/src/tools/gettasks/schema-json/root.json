@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "description": "Filter tasks by status",
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ]
+    },
+    "limit": {
+      "description": "Number of tasks to return",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20
+    },
+    "offset": {
+      "description": "Number of tasks to skip",
+      "type": "integer",
+      "minimum": 0,
+      "default": 0
+    }
+  },
+  "required": []
+}
