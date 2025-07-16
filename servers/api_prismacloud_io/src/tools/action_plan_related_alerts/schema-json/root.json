@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "action-plan-id": {
+      "description": "action plan id",
+      "type": "string"
+    },
+    "limit": {
+      "description": "page limit, default 100",
+      "type": "integer"
+    },
+    "next_page_token": {
+      "description": "page token",
+      "type": "string"
+    },
+    "x-redlock-auth": {
+      "description": "Authorize using Authentication token",
+      "type": "string"
+    }
+  },
+  "required": [
+    "action-plan-id",
+    "x-redlock-auth"
+  ]
+}
