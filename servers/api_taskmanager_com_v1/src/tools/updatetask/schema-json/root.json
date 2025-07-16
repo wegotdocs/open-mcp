@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "taskId": {
+      "description": "ID of the task to update",
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string",
+      "description": "Task title",
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the task",
+      "maxLength": 1000
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "description": "Current status of the task"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "description": "Priority level of the task"
+    },
+    "assigned_to": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID of the user to assign this task to"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Due date and time for the task"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags to associate with the task"
+    }
+  },
+  "required": [
+    "taskId"
+  ]
+}
