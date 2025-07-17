@@ -1,0 +1,5 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "people": z.record(z.any()).describe("<llm-instruction>This part of the input schema is truncated. If you want to pass the property `people` to the tool, first call the tool `expandSchema` with \"/properties/people\" in the list of pointers. This will return the expanded input schema which you can then use in the tool call. You may have to call `expandSchema` multiple times if the schema is nested.</llm-instruction>\n<property-description>People can be specified by any ID. \nFor example, for a person with an email `slav@encharge.io` use the following query: \n\n`?people[0][email]=slav@encharge.io`\n\nFor multiple people, pass multiple ids in the query like so:\n\n`?people[0][userId]=abc&people[1][userId]=xyz`. \n\nThis will specify people who have userId of `abc` and `xyz`.\n\nEmails, userIds and other IDs can used together in a single query.\n</property-description>")
+}

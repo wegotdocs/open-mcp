@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "fieldName": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "Unique ID of the field.\n\nUse this \"name\" to refer to this field in any API operations."
+    },
+    "title": {
+      "type": "string",
+      "description": "Human readable name of the field."
+    },
+    "type": {
+      "description": "Type of the field. JSON schema compatible",
+      "type": "string",
+      "enum": [
+        "string",
+        "number",
+        "boolean",
+        "integer",
+        "any"
+      ]
+    },
+    "format": {
+      "description": "Format of the field. Applies to String fields only. JSON schema compatible",
+      "type": "string",
+      "enum": [
+        "date",
+        "date-time"
+      ],
+      "nullable": true
+    },
+    "readOnly": {
+      "type": "boolean",
+      "description": "Whether this field can be changed by the user or via the API."
+    },
+    "tooltip": {
+      "type": "string",
+      "description": "More information about this field (to be shown in a tooltip)"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Field icon, if set."
+    },
+    "array": {
+      "type": "boolean",
+      "description": "Whether this field holds an array of values."
+    },
+    "canMapFrom": {
+      "type": "boolean",
+      "description": "Internal"
+    },
+    "firstClassField": {
+      "type": "boolean",
+      "description": "Internal."
+    },
+    "createdBy": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "system",
+            "user"
+          ]
+        }
+      ],
+      "description": "Internal. Field creator."
+    }
+  },
+  "required": [
+    "fieldName",
+    "name",
+    "type",
+    "readOnly",
+    "array"
+  ]
+}

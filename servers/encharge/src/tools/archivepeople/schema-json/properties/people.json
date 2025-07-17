@@ -1,0 +1,19 @@
+{
+  "description": "People can be specified by any ID. \nFor example, for a person with an email `slav@encharge.io` use the following query: \n\n`?people[0][email]=slav@encharge.io`\n\nFor multiple people, pass multiple ids in the query like so:\n\n`?people[0][userId]=abc&people[1][userId]=xyz`. \n\nThis will specify people who have userId of `abc` and `xyz`.\n\nEmails, userIds and other IDs can used together in a single query.\n",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Encharge ID of the person. An UUID.\n\nAt least one of id/userId/email must be specified."
+    },
+    "userId": {
+      "type": "string",
+      "description": "UserID of the person.\n\nAt least one of id/userId/email must be specified."
+    },
+    "email": {
+      "type": "string",
+      "description": "Email of the person.\n\nAt least one of id/userId/email must be specified."
+    }
+  },
+  "additionalProperties": {},
+  "type": "object"
+}
