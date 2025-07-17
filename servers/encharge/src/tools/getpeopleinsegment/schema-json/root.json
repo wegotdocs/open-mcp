@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "segmentId": {
+      "description": "Id of the segment.",
+      "format": "double",
+      "type": "number"
+    },
+    "limit": {
+      "description": "Number of people to retrieve.",
+      "format": "double",
+      "type": "number"
+    },
+    "offset": {
+      "description": "Number of records to skip",
+      "default": 0,
+      "format": "double",
+      "type": "number"
+    },
+    "attributes": {
+      "description": "Person Fields to retrieve. See [Person Fields](#tag/PersonFields) for possible field names.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sort": {
+      "type": "string"
+    },
+    "order": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    }
+  },
+  "required": [
+    "segmentId"
+  ]
+}
