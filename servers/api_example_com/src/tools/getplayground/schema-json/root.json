@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "prompt": {
+      "minLength": 1,
+      "type": "string",
+      "description": "Prompt to be used in the conversation"
+    },
+    "connectionId": {
+      "type": "string",
+      "description": "Connection Id for streaming",
+      "nullable": true
+    }
+  },
+  "required": [
+    "prompt"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "assistantId": {
+      "description": "Id of the assistant to update",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the assistant",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the assistant",
+      "nullable": true
+    },
+    "assistantOpenaiId": {
+      "type": "string",
+      "description": "Internal id of the assistant",
+      "nullable": true
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Active status of the assistant",
+      "nullable": true
+    },
+    "resourceId": {
+      "type": "string",
+      "description": "ResourceId associated with the assistant",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "assistantId"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "useCaseId": {
+      "description": "Use case identifier.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "prompt": {
+      "minLength": 1,
+      "type": "string",
+      "description": "User question"
+    },
+    "conversationId": {
+      "type": "integer",
+      "description": "Unique identifier for the conversation.",
+      "format": "int32",
+      "nullable": true
+    },
+    "threadId": {
+      "type": "string",
+      "description": "Thread Id",
+      "nullable": true
+    },
+    "connectionId": {
+      "description": "Connection id for streaming conversation.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "useCaseId",
+    "prompt"
+  ]
+}

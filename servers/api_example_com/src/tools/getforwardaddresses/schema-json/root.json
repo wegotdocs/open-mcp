@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "useCaseId": {
+      "description": "The ID of the use case",
+      "type": "string",
+      "format": "uuid"
+    },
+    "email": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "useCaseId",
+    "email"
+  ]
+}

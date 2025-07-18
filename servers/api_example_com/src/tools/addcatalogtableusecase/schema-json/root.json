@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "catalogId": {
+      "description": "Id of catalog",
+      "type": "string",
+      "format": "uuid"
+    },
+    "useCaseId": {
+      "description": "Id of UseCase",
+      "type": "string",
+      "format": "uuid"
+    },
+    "catalogTableUseCaseIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "nullable": true
+    },
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "catalogId",
+    "useCaseId"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "Files": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "binary"
+      },
+      "description": "The file to be uploaded."
+    },
+    "UseCaseId": {
+      "type": "string",
+      "description": "The optional use case identifier associated with the uploaded data.",
+      "format": "uuid"
+    },
+    "Comments": {
+      "type": "string",
+      "description": "Comments"
+    }
+  },
+  "required": []
+}

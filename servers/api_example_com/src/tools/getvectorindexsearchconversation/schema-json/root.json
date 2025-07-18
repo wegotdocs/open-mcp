@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "useCaseId": {
+      "description": "Use case identifier",
+      "type": "string",
+      "format": "uuid"
+    },
+    "returnSources": {
+      "description": "Optional. If set true (default), returns the sources of the information for private questions. Only returns the answer if set to false",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "connectionId": {
+      "description": "Connection Id for streaming",
+      "type": "string"
+    },
+    "deploymentId": {
+      "description": "Deploiment id of Model to be used in the conversation",
+      "type": "string",
+      "format": "uuid"
+    },
+    "temperature": {
+      "description": "Temperature from 0 to 1 for conversation",
+      "type": "number",
+      "format": "float"
+    },
+    "maxTokens": {
+      "description": "Limit of tokens for conversation",
+      "type": "integer",
+      "format": "int32"
+    }
+  },
+  "required": []
+}

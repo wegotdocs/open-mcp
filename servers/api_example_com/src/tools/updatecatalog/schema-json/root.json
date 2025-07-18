@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Guid",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of catalog",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of catalog",
+      "nullable": true
+    },
+    "schema": {
+      "type": "string",
+      "description": "Schema of catalog",
+      "nullable": true
+    },
+    "secretName": {
+      "type": "string",
+      "description": "Name of Key Vault Secret where the connectionstring is stored",
+      "nullable": true
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Indicates if the catalog is active or not.",
+      "nullable": true
+    },
+    "definitionsContent": {
+      "type": "string",
+      "description": "Catalog definition in JSON format. Optional.",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

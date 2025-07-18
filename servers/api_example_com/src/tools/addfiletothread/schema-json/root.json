@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "assistantId": {
+      "description": "Assistant where the use case belongs to",
+      "type": "string",
+      "format": "uuid"
+    },
+    "useCaseId": {
+      "description": "Use Case to associate the file",
+      "type": "string",
+      "format": "uuid"
+    },
+    "File": {
+      "type": "string",
+      "description": "IFormFile",
+      "format": "binary"
+    },
+    "ThreadId": {
+      "type": "string",
+      "description": "Thread identifier (optional)"
+    }
+  },
+  "required": [
+    "assistantId",
+    "useCaseId"
+  ]
+}

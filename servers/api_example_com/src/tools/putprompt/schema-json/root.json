@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Prompt id reference for update",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "The key of the setting.",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the prompt.",
+      "nullable": true
+    },
+    "value": {
+      "type": "string",
+      "description": "The value of the setting.",
+      "nullable": true
+    },
+    "promptType": {
+      "type": "string",
+      "description": "The prompt type (public or private).",
+      "nullable": true
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Whether the prompt is active or not.",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

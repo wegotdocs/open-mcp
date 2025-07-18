@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "EntityType Id",
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "description": "The updated name of the entity type.",
+      "nullable": true
+    },
+    "priorityOrder": {
+      "type": "integer",
+      "description": "The updated priority of the entity type. The higher the number, the higher the priority.",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

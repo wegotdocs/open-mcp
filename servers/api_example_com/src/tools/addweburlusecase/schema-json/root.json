@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "useCaseId": {
+      "description": "Guid",
+      "type": "string",
+      "format": "uuid"
+    },
+    "webIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "description": "IEnumerable of WebIds",
+      "nullable": true
+    }
+  },
+  "required": [
+    "useCaseId"
+  ]
+}

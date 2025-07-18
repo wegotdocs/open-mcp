@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "description": "User question",
+      "nullable": true
+    },
+    "assistantId": {
+      "type": "string",
+      "description": "Assistant internal id",
+      "format": "uuid"
+    },
+    "threadId": {
+      "type": "string",
+      "description": "The thread id for the conversation",
+      "nullable": true
+    },
+    "connectionId": {
+      "description": "ConnectionId for streaming",
+      "type": "string"
+    }
+  },
+  "required": []
+}

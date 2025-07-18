@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "key": {
+      "minLength": 1,
+      "type": "string",
+      "description": "Name-key of setting"
+    },
+    "useCaseId": {
+      "type": "string",
+      "description": "Id of UseCase.",
+      "format": "uuid",
+      "nullable": true
+    }
+  },
+  "required": [
+    "key"
+  ]
+}

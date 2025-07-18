@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "webId": {
+      "description": "Guid",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of Web",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of Web",
+      "nullable": true
+    },
+    "url": {
+      "type": "string",
+      "description": "Url of Web",
+      "nullable": true
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Active or inactive Web Status"
+    },
+    "scrapingStrategyId": {
+      "type": "integer",
+      "description": "Scraping Strategy Id",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": [
+    "webId"
+  ]
+}

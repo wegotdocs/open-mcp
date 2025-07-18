@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "assistantId": {
+      "description": "Assistant where the use case belongs to",
+      "type": "string",
+      "format": "uuid"
+    },
+    "useCaseId": {
+      "description": "Use Case to associate the file",
+      "type": "string",
+      "format": "uuid"
+    },
+    "threadId": {
+      "description": "Thread id to delete",
+      "type": "string"
+    }
+  },
+  "required": [
+    "assistantId",
+    "useCaseId",
+    "threadId"
+  ]
+}

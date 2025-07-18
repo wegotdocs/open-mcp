@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "typeFeedback": {
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer",
+      "format": "int32"
+    },
+    "reasonKO": {
+      "type": "string",
+      "description": "Reason for a negative feedback. Null if feedback is not negative.",
+      "nullable": true
+    },
+    "conversationResponseId": {
+      "type": "integer",
+      "description": "Internal response identifier to associate the feedback",
+      "format": "int32"
+    }
+  },
+  "required": []
+}

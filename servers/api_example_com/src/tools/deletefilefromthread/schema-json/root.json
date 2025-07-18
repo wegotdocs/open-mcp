@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "assistantId": {
+      "description": "Assistant where the use case belongs to",
+      "type": "string",
+      "format": "uuid"
+    },
+    "useCaseId": {
+      "description": "Use Case to associate the file",
+      "type": "string",
+      "format": "uuid"
+    },
+    "threadId": {
+      "type": "string",
+      "description": "Thread identifier (optional)",
+      "nullable": true
+    },
+    "fileId": {
+      "type": "string",
+      "description": "File identifier",
+      "nullable": true
+    }
+  },
+  "required": [
+    "assistantId",
+    "useCaseId"
+  ]
+}
