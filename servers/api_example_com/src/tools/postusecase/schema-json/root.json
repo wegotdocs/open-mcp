@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "description": "The name of the use case."
+    },
+    "Description": {
+      "type": "string",
+      "description": "The description of the use case."
+    },
+    "Instructions": {
+      "type": "string",
+      "description": "Instructions of use for the use case"
+    },
+    "Metadata": {
+      "type": "string",
+      "description": "Metadata info for the use case"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "A value indicating whether the use case is active or not."
+    },
+    "Type": {
+      "type": "string",
+      "description": "The type of the use case."
+    },
+    "StreamingEnabled": {
+      "type": "boolean",
+      "description": "Indicates if the streaming is enabled for the use case."
+    },
+    "Image": {
+      "type": "string",
+      "description": "The image file for the use case.",
+      "format": "binary"
+    },
+    "DeploymentId": {
+      "type": "string",
+      "description": "The deployment identifier for the use case.",
+      "format": "uuid"
+    },
+    "ChunkSize": {
+      "type": "integer",
+      "description": "Size of the chunks for generate embeddings",
+      "format": "int32"
+    },
+    "AssistantId": {
+      "type": "string",
+      "description": "AssistantId of the UseCase",
+      "format": "uuid"
+    },
+    "IsEditable": {
+      "type": "boolean",
+      "description": "A value indicating whether the use case is editable or not."
+    }
+  },
+  "required": []
+}

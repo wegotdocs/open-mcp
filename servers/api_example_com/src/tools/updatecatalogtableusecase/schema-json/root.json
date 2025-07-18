@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "catalogTableId": {
+      "description": "Guid",
+      "type": "string",
+      "format": "uuid"
+    },
+    "useCaseId": {
+      "description": "Guid",
+      "type": "string",
+      "format": "uuid"
+    },
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "catalogTableId",
+    "useCaseId"
+  ]
+}

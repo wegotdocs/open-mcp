@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Document Id",
+      "type": "integer",
+      "format": "int32"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "The optional flag indicating whether the data is active or not."
+    },
+    "DataStatusId": {
+      "type": "integer",
+      "description": "The optional data status identifier associated with the data.",
+      "format": "int32"
+    },
+    "Comments": {
+      "type": "string",
+      "description": "The optional comments for the data."
+    },
+    "File": {
+      "type": "string",
+      "description": "The optional file to be updated.",
+      "format": "binary"
+    },
+    "ReturnSource": {
+      "type": "boolean",
+      "description": "The optional flag indicating whether the data can be retrieved or not."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

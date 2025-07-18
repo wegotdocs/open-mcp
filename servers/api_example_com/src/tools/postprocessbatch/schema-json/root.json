@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "Url from where the file will be obtained.",
+      "nullable": true
+    },
+    "prompt": {
+      "type": "string",
+      "description": "(optional) Prompt to execute.",
+      "nullable": true
+    },
+    "useCaseId": {
+      "type": "string",
+      "description": "(optional) Guid identifier of the use case that contains the information as the prompt to execute. It can be extracted from the general API.",
+      "format": "uuid",
+      "nullable": true
+    },
+    "entryType": {
+      "enum": [
+        1,
+        2
+      ],
+      "type": "integer",
+      "description": "BatchRequestFormatType enum",
+      "format": "int32"
+    },
+    "exitType": {
+      "enum": [
+        1,
+        2
+      ],
+      "type": "integer",
+      "description": "BatchResponseFormatType enum",
+      "format": "int32"
+    },
+    "jsonPath": {
+      "type": "string",
+      "description": "(optional) Json path to extract the information from the document to process.",
+      "nullable": true
+    }
+  },
+  "required": []
+}

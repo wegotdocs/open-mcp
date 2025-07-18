@@ -1,0 +1,6 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "id": z.string().uuid().describe("TokenSetting Id"),
+  "numberTokens": z.number().int().describe("Number of tokens.")
+}

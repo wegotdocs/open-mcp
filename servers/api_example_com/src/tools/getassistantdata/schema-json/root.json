@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "assistantId": {
+      "description": "Assistant where the use case belongs to",
+      "type": "string",
+      "format": "uuid"
+    },
+    "fileId": {
+      "description": "File identifier to search",
+      "type": "string"
+    }
+  },
+  "required": [
+    "assistantId",
+    "fileId"
+  ]
+}

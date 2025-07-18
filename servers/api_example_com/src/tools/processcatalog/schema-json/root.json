@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "If it is null it is catalog creation, if it has value it is reprocessing.",
+      "format": "uuid",
+      "nullable": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of Catalog",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of Catalog",
+      "nullable": true
+    },
+    "secretName": {
+      "type": "string",
+      "description": "Secret name of ConnectionString",
+      "nullable": true
+    },
+    "schema": {
+      "type": "string",
+      "description": "Database schema from which to extract the structure of the tables",
+      "nullable": true
+    },
+    "definitionsContent": {
+      "type": "string",
+      "description": "Content of the definition files",
+      "nullable": true
+    },
+    "dataBaseEngineId": {
+      "type": "integer",
+      "description": "Id of DataBseEngine",
+      "format": "int32"
+    }
+  },
+  "required": []
+}

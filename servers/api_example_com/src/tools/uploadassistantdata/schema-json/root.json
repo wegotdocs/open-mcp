@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "assistantId": {
+      "description": "Assistant where the use case belongs to",
+      "type": "string",
+      "format": "uuid"
+    },
+    "File": {
+      "type": "string",
+      "description": "The file to be uploaded.",
+      "format": "binary"
+    }
+  },
+  "required": [
+    "assistantId"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "NamePattern": {
+      "description": "The pattern to filter data by name.",
+      "type": "string"
+    },
+    "Active": {
+      "description": "The optional filter for active or inactive data.",
+      "type": "boolean"
+    },
+    "Status": {
+      "description": "The optional filter for data status.",
+      "type": "integer",
+      "format": "int32"
+    },
+    "UseCaseId": {
+      "description": "The optional filter for use case identifier.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "PageNumber": {
+      "description": "The optional page number for pagination.",
+      "type": "integer",
+      "format": "int32"
+    },
+    "PageSize": {
+      "description": "The optional page size for pagination.",
+      "type": "integer",
+      "format": "int32"
+    },
+    "OrderBy": {
+      "description": "The optional property to order the results by.",
+      "type": "string"
+    },
+    "OrderDirection": {
+      "description": "The optional direction for ordering the results (ascending or descending).",
+      "type": "string"
+    },
+    "ExternalId": {
+      "description": "The optional filter for the external data identifier.",
+      "type": "string"
+    },
+    "DeletedDate": {
+      "description": "The optional filter for the external data deleted date.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "Attempts": {
+      "description": "The optional filter Attempts",
+      "type": "integer",
+      "format": "int32"
+    },
+    "ReturnSource": {
+      "description": "The optional filter for retornable or not retornable data.",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Id of Web",
+      "format": "uuid",
+      "nullable": true
+    },
+    "url": {
+      "type": "string",
+      "description": "Url of Web",
+      "nullable": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of Web",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of Web",
+      "nullable": true
+    },
+    "scrapingStrategyId": {
+      "type": "integer",
+      "description": "WebScrapingStrategy to extract content of web",
+      "format": "int32",
+      "nullable": true
+    }
+  },
+  "required": []
+}

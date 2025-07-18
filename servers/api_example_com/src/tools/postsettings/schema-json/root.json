@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "key": {
+      "minLength": 1,
+      "type": "string",
+      "description": "Name of setting"
+    },
+    "value": {
+      "description": "Value of setting"
+    },
+    "visible": {
+      "type": "boolean",
+      "description": "If is visible to user. By default is true."
+    },
+    "useCaseId": {
+      "type": "string",
+      "description": "Id of UseCase",
+      "format": "uuid",
+      "nullable": true
+    }
+  },
+  "required": [
+    "key",
+    "value"
+  ]
+}

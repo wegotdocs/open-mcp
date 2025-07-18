@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "User use case ID",
+      "type": "string",
+      "format": "uuid"
+    },
+    "userADId": {
+      "type": "string",
+      "description": "The Active Directory (AD) identifier for the user.",
+      "format": "uuid"
+    },
+    "userName": {
+      "type": "string",
+      "description": "The name of the user.",
+      "nullable": true
+    },
+    "rolId": {
+      "type": "string",
+      "description": "The unique identifier for the role.",
+      "format": "uuid"
+    },
+    "useCaseId": {
+      "type": "string",
+      "description": "The unique identifier for the use case.",
+      "format": "uuid"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
