@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "string",
+      "title": "Query",
+      "description": "The query to search for (email address or phone number)."
+    },
+    "query_type": {
+      "type": "string",
+      "enum": [
+        "email",
+        "phone"
+      ],
+      "title": "Query Type",
+      "description": "The type of query used to retrieve the profile"
+    },
+    "networks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Networks",
+      "description": "A list of platforms to search. Specify platform names such as 'google', 'facebook', or 'chess'. Use 'all' to search across all platforms."
+    }
+  },
+  "required": [
+    "query",
+    "query_type",
+    "networks"
+  ]
+}
