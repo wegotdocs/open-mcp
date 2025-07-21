@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "bidNtceNo": {
+      "description": "공고번호",
+      "type": "string",
+      "example": "20250712345"
+    },
+    "bidNtceOrd": {
+      "description": "입찰 차수",
+      "type": "string",
+      "example": "00"
+    },
+    "bidClsfcNo": {
+      "description": "입찰분류번호",
+      "type": "string",
+      "example": "0"
+    },
+    "rbidNo": {
+      "description": "재입찰번호",
+      "type": "string",
+      "example": "000"
+    },
+    "pageNo": {
+      "description": "페이지 번호",
+      "type": "integer",
+      "example": 1
+    },
+    "numOfRows": {
+      "description": "페이지당 건수",
+      "type": "integer",
+      "example": 20
+    }
+  },
+  "required": [
+    "bidNtceNo",
+    "bidNtceOrd",
+    "bidClsfcNo",
+    "rbidNo",
+    "pageNo",
+    "numOfRows"
+  ]
+}
