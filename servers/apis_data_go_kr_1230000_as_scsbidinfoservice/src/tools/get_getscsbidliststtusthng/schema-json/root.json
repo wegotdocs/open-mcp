@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "inqryDiv": {
+      "description": "조회구분 (1=날짜)",
+      "type": "string",
+      "example": "1"
+    },
+    "inqryBgnDt": {
+      "description": "조회 시작일시 (YYYYMMDDHHMM)",
+      "type": "string",
+      "example": "202507010000"
+    },
+    "inqryEndDt": {
+      "description": "조회 종료일시 (YYYYMMDDHHMM)",
+      "type": "string",
+      "example": "202507202359"
+    },
+    "pageNo": {
+      "description": "페이지 번호",
+      "type": "integer",
+      "example": 1
+    },
+    "numOfRows": {
+      "description": "페이지당 건수",
+      "type": "integer",
+      "example": 20
+    }
+  },
+  "required": [
+    "inqryDiv",
+    "inqryBgnDt",
+    "inqryEndDt",
+    "pageNo",
+    "numOfRows"
+  ]
+}
