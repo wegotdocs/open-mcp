@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Pizza-place-locator documentation"
+    },
+    "package_id": {
+      "type": "string",
+      "example": "b9aef4a5-f4b4-472c-ad49-088781a175d4"
+    },
+    "importance": {
+      "type": "string",
+      "enum": [
+        "low",
+        "mid",
+        "high"
+      ]
+    },
+    "track_companies": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether companies identified for the tracking pixel should be considered for your MTC.\n"
+    },
+    "short_description": {
+      "type": "string",
+      "example": "A tool to help you find the nearest pizza place!"
+    },
+    "long_description": {
+      "type": "string",
+      "example": "A long description about how pizza-place-locator works."
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
