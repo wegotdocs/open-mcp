@@ -1,0 +1,22 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "getpackagesoverview",
+  "toolDescription": "List packages overview",
+  "baseUrl": "https://api.scarf.sh",
+  "path": "/v2/packages/{owner}/overview",
+  "method": "get",
+  "security": [],
+  "paramsMap": {
+    "query": {
+      "type": "type",
+      "permission": "permission",
+      "after": "after",
+      "per_page": "per_page"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool
