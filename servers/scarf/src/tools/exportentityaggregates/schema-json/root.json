@@ -1,5 +1,62 @@
 {
   "type": "object",
-  "properties": {},
-  "required": []
+  "properties": {
+    "owner": {
+      "type": "string",
+      "example": "johndoe"
+    },
+    "start_date": {
+      "description": "full-date notation as defined by [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), for example, 2017-07-21. Unspecified implies a 1 month window.",
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "description": "full-date notation as defined by [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), for example, 2017-07-21. Unspecified implies a 1 month window.",
+      "type": "string",
+      "format": "date"
+    },
+    "query": {
+      "type": "string"
+    },
+    "rollup": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "daily",
+          "weekly",
+          "monthly",
+          "yearly"
+        ]
+      }
+    },
+    "breakdown": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "by-country",
+          "by-cloudprovider",
+          "by-company",
+          "by-variable",
+          "by-platform",
+          "by-version",
+          "by-total",
+          "by-total-do-not-track",
+          "by-client",
+          "by-domain",
+          "by-referer",
+          "by-educational-organization",
+          "by-govermental-organization"
+        ]
+      }
+    },
+    "filter_id": {
+      "type": "string",
+      "x-tie-haskell-type": "Scarf.Capability.Parameters.InsightsFiltersId"
+    }
+  },
+  "required": [
+    "owner"
+  ]
 }

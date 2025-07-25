@@ -1,3 +1,5 @@
 import { z } from "zod"
 
-export const inputParamsSchema = {}
+export const inputParamsSchema = {
+  "username": z.string()
+}

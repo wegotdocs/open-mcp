@@ -1,5 +1,29 @@
 {
   "type": "object",
-  "properties": {},
-  "required": []
+  "properties": {
+    "owner": {
+      "type": "string",
+      "example": "johndoe"
+    },
+    "package_type": {
+      "type": "string",
+      "enum": [
+        "docker",
+        "file",
+        "python",
+        "npm",
+        "hackage",
+        "repository-jvm"
+      ]
+    },
+    "package_name": {
+      "type": "string",
+      "example": "pizza-place-locator"
+    }
+  },
+  "required": [
+    "owner",
+    "package_type",
+    "package_name"
+  ]
 }

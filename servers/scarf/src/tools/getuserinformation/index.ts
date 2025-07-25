@@ -7,8 +7,19 @@ const tool: OpenMCPServerTool = {
   "baseUrl": "https://api.scarf.sh",
   "path": "/v2/users/{username}",
   "method": "get",
-  "security": [],
-  "paramsMap": {},
+  "security": [
+    {
+      "key": "Authorization",
+      "value": "Bearer <mcp-env-var>API_KEY</mcp-env-var>",
+      "in": "header",
+      "envVarName": "API_KEY"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "username": "username"
+    }
+  },
   inputParamsSchema
 }
 
