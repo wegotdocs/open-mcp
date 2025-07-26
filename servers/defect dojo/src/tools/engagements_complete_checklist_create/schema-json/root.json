@@ -1,0 +1,100 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this engagement.",
+      "type": "integer"
+    },
+    "session_management": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "encryption_crypto": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "configuration_management": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "authentication": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "authorization_and_access_control": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "data_input_sanitization_validation": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "sensitive_data": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "other": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "session_issues": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "crypto_issues": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "config_issues": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "auth_issues": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "author_issues": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "data_issues": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "sensitive_issues": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "other_issues": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

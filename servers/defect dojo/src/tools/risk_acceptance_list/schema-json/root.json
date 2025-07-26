@@ -1,0 +1,95 @@
+{
+  "type": "object",
+  "properties": {
+    "accepted_by": {
+      "type": "string"
+    },
+    "accepted_findings": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "decision": {
+      "description": "Risk treatment decision by risk owner\n\n* `A` - Accept (The risk is acknowledged, yet remains)\n* `V` - Avoid (Do not engage with whatever creates the risk)\n* `M` - Mitigate (The risk still exists, yet compensating controls make it less of a threat)\n* `F` - Fix (The risk is eradicated)\n* `T` - Transfer (The risk is transferred to a 3rd party)",
+      "type": "string",
+      "x-spec-enum-id": "2c56f38ba9888be3",
+      "enum": [
+        "A",
+        "F",
+        "M",
+        "T",
+        "V"
+      ]
+    },
+    "decision_details": {
+      "type": "string"
+    },
+    "expiration_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiration_date_handled": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiration_date_warned": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "o": {
+      "description": "Ordering\n\n* `name` - Name\n* `-name` - Name (descending)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "-name",
+          "name"
+        ]
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "owner": {
+      "type": "integer"
+    },
+    "reactivate_expired": {
+      "type": "boolean"
+    },
+    "recommendation": {
+      "description": "Recommendation from the security team.\n\n* `A` - Accept (The risk is acknowledged, yet remains)\n* `V` - Avoid (Do not engage with whatever creates the risk)\n* `M` - Mitigate (The risk still exists, yet compensating controls make it less of a threat)\n* `F` - Fix (The risk is eradicated)\n* `T` - Transfer (The risk is transferred to a 3rd party)",
+      "type": "string",
+      "x-spec-enum-id": "2c56f38ba9888be3",
+      "title": "Security Recommendation",
+      "enum": [
+        "A",
+        "F",
+        "M",
+        "T",
+        "V"
+      ]
+    },
+    "recommendation_details": {
+      "type": "string"
+    },
+    "restart_sla_expired": {
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

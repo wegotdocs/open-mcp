@@ -1,0 +1,7 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "limit": z.number().int().describe("Number of results to return per page.").optional(),
+  "offset": z.number().int().describe("The initial index from which to return the results.").optional(),
+  "prefetch": z.array(z.enum(["assignee","engagement","responder","survey"])).describe("List of fields for which to prefetch model instances and add those to the response").optional()
+}

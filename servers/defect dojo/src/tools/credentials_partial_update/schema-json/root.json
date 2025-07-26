@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this cred_ user.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "username": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "role": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "authentication": {
+      "enum": [
+        "Form",
+        "SSO"
+      ],
+      "type": "string",
+      "description": "* `Form` - Form Authentication\n* `SSO` - SSO Redirect",
+      "x-spec-enum-id": "91296c33bd3b327c"
+    },
+    "http_authentication": {
+      "enum": [
+        "Basic",
+        "NTLM",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `Basic` - Basic\n* `NTLM` - NTLM",
+      "x-spec-enum-id": "b089d0a1976e32b2",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 2000
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "login_regex": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "logout_regex": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "is_valid": {
+      "type": "boolean",
+      "title": "Login is valid"
+    },
+    "environment": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

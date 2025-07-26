@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "file_id": {
+      "type": "string",
+      "pattern": "^\\d+$"
+    },
+    "id": {
+      "description": "A unique integer value identifying this finding.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "file_id",
+    "id"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "authentication_type": {
+      "description": "* `API` - API Key\n* `Password` - Username/Password\n* `SSH` - SSH",
+      "type": "string",
+      "x-spec-enum-id": "e1a582895a9e03b4",
+      "nullable": true,
+      "enum": [
+        "API",
+        "Password",
+        "SSH"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "prefetch": {
+      "description": "List of fields for which to prefetch model instances and add those to the response",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "tool_type"
+        ]
+      }
+    },
+    "tool_type": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

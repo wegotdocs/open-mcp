@@ -1,0 +1,33 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "api_scan_configuration": z.number().int().optional(),
+  "branch_tag": z.string().optional(),
+  "build_id": z.string().optional(),
+  "commit_hash": z.string().optional(),
+  "engagement": z.number().int().optional(),
+  "engagement__product__tags": z.array(z.string()).describe("Comma separated list of exact tags present on product (uses OR for multiple values)").optional(),
+  "engagement__product__tags__and": z.array(z.string()).describe("Comma separated list of exact tags to match with an AND expression present on product").optional(),
+  "engagement__tags": z.array(z.string()).describe("Comma separated list of exact tags present on engagement (uses OR for multiple values)").optional(),
+  "engagement__tags__and": z.array(z.string()).describe("Comma separated list of exact tags to match with an AND expression present on engagement").optional(),
+  "has_tags": z.boolean().describe("Has tags").optional(),
+  "id": z.number().int().optional(),
+  "limit": z.number().int().describe("Number of results to return per page.").optional(),
+  "not_engagement__product__tags": z.array(z.string()).describe("Comma separated list of exact tags not present on product").optional(),
+  "not_engagement__tags": z.array(z.string()).describe("Comma separated list of exact tags not present on engagement").optional(),
+  "not_tag": z.string().describe("Not Tag name contains").optional(),
+  "not_tags": z.array(z.string()).describe("Comma separated list of exact tags not present on model").optional(),
+  "notes": z.array(z.number().int()).optional(),
+  "o": z.array(z.enum(["-api_scan_configuration","-branch_tag","-build_id","-commit_hash","-created","-engagement","-lead","-target_end","-target_start","-test_type","-title","-updated","-version","api_scan_configuration","branch_tag","build_id","commit_hash","created","engagement","lead","target_end","target_start","test_type","title","updated","version"])).describe("Ordering\n\n* `title` - Title\n* `-title` - Title (descending)\n* `version` - Version\n* `-version` - Version (descending)\n* `target_start` - Target start\n* `-target_start` - Target start (descending)\n* `target_end` - Target end\n* `-target_end` - Target end (descending)\n* `test_type` - Test type\n* `-test_type` - Test type (descending)\n* `lead` - Lead\n* `-lead` - Lead (descending)\n* `branch_tag` - Branch tag\n* `-branch_tag` - Branch tag (descending)\n* `build_id` - Build id\n* `-build_id` - Build id (descending)\n* `commit_hash` - Commit hash\n* `-commit_hash` - Commit hash (descending)\n* `api_scan_configuration` - Api scan configuration\n* `-api_scan_configuration` - Api scan configuration (descending)\n* `engagement` - Engagement\n* `-engagement` - Engagement (descending)\n* `created` - Created\n* `-created` - Created (descending)\n* `updated` - Updated\n* `-updated` - Updated (descending)").optional(),
+  "offset": z.number().int().describe("The initial index from which to return the results.").optional(),
+  "percent_complete": z.number().int().optional(),
+  "scan_type": z.string().optional(),
+  "tag": z.string().describe("Tag name contains").optional(),
+  "tags": z.array(z.string()).describe("Comma separated list of exact tags (uses OR for multiple values)").optional(),
+  "tags__and": z.array(z.string()).describe("Comma separated list of exact tags to match with an AND expression").optional(),
+  "target_end": z.string().datetime({ offset: true }).optional(),
+  "target_start": z.string().datetime({ offset: true }).optional(),
+  "test_type": z.number().int().optional(),
+  "title": z.string().optional(),
+  "version": z.string().optional()
+}

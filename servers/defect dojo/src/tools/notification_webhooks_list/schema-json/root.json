@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "first_error": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "header_name": {
+      "type": "string"
+    },
+    "header_value": {
+      "type": "string"
+    },
+    "last_error": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "owner": {
+      "type": "integer"
+    },
+    "status": {
+      "description": "Status of the incoming webhook\n\n* `active` - Active\n* `active_tmp` - Active but 5xx (or similar) error detected\n* `inactive_tmp` - Temporary inactive because of 5xx (or similar) error\n* `inactive_permanent` - Permanently inactive",
+      "type": "string",
+      "enum": [
+        "active",
+        "active_tmp",
+        "inactive_permanent",
+        "inactive_tmp"
+      ]
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

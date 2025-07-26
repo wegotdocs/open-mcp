@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this product_ap i_ scan_ configuration.",
+      "type": "integer"
+    },
+    "service_key_1": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "service_key_2": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "service_key_3": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "product": {
+      "type": "integer"
+    },
+    "tool_configuration": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "product",
+    "tool_configuration"
+  ]
+}

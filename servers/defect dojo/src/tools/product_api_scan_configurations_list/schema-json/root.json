@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "prefetch": {
+      "description": "List of fields for which to prefetch model instances and add those to the response",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "product",
+          "tool_configuration"
+        ]
+      }
+    },
+    "product": {
+      "type": "integer"
+    },
+    "service_key_1": {
+      "type": "string"
+    },
+    "service_key_2": {
+      "type": "string"
+    },
+    "service_key_3": {
+      "type": "string"
+    },
+    "tool_configuration": {
+      "type": "integer"
+    }
+  },
+  "required": []
+}

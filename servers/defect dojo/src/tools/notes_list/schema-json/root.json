@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "author": {
+      "type": "integer"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "edit_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "edited": {
+      "type": "boolean"
+    },
+    "editor": {
+      "type": "integer"
+    },
+    "entry": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "private": {
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

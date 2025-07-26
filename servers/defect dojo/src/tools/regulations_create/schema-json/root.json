@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The name of the regulation.",
+      "maxLength": 128
+    },
+    "acronym": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A shortened representation of the name.",
+      "maxLength": 20
+    },
+    "category": {
+      "enum": [
+        "privacy",
+        "finance",
+        "education",
+        "medical",
+        "corporate",
+        "security",
+        "government",
+        "other"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "1a3e4044c2d6c739",
+      "description": "The subject of the regulation.\n\n* `privacy` - Privacy\n* `finance` - Finance\n* `education` - Education\n* `medical` - Medical\n* `corporate` - Corporate\n* `security` - Security\n* `government` - Government\n* `other` - Other"
+    },
+    "jurisdiction": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The territory over which the regulation applies.",
+      "maxLength": 64
+    },
+    "description": {
+      "type": "string",
+      "description": "Information about the regulation's purpose."
+    },
+    "reference": {
+      "type": "string",
+      "format": "uri",
+      "description": "An external URL for more information.",
+      "maxLength": 200
+    }
+  },
+  "required": [
+    "name",
+    "acronym",
+    "category",
+    "jurisdiction"
+  ]
+}

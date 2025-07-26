@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this finding.",
+      "type": "integer"
+    },
+    "prefetch": {
+      "description": "List of fields for which to prefetch model instances and add those to the response",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "auth_issues",
+          "author_issues",
+          "config_issues",
+          "crypto_issues",
+          "data_issues",
+          "defect_review_requested_by",
+          "duplicate_finding",
+          "endpoint_set",
+          "endpoints",
+          "files",
+          "finding_group_set",
+          "found_by",
+          "last_reviewed_by",
+          "mitigated_by",
+          "notes",
+          "other_issues",
+          "reporter",
+          "review_requested_by",
+          "reviewers",
+          "risk_acceptance_set",
+          "sensitive_issues",
+          "session_issues",
+          "sonarqube_issue",
+          "test",
+          "test_import_set"
+        ]
+      }
+    },
+    "related_fields": {
+      "description": "Expand finding external relations (engagement, environment, product,                                             product_type, test, test_type)",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "color": {
+      "type": "string",
+      "nullable": true,
+      "title": "HTML color",
+      "maxLength": 7
+    }
+  },
+  "required": [
+    "language"
+  ]
+}

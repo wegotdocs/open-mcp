@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this risk_ acceptance.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Descriptive name which in the future may also be used to group risk acceptances together across engagements and products",
+      "maxLength": 300
+    },
+    "recommendation": {
+      "enum": [
+        "A",
+        "V",
+        "M",
+        "F",
+        "T"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "2c56f38ba9888be3",
+      "title": "Security Recommendation",
+      "description": "Recommendation from the security team.\n\n* `A` - Accept (The risk is acknowledged, yet remains)\n* `V` - Avoid (Do not engage with whatever creates the risk)\n* `M` - Mitigate (The risk still exists, yet compensating controls make it less of a threat)\n* `F` - Fix (The risk is eradicated)\n* `T` - Transfer (The risk is transferred to a 3rd party)"
+    },
+    "recommendation_details": {
+      "type": "string",
+      "nullable": true,
+      "title": "Security Recommendation Details",
+      "description": "Explanation of security recommendation"
+    },
+    "decision": {
+      "enum": [
+        "A",
+        "V",
+        "M",
+        "F",
+        "T"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "2c56f38ba9888be3",
+      "description": "Risk treatment decision by risk owner\n\n* `A` - Accept (The risk is acknowledged, yet remains)\n* `V` - Avoid (Do not engage with whatever creates the risk)\n* `M` - Mitigate (The risk still exists, yet compensating controls make it less of a threat)\n* `F` - Fix (The risk is eradicated)\n* `T` - Transfer (The risk is transferred to a 3rd party)"
+    },
+    "decision_details": {
+      "type": "string",
+      "nullable": true,
+      "description": "If a compensating control exists to mitigate the finding or reduce risk, then list the compensating control(s)."
+    },
+    "accepted_by": {
+      "type": "string",
+      "nullable": true,
+      "description": "The person that accepts the risk, can be outside of DefectDojo.",
+      "maxLength": 200
+    },
+    "expiration_date": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "When the risk acceptance expires, the findings will be reactivated (unless disabled below)."
+    },
+    "expiration_date_warned": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "(readonly) Date at which notice about the risk acceptance expiration was sent."
+    },
+    "expiration_date_handled": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "(readonly) When the risk acceptance expiration was handled (manually or by the daily job)."
+    },
+    "reactivate_expired": {
+      "type": "boolean",
+      "title": "Reactivate findings on expiration",
+      "description": "Reactivate findings when risk acceptance expires?"
+    },
+    "restart_sla_expired": {
+      "type": "boolean",
+      "title": "Restart SLA on expiration",
+      "description": "When enabled, the SLA for findings is restarted when the risk acceptance expires."
+    },
+    "owner": {
+      "type": "integer",
+      "description": "User in DefectDojo owning this acceptance. Only the owner and staff users can edit the risk acceptance."
+    },
+    "accepted_findings": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "import_settings": {
+      "nullable": true
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "version": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 100
+    },
+    "build_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Build ID that was tested, a reimport may update this field.",
+      "maxLength": 150
+    },
+    "commit_hash": {
+      "type": "string",
+      "nullable": true,
+      "description": "Commit hash tested, a reimport may update this field.",
+      "maxLength": 150
+    },
+    "branch_tag": {
+      "type": "string",
+      "nullable": true,
+      "title": "Branch/Tag",
+      "description": "Tag or branch that was tested, a reimport may update this field.",
+      "maxLength": 150
+    }
+  },
+  "required": []
+}

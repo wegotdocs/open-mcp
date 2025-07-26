@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "cwe": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "mitigation": {
+      "type": "string"
+    },
+    "not_tag": {
+      "description": "Not Tag name contains",
+      "type": "string"
+    },
+    "not_tags": {
+      "description": "Comma separated list of exact tags not present on model",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "o": {
+      "description": "Ordering\n\n* `title` - Title\n* `-title` - Title (descending)\n* `cwe` - Cwe\n* `-cwe` - Cwe (descending)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "-cwe",
+          "-title",
+          "cwe",
+          "title"
+        ]
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "tag": {
+      "description": "Tag name contains",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Comma separated list of exact tags (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

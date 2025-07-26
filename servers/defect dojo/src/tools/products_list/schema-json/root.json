@@ -1,0 +1,251 @@
+{
+  "type": "object",
+  "properties": {
+    "business_criticality": {
+      "type": "string"
+    },
+    "created": {
+      "description": "* `None` - Any date\n* `1` - Today\n* `2` - Past 7 days\n* `3` - Past 30 days\n* `4` - Past 90 days\n* `5` - Current month\n* `6` - Current year\n* `7` - Past year",
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        null
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "external_audience": {
+      "type": "boolean"
+    },
+    "has_tags": {
+      "description": "Has tags",
+      "type": "boolean"
+    },
+    "id": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "internet_accessible": {
+      "type": "boolean"
+    },
+    "lifecycle": {
+      "type": "string"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "name_exact": {
+      "type": "string"
+    },
+    "not_tag": {
+      "description": "Not Tag name contains",
+      "type": "string"
+    },
+    "not_tags": {
+      "description": "Comma separated list of exact tags not present on product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "o": {
+      "description": "Ordering\n\n* `id` - Id\n* `-id` - Id (descending)\n* `tid` - Tid\n* `-tid` - Tid (descending)\n* `name` - Name\n* `-name` - Name (descending)\n* `created` - Created\n* `-created` - Created (descending)\n* `prod_numeric_grade` - Prod numeric grade\n* `-prod_numeric_grade` - Prod numeric grade (descending)\n* `business_criticality` - Business criticality\n* `-business_criticality` - Business criticality (descending)\n* `platform` - Platform\n* `-platform` - Platform (descending)\n* `lifecycle` - Lifecycle\n* `-lifecycle` - Lifecycle (descending)\n* `origin` - Origin\n* `-origin` - Origin (descending)\n* `revenue` - Revenue\n* `-revenue` - Revenue (descending)\n* `external_audience` - External audience\n* `-external_audience` - External audience (descending)\n* `internet_accessible` - Internet accessible\n* `-internet_accessible` - Internet accessible (descending)\n* `product_manager` - Product manager\n* `-product_manager` - Product manager (descending)\n* `product_manager__first_name` - Product manager  first name\n* `-product_manager__first_name` - Product manager  first name (descending)\n* `product_manager__last_name` - Product manager  last name\n* `-product_manager__last_name` - Product manager  last name (descending)\n* `technical_contact` - Technical contact\n* `-technical_contact` - Technical contact (descending)\n* `technical_contact__first_name` - Technical contact  first name\n* `-technical_contact__first_name` - Technical contact  first name (descending)\n* `technical_contact__last_name` - Technical contact  last name\n* `-technical_contact__last_name` - Technical contact  last name (descending)\n* `team_manager` - Team manager\n* `-team_manager` - Team manager (descending)\n* `team_manager__first_name` - Team manager  first name\n* `-team_manager__first_name` - Team manager  first name (descending)\n* `team_manager__last_name` - Team manager  last name\n* `-team_manager__last_name` - Team manager  last name (descending)\n* `prod_type` - Prod type\n* `-prod_type` - Prod type (descending)\n* `prod_type__name` - Prod type  name\n* `-prod_type__name` - Prod type  name (descending)\n* `updated` - Updated\n* `-updated` - Updated (descending)\n* `user_records` - User records\n* `-user_records` - User records (descending)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "-business_criticality",
+          "-created",
+          "-external_audience",
+          "-id",
+          "-internet_accessible",
+          "-lifecycle",
+          "-name",
+          "-origin",
+          "-platform",
+          "-prod_numeric_grade",
+          "-prod_type",
+          "-prod_type__name",
+          "-product_manager",
+          "-product_manager__first_name",
+          "-product_manager__last_name",
+          "-revenue",
+          "-team_manager",
+          "-team_manager__first_name",
+          "-team_manager__last_name",
+          "-technical_contact",
+          "-technical_contact__first_name",
+          "-technical_contact__last_name",
+          "-tid",
+          "-updated",
+          "-user_records",
+          "business_criticality",
+          "created",
+          "external_audience",
+          "id",
+          "internet_accessible",
+          "lifecycle",
+          "name",
+          "origin",
+          "platform",
+          "prod_numeric_grade",
+          "prod_type",
+          "prod_type__name",
+          "product_manager",
+          "product_manager__first_name",
+          "product_manager__last_name",
+          "revenue",
+          "team_manager",
+          "team_manager__first_name",
+          "team_manager__last_name",
+          "technical_contact",
+          "technical_contact__first_name",
+          "technical_contact__last_name",
+          "tid",
+          "updated",
+          "user_records"
+        ]
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "outside_of_sla": {
+      "type": "number"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "prefetch": {
+      "description": "List of fields for which to prefetch model instances and add those to the response",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "authorization_groups",
+          "members",
+          "prod_type",
+          "product_manager",
+          "regulations",
+          "sla_configuration",
+          "team_manager",
+          "technical_contact"
+        ]
+      }
+    },
+    "prod_numeric_grade": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "prod_type": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "product_manager": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "regulations": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "revenue": {
+      "type": "number"
+    },
+    "tag": {
+      "description": "Tag name contains",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Comma separated list of exact tags (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "team_manager": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "technical_contact": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "tid": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "updated": {
+      "description": "* `None` - Any date\n* `1` - Today\n* `2` - Past 7 days\n* `3` - Past 30 days\n* `4` - Past 90 days\n* `5` - Current month\n* `6` - Current year\n* `7` - Past year",
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        null
+      ]
+    },
+    "user_records": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": []
+}

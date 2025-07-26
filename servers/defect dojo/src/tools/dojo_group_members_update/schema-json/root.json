@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this dojo_ group_ member.",
+      "type": "integer"
+    },
+    "group": {
+      "type": "integer"
+    },
+    "user": {
+      "type": "integer"
+    },
+    "role": {
+      "type": "integer",
+      "title": "Group role",
+      "description": "This role determines the permissions of the user to manage the group."
+    }
+  },
+  "required": [
+    "id",
+    "group",
+    "user",
+    "role"
+  ]
+}

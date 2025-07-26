@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this sonarqube_ issue.",
+      "type": "integer"
+    },
+    "key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "SonarQube issue key",
+      "maxLength": 60
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "description": "SonarQube issue status",
+      "maxLength": 20
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "SonarQube issue type",
+      "maxLength": 20
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

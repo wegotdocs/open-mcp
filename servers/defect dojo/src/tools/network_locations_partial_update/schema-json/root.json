@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this network_ locations.",
+      "type": "integer"
+    },
+    "location": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Location of network testing: Examples: VPN, Internet or Internal.",
+      "maxLength": 500
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

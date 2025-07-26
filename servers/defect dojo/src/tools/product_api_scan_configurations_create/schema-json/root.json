@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "service_key_1": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "service_key_2": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "service_key_3": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "product": {
+      "type": "integer"
+    },
+    "tool_configuration": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "product",
+    "tool_configuration"
+  ]
+}

@@ -1,0 +1,31 @@
+import { z } from "zod"
+
+export const inputParamsSchema = {
+  "active": z.boolean().optional(),
+  "api_test": z.boolean().optional(),
+  "has_tags": z.boolean().describe("Has tags").optional(),
+  "id": z.number().int().optional(),
+  "limit": z.number().int().describe("Number of results to return per page.").optional(),
+  "name": z.string().optional(),
+  "not_product__tags": z.array(z.string()).describe("Comma separated list of exact tags not present on product").optional(),
+  "not_tag": z.string().describe("Not Tag name contains").optional(),
+  "not_tags": z.array(z.string()).describe("Comma separated list of exact tags not present on model").optional(),
+  "o": z.array(z.enum(["-created","-lead","-name","-status","-target_end","-target_start","-updated","-version","created","lead","name","status","target_end","target_start","updated","version"])).describe("Ordering\n\n* `name` - Engagement Name\n* `-name` - Engagement Name (descending)\n* `version` - Version\n* `-version` - Version (descending)\n* `target_start` - Target start\n* `-target_start` - Target start (descending)\n* `target_end` - Target end\n* `-target_end` - Target end (descending)\n* `status` - Status\n* `-status` - Status (descending)\n* `lead` - Lead\n* `-lead` - Lead (descending)\n* `created` - Created\n* `-created` - Created (descending)\n* `updated` - Updated\n* `-updated` - Updated (descending)").optional(),
+  "offset": z.number().int().describe("The initial index from which to return the results.").optional(),
+  "pen_test": z.boolean().optional(),
+  "product": z.number().int().optional(),
+  "product__prod_type": z.array(z.number().int()).describe("Multiple values may be separated by commas.").optional(),
+  "product__tags": z.array(z.string()).describe("Comma separated list of exact tags present on product (uses OR for multiple values)").optional(),
+  "product__tags__and": z.array(z.string()).describe("Comma separated list of exact tags to match with an AND expression present on product").optional(),
+  "report_type": z.number().int().optional(),
+  "requester": z.number().int().optional(),
+  "status": z.enum(["Blocked","Cancelled","Completed","In Progress","Not Started","On Hold","Waiting for Resource"]).nullable().describe("* `Not Started` - Not Started\n* `Blocked` - Blocked\n* `Cancelled` - Cancelled\n* `Completed` - Completed\n* `In Progress` - In Progress\n* `On Hold` - On Hold\n* `Waiting for Resource` - Waiting for Resource").optional(),
+  "tag": z.string().describe("Tag name contains").optional(),
+  "tags": z.array(z.string()).describe("Comma separated list of exact tags (uses OR for multiple values)").optional(),
+  "tags__and": z.array(z.string()).describe("Comma separated list of exact tags to match with an AND expression").optional(),
+  "target_end": z.string().date().optional(),
+  "target_start": z.string().date().optional(),
+  "threat_model": z.boolean().optional(),
+  "updated": z.string().datetime({ offset: true }).optional(),
+  "version": z.string().optional()
+}

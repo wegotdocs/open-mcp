@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this global_ role.",
+      "type": "integer"
+    },
+    "user": {
+      "type": "integer",
+      "nullable": true
+    },
+    "group": {
+      "type": "integer",
+      "nullable": true
+    },
+    "role": {
+      "type": "integer",
+      "nullable": true,
+      "title": "Global role",
+      "description": "The global role will be applied to all product types and products."
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,118 @@
+import { inputParamsSchema } from "./schema/root.js"
+import type { OpenMCPServerTool } from "@open-mcp/core"
+
+const tool: OpenMCPServerTool = {
+  "toolName": "system_settings_update",
+  "toolDescription": "Basic control over System Settings. Use 'id' 1 for PUT, PATCH operations",
+  "baseUrl": "https://demo.defectdojo.org/api/v2",
+  "path": "/api/v2/system_settings/{id}/",
+  "method": "put",
+  "security": [
+    {
+      "key": "sessionid",
+      "value": "<mcp-env-var>SESSIONID</mcp-env-var>",
+      "in": "cookie",
+      "envVarName": "SESSIONID"
+    },
+    {
+      "key": "Authorization",
+      "value": "Basic <mcp-env-var>USERNAME_PASSWORD_BASE64</mcp-env-var>",
+      "in": "header",
+      "envVarName": "USERNAME_PASSWORD_BASE64"
+    },
+    {
+      "key": "Authorization",
+      "value": "<mcp-env-var>AUTHORIZATION</mcp-env-var>",
+      "in": "header",
+      "envVarName": "AUTHORIZATION"
+    }
+  ],
+  "paramsMap": {
+    "path": {
+      "id": "id"
+    },
+    "body": {
+      "enable_deduplication": "enable_deduplication",
+      "delete_duplicates": "delete_duplicates",
+      "max_dupes": "max_dupes",
+      "email_from": "email_from",
+      "enable_jira": "enable_jira",
+      "enable_jira_web_hook": "enable_jira_web_hook",
+      "disable_jira_webhook_secret": "disable_jira_webhook_secret",
+      "jira_webhook_secret": "jira_webhook_secret",
+      "jira_minimum_severity": "jira_minimum_severity",
+      "jira_labels": "jira_labels",
+      "add_vulnerability_id_to_jira_label": "add_vulnerability_id_to_jira_label",
+      "enable_github": "enable_github",
+      "enable_slack_notifications": "enable_slack_notifications",
+      "slack_channel": "slack_channel",
+      "slack_token": "slack_token",
+      "slack_username": "slack_username",
+      "enable_msteams_notifications": "enable_msteams_notifications",
+      "msteams_url": "msteams_url",
+      "enable_mail_notifications": "enable_mail_notifications",
+      "mail_notifications_to": "mail_notifications_to",
+      "enable_webhooks_notifications": "enable_webhooks_notifications",
+      "webhooks_notifications_timeout": "webhooks_notifications_timeout",
+      "enforce_verified_status": "enforce_verified_status",
+      "enforce_verified_status_jira": "enforce_verified_status_jira",
+      "enforce_verified_status_product_grading": "enforce_verified_status_product_grading",
+      "enforce_verified_status_metrics": "enforce_verified_status_metrics",
+      "false_positive_history": "false_positive_history",
+      "retroactive_false_positive_history": "retroactive_false_positive_history",
+      "url_prefix": "url_prefix",
+      "team_name": "team_name",
+      "time_zone": "time_zone",
+      "enable_product_grade": "enable_product_grade",
+      "product_grade": "product_grade",
+      "product_grade_a": "product_grade_a",
+      "product_grade_b": "product_grade_b",
+      "product_grade_c": "product_grade_c",
+      "product_grade_d": "product_grade_d",
+      "product_grade_f": "product_grade_f",
+      "enable_product_tag_inheritance": "enable_product_tag_inheritance",
+      "enable_benchmark": "enable_benchmark",
+      "enable_template_match": "enable_template_match",
+      "enable_similar_findings": "enable_similar_findings",
+      "engagement_auto_close": "engagement_auto_close",
+      "engagement_auto_close_days": "engagement_auto_close_days",
+      "enable_finding_sla": "enable_finding_sla",
+      "enable_notify_sla_active": "enable_notify_sla_active",
+      "enable_notify_sla_active_verified": "enable_notify_sla_active_verified",
+      "enable_notify_sla_jira_only": "enable_notify_sla_jira_only",
+      "enable_notify_sla_exponential_backoff": "enable_notify_sla_exponential_backoff",
+      "allow_anonymous_survey_repsonse": "allow_anonymous_survey_repsonse",
+      "credentials": "credentials",
+      "disclaimer_notifications": "disclaimer_notifications",
+      "disclaimer_reports": "disclaimer_reports",
+      "disclaimer_reports_forced": "disclaimer_reports_forced",
+      "disclaimer_notes": "disclaimer_notes",
+      "risk_acceptance_form_default_days": "risk_acceptance_form_default_days",
+      "risk_acceptance_notify_before_expiration": "risk_acceptance_notify_before_expiration",
+      "enable_credentials": "enable_credentials",
+      "enable_questionnaires": "enable_questionnaires",
+      "enable_checklists": "enable_checklists",
+      "enable_endpoint_metadata_import": "enable_endpoint_metadata_import",
+      "enable_user_profile_editable": "enable_user_profile_editable",
+      "enable_product_tracking_files": "enable_product_tracking_files",
+      "enable_finding_groups": "enable_finding_groups",
+      "enable_ui_table_based_searching": "enable_ui_table_based_searching",
+      "enable_calendar": "enable_calendar",
+      "default_group_email_pattern": "default_group_email_pattern",
+      "minimum_password_length": "minimum_password_length",
+      "maximum_password_length": "maximum_password_length",
+      "number_character_required": "number_character_required",
+      "special_character_required": "special_character_required",
+      "lowercase_character_required": "lowercase_character_required",
+      "uppercase_character_required": "uppercase_character_required",
+      "non_common_password_required": "non_common_password_required",
+      "api_expose_error_details": "api_expose_error_details",
+      "filter_string_matching": "filter_string_matching",
+      "default_group": "default_group",
+      "default_group_role": "default_group_role"
+    }
+  },
+  inputParamsSchema
+}
+
+export default tool

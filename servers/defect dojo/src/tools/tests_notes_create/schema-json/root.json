@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this test.",
+      "type": "integer"
+    },
+    "entry": {
+      "type": "string",
+      "minLength": 1
+    },
+    "private": {
+      "type": "boolean"
+    },
+    "note_type": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id",
+    "entry"
+  ]
+}

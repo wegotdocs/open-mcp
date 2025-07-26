@@ -1,0 +1,95 @@
+{
+  "type": "object",
+  "properties": {
+    "engagement": {
+      "type": "integer"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "scan_type": {
+      "type": "string",
+      "nullable": true,
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "target_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "target_end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "percent_complete": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "version": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 100
+    },
+    "build_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Build ID that was tested, a reimport may update this field.",
+      "maxLength": 150
+    },
+    "commit_hash": {
+      "type": "string",
+      "nullable": true,
+      "description": "Commit hash tested, a reimport may update this field.",
+      "maxLength": 150
+    },
+    "branch_tag": {
+      "type": "string",
+      "nullable": true,
+      "title": "Branch/Tag",
+      "description": "Tag or branch that was tested, a reimport may update this field.",
+      "maxLength": 150
+    },
+    "lead": {
+      "type": "integer",
+      "nullable": true
+    },
+    "test_type": {
+      "type": "integer"
+    },
+    "environment": {
+      "type": "integer",
+      "nullable": true
+    },
+    "api_scan_configuration": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "engagement",
+    "target_start",
+    "target_end",
+    "test_type"
+  ]
+}

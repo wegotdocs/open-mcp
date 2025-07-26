@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "prefetch": {
+      "description": "List of fields for which to prefetch model instances and add those to the response",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "product_groups",
+          "product_type_groups",
+          "users"
+        ]
+      }
+    },
+    "social_provider": {
+      "description": "Group imported from a social provider.\n\n* `AzureAD` - AzureAD\n* `Remote` - Remote",
+      "type": "string",
+      "x-spec-enum-id": "fe57c2b04188fb94",
+      "nullable": true,
+      "title": "Social Authentication Provider",
+      "enum": [
+        "AzureAD",
+        "Remote"
+      ]
+    }
+  },
+  "required": []
+}

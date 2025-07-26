@@ -1,0 +1,176 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this engagement.",
+      "type": "integer"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "name": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 300
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 2000
+    },
+    "version": {
+      "type": "string",
+      "nullable": true,
+      "description": "Version of the product the engagement tested.",
+      "maxLength": 100
+    },
+    "first_contacted": {
+      "type": "string",
+      "format": "date",
+      "nullable": true
+    },
+    "target_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "target_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "reason": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 2000
+    },
+    "tracker": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true,
+      "description": "Link to epic or ticket system with changes to version.",
+      "maxLength": 200
+    },
+    "test_strategy": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "threat_model": {
+      "type": "boolean"
+    },
+    "api_test": {
+      "type": "boolean"
+    },
+    "pen_test": {
+      "type": "boolean"
+    },
+    "check_list": {
+      "type": "boolean"
+    },
+    "status": {
+      "enum": [
+        "Not Started",
+        "Blocked",
+        "Cancelled",
+        "Completed",
+        "In Progress",
+        "On Hold",
+        "Waiting for Resource",
+        null
+      ],
+      "type": "string",
+      "description": "* `Not Started` - Not Started\n* `Blocked` - Blocked\n* `Cancelled` - Cancelled\n* `Completed` - Completed\n* `In Progress` - In Progress\n* `On Hold` - On Hold\n* `Waiting for Resource` - Waiting for Resource",
+      "x-spec-enum-id": "8bbf2a90d408f2cc",
+      "nullable": true
+    },
+    "engagement_type": {
+      "enum": [
+        "Interactive",
+        "CI/CD",
+        null
+      ],
+      "type": "string",
+      "description": "* `Interactive` - Interactive\n* `CI/CD` - CI/CD",
+      "x-spec-enum-id": "228755e1cf64dc6b",
+      "nullable": true
+    },
+    "build_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Build ID of the product the engagement tested.",
+      "maxLength": 150
+    },
+    "commit_hash": {
+      "type": "string",
+      "nullable": true,
+      "description": "Commit hash from repo",
+      "maxLength": 150
+    },
+    "branch_tag": {
+      "type": "string",
+      "nullable": true,
+      "title": "Branch/Tag",
+      "description": "Tag or branch of the product the engagement tested.",
+      "maxLength": 150
+    },
+    "source_code_management_uri": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true,
+      "title": "Repo",
+      "description": "Resource link to source code",
+      "maxLength": 600
+    },
+    "deduplication_on_engagement": {
+      "type": "boolean",
+      "title": "Deduplication within this engagement only",
+      "description": "If enabled deduplication will only mark a finding in this engagement as duplicate of another finding if both findings are in this engagement. If disabled, deduplication is on the product level."
+    },
+    "lead": {
+      "type": "integer",
+      "nullable": true
+    },
+    "requester": {
+      "type": "integer",
+      "nullable": true
+    },
+    "preset": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Settings and notes for performing this engagement."
+    },
+    "report_type": {
+      "type": "integer",
+      "nullable": true
+    },
+    "product": {
+      "type": "integer"
+    },
+    "build_server": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Build server responsible for CI/CD test"
+    },
+    "source_code_management_server": {
+      "type": "integer",
+      "nullable": true,
+      "title": "SCM Server",
+      "description": "Source code server for CI/CD test"
+    },
+    "orchestration_engine": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Orchestration service responsible for CI/CD test"
+    }
+  },
+  "required": [
+    "id",
+    "target_start",
+    "target_end",
+    "product"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "prefetch": {
+      "description": "List of fields for which to prefetch model instances and add those to the response",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "assignee",
+          "engagement",
+          "responder",
+          "survey"
+        ]
+      }
+    }
+  },
+  "required": []
+}

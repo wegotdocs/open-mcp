@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "title": "Custom SLA Name",
+      "description": "A unique name for the set of SLAs.",
+      "maxLength": 128
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 512
+    },
+    "critical": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "title": "Critical Finding SLA Days",
+      "description": "The number of days to remediate a critical finding."
+    },
+    "enforce_critical": {
+      "type": "boolean",
+      "title": "Enforce Critical Finding SLA Days",
+      "description": "When enabled, critical findings will be assigned an SLA expiration date based on the critical finding SLA days within this SLA configuration."
+    },
+    "high": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "title": "High Finding SLA Days",
+      "description": "The number of days to remediate a high finding."
+    },
+    "enforce_high": {
+      "type": "boolean",
+      "title": "Enforce High Finding SLA Days",
+      "description": "When enabled, high findings will be assigned an SLA expiration date based on the high finding SLA days within this SLA configuration."
+    },
+    "medium": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "title": "Medium Finding SLA Days",
+      "description": "The number of days to remediate a medium finding."
+    },
+    "enforce_medium": {
+      "type": "boolean",
+      "title": "Enforce Medium Finding SLA Days",
+      "description": "When enabled, medium findings will be assigned an SLA expiration date based on the medium finding SLA days within this SLA configuration."
+    },
+    "low": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "title": "Low Finding SLA Days",
+      "description": "The number of days to remediate a low finding."
+    },
+    "enforce_low": {
+      "type": "boolean",
+      "title": "Enforce Low Finding SLA Days",
+      "description": "When enabled, low findings will be assigned an SLA expiration date based on the low finding SLA days within this SLA configuration."
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
