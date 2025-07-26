@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "branch_tag": {
+      "type": "string"
+    },
+    "build_id": {
+      "type": "string"
+    },
+    "commit_hash": {
+      "type": "string"
+    },
+    "findings_affected": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "o": {
+      "description": "Ordering\n\n* `id` - Id\n* `-id` - Id (descending)\n* `created` - Created\n* `-created` - Created (descending)\n* `modified` - Modified\n* `-modified` - Modified (descending)\n* `version` - Version\n* `-version` - Version (descending)\n* `branch_tag` - Branch tag\n* `-branch_tag` - Branch tag (descending)\n* `build_id` - Build id\n* `-build_id` - Build id (descending)\n* `commit_hash` - Commit hash\n* `-commit_hash` - Commit hash (descending)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "-branch_tag",
+          "-build_id",
+          "-commit_hash",
+          "-created",
+          "-id",
+          "-modified",
+          "-version",
+          "branch_tag",
+          "build_id",
+          "commit_hash",
+          "created",
+          "id",
+          "modified",
+          "version"
+        ]
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "test": {
+      "type": "integer"
+    },
+    "test_import_finding_action__action": {
+      "description": "* `N` - created\n* `C` - closed\n* `R` - reactivated\n* `U` - untouched",
+      "type": "string",
+      "x-spec-enum-id": "44e610f3987827cc",
+      "nullable": true,
+      "enum": [
+        "C",
+        "N",
+        "R",
+        "U"
+      ]
+    },
+    "test_import_finding_action__created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "test_import_finding_action__finding": {
+      "type": "integer"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

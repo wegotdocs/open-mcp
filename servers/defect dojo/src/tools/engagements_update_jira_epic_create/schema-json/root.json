@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this engagement.",
+      "type": "integer"
+    },
+    "epic_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "epic_priority": {
+      "type": "string",
+      "nullable": true,
+      "minLength": 1
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

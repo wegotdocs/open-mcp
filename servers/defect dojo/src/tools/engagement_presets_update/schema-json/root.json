@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this engagement_ presets.",
+      "type": "integer"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Brief description of preset.",
+      "maxLength": 500
+    },
+    "notes": {
+      "type": "string",
+      "nullable": true,
+      "description": "Description of what needs to be tested or setting up environment for testing",
+      "maxLength": 2000
+    },
+    "scope": {
+      "type": "string",
+      "description": "Scope of Engagement testing, IP's/Resources/URL's)",
+      "maxLength": 800
+    },
+    "product": {
+      "type": "integer"
+    },
+    "test_type": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "network_locations": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "product"
+  ]
+}

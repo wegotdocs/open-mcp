@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this endpoint_ status.",
+      "type": "integer"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "mitigated": {
+      "type": "boolean"
+    },
+    "false_positive": {
+      "type": "boolean"
+    },
+    "out_of_scope": {
+      "type": "boolean"
+    },
+    "risk_accepted": {
+      "type": "boolean"
+    },
+    "mitigated_by": {
+      "type": "integer",
+      "nullable": true
+    },
+    "endpoint": {
+      "type": "integer"
+    },
+    "finding": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

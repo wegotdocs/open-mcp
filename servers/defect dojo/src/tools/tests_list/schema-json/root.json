@@ -1,0 +1,171 @@
+{
+  "type": "object",
+  "properties": {
+    "api_scan_configuration": {
+      "type": "integer"
+    },
+    "branch_tag": {
+      "type": "string"
+    },
+    "build_id": {
+      "type": "string"
+    },
+    "commit_hash": {
+      "type": "string"
+    },
+    "engagement": {
+      "type": "integer"
+    },
+    "engagement__product__tags": {
+      "description": "Comma separated list of exact tags present on product (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "engagement__product__tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression present on product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "engagement__tags": {
+      "description": "Comma separated list of exact tags present on engagement (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "engagement__tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression present on engagement",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "has_tags": {
+      "description": "Has tags",
+      "type": "boolean"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "not_engagement__product__tags": {
+      "description": "Comma separated list of exact tags not present on product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_engagement__tags": {
+      "description": "Comma separated list of exact tags not present on engagement",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_tag": {
+      "description": "Not Tag name contains",
+      "type": "string"
+    },
+    "not_tags": {
+      "description": "Comma separated list of exact tags not present on model",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "o": {
+      "description": "Ordering\n\n* `title` - Title\n* `-title` - Title (descending)\n* `version` - Version\n* `-version` - Version (descending)\n* `target_start` - Target start\n* `-target_start` - Target start (descending)\n* `target_end` - Target end\n* `-target_end` - Target end (descending)\n* `test_type` - Test type\n* `-test_type` - Test type (descending)\n* `lead` - Lead\n* `-lead` - Lead (descending)\n* `branch_tag` - Branch tag\n* `-branch_tag` - Branch tag (descending)\n* `build_id` - Build id\n* `-build_id` - Build id (descending)\n* `commit_hash` - Commit hash\n* `-commit_hash` - Commit hash (descending)\n* `api_scan_configuration` - Api scan configuration\n* `-api_scan_configuration` - Api scan configuration (descending)\n* `engagement` - Engagement\n* `-engagement` - Engagement (descending)\n* `created` - Created\n* `-created` - Created (descending)\n* `updated` - Updated\n* `-updated` - Updated (descending)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "-api_scan_configuration",
+          "-branch_tag",
+          "-build_id",
+          "-commit_hash",
+          "-created",
+          "-engagement",
+          "-lead",
+          "-target_end",
+          "-target_start",
+          "-test_type",
+          "-title",
+          "-updated",
+          "-version",
+          "api_scan_configuration",
+          "branch_tag",
+          "build_id",
+          "commit_hash",
+          "created",
+          "engagement",
+          "lead",
+          "target_end",
+          "target_start",
+          "test_type",
+          "title",
+          "updated",
+          "version"
+        ]
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "percent_complete": {
+      "type": "integer"
+    },
+    "scan_type": {
+      "type": "string"
+    },
+    "tag": {
+      "description": "Tag name contains",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Comma separated list of exact tags (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "target_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "test_type": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

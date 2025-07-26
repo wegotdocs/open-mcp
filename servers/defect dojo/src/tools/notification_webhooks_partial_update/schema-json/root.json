@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this notification_ webhooks.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Name of the incoming webhook",
+      "maxLength": 100
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "minLength": 1,
+      "description": "The full URL of the incoming webhook",
+      "maxLength": 200
+    },
+    "header_name": {
+      "type": "string",
+      "nullable": true,
+      "description": "Name of the header required for interacting with Webhook endpoint",
+      "maxLength": 100
+    },
+    "header_value": {
+      "type": "string",
+      "nullable": true,
+      "description": "Content of the header required for interacting with Webhook endpoint",
+      "maxLength": 100
+    },
+    "owner": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Owner/receiver of notification, if empty processed as system notification"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

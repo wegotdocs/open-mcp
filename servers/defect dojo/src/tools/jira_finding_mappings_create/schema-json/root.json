@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "jira_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "jira_key": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "jira_creation": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "The date a Jira issue was created from this finding."
+    },
+    "jira_change": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "title": "Jira last update",
+      "description": "The date the linked Jira issue was last modified."
+    },
+    "jira_project": {
+      "type": "integer",
+      "nullable": true
+    },
+    "finding": {
+      "type": "integer",
+      "nullable": true
+    },
+    "engagement": {
+      "type": "integer",
+      "nullable": true
+    },
+    "finding_group": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "jira_id",
+    "jira_key"
+  ]
+}

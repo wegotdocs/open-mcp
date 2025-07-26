@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this test.",
+      "type": "integer"
+    },
+    "include_finding_notes": {
+      "type": "boolean",
+      "default": false
+    },
+    "include_finding_images": {
+      "type": "boolean",
+      "default": false
+    },
+    "include_executive_summary": {
+      "type": "boolean",
+      "default": false
+    },
+    "include_table_of_contents": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

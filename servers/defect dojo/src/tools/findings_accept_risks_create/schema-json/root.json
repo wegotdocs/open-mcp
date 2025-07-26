@@ -1,0 +1,632 @@
+{
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean"
+    },
+    "component_name": {
+      "type": "string"
+    },
+    "component_version": {
+      "type": "string"
+    },
+    "created": {
+      "description": "The date the finding was created inside DefectDojo.\n\n* `None` - Any date\n* `1` - Today\n* `2` - Past 7 days\n* `3` - Past 30 days\n* `4` - Past 90 days\n* `5` - Current month\n* `6` - Current year\n* `7` - Past year",
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        null
+      ]
+    },
+    "cvssv3": {
+      "type": "string"
+    },
+    "cvssv3_score": {
+      "type": "number",
+      "format": "float"
+    },
+    "cwe": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "date": {
+      "description": "The date the flaw was discovered.\n\n* `None` - Any date\n* `1` - Today\n* `2` - Past 7 days\n* `3` - Past 30 days\n* `4` - Past 90 days\n* `5` - Current month\n* `6` - Current year\n* `7` - Past year",
+      "type": "string",
+      "format": "date",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        null
+      ]
+    },
+    "defect_review_requested_by": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "description": {
+      "type": "string"
+    },
+    "discovered_after": {
+      "type": "string",
+      "format": "date"
+    },
+    "discovered_before": {
+      "type": "string",
+      "format": "date"
+    },
+    "discovered_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "duplicate": {
+      "type": "boolean"
+    },
+    "duplicate_finding": {
+      "type": "integer"
+    },
+    "dynamic_finding": {
+      "type": "boolean"
+    },
+    "effort_for_fixing": {
+      "type": "string"
+    },
+    "endpoints": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "epss_percentile_max": {
+      "description": "The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required.",
+      "type": "number",
+      "format": "double",
+      "maximum": 1,
+      "minimum": 0,
+      "nullable": true
+    },
+    "epss_percentile_min": {
+      "description": "The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required.",
+      "type": "number",
+      "format": "double",
+      "maximum": 1,
+      "minimum": 0,
+      "nullable": true
+    },
+    "epss_score_max": {
+      "description": "The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required.",
+      "type": "number",
+      "format": "double",
+      "maximum": 1,
+      "minimum": 0,
+      "nullable": true
+    },
+    "epss_score_min": {
+      "description": "The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required.",
+      "type": "number",
+      "format": "double",
+      "maximum": 1,
+      "minimum": 0,
+      "nullable": true
+    },
+    "false_p": {
+      "type": "boolean"
+    },
+    "file_path": {
+      "type": "string"
+    },
+    "finding_group": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "found_by": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "has_jira": {
+      "type": "boolean"
+    },
+    "has_tags": {
+      "description": "Has tags",
+      "type": "boolean"
+    },
+    "hash_code": {
+      "type": "string"
+    },
+    "id": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "impact": {
+      "type": "string"
+    },
+    "inherited_tags": {
+      "description": "Internal use tags sepcifically for maintaining parity with product. This field will be present as a subset in the tags field",
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      }
+    },
+    "is_mitigated": {
+      "type": "boolean"
+    },
+    "jira_change": {
+      "description": "The date the linked Jira issue was last modified.\n\n* `None` - Any date\n* `1` - Today\n* `2` - Past 7 days\n* `3` - Past 30 days\n* `4` - Past 90 days\n* `5` - Current month\n* `6` - Current year\n* `7` - Past year",
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "title": "Jira last update",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        null
+      ]
+    },
+    "jira_creation": {
+      "description": "The date a Jira issue was created from this finding.\n\n* `None` - Any date\n* `1` - Today\n* `2` - Past 7 days\n* `3` - Past 30 days\n* `4` - Past 90 days\n* `5` - Current month\n* `6` - Current year\n* `7` - Past year",
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        null
+      ]
+    },
+    "kev_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "known_exploited": {
+      "type": "boolean"
+    },
+    "last_reviewed": {
+      "description": "Provides the date the flaw was last 'touched' by a tester.\n\n* `None` - Any date\n* `1` - Today\n* `2` - Past 7 days\n* `3` - Past 30 days\n* `4` - Past 90 days\n* `5` - Current month\n* `6` - Current year\n* `7` - Past year",
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        null
+      ]
+    },
+    "last_reviewed_by": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "last_status_update": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "mitigated": {
+      "description": "Denotes if this flaw has been fixed by storing the date it was fixed.\n\n* `None` - Any date\n* `1` - Today\n* `2` - Past 7 days\n* `3` - Past 30 days\n* `4` - Past 90 days\n* `5` - Current month\n* `6` - Current year\n* `7` - Past year",
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        null
+      ]
+    },
+    "mitigated_after": {
+      "description": "Mitigated After",
+      "type": "string",
+      "format": "date-time"
+    },
+    "mitigated_before": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "mitigated_by": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "mitigated_on": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "mitigation": {
+      "type": "string"
+    },
+    "nb_occurences": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "not_tag": {
+      "description": "Not Tag name contains",
+      "type": "string"
+    },
+    "not_tags": {
+      "description": "Comma separated list of exact tags not present on model",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_test__engagement__product__tags": {
+      "description": "Comma separated list of exact tags not present on product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_test__engagement__tags": {
+      "description": "Comma separated list of exact tags not present on engagement",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_test__tags": {
+      "description": "Comma separated list of exact tags present on test",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "numerical_severity": {
+      "type": "string"
+    },
+    "o": {
+      "description": "Ordering\n\n* `active` - Active\n* `-active` - Active (descending)\n* `component_name` - Component name\n* `-component_name` - Component name (descending)\n* `component_version` - Component version\n* `-component_version` - Component version (descending)\n* `created` - Created\n* `-created` - Created (descending)\n* `last_status_update` - Last status update\n* `-last_status_update` - Last status update (descending)\n* `last_reviewed` - Last reviewed\n* `-last_reviewed` - Last reviewed (descending)\n* `cwe` - Cwe\n* `-cwe` - Cwe (descending)\n* `date` - Date\n* `-date` - Date (descending)\n* `duplicate` - Duplicate\n* `-duplicate` - Duplicate (descending)\n* `dynamic_finding` - Dynamic finding\n* `-dynamic_finding` - Dynamic finding (descending)\n* `false_p` - False p\n* `-false_p` - False p (descending)\n* `found_by` - Found by\n* `-found_by` - Found by (descending)\n* `id` - Id\n* `-id` - Id (descending)\n* `is_mitigated` - Is mitigated\n* `-is_mitigated` - Is mitigated (descending)\n* `numerical_severity` - Numerical severity\n* `-numerical_severity` - Numerical severity (descending)\n* `out_of_scope` - Out of scope\n* `-out_of_scope` - Out of scope (descending)\n* `severity` - Severity\n* `-severity` - Severity (descending)\n* `reviewers` - Reviewers\n* `-reviewers` - Reviewers (descending)\n* `static_finding` - Static finding\n* `-static_finding` - Static finding (descending)\n* `test__engagement__product__name` - Test  engagement  product  name\n* `-test__engagement__product__name` - Test  engagement  product  name (descending)\n* `title` - Title\n* `-title` - Title (descending)\n* `under_defect_review` - Under defect review\n* `-under_defect_review` - Under defect review (descending)\n* `under_review` - Under review\n* `-under_review` - Under review (descending)\n* `verified` - Verified\n* `-verified` - Verified (descending)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "-active",
+          "-component_name",
+          "-component_version",
+          "-created",
+          "-cwe",
+          "-date",
+          "-duplicate",
+          "-dynamic_finding",
+          "-false_p",
+          "-found_by",
+          "-id",
+          "-is_mitigated",
+          "-last_reviewed",
+          "-last_status_update",
+          "-numerical_severity",
+          "-out_of_scope",
+          "-reviewers",
+          "-severity",
+          "-static_finding",
+          "-test__engagement__product__name",
+          "-title",
+          "-under_defect_review",
+          "-under_review",
+          "-verified",
+          "active",
+          "component_name",
+          "component_version",
+          "created",
+          "cwe",
+          "date",
+          "duplicate",
+          "dynamic_finding",
+          "false_p",
+          "found_by",
+          "id",
+          "is_mitigated",
+          "last_reviewed",
+          "last_status_update",
+          "numerical_severity",
+          "out_of_scope",
+          "reviewers",
+          "severity",
+          "static_finding",
+          "test__engagement__product__name",
+          "title",
+          "under_defect_review",
+          "under_review",
+          "verified"
+        ]
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "out_of_scope": {
+      "type": "boolean"
+    },
+    "outside_of_sla": {
+      "type": "number"
+    },
+    "param": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "string"
+    },
+    "planned_remediation_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "planned_remediation_version": {
+      "type": "string"
+    },
+    "product_lifecycle": {
+      "description": "Comma separated list of exact product lifecycles",
+      "type": "string"
+    },
+    "product_name": {
+      "description": "exact product name",
+      "type": "string"
+    },
+    "product_name_contains": {
+      "description": "exact product name",
+      "type": "string"
+    },
+    "publish_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "ransomware_used": {
+      "type": "boolean"
+    },
+    "references": {
+      "type": "string"
+    },
+    "reporter": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "review_requested_by": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "reviewers": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "risk_acceptance": {
+      "type": "number"
+    },
+    "risk_accepted": {
+      "type": "boolean"
+    },
+    "sast_sink_object": {
+      "type": "string"
+    },
+    "sast_source_file_path": {
+      "type": "string"
+    },
+    "sast_source_line": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "sast_source_object": {
+      "type": "string"
+    },
+    "scanner_confidence": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "service": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "severity_justification": {
+      "type": "string"
+    },
+    "sla_expiration_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "sla_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "sonarqube_issue": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "static_finding": {
+      "type": "boolean"
+    },
+    "steps_to_reproduce": {
+      "type": "string"
+    },
+    "tag": {
+      "description": "Tag name contains",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Comma separated list of exact tags (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test": {
+      "type": "integer"
+    },
+    "test__engagement": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "test__engagement__product": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "test__engagement__product__prod_type": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "test__engagement__product__tags": {
+      "description": "Comma separated list of exact tags present on product (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test__engagement__product__tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression present on product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test__engagement__tags": {
+      "description": "Comma separated list of exact tags present on engagement (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test__engagement__tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression present on engagement",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test__tags": {
+      "description": "Comma separated list of exact tags present on test (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test__tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression present on test",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test__test_type": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "title": {
+      "type": "string"
+    },
+    "under_defect_review": {
+      "type": "boolean"
+    },
+    "under_review": {
+      "type": "boolean"
+    },
+    "unique_id_from_tool": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "vuln_id_from_tool": {
+      "type": "string"
+    },
+    "vulnerability_id": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

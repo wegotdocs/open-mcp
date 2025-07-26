@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this jir a_ project.",
+      "type": "integer"
+    },
+    "project_key": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "issue_template_dir": {
+      "type": "string",
+      "nullable": true,
+      "description": "Choose the folder containing the Django templates used to render the JIRA issue description. These are stored in dojo/templates/issue-trackers. Leave empty to use the default jira_full templates.",
+      "maxLength": 255
+    },
+    "component": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "custom_fields": {
+      "nullable": true,
+      "description": "JIRA custom field JSON mapping of Id to value, e.g. {\"customfield_10122\": [{\"name\": \"8.0.1\"}]}"
+    },
+    "default_assignee": {
+      "type": "string",
+      "nullable": true,
+      "description": "JIRA default assignee (name). If left blank then it defaults to whatever is configured in JIRA.",
+      "maxLength": 200
+    },
+    "jira_labels": {
+      "type": "string",
+      "nullable": true,
+      "description": "JIRA issue labels space seperated",
+      "maxLength": 200
+    },
+    "add_vulnerability_id_to_jira_label": {
+      "type": "boolean",
+      "title": "Add vulnerability Id as a JIRA label"
+    },
+    "push_all_issues": {
+      "type": "boolean",
+      "description": "Automatically create JIRA tickets for verified findings, assuming enforce_verified_status is True, or for all findings otherwise. Once linked, the JIRA ticket will continue to sync, regardless of status in DefectDojo."
+    },
+    "enable_engagement_epic_mapping": {
+      "type": "boolean"
+    },
+    "epic_issue_type_name": {
+      "type": "string",
+      "description": "The name of the of structure that represents an Epic",
+      "maxLength": 64
+    },
+    "push_notes": {
+      "type": "boolean"
+    },
+    "product_jira_sla_notification": {
+      "type": "boolean",
+      "title": "Send SLA notifications as comment?"
+    },
+    "risk_acceptance_expiration_notification": {
+      "type": "boolean",
+      "title": "Send Risk Acceptance expiration notifications as comment?"
+    },
+    "enabled": {
+      "type": "boolean",
+      "title": "Enable Connection With Jira Project",
+      "description": "When disabled, Findings will no longer be pushed to Jira, even if they have already been pushed previously."
+    },
+    "jira_instance": {
+      "type": "integer",
+      "nullable": true
+    },
+    "product": {
+      "type": "integer",
+      "nullable": true
+    },
+    "engagement": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

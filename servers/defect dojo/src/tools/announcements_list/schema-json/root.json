@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "dismissable": {
+      "type": "boolean"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "message": {
+      "type": "string"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "style": {
+      "description": "The style of banner to display. (info, success, warning, danger)\n\n* `info` - Info\n* `success` - Success\n* `warning` - Warning\n* `danger` - Danger",
+      "type": "string",
+      "x-spec-enum-id": "a21af280f632fa34",
+      "enum": [
+        "danger",
+        "info",
+        "success",
+        "warning"
+      ]
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "properties": {
+    "fragment": {
+      "type": "string"
+    },
+    "has_tags": {
+      "description": "Has tags",
+      "type": "boolean"
+    },
+    "host": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "not_tag": {
+      "description": "Not Tag name contains",
+      "type": "string"
+    },
+    "not_tags": {
+      "description": "Comma separated list of exact tags not present on model",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "o": {
+      "description": "Ordering\n\n* `host` - Host\n* `-host` - Host (descending)\n* `product` - Product\n* `-product` - Product (descending)\n* `id` - Id\n* `-id` - Id (descending)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "-host",
+          "-id",
+          "-product",
+          "host",
+          "id",
+          "product"
+        ]
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "path": {
+      "type": "string"
+    },
+    "port": {
+      "type": "integer"
+    },
+    "product": {
+      "type": "integer"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "query": {
+      "type": "string"
+    },
+    "tag": {
+      "description": "Tag name contains",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Comma separated list of exact tags (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "userinfo": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

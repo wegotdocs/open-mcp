@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this app_ analysis.",
+      "type": "integer"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "confidence": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Confidence level"
+    },
+    "version": {
+      "type": "string",
+      "nullable": true,
+      "title": "Version Number",
+      "maxLength": 200
+    },
+    "icon": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true,
+      "maxLength": 400
+    },
+    "website_found": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true,
+      "maxLength": 400
+    },
+    "product": {
+      "type": "integer"
+    },
+    "user": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

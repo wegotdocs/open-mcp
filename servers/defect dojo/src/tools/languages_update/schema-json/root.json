@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this languages.",
+      "type": "integer"
+    },
+    "files": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Number of files"
+    },
+    "blank": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Number of blank lines"
+    },
+    "comment": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Number of comment lines"
+    },
+    "code": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Number of code lines"
+    },
+    "language": {
+      "type": "integer"
+    },
+    "product": {
+      "type": "integer"
+    },
+    "user": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id",
+    "language",
+    "product"
+  ]
+}

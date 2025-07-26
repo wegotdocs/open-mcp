@@ -1,0 +1,157 @@
+{
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean"
+    },
+    "api_test": {
+      "type": "boolean"
+    },
+    "has_tags": {
+      "description": "Has tags",
+      "type": "boolean"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "not_product__tags": {
+      "description": "Comma separated list of exact tags not present on product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_tag": {
+      "description": "Not Tag name contains",
+      "type": "string"
+    },
+    "not_tags": {
+      "description": "Comma separated list of exact tags not present on model",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "o": {
+      "description": "Ordering\n\n* `name` - Engagement Name\n* `-name` - Engagement Name (descending)\n* `version` - Version\n* `-version` - Version (descending)\n* `target_start` - Target start\n* `-target_start` - Target start (descending)\n* `target_end` - Target end\n* `-target_end` - Target end (descending)\n* `status` - Status\n* `-status` - Status (descending)\n* `lead` - Lead\n* `-lead` - Lead (descending)\n* `created` - Created\n* `-created` - Created (descending)\n* `updated` - Updated\n* `-updated` - Updated (descending)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "-created",
+          "-lead",
+          "-name",
+          "-status",
+          "-target_end",
+          "-target_start",
+          "-updated",
+          "-version",
+          "created",
+          "lead",
+          "name",
+          "status",
+          "target_end",
+          "target_start",
+          "updated",
+          "version"
+        ]
+      }
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "pen_test": {
+      "type": "boolean"
+    },
+    "product": {
+      "type": "integer"
+    },
+    "product__prod_type": {
+      "description": "Multiple values may be separated by commas.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "product__tags": {
+      "description": "Comma separated list of exact tags present on product (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "product__tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression present on product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "report_type": {
+      "type": "integer"
+    },
+    "requester": {
+      "type": "integer"
+    },
+    "status": {
+      "description": "* `Not Started` - Not Started\n* `Blocked` - Blocked\n* `Cancelled` - Cancelled\n* `Completed` - Completed\n* `In Progress` - In Progress\n* `On Hold` - On Hold\n* `Waiting for Resource` - Waiting for Resource",
+      "type": "string",
+      "x-spec-enum-id": "8bbf2a90d408f2cc",
+      "nullable": true,
+      "enum": [
+        "Blocked",
+        "Cancelled",
+        "Completed",
+        "In Progress",
+        "Not Started",
+        "On Hold",
+        "Waiting for Resource"
+      ]
+    },
+    "tag": {
+      "description": "Tag name contains",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Comma separated list of exact tags (uses OR for multiple values)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags__and": {
+      "description": "Comma separated list of exact tags to match with an AND expression",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "target_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "threat_model": {
+      "type": "boolean"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

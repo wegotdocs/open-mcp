@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this notes.",
+      "type": "integer"
+    },
+    "entry": {
+      "type": "string",
+      "minLength": 1
+    },
+    "private": {
+      "type": "boolean"
+    },
+    "edited": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this burp raw request response.",
+      "type": "integer"
+    },
+    "burpRequestBase64": {
+      "type": "string",
+      "minLength": 1
+    },
+    "burpResponseBase64": {
+      "type": "string",
+      "minLength": 1
+    },
+    "finding": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

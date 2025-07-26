@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this dojo_ group.",
+      "type": "integer"
+    },
+    "configuration_permissions": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 4000
+    },
+    "social_provider": {
+      "enum": [
+        "AzureAD",
+        "Remote",
+        "",
+        null
+      ],
+      "type": "string",
+      "x-spec-enum-id": "fe57c2b04188fb94",
+      "nullable": true,
+      "title": "Social Authentication Provider",
+      "description": "Group imported from a social provider.\n\n* `AzureAD` - AzureAD\n* `Remote` - Remote"
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ]
+}

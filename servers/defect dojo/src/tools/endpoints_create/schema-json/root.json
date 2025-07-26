@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "protocol": {
+      "type": "string",
+      "nullable": true,
+      "description": "The communication protocol/scheme such as 'http', 'ftp', 'dns', etc.",
+      "maxLength": 20
+    },
+    "userinfo": {
+      "type": "string",
+      "nullable": true,
+      "description": "User info as 'alice', 'bob', etc.",
+      "maxLength": 500
+    },
+    "host": {
+      "type": "string",
+      "nullable": true,
+      "description": "The host name or IP address. It must not include the port number. For example '127.0.0.1', 'localhost', 'yourdomain.com'.",
+      "maxLength": 500
+    },
+    "port": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "description": "The network port associated with the endpoint."
+    },
+    "path": {
+      "type": "string",
+      "nullable": true,
+      "description": "The location of the resource, it must not start with a '/'. For example endpoint/420/edit",
+      "maxLength": 500
+    },
+    "query": {
+      "type": "string",
+      "nullable": true,
+      "description": "The query string, the question mark should be omitted.For example 'group=4&team=8'",
+      "maxLength": 1000
+    },
+    "fragment": {
+      "type": "string",
+      "nullable": true,
+      "description": "The fragment identifier which follows the hash mark. The hash mark should be omitted. For example 'section-13', 'paragraph-2'.",
+      "maxLength": 500
+    },
+    "product": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": []
+}

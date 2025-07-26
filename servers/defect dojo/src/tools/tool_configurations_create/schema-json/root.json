@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 2000
+    },
+    "url": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 2000
+    },
+    "authentication_type": {
+      "enum": [
+        "API",
+        "Password",
+        "SSH",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `API` - API Key\n* `Password` - Username/Password\n* `SSH` - SSH",
+      "x-spec-enum-id": "e1a582895a9e03b4",
+      "nullable": true
+    },
+    "extras": {
+      "type": "string",
+      "nullable": true,
+      "description": "Additional definitions that will be consumed by scanner",
+      "maxLength": 255
+    },
+    "username": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "password": {
+      "type": "string",
+      "writeOnly": true,
+      "nullable": true,
+      "maxLength": 600
+    },
+    "auth_title": {
+      "type": "string",
+      "nullable": true,
+      "title": "Title for SSH/API Key",
+      "maxLength": 200
+    },
+    "ssh": {
+      "type": "string",
+      "writeOnly": true,
+      "nullable": true,
+      "maxLength": 6000
+    },
+    "api_key": {
+      "type": "string",
+      "writeOnly": true,
+      "nullable": true,
+      "maxLength": 600
+    },
+    "tool_type": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name",
+    "tool_type"
+  ]
+}

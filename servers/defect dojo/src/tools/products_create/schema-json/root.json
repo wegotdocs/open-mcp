@@ -1,0 +1,155 @@
+{
+  "type": "object",
+  "properties": {
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "prod_numeric_grade": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "business_criticality": {
+      "enum": [
+        "very high",
+        "high",
+        "medium",
+        "low",
+        "very low",
+        "none",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `very high` - Very High\n* `high` - High\n* `medium` - Medium\n* `low` - Low\n* `very low` - Very Low\n* `none` - None",
+      "x-spec-enum-id": "a1529ed9bcb02778",
+      "nullable": true
+    },
+    "platform": {
+      "enum": [
+        "web service",
+        "desktop",
+        "iot",
+        "mobile",
+        "web",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `web service` - API\n* `desktop` - Desktop\n* `iot` - Internet of Things\n* `mobile` - Mobile\n* `web` - Web",
+      "x-spec-enum-id": "9d4d79259bebf293",
+      "nullable": true
+    },
+    "lifecycle": {
+      "enum": [
+        "construction",
+        "production",
+        "retirement",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `construction` - Construction\n* `production` - Production\n* `retirement` - Retirement",
+      "x-spec-enum-id": "65f9d93250b96377",
+      "nullable": true
+    },
+    "origin": {
+      "enum": [
+        "third party library",
+        "purchased",
+        "contractor",
+        "internal",
+        "open source",
+        "outsourced",
+        "",
+        null
+      ],
+      "type": "string",
+      "description": "* `third party library` - Third Party Library\n* `purchased` - Purchased\n* `contractor` - Contractor Developed\n* `internal` - Internally Developed\n* `open source` - Open Source\n* `outsourced` - Outsourced",
+      "x-spec-enum-id": "eb2c74b5a6388923",
+      "nullable": true
+    },
+    "user_records": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": 0,
+      "nullable": true,
+      "description": "Estimate the number of user records within the application."
+    },
+    "revenue": {
+      "type": "string",
+      "format": "decimal",
+      "pattern": "^-?\\d{0,13}(?:\\.\\d{0,2})?$",
+      "nullable": true,
+      "description": "Estimate the application's revenue."
+    },
+    "external_audience": {
+      "type": "boolean",
+      "description": "Specify if the application is used by people outside the organization."
+    },
+    "internet_accessible": {
+      "type": "boolean",
+      "description": "Specify if the application is accessible from the public internet."
+    },
+    "enable_product_tag_inheritance": {
+      "type": "boolean",
+      "description": "Enables product tag inheritance. Any tags added on a product will automatically be added to all Engagements, Tests, and Findings"
+    },
+    "enable_simple_risk_acceptance": {
+      "type": "boolean",
+      "description": "Allows simple risk acceptance by checking/unchecking a checkbox."
+    },
+    "enable_full_risk_acceptance": {
+      "type": "boolean",
+      "description": "Allows full risk acceptance using a risk acceptance form, expiration date, uploaded proof, etc."
+    },
+    "disable_sla_breach_notifications": {
+      "type": "boolean",
+      "description": "Disable SLA breach notifications if configured in the global settings"
+    },
+    "product_manager": {
+      "type": "integer",
+      "nullable": true
+    },
+    "technical_contact": {
+      "type": "integer",
+      "nullable": true
+    },
+    "team_manager": {
+      "type": "integer",
+      "nullable": true
+    },
+    "prod_type": {
+      "type": "integer"
+    },
+    "sla_configuration": {
+      "type": "integer"
+    },
+    "regulations": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "prod_type"
+  ]
+}

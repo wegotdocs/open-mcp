@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "minLength": 1,
+      "description": "This dismissable message will be displayed on all pages for authenticated users. It can contain basic html tags, for example <a href='https://www.fred.com' style='color: #337ab7;' target='_blank'>https://example.com</a>",
+      "maxLength": 500
+    },
+    "style": {
+      "enum": [
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "a21af280f632fa34",
+      "description": "The style of banner to display. (info, success, warning, danger)\n\n* `info` - Info\n* `success` - Success\n* `warning` - Warning\n* `danger` - Danger"
+    },
+    "dismissable": {
+      "type": "boolean",
+      "title": "Dismissable?",
+      "description": "Ticking this box allows users to dismiss the current announcement"
+    }
+  },
+  "required": []
+}

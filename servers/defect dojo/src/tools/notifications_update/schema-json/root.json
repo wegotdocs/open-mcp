@@ -1,0 +1,343 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this notifications.",
+      "type": "integer"
+    },
+    "product": {
+      "type": "integer",
+      "nullable": true
+    },
+    "user": {
+      "type": "integer",
+      "nullable": true
+    },
+    "product_type_added": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "product_added": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "engagement_added": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "test_added": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "scan_added": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "jira_update": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "upcoming_engagement": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "stale_engagement": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "auto_close_engagement": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "close_engagement": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "user_mentioned": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "code_review": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "review_requested": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "other": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "sla_breach": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "sla_breach_combined": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "risk_acceptance_expiration": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "slack",
+          "msteams",
+          "mail",
+          "webhooks",
+          "alert"
+        ],
+        "type": "string",
+        "description": "* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert",
+        "x-spec-enum-id": "76913246450c693b"
+      },
+      "default": [
+        "alert"
+      ]
+    },
+    "template": {
+      "type": "boolean",
+      "default": false
+    },
+    "scan_added_empty": {
+      "enum": [
+        "slack",
+        "msteams",
+        "mail",
+        "webhooks",
+        "alert",
+        ""
+      ],
+      "type": "string",
+      "x-spec-enum-id": "76913246450c693b",
+      "description": "Triggered whenever an (re-)import has been done (even if that created/updated/closed no findings).\n\n* `slack` - slack\n* `msteams` - msteams\n* `mail` - mail\n* `webhooks` - webhooks\n* `alert` - alert"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

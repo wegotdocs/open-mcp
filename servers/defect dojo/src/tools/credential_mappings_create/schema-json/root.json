@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "is_authn_provider": {
+      "type": "boolean",
+      "title": "Authentication Provider"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true,
+      "maxLength": 2000
+    },
+    "cred_id": {
+      "type": "integer",
+      "title": "Credential"
+    },
+    "product": {
+      "type": "integer",
+      "nullable": true
+    },
+    "finding": {
+      "type": "integer",
+      "nullable": true
+    },
+    "engagement": {
+      "type": "integer",
+      "nullable": true
+    },
+    "test": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "cred_id"
+  ]
+}

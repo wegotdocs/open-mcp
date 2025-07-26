@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this product.",
+      "type": "integer"
+    },
+    "prefetch": {
+      "description": "List of fields for which to prefetch model instances and add those to the response",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "authorization_groups",
+          "members",
+          "prod_type",
+          "product_manager",
+          "regulations",
+          "sla_configuration",
+          "team_manager",
+          "technical_contact"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

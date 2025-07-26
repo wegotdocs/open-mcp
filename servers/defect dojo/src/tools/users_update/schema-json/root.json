@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this user.",
+      "type": "integer"
+    },
+    "username": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+      "pattern": "^[\\w.@+-]+$",
+      "maxLength": 150
+    },
+    "first_name": {
+      "type": "string",
+      "maxLength": 150
+    },
+    "last_name": {
+      "type": "string",
+      "maxLength": 150
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "minLength": 1
+    },
+    "is_active": {
+      "type": "boolean",
+      "title": "Active",
+      "description": "Designates whether this user should be treated as active. Unselect this instead of deleting accounts."
+    },
+    "is_superuser": {
+      "type": "boolean",
+      "title": "Superuser status",
+      "description": "Designates that this user has all permissions without explicitly assigning them."
+    },
+    "password": {
+      "type": "string",
+      "writeOnly": true,
+      "minLength": 1
+    },
+    "configuration_permissions": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "nullable": true
+      }
+    }
+  },
+  "required": [
+    "id",
+    "username",
+    "email"
+  ]
+}

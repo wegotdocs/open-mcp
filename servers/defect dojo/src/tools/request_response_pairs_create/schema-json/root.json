@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "burpRequestBase64": {
+      "type": "string",
+      "minLength": 1
+    },
+    "burpResponseBase64": {
+      "type": "string",
+      "minLength": 1
+    },
+    "finding": {
+      "type": "integer",
+      "nullable": true
+    }
+  },
+  "required": [
+    "burpRequestBase64",
+    "burpResponseBase64"
+  ]
+}

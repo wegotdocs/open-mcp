@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "product": {
+      "type": "integer",
+      "nullable": true
+    },
+    "endpoint": {
+      "type": "integer",
+      "nullable": true
+    },
+    "finding": {
+      "type": "integer",
+      "nullable": true
+    },
+    "metadata": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "name",
+          "value"
+        ]
+      }
+    }
+  },
+  "required": []
+}

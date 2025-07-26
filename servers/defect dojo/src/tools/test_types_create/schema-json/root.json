@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "static_tool": {
+      "type": "boolean"
+    },
+    "dynamic_tool": {
+      "type": "boolean"
+    },
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

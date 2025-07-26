@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "finding_status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "sonarqube_status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "transitions": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "sonarqube_issue": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "finding_status",
+    "sonarqube_status",
+    "transitions",
+    "sonarqube_issue"
+  ]
+}

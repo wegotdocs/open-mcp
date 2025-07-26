@@ -1,0 +1,139 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this jir a_ instance.",
+      "type": "integer"
+    },
+    "configuration_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Enter a name to give to this configuration",
+      "maxLength": 2000
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "minLength": 1,
+      "title": "JIRA URL",
+      "description": "For more information how to configure Jira, read the DefectDojo documentation.",
+      "maxLength": 2000
+    },
+    "username": {
+      "type": "string",
+      "minLength": 1,
+      "title": "Username/Email",
+      "description": "Username or Email Address, see DefectDojo documentation for more information.",
+      "maxLength": 2000
+    },
+    "password": {
+      "type": "string",
+      "writeOnly": true,
+      "minLength": 1,
+      "title": "Password/Token",
+      "description": "Password, API Token, or Personal Access Token, see DefectDojo documentation for more information.",
+      "maxLength": 2000
+    },
+    "default_issue_type": {
+      "enum": [
+        "Task",
+        "Story",
+        "Epic",
+        "Spike",
+        "Bug",
+        "Security"
+      ],
+      "type": "string",
+      "x-spec-enum-id": "35e691c6205edac0",
+      "description": "You can define extra issue types in settings.py\n\n* `Task` - Task\n* `Story` - Story\n* `Epic` - Epic\n* `Spike` - Spike\n* `Bug` - Bug\n* `Security` - Security"
+    },
+    "issue_template_dir": {
+      "type": "string",
+      "nullable": true,
+      "description": "Choose the folder containing the Django templates used to render the JIRA issue description. These are stored in dojo/templates/issue-trackers. Leave empty to use the default jira_full templates.",
+      "maxLength": 255
+    },
+    "epic_name_id": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "description": "To obtain the 'Epic name id' visit https://<YOUR JIRA URL>/rest/api/2/field and search for Epic Name. Copy the number out of cf[number] and paste it here."
+    },
+    "open_status_key": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "title": "Reopen Transition ID",
+      "description": "Transition ID to Re-Open JIRA issues, visit https://<YOUR JIRA URL>/rest/api/latest/issue/<ANY VALID ISSUE KEY>/transitions?expand=transitions.fields to find the ID for your JIRA instance"
+    },
+    "close_status_key": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "title": "Close Transition ID",
+      "description": "Transition ID to Close JIRA issues, visit https://<YOUR JIRA URL>/rest/api/latest/issue/<ANY VALID ISSUE KEY>/transitions?expand=transitions.fields to find the ID for your JIRA instance"
+    },
+    "info_mapping_severity": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Maps to the 'Priority' field in Jira. For example: Info",
+      "maxLength": 200
+    },
+    "low_mapping_severity": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Maps to the 'Priority' field in Jira. For example: Low",
+      "maxLength": 200
+    },
+    "medium_mapping_severity": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Maps to the 'Priority' field in Jira. For example: Medium",
+      "maxLength": 200
+    },
+    "high_mapping_severity": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Maps to the 'Priority' field in Jira. For example: High",
+      "maxLength": 200
+    },
+    "critical_mapping_severity": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Maps to the 'Priority' field in Jira. For example: Critical",
+      "maxLength": 200
+    },
+    "finding_text": {
+      "type": "string",
+      "nullable": true,
+      "description": "Additional text that will be added to the finding in Jira. For example including how the finding was created or who to contact for more information."
+    },
+    "accepted_mapping_resolution": {
+      "type": "string",
+      "nullable": true,
+      "title": "Risk Accepted resolution mapping",
+      "description": "JIRA issues that are closed in JIRA with one of these resolutions will result in the Finding becoming Risk Accepted in Defect Dojo. This Risk Acceptance will not have an expiration date. This mapping is not used when Findings are pushed to JIRA. In that case the Risk Accepted Findings are closed in JIRA and JIRA sets the default resolution.",
+      "maxLength": 300
+    },
+    "false_positive_mapping_resolution": {
+      "type": "string",
+      "nullable": true,
+      "title": "False Positive resolution mapping",
+      "description": "JIRA issues that are closed in JIRA with one of these resolutions will result in the Finding being marked as False Positive Defect Dojo. This mapping is not used when Findings are pushed to JIRA. In that case the Finding is closed in JIRA and JIRA sets the default resolution.",
+      "maxLength": 300
+    },
+    "global_jira_sla_notification": {
+      "type": "boolean",
+      "title": "Globally send SLA notifications as comment?",
+      "description": "This setting can be overidden at the Product level"
+    },
+    "finding_jira_sync": {
+      "type": "boolean",
+      "title": "Automatically sync Findings with JIRA?",
+      "description": "If enabled, this will sync changes to a Finding automatically to JIRA"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

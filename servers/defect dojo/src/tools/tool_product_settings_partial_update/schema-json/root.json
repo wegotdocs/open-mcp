@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this tool_ product_ settings.",
+      "type": "integer"
+    },
+    "setting_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "product": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 2000
+    },
+    "url": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 2000
+    },
+    "tool_project_id": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "tool_configuration": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

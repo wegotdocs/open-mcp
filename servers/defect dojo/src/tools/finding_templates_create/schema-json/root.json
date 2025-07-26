@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "properties": {
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "vulnerability_ids": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "vulnerability_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50
+          }
+        },
+        "required": [
+          "vulnerability_id"
+        ]
+      }
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "cwe": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true
+    },
+    "cvssv3": {
+      "type": "string",
+      "nullable": true,
+      "minLength": 1,
+      "title": "CVSS v3 vector",
+      "description": "Common Vulnerability Scoring System version 3 (CVSSv3) score associated with this finding.",
+      "maxLength": 117
+    },
+    "severity": {
+      "type": "string",
+      "nullable": true,
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "nullable": true
+    },
+    "mitigation": {
+      "type": "string",
+      "nullable": true
+    },
+    "impact": {
+      "type": "string",
+      "nullable": true
+    },
+    "references": {
+      "type": "string",
+      "nullable": true
+    },
+    "template_match": {
+      "type": "boolean",
+      "title": "Template Match Enabled",
+      "description": "Enables this template for matching remediation advice. Match will be applied to all active, verified findings by CWE."
+    },
+    "template_match_title": {
+      "type": "boolean",
+      "title": "Match Template by Title and CWE",
+      "description": "Matches by title text (contains search) and CWE."
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "A unique integer value identifying this finding.",
+      "type": "integer"
+    },
+    "is_mitigated": {
+      "type": "boolean"
+    },
+    "mitigated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "false_p": {
+      "type": "boolean"
+    },
+    "out_of_scope": {
+      "type": "boolean"
+    },
+    "duplicate": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

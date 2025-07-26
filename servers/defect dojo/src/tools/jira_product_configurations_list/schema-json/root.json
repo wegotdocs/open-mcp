@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "component": {
+      "type": "string"
+    },
+    "enable_engagement_epic_mapping": {
+      "type": "boolean"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "engagement": {
+      "type": "integer"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "jira_instance": {
+      "type": "integer"
+    },
+    "limit": {
+      "description": "Number of results to return per page.",
+      "type": "integer"
+    },
+    "offset": {
+      "description": "The initial index from which to return the results.",
+      "type": "integer"
+    },
+    "prefetch": {
+      "description": "List of fields for which to prefetch model instances and add those to the response",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "engagement",
+          "jira_instance",
+          "product"
+        ]
+      }
+    },
+    "product": {
+      "type": "integer"
+    },
+    "project_key": {
+      "type": "string"
+    },
+    "push_all_issues": {
+      "type": "boolean"
+    },
+    "push_notes": {
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

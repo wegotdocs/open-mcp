@@ -1,0 +1,355 @@
+{
+  "type": "object",
+  "properties": {
+    "test": {
+      "type": "integer"
+    },
+    "thread_id": {
+      "type": "integer",
+      "default": 0
+    },
+    "found_by": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "url": {
+      "type": "string",
+      "nullable": true,
+      "minLength": 1
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "push_to_jira": {
+      "type": "boolean",
+      "default": false
+    },
+    "vulnerability_ids": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "vulnerability_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50
+          }
+        },
+        "required": [
+          "vulnerability_id"
+        ]
+      }
+    },
+    "reporter": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A short description of the flaw.",
+      "maxLength": 511
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "The date the flaw was discovered."
+    },
+    "sla_start_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "description": "(readonly)The date used as start date for SLA calculation. Set by expiring risk acceptances. Empty by default, causing a fallback to 'date'."
+    },
+    "sla_expiration_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "description": "(readonly)The date SLA expires for this finding. Empty by default, causing a fallback to 'date'."
+    },
+    "cwe": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "description": "The CWE number associated with this flaw."
+    },
+    "epss_score": {
+      "type": "number",
+      "format": "double",
+      "maximum": 1,
+      "minimum": 0,
+      "nullable": true,
+      "description": "EPSS score for the CVE. Describes how likely it is the vulnerability will be exploited in the next 30 days."
+    },
+    "epss_percentile": {
+      "type": "number",
+      "format": "double",
+      "maximum": 1,
+      "minimum": 0,
+      "nullable": true,
+      "description": "EPSS percentile for the CVE. Describes how many CVEs are scored at or below this one."
+    },
+    "known_exploited": {
+      "type": "boolean",
+      "description": "Whether this vulnerability is known to have been exploited in the wild."
+    },
+    "ransomware_used": {
+      "type": "boolean",
+      "title": "Used in Ransomware",
+      "description": "Whether this vulnerability is known to have been leveraged as part of a ransomware campaign."
+    },
+    "kev_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "title": "KEV Date Added",
+      "description": "The date the vulnerability was added to the KEV catalog."
+    },
+    "cvssv3": {
+      "type": "string",
+      "nullable": true,
+      "minLength": 1,
+      "title": "CVSS v3 vector",
+      "description": "Common Vulnerability Scoring System version 3 (CVSSv3) score associated with this finding.",
+      "maxLength": 117
+    },
+    "cvssv3_score": {
+      "type": "number",
+      "format": "double",
+      "maximum": 10,
+      "minimum": 0,
+      "nullable": true,
+      "description": "Numerical CVSSv3 score for the vulnerability. If the vector is given, the score is updated while saving the finding. The value must be between 0-10."
+    },
+    "severity": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The severity level of this flaw (Critical, High, Medium, Low, Info).",
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Longer more descriptive information about the flaw."
+    },
+    "mitigation": {
+      "type": "string",
+      "nullable": true,
+      "description": "Text describing how to best fix the flaw."
+    },
+    "impact": {
+      "type": "string",
+      "nullable": true,
+      "description": "Text describing the impact this flaw has on systems, products, enterprise, etc."
+    },
+    "steps_to_reproduce": {
+      "type": "string",
+      "nullable": true,
+      "description": "Text describing the steps that must be followed in order to reproduce the flaw / bug."
+    },
+    "severity_justification": {
+      "type": "string",
+      "nullable": true,
+      "description": "Text describing why a certain severity was associated with this flaw."
+    },
+    "references": {
+      "type": "string",
+      "nullable": true,
+      "description": "The external documentation available for this flaw."
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Denotes if this flaw is active or not."
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Denotes if this flaw has been manually verified by the tester."
+    },
+    "false_p": {
+      "type": "boolean",
+      "title": "False Positive",
+      "description": "Denotes if this flaw has been deemed a false positive by the tester."
+    },
+    "duplicate": {
+      "type": "boolean",
+      "description": "Denotes if this flaw is a duplicate of other flaws reported."
+    },
+    "out_of_scope": {
+      "type": "boolean",
+      "description": "Denotes if this flaw falls outside the scope of the test and/or engagement."
+    },
+    "risk_accepted": {
+      "type": "boolean",
+      "description": "Denotes if this finding has been marked as an accepted risk."
+    },
+    "under_review": {
+      "type": "boolean",
+      "description": "Denotes is this flaw is currently being reviewed."
+    },
+    "under_defect_review": {
+      "type": "boolean",
+      "description": "Denotes if this finding is under defect review."
+    },
+    "is_mitigated": {
+      "type": "boolean",
+      "description": "Denotes if this flaw has been fixed."
+    },
+    "numerical_severity": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The numerical representation of the severity (S0, S1, S2, S3, S4).",
+      "maxLength": 4
+    },
+    "line": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Line number",
+      "description": "Source line number of the attack vector."
+    },
+    "file_path": {
+      "type": "string",
+      "nullable": true,
+      "description": "Identified file(s) containing the flaw.",
+      "maxLength": 4000
+    },
+    "component_name": {
+      "type": "string",
+      "nullable": true,
+      "description": "Name of the affected component (library name, part of a system, ...).",
+      "maxLength": 500
+    },
+    "component_version": {
+      "type": "string",
+      "nullable": true,
+      "description": "Version of the affected component.",
+      "maxLength": 100
+    },
+    "static_finding": {
+      "type": "boolean",
+      "title": "Static finding (SAST)",
+      "description": "Flaw has been detected from a Static Application Security Testing tool (SAST)."
+    },
+    "dynamic_finding": {
+      "type": "boolean",
+      "title": "Dynamic finding (DAST)",
+      "description": "Flaw has been detected from a Dynamic Application Security Testing tool (DAST)."
+    },
+    "unique_id_from_tool": {
+      "type": "string",
+      "nullable": true,
+      "description": "Vulnerability technical id from the source tool. Allows to track unique vulnerabilities over time across subsequent scans.",
+      "maxLength": 500
+    },
+    "vuln_id_from_tool": {
+      "type": "string",
+      "nullable": true,
+      "title": "Vulnerability ID from tool",
+      "description": "Non-unique technical id from the source tool associated with the vulnerability type.",
+      "maxLength": 500
+    },
+    "sast_source_object": {
+      "type": "string",
+      "nullable": true,
+      "description": "Source object (variable, function...) of the attack vector.",
+      "maxLength": 500
+    },
+    "sast_sink_object": {
+      "type": "string",
+      "nullable": true,
+      "description": "Sink object (variable, function...) of the attack vector.",
+      "maxLength": 500
+    },
+    "sast_source_line": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "SAST Source Line number",
+      "description": "Source line number of the attack vector."
+    },
+    "sast_source_file_path": {
+      "type": "string",
+      "nullable": true,
+      "description": "Source file path of the attack vector.",
+      "maxLength": 4000
+    },
+    "nb_occurences": {
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648,
+      "nullable": true,
+      "title": "Number of occurences",
+      "description": "Number of occurences in the source tool when several vulnerabilites were found and aggregated by the scanner."
+    },
+    "publish_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "description": "Date when this vulnerability was made publicly available."
+    },
+    "service": {
+      "type": "string",
+      "nullable": true,
+      "description": "A service is a self-contained piece of functionality within a Product. This is an optional field which is used in deduplication of findings when set.",
+      "maxLength": 200
+    },
+    "planned_remediation_date": {
+      "type": "string",
+      "format": "date",
+      "nullable": true,
+      "description": "The date the flaw is expected to be remediated."
+    },
+    "planned_remediation_version": {
+      "type": "string",
+      "nullable": true,
+      "description": "The target version when the vulnerability should be fixed / remediated",
+      "maxLength": 99
+    },
+    "effort_for_fixing": {
+      "type": "string",
+      "nullable": true,
+      "description": "Effort for fixing / remediating the vulnerability (Low, Medium, High)",
+      "maxLength": 99
+    },
+    "review_requested_by": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Documents who requested a review for this finding."
+    },
+    "defect_review_requested_by": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Documents who requested a defect review for this flaw."
+    },
+    "sonarqube_issue": {
+      "type": "integer",
+      "nullable": true,
+      "description": "The SonarQube issue associated with this finding."
+    },
+    "reviewers": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "Documents who reviewed the flaw."
+    }
+  },
+  "required": [
+    "test",
+    "found_by",
+    "title",
+    "severity",
+    "description",
+    "active",
+    "verified",
+    "numerical_severity"
+  ]
+}
