@@ -13,27 +13,44 @@ helm list -n boltmcp
 
 ## Set Variables
 
-Export the Helm release name and namespace so the commands below can be pasted verbatim. Both default to `boltmcp` — adjust if you installed under different names.
+Export the Helm release name and namespace so the commands below can be pasted verbatim. Adjust the values if you installed under non-default names.
 
 ```bash
 export RELEASE=boltmcp
 export NAMESPACE=boltmcp
 ```
 
+## 0.5.x
+
+Before upgrading, patch the boltmcp-oidc Secret to add two new keys and remove one old key:
+
+```bash
+REST_API_CLIENT_SECRET=$(openssl rand -hex 32)
+RECONCILE_CLIENT_SECRET=$(openssl rand -hex 32)
+
+kubectl patch secret ${RELEASE}-oidc -n ${NAMESPACE} --type merge -p "{
+  \"stringData\": {
+    \"keycloak-reconcile-client-secret\": \"${RECONCILE_CLIENT_SECRET:?not generated}\",
+    \"rest-api-to-keycloak-client-secret\": \"${REST_API_CLIENT_SECRET:?not generated}\"
+  },
+  \"data\": {
+    \"rest-api-resource-server-client-secret\": null
+  }
+}"
+```
+
+Confirm the two new keys are present and non-empty:
+
+```bash
+kubectl get secret ${RELEASE}-oidc -n ${NAMESPACE} \
+  -o go-template='{{range $k, $v := .data}}{{$k}}={{len $v}}{{"\n"}}{{end}}'
+```
+
+The old `boltmcp-rest-api` Keycloak client is now redundant. It's harmless, but you may wish to delete it from your Keycloak Admin Console.
+
 ## 0.4.x
 
-Two additional keys are now required in the [`boltmcp-auth`](./cluster-preparation#boltmcp-auth) Secret:
-
-| Key | Used for |
-|---|---|
-| `mcp-inspector-api-token` | Bearer token the MCP Inspector's own backend API expects, and that boltmcp-web's "Open in Inspector" links carry |
-| `mcp-server-upstream-oauth-secret` | Root secret for the MCP server's upstream-OAuth crypto keys (≥ 32 chars) |
-
-<Callout type="warn">
-    `mcp-inspector-api-token` is not a network access control. The Inspector serves its own token to any browser that can load its page, so the token is only as private as the Inspector's hostname.
-</Callout>
-
-Generate both values into shell variables first, then patch. A merge patch against `stringData` leaves the keys already in the Secret untouched:
+Before upgrading, patch the boltmcp-auth Secret to add two new keys:
 
 ```bash
 INSPECTOR_TOKEN=$(openssl rand -hex 32)
@@ -47,15 +64,9 @@ kubectl patch secret ${RELEASE}-auth -n ${NAMESPACE} --type merge -p "{
 }"
 ```
 
-Confirm both keys are present and non-empty before upgrading:
+Confirm the two new keys are present and non-empty:
 
 ```bash
 kubectl get secret ${RELEASE}-auth -n ${NAMESPACE} \
   -o go-template='{{range $k, $v := .data}}{{$k}}={{len $v}}{{"\n"}}{{end}}'
 ```
-
-<Callout>
-    The number is the length of the base64-encoded value, not the character count of the secret.
-</Callout>
-
-The upgrade rolls the pods that consume these keys, so there is no separate restart to run afterwards.

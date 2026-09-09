@@ -19,7 +19,7 @@ helm uninstall ${RELEASE} -n ${NAMESPACE}
 ```
 
 <Callout type="info">
-Depending on their delete policy, some Helm hook Jobs (`migrate-core`, `seed`) may survive `helm uninstall`. This only matters if you intend to keep the namespace — deleting the namespace (below) clears them.
+Depending on their delete policy, some Helm hook Jobs (`keycloak-reconcile`, `migrate-core`) may survive `helm uninstall`. This only matters if you intend to keep the namespace — deleting the namespace (below) clears them.
 </Callout>
 
 ## Delete Persistent Data

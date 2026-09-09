@@ -8,7 +8,7 @@ Before upgrading, read the [Migration Guide](./migration-guide) to check for any
 To deploy a new release, first set the target version and update the paths to your values file and access key file:
 
 ```bash
-export BOLTMCP_VERSION=0.4.3
+export BOLTMCP_VERSION=0.5.4
 export BOLTMCP_VALUES="$PWD/config/values-prod.yaml"
 export HELM_REGISTRY_CONFIG="$PWD/keys/boltmcp-key.json"
 ```
@@ -25,6 +25,7 @@ helm upgrade boltmcp \
   --version ${BOLTMCP_VERSION} \
   -n boltmcp \
   -f ${BOLTMCP_VALUES} \
+  --wait \
   --timeout 15m
 ```
 
@@ -33,7 +34,7 @@ Run with `--dry-run=client` first to verify the rendered manifests and surface a
 </Callout>
 
 <Callout type="warn">
-The upgrade blocks on the post-upgrade hook jobs (database migration and seed). As with [installation](./deployment), `--timeout 15m` is required on EKS Auto Mode, where scheduling the hook pods can trigger a node scale-up that exceeds Helm's default 5m timeout. A timed-out upgrade leaves the release stuck in `pending-upgrade` (see below).
+As with [installation](./deployment), `--timeout 15m` is required on EKS Auto Mode, where scheduling the hook pods can trigger a node scale-up that exceeds Helm's default 5m timeout. A timed-out upgrade leaves the release stuck in `pending-upgrade` (see below).
 </Callout>
 
 ## Verify the Upgrade
@@ -50,7 +51,7 @@ Watch pods until all show `Running` / `Completed`:
 kubectl get pods -n boltmcp -w
 ```
 
-The `boltmcp-migrate-core` and `boltmcp-seed` pods created by the post-upgrade hooks should show `Completed`. If a pod is not starting, check its logs and events:
+The `boltmcp-keycloak-reconcile` and `boltmcp-migrate-core` hook pods (both pre-upgrade) should show `Completed`. The reconcile pod's log lists every Keycloak resource it created, updated or left unchanged. If a pod is not starting, check its logs and events:
 
 ```bash
 kubectl logs -n boltmcp <pod-name>
@@ -77,6 +78,8 @@ Editing the **contents** of the externally-managed application Secrets (`boltmcp
 kubectl rollout restart -n boltmcp deployment/<deployment>
 ```
 
+The OIDC client secrets additionally have to be updated on the Keycloak side; see [Rotating Secrets](./rotating-secrets).
+
 ## Recovering a stuck `pending-upgrade` release
 
 If a `helm upgrade` is interrupted (timeout, Ctrl-C, OOM, kube-apiserver hiccup) the release record can be left in `pending-upgrade` state. Every subsequent `helm upgrade` will then fail with:
@@ -91,6 +94,8 @@ Before doing anything, make sure the state is actually stale: confirm no `helm u
 kubectl get jobs -n boltmcp
 ```
 
+Where the upgrade stopped tells you what state the cluster is in. A timeout during the hook stage leaves the previous release's pods running, with the schema either fully migrated or untouched. A timeout during the rollout stage means a Deployment never became ready under `--wait`, so check `kubectl get pods -n boltmcp` and the failing pod's logs before clearing the record; the previous pods keep serving in the meantime.
+
 To clear the stale record without losing the deployed resources, delete the stuck revision's Helm release Secret. Helm will fall back to the previous successful revision as the current state:
 
 ```bash
@@ -103,8 +108,8 @@ kubectl delete secret sh.helm.release.v1.boltmcp.v<N> -n boltmcp
 # Confirm the release no longer shows pending-upgrade
 helm history boltmcp -n boltmcp
 
-# Re-run the upgrade
-helm upgrade boltmcp ... -f ./config/values-prod.yaml
+# Re-run the upgrade as above
+helm upgrade boltmcp ...
 ```
 
 `helm rollback` is the textbook recovery, but it can fail with `original object Secret with the name "boltmcp-auth" not found` when rolling back across a chart version that changed which resources are Helm-managed. If that happens, fall back to the manual `kubectl delete secret sh.helm.release.v1.boltmcp.v<N>` approach above.

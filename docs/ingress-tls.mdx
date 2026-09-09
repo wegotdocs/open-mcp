@@ -23,7 +23,7 @@ If you've overridden any of `web.baseUrl`, `mcpServer.baseUrl`, `mcpInspector.ba
 Two NGINX-specific annotations matter:
 
 - `nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"` - required for Keycloak's large authentication headers. NGINX's own default is 4k, which truncates them and breaks every login with `upstream sent too big header`.
-- `nginx.ingress.kubernetes.io/proxy-body-size: "10m"` - caps API spec uploads. NGINX's own default is 1m, which rejects larger specs with `413 Request Entity Too Large`.
+- `nginx.ingress.kubernetes.io/proxy-body-size: "10m"` - lets API spec uploads through. NGINX's own default is 1m, which rejects larger specs with `413 Request Entity Too Large`. The BoltMCP REST API enforces the same 10 MB limit on every request itself, so this value must be at least `10m`; raising it higher has no effect.
 
 Both are BoltMCP requirements rather than site preferences, so **the chart-managed Ingress applies them for you** - don't repeat them in your values file. You only set them explicitly to choose a different limit, or when you're authoring your own Ingress manifest. To change one, set the same key in `ingress.annotations`: your value replaces the chart default, and any other annotations you supply are merged alongside it.
 
@@ -329,6 +329,7 @@ helm upgrade boltmcp \
   --version ${BOLTMCP_VERSION} \
   -n boltmcp \
   -f ./config/values-prod.yaml \
+  --wait \
   --timeout 15m
 ```
 

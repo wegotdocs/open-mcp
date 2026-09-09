@@ -52,7 +52,7 @@ Optional chart-managed Ingress. Disabled by default: bring your own ingress / ga
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `ingress.annotations` | object | `{}` | Annotations for the Ingress. Controller- and cert-manager-specific settings go here: on ingress-nginx you almost always want cert-manager.io/cluster-issuer for TLS certificates, and on plain-HTTP installs nginx.ingress.kubernetes.io/ssl-redirect: "false". The chart applies two ingress-nginx defaults you do not need to repeat: proxy-body-size: "10m", which caps API spec uploads (ingress-nginx's own 1m default rejects them with 413), and proxy-buffer-size: "128k", required for Keycloak's large auth headers (the 4k default breaks login with "upstream sent too big header"). Setting either key here overrides the chart default; all other annotations you supply are merged alongside them. |
+| `ingress.annotations` | object | `{}` | Annotations for the Ingress. Controller- and cert-manager-specific settings go here: on ingress-nginx you almost always want cert-manager.io/cluster-issuer for TLS certificates, and on plain-HTTP installs nginx.ingress.kubernetes.io/ssl-redirect: "false". The chart applies two ingress-nginx defaults you do not need to repeat: proxy-body-size: "10m", without which ingress-nginx's own 1m default rejects API spec uploads with 413 (10m matches the 10 MB request-body limit the BoltMCP REST API enforces itself, so raising it further has no effect), and proxy-buffer-size: "128k", required for Keycloak's large auth headers (the 4k default breaks login with "upstream sent too big header"). Setting either key here overrides the chart default; all other annotations you supply are merged alongside them. |
 | `ingress.className` | string | `""` | IngressClass name (spec.ingressClassName). Empty omits the field so the cluster default class applies. |
 | `ingress.enabled` | bool | `false` | Create a single Ingress routing the public BoltMCP hostnames (derived from global.domain / the per-service baseUrl overrides, so they can never drift from the URLs the services advertise) to the in-cluster services. |
 | `ingress.tls.secretName` | string | `"boltmcp-tls"` | Name of the TLS Secret covering all BoltMCP hostnames (created by cert-manager when the cluster-issuer annotation is set). The Ingress carries a tls section only when global.tls.enabled is true. |
@@ -69,6 +69,8 @@ Optional chart-managed Ingress. Disabled by default: bring your own ingress / ga
 | `keycloak.image.tag` | string | `"26.7.0-1"` | Keycloak image tag |
 | `keycloak.nodeSelector` | object | `{}` | Node selector |
 | `keycloak.production.enabled` | bool | `true` | Run in production mode (start vs start-dev). Production mode works over plain HTTP behind a proxy (the chart sets the proxy-headers env); set false only for evaluation installs with no ingress / reverse proxy in front of Keycloak at all |
+| `keycloak.reconcile.auth` | string | `"master"` | Which principal the reconcile Job authenticates as. master: the master-realm operator (master_admin, password from the auth Secret). client: the realm's own boltmcp-keycloak-reconcile service account (client credentials; secret under keycloak-reconcile-client-secret in the OIDC Secret; realm-scoped manage-clients, manage-realm and manage-users only), with the master password not mounted into the Job at all. client requires the realm to already hold that client, which is true for any realm installed or upgraded with this chart version or later. If the Job is refused in client mode (client missing, or its secret in Keycloak no longer matches the OIDC Secret after a rotation), set master for one upgrade so the Job creates the client or patches its secret, then switch back |
+| `keycloak.reconcile.enabled` | bool | `true` | Reconcile the platform-owned realm resources (OIDC clients, the boltmcp:rest-api:access scope, the mcp:manage role) on every install and upgrade via a pre-upgrade/post-install hook Job driven by files/boltmcp-realm-reconcile.json. Declared fields are patched to match; scope attachments, mappers and scope mappings are only added to. Disable only if you manage these resources yourself and will apply upgrade changes by hand |
 | `keycloak.resources` | object | `{}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
 | `keycloak.service.healthPort` | int | `9000` | Health check port |
 | `keycloak.service.port` | int | `8080` | Service port |
@@ -110,12 +112,14 @@ Optional chart-managed Ingress. Disabled by default: bring your own ingress / ga
 
 ## migrations
 
+Helm hook Job settings. coreMigrateImage is the image for the migrate-core Job only; backoffLimit and ttlSecondsAfterFinished apply to both hook Jobs (migrate-core and keycloak-reconcile).
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `migrations.backoffLimit` | int | `3` | Job retry limit |
+| `migrations.backoffLimit` | int | `3` | Retry limit for every hook Job (migrate-core and keycloak-reconcile) |
 | `migrations.coreMigrateImage.repository` | string | `""` | Core schema migration image (defaults to global.imageRegistry/boltmcp-migrate-core) |
 | `migrations.coreMigrateImage.tag` | string | `""` | Tag (inherits from web.image.tag) |
-| `migrations.ttlSecondsAfterFinished` | int | `300` | Cleanup delay after job completion |
+| `migrations.ttlSecondsAfterFinished` | int | `300` | Seconds a finished hook Job (migrate-core and keycloak-reconcile) is kept before Kubernetes deletes it |
 
 ## oidc
 
@@ -124,7 +128,6 @@ Optional chart-managed Ingress. Disabled by default: bring your own ingress / ga
 | `oidc.adminUser.email` | string | `""` | Required. Email for the first user in the boltmcp Keycloak realm. Provisioned on first install via --import-realm (username boltmcp_admin, firstName Admin, emailVerified true, granted realm-management/realm-admin). Password lives in the auth Secret as boltmcp-admin-password. |
 | `oidc.mcpServer.clientId` | string | `"boltmcp-mcp-server"` | MCP Server client ID (secret: mcp-server-client-secret) |
 | `oidc.provider` | string | `"keycloak"` | OIDC provider type |
-| `oidc.restApiResourceServer.clientId` | string | `"boltmcp-rest-api"` | Client used by the REST API to authenticate to Keycloak's introspection endpoint (secret: rest-api-resource-server-client-secret). |
 | `oidc.web.clientId` | string | `"boltmcp-web"` | Platform client ID (secret lives in the OIDC Secret as web-client-secret) |
 
 ## restApi
