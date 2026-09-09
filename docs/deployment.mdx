@@ -63,7 +63,7 @@ oidc:
 Set a version once and reference it in subsequent commands. Use the latest release version you've been provided:
 
 ```bash
-export BOLTMCP_VERSION=0.4.3
+export BOLTMCP_VERSION=0.5.4
 ```
 
 ## Install the Chart
@@ -92,10 +92,12 @@ helm install boltmcp \
 <Callout type="warn">
 `--timeout 15m` is required on EKS Auto Mode. On a brand-new EKS Auto
 Mode cluster the general-purpose NodePool starts with zero nodes, and bringing
-up the first node can take longer than Helm's default hook timeout. For GKE/AKS deployments the default `--timeout 5m`
-is generally sufficient.
+up the first node can take longer than Helm's default hook timeout. For GKE/AKS deployments the default `--timeout 5m` is generally sufficient.
 </Callout>
 
+<Callout type="warn">
+Do not pass `--wait` to `helm install`, or to `helm upgrade --install`.
+</Callout>
 
 ## Verify the Deployment
 
@@ -116,7 +118,6 @@ boltmcp-mcp-server-xxxxxxxxxx-xxxxx      1/1     Running     0          2m52s
 boltmcp-rest-api-xxxxxxxxxx-xxxxx        1/1     Running     0          2m52s
 boltmcp-web-xxxxxxxxxx-xxxxx             1/1     Running     0          2m52s
 boltmcp-migrate-core-xxxxx               0/1     Completed   0          2m14s
-boltmcp-seed-xxxxx                       0/1     Completed   0          2m14s
 ```
 
 If a pod is not starting, check its logs and events:

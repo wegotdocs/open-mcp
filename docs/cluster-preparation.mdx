@@ -105,7 +105,8 @@ Assuming the default release name `boltmcp`, the secret names and their required
 |---|---|
 | `web-client-secret` | OIDC client secret for the web app |
 | `mcp-server-client-secret` | OIDC client secret for the MCP server |
-| `rest-api-resource-server-client-secret` | OIDC client secret used by the REST API to verify tokens. |
+| `rest-api-to-keycloak-client-secret` | Client secret for the REST API's Keycloak Admin service account (`boltmcp-rest-api-to-keycloak`) |
+| `keycloak-reconcile-client-secret` | Client secret for the `keycloak-reconcile` hook Job's own Keycloak service account (`boltmcp-keycloak-reconcile`) |
 
 <Callout type="info">
     Other OIDC clients created by BoltMCP are either public or have their passwords automatically set by Keycloak.
@@ -141,7 +142,8 @@ kubectl create secret generic ${RELEASE}-database -n boltmcp \
 kubectl create secret generic ${RELEASE}-oidc -n boltmcp \
   --from-literal=web-client-secret="$(rand)" \
   --from-literal=mcp-server-client-secret="$(rand)" \
-  --from-literal=rest-api-resource-server-client-secret="$(rand)"
+  --from-literal=rest-api-to-keycloak-client-secret="$(rand)" \
+  --from-literal=keycloak-reconcile-client-secret="$(rand)"
 
 kubectl create secret generic ${RELEASE}-auth -n boltmcp \
   --from-literal=web-auth-secret="$(rand)" \

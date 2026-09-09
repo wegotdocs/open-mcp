@@ -103,7 +103,7 @@ On plain-HTTP installs, set `global.tls.enabled: false` rather than overriding U
 
 ### Public hostnames don't resolve inside the cluster (split-horizon DNS)
 
-**Symptoms:** the browser reaches BoltMCP fine, but the web, rest-api, or seed pods fail with OIDC discovery errors against `auth.<domain>` — `ENOTFOUND`, connection timeouts, or `ECONNREFUSED 127.0.0.1` (a workstation-only `/etc/hosts` entry leaking into cluster DNS and resolving to the pod's own loopback).
+**Symptoms:** the browser reaches BoltMCP fine, but the web, rest-api, or keycloak-reconcile pods fail with OIDC discovery errors against `auth.<domain>` — `ENOTFOUND`, connection timeouts, or `ECONNREFUSED 127.0.0.1` (a workstation-only `/etc/hosts` entry leaking into cluster DNS and resolving to the pod's own loopback).
 
 **Cause:** the services fetch the OIDC discovery document from the *public* issuer URL server-side. If the public hostnames only resolve outside the cluster (local installs, split-horizon corporate DNS), those in-cluster requests fail even though everything works in the browser.
 
@@ -121,16 +121,39 @@ global:
 
 Then `helm upgrade` with the updated values. No CoreDNS changes are needed.
 
+### `keycloak-reconcile` hook fails with `HTTPS required`
+
+**Symptoms:** `helm install` or `helm upgrade` fails on the `boltmcp-keycloak-reconcile` hook (`pre-upgrade` / `post-install`), and the hook pod's log ends with:
+
+```
+Keycloak reconcile failed: KeycloakUnavailableError: Keycloak refused admin credentials for master_admin (403): {"error":"invalid_request","error_description":"HTTPS required"}
+```
+
+**Cause:** the reconcile Job talks to Keycloak over plain HTTP on the in-cluster Service (`http://boltmcp-keycloak:8080`), because the public hostname may not be routable or have a certificate yet during a fresh install. In production mode (`keycloak.production.enabled: true`, the default) the **master** realm's *Require SSL* setting defaults to `external`, which waives HTTPS only for requests from loopback or RFC1918 addresses (`10/8`, `172.16/12`, `192.168/16`). If your cluster's pod CIDR lies outside those ranges (commonly `100.64.0.0/10`), Keycloak treats the Job as an external client and refuses the token request. The `boltmcp` realm is unaffected: it is only reached through your HTTPS ingress.
+
+**Fix:** set the master realm's *Require SSL* to `None` once. The setting is stored in Keycloak's database, so it survives upgrades and Pod restarts. Either use the admin console at `https://auth.<domain>/admin` (sign in as `master_admin`, switch to the `master` realm, then *Realm settings → General → Require SSL → None*), or do it from inside the Keycloak pod, which is always allowed to use plain HTTP over loopback:
+
+```bash
+KC_PASSWORD=$(kubectl get secret boltmcp-auth -n boltmcp -o jsonpath='{.data.keycloak-admin-password}' | base64 -d)
+kubectl exec -n boltmcp deploy/boltmcp-keycloak -- \
+  /opt/keycloak/bin/kcadm.sh config credentials --server http://127.0.0.1:8080 \
+  --realm master --user master_admin --password "$KC_PASSWORD"
+kubectl exec -n boltmcp deploy/boltmcp-keycloak -- \
+  /opt/keycloak/bin/kcadm.sh update realms/master -s sslRequired=none
+```
+
+Replace `boltmcp-auth` with the name of your auth Secret if you set `secrets.auth.name`. Then re-run `helm upgrade` (or `helm install` after `helm uninstall` if the failed install left the release in `failed`). If you would rather keep *Require SSL* at `external`, the alternative is a pod CIDR inside the private ranges; there is no chart value that changes the Job's URL.
+
 ### Missing Email or Name
 
 BoltMCP requires users to have an **email** and **first name** to sign in. The auto-provisioned `boltmcp_admin` user gets both fields set at realm-import time (email from `oidc.adminUser.email`, firstName `Admin`). If you add more users later through the Keycloak admin console, make sure each has both fields populated before they try to sign into the BoltMCP web app.
 
 ### Client Secret Mismatch
 
-The OIDC client secrets in the `boltmcp-oidc` Secret must match what's configured on the corresponding clients in Keycloak. There are three client secrets: `web-client-secret`, `mcp-server-client-secret`, and `rest-api-resource-server-client-secret`. To rotate a value:
+The OIDC client secrets in the `boltmcp-oidc` Secret must match what's configured on the corresponding clients in Keycloak. There are four client secrets: `web-client-secret`, `mcp-server-client-secret`, `rest-api-to-keycloak-client-secret` and `keycloak-reconcile-client-secret` (see [Rotating Secrets](./rotating-secrets) for which client and Deployment each one belongs to). To rotate a value:
 
 1. Edit the `boltmcp-oidc` Secret (`kubectl edit secret boltmcp-oidc -n boltmcp`, or re-apply via your secrets manager) so the new value is base64-encoded under the right key.
-2. Update the same value on the matching client in the Keycloak admin console.
+2. Run `helm upgrade` with your existing values (see [Upgrading](./upgrading)). Its `keycloak-reconcile` hook Job stamps the new secret onto the matching Keycloak client. Alternatively, update the client secret by hand in the Keycloak admin console.
 3. Restart deployments so they pick up the new value (Kubernetes does not auto-restart pods on Secret changes):
 
 ```bash
@@ -141,9 +164,9 @@ kubectl rollout restart -n boltmcp deployment/boltmcp-rest-api
 
 ### Redirect Loop
 
-Check that client redirect URIs in Keycloak match the web URLs. The redirect URI must include the full path pattern (e.g. `https://web.boltmcp.example.com/*`).
+Check that client redirect URIs in Keycloak match the web URLs. The `boltmcp-web` client's root URL and redirect URI are derived from `web.baseUrl` / `global.domain` and re-applied by the `keycloak-reconcile` hook Job on every upgrade, so after changing those values run `helm upgrade` rather than editing the client by hand.
 
-## Vault Secret Endpoints Failing (502 / 503)
+## Secret store is unavailable
 
 The REST API's secret endpoints (`/api/v1/secrets/*`) depend on the bundled Vault being initialized, unsealed, and bootstrapped. The HTTP status tells you which step is missing:
 
@@ -190,15 +213,15 @@ If you run your own Ingress manifest rather than the chart-managed one, set the 
 
 ### 413 Errors Uploading an API Spec
 
-If importing an OpenAPI spec from the **APIs** page fails with `413 Request Entity Too Large`, the file exceeds the ingress body-size limit. The chart-managed Ingress allows 10 MB by default; raise it in your values file:
+If importing an OpenAPI spec from the **APIs** page fails with a `413` error, the file exceeds the platform's 10 MB request-body limit. The BoltMCP REST API enforces this limit on every request (it answers with `{"error":"Payload Too Large"}`) and the chart-managed Ingress mirrors it with `nginx.ingress.kubernetes.io/proxy-body-size: "10m"`. Raising the ingress annotation does not raise the limit - the fix is a smaller spec, for example by splitting it or removing unused paths.
+
+If you run your own Ingress manifest rather than the chart-managed one, set the annotation there to at least `10m`:
 
 ```yaml
-ingress:
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: "25m"
+nginx.ingress.kubernetes.io/proxy-body-size: "10m"
 ```
 
-If you run your own Ingress manifest rather than the chart-managed one, set the same annotation there - without it NGINX applies a 1 MB default. Note that NGINX buffers the whole upload before forwarding it, so very large values increase memory and disk use on the ingress controller.
+Without it NGINX applies a 1 MB default and rejects uploads with `413 Request Entity Too Large` before they reach the platform.
 
 ## Database lost+found Error
 

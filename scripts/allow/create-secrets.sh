@@ -13,7 +13,8 @@ kubectl create secret generic ${RELEASE}-database -n boltmcp \
 kubectl create secret generic ${RELEASE}-oidc -n boltmcp \
   --from-literal=web-client-secret="$(rand)" \
   --from-literal=mcp-server-client-secret="$(rand)" \
-  --from-literal=rest-api-resource-server-client-secret="$(rand)"
+  --from-literal=rest-api-to-keycloak-client-secret="$(rand)" \
+  --from-literal=keycloak-reconcile-client-secret="$(rand)"
 
 kubectl create secret generic ${RELEASE}-auth -n boltmcp \
   --from-literal=web-auth-secret="$(rand)" \
