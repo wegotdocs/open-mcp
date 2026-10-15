@@ -77,6 +77,7 @@ region            = "eu-west-2"
 domain            = "boltmcp.example.com"
 route53_zone_name = "example.com"
 admin_email       = "admin@example.com"
+registry_key_path = "../../keys/boltmcp-key.json"
 chart_version     = "0.5.12"
 ```
 
@@ -85,6 +86,7 @@ chart_version     = "0.5.12"
 | `domain` | Becomes the chart's `global.domain`. Recommended: the `boltmcp` subdomain of your company's domain. |
 | `route53_zone_name` | The hosted zone containing `domain`: `example.com` if Route 53 hosts your whole domain, or `boltmcp.example.com` if you [delegated the subdomain](#dns). It holds the certificate validation records and the BoltMCP records. |
 | `admin_email` | Email of the first admin user. Must be a real address. |
+| `registry_key_path` | Path to your BoltMCP access key, relative to `terraform/aws`. |
 | `chart_version` | The latest BoltMCP release you've been given. |
 
 EKS Auto Mode scales nodes to fit the pods, so there's no node count or machine type to choose. See the [stack's README](https://github.com/boltmcp/boltmcp/tree/main/terraform/aws#inputs) for every input, including how to use an existing VPC and pass extra chart values through `helm_values`.
