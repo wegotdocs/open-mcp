@@ -59,7 +59,7 @@ dig NS boltmcp.example.com +short
 </Step>
 </Steps>
 
-Then set both `domain` and `route53_zone_name` to `boltmcp.example.com` below.
+Then, when you configure the stack below, set `route53_zone_name` to the subdomain (`boltmcp.example.com`), the same as `domain`.
 
 ## Configure
 
@@ -83,7 +83,7 @@ chart_version     = "0.5.12"
 | Variable | Description |
 | --- | --- |
 | `domain` | Becomes the chart's `global.domain`. Recommended: the `boltmcp` subdomain of your company's domain. |
-| `route53_zone_name` | The hosted zone containing `domain`. It holds the certificate validation records and the BoltMCP records. |
+| `route53_zone_name` | The hosted zone containing `domain`: `example.com` if Route 53 hosts your whole domain, or `boltmcp.example.com` if you [delegated the subdomain](#dns). It holds the certificate validation records and the BoltMCP records. |
 | `admin_email` | Email of the first admin user. Must be a real address. |
 | `chart_version` | The latest BoltMCP release you've been given. |
 
@@ -100,7 +100,7 @@ terraform init
 terraform apply
 ```
 
-The first apply takes about 20–25 minutes.
+The first apply takes about 15 minutes.
 
 <Callout type="warn">
 Expect roughly **$8 per day** in AWS charges while the stack is running. That covers the EKS control plane, one `c7i-flex.large` node, the NAT gateway, the load balancer, public IPs and storage. When you've finished testing, run `terraform destroy` to stop billing (see [Uninstall](./uninstall#terraform-installs)).

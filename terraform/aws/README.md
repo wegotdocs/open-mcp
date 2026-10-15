@@ -30,7 +30,7 @@ terraform apply
 terraform output next_steps
 ```
 
-The first apply takes about 20–25 minutes. After it finishes, the only manual step is the one-time Vault `operator init` and bootstrap; `terraform output next_steps` prints the commands.
+The first apply takes about 15 minutes. After it finishes, the only manual step is the one-time Vault `operator init` and bootstrap; `terraform output next_steps` prints the commands.
 
 To upgrade BoltMCP, change `chart_version` and run `terraform apply` again.
 

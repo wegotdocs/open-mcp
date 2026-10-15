@@ -4,6 +4,13 @@
     "deny": [
       "Bash(kubectl get secret *)",
       "Read(./keys/**/*.json)",
+      "Read(./terraform/**/*.tfstate*)",
+      "Read(./terraform/**/tfplan)",
+      "Read(./terraform/**/*.tfplan)",
+      "Bash(*terraform*state pull*)",
+      "Bash(*terraform*state show*)",
+      "Bash(*terraform*show*-json*)",
+      "Bash(*terraform*console*)",
       "Bash(./scripts/deny/*)",
       "Bash(*vault operator *)",
       "Bash(*vault login *)"
