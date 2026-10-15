@@ -1,11 +1,11 @@
 ---
 title: Installation
-description: Install BoltMCP with Claude, or skip this page to install manually
+description: Install BoltMCP with Claude, with Terraform, or manually
 ---
 
 ## Install with Claude
 
-This documentation site is also bundled as an Agent Skill, which Claude Code can use to walk you through the installation process. Before carrying out the steps below, you might prefer to [install the prerequisites manually](/docs/prerequisites). If not, Claude will walk you through that too.
+This documentation site is also bundled as an Agent Skill, which Claude Code can use to walk you through the installation process. Before carrying out the steps below, you might prefer to install the [prerequisites](/docs/terraform-aws#prerequisites) manually. If not, Claude will walk you through that too.
 
 <Steps>
 <Step>
@@ -54,6 +54,7 @@ Invoke the Skill and Claude will walk you through the installation process
 
 ---
 
-## Install manually
+## Install yourself
 
-If you'd prefer to do the installation manually, continue reading the following pages.
+- **Terraform (recommended)**: creates a cluster and installs BoltMCP behind HTTPS with one `terraform apply`. Available for [AWS](/docs/terraform-aws).
+- **Manual**: install on an existing cluster, another cloud or on-prem, step by step with `kubectl` and `helm`. Start at [Prerequisites](/docs/prerequisites).

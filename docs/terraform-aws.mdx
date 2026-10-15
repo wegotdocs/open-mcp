@@ -1,0 +1,131 @@
+---
+title: Terraform on AWS
+description: Create an EKS cluster and install BoltMCP behind HTTPS with a single terraform apply.
+---
+
+The Terraform stack in the [`terraform/aws`](https://github.com/boltmcp/boltmcp/tree/main/terraform/aws) directory of the `boltmcp` repository:
+
+- creates a VPC and an **EKS Auto Mode** cluster
+- prepares the cluster: `gp3` StorageClass, `boltmcp` namespace, image pull secret, and the three application Secrets with random values
+- serves BoltMCP over **HTTPS** through an Application Load Balancer, using a wildcard **ACM** certificate validated in Route 53
+- creates the DNS records for `web.`, `auth.`, `server.` and `inspector.<domain>` through external-dns
+- sets up Vault **auto-unseal** with an AWS KMS key
+- installs the BoltMCP Helm chart
+
+## Prerequisites
+
+On the workstation you're installing from, you'll need:
+
+- `terraform` v1.9+ · [Install Terraform](https://developer.hashicorp.com/terraform/install)
+- `aws` CLI, logged in to the target account (`aws login`). Terraform uses it to authenticate to the cluster. · [Install aws](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- `kubectl` v1.28+, for the steps after the apply · [Install kubectl](https://kubernetes.io/docs/tasks/tools/)
+- `helm` v3.12+ (optional, for troubleshooting) · [Install helm](https://helm.sh/docs/intro/install/)
+- Your BoltMCP access key at `keys/boltmcp-key.json` in the `boltmcp` repository
+
+Check you're logged in to the right account:
+
+```bash
+aws sts get-caller-identity
+```
+
+### DNS
+
+You need a **public Route 53 hosted zone** in the same AWS account that contains your BoltMCP domain. For example, the zone `example.com` for the domain `boltmcp.example.com`.
+
+If your domain is hosted by another DNS provider, delegate just the BoltMCP subdomain to Route 53:
+
+<Steps>
+<Step>
+Create a hosted zone for the subdomain:
+
+```bash
+aws route53 create-hosted-zone \
+  --name boltmcp.example.com \
+  --caller-reference "boltmcp-$(date +%s)" \
+  --query DelegationSet.NameServers
+```
+
+This prints the zone's four name servers.
+</Step>
+<Step>
+At your DNS provider, add an `NS` record for `boltmcp` (the subdomain) in the `example.com` zone, with the four name servers as its values.
+</Step>
+<Step>
+Wait until the subdomain resolves to the Route 53 name servers:
+
+```bash
+dig NS boltmcp.example.com +short
+```
+</Step>
+</Steps>
+
+Then set both `domain` and `route53_zone_name` to `boltmcp.example.com` below.
+
+## Configure
+
+From the root of the `boltmcp` repository:
+
+```bash
+cd terraform/aws
+cp terraform.tfvars.example terraform.tfvars
+```
+
+Edit `terraform.tfvars`:
+
+```hcl title="terraform/aws/terraform.tfvars"
+region            = "eu-west-2"
+domain            = "boltmcp.example.com"
+route53_zone_name = "example.com"
+admin_email       = "admin@example.com"
+chart_version     = "0.5.12"
+```
+
+| Variable | Description |
+| --- | --- |
+| `domain` | Becomes the chart's `global.domain`. Recommended: the `boltmcp` subdomain of your company's domain. |
+| `route53_zone_name` | The hosted zone containing `domain`. It holds the certificate validation records and the BoltMCP records. |
+| `admin_email` | Email of the first admin user. Must be a real address. |
+| `chart_version` | The latest BoltMCP release you've been given. |
+
+EKS Auto Mode scales nodes to fit the pods, so there's no node count or machine type to choose. See the [stack's README](https://github.com/boltmcp/boltmcp/tree/main/terraform/aws#inputs) for every input, including how to use an existing VPC and pass extra chart values through `helm_values`.
+
+<Callout type="warn">
+Terraform generates the application Secrets, so their values are stored in Terraform **state**. For anything beyond an evaluation install, configure an encrypted, access-controlled [remote backend](https://developer.hashicorp.com/terraform/language/backend/s3) before applying.
+</Callout>
+
+## Apply
+
+```bash
+terraform init
+terraform apply
+```
+
+The first apply takes about 20–25 minutes.
+
+<Callout type="warn">
+Expect roughly **$8 per day** in AWS charges while the stack is running. That covers the EKS control plane, one `c7i-flex.large` node, the NAT gateway, the load balancer, public IPs and storage. When you've finished testing, run `terraform destroy` to stop billing (see [Uninstall](./uninstall#terraform-installs)).
+</Callout>
+
+## Finish the install
+
+Print the remaining steps:
+
+```bash
+terraform output next_steps
+```
+
+1. Connect kubectl:
+
+   ```bash
+   $(terraform output -raw kubeconfig_command)
+   ```
+
+2. Wait for every pod to show `Running` or `Completed`:
+
+   ```bash
+   kubectl get pods -n boltmcp -w
+   ```
+
+3. Initialize and bootstrap [Vault](./vault-secret-store).
+
+4. [Sign in](./sign-in). DNS records can take a few minutes to appear after the first apply.

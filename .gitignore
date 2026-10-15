@@ -3,3 +3,13 @@ archive/
 docs/ignore
 
 *FEEDBACK.md
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+# Saved plans embed every value, including generated secrets
+*.tfplan
+tfplan

@@ -5,6 +5,10 @@ description: Breaking changes to apply before upgrading BoltMCP, listed by chart
 
 Read this page before every [upgrade](./upgrading), and work through each section between the version you have installed and the version you are moving to. Everything here must be done **before** `helm upgrade` runs: a pod whose Deployment references a Secret key that does not exist yet never starts, and a values file carrying a removed key fails schema validation before Helm applies anything.
 
+<Callout type="info">
+**Terraform installs** don't need these steps: the stack adds new Secret keys itself. Pull the latest `boltmcp` repository and follow [Upgrading](./upgrading#terraform-installs). Don't `kubectl patch` the Secrets, as the next `terraform apply` reverts them.
+</Callout>
+
 To check which version you are on:
 
 ```bash

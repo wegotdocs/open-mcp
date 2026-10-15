@@ -15,6 +15,7 @@ print_version() {
 
 echo "## CLI tool versions"
 echo
+print_version terraform terraform version
 print_version kubectl kubectl version --client=true
 print_version helm helm version --short
 print_version gcloud gcloud --version

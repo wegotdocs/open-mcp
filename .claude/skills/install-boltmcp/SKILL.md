@@ -32,15 +32,7 @@ Multiple choice answers:
 - On a new Kubernetes cluster
 - On an existing Kubernetes cluster
 
-### 2a. What tier of cluster do you want to create? (only ask this if they want to create a new cluster)
-
-Multiple choice answers:
-
-- Evaluation e.g. Trying BoltMCP, demos, throwaway dev clusters [default]
-- Production (minimum): Internal use, small teams, single-region
-- Production (scale): Customer-facing, room to scale replicas and run upgrades
-
-### 2b. Which cluster do you want to install on? (only ask this if they want to use an existing cluster)
+### 2. Which cluster do you want to install on? (only ask this if they want to use an existing cluster)
 
 Derive the multiple choice answers from the list of clusters above if present, also including an "Other" option.
 
@@ -64,7 +56,7 @@ If you don't know their work email, ask them to type the domain. Recommend them 
 ## Check the workstation environment
 
 1. Check the `./keys` directory listing in the workstation info above for a JSON access key file. You don't have permission to read the file, just note its location. If no such file is present, prompt the user to put their BoltMCP access key file in `./keys` before continuing.
-2. Cross-reference the tool versions in the workstation info above against the prerequisites docs, and flag anything missing or out-of-range.
+2. Cross-reference the tool versions in the workstation info above against the prerequisites for the chosen install path (see below), and flag anything missing or out-of-range.
 3. If the user chose one of the big three providers, check that the appropriate CLI `gcloud` / `aws` / `az` is installed and also check that the user is logged in. **Do not run commands that print credentials** (e.g. `gcloud auth print-access-token`) — they leak tokens into the terminal output. Use identity-only probes instead:
    - **gcloud:** `gcloud auth list --filter=status:ACTIVE --format='value(account)'` (prints the active account email, nothing else)
    - **aws:** `aws sts get-caller-identity` (prints IAM identity, not credentials)
@@ -74,9 +66,12 @@ If you don't know their work email, ask them to type the domain. Recommend them 
 
 ## Follow the docs to install
 
-Look at the order of the docs pages as defined in `./docs/meta.json` in the project root directory. Each page is a `.mdx` file in the docs dir.
+Choose the install path:
 
-Follow all the steps in the Getting Started pages from start to finish. The end result should be a successful installation of BoltMCP on the user's cluster which they can successfully log in to.
+- **New cluster on AWS → Terraform.** Follow `docs/terraform-aws.mdx` (stack in `./terraform/aws`), including its Prerequisites and DNS sections. If `terraform` isn't installed, ask the user's explicit permission before installing it, and offer them the option to install it themselves: https://developer.hashicorp.com/terraform/install
+- **Anything else → manual.** Follow the pages in `docs/(manual)/meta.json` order. When creating a new cluster, always use the evaluation tier.
+
+Then follow `docs/vault-secret-store.mdx` and `docs/sign-in.mdx`. The end result should be a successful installation of BoltMCP on the user's cluster which they can successfully log in to.
 
 ## Additional notes to consider during the install process
 
@@ -110,9 +105,9 @@ Before running any commands which might take a while to run (e.g. 1 minute or mo
 
 **Vault**
 
-Do not run the init/unseal/bootstrap commands yourself, just present them to the user to run manually while you continue with Ingress (get the info you need for Ingress before telling the user what vault commands to run).
+Do not run the init/unseal/bootstrap commands yourself, just present them to the user to run manually. On manual installs, continue with Ingress while they do (get the info you need for Ingress before telling the user what vault commands to run).
 
-**Ingress**
+**Ingress (manual installs only)**
 
 After successfully deploying the chart, ask the user if they'd like to set up their ingress manually, or if they'd like a reference setup with NGINX. If the former, give them the hostnames table. If the latter, ask for an optional email address to receive warnings when a certificate is approaching expiry (defaults to the first user email). If their global.domain is a subdomain, explain that the DNS record values depend on whether the hosted zone is for the apex (most likely) or if it's also the subdomain. Give hostname values to update for each scenario, making it clear of the distinction.
 
@@ -139,6 +134,10 @@ At the end of a successful install tell the user what command to run to get thei
 If anything doesn't immediately work, or is at all unclear or ambiguous or strange in any way, make a note of it in `INSTALL-FEEDBACK.md` in the project root directory.
 
 Don't hesitate to ask the user along the way if you need any extra info or decisions from them, they are there to help.
+
+# Install method (upgrade and uninstall)
+
+Before upgrading or uninstalling, work out how BoltMCP was installed. If `./terraform/aws/terraform.tfstate` exists (or `terraform state list` in `./terraform/aws` shows resources), it's a Terraform install; if unsure, ask. For Terraform installs, follow the "Terraform installs" section of the upgrading or uninstall docs, and only ask for the target chart version (when upgrading). For manual installs, follow the "Manual installs" section.
 
 # Upgrade BoltMCP
 
