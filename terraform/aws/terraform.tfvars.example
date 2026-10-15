@@ -1,0 +1,24 @@
+# Copy to terraform.tfvars and fill in.
+
+region            = "eu-west-2"
+domain            = "boltmcp.example.com"
+route53_zone_name = "example.com"
+admin_email       = "admin@example.com"
+
+# Latest BoltMCP release you've been given.
+chart_version = "0.5.12"
+
+# Optional:
+# cluster_name      = "boltmcp"
+# vault_auto_unseal = true
+# single_nat_gateway = false   # one NAT gateway per AZ for production
+#
+# Use an existing VPC instead of creating one:
+# create_vpc         = false
+# vpc_id             = "vpc-0123456789abcdef0"
+# private_subnet_ids = ["subnet-aaa", "subnet-bbb", "subnet-ccc"]
+#
+# Extra chart values, merged over the generated ones:
+# helm_values = {
+#   web = { replicaCount = 2 }
+# }

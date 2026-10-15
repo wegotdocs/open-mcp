@@ -1,14 +1,33 @@
 ---
-title: Manual Upgrade
-description: Upgrade BoltMCP to a new chart release with helm upgrade.
+title: Upgrading
+description: Upgrade BoltMCP to a new chart release.
 ---
 
 Before upgrading, read the [Migration Guide](./migration-guide) to check for any breaking changes.
 
+## Terraform installs
+
+Pull the latest `boltmcp` repository, so the stack matches the new release:
+
+```bash
+git pull
+```
+
+Set `chart_version` in `terraform/aws/terraform.tfvars` to the target version, then apply:
+
+```bash
+cd terraform/aws
+terraform apply
+```
+
+To change chart values without a version bump, edit `helm_values` in `terraform.tfvars` and apply again.
+
+## Manual installs
+
 To deploy a new release, first set the target version and update the paths to your values file and access key file:
 
 ```bash
-export BOLTMCP_VERSION=0.5.11
+export BOLTMCP_VERSION=0.5.12
 export BOLTMCP_VALUES="$PWD/config/values-prod.yaml"
 export HELM_REGISTRY_CONFIG="$PWD/keys/boltmcp-key.json"
 ```
@@ -37,7 +56,7 @@ Run with `--dry-run=client` first to verify the rendered manifests and surface a
 As with [installation](./deployment), `--timeout 15m` is required on EKS Auto Mode, where scheduling the hook pods can trigger a node scale-up that exceeds Helm's default 5m timeout. A timed-out upgrade leaves the release stuck in `pending-upgrade` (see below).
 </Callout>
 
-## Verify the Upgrade
+### Verify the Upgrade
 
 Confirm the new revision shows `deployed`:
 
@@ -58,7 +77,7 @@ kubectl logs -n boltmcp <pod-name>
 kubectl describe pod -n boltmcp <pod-name>
 ```
 
-## Check the Vault Seal Status
+### Check the Vault Seal Status
 
 If the upgrade caused the Vault pod to restart, and auto-unseal isn't configured, it will come back sealed. Check the `Sealed` status with:
 
@@ -68,7 +87,7 @@ kubectl exec -n boltmcp deploy/boltmcp-vault -- vault status
 
 If it reads `true`, [unseal Vault again](./vault-secret-store), or configure [auto-unseal](./vault-auto-unseal) to avoid the manual step on future restarts.
 
-## Values-Only Changes
+### Values-Only Changes
 
 To apply a change to `values-prod.yaml` without a chart-version bump, re-run the same `helm upgrade` command above with the unchanged `--version`. Values render into the pod specs, so Helm rolls the affected deployments automatically — no manual restart is needed.
 
@@ -80,7 +99,7 @@ kubectl rollout restart -n boltmcp deployment/<deployment>
 
 The OIDC client secrets additionally have to be updated on the Keycloak side; see [Rotating Secrets](./rotating-secrets).
 
-## Recovering a stuck `pending-upgrade` release
+### Recovering a stuck `pending-upgrade` release
 
 If a `helm upgrade` is interrupted (timeout, Ctrl-C, OOM, kube-apiserver hiccup) the release record can be left in `pending-upgrade` state. Every subsequent `helm upgrade` will then fail with:
 

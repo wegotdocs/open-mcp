@@ -3,7 +3,21 @@ title: Uninstall & Cleanup
 description: Remove BoltMCP and associated resources.
 ---
 
-## Set Variables
+## Terraform installs
+
+From the `terraform/aws` directory of the `boltmcp` repository:
+
+```bash
+terraform destroy
+```
+
+This uninstalls BoltMCP, deletes its data volume, load balancer and DNS records, then deletes the cluster and VPC. The KMS key is scheduled for deletion after 30 days.
+
+Then remove the cluster from your kubeconfig, as in [kubeconfig](#kubeconfig) below.
+
+## Manual installs
+
+### Set Variables
 
 Export the Helm release name and namespace so the commands below can be pasted verbatim. Both default to `boltmcp` — adjust if you installed under different names (run `helm list -A` to look them up).
 
@@ -12,7 +26,7 @@ export RELEASE=boltmcp
 export NAMESPACE=boltmcp
 ```
 
-## Uninstall the Helm Release
+### Uninstall the Helm Release
 
 ```bash
 helm uninstall ${RELEASE} -n ${NAMESPACE}
@@ -22,7 +36,7 @@ helm uninstall ${RELEASE} -n ${NAMESPACE}
 Depending on their delete policy, some Helm hook Jobs (`keycloak-reconcile`, `migrate-core`) may survive `helm uninstall`. This only matters if you intend to keep the namespace — deleting the namespace (below) clears them.
 </Callout>
 
-## Delete Persistent Data
+### Delete Persistent Data
 
 This deletes all persistent volume claims in the namespace, including the database. **All data will be lost.**
 
@@ -34,7 +48,7 @@ kubectl delete pvc -n ${NAMESPACE} --all
 Do this **before** deleting the cluster. The database PersistentVolume is provisioned with `reclaimPolicy: Delete`, so deleting the PVC releases the backing disk — on EKS, the underlying EBS volume. `eksctl delete cluster` does **not** delete CSI-provisioned EBS volumes (they aren't part of its CloudFormation stack), so skipping this step and jumping straight to cluster deletion leaks the volume.
 </Callout>
 
-## Delete Secrets
+### Delete Secrets
 
 The three application secrets and the image pull secret were created manually during [Cluster Prep](/docs/cluster-preparation) and are not managed by Helm, so `helm uninstall` does not remove them. Delete them explicitly:
 
@@ -49,7 +63,7 @@ kubectl delete secret \
 
 The three application secrets default to `<release>-auth`, `<release>-database`, `<release>-oidc`. The pull secret defaults to `boltmcp-pull-secret` — adjust the command above if you created it under a different name in cluster prep.
 
-## Remove Ingress Resources
+### Remove Ingress Resources
 
 If you configured [Ingress & TLS](/docs/ingress-tls), remove those resources:
 
@@ -98,7 +112,7 @@ kubectl delete namespace ingress-nginx
 On EKS, do not move on to deleting the cluster until the load balancer is gone. An orphaned load balancer and its controller-managed security group will block `eksctl delete cluster` from tearing down the VPC. Confirm `kubectl get svc -n ingress-nginx` shows no controller Service (and, if in doubt, check the EC2 console) before continuing.
 </Callout>
 
-### Release Static IP
+#### Release Static IP
 
 <Tabs groupId="cloud" items={['GKE', 'EKS', 'AKS']}>
 <Tab value="GKE">
@@ -139,7 +153,7 @@ az network public-ip delete \
 
 Remove the DNS records you created in [Configure DNS](/docs/ingress-tls#configure-dns) — either the single wildcard or the four `web`, `auth`, `server`, and `inspector` records for your `global.domain` (e.g. `web.<domain>`) — from your DNS provider. These are **A** records on GKE and AKS (and on an EKS NLB+EIP), or **CNAME** records pointing at the load balancer hostname on the default EKS Classic ELB.
 
-## Delete the Namespace
+### Delete the Namespace
 
 If you no longer need the namespace, delete it:
 
@@ -149,7 +163,7 @@ kubectl delete namespace ${NAMESPACE}
 
 Skip this step if you plan to reinstall BoltMCP into the same namespace.
 
-## Delete the StorageClass (EKS)
+### Delete the StorageClass (EKS)
 
 On EKS you created a `gp3` StorageClass during [Cluster Prep](/docs/cluster-preparation#storageclass). It is cluster-scoped and was applied directly with `kubectl`, so neither `helm uninstall` nor deleting the namespace removes it. (GKE and AKS used their built-in default — there is nothing to delete.)
 
@@ -165,7 +179,7 @@ Safe to keep if you plan to reinstall BoltMCP into the same cluster — the next
 If you opted to mark this class the cluster default (`storageclass.kubernetes.io/is-default-class: "true"`) and other workloads have come to rely on it, deleting it changes their PVC behaviour — leave it in place, or mark another StorageClass default first.
 </Callout>
 
-## Delete the Cluster
+### Delete the Cluster
 
 <Callout type="warn">
 On EKS, deleting the cluster is **not** self-sufficient. Before running the command below, make sure you have already (1) uninstalled `ingress-nginx` and confirmed the cloud load balancer is gone (see [Remove Ingress Resources](#remove-ingress-resources)), and (2) deleted the PVCs (see [Delete Persistent Data](#delete-persistent-data)). Otherwise the load balancer and its security group can stall the VPC teardown, and the EBS volumes behind the PVCs will leak.
@@ -200,9 +214,9 @@ az group delete --name boltmcp-rg
 </Tab>
 </Tabs>
 
-## Clean Up Local Workstation (Optional)
+### Clean Up Local Workstation (Optional)
 
-### kubeconfig
+#### kubeconfig
 
 Deleting the cluster in your cloud provider does not touch your local `~/.kube/config`. The stale context, cluster, and user entries will remain until you remove them explicitly:
 
@@ -218,11 +232,11 @@ Run `kubectl config get-contexts` first to find the exact names. If the deleted 
 kubectl config use-context <other-context-name>
 ```
 
-### Local YAML manifests
+#### Local YAML manifests
 
 Remove any files you created locally during install — for example `values-prod.yaml`, `storageclass-gp3.yaml` (EKS), `cluster-issuer-staging.yaml`, and `cluster-issuer-production.yaml` — from the directory where you ran the install.
 
-### Helm registry credentials
+#### Helm registry credentials
 
 Following these docs, you pointed Helm at the BoltMCP key file via the `HELM_REGISTRY_CONFIG` environment variable rather than running `helm registry login`, so there is no cached credential to remove — just discard the env var (it disappears when you close the shell) and delete the key file if you no longer need it:
 

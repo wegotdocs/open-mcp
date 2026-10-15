@@ -3,7 +3,7 @@ title: Sign In
 description: Retrieve your SSO login credentials and sign in to the BoltMCP dashboard, docs, and Keycloak admin console.
 ---
 
-Once you've installed BoltMCP and set up ingress, run this script to retrieve your SSO login credentials. It reads the URLs straight from the deployed web workload, so it prints the right scheme and hostnames whatever your values (`global.domain`, `global.tls.enabled`, or any explicit overrides):
+Once you've installed BoltMCP and set up ingress (via Terraform, or manually), run this script to retrieve your SSO login credentials. It reads the URLs straight from the deployed web workload, so it prints the right scheme and hostnames whatever your values (`global.domain`, `global.tls.enabled`, or any explicit overrides):
 
 ```bash title="get-login-details.sh" extract="true" bucket="deny"
 #!/usr/bin/env bash
@@ -67,7 +67,7 @@ MCP clients such as Claude don't need a pre-configured client: they register the
 Everything related to BoltMCP lives in the `boltmcp` Keycloak realm, including the clients above and the `boltmcp_admin` user.
 
 <Callout type="warning">
-  The admin console base URL (e.g. `https://auth.<global.domain>`, or `http://` on a plain-HTTP install) automatically redirects to the master realm, not the BoltMCP realm. Use the link in the BoltMCP dashboard sidebar to open the BoltMCP realm.
+  The admin console base URL (e.g. `https://auth.<global.domain>`) automatically redirects to the master realm, not the BoltMCP realm. Use the link in the BoltMCP dashboard sidebar to open the BoltMCP realm.
 </Callout>
 
 For an evaluation deployment you shouldn't need access to the `master` realm. But for completeness, here are the master realm admin credentials:
