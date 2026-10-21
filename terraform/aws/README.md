@@ -50,7 +50,7 @@ The submodules are independent. On an existing EKS Auto Mode cluster, call `modu
 | `domain` | required | BoltMCP apex domain (`global.domain`), e.g. `boltmcp.example.com` |
 | `route53_zone_name` | required | Public Route 53 zone containing `domain`, e.g. `example.com` |
 | `admin_email` | required | Email of the first BoltMCP admin user |
-| `chart_version` | `0.5.12` | BoltMCP chart version |
+| `chart_version` | `0.5.22` | BoltMCP chart version |
 | `registry_key_path` | `../../keys/boltmcp-key.json` | BoltMCP access key |
 | `release_name` / `namespace` | `boltmcp` | Helm release name / namespace |
 | `helm_values` | `{}` | Extra chart values, deep-merged over the generated ones |
