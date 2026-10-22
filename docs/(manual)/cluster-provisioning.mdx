@@ -13,6 +13,8 @@ BoltMCP runs on any conformant Kubernetes cluster (v1.28+). Pick the tier that m
 | **Production (minimum)** | 3 | 2 vCPU, 8 GiB RAM | Internal use, small teams, single-region |
 | **Production (recommended)** | 3 | 4 vCPU, 16 GiB RAM | Customer-facing, room to scale replicas and run upgrades |
 
+With the chart's default resource settings, a full install (one replica of each component) requests about **1.3 vCPU and 3.3 GiB of memory**, plus a short-lived 50m / 128 MiB hook Job during each install and upgrade. Its limits add up to about 9 vCPU and 6 GiB, so the pods can burst above their requests when the nodes have room. On clusters that size nodes to fit the pods, such as **GKE Autopilot** and **EKS Auto Mode**, there are no nodes to choose. To change a component's requests or limits, set `<component>.resources` in your values file (see the [configuration reference](./configuration-reference)).
+
 ## Create a Cluster
 
 <Callout type="info">
@@ -27,6 +29,10 @@ Make sure you've logged into the relevant CLI (`gcloud auth login` / `aws config
 
 <Tabs groupId="cloud" items={['GKE', 'EKS', 'AKS']}>
 <Tab value="GKE">
+<Callout type="info">
+    Prefer infrastructure as code? [Terraform on GCP](./terraform-gcp) creates a GKE Autopilot cluster and installs BoltMCP behind HTTPS in one `terraform apply`, replacing this page and the next three.
+</Callout>
+
 Create the cluster (5-10 minutes):
 
 ```bash

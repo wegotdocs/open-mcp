@@ -29,7 +29,7 @@ variable "admin_email" {
 variable "chart_version" {
   description = "BoltMCP Helm chart version. Use the latest release you've been given. Changing it upgrades the release."
   type        = string
-  default     = "0.5.22"
+  default     = "0.5.23"
 }
 
 variable "registry_key_path" {

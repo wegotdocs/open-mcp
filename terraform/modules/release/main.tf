@@ -2,6 +2,13 @@ resource "kubernetes_namespace_v1" "boltmcp" {
   metadata {
     name = var.namespace
   }
+
+  # Deleting the namespace waits for the load balancer controller to remove the
+  # Ingress finalizer, which on GKE takes over 5 minutes (the provider default)
+  # while it deletes the load balancer.
+  timeouts {
+    delete = "15m"
+  }
 }
 
 # The access key is a Docker registry config file, so it's the pull secret's
@@ -32,7 +39,7 @@ locals {
     zipmap(["username", "password"], regex("^([^:]*):((?s).*)$", base64decode(local.registry_auth.auth))),
   )
 
-  values = {
+  base_values = {
     global = {
       domain       = var.domain
       tls          = { enabled = true }
@@ -41,14 +48,27 @@ locals {
     oidc = {
       adminUser = { email = var.admin_email }
     }
-    ingress = {
-      enabled     = true
-      className   = var.ingress_class_name
-      annotations = var.ingress_annotations
-    }
+    ingress = merge(
+      {
+        enabled     = true
+        className   = var.ingress_class_name
+        annotations = var.ingress_annotations
+      },
+      # Omitted when null, leaving the chart's default TLS Secret name.
+      { for k, v in { tls = { secretName = var.ingress_tls_secret_name } } : k => v if var.ingress_tls_secret_name != null },
+    )
     # Omitted when null, leaving the chart's default Shamir seal.
     vault = { for k, v in { seal = var.vault_seal } : k => v if v != null }
   }
+
+  # Per-component Service annotations and extra manifests from the cloud
+  # integration module. Their top-level keys never overlap the ones above, so a
+  # shallow merge is enough.
+  values = merge(
+    local.base_values,
+    { for component, annotations in var.service_annotations : component => { service = { annotations = annotations } } },
+    { for k, v in { extraObjects = var.extra_objects } : k => v if length(v) > 0 },
+  )
 }
 
 resource "helm_release" "boltmcp" {
@@ -71,8 +91,8 @@ resource "helm_release" "boltmcp" {
   # Keycloak reconcile) must run before the app pods can become ready.
   # Same as the manual install, which must not pass --wait.
   wait = false
-  # The hook Jobs are still waited for. On a fresh EKS Auto Mode cluster the
-  # first nodes take a few minutes to appear.
+  # The hook Jobs are still waited for. On a fresh autoscaling cluster (EKS
+  # Auto Mode, GKE Autopilot) the first nodes take a few minutes to appear.
   timeout = 900
 
   depends_on = [kubernetes_secret_v1.app, kubernetes_secret_v1.pull]

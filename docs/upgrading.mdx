@@ -13,10 +13,10 @@ Pull the latest `boltmcp` repository, so the stack matches the new release:
 git pull
 ```
 
-Set `chart_version` in `terraform/aws/terraform.tfvars` to the target version, then apply:
+Set `chart_version` in `terraform.tfvars` to the target version, then initialize (to pick up any changes to the stack's modules) and apply. From the stack's directory, `terraform/aws` or `terraform/gcp`:
 
 ```bash
-cd terraform/aws
+terraform init
 terraform apply
 ```
 
@@ -27,7 +27,7 @@ To change chart values without a version bump, edit `helm_values` in `terraform.
 To deploy a new release, first set the target version and update the paths to your values file and access key file:
 
 ```bash
-export BOLTMCP_VERSION=0.5.22
+export BOLTMCP_VERSION=0.5.23
 export BOLTMCP_VALUES="$PWD/config/values-prod.yaml"
 export HELM_REGISTRY_CONFIG="$PWD/keys/boltmcp-key.json"
 ```

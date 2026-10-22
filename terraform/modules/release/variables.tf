@@ -34,14 +34,38 @@ variable "storage_class_name" {
 }
 
 variable "ingress_class_name" {
-  description = "Helm value ingress.className."
+  description = "Helm value ingress.className. Empty omits spec.ingressClassName."
   type        = string
+  default     = ""
 }
 
 variable "ingress_annotations" {
   description = "Helm value ingress.annotations."
   type        = map(string)
   default     = {}
+}
+
+variable "ingress_tls_secret_name" {
+  description = "Helm value ingress.tls.secretName, or null for the chart default. Empty drops the Ingress tls block, for load balancers that attach the certificate by annotation."
+  type        = string
+  default     = null
+}
+
+variable "service_annotations" {
+  description = "Service annotations per chart component (Helm values <component>.service.annotations)."
+  type        = map(map(string))
+  default     = {}
+
+  validation {
+    condition     = alltrue([for k in keys(var.service_annotations) : contains(["web", "keycloak", "mcpServer", "restApi", "mcpInspector"], k)])
+    error_message = "service_annotations keys must be chart components: web, keycloak, mcpServer, restApi or mcpInspector."
+  }
+}
+
+variable "extra_objects" {
+  description = "Extra manifests installed with the chart (Helm value extraObjects)."
+  type        = any
+  default     = []
 }
 
 variable "vault_seal" {

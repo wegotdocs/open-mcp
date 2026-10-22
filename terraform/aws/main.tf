@@ -45,7 +45,7 @@ resource "time_sleep" "controller_cleanup" {
 
 # 3. BoltMCP: namespace, Secrets and the Helm release
 module "release" {
-  source = "./modules/release"
+  source = "../modules/release"
 
   namespace         = var.namespace
   release_name      = var.release_name

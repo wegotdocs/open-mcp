@@ -23,7 +23,7 @@ description: Complete reference for all configurable values of the BoltMCP Helm 
 | `database.persistence.size` | string | `"10Gi"` | PVC size |
 | `database.persistence.storageClass` | string | `""` | Storage class (falls back to global.storageClass) |
 | `database.port` | int | `5432` | Database port |
-| `database.resources` | object | `{}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `database.resources` | object | `{"requests":{"cpu":"250m","memory":"1Gi"},"limits":{"cpu":2,"memory":"1Gi"}}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
 | `database.superuser.username` | string | `"postgres"` | Superuser username (password lives in the database Secret as superuser-password) |
 | `database.tolerations` | array | `[]` | Tolerations |
 | `database.users.keycloak.schema` | string | `"boltmcp_keycloak"` | Keycloak schema name |
@@ -55,7 +55,7 @@ Optional chart-managed Ingress. Disabled by default: bring your own ingress / ga
 | `ingress.annotations` | object | `{}` | Annotations for the Ingress. Controller- and cert-manager-specific settings go here: on ingress-nginx you almost always want cert-manager.io/cluster-issuer for TLS certificates, and on plain-HTTP installs nginx.ingress.kubernetes.io/ssl-redirect: "false". The chart applies two ingress-nginx defaults you do not need to repeat: proxy-body-size: "10m", without which ingress-nginx's own 1m default rejects API spec uploads with 413 (10m matches the 10 MB request-body limit the BoltMCP REST API enforces itself, so raising it further has no effect), and proxy-buffer-size: "128k", required for Keycloak's large auth headers (the 4k default breaks login with "upstream sent too big header"). Setting either key here overrides the chart default; all other annotations you supply are merged alongside them. |
 | `ingress.className` | string | `""` | IngressClass name (spec.ingressClassName). Empty omits the field so the cluster default class applies. |
 | `ingress.enabled` | bool | `false` | Create a single Ingress routing the public BoltMCP hostnames (derived from global.domain / the per-service baseUrl overrides, so they can never drift from the URLs the services advertise) to the in-cluster services. |
-| `ingress.tls.secretName` | string | `"boltmcp-tls"` | Name of the TLS Secret covering all BoltMCP hostnames (created by cert-manager when the cluster-issuer annotation is set). The Ingress carries a tls section only when global.tls.enabled is true. |
+| `ingress.tls.secretName` | string | `"boltmcp-tls"` | Name of the TLS Secret covering all BoltMCP hostnames (created by cert-manager when the cluster-issuer annotation is set). The Ingress carries a tls section only when global.tls.enabled is true and this is non-empty. Set it to "" when the controller attaches certificates by annotation instead (e.g. GKE pre-shared certificates, AWS ALB). |
 
 ## keycloak
 
@@ -71,7 +71,8 @@ Optional chart-managed Ingress. Disabled by default: bring your own ingress / ga
 | `keycloak.production.enabled` | bool | `true` | Run in production mode (start vs start-dev). Production mode works over plain HTTP behind a proxy (the chart sets the proxy-headers env); set false only for evaluation installs with no ingress / reverse proxy in front of Keycloak at all |
 | `keycloak.reconcile.auth` | string | `"master"` | Which principal the reconcile Job authenticates as. master: the master-realm operator (master_admin, password from the auth Secret). client: the realm's own boltmcp-keycloak-reconcile service account (client credentials; secret under keycloak-reconcile-client-secret in the OIDC Secret; realm-scoped manage-clients, manage-realm and manage-users only), with the master password not mounted into the Job at all. client requires the realm to already hold that client, which is true for any realm installed or upgraded with this chart version or later. If the Job is refused in client mode (client missing, or its secret in Keycloak no longer matches the OIDC Secret after a rotation), set master for one upgrade so the Job creates the client or patches its secret, then switch back |
 | `keycloak.reconcile.enabled` | bool | `true` | Reconcile the platform-owned realm resources (OIDC clients, the boltmcp:rest-api:access scope, the mcp:manage role) on every install and upgrade via a pre-upgrade/post-install hook Job driven by files/boltmcp-realm-reconcile.json. Declared fields are patched to match; scope attachments, mappers and scope mappings are only added to. Disable only if you manage these resources yourself and will apply upgrade changes by hand |
-| `keycloak.resources` | object | `{}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `keycloak.resources` | object | `{"requests":{"cpu":"500m","memory":"1Gi"},"limits":{"cpu":2,"memory":"1536Mi"}}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `keycloak.service.annotations` | object | `{}` | Annotations for the Service (e.g. cloud.google.com/backend-config on GKE) |
 | `keycloak.service.healthPort` | int | `9000` | Health check port |
 | `keycloak.service.port` | int | `8080` | Service port |
 | `keycloak.service.type` | string | `"ClusterIP"` | Service type |
@@ -88,7 +89,8 @@ Optional chart-managed Ingress. Disabled by default: bring your own ingress / ga
 | `mcpInspector.image.repository` | string | `"ghcr.io/modelcontextprotocol/inspector"` | Image repository |
 | `mcpInspector.image.tag` | string | `"2.2.0"` | Image tag |
 | `mcpInspector.nodeSelector` | object | `{}` | Node selector |
-| `mcpInspector.resources` | object | `{}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `mcpInspector.resources` | object | `{"requests":{"cpu":"50m","memory":"128Mi"},"limits":{"cpu":"500m","memory":"512Mi"}}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `mcpInspector.service.annotations` | object | `{}` | Annotations for the Service (e.g. cloud.google.com/backend-config on GKE) |
 | `mcpInspector.service.type` | string | `"ClusterIP"` | Service type |
 | `mcpInspector.service.webPort` | int | `6274` | Web UI port |
 | `mcpInspector.tolerations` | array | `[]` | Tolerations |
@@ -105,7 +107,8 @@ Optional chart-managed Ingress. Disabled by default: bring your own ingress / ga
 | `mcpServer.image.tag` | string | `""` | Image tag (defaults to .Chart.AppVersion if empty) |
 | `mcpServer.nodeSelector` | object | `{}` | Node selector |
 | `mcpServer.replicaCount` | int | `1` | Number of replicas |
-| `mcpServer.resources` | object | `{}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `mcpServer.resources` | object | `{"requests":{"cpu":"250m","memory":"384Mi"},"limits":{"cpu":2,"memory":"1Gi"}}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `mcpServer.service.annotations` | object | `{}` | Annotations for the Service (e.g. cloud.google.com/backend-config on GKE) |
 | `mcpServer.service.port` | int | `3001` | Service port |
 | `mcpServer.service.type` | string | `"ClusterIP"` | Service type |
 | `mcpServer.tolerations` | array | `[]` | Tolerations |
@@ -119,6 +122,7 @@ Helm hook Job settings. coreMigrateImage is the image for the migrate-core Job o
 | `migrations.backoffLimit` | int | `3` | Retry limit for every hook Job (migrate-core and keycloak-reconcile) |
 | `migrations.coreMigrateImage.repository` | string | `""` | Core schema migration image (defaults to global.imageRegistry/boltmcp-migrate-core) |
 | `migrations.coreMigrateImage.tag` | string | `""` | Tag (inherits from web.image.tag) |
+| `migrations.resources` | object | `{"requests":{"cpu":"50m","memory":"128Mi"},"limits":{"cpu":"500m","memory":"512Mi"}}` | Resource limits and requests for every hook Job (migrate-core and keycloak-reconcile) |
 | `migrations.ttlSecondsAfterFinished` | int | `300` | Seconds a finished hook Job (migrate-core and keycloak-reconcile) is kept before Kubernetes deletes it |
 
 ## oidc
@@ -141,7 +145,8 @@ Helm hook Job settings. coreMigrateImage is the image for the migrate-core Job o
 | `restApi.image.tag` | string | `""` | Image tag (defaults to .Chart.AppVersion if empty) |
 | `restApi.nodeSelector` | object | `{}` | Node selector |
 | `restApi.replicaCount` | int | `1` | Number of replicas |
-| `restApi.resources` | object | `{}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `restApi.resources` | object | `{"requests":{"cpu":"100m","memory":"384Mi"},"limits":{"cpu":1,"memory":"1Gi"}}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `restApi.service.annotations` | object | `{}` | Annotations for the Service (e.g. cloud.google.com/backend-config on GKE) |
 | `restApi.service.port` | int | `3003` | Service port |
 | `restApi.service.type` | string | `"ClusterIP"` | Service type |
 | `restApi.tolerations` | array | `[]` | Tolerations |
@@ -175,10 +180,11 @@ Names of user-managed Kubernetes Secrets the chart reads. The chart never create
 | `vault.kubernetesAuth.policy` | string | `"boltmcp-rest-api"` | Vault policy for the secret prefix |
 | `vault.kubernetesAuth.role` | string | `"boltmcp-rest-api"` | Vault role bound to the REST API ServiceAccount |
 | `vault.nodeSelector` | object | `{}` | Node selector |
-| `vault.resources` | object | `{}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `vault.resources` | object | `{"requests":{"cpu":"50m","memory":"128Mi"},"limits":{"cpu":"500m","memory":"256Mi"}}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
 | `vault.seal.config` | object | `{}` | Key/value pairs rendered into the seal stanza (e.g. region, kms_key_id) |
 | `vault.seal.extraEnv` | array | `[]` | Extra Vault container env for the seal (e.g. KMS credentials) |
 | `vault.seal.type` | string | `""` | Seal type — "" is Shamir/manual unseal; awskms/gcpckms/azurekeyvault/transit enable auto-unseal |
+| `vault.service.annotations` | object | `{}` | Annotations for the Service (e.g. cloud.google.com/backend-config on GKE) |
 | `vault.service.port` | int | `8200` | Service port |
 | `vault.service.type` | string | `"ClusterIP"` | Service type |
 | `vault.tolerations` | array | `[]` | Tolerations |
@@ -195,7 +201,8 @@ Names of user-managed Kubernetes Secrets the chart reads. The chart never create
 | `web.image.tag` | string | `""` | Image tag (defaults to .Chart.AppVersion if empty) |
 | `web.nodeSelector` | object | `{}` | Node selector |
 | `web.replicaCount` | int | `1` | Number of replicas |
-| `web.resources` | object | `{}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `web.resources` | object | `{"requests":{"cpu":"100m","memory":"256Mi"},"limits":{"cpu":1,"memory":"768Mi"}}` | CPU/memory resource limits and requests. Pass-through, not strictly validated. |
+| `web.service.annotations` | object | `{}` | Annotations for the Service (e.g. cloud.google.com/backend-config on GKE) |
 | `web.service.port` | int | `3000` | Service port |
 | `web.service.type` | string | `"ClusterIP"` | Service type |
 | `web.tolerations` | array | `[]` | Tolerations |
@@ -204,7 +211,9 @@ Names of user-managed Kubernetes Secrets the chart reads. The chart never create
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
+| `extraObjects` | array | `[]` | Extra manifests rendered with the release, each passed through tpl. For platform-specific companions to the chart's resources, e.g. GKE BackendConfigs referenced from `<component>.service.annotations`. |
 | `fullnameOverride` | string | `""` | Override the full release name |
+| `initContainerResources` | object | `{"requests":{"cpu":"10m","memory":"16Mi"},"limits":{"cpu":"100m","memory":"32Mi"}}` | Resource limits and requests for the wait-for-database and wait-for-keycloak init containers |
 | `nameOverride` | string | `""` | Override the release name |
 | `podAnnotations` | object | `{}` | Pod annotations |
 | `podSecurityContext` | object | `{}` | Pod security context |

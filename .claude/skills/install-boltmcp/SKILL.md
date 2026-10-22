@@ -68,7 +68,7 @@ If you don't know their work email, ask them to type the domain. Recommend them 
 
 Choose the install path:
 
-- **New cluster on AWS → Terraform.** Follow `docs/terraform-aws.mdx` (stack in `./terraform/aws`), including its Prerequisites and DNS sections. If `terraform` isn't installed, ask the user's explicit permission before installing it, and offer them the option to install it themselves: https://developer.hashicorp.com/terraform/install
+- **New cluster on AWS or Google → Terraform.** Follow `docs/terraform-aws.mdx` (stack in `./terraform/aws`) or `docs/terraform-gcp.mdx` (stack in `./terraform/gcp`), including its Prerequisites and DNS sections. On Google, also ask for the GCP project ID to deploy into, and check Application Default Credentials exist with `test -f ~/.config/gcloud/application_default_credentials.json && echo ok` (don't read the file); if not, ask the user to run `gcloud auth application-default login` themselves. If `terraform` isn't installed, ask the user's explicit permission before installing it, and offer them the option to install it themselves: https://developer.hashicorp.com/terraform/install
 - **Anything else → manual.** Follow the pages in `docs/(manual)/meta.json` order. When creating a new cluster, always use the evaluation tier.
 
 Then follow `docs/vault-secret-store.mdx` and `docs/sign-in.mdx`. The end result should be a successful installation of BoltMCP on the user's cluster which they can successfully log in to.
@@ -137,7 +137,7 @@ Don't hesitate to ask the user along the way if you need any extra info or decis
 
 # Install method (upgrade and uninstall)
 
-Before upgrading or uninstalling, work out how BoltMCP was installed. If `./terraform/aws/terraform.tfstate` exists (or `terraform state list` in `./terraform/aws` shows resources), it's a Terraform install; if unsure, ask. For Terraform installs, follow the "Terraform installs" section of the upgrading or uninstall docs, and only ask for the target chart version (when upgrading). For manual installs, follow the "Manual installs" section.
+Before upgrading or uninstalling, work out how BoltMCP was installed. If `./terraform/aws/terraform.tfstate` or `./terraform/gcp/terraform.tfstate` exists (or `terraform state list` in either directory shows resources), it's a Terraform install in that directory; if unsure, ask. For Terraform installs, follow the "Terraform installs" section of the upgrading or uninstall docs, and only ask for the target chart version (when upgrading). For manual installs, follow the "Manual installs" section.
 
 # Upgrade BoltMCP
 

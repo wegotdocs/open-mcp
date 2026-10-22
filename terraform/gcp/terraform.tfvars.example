@@ -1,0 +1,24 @@
+# Copy to terraform.tfvars and fill in.
+
+project_id        = "my-gcp-project"
+region            = "europe-west2"
+domain            = "boltmcp.example.com"
+admin_email       = "admin@example.com"
+registry_key_path = "../../keys/boltmcp-key.json"
+
+# Latest BoltMCP release you've been given.
+chart_version = "0.5.23"
+
+# Optional:
+# Create the DNS records in this Cloud DNS managed zone (its name, not its
+# DNS name). Leave unset if your DNS is hosted elsewhere.
+# dns_zone_name = "example-com"
+#
+# cluster_name      = "boltmcp"
+# vault_auto_unseal = true
+# release_channel   = "REGULAR"
+#
+# Extra chart values, merged over the generated ones:
+# helm_values = {
+#   web = { replicaCount = 2 }
+# }

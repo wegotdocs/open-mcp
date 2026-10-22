@@ -5,13 +5,16 @@ description: Remove BoltMCP and associated resources.
 
 ## Terraform installs
 
-From the `terraform/aws` directory of the `boltmcp` repository:
+From the stack's directory in the `boltmcp` repository, `terraform/aws` or `terraform/gcp`:
 
 ```bash
 terraform destroy
 ```
 
-This takes about 5–10 minutes. It uninstalls BoltMCP, deletes its data volume, load balancer and DNS records, then deletes the cluster and VPC. The KMS key is scheduled for deletion after 30 days.
+This takes about 5–10 minutes on AWS and about 15 minutes on GCP. It uninstalls BoltMCP and deletes its data volume and load balancer, then deletes the cluster and VPC.
+
+- **AWS**: the DNS records are deleted too, and the KMS key is scheduled for deletion after 30 days.
+- **GCP**: the reserved IP address, the certificate and any Cloud DNS records the stack created are deleted too. Remove records you created at another DNS provider by hand. Cloud KMS key rings can't be deleted, so the (free) key ring stays in the project and the key's versions are destroyed after 30 days.
 
 Then remove the cluster from your kubeconfig, as in [kubeconfig](#kubeconfig) below.
 

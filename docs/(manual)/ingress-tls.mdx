@@ -318,7 +318,7 @@ For a local install, also add the browser-side hostnames to your workstation's `
 </Tabs>
 
 <Callout>
-    The chart's Ingress follows `global.tls.enabled`: on an HTTPS install it covers all BoltMCP hostnames with the `boltmcp-tls` Secret (name configurable via `ingress.tls.secretName`); on a plain-HTTP install it omits TLS entirely.
+    The chart's Ingress follows `global.tls.enabled`: on an HTTPS install it covers all BoltMCP hostnames with the `boltmcp-tls` Secret (name configurable via `ingress.tls.secretName`); on a plain-HTTP install it omits TLS entirely. If your load balancer attaches its certificate by annotation instead of reading a Secret, set `ingress.tls.secretName: ""` to drop the TLS block while keeping `https://` URLs.
 </Callout>
 
 Apply the change using the same chart version and values file as the install (re-export `HELM_REGISTRY_CONFIG` and `BOLTMCP_VERSION` first if you're in a new shell):

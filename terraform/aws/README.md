@@ -10,7 +10,7 @@ Full guide: https://install.boltmcp.io/docs/terraform-aws
 | --- | --- |
 | `modules/cluster` | VPC with public/private subnets across 3 AZs (optional), EKS Auto Mode cluster |
 | `modules/aws-integration` | `gp3` StorageClass, wildcard ACM certificate validated in Route 53, `alb` IngressClass, external-dns (Route 53 records for the BoltMCP hostnames), KMS key + Pod Identity for Vault auto-unseal |
-| `modules/release` | `boltmcp` namespace, image pull secret, the three application Secrets with random values, the BoltMCP Helm release |
+| `../modules/release` | `boltmcp` namespace, image pull secret, the three application Secrets with random values, the BoltMCP Helm release (shared with the [GCP stack](../gcp)) |
 
 Traffic flows Internet → Application Load Balancer (TLS terminated with the ACM certificate) → BoltMCP pods. You don't need ingress-nginx or cert-manager.
 
@@ -32,7 +32,7 @@ terraform output next_steps
 
 The first apply takes about 15 minutes. After it finishes, the only manual step is the one-time Vault `operator init` and bootstrap; `terraform output next_steps` prints the commands.
 
-To upgrade BoltMCP, change `chart_version` and run `terraform apply` again.
+To upgrade BoltMCP, pull the latest version of this repository, change `chart_version`, then run `terraform init` (picks up any module changes) and `terraform apply`.
 
 ## State contains secrets
 
@@ -40,7 +40,7 @@ Terraform generates the database passwords, OIDC client secrets and admin passwo
 
 ## Using an existing cluster
 
-The submodules are independent. On an existing EKS Auto Mode cluster, call `modules/aws-integration` and `modules/release` from your own root module, with the kubernetes and helm providers pointed at that cluster.
+The submodules are independent. On an existing EKS Auto Mode cluster, call `modules/aws-integration` and `../modules/release` from your own root module, with the kubernetes and helm providers pointed at that cluster.
 
 ## Inputs
 
@@ -50,7 +50,7 @@ The submodules are independent. On an existing EKS Auto Mode cluster, call `modu
 | `domain` | required | BoltMCP apex domain (`global.domain`), e.g. `boltmcp.example.com` |
 | `route53_zone_name` | required | Public Route 53 zone containing `domain`, e.g. `example.com` |
 | `admin_email` | required | Email of the first BoltMCP admin user |
-| `chart_version` | `0.5.22` | BoltMCP chart version |
+| `chart_version` | `0.5.23` | BoltMCP chart version |
 | `registry_key_path` | `../../keys/boltmcp-key.json` | BoltMCP access key |
 | `release_name` / `namespace` | `boltmcp` | Helm release name / namespace |
 | `helm_values` | `{}` | Extra chart values, deep-merged over the generated ones |

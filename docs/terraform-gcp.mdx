@@ -1,0 +1,135 @@
+---
+title: Terraform on GCP
+description: Create a GKE Autopilot cluster and install BoltMCP behind HTTPS with a single terraform apply.
+---
+
+The Terraform stack in the [`terraform/gcp`](https://github.com/boltmcp/boltmcp/tree/main/terraform/gcp) directory of the `boltmcp` repository:
+
+- enables the GCP APIs it needs, then creates a VPC and a **GKE Autopilot** cluster
+- prepares the cluster: `boltmcp` namespace, image pull secret, and the three application Secrets with random values
+- serves BoltMCP over **HTTPS** through a global external Application Load Balancer on a reserved IP address, with a **Google-managed certificate**
+- creates the DNS records for `web.`, `auth.`, `server.` and `inspector.<domain>` if your domain is in Cloud DNS (with any other DNS provider you add four records yourself)
+- sets up Vault **auto-unseal** with a Cloud KMS key
+- installs the BoltMCP Helm chart
+
+## Prerequisites
+
+On the workstation you're installing from, you'll need:
+
+- `terraform` v1.9+ · [Install Terraform](https://developer.hashicorp.com/terraform/install)
+- `gcloud` CLI · [Install gcloud](https://docs.cloud.google.com/sdk/docs/install-sdk)
+- `kubectl` v1.28+ with the `gke-gcloud-auth-plugin`, for the steps after the apply · [Install kubectl](https://kubernetes.io/docs/tasks/tools/) · `gcloud components install gke-gcloud-auth-plugin`
+- `helm` v3.12+ (optional, for troubleshooting) · [Install helm](https://helm.sh/docs/intro/install/)
+- Your BoltMCP access key at `keys/boltmcp-key.json` in the `boltmcp` repository
+
+You also need an existing GCP project with billing enabled, and an account that can create clusters, networks, load balancers and KMS keys in it and grant access to the key. The project Owner role covers all of these.
+
+Log in twice: once for `gcloud` and `kubectl`, and once for Terraform, which uses Application Default Credentials:
+
+```bash
+gcloud auth login
+gcloud auth application-default login
+```
+
+Check you're logged in to the right account:
+
+```bash
+gcloud auth list --filter=status:ACTIVE --format='value(account)'
+```
+
+### DNS
+
+The domain can be hosted by any DNS provider. After the apply, you point the four BoltMCP hostnames at the load balancer's reserved IP address with **A** records, and Google then issues the certificate.
+
+If the domain is in a **Cloud DNS** managed zone in the same project, Terraform can create the records for you: set `dns_zone_name` when you configure the stack below.
+
+## Configure
+
+From the root of the `boltmcp` repository:
+
+```bash
+cd terraform/gcp
+cp terraform.tfvars.example terraform.tfvars
+```
+
+Edit `terraform.tfvars`:
+
+```hcl title="terraform/gcp/terraform.tfvars"
+project_id        = "my-gcp-project"
+region            = "europe-west2"
+domain            = "boltmcp.example.com"
+admin_email       = "admin@example.com"
+registry_key_path = "../../keys/boltmcp-key.json"
+chart_version     = "0.5.23"
+# dns_zone_name   = "example-com"
+```
+
+| Variable | Description |
+| --- | --- |
+| `project_id` | The GCP project to deploy into. |
+| `domain` | Becomes the chart's `global.domain`. Recommended: the `boltmcp` subdomain of your company's domain. |
+| `admin_email` | Email of the first admin user. Must be a real address. |
+| `registry_key_path` | Path to your BoltMCP access key, relative to `terraform/gcp`. |
+| `chart_version` | The latest BoltMCP release you've been given. |
+| `dns_zone_name` | Optional. The **name** (not the DNS name) of a Cloud DNS managed zone in the project that contains `domain`, e.g. `example-com`. Leave it out if your DNS is hosted elsewhere. |
+
+GKE Autopilot scales nodes to fit the pods, so there's no node count or machine type to choose. See the [stack's README](https://github.com/boltmcp/boltmcp/tree/main/terraform/gcp#inputs) for every input, including how to pass extra chart values through `helm_values`.
+
+<Callout type="warn">
+Terraform generates the application Secrets, so their values are stored in Terraform **state**. For anything beyond an evaluation install, configure an encrypted, access-controlled [remote backend](https://developer.hashicorp.com/terraform/language/backend/gcs) before applying.
+</Callout>
+
+## Apply
+
+```bash
+terraform init
+terraform apply
+```
+
+The first apply takes about 20 minutes.
+
+<Callout type="warn">
+Expect roughly **$5 per day** in GCP charges while the stack is running. That covers the GKE cluster management fee (which the GKE free tier covers for one cluster per billing account), the Autopilot pods' CPU and memory, the load balancer, the reserved IP address and storage. When you've finished testing, run `terraform destroy` to stop billing (see [Uninstall](./uninstall#terraform-installs)).
+</Callout>
+
+## Point DNS at the load balancer
+
+Skip this step if you set `dns_zone_name`: Terraform has already created the records.
+
+Print the records to create:
+
+```bash
+terraform output dns_records
+```
+
+At your DNS provider, create an **A** record for each of `web`, `auth`, `server` and `inspector` under your domain, all pointing at the IP address shown. If a wildcard won't clash with other records, a single `*.boltmcp` record (for the domain `boltmcp.example.com` in the zone `example.com`) works too. [Configure DNS](./ingress-tls#configure-dns) in the manual guide has examples for both zone layouts.
+
+Google issues the certificate once all four hostnames resolve to the IP address, usually 15–60 minutes later. Until then, HTTPS requests fail (browsers report that the site can't be reached) and you can't sign in. Check its status (it shows `ACTIVE` when it's ready) with the command printed in the next step.
+
+<Callout type="info">
+One certificate covers all four hostnames, so none of them serves HTTPS until every one has been validated. If a hostname shows `FAILED_NOT_VISIBLE` in the certificate's `domainStatus` even though it resolves correctly, Google saw an old answer for it: typically an `NS` record that delegated the domain elsewhere, still cached for its TTL. Google keeps retrying, so it goes `ACTIVE` once the old answer expires. Remove any stale `NS` records for the domain before applying.
+</Callout>
+
+## Finish the install
+
+Print the remaining steps:
+
+```bash
+terraform output next_steps
+```
+
+1. Connect kubectl:
+
+   ```bash
+   $(terraform output -raw kubeconfig_command)
+   ```
+
+2. Wait for every pod to show `Running` or `Completed`:
+
+   ```bash
+   kubectl get pods -n boltmcp -w
+   ```
+
+3. Initialize and bootstrap [Vault](./vault-secret-store). You can do this while the certificate is still being issued.
+
+4. Once the certificate is `ACTIVE`, [sign in](./sign-in).
